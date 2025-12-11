@@ -1,42 +1,62 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
     title: "Fintech Dashboard",
     category: "Web App",
-    description: "A comprehensive financial management platform with real-time analytics and reporting.",
+    description: "A comprehensive financial management platform with real-time analytics.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    tags: ["UI/UX Design", "Web Development", "SEO"],
+    tags: ["UI/UX", "SEO"],
     color: "from-primary/40 via-primary/20 to-transparent",
-    stats: { increase: "+180%", metric: "User Engagement" },
+    stats: { increase: "+180%", metric: "Engagement" },
   },
   {
     title: "E-Commerce Platform",
     category: "Online Store",
-    description: "High-converting WooCommerce store with seamless checkout and inventory management.",
+    description: "High-converting WooCommerce store with seamless checkout.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    tags: ["WooCommerce", "PPC", "Conversion Rate"],
+    tags: ["WooCommerce", "PPC"],
     color: "from-secondary/40 via-secondary/20 to-transparent",
-    stats: { increase: "+250%", metric: "Online Sales" },
+    stats: { increase: "+250%", metric: "Sales" },
   },
   {
     title: "Health & Fitness App",
     category: "Mobile App",
-    description: "Cross-platform fitness application with personalized workout plans and tracking.",
+    description: "Cross-platform fitness app with personalized workout plans.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-    tags: ["App Development", "Branding", "UX Research"],
+    tags: ["App Dev", "Branding"],
     color: "from-primary/40 via-primary/20 to-transparent",
-    stats: { increase: "50K+", metric: "Active Users" },
+    stats: { increase: "50K+", metric: "Users" },
   },
   {
     title: "SaaS Marketing Site",
     category: "Design System",
-    description: "Complete brand identity and marketing website for a B2B software company.",
+    description: "Complete brand identity and marketing website for B2B.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
-    tags: ["SEO", "Content Strategy", "Lead Gen"],
+    tags: ["SEO", "Lead Gen"],
     color: "from-secondary/40 via-secondary/20 to-transparent",
-    stats: { increase: "+320%", metric: "Organic Traffic" },
+    stats: { increase: "+320%", metric: "Traffic" },
+  },
+  {
+    title: "Real Estate Portal",
+    category: "Web Platform",
+    description: "Property listing platform with advanced search and filters.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+    tags: ["Web Dev", "Google Ads"],
+    color: "from-primary/40 via-primary/20 to-transparent",
+    stats: { increase: "+400%", metric: "Leads" },
+  },
+  {
+    title: "Restaurant Chain",
+    category: "Digital Marketing",
+    description: "Full digital presence for a national restaurant franchise.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
+    tags: ["Social Media", "PPC"],
+    color: "from-secondary/40 via-secondary/20 to-transparent",
+    stats: { increase: "+150%", metric: "Bookings" },
   },
 ];
 
@@ -69,7 +89,7 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -115,7 +135,7 @@ const Portfolio = () => {
                 <span className="text-secondary text-sm font-medium mb-2 block uppercase tracking-wider">
                   {project.category}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
@@ -137,6 +157,22 @@ const Portfolio = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View More Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <Link to="/portfolio">
+            <Button variant="glow" size="lg" className="group">
+              View All Projects
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
