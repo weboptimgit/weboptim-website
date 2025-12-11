@@ -217,7 +217,7 @@ const BlogPost = () => {
                   const firstLine = lines[0].replace("```", "").trim();
                   const hasLanguage = firstLine.length > 0 && !firstLine.includes("<") && !firstLine.includes("{");
                   const language = hasLanguage ? firstLine : "code";
-                  
+
                   // Extract code (remove first and last lines with ```)
                   const codeLines = hasLanguage ? lines.slice(1) : lines;
                   const code = codeLines
@@ -249,6 +249,21 @@ const BlogPost = () => {
                     >
                       {paragraph.replace("## ", "")}
                     </motion.h2>
+                  );
+                }
+
+                // Handle H3 headings
+                if (paragraph.startsWith("### ")) {
+                  return (
+                    <motion.h3
+                      key={index}
+                      initial={{ opacity: 0, x: -15 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      className="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground relative pl-6 before:absolute before:left-0 before:top-2 before:w-1 before:h-4 before:bg-primary/60 before:rounded-full"
+                    >
+                      {paragraph.replace("### ", "")}
+                    </motion.h3>
                   );
                 }
 
