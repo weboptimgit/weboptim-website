@@ -127,7 +127,7 @@ const Navbar = () => {
                       </div>
                       <div className="mt-4 pt-4 border-t border-border">
                         <Link
-                          to="/#services"
+                          to="/services"
                           className="flex items-center justify-center gap-2 py-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
                         >
                           View All Services
