@@ -33,6 +33,24 @@ const glossaryData: Record<string, {
       { title: "What is an API? (MDN)", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction" },
       { title: "REST API Tutorial", url: "https://restfulapi.net/" }
     ]
+  },
+  cms: {
+    term: "CMS",
+    shortDefinition: "Content Management System",
+    fullDefinition: "A CMS (Content Management System) is software that allows users to create, manage, and modify digital content on a website without needing specialized technical knowledge. Think of it like a document editor for your website – you can add text, images, and pages without writing any code.",
+    category: "Development",
+    examples: [
+      "WordPress powers over 40% of all websites, from blogs to e-commerce stores.",
+      "Shopify is a CMS specifically designed for online stores and e-commerce.",
+      "Webflow combines visual design tools with CMS capabilities for designers.",
+      "Contentful and Sanity are headless CMS options for developers building custom frontends."
+    ],
+    relatedTerms: ["WordPress", "Headless CMS", "Backend", "Database", "WYSIWYG"],
+    whyItMatters: "A CMS empowers you to update your website content independently, without relying on developers for every small change. This saves time and money while keeping your content fresh and up-to-date. For businesses, it means faster content publishing and better control over your digital presence.",
+    resources: [
+      { title: "What is a CMS? (HubSpot)", url: "https://blog.hubspot.com/blog/tabid/6307/bid/7969/what-is-a-cms-and-why-should-you-care.aspx" },
+      { title: "WordPress Official Site", url: "https://wordpress.org/" }
+    ]
   }
 };
 
