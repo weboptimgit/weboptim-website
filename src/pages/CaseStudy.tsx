@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Calendar, Clock, Users, TrendingUp, CheckCircle, Globe, Code, Palette, Megaphone } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar, Clock, Users, TrendingUp, CheckCircle } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
+import { caseStudiesData } from "@/data/case-studies";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,104 +15,9 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const caseStudies = {
-  "flavor-bistro-wordpress": {
-    title: "Flavor Bistro",
-    subtitle: "WordPress Website & Brand Identity",
-    category: "Restaurant",
-    client: "Flavor Bistro Group",
-    duration: "6 Weeks",
-    year: "2024",
-    team: "4 Specialists",
-    heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop",
-    overview: "Flavor Bistro, a growing restaurant chain, needed a complete digital transformation to attract more customers and streamline their online presence. We delivered a stunning WordPress website with online reservations, menu management, and local SEO optimization.",
-    challenge: "The client was struggling with an outdated website that didn't reflect their brand quality. They were losing potential customers to competitors with better online presence and had no way to manage reservations or update their menu easily.",
-    solution: "We built a custom WordPress theme with a focus on visual storytelling, integrating a seamless reservation system, dynamic menu management, and location-based SEO. The design emphasized mouth-watering food photography and the restaurant's warm ambiance.",
-    services: [
-      { icon: Code, label: "WordPress Development" },
-      { icon: Palette, label: "Brand Identity" },
-      { icon: Globe, label: "SEO Optimization" },
-      { icon: Megaphone, label: "Local Marketing" },
-    ],
-    results: [
-      { metric: "+150%", label: "Online Bookings", description: "Increase in reservations through the website" },
-      { metric: "+280%", label: "Organic Traffic", description: "Growth in search engine visibility" },
-      { metric: "4.9★", label: "Customer Rating", description: "Average review score post-launch" },
-      { metric: "-60%", label: "Bounce Rate", description: "Reduction in visitors leaving immediately" },
-    ],
-    testimonial: {
-      quote: "The new website has completely transformed our business. We're getting more reservations than ever, and our customers love how easy it is to browse our menu and book a table.",
-      author: "Marco Rossi",
-      role: "Owner, Flavor Bistro",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-    },
-    gallery: [
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop",
-    ],
-    features: [
-      "Custom WordPress theme with restaurant-focused design",
-      "Online reservation system with real-time availability",
-      "Dynamic menu management with allergen information",
-      "Multi-location support with individual pages",
-      "Google My Business integration",
-      "Mobile-first responsive design",
-      "Speed optimization for fast loading",
-      "Schema markup for rich search results",
-    ],
-  },
-  "techflow-saas": {
-    title: "TechFlow SaaS",
-    subtitle: "Marketing Website & Lead Generation",
-    category: "SaaS",
-    client: "TechFlow Inc.",
-    duration: "8 Weeks",
-    year: "2024",
-    team: "5 Specialists",
-    heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop",
-    overview: "TechFlow, a B2B SaaS startup, needed a high-converting marketing website to launch their product. We created a modern, conversion-focused website with integrated lead capture and analytics.",
-    challenge: "As a new entrant in a competitive market, TechFlow needed to establish credibility quickly while generating qualified leads. Their existing landing page had poor conversion rates and didn't effectively communicate their value proposition.",
-    solution: "We designed a comprehensive marketing website with clear messaging, social proof elements, and strategically placed CTAs. The site includes interactive product demos, a resource center, and sophisticated lead nurturing workflows.",
-    services: [
-      { icon: Code, label: "Web Development" },
-      { icon: Palette, label: "UI/UX Design" },
-      { icon: Globe, label: "SEO Strategy" },
-      { icon: Megaphone, label: "Conversion Optimization" },
-    ],
-    results: [
-      { metric: "+320%", label: "Lead Generation", description: "Increase in qualified leads per month" },
-      { metric: "+450%", label: "Organic Traffic", description: "Growth in search visibility" },
-      { metric: "12%", label: "Conversion Rate", description: "Visitor to lead conversion" },
-      { metric: "2.5x", label: "Demo Requests", description: "Increase in product demo bookings" },
-    ],
-    testimonial: {
-      quote: "The team delivered exactly what we needed - a website that not only looks amazing but actually converts. Our lead generation has skyrocketed since launch.",
-      author: "Sarah Chen",
-      role: "CEO, TechFlow",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-    },
-    gallery: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=400&fit=crop",
-    ],
-    features: [
-      "Custom React-based marketing website",
-      "Interactive product tour and demos",
-      "Integrated CRM and lead tracking",
-      "A/B testing framework",
-      "Blog with SEO optimization",
-      "Customer success stories section",
-      "Pricing calculator tool",
-      "Multi-language support",
-    ],
-  },
-};
-
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
-  const study = slug ? caseStudies[slug as keyof typeof caseStudies] : null;
+  const study = slug ? caseStudiesData[slug] : null;
 
   if (!study) {
     return (
@@ -394,25 +300,22 @@ const CaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center glass rounded-3xl p-8 md:p-12 relative overflow-hidden"
+            className="max-w-4xl mx-auto text-center"
           >
-            <div className="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl" />
-            
-            <div className="relative z-10">
-              <div className="text-5xl text-primary/30 mb-6">"</div>
-              <p className="text-xl md:text-2xl text-foreground font-display mb-8 leading-relaxed">
+            <div className="glass rounded-3xl p-8 md:p-12 relative">
+              <div className="text-6xl text-primary/20 font-serif absolute top-6 left-8">"</div>
+              <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 relative z-10">
                 {study.testimonial.quote}
-              </p>
+              </blockquote>
               <div className="flex items-center justify-center gap-4">
                 <img
                   src={study.testimonial.avatar}
                   alt={study.testimonial.author}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+                  className="w-14 h-14 rounded-full object-cover"
                 />
                 <div className="text-left">
                   <div className="font-display font-bold text-foreground">{study.testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">{study.testimonial.role}</div>
+                  <div className="text-muted-foreground">{study.testimonial.role}</div>
                 </div>
               </div>
             </div>
@@ -428,24 +331,20 @@ const CaseStudy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center glass rounded-3xl p-8 md:p-12"
+            className="glass rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Ready to Start Your <span className="text-gradient">Project</span>?
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              Let's discuss how we can help transform your digital presence and achieve similar results for your business.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/#contact">
-                <Button variant="glow" size="xl" className="group">
-                  Start Your Project
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/#work">
-                <Button variant="outline" size="xl">
-                  View More Projects
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10" />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Let's create something amazing together. Get in touch to discuss how we can help transform your digital presence.
+              </p>
+              <Link to="/contact">
+                <Button variant="hero" size="lg" className="group">
+                  Get in Touch
+                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Button>
               </Link>
             </div>
