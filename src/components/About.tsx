@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import { Award, Users, Clock, Target } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Zap, Users, Clock, Target } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    icon: Award,
-    title: "Award Winning",
-    description: "Recognized for excellence in design and development",
+    icon: Zap,
+    title: "Fast Delivery",
+    description: "Quick turnaround without compromising quality",
   },
   {
     icon: Users,
@@ -50,11 +52,16 @@ const About = () => {
               full-service digital agency. We combine creativity with technical 
               expertise to deliver solutions that make a real impact.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               Our mission is simple: help businesses thrive in the digital world 
               by creating experiences that users love and that drive measurable 
               results.
             </p>
+            <Link to="/about">
+              <Button size="lg">
+                Learn More About Us
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Right Grid */}
