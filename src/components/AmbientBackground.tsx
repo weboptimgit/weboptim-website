@@ -5,11 +5,11 @@ const AmbientBackground = () => {
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {/* Top right purple glow */}
       <motion.div
-        className="absolute w-[800px] h-[800px] rounded-full"
+        className="absolute w-[900px] h-[900px] rounded-full"
         style={{
-          background: "radial-gradient(circle, hsl(var(--purple) / 0.15) 0%, transparent 60%)",
-          top: "-20%",
-          right: "-10%",
+          background: "radial-gradient(circle, hsl(280 60% 65% / 0.2) 0%, hsl(265 45% 55% / 0.1) 40%, transparent 60%)",
+          top: "-25%",
+          right: "-15%",
           filter: "blur(80px)",
         }}
         animate={{
@@ -25,11 +25,11 @@ const AmbientBackground = () => {
 
       {/* Center left cyan glow */}
       <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full"
+        className="absolute w-[700px] h-[700px] rounded-full"
         style={{
-          background: "radial-gradient(circle, hsl(var(--cyan) / 0.1) 0%, transparent 60%)",
-          top: "30%",
-          left: "-15%",
+          background: "radial-gradient(circle, hsl(193 88% 61% / 0.15) 0%, hsl(280 60% 65% / 0.08) 50%, transparent 70%)",
+          top: "25%",
+          left: "-20%",
           filter: "blur(100px)",
         }}
         animate={{
@@ -44,13 +44,13 @@ const AmbientBackground = () => {
         }}
       />
 
-      {/* Bottom purple glow */}
+      {/* Bottom purple-violet glow */}
       <motion.div
-        className="absolute w-[700px] h-[700px] rounded-full"
+        className="absolute w-[800px] h-[800px] rounded-full"
         style={{
-          background: "radial-gradient(circle, hsl(var(--purple) / 0.12) 0%, transparent 55%)",
-          bottom: "10%",
-          right: "20%",
+          background: "radial-gradient(circle, hsl(280 60% 65% / 0.18) 0%, hsl(265 45% 55% / 0.1) 40%, transparent 60%)",
+          bottom: "5%",
+          right: "15%",
           filter: "blur(90px)",
         }}
         animate={{
@@ -65,11 +65,11 @@ const AmbientBackground = () => {
         }}
       />
 
-      {/* Middle accent */}
+      {/* Middle blended accent */}
       <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full"
+        className="absolute w-[600px] h-[600px] rounded-full"
         style={{
-          background: "radial-gradient(circle, hsl(var(--purple) / 0.08) 0%, hsl(var(--cyan) / 0.05) 40%, transparent 60%)",
+          background: "radial-gradient(circle, hsl(280 60% 65% / 0.12) 0%, hsl(193 88% 61% / 0.08) 50%, transparent 70%)",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
@@ -84,6 +84,14 @@ const AmbientBackground = () => {
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2,
+        }}
+      />
+
+      {/* Subtle noise overlay for texture */}
+      <div 
+        className="absolute inset-0 opacity-[0.015]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
     </div>
