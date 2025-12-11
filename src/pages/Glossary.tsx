@@ -23,7 +23,9 @@ const glossaryTerms = [
   {
     term: "CMS",
     definition: "Content Management System - software that allows users to create, manage, and modify digital content without needing specialized technical knowledge. Examples include WordPress and Shopify.",
-    category: "Development"
+    category: "Development",
+    hasPage: true,
+    slug: "cms"
   },
   {
     term: "Conversion Rate",
