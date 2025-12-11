@@ -20,7 +20,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Contact",
     "nav.startProject": "Start Project",
     "nav.viewAllServices": "View All Services",
-    
+
     // Services dropdown
     "services.webDev": "Web Development",
     "services.webDevDesc": "Custom websites with cutting-edge tech",
@@ -34,22 +34,27 @@ const translations: Record<Language, Record<string, string>> = {
     "services.performanceDesc": "Lightning-fast optimization",
     "services.security": "Security",
     "services.securityDesc": "Enterprise-grade protection",
-    
+
     // Hero
     "hero.badge": "Crafting Digital Excellence",
     "hero.title1": "We build",
     "hero.title2": "websites",
     "hero.title3": "that convert",
-    "hero.subtitle": "Transform your vision into stunning digital experiences. We design and develop websites that captivate users and drive real business results.",
+    "hero.subtitle":
+      "Transform your vision into stunning digital experiences. We design and develop websites that captivate users and drive real business results.",
     "hero.cta1": "Start Your Project",
     "hero.cta2": "Watch Showreel",
     "hero.happyClients": "happy clients",
-    
+
     // Stats
     "stats.projects": "Projects Delivered",
     "stats.satisfaction": "Client Satisfaction",
     "stats.experience": "Years Experience",
     "stats.team": "Team Members",
+
+    //About us
+    "about.title.before": "About",
+    "about.hero.title.highlight": "WebOptim",
   },
   CZ: {
     // Navbar
@@ -62,7 +67,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Kontakt",
     "nav.startProject": "Zahájit projekt",
     "nav.viewAllServices": "Zobrazit všechny služby",
-    
+
     // Services dropdown
     "services.webDev": "Tvorba webu",
     "services.webDevDesc": "Weby na míru s nejnovějšími technologiemi",
@@ -76,22 +81,27 @@ const translations: Record<Language, Record<string, string>> = {
     "services.performanceDesc": "Bleskurychlá optimalizace",
     "services.security": "Bezpečnost",
     "services.securityDesc": "Podniková ochrana",
-    
+
     // Hero
     "hero.badge": "Tvoříme digitální dokonalost",
     "hero.title1": "Tvoříme",
     "hero.title2": "weby",
     "hero.title3": "které prodávají",
-    "hero.subtitle": "Proměňte svou vizi v úžasné digitální zážitky. Navrhujeme a vyvíjíme weby, které zaujmou uživatele a přinášejí skutečné obchodní výsledky.",
+    "hero.subtitle":
+      "Proměňte svou vizi v úžasné digitální zážitky. Navrhujeme a vyvíjíme weby, které zaujmou uživatele a přinášejí skutečné obchodní výsledky.",
     "hero.cta1": "Zahájit projekt",
     "hero.cta2": "Přehrát ukázku",
     "hero.happyClients": "spokojených klientů",
-    
+
     // Stats
     "stats.projects": "Dokončených projektů",
     "stats.satisfaction": "Spokojenost klientů",
     "stats.experience": "Let zkušeností",
     "stats.team": "Členů týmu",
+
+    //About us
+    "about.title.before": "O",
+    "about.hero.title.highlight": "WebOptim",
   },
   SK: {
     // Navbar
@@ -104,7 +114,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Kontakt",
     "nav.startProject": "Začať projekt",
     "nav.viewAllServices": "Zobraziť všetky služby",
-    
+
     // Services dropdown
     "services.webDev": "Tvorba webu",
     "services.webDevDesc": "Weby na mieru s najnovšími technológiami",
@@ -118,22 +128,27 @@ const translations: Record<Language, Record<string, string>> = {
     "services.performanceDesc": "Bleskurýchla optimalizácia",
     "services.security": "Bezpečnosť",
     "services.securityDesc": "Podniková ochrana",
-    
+
     // Hero
     "hero.badge": "Tvoríme digitálnu dokonalosť",
     "hero.title1": "Tvoríme",
     "hero.title2": "weby",
     "hero.title3": "ktoré predávajú",
-    "hero.subtitle": "Premeňte svoju víziu na úžasné digitálne zážitky. Navrhujeme a vyvíjame weby, ktoré zaujmú používateľov a prinášajú skutočné obchodné výsledky.",
+    "hero.subtitle":
+      "Premeňte svoju víziu na úžasné digitálne zážitky. Navrhujeme a vyvíjame weby, ktoré zaujmú používateľov a prinášajú skutočné obchodné výsledky.",
     "hero.cta1": "Začať projekt",
     "hero.cta2": "Prehrať ukážku",
     "hero.happyClients": "spokojných klientov",
-    
+
     // Stats
     "stats.projects": "Dokončených projektov",
     "stats.satisfaction": "Spokojnosť klientov",
     "stats.experience": "Rokov skúseností",
     "stats.team": "Členov tímu",
+
+    //About us
+    "about.title.before": "O",
+    "about.hero.title.highlight": "WebOptim",
   },
 };
 
@@ -146,11 +161,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     return translations[language][key] || key;
   };
 
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
 };
 
 export const useLanguage = () => {

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Linkedin, Twitter, Mail, Zap, Users, Clock, Target } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const highlights = [
   {
@@ -97,11 +98,11 @@ const About = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="text-gradient">Nexus</span>
+              {t("about.hero.title.before")} <span className="text-gradient">{t("about.hero.title.highlight")}</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              We're a passionate team of designers, developers, and strategists
-              dedicated to crafting exceptional digital experiences.
+              We're a passionate team of designers, developers, and strategists dedicated to crafting exceptional
+              digital experiences.
             </p>
           </motion.div>
         </div>
@@ -122,20 +123,17 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2016, Nexus started with a simple mission: to help
-                  businesses succeed in the digital world through beautiful,
-                  functional websites that drive real results.
+                  Founded in 2016, Nexus started with a simple mission: to help businesses succeed in the digital world
+                  through beautiful, functional websites that drive real results.
                 </p>
                 <p>
-                  What began as a small team of three has grown into a
-                  full-service digital agency, serving clients across industries
-                  from startups to established enterprises.
+                  What began as a small team of three has grown into a full-service digital agency, serving clients
+                  across industries from startups to established enterprises.
                 </p>
                 <p>
-                  We believe that great design is more than aesthetics—it's about
-                  solving problems, creating connections, and delivering
-                  experiences that matter. Every project we take on is an
-                  opportunity to push boundaries and exceed expectations.
+                  We believe that great design is more than aesthetics—it's about solving problems, creating
+                  connections, and delivering experiences that matter. Every project we take on is an opportunity to
+                  push boundaries and exceed expectations.
                 </p>
               </div>
             </motion.div>
@@ -156,12 +154,8 @@ const About = () => {
                     viewport={{ once: true }}
                     className="text-center"
                   >
-                    <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {stat.label}
-                    </div>
+                    <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -183,9 +177,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Why Choose <span className="text-gradient">Us</span>
             </h2>
-            <p className="text-muted-foreground">
-              What sets us apart from the competition.
-            </p>
+            <p className="text-muted-foreground">What sets us apart from the competition.</p>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {highlights.map((item, index) => (
@@ -221,26 +213,21 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="text-gradient">Values</span>
             </h2>
-            <p className="text-muted-foreground">
-              The principles that guide everything we do.
-            </p>
+            <p className="text-muted-foreground">The principles that guide everything we do.</p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 title: "Innovation",
-                description:
-                  "We stay ahead of trends and embrace new technologies to deliver cutting-edge solutions.",
+                description: "We stay ahead of trends and embrace new technologies to deliver cutting-edge solutions.",
               },
               {
                 title: "Quality",
-                description:
-                  "We never compromise on quality. Every pixel, every line of code matters.",
+                description: "We never compromise on quality. Every pixel, every line of code matters.",
               },
               {
                 title: "Partnership",
-                description:
-                  "We see ourselves as an extension of your team, invested in your success.",
+                description: "We see ourselves as an extension of your team, invested in your success.",
               },
             ].map((value, index) => (
               <motion.div
@@ -272,9 +259,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Meet the <span className="text-gradient">Team</span>
             </h2>
-            <p className="text-muted-foreground">
-              The talented people behind Nexus who make the magic happen.
-            </p>
+            <p className="text-muted-foreground">The talented people behind Nexus who make the magic happen.</p>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {teamMembers.map((member, index) => (
@@ -321,9 +306,7 @@ const About = () => {
                 <div className="p-4 text-center">
                   <h3 className="font-bold">{member.name}</h3>
                   <p className="text-sm text-primary mb-2">{member.role}</p>
-                  <p className="text-xs text-muted-foreground line-clamp-3">
-                    {member.bio}
-                  </p>
+                  <p className="text-xs text-muted-foreground line-clamp-3">{member.bio}</p>
                 </div>
               </motion.div>
             ))}
