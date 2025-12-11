@@ -3,8 +3,10 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Star, Play, Rocket, Heart, Clock, Users } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -12,6 +14,13 @@ const Hero = () => {
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const stats = [
+    { value: "150+", label: t("stats.projects"), icon: Rocket, color: "from-primary to-cyan" },
+    { value: "98%", label: t("stats.satisfaction"), icon: Heart, color: "from-pink-500 to-rose-400" },
+    { value: "8+", label: t("stats.experience"), icon: Clock, color: "from-amber-500 to-orange-400" },
+    { value: "35+", label: t("stats.team"), icon: Users, color: "from-emerald-500 to-green-400" }
+  ];
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
@@ -76,7 +85,7 @@ const Hero = () => {
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
             <span className="text-sm text-muted-foreground">
-              Crafting Digital Excellence
+              {t("hero.badge")}
             </span>
           </motion.div>
 
@@ -93,7 +102,7 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="block text-foreground"
               >
-                We build
+                {t("hero.title1")}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, x: -30 }}
@@ -102,7 +111,7 @@ const Hero = () => {
                 className="block"
               >
                 <span className="text-gradient glow-text relative">
-                  websites
+                  {t("hero.title2")}
                   <motion.span
                     className="absolute -right-2 -top-2"
                     initial={{ scale: 0, rotate: -20 }}
@@ -119,7 +128,7 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="block text-foreground"
               >
-                that convert
+                {t("hero.title3")}
               </motion.span>
             </motion.h1>
           </motion.div>
@@ -131,9 +140,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
           >
-            Transform your vision into stunning digital experiences. We design
-            and develop websites that captivate users and drive real business
-            results.
+            {t("hero.subtitle")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -144,12 +151,12 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button variant="hero" size="xl" className="group">
-              Start Your Project
+              {t("hero.cta1")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="glow" size="xl" className="group gap-2">
               <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
-              Watch Showreel
+              {t("hero.cta2")}
             </Button>
           </motion.div>
 
@@ -197,7 +204,7 @@ const Hero = () => {
                 ))}
               </div>
               <span className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">50+</span> happy clients
+                <span className="font-semibold text-foreground">50+</span> {t("hero.happyClients")}
               </span>
             </div>
           </motion.div>
@@ -210,12 +217,7 @@ const Hero = () => {
             className="mt-20 pt-10 border-t border-border/30"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { value: "150+", label: "Projects Delivered", icon: Rocket, color: "from-primary to-cyan" },
-                { value: "98%", label: "Client Satisfaction", icon: Heart, color: "from-pink-500 to-rose-400" },
-                { value: "8+", label: "Years Experience", icon: Clock, color: "from-amber-500 to-orange-400" },
-                { value: "35+", label: "Team Members", icon: Users, color: "from-emerald-500 to-green-400" }
-              ].map((stat, index) => (
+              {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20, scale: 0.9 }}
