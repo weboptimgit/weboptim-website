@@ -25,23 +25,30 @@ const CodeBlock = ({ code, language = "json", title }: CodeBlockProps) => {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 
-    // JSON/JavaScript patterns
-    highlighted = highlighted
-      // Strings (both single and double quotes)
-      .replace(/"([^"\\]*(\\.[^"\\]*)*)"/g, '<span class="text-emerald-400">"$1"</span>')
-      .replace(/'([^'\\]*(\\.[^'\\]*)*)'/g, '<span class="text-emerald-400">\'$1\'</span>')
+    // Split by lines for better processing
+    const lines = highlighted.split('\n');
+    const processedLines = lines.map(line => {
+      let processed = line;
+      
+      // HTML/XML tags - highlight tag names (like <script, </script, <div, etc.)
+      processed = processed.replace(/(&lt;\/?)([\w-]+)/g, '<span class="text-rose-400">$1$2</span>');
+      
+      // JSON property keys (word followed by colon, not inside strings already)
+      processed = processed.replace(/"([@\w-]+)"(\s*:)/g, '<span class="text-cyan-400">"$1"</span>$2');
+      
+      // String values (after colon)
+      processed = processed.replace(/(:\s*)"([^"]+)"/g, '$1<span class="text-emerald-400">"$2"</span>');
+      
       // Numbers
-      .replace(/\b(\d+\.?\d*)\b/g, '<span class="text-amber-400">$1</span>')
+      processed = processed.replace(/(:\s*)(\d+\.?\d*)/g, '$1<span class="text-amber-400">$2</span>');
+      
       // Booleans and null
-      .replace(/\b(true|false|null)\b/g, '<span class="text-purple-400">$1</span>')
-      // Property keys (before colon in JSON)
-      .replace(/(&lt;[^&]*&gt;)/g, '<span class="text-cyan-400">$1</span>')
-      // HTML/XML tags
-      .replace(/(&lt;\/?)([\w-]+)/g, '$1<span class="text-rose-400">$2</span>')
-      // Attributes
-      .replace(/([\w-]+)(=)/g, '<span class="text-amber-300">$1</span>$2');
+      processed = processed.replace(/\b(true|false|null)\b/g, '<span class="text-purple-400">$1</span>');
+      
+      return processed;
+    });
 
-    return highlighted;
+    return processedLines.join('\n');
   };
 
   return (
