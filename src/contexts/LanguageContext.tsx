@@ -54,7 +54,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     //About us
     "about.title.before": "About",
-    "about.hero.title.highlight": "WebOptim",
+    "about.title.highlight": "WebOptim",
   },
   CZ: {
     // Navbar

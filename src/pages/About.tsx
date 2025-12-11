@@ -99,7 +99,7 @@ const About = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t("about.hero.title.before")} <span className="text-gradient">{t("about.hero.title.highlight")}</span>
+              {t("about.title.before")} <span className="text-gradient">{t("about.title.highlight")}</span>
             </h1>
             <p className="text-lg text-muted-foreground">
               We're a passionate team of designers, developers, and strategists dedicated to crafting exceptional
