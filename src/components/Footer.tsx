@@ -3,20 +3,20 @@ import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const footerLinks = {
   services: [
-    { name: "Web Development", href: "#" },
-    { name: "UI/UX Design", href: "#" },
-    { name: "Mobile Apps", href: "#" },
-    { name: "E-Commerce", href: "#" },
+    { name: "Web Development", href: "/services/building-website" },
+    { name: "UI/UX Design", href: "/services" },
+    { name: "Mobile Apps", href: "/services" },
+    { name: "E-Commerce", href: "/services/ecommerce-website" },
   ],
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Work", href: "#work" },
-    { name: "Careers", href: "#" },
-    { name: "Blog", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Work", href: "/work" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ],
-  support: [
-    { name: "Contact", href: "#contact" },
-    { name: "FAQ", href: "#" },
+  resources: [
+    { name: "FAQ", href: "/faq" },
+    { name: "Glossary", href: "/glossary" },
     { name: "Privacy Policy", href: "#" },
     { name: "Terms of Service", href: "#" },
   ],
@@ -88,9 +88,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Support</h4>
+            <h4 className="font-display font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
+              {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors duration-300">
                     {link.name}
