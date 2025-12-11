@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Star, Play } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
-
+import mascotWaving from "@/assets/mascot-waving.png";
 const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -229,23 +229,16 @@ const Hero = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Browser content */}
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-background to-muted/30 p-6">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      className="space-y-4"
-                    >
-                      <div className="h-8 w-32 bg-primary/20 rounded-lg" />
-                      <div className="h-4 w-full bg-muted rounded" />
-                      <div className="h-4 w-3/4 bg-muted rounded" />
-                      <div className="h-4 w-1/2 bg-muted rounded" />
-                      <div className="mt-6 flex gap-3">
-                        <div className="h-10 w-28 bg-primary rounded-lg" />
-                        <div className="h-10 w-28 bg-muted rounded-lg" />
-                      </div>
-                    </motion.div>
+                  {/* Browser content - Mascot */}
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-background to-muted/30 p-6 flex items-center justify-center">
+                    <motion.img
+                      src={mascotWaving}
+                      alt="WebOptim Mascot"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                      className="w-48 h-48 object-contain drop-shadow-2xl"
+                    />
 
                     {/* Floating elements */}
                     <motion.div
