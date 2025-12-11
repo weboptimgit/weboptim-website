@@ -4,14 +4,13 @@ import { Calendar, Clock, ArrowLeft, User, Share2, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { blogPostsTranslations } from "@/data/blog-posts-translations";
+import { getBlogPost } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const BlogPost = () => {
   const { slug } = useParams();
   const { language } = useLanguage();
-  const blogPosts = blogPostsTranslations[language];
-  const post = slug ? blogPosts[slug] : null;
+  const post = slug ? getBlogPost(slug, language) : null;
 
   if (!post) {
     return (
