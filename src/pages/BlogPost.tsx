@@ -4,6 +4,7 @@ import { Calendar, Clock, ArrowLeft, User, Share2, Tag, BookOpen, ChevronUp } fr
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CodeBlock from "@/components/CodeBlock";
 import { getBlogPost } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
@@ -210,6 +211,32 @@ const BlogPost = () => {
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
               {post.content.map((paragraph, index, arr) => {
+                // Handle code blocks - format: ```language\ncode\n``` or ```\ncode\n```
+                if (paragraph.startsWith("```")) {
+                  const lines = paragraph.split("\n");
+                  const firstLine = lines[0].replace("```", "").trim();
+                  const hasLanguage = firstLine.length > 0 && !firstLine.includes("<") && !firstLine.includes("{");
+                  const language = hasLanguage ? firstLine : "code";
+                  
+                  // Extract code (remove first and last lines with ```)
+                  const codeLines = hasLanguage ? lines.slice(1) : lines;
+                  const code = codeLines
+                    .join("\n")
+                    .replace(/```\s*$/, "")
+                    .trim();
+
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <CodeBlock code={code} language={language} />
+                    </motion.div>
+                  );
+                }
+
                 // Handle headings
                 if (paragraph.startsWith("## ")) {
                   return (
