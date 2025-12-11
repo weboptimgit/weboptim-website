@@ -11,7 +11,7 @@ const BlogPost = () => {
   const { slug } = useParams();
   const { language } = useLanguage();
   const blogPosts = blogPostsTranslations[language];
-  const post = slug ? blogPostsData[slug] : null;
+  const post = slug ? blogPosts[slug] : null;
 
   if (!post) {
     return (
