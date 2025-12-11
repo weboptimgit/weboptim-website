@@ -101,7 +101,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     //About us
     "about.title.before": "O",
-    "about.hero.title.highlight": "WebOptim",
+    "about.title.highlight": "WebOptim",
   },
   SK: {
     // Navbar
@@ -148,7 +148,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     //About us
     "about.title.before": "O",
-    "about.hero.title.highlight": "WebOptim",
+    "about.title.highlight": "WebOptim",
   },
 };
 
