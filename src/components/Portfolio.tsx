@@ -12,6 +12,7 @@ const projects = [
     tags: ["UI/UX", "SEO"],
     color: "from-primary/40 via-primary/20 to-transparent",
     stats: { increase: "+180%", metric: "Engagement" },
+    slug: null as string | null,
   },
   {
     title: "E-Commerce Platform",
@@ -21,6 +22,7 @@ const projects = [
     tags: ["WooCommerce", "PPC"],
     color: "from-secondary/40 via-secondary/20 to-transparent",
     stats: { increase: "+250%", metric: "Sales" },
+    slug: null as string | null,
   },
   {
     title: "Health & Fitness App",
@@ -30,15 +32,17 @@ const projects = [
     tags: ["App Dev", "Branding"],
     color: "from-primary/40 via-primary/20 to-transparent",
     stats: { increase: "50K+", metric: "Users" },
+    slug: null as string | null,
   },
   {
-    title: "SaaS Marketing Site",
-    category: "Design System",
-    description: "Complete brand identity and marketing website for B2B.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+    title: "TechFlow SaaS",
+    category: "SaaS",
+    description: "Complete brand identity and marketing website for B2B startup.",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
     tags: ["SEO", "Lead Gen"],
     color: "from-secondary/40 via-secondary/20 to-transparent",
     stats: { increase: "+320%", metric: "Traffic" },
+    slug: "techflow-saas" as string | null,
   },
   {
     title: "Real Estate Portal",
@@ -48,15 +52,17 @@ const projects = [
     tags: ["Web Dev", "Google Ads"],
     color: "from-primary/40 via-primary/20 to-transparent",
     stats: { increase: "+400%", metric: "Leads" },
+    slug: null as string | null,
   },
   {
-    title: "Restaurant Chain",
-    category: "Digital Marketing",
-    description: "Full digital presence for a national restaurant franchise.",
+    title: "Flavor Bistro",
+    category: "Restaurant",
+    description: "WordPress website with online reservations and local SEO.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    tags: ["Social Media", "PPC"],
+    tags: ["WordPress", "SEO"],
     color: "from-secondary/40 via-secondary/20 to-transparent",
     stats: { increase: "+150%", metric: "Bookings" },
+    slug: "flavor-bistro-wordpress" as string | null,
   },
 ];
 
@@ -91,14 +97,18 @@ const Portfolio = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div
+            <Link
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500"
+              to={project.slug ? `/case-study/${project.slug}` : "#"}
+              className={project.slug ? "" : "pointer-events-none"}
             >
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
+              >
               {/* Image Container */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
@@ -149,12 +159,13 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 border border-primary/30 rounded-3xl" />
-                <div className="absolute -inset-1 bg-primary/5 rounded-3xl blur-xl" />
-              </div>
-            </motion.div>
+                {/* Hover Glow */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute inset-0 border border-primary/30 rounded-3xl" />
+                  <div className="absolute -inset-1 bg-primary/5 rounded-3xl blur-xl" />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
