@@ -135,6 +135,7 @@ export const blogPostsData: BlogPostData[] = [
           "### Product (Product + Offer)",
           '```html\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org/",\n  "@type": "Product",\n  "name": "Massage Gun X",\n  "image": "https://example.com/images/gun.jpg",\n  "description": "A powerful massage gun for muscle recovery.",\n  "sku": "MG-X-001",\n  "offers": {\n    "@type": "Offer",\n    "url": "https://example.com/product/massage-gun-x",\n    "priceCurrency": "EUR",\n    "price": "129.00",\n    "availability": "https://schema.org/InStock"\n  },\n  "aggregateRating": {\n    "@type": "AggregateRating",\n    "ratingValue": "4.7",\n    "reviewCount": "214"\n  }\n}\n</script>\n```',
           "### FAQ (FAQPage)",
+          '```html\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"How long does delivery take?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Delivery usually takes 2–4 business days.\"\n    }\n  },{\n    \"@type\": \"Question\",\n    \"name\": \"What is the warranty period?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"The warranty period is 24 months.\"\n    }\n  }]\n}\n</script>\n```',
         ],
       },
       CZ: {
