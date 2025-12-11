@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Globe, Code2, Palette, Smartphone, Globe as GlobeIcon, Zap, Shield } from "lucide-react";
+import logoWeboptim from "@/assets/logo-weboptim.svg";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -87,11 +88,9 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="glass-strong rounded-2xl px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-xl">N</span>
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">Nexus</span>
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logoWeboptim} alt="WebOptim" className="w-10 h-10" />
+            <span className="font-display font-bold text-xl text-foreground">WebOptim</span>
           </Link>
 
           {/* Desktop Nav */}
