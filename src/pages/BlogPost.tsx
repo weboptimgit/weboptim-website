@@ -305,6 +305,50 @@ const BlogPost = () => {
                   return null;
                 }
 
+                // Handle numbered list items (e.g. "1. Something")
+                if (/^\d+\.\s/.test(paragraph)) {
+                  const isFirstInList = index === 0 || !/^\d+\.\s/.test(arr[index - 1]);
+
+                  if (isFirstInList) {
+                    const listItems: string[] = [];
+                    let i = index;
+
+                    while (i < arr.length && /^\d+\.\s/.test(arr[i])) {
+                      listItems.push(arr[i].replace(/^\d+\.\s/, ""));
+                      i++;
+                    }
+
+                    return (
+                      <motion.ol
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="mb-6 space-y-3"
+                      >
+                        {listItems.map((item, itemIndex) => (
+                          <motion.li
+                            key={itemIndex}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: itemIndex * 0.1 }}
+                            className="flex items-start gap-3 text-muted-foreground leading-relaxed"
+                          >
+                            {/* Číslovanie so štýlom ako bullet gradient */}
+                            <span className="mt-1 w-6 h-6 rounded-full bg-gradient-hero text-xs flex items-center justify-center text-white font-semibold flex-shrink-0">
+                              {itemIndex + 1}
+                            </span>
+                            <span>{item}</span>
+                          </motion.li>
+                        ))}
+                      </motion.ol>
+                    );
+                  }
+
+                  return null;
+                }
+
                 // Skip empty lines
                 if (paragraph.trim() === "") {
                   return null;
