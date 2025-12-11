@@ -83,6 +83,7 @@ const stats = [
 ];
 
 const About = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
