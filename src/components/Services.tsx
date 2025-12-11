@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Palette, Smartphone, Globe, Zap, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
-import mascotWorking from "@/assets/mascot-working.png";
 const services = [
   {
     icon: Code2,
@@ -68,15 +67,6 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.img
-            src={mascotWorking}
-            alt="Working mascot"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="w-32 h-32 mx-auto mb-6 object-contain drop-shadow-xl"
-          />
           <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
             What We Do
           </span>
