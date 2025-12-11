@@ -51,13 +51,15 @@ export const categoriesTranslations = {
 
 export const blogPostsData: BlogPostData[] = [
   {
-    image: "https://images.unsplash.com/photo-1616469832301-ffaeadc68cf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image:
+      "https://images.unsplash.com/photo-1616469832301-ffaeadc68cf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Peter Gáborík",
     translations: {
       EN: {
         slug: "7-reasons-why-you-should-choose-a-wordpress-based-website",
         title: "7 Reasons Why You Should Choose a WordPress-Based Website",
-        excerpt: "WordPress is an ideal tool for businesses and companies to showcase their products and services and attract new customers.",
+        excerpt:
+          "WordPress is an ideal tool for businesses and companies to showcase their products and services and attract new customers.",
         category: "Web Design",
         tags: ["UX Design", "Business", "Trends"],
         date: "Dec 12, 2025",
@@ -72,7 +74,8 @@ export const blogPostsData: BlogPostData[] = [
       CZ: {
         slug: "7-duvodu-proc-zvolit-web-postaveny-na-wordpress",
         title: "7 důvodů, proč zvolit web postavený na WordPress",
-        excerpt: "WordPress je ideální nástroj pro firmy a společnosti k prezentaci jejich produktů a služeb a získání nových zákazníků.",
+        excerpt:
+          "WordPress je ideální nástroj pro firmy a společnosti k prezentaci jejich produktů a služeb a získání nových zákazníků.",
         category: "Webový design",
         tags: ["UX Design", "Podnikání", "Trendy"],
         date: "12. prosince 2025",
@@ -87,7 +90,8 @@ export const blogPostsData: BlogPostData[] = [
       SK: {
         slug: "7-dovodov-preco-zvolit-web-postaveny-na-wordpress",
         title: "7 dôvodov, prečo zvoliť web postavený na WordPress",
-        excerpt: "WordPress je ideálny nástroj pre firmy a spoločnosti na prezentáciu ich produktov a služieb a získanie nových zákazníkov.",
+        excerpt:
+          "WordPress je ideálny nástroj pre firmy a spoločnosti na prezentáciu ich produktov a služieb a získanie nových zákazníkov.",
         category: "Webový dizajn",
         tags: ["UX Design", "Podnikanie", "Trendy"],
         date: "12. decembra 2025",
@@ -102,62 +106,61 @@ export const blogPostsData: BlogPostData[] = [
     },
   },
   {
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1674027326254-88c960d8e561?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Peter Gáborík",
     translations: {
       EN: {
         slug: "why-structured-data-is-essential-for-your-seo",
         title: "Why Structured Data Is Essential for Your SEO",
-        excerpt: "Structured data isn't just a 'nice to have' - it's metadata that tells search engines (and other services) exactly what's on your page.",
+        excerpt:
+          "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page. With structured data, Google and other engines can show rich results - enhanced search results (stars, images, price, FAQ, events, etc.) that significantly increase visibility and the likelihood of clicks. Implementation usually doesn’t require major design or content changes - just the right code.",
         category: "Web Design",
         tags: ["UX Design", "Business", "Trends"],
         date: "Dec 12, 2025",
         readTime: "5 min read",
         content: [
-          "In today's digital-first world, your website is often the first impression potential customers have of your business. A modern, well-designed website isn't just a nice-to-have—it's essential for survival in an increasingly competitive marketplace.",
           "## What is schema.org and why use it",
-          "Studies show that users form an opinion about a website within 50 milliseconds. That's faster than the blink of an eye. If your website looks outdated, slow, or difficult to navigate, visitors will bounce before they even see what you have to offer.",
           "Schema.org is a standardized vocabulary of types and properties (for example Product, Recipe, Event, FAQ) maintained by search engines and the community to describe page content. When you mark up your content with schema.org, you make it much easier for machines to process and understand it.",
-          "## Mobile-First Is No Longer Optional",
-          "With over 60% of web traffic now coming from mobile devices, having a responsive, mobile-friendly website is crucial. Google's mobile-first indexing means that your mobile site is what determines your search rankings.",
-          "If your website doesn't perform well on smartphones and tablets, you're not just losing mobile visitors—you're losing visibility in search results across all devices.",
-          "## Speed Equals Revenue",
-          "Page load speed directly impacts your bottom line. Research by Google shows that as page load time increases from 1 second to 3 seconds, the probability of bounce increases by 32%. At 5 seconds, that number jumps to 90%.",
-          "Modern websites are built with performance in mind, utilizing techniques like lazy loading, optimized images, and efficient code to ensure lightning-fast load times.",
-          "## Security and Trust",
-          "With cyber threats on the rise, website security is more important than ever. Modern websites come with SSL certificates, secure hosting, and up-to-date security protocols that protect both your business and your customers.",
-          "An outdated website running on old software is a prime target for hackers. Beyond the direct risks, visitors are increasingly aware of security indicators like HTTPS, and may leave your site if they don't see them.",
-          "## The Bottom Line",
-          "Investing in a modern website isn't an expense—it's an investment in your business's future. The cost of not updating your online presence is measured in lost customers, damaged reputation, and missed opportunities.",
-          "Ready to transform your digital presence? Contact us today to discuss how we can help bring your website into 2024 and beyond.",
+          "## JSON-LD vs. Microdata vs. RDFa - which to choose",
+          "Google and many other sources recommend JSON-LD whenever possible - it’s the simplest, less error-prone, and easier to maintain. Microdata and RDFa insert markup directly into HTML and can be useful in some situations, but are usually harder to manage.",
+          "## Main benefits of using structured data",
+          "- Better chance of appearing as rich results (i.e., more prominent search listings).",
+          "- Higher CTR - users click results more often when they include ratings, images, or extra info.",
+          "- Faster indexing and improved understanding of your content by search engines.",
+          "- Control over how your brand appears - highlight FAQs, reviews, opening hours and other helpful content.",
+          "- Combine multiple schema types on a single page (e.g., Product + Review + BreadcrumbList).",
+          "## Key schema types (quick overview)",
         ],
       },
       CZ: {
         slug: "proc-jsou-strukturovana-data-nezbytna-pro-vase-seo",
         title: "Proč jsou strukturovaná data nezbytná pro vaše SEO",
-        excerpt: "Strukturovaná data nejsou jen \"nice to have\" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.",
+        excerpt:
+          'Strukturovaná data nejsou jen "nice to have" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.',
         category: "Webový design",
         tags: ["UX Design", "Podnikání", "Trendy"],
         date: "12. prosince 2025",
         readTime: "5 min čtení",
         content: [
-          "V dnešním digitálním světě je vaše webová stránka často prvním dojmem, který potenciální zákazníci o vašem podnikání mají.",
           "## Co je schema.org a proč ho používat",
-          "Schema.org je standardizovaný slovník typů a vlastností (například Product, Recipe, Event, FAQ) udržovaný vyhledávači a komunitou pro popis obsahu stránek.",
-          "## Mobile-First již není volitelné",
-          "S více než 60 % webového provozu z mobilních zařízení je responzivní, mobilně přívětivá webová stránka klíčová.",
-          "## Rychlost se rovná příjmům",
-          "Rychlost načítání stránky přímo ovlivňuje váš zisk. Výzkum Google ukazuje, že s rostoucí dobou načítání roste pravděpodobnost odchodu.",
-          "## Zabezpečení a důvěra",
-          "S rostoucími kybernetickými hrozbami je bezpečnost webových stránek důležitější než kdy jindy.",
-          "## Závěr",
-          "Investice do moderní webové stránky není výdaj—je to investice do budoucnosti vašeho podnikání.",
+          "Schema.org je standardizovaný slovník typů a vlastností (například Produkt, Recept, Událost, Často kladené otázky) spravovaný vyhledávači a komunitou k popisu obsahu stránky. Když svůj obsah označíte pomocí schema.org, výrazně usnadníte strojům jeho zpracování a pochopení.",
+          "## JSON-LD vs. Mikrodata vs. RDFa - který zvolit",
+          "Google a mnoho dalších zdrojů doporučuje JSON-LD, kdykoli je to možné - je to nejjednodušší, méně náchylné k chybám a snadněji se udržuje. Mikrodata a RDFa vkládají značky přímo do HTML a mohou být v některých situacích užitečné, ale obvykle se s nimi hůře pracuje.",
+          "## Hlavní výhody používání strukturovaných dat",
+          "- Větší šance na zobrazení jako bohaté výsledky (tj. výraznější záznamy ve vyhledávání).",
+          "- Vyšší míra prokliku - uživatelé klikají na výsledky častěji, když obsahují hodnocení, obrázky nebo další informace.",
+          "- Rychlejší indexování a lepší pochopení vašeho obsahu vyhledávači.",
+          "- Kontrola nad tím, jak se vaše značka zobrazuje - zvýrazněte časté dotazy, recenze, otevírací dobu a další užitečný obsah.",
+          "- Kombinujte více typů schémat na jedné stránce (např. Produkt + Recenze + Seznam s navigací).",
+          "## Klíčové typy schémat (rychlý přehled)",
         ],
       },
       SK: {
         slug: "preco-su-strukturovane-data-nevyhnutne-pre-vase-seo",
         title: "Prečo sú štruktúrované dáta nevyhnutné pre vaše SEO",
-        excerpt: "Štruktúrované dáta nie sú len \"nice to have\" - sú to metadáta, ktoré hovoria vyhľadávačom (a ďalším službám) presne, čo je na vašej stránke.",
+        excerpt:
+          'Štruktúrované dáta nie sú len "nice to have" - sú to metadáta, ktoré hovoria vyhľadávačom (a ďalším službám) presne, čo je na vašej stránke.',
         category: "Webový dizajn",
         tags: ["UX Design", "Podnikanie", "Trendy"],
         date: "12. decembra 2025",
@@ -185,7 +188,8 @@ export const blogPostsData: BlogPostData[] = [
       EN: {
         slug: "why-your-business-needs-modern-website-2024",
         title: "Why Your Business Needs a Modern Website in 2024",
-        excerpt: "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
+        excerpt:
+          "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
         category: "Web Design",
         tags: ["UX Design", "Business", "Trends"],
         date: "Dec 5, 2024",
@@ -212,7 +216,8 @@ export const blogPostsData: BlogPostData[] = [
       CZ: {
         slug: "proc-vase-firma-potrebuje-moderni-web-2024",
         title: "Proč vaše firma potřebuje moderní web v roce 2024",
-        excerpt: "Objevte klíčové důvody, proč vás zastaralý web může stát zákazníky a jak moderní redesign může transformovat vaši online přítomnost.",
+        excerpt:
+          "Objevte klíčové důvody, proč vás zastaralý web může stát zákazníky a jak moderní redesign může transformovat vaši online přítomnost.",
         category: "Webový design",
         tags: ["UX Design", "Podnikání", "Trendy"],
         date: "5. prosince 2024",
@@ -234,7 +239,8 @@ export const blogPostsData: BlogPostData[] = [
       SK: {
         slug: "preco-vasa-firma-potrebuje-moderny-web-2024",
         title: "Prečo vaša firma potrebuje moderný web v roku 2024",
-        excerpt: "Objavte kľúčové dôvody, prečo vás zastaraný web môže stáť zákazníkov a ako moderný redizajn môže transformovať vašu online prítomnosť.",
+        excerpt:
+          "Objavte kľúčové dôvody, prečo vás zastaraný web môže stáť zákazníkov a ako moderný redizajn môže transformovať vašu online prítomnosť.",
         category: "Webový dizajn",
         tags: ["UX Design", "Podnikanie", "Trendy"],
         date: "5. decembra 2024",
@@ -262,7 +268,8 @@ export const blogPostsData: BlogPostData[] = [
       EN: {
         slug: "ecommerce-trends-boost-sales",
         title: "10 E-commerce Trends That Will Boost Your Sales",
-        excerpt: "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
+        excerpt:
+          "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
         category: "E-commerce",
         tags: ["Online Store", "Sales", "AI"],
         date: "Nov 28, 2024",
@@ -295,7 +302,8 @@ export const blogPostsData: BlogPostData[] = [
       CZ: {
         slug: "trendy-ecommerce-zvysi-prodeje",
         title: "10 trendů e-commerce, které zvýší vaše prodeje",
-        excerpt: "Od AI doporučení po bezproblémové platby - zjistěte nejnovější trendy formující budoucnost online prodeje.",
+        excerpt:
+          "Od AI doporučení po bezproblémové platby - zjistěte nejnovější trendy formující budoucnost online prodeje.",
         category: "E-shop",
         tags: ["Online obchod", "Prodeje", "AI"],
         date: "28. listopadu 2024",
@@ -317,7 +325,8 @@ export const blogPostsData: BlogPostData[] = [
       SK: {
         slug: "trendy-ecommerce-zvysi-predaje",
         title: "10 trendov e-commerce, ktoré zvýšia vaše predaje",
-        excerpt: "Od AI odporúčaní po bezproblémové platby - zistite najnovšie trendy formujúce budúcnosť online predaja.",
+        excerpt:
+          "Od AI odporúčaní po bezproblémové platby - zistite najnovšie trendy formujúce budúcnosť online predaja.",
         category: "E-shop",
         tags: ["Online obchod", "Predaje", "AI"],
         date: "28. novembra 2024",
@@ -345,7 +354,8 @@ export const blogPostsData: BlogPostData[] = [
       EN: {
         slug: "seo-strategies-small-business",
         title: "SEO Strategies Every Small Business Should Know",
-        excerpt: "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
+        excerpt:
+          "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
         category: "Marketing",
         tags: ["SEO", "Small Business", "Google"],
         date: "Nov 20, 2024",
@@ -395,7 +405,8 @@ export const blogPostsData: BlogPostData[] = [
       SK: {
         slug: "seo-strategie-pre-male-podniky",
         title: "SEO stratégie, ktoré by mal poznať každý malý podnik",
-        excerpt: "Zvládnite základy optimalizácie pre vyhľadávače a naučte sa prekonať konkurenciu bez veľkých nákladov.",
+        excerpt:
+          "Zvládnite základy optimalizácie pre vyhľadávače a naučte sa prekonať konkurenciu bez veľkých nákladov.",
         category: "Marketing",
         tags: ["SEO", "Malé podniky", "Google"],
         date: "20. novembra 2024",
@@ -421,7 +432,8 @@ export const blogPostsData: BlogPostData[] = [
       EN: {
         slug: "importance-mobile-first-design",
         title: "The Importance of Mobile-First Design",
-        excerpt: "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
+        excerpt:
+          "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
         category: "Web Design",
         tags: ["Mobile", "Responsive", "UX Design"],
         date: "Nov 15, 2024",
@@ -468,7 +480,8 @@ export const blogPostsData: BlogPostData[] = [
       SK: {
         slug: "dolezitost-mobile-first-dizajnu",
         title: "Dôležitosť Mobile-First dizajnu",
-        excerpt: "S viac ako 60 % webového prenosu z mobilných zariadení zistite, prečo je dizajn pre mobily nevyhnutný.",
+        excerpt:
+          "S viac ako 60 % webového prenosu z mobilných zariadení zistite, prečo je dizajn pre mobily nevyhnutný.",
         category: "Webový dizajn",
         tags: ["Mobil", "Responzívny", "UX Design"],
         date: "15. novembra 2024",
@@ -494,7 +507,8 @@ export const blogPostsData: BlogPostData[] = [
       EN: {
         slug: "wordpress-vs-custom-development",
         title: "WordPress vs Custom Development: Which Is Right for You?",
-        excerpt: "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
+        excerpt:
+          "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
         category: "Development",
         tags: ["WordPress", "Coding", "CMS"],
         date: "Nov 10, 2024",
@@ -573,7 +587,8 @@ export const blogPostsData: BlogPostData[] = [
       EN: {
         slug: "building-brand-identity-online",
         title: "Building a Strong Brand Identity Online",
-        excerpt: "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
+        excerpt:
+          "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
         category: "Branding",
         tags: ["Identity", "Strategy", "Visual Design"],
         date: "Nov 5, 2024",
