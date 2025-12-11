@@ -15,6 +15,7 @@ import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import Glossary from "./pages/Glossary";
+import GlossaryTerm from "./pages/GlossaryTerm";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/glossary" element={<Glossary />} />
+          <Route path="/glossary/:slug" element={<GlossaryTerm />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
