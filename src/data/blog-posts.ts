@@ -46,7 +46,7 @@ export const blogPostsData: BlogPostData[] = [
     slug: "7-reasons-why-you-should-choose-a-wordpress-based-website/",
     image:
       "https://images.unsplash.com/photo-1616469832301-ffaeadc68cf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    category: "Webs and eshops",
+    category: "Web Design",
     tags: ["UX Design", "Business", "Trends"],
     author: "Peter Gáborík",
     date: "Dec 12, 2025",
