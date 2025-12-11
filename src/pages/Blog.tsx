@@ -12,12 +12,11 @@ const Blog = () => {
   const { language } = useLanguage();
   const blogPosts = getBlogPostsList(language);
   const categories = getCategories(language);
-
-const Blog = () => {
-  const { language } = useLanguage();
-  const blogPosts = getBlogPostsList(language);
   
-  const [activeCategory, setActiveCategory] = useState("All");
+  // Get "All" in current language for comparison
+  const allCategory = categories[0];
+  
+  const [activeCategory, setActiveCategory] = useState(allCategory);
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
   // Get all unique tags
@@ -25,7 +24,7 @@ const Blog = () => {
 
   // Filter posts by category and tag
   const filteredPosts = blogPosts.filter((post) => {
-    const categoryMatch = activeCategory === "All" || post.category === activeCategory;
+    const categoryMatch = activeCategory === allCategory || post.category === activeCategory;
     const tagMatch = !activeTag || post.tags.includes(activeTag);
     return categoryMatch && tagMatch;
   });
