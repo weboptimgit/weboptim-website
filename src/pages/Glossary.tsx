@@ -238,7 +238,7 @@ const Glossary = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="card-shimmer-border rounded-xl p-6 border border-border/50"
+                      className="glass rounded-xl p-6"
                     >
                       <div className="flex items-start justify-between gap-4 mb-2">
                         <h3 className="text-lg font-display font-semibold text-foreground">

@@ -111,7 +111,7 @@ const Services = () => {
               <motion.div key={index} variants={itemVariants}>
                 <Link
                   to={service.href}
-                  className="group card-shimmer-border rounded-2xl p-8 transition-all duration-500 cursor-pointer block h-full border border-border/50"
+                  className="group glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer block h-full"
                 >
                   {CardContent}
                 </Link>
@@ -120,7 +120,7 @@ const Services = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group card-shimmer-border rounded-2xl p-8 transition-all duration-500 cursor-pointer border border-border/50"
+                className="group glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer"
               >
                 {CardContent}
               </motion.div>
