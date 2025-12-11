@@ -27,7 +27,6 @@ const features = [
 ];
 
 const About = () => {
-  const { t } = useLanguage();
   return (
     <section id="about" className="py-24 relative">
       {/* Background glow */}
