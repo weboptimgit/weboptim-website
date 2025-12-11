@@ -186,45 +186,39 @@
     position: relative;
     background: hsl(var(--card));
     border-radius: var(--radius);
-    isolation: isolate;
+    overflow: hidden;
   }
 
   .card-shimmer-border::before {
     content: '';
     position: absolute;
-    inset: -2px;
-    background: conic-gradient(
-      from 0deg,
-      hsl(193 88% 61%),
-      hsl(220 80% 60%),
-      hsl(270 60% 60%),
-      hsl(320 70% 55%),
-      hsl(193 88% 61%)
-    );
+    inset: 0;
+    padding: 1.5px;
     border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    animation: spin-border 3s linear infinite paused;
-    z-index: -2;
-  }
-
-  .card-shimmer-border::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: hsl(var(--card));
-    border-radius: calc(var(--radius) - 2px);
-    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--border)) 0%,
+      hsl(193 88% 61%) 25%,
+      hsl(270 60% 60%) 50%,
+      hsl(320 70% 55%) 75%,
+      hsl(var(--border)) 100%
+    );
+    background-size: 300% 100%;
+    background-position: 100% 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: background-position 0s;
   }
 
   .card-shimmer-border:hover::before {
-    opacity: 1;
-    animation-play-state: running;
+    animation: shimmer-border 2s linear infinite;
   }
 
-  @keyframes spin-border {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @keyframes shimmer-border {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
   }
 }
 
