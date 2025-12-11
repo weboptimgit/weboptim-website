@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, User, Share2 } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, User, Share2, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,6 +10,7 @@ const blogPostsData: Record<string, {
   excerpt: string;
   image: string;
   category: string;
+  tags: string[];
   author: string;
   date: string;
   readTime: string;
@@ -21,6 +22,7 @@ const blogPostsData: Record<string, {
       "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
     category: "Web Design",
+    tags: ["UX Design", "Business", "Trends"],
     author: "Alex Johnson",
     date: "Dec 5, 2024",
     readTime: "5 min read",
@@ -49,6 +51,7 @@ const blogPostsData: Record<string, {
       "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
     category: "E-commerce",
+    tags: ["Online Store", "Sales", "AI"],
     author: "Sarah Chen",
     date: "Nov 28, 2024",
     readTime: "7 min read",
@@ -83,6 +86,7 @@ const blogPostsData: Record<string, {
       "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
     image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1200&h=600&fit=crop",
     category: "Marketing",
+    tags: ["SEO", "Small Business", "Google"],
     author: "Mike Peters",
     date: "Nov 20, 2024",
     readTime: "6 min read",
@@ -114,6 +118,7 @@ const blogPostsData: Record<string, {
       "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
     category: "Web Design",
+    tags: ["Mobile", "Responsive", "UX Design"],
     author: "Emma Wilson",
     date: "Nov 15, 2024",
     readTime: "4 min read",
@@ -142,6 +147,7 @@ const blogPostsData: Record<string, {
       "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
     image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=600&fit=crop",
     category: "Development",
+    tags: ["WordPress", "Coding", "CMS"],
     author: "Alex Johnson",
     date: "Nov 10, 2024",
     readTime: "8 min read",
@@ -172,6 +178,7 @@ const blogPostsData: Record<string, {
       "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
     image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fit=crop",
     category: "Branding",
+    tags: ["Identity", "Strategy", "Visual Design"],
     author: "Sarah Chen",
     date: "Nov 5, 2024",
     readTime: "5 min read",
@@ -253,10 +260,21 @@ const BlogPost = () => {
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
             </Link>
 
-            {/* Category */}
-            <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-              {post.category}
-            </span>
+            {/* Category & Tags */}
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
+                {post.category}
+              </span>
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2 py-1 bg-muted text-muted-foreground text-xs font-medium rounded flex items-center gap-1"
+                >
+                  <Tag className="w-3 h-3" />
+                  {tag}
+                </span>
+              ))}
+            </div>
 
             {/* Title */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
