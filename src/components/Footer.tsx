@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
+import logoWeboptim from "@/assets/logo-weboptim.svg";
 
 const footerLinks = {
   services: [
@@ -36,12 +38,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">N</span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">Nexus</span>
-            </a>
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <img src={logoWeboptim} alt="WebOptim" className="w-10 h-10" />
+              <span className="font-display font-bold text-xl text-foreground">WebOptim</span>
+            </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
               Crafting exceptional digital experiences that help businesses grow 
               and succeed in the modern world.
@@ -104,7 +104,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 Nexus Agency. All rights reserved.
+            © 2024 WebOptim. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
             Built with passion and precision.
