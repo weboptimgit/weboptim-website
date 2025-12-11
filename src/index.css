@@ -45,6 +45,8 @@
     
     /* Gradients - cyan/blue focused */
     --gradient-primary: linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(193 88% 61%), hsl(220 80% 60%), hsl(270 60% 60%), hsl(320 70% 55%));
+    --gradient-hero-hover: linear-gradient(135deg, hsl(320 70% 55%), hsl(270 60% 60%), hsl(220 80% 60%), hsl(193 88% 61%));
     --gradient-glow: radial-gradient(ellipse at center, hsl(193 88% 61% / 0.3), transparent 70%);
     --gradient-card: linear-gradient(180deg, hsl(230 35% 12%), hsl(230 35% 9%));
     
@@ -88,6 +90,22 @@
 
   .bg-gradient-primary {
     background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(193 88% 61%), hsl(220 80% 60%), hsl(270 60% 60%), hsl(320 70% 55%));
+    background-size: 300% 300%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .bg-gradient-hero:hover {
+    animation: gradient-shift 2s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .glow-cyan {
