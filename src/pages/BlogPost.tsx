@@ -119,7 +119,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-block px-4 py-1.5 rounded-full bg-gradient-hero text-primary-foreground text-sm font-semibold mb-4"
+                className="inline-block px-4 mx-4 py-1.5 rounded-full bg-gradient-hero text-primary-foreground text-sm font-semibold mb-4"
               >
                 {post.category}
               </motion.span>
