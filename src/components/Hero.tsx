@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Star, Play } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
+import AnimatedMascot from "./AnimatedMascot";
 import mascotWaving from "@/assets/mascot-waving.png";
 const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -266,18 +267,13 @@ const Hero = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Browser content - Mascot */}
+                  {/* Browser content - Animated Mascot */}
                   <div className="relative aspect-[4/3] bg-gradient-to-br from-background to-muted/30 p-6 flex items-center justify-center">
-                    <motion.img alt="WebOptim Mascot" initial={{
-                    opacity: 0,
-                    scale: 0.8
-                  }} animate={{
-                    opacity: 1,
-                    scale: 1
-                  }} transition={{
-                    duration: 0.6,
-                    delay: 0.5
-                  }} className="w-48 h-48 object-contain drop-shadow-2xl" src="/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
+                    <AnimatedMascot 
+                      src={mascotWaving} 
+                      alt="WebOptim Mascot Waving" 
+                      size="md"
+                    />
 
                     {/* Floating elements */}
                     <motion.div animate={{
