@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Globe, Code2, Palette, Smartphone, Globe as GlobeIcon, Zap, Shield } from "lucide-react";
 import logoWeboptim from "@/assets/logo-weboptim.svg";
+import { useLanguage, Language } from "@/contexts/LanguageContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,55 +20,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-const navLinks = [
-  { name: "Work", href: "/work" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Glossary", href: "/glossary" },
-  { name: "Contact", href: "/contact" },
-];
-
-const services = [
-  {
-    icon: Code2,
-    title: "Web Development",
-    description: "Custom websites with cutting-edge tech",
-    href: "/services/building-website",
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Beautiful, intuitive interfaces",
-    href: "/#services",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Apps",
-    description: "Native and cross-platform apps",
-    href: "/#services",
-  },
-  {
-    icon: GlobeIcon,
-    title: "E-Commerce",
-    description: "Powerful online stores",
-    href: "/services/ecommerce-website",
-  },
-  {
-    icon: Zap,
-    title: "Performance",
-    description: "Lightning-fast optimization",
-    href: "/#services",
-  },
-  {
-    icon: Shield,
-    title: "Security",
-    description: "Enterprise-grade protection",
-    href: "/#services",
-  },
-];
-
-const languages = [
+const languages: { code: Language; label: string }[] = [
   { code: "EN", label: "English" },
   { code: "CZ", label: "Čeština" },
   { code: "SK", label: "Slovenčina" },
@@ -75,8 +28,56 @@ const languages = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("EN");
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { name: t("nav.work"), href: "/work" },
+    { name: t("nav.about"), href: "/about" },
+    { name: t("nav.blog"), href: "/blog" },
+    { name: t("nav.faq"), href: "/faq" },
+    { name: t("nav.glossary"), href: "/glossary" },
+    { name: t("nav.contact"), href: "/contact" },
+  ];
+
+  const services = [
+    {
+      icon: Code2,
+      title: t("services.webDev"),
+      description: t("services.webDevDesc"),
+      href: "/services/building-website",
+    },
+    {
+      icon: Palette,
+      title: t("services.uiux"),
+      description: t("services.uiuxDesc"),
+      href: "/#services",
+    },
+    {
+      icon: Smartphone,
+      title: t("services.mobile"),
+      description: t("services.mobileDesc"),
+      href: "/#services",
+    },
+    {
+      icon: GlobeIcon,
+      title: t("services.ecommerce"),
+      description: t("services.ecommerceDesc"),
+      href: "/services/ecommerce-website",
+    },
+    {
+      icon: Zap,
+      title: t("services.performance"),
+      description: t("services.performanceDesc"),
+      href: "/#services",
+    },
+    {
+      icon: Shield,
+      title: t("services.security"),
+      description: t("services.securityDesc"),
+      href: "/#services",
+    },
+  ];
 
   return (
     <motion.nav
@@ -100,7 +101,7 @@ const Navbar = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent font-medium p-0 h-auto">
-                    Services
+                    {t("nav.services")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[500px] p-4 bg-card border border-border rounded-xl shadow-xl">
@@ -131,7 +132,7 @@ const Navbar = () => {
                           to="/services"
                           className="flex items-center justify-center gap-2 py-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
                         >
-                          View All Services
+                          {t("nav.viewAllServices")}
                           <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
                         </Link>
                       </div>
@@ -143,7 +144,7 @@ const Navbar = () => {
 
             {navLinks.map((link) => (
               <Link
-                key={link.name}
+                key={link.href}
                 to={link.href}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
               >
@@ -157,15 +158,15 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
                 <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium">{currentLang}</span>
+                <span className="text-sm font-medium">{language}</span>
                 <ChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="bg-card border-border z-50">
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
-                    onClick={() => setCurrentLang(lang.code)}
-                    className={`cursor-pointer ${currentLang === lang.code ? "text-primary" : ""}`}
+                    onClick={() => setLanguage(lang.code)}
+                    className={`cursor-pointer ${language === lang.code ? "text-primary" : ""}`}
                   >
                     <span className="font-medium mr-2">{lang.code}</span>
                     <span className="text-muted-foreground">{lang.label}</span>
@@ -175,7 +176,7 @@ const Navbar = () => {
             </DropdownMenu>
 
             <Button variant="hero" size="lg">
-              Start Project
+              {t("nav.startProject")}
             </Button>
           </div>
 
@@ -206,7 +207,7 @@ const Navbar = () => {
                     onClick={() => setServicesOpen(!servicesOpen)}
                     className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium py-2"
                   >
-                    Services
+                    {t("nav.services")}
                     <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
@@ -238,7 +239,7 @@ const Navbar = () => {
 
                 {navLinks.map((link) => (
                   <Link
-                    key={link.name}
+                    key={link.href}
                     to={link.href}
                     className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium py-2"
                     onClick={() => setIsOpen(false)}
@@ -254,9 +255,9 @@ const Navbar = () => {
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => setCurrentLang(lang.code)}
+                        onClick={() => setLanguage(lang.code)}
                         className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
-                          currentLang === lang.code
+                          language === lang.code
                             ? "bg-primary text-primary-foreground"
                             : "text-muted-foreground hover:text-foreground"
                         }`}
@@ -268,7 +269,7 @@ const Navbar = () => {
                 </div>
 
                 <Button variant="hero" size="lg" className="mt-2">
-                  Start Project
+                  {t("nav.startProject")}
                 </Button>
               </div>
             </motion.div>
