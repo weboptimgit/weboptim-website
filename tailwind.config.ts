@@ -53,6 +53,7 @@ export default {
         },
         cyan: "hsl(var(--cyan))",
         purple: "hsl(var(--purple))",
+        violet: "hsl(var(--violet))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
