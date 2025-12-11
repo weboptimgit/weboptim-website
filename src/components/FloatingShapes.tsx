@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Code, Search, BarChart3, MousePointer2, Globe, Megaphone, Target, TrendingUp } from "lucide-react";
 
 const FloatingShapes = () => {
   return (
@@ -42,79 +43,167 @@ const FloatingShapes = () => {
         }}
       />
 
-      {/* 3D Cube */}
+      {/* Code Brackets Icon */}
       <motion.div
-        className="absolute w-24 h-24"
-        style={{
-          top: "15%",
-          right: "20%",
-          transformStyle: "preserve-3d",
-        }}
+        className="absolute glass rounded-xl p-4"
+        style={{ top: "15%", right: "18%" }}
         animate={{
-          rotateX: [0, 360],
-          rotateY: [0, 360],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          rotateX: { duration: 20, repeat: Infinity, ease: "linear" },
-          rotateY: { duration: 15, repeat: Infinity, ease: "linear" },
-          y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-        }}
-      >
-        <div
-          className="absolute w-full h-full border-2 border-primary/40 rounded-lg"
-          style={{
-            transform: "translateZ(48px)",
-            background: "linear-gradient(135deg, hsl(var(--cyan) / 0.1), transparent)",
-          }}
-        />
-        <div
-          className="absolute w-full h-full border-2 border-primary/30 rounded-lg"
-          style={{
-            transform: "rotateY(90deg) translateZ(48px)",
-            background: "linear-gradient(135deg, hsl(var(--purple) / 0.1), transparent)",
-          }}
-        />
-        <div
-          className="absolute w-full h-full border-2 border-secondary/30 rounded-lg"
-          style={{
-            transform: "rotateX(90deg) translateZ(48px)",
-            background: "linear-gradient(135deg, hsl(var(--cyan) / 0.05), transparent)",
-          }}
-        />
-      </motion.div>
-
-      {/* Floating Ring */}
-      <motion.div
-        className="absolute w-32 h-32 border-4 border-secondary/30 rounded-full"
-        style={{
-          top: "60%",
-          right: "15%",
-        }}
-        animate={{
-          rotateX: [0, 45, 0, -45, 0],
-          rotateZ: [0, 180, 360],
           y: [0, -20, 0],
+          rotate: [0, 5, -5, 0],
         }}
         transition={{
-          duration: 12,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-      />
+      >
+        <Code className="w-8 h-8 text-primary" />
+      </motion.div>
+
+      {/* Browser Window */}
+      <motion.div
+        className="absolute glass rounded-lg overflow-hidden"
+        style={{ top: "25%", left: "8%", width: "120px" }}
+        animate={{
+          y: [0, -15, 0],
+          rotate: [-3, 3, -3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      >
+        <div className="flex gap-1 p-2 border-b border-border/50">
+          <div className="w-2 h-2 rounded-full bg-red-400/60" />
+          <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
+          <div className="w-2 h-2 rounded-full bg-green-400/60" />
+        </div>
+        <div className="p-3 space-y-1.5">
+          <div className="h-1.5 bg-primary/30 rounded w-full" />
+          <div className="h-1.5 bg-secondary/30 rounded w-3/4" />
+          <div className="h-1.5 bg-primary/20 rounded w-1/2" />
+        </div>
+      </motion.div>
+
+      {/* Analytics Chart Icon */}
+      <motion.div
+        className="absolute glass rounded-xl p-4"
+        style={{ top: "55%", right: "12%" }}
+        animate={{
+          y: [0, -25, 0],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      >
+        <BarChart3 className="w-8 h-8 text-secondary" />
+      </motion.div>
+
+      {/* Search/SEO Icon */}
+      <motion.div
+        className="absolute glass rounded-xl p-3"
+        style={{ top: "40%", left: "5%" }}
+        animate={{
+          y: [0, -18, 0],
+          x: [0, 10, 0],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
+      >
+        <Search className="w-6 h-6 text-primary" />
+      </motion.div>
+
+      {/* Target/Marketing Icon */}
+      <motion.div
+        className="absolute glass rounded-xl p-4"
+        style={{ bottom: "25%", right: "25%" }}
+        animate={{
+          y: [0, -20, 0],
+          rotate: [0, 10, -10, 0],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
+      >
+        <Target className="w-7 h-7 text-primary" />
+      </motion.div>
+
+      {/* Globe/Web Icon */}
+      <motion.div
+        className="absolute glass rounded-xl p-3"
+        style={{ top: "70%", left: "12%" }}
+        animate={{
+          y: [0, -15, 0],
+          rotate: [0, 360],
+        }}
+        transition={{
+          y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+        }}
+      >
+        <Globe className="w-6 h-6 text-secondary" />
+      </motion.div>
+
+      {/* Cursor Icon */}
+      <motion.div
+        className="absolute"
+        style={{ top: "35%", right: "30%" }}
+        animate={{
+          x: [0, 30, 0],
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <MousePointer2 className="w-6 h-6 text-primary/60 fill-primary/20" />
+      </motion.div>
+
+      {/* Trending Up Icon */}
+      <motion.div
+        className="absolute glass rounded-xl p-3"
+        style={{ bottom: "35%", left: "18%" }}
+        animate={{
+          y: [0, -22, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
+      >
+        <TrendingUp className="w-6 h-6 text-green-400" />
+      </motion.div>
 
       {/* Small floating dots */}
-      {[...Array(6)].map((_, i) => (
+      {[...Array(4)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 rounded-full bg-primary/60"
+          className="absolute w-2 h-2 rounded-full bg-primary/40"
           style={{
-            top: `${20 + i * 12}%`,
-            left: `${10 + i * 8}%`,
+            top: `${25 + i * 15}%`,
+            left: `${15 + i * 10}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            opacity: [0.3, 0.8, 0.3],
+            y: [0, -20, 0],
+            opacity: [0.3, 0.7, 0.3],
           }}
           transition={{
             duration: 4 + i,
@@ -125,37 +214,15 @@ const FloatingShapes = () => {
         />
       ))}
 
-      {/* Triangle */}
-      <motion.div
-        className="absolute"
-        style={{
-          top: "30%",
-          left: "8%",
-          width: 0,
-          height: 0,
-          borderLeft: "30px solid transparent",
-          borderRight: "30px solid transparent",
-          borderBottom: "52px solid hsl(var(--purple) / 0.3)",
-        }}
-        animate={{
-          rotate: [0, 360],
-          y: [0, -25, 0],
-        }}
-        transition={{
-          rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-          y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-        }}
-      />
-
       {/* Grid lines */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
             linear-gradient(hsl(var(--cyan)) 1px, transparent 1px),
             linear-gradient(90deg, hsl(var(--cyan)) 1px, transparent 1px)
           `,
-          backgroundSize: "60px 60px",
+          backgroundSize: "80px 80px",
         }}
       />
     </div>
