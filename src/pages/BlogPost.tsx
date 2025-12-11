@@ -15,7 +15,7 @@ const BlogPost = () => {
   const [readingProgress, setReadingProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const articleRef = useRef<HTMLElement>(null);
-  
+
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
   const heroScale = useTransform(scrollY, [0, 300], [1, 1.1]);
@@ -51,9 +51,7 @@ const BlogPost = () => {
               <BookOpen className="w-12 h-12 text-primary" />
             </div>
             <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-            <p className="text-muted-foreground mb-8">
-              The blog post you're looking for doesn't exist.
-            </p>
+            <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
             <Link to="/blog">
               <Button className="bg-gradient-hero hover:opacity-90">Back to Blog</Button>
             </Link>
@@ -71,21 +69,14 @@ const BlogPost = () => {
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-hero z-50 origin-left"
         style={{ scaleX: readingProgress / 100 }}
       />
-      
+
       <Navbar />
 
       {/* Hero Section with Parallax */}
-      <div className="relative h-[70vh] min-h-[500px] overflow-hidden">
+      <div className="relative h-[50vh] min-h-[500px] overflow-hidden">
         {/* Parallax Background Image */}
-        <motion.div
-          className="absolute inset-0"
-          style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
-        >
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
+        <motion.div className="absolute inset-0" style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}>
+          <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
         </motion.div>
@@ -233,11 +224,11 @@ const BlogPost = () => {
                     </motion.h2>
                   );
                 }
-                
+
                 // Handle list items
                 if (paragraph.startsWith("- ")) {
                   const isFirstInList = index === 0 || !arr[index - 1].startsWith("- ");
-                  
+
                   if (isFirstInList) {
                     const listItems: string[] = [];
                     let i = index;
@@ -271,12 +262,12 @@ const BlogPost = () => {
                   }
                   return null;
                 }
-                
+
                 // Skip empty lines
                 if (paragraph.trim() === "") {
                   return null;
                 }
-                
+
                 return (
                   <motion.p
                     key={index}
@@ -300,7 +291,7 @@ const BlogPost = () => {
             >
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <div className="w-20 h-20 rounded-full bg-gradient-hero p-[2px] flex-shrink-0">
                   <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
@@ -311,7 +302,8 @@ const BlogPost = () => {
                   <p className="text-xs uppercase tracking-wider text-primary mb-1">Written by</p>
                   <p className="text-xl font-bold text-foreground mb-2">{post.author}</p>
                   <p className="text-muted-foreground">
-                    Content Writer & Digital Marketing Specialist with expertise in web development trends and SEO strategies.
+                    Content Writer & Digital Marketing Specialist with expertise in web development trends and SEO
+                    strategies.
                   </p>
                 </div>
               </div>
@@ -325,10 +317,7 @@ const BlogPost = () => {
               className="mt-12 text-center"
             >
               <Link to="/blog">
-                <Button
-                  size="lg"
-                  className="bg-gradient-hero hover:opacity-90 transition-opacity rounded-full px-8"
-                >
+                <Button size="lg" className="bg-gradient-hero hover:opacity-90 transition-opacity rounded-full px-8">
                   <BookOpen className="w-5 h-5 mr-2" />
                   Explore More Articles
                 </Button>
