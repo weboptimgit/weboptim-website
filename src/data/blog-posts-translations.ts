@@ -4,9 +4,39 @@ type Language = "EN" | "CZ" | "SK";
 
 export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> = {
   EN: {
+    "why-structured-data-is-essential-for-your-seo": {
+      title: "Why Structured Data Is Essential for Your SEO",
+      excerpt:
+        "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+      category: "Web Design",
+      tags: ["UX Design", "Business", "Trends"],
+      author: "Peter Gáborík",
+      date: "Dec 12, 2025",
+      readTime: "5 min read",
+      content: [
+        "In today's digital-first world, your website is often the first impression potential customers have of your business. A modern, well-designed website isn't just a nice-to-have—it's essential for survival in an increasingly competitive marketplace.",
+        "## What is schema.org and why use it",
+        "Studies show that users form an opinion about a website within 50 milliseconds. That's faster than the blink of an eye. If your website looks outdated, slow, or difficult to navigate, visitors will bounce before they even see what you have to offer.",
+        "Schema.org is a standardized vocabulary of types and properties (for example Product, Recipe, Event, FAQ) maintained by search engines and the community to describe page content. When you mark up your content with schema.org, you make it much easier for machines to process and understand it.",
+        "## Mobile-First Is No Longer Optional",
+        "With over 60% of web traffic now coming from mobile devices, having a responsive, mobile-friendly website is crucial. Google's mobile-first indexing means that your mobile site is what determines your search rankings.",
+        "If your website doesn't perform well on smartphones and tablets, you're not just losing mobile visitors—you're losing visibility in search results across all devices.",
+        "## Speed Equals Revenue",
+        "Page load speed directly impacts your bottom line. Research by Google shows that as page load time increases from 1 second to 3 seconds, the probability of bounce increases by 32%. At 5 seconds, that number jumps to 90%.",
+        "Modern websites are built with performance in mind, utilizing techniques like lazy loading, optimized images, and efficient code to ensure lightning-fast load times.",
+        "## Security and Trust",
+        "With cyber threats on the rise, website security is more important than ever. Modern websites come with SSL certificates, secure hosting, and up-to-date security protocols that protect both your business and your customers.",
+        "An outdated website running on old software is a prime target for hackers. Beyond the direct risks, visitors are increasingly aware of security indicators like HTTPS, and may leave your site if they don't see them.",
+        "## The Bottom Line",
+        "Investing in a modern website isn't an expense—it's an investment in your business's future. The cost of not updating your online presence is measured in lost customers, damaged reputation, and missed opportunities.",
+        "Ready to transform your digital presence? Contact us today to discuss how we can help bring your website into 2024 and beyond.",
+      ],
+    },
     "why-your-business-needs-modern-website-2024": {
       title: "Why Your Business Needs a Modern Website in 2024",
-      excerpt: "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
+      excerpt:
+        "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
       category: "Web Design",
       tags: ["UX Design", "Business", "Trends"],
@@ -34,7 +64,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "ecommerce-trends-boost-sales": {
       title: "10 E-commerce Trends That Will Boost Your Sales",
-      excerpt: "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
+      excerpt:
+        "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
       category: "E-commerce",
       tags: ["Online Store", "Sales", "AI"],
@@ -68,7 +99,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "seo-strategies-small-business": {
       title: "SEO Strategies Every Small Business Should Know",
-      excerpt: "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
+      excerpt:
+        "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
       image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1200&h=600&fit=crop",
       category: "Marketing",
       tags: ["SEO", "Small Business", "Google"],
@@ -99,7 +131,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "importance-mobile-first-design": {
       title: "The Importance of Mobile-First Design",
-      excerpt: "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
+      excerpt:
+        "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
       category: "Web Design",
       tags: ["Mobile", "Responsive", "UX Design"],
@@ -127,7 +160,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "wordpress-vs-custom-development": {
       title: "WordPress vs Custom Development: Which Is Right for You?",
-      excerpt: "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
+      excerpt:
+        "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=600&fit=crop",
       category: "Development",
       tags: ["WordPress", "Coding", "CMS"],
@@ -157,7 +191,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "building-brand-identity-online": {
       title: "Building a Strong Brand Identity Online",
-      excerpt: "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
+      excerpt:
+        "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fit=crop",
       category: "Branding",
       tags: ["Identity", "Strategy", "Visual Design"],
@@ -187,9 +222,39 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
   },
   CZ: {
+    "why-structured-data-is-essential-for-your-seo": {
+      title: "Proč jsou strukturovaná data zásadní pro SEO",
+      excerpt:
+        "Strukturovaná data nejsou jen „nice to have“ — jsou to metainformace, které webovým vyhledávačům (a jiným službám) přesně říkají, co se na stránce nachází.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+      category: "Web Design",
+      tags: ["UX Design", "Business", "Trends"],
+      author: "Peter Gáborík",
+      date: "11. prosince 2025",
+      readTime: "5 min čtení",
+      content: [
+        "In today's digital-first world, your website is often the first impression potential customers have of your business. A modern, well-designed website isn't just a nice-to-have—it's essential for survival in an increasingly competitive marketplace.",
+        "## Co je schema.org a proč ji používat",
+        "Schema.org je standardní slovník (vocabulary) typů a vlastností (např. Product, Recipe, Event, FAQ), který definují vyhledávače a komunita a který slouží k popisu obsahu na webu. Pokud data na stránce označíš podle schema.org, značně usnadníš jejich strojové zpracování.",
+        "Schema.org is a standardized vocabulary of types and properties (for example Product, Recipe, Event, FAQ) maintained by search engines and the community to describe page content. When you mark up your content with schema.org, you make it much easier for machines to process and understand it.",
+        "## Mobile-First Is No Longer Optional",
+        "With over 60% of web traffic now coming from mobile devices, having a responsive, mobile-friendly website is crucial. Google's mobile-first indexing means that your mobile site is what determines your search rankings.",
+        "If your website doesn't perform well on smartphones and tablets, you're not just losing mobile visitors—you're losing visibility in search results across all devices.",
+        "## Speed Equals Revenue",
+        "Page load speed directly impacts your bottom line. Research by Google shows that as page load time increases from 1 second to 3 seconds, the probability of bounce increases by 32%. At 5 seconds, that number jumps to 90%.",
+        "Modern websites are built with performance in mind, utilizing techniques like lazy loading, optimized images, and efficient code to ensure lightning-fast load times.",
+        "## Security and Trust",
+        "With cyber threats on the rise, website security is more important than ever. Modern websites come with SSL certificates, secure hosting, and up-to-date security protocols that protect both your business and your customers.",
+        "An outdated website running on old software is a prime target for hackers. Beyond the direct risks, visitors are increasingly aware of security indicators like HTTPS, and may leave your site if they don't see them.",
+        "## The Bottom Line",
+        "Investing in a modern website isn't an expense—it's an investment in your business's future. The cost of not updating your online presence is measured in lost customers, damaged reputation, and missed opportunities.",
+        "Ready to transform your digital presence? Contact us today to discuss how we can help bring your website into 2024 and beyond.",
+      ],
+    },
     "why-your-business-needs-modern-website-2024": {
       title: "Proč vaše firma potřebuje moderní web v roce 2024",
-      excerpt: "Zjistěte klíčové důvody, proč vás zastaralý web může stát zákazníky a jak může moderní redesign transformovat vaši online prezentaci.",
+      excerpt:
+        "Zjistěte klíčové důvody, proč vás zastaralý web může stát zákazníky a jak může moderní redesign transformovat vaši online prezentaci.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
       category: "Webový design",
       tags: ["UX Design", "Podnikání", "Trendy"],
@@ -217,7 +282,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "ecommerce-trends-boost-sales": {
       title: "10 e-commerce trendů, které zvýší vaše prodeje",
-      excerpt: "Od personalizovaných doporučení pomocí AI po bezproblémové pokladny – poznejte nejnovější trendy formující budoucnost online prodeje.",
+      excerpt:
+        "Od personalizovaných doporučení pomocí AI po bezproblémové pokladny – poznejte nejnovější trendy formující budoucnost online prodeje.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
       category: "E-commerce",
       tags: ["Online obchod", "Prodeje", "AI"],
@@ -251,7 +317,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "seo-strategies-small-business": {
       title: "SEO strategie, které by měl znát každý malý podnik",
-      excerpt: "Zvládněte základy optimalizace pro vyhledávače a naučte se, jak předehnat konkurenci bez velkých nákladů.",
+      excerpt:
+        "Zvládněte základy optimalizace pro vyhledávače a naučte se, jak předehnat konkurenci bez velkých nákladů.",
       image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1200&h=600&fit=crop",
       category: "Marketing",
       tags: ["SEO", "Malé podniky", "Google"],
@@ -282,7 +349,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "importance-mobile-first-design": {
       title: "Důležitost Mobile-First designu",
-      excerpt: "S více než 60 % webového provozu z mobilních zařízení se dozvíte, proč návrh pro mobily již není volitelný.",
+      excerpt:
+        "S více než 60 % webového provozu z mobilních zařízení se dozvíte, proč návrh pro mobily již není volitelný.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
       category: "Webový design",
       tags: ["Mobil", "Responzivní", "UX Design"],
@@ -310,7 +378,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "wordpress-vs-custom-development": {
       title: "WordPress vs. vlastní vývoj: Co je pro vás správné?",
-      excerpt: "Komplexní srovnání, které vám pomůže vybrat nejlepší přístup pro váš další webový projekt na základě vašich potřeb a rozpočtu.",
+      excerpt:
+        "Komplexní srovnání, které vám pomůže vybrat nejlepší přístup pro váš další webový projekt na základě vašich potřeb a rozpočtu.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=600&fit=crop",
       category: "Vývoj",
       tags: ["WordPress", "Kódování", "CMS"],
@@ -340,7 +409,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "building-brand-identity-online": {
       title: "Budování silné identity značky online",
-      excerpt: "Naučte se, jak vytvořit soudržnou prezentaci značky napříč všemi digitálními kontaktními body, která rezonuje s vaší cílovou skupinou.",
+      excerpt:
+        "Naučte se, jak vytvořit soudržnou prezentaci značky napříč všemi digitálními kontaktními body, která rezonuje s vaší cílovou skupinou.",
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fit=crop",
       category: "Branding",
       tags: ["Identita", "Strategie", "Vizuální design"],
@@ -372,7 +442,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
   SK: {
     "why-your-business-needs-modern-website-2024": {
       title: "Prečo vaša firma potrebuje moderný web v roku 2024",
-      excerpt: "Zistite kľúčové dôvody, prečo vás zastaraný web môže stáť zákazníkov a ako môže moderný redizajn transformovať vašu online prezentáciu.",
+      excerpt:
+        "Zistite kľúčové dôvody, prečo vás zastaraný web môže stáť zákazníkov a ako môže moderný redizajn transformovať vašu online prezentáciu.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
       category: "Webový dizajn",
       tags: ["UX Dizajn", "Podnikanie", "Trendy"],
@@ -400,7 +471,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "ecommerce-trends-boost-sales": {
       title: "10 e-commerce trendov, ktoré zvýšia vaše predaje",
-      excerpt: "Od personalizovaných odporúčaní pomocou AI po bezproblémové pokladne – spoznajte najnovšie trendy formujúce budúcnosť online predaja.",
+      excerpt:
+        "Od personalizovaných odporúčaní pomocou AI po bezproblémové pokladne – spoznajte najnovšie trendy formujúce budúcnosť online predaja.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
       category: "E-commerce",
       tags: ["Online obchod", "Predaje", "AI"],
@@ -434,7 +506,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "seo-strategies-small-business": {
       title: "SEO stratégie, ktoré by mal poznať každý malý podnik",
-      excerpt: "Zvládnite základy optimalizácie pre vyhľadávače a naučte sa, ako predbehnúť konkurenciu bez veľkých nákladov.",
+      excerpt:
+        "Zvládnite základy optimalizácie pre vyhľadávače a naučte sa, ako predbehnúť konkurenciu bez veľkých nákladov.",
       image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1200&h=600&fit=crop",
       category: "Marketing",
       tags: ["SEO", "Malé podniky", "Google"],
@@ -465,7 +538,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "importance-mobile-first-design": {
       title: "Dôležitosť Mobile-First dizajnu",
-      excerpt: "S viac ako 60 % webového prenosu z mobilných zariadení sa dozviete, prečo návrh pre mobily už nie je voliteľný.",
+      excerpt:
+        "S viac ako 60 % webového prenosu z mobilných zariadení sa dozviete, prečo návrh pre mobily už nie je voliteľný.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
       category: "Webový dizajn",
       tags: ["Mobil", "Responzívny", "UX Dizajn"],
@@ -493,7 +567,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "wordpress-vs-custom-development": {
       title: "WordPress vs. vlastný vývoj: Čo je pre vás správne?",
-      excerpt: "Komplexné porovnanie, ktoré vám pomôže vybrať najlepší prístup pre váš ďalší webový projekt na základe vašich potrieb a rozpočtu.",
+      excerpt:
+        "Komplexné porovnanie, ktoré vám pomôže vybrať najlepší prístup pre váš ďalší webový projekt na základe vašich potrieb a rozpočtu.",
       image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=600&fit=crop",
       category: "Vývoj",
       tags: ["WordPress", "Kódovanie", "CMS"],
@@ -523,7 +598,8 @@ export const blogPostsTranslations: Record<Language, Record<string, BlogPost>> =
     },
     "building-brand-identity-online": {
       title: "Budovanie silnej identity značky online",
-      excerpt: "Naučte sa, ako vytvoriť súdržnú prezentáciu značky naprieč všetkými digitálnymi kontaktnými bodmi, ktorá rezonuje s vašou cieľovou skupinou.",
+      excerpt:
+        "Naučte sa, ako vytvoriť súdržnú prezentáciu značky naprieč všetkými digitálnymi kontaktnými bodmi, ktorá rezonuje s vašou cieľovou skupinou.",
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fit=crop",
       category: "Branding",
       tags: ["Identita", "Stratégia", "Vizuálny dizajn"],

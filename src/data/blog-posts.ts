@@ -11,6 +11,35 @@ export interface BlogPost {
 }
 
 export const blogPostsData: Record<string, BlogPost> = {
+  "why-structured-data-is-essential-for-your-seo": {
+    title: "Why Structured Data Is Essential for Your SEO",
+    excerpt:
+      "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    category: "Web Design",
+    tags: ["UX Design", "Business", "Trends"],
+    author: "Peter Gáborík",
+    date: "Dec 12, 2025",
+    readTime: "5 min read",
+    content: [
+      "In today's digital-first world, your website is often the first impression potential customers have of your business. A modern, well-designed website isn't just a nice-to-have—it's essential for survival in an increasingly competitive marketplace.",
+      "## What is schema.org and why use it",
+      "Studies show that users form an opinion about a website within 50 milliseconds. That's faster than the blink of an eye. If your website looks outdated, slow, or difficult to navigate, visitors will bounce before they even see what you have to offer.",
+      "Schema.org is a standardized vocabulary of types and properties (for example Product, Recipe, Event, FAQ) maintained by search engines and the community to describe page content. When you mark up your content with schema.org, you make it much easier for machines to process and understand it.",
+      "## Mobile-First Is No Longer Optional",
+      "With over 60% of web traffic now coming from mobile devices, having a responsive, mobile-friendly website is crucial. Google's mobile-first indexing means that your mobile site is what determines your search rankings.",
+      "If your website doesn't perform well on smartphones and tablets, you're not just losing mobile visitors—you're losing visibility in search results across all devices.",
+      "## Speed Equals Revenue",
+      "Page load speed directly impacts your bottom line. Research by Google shows that as page load time increases from 1 second to 3 seconds, the probability of bounce increases by 32%. At 5 seconds, that number jumps to 90%.",
+      "Modern websites are built with performance in mind, utilizing techniques like lazy loading, optimized images, and efficient code to ensure lightning-fast load times.",
+      "## Security and Trust",
+      "With cyber threats on the rise, website security is more important than ever. Modern websites come with SSL certificates, secure hosting, and up-to-date security protocols that protect both your business and your customers.",
+      "An outdated website running on old software is a prime target for hackers. Beyond the direct risks, visitors are increasingly aware of security indicators like HTTPS, and may leave your site if they don't see them.",
+      "## The Bottom Line",
+      "Investing in a modern website isn't an expense—it's an investment in your business's future. The cost of not updating your online presence is measured in lost customers, damaged reputation, and missed opportunities.",
+      "Ready to transform your digital presence? Contact us today to discuss how we can help bring your website into 2024 and beyond.",
+    ],
+  },
   "why-your-business-needs-modern-website-2024": {
     title: "Why Your Business Needs a Modern Website in 2024",
     excerpt:
