@@ -135,6 +135,97 @@
   .glass-strong {
     @apply bg-card/80 backdrop-blur-2xl border border-border/60;
   }
+
+  /* Animated border card effect */
+  .card-animated-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .card-animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      var(--border-angle, 0deg),
+      hsl(193 88% 61% / 0.3),
+      hsl(270 60% 60% / 0.3),
+      hsl(320 70% 55% / 0.3),
+      hsl(193 88% 61% / 0.3)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-animated-border:hover::before {
+    opacity: 1;
+    animation: border-rotate 3s linear infinite;
+  }
+
+  @keyframes border-rotate {
+    0% { --border-angle: 0deg; }
+    100% { --border-angle: 360deg; }
+  }
+
+  @property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  /* Alternative shimmer border for wider browser support */
+  .card-shimmer-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .card-shimmer-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(
+      from 0deg,
+      hsl(193 88% 61%),
+      hsl(220 80% 60%),
+      hsl(270 60% 60%),
+      hsl(320 70% 55%),
+      hsl(193 88% 61%)
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: spin-border 3s linear infinite paused;
+    z-index: -1;
+  }
+
+  .card-shimmer-border::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: hsl(var(--card));
+    border-radius: calc(var(--radius) - 1px);
+    z-index: -1;
+  }
+
+  .card-shimmer-border:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  @keyframes spin-border {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 }
 
 @layer components {
