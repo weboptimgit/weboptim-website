@@ -193,26 +193,27 @@
     content: '';
     position: absolute;
     inset: 0;
-    padding: 1.5px;
+    padding: 1px;
     border-radius: inherit;
     background: linear-gradient(
       90deg,
-      hsl(var(--border)) 0%,
-      hsl(193 88% 61%) 25%,
-      hsl(270 60% 60%) 50%,
-      hsl(320 70% 55%) 75%,
-      hsl(var(--border)) 100%
+      hsl(193 88% 61%) 0%,
+      hsl(270 60% 60%) 33%,
+      hsl(320 70% 55%) 66%,
+      hsl(193 88% 61%) 100%
     );
     background-size: 300% 100%;
-    background-position: 100% 0;
+    background-position: 0 0;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    transition: background-position 0s;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .card-shimmer-border:hover::before {
+    opacity: 1;
     animation: shimmer-border 2s linear infinite;
   }
 
