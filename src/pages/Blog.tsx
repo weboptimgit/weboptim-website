@@ -10,6 +10,18 @@ const categories = ["All", "Web Design", "E-commerce", "Marketing", "Development
 
 const blogPosts = [
   {
+    slug: "why-structured-data-is-essential-for-your-seo",
+    title: "Why Structured Data Is Essential for Your SEO",
+    excerpt:
+      "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    category: "Web Design",
+    tags: ["UX Design", "Business", "Trends"],
+    author: "Peter Gáborík",
+    date: "Dec 12, 2025",
+    readTime: "5 min read",
+  },
+  {
     slug: "why-your-business-needs-modern-website-2024",
     title: "Why Your Business Needs a Modern Website in 2024",
     excerpt:
@@ -124,8 +136,7 @@ const Blog = () => {
               Our <span className="text-gradient">Blog</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Insights, tips, and trends from the world of web development and
-              digital marketing.
+              Insights, tips, and trends from the world of web development and digital marketing.
             </p>
           </motion.div>
         </div>
@@ -201,9 +212,7 @@ const Blog = () => {
                 exit={{ opacity: 0 }}
                 className="text-center py-16"
               >
-                <p className="text-muted-foreground text-lg">
-                  No posts found for the selected filters.
-                </p>
+                <p className="text-muted-foreground text-lg">No posts found for the selected filters.</p>
                 <Button
                   variant="outline"
                   className="mt-4"
@@ -259,16 +268,11 @@ const Blog = () => {
                         <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
                           {post.title}
                         </h2>
-                        <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
-                          {post.excerpt}
-                        </p>
+                        <p className="text-muted-foreground text-sm line-clamp-3 mb-4">{post.excerpt}</p>
                         {/* Tags */}
                         <div className="flex flex-wrap gap-1 mb-4">
                           {post.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-0.5 text-xs bg-muted text-muted-foreground rounded"
-                            >
+                            <span key={tag} className="px-2 py-0.5 text-xs bg-muted text-muted-foreground rounded">
                               {tag}
                             </span>
                           ))}
