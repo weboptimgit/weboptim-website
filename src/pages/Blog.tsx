@@ -5,10 +5,13 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getBlogPostsList } from "@/data/blog-posts";
+import { getBlogPostsList, getCategories } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const categories = ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding"];
+const Blog = () => {
+  const { language } = useLanguage();
+  const blogPosts = getBlogPostsList(language);
+  const categories = getCategories(language);
 
 const Blog = () => {
   const { language } = useLanguage();
