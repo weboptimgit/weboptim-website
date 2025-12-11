@@ -115,7 +115,8 @@ const BlogPost = () => {
 
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              {post.content.map((paragraph, index) => {
+              {post.content.map((paragraph, index, arr) => {
+                // Handle headings
                 if (paragraph.startsWith("## ")) {
                   return (
                     <h2
@@ -126,6 +127,38 @@ const BlogPost = () => {
                     </h2>
                   );
                 }
+                
+                // Handle list items
+                if (paragraph.startsWith("- ")) {
+                  // Check if this is the first list item in a sequence
+                  const isFirstInList = index === 0 || !arr[index - 1].startsWith("- ");
+                  const isLastInList = index === arr.length - 1 || !arr[index + 1]?.startsWith("- ");
+                  
+                  // Collect consecutive list items
+                  if (isFirstInList) {
+                    const listItems: string[] = [];
+                    let i = index;
+                    while (i < arr.length && arr[i].startsWith("- ")) {
+                      listItems.push(arr[i].replace("- ", ""));
+                      i++;
+                    }
+                    return (
+                      <ul key={index} className="list-disc list-inside mb-4 space-y-2 text-muted-foreground">
+                        {listItems.map((item, itemIndex) => (
+                          <li key={itemIndex} className="leading-relaxed">{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  // Skip non-first list items (already rendered in the ul above)
+                  return null;
+                }
+                
+                // Skip empty lines
+                if (paragraph.trim() === "") {
+                  return null;
+                }
+                
                 return (
                   <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
                     {paragraph}
