@@ -116,7 +116,7 @@ export const blogPostsData: BlogPostData[] = [
         excerpt:
           "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page. With structured data, Google and other engines can show rich results - enhanced search results (stars, images, price, FAQ, events, etc.) that significantly increase visibility and the likelihood of clicks. Implementation usually doesn’t require major design or content changes - just the right code.",
         category: "Web Design",
-        tags: ["UX Design", "Business", "Trends"],
+        tags: ["schema.org", "structured data", "JSON-LD", "SEO", "rich snippets", "google search"],
         date: "Dec 12, 2025",
         readTime: "5 min read",
         content: [
