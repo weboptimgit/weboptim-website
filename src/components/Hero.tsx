@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Star, Play } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Play, Rocket, Heart, Clock, Users } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
 import AnimatedMascot from "./AnimatedMascot";
 import mascotWaving from "@/assets/mascot-waving.png";
@@ -344,34 +344,76 @@ const Hero = () => {
           duration: 0.8,
           delay: 0.8
         }} className="mt-20 pt-10 border-t border-border/30">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {[{
               value: "150+",
-              label: "Projects Delivered"
+              label: "Projects Delivered",
+              icon: Rocket,
+              color: "from-primary to-cyan"
             }, {
               value: "98%",
-              label: "Client Satisfaction"
+              label: "Client Satisfaction",
+              icon: Heart,
+              color: "from-pink-500 to-rose-400"
             }, {
               value: "8+",
-              label: "Years Experience"
+              label: "Years Experience",
+              icon: Clock,
+              color: "from-amber-500 to-orange-400"
             }, {
               value: "35+",
-              label: "Team Members"
-            }].map((stat, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.5,
-              delay: 0.9 + index * 0.1
-            }} className="text-center">
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>)}
+              label: "Team Members",
+              icon: Users,
+              color: "from-emerald-500 to-green-400"
+            }].map((stat, index) => (
+              <motion.div 
+                key={index} 
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.9
+                }} 
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1
+                }} 
+                transition={{
+                  duration: 0.5,
+                  delay: 0.9 + index * 0.1
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -5
+                }}
+                className="group relative glass rounded-2xl p-5 md:p-6 text-center cursor-default overflow-hidden"
+              >
+                {/* Gradient background on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                
+                {/* Icon */}
+                <motion.div 
+                  className={`mx-auto w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 shadow-lg`}
+                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <stat.icon className="w-6 h-6 text-white" />
+                </motion.div>
+                
+                {/* Value */}
+                <div className="text-3xl md:text-4xl font-display font-bold text-foreground mb-1 relative">
+                  <span className="relative z-10">{stat.value}</span>
+                </div>
+                
+                {/* Label */}
+                <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                
+                {/* Decorative ring */}
+                <div className={`absolute -bottom-8 -right-8 w-24 h-24 rounded-full border-2 border-current opacity-5 group-hover:opacity-10 transition-opacity`} 
+                  style={{ borderColor: `var(--primary)` }}
+                />
+              </motion.div>
+            ))}
             </div>
           </motion.div>
         </div>
