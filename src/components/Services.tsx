@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { Code2, Palette, Smartphone, Globe, Zap, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     icon: Code2,
     title: "Web Development",
     description: "Custom websites built with cutting-edge technologies. Fast, scalable, and secure solutions.",
+    href: "/services/building-website",
   },
   {
     icon: Palette,
@@ -85,23 +87,40 @@ const Services = () => {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer"
-            >
-              <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6 group-hover:shadow-[0_0_30px_hsl(var(--cyan)/0.4)] transition-shadow duration-500">
-                <service.icon className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+          {services.map((service, index) => {
+            const CardContent = (
+              <>
+                <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6 group-hover:shadow-[0_0_30px_hsl(var(--cyan)/0.4)] transition-shadow duration-500">
+                  <service.icon className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </>
+            );
+
+            return service.href ? (
+              <motion.div key={index} variants={itemVariants}>
+                <Link
+                  to={service.href}
+                  className="group glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer block h-full"
+                >
+                  {CardContent}
+                </Link>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="group glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer"
+              >
+                {CardContent}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
