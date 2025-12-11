@@ -33,9 +33,11 @@ const CTA = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#" variant="hero" size="xl" className="group">
-              Get In Touch
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <a href="/contact/">
+              <button variant="hero" size="xl" className="group">
+                Get In Touch
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
             </a>
             <Button variant="glow" size="xl">
               Schedule a Call
