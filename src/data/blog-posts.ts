@@ -40,9 +40,9 @@ export interface BlogPost {
 
 // Translated categories for filtering
 export const categoriesTranslations = {
-  EN: ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding"],
-  CZ: ["Vše", "Webový design", "E-shop", "Marketing", "Vývoj", "Branding"],
-  SK: ["Všetko", "Webový dizajn", "E-shop", "Marketing", "Vývoj", "Branding"],
+  EN: ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding", "Webs and eshops"],
+  CZ: ["Vše", "Webový design", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy"],
+  SK: ["Všetko", "Webový dizajn", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy"],
 };
 
 // ========================================
@@ -115,7 +115,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Why Structured Data Is Essential for Your SEO",
         excerpt:
           "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page. With structured data, Google and other engines can show rich results - enhanced search results (stars, images, price, FAQ, events, etc.) that significantly increase visibility and the likelihood of clicks. Implementation usually doesn’t require major design or content changes - just the right code.",
-        category: "Web Design",
+        category: "Webs and eshops",
         tags: ["WordPress", "Rank Math", "SEO", "schema markup WordPress", "google search"],
         date: "Dec 12, 2025",
         readTime: "5 min read",
@@ -177,8 +177,8 @@ export const blogPostsData: BlogPostData[] = [
         title: "Proč jsou strukturovaná data nezbytná pro vaše SEO",
         excerpt:
           'Strukturovaná data nejsou jen "nice to have" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.',
-        category: "Webový design",
-        tags: ["UX Design", "Podnikání", "Trendy"],
+        category: "Weby a eshopy",
+        tags: ["WordPress", "Rank Math", "SEO", "schema markup WordPress", "google search"],
         date: "12. prosince 2025",
         readTime: "5 min čtení",
         content: [
@@ -239,8 +239,8 @@ export const blogPostsData: BlogPostData[] = [
         title: "Prečo sú štruktúrované dáta nevyhnutné pre vaše SEO",
         excerpt:
           'Štruktúrované dáta nie sú len "nice to have" - sú to metadáta, ktoré hovoria vyhľadávačom (a ďalším službám) presne, čo je na vašej stránke.',
-        category: "Webový dizajn",
-        tags: ["UX Design", "Podnikanie", "Trendy"],
+        category: "Weby a eshopy",
+        tags: ["WordPress", "Rank Math", "SEO", "schema markup WordPress", "google search"],
         date: "12. decembra 2025",
         readTime: "5 min čítania",
         content: [
