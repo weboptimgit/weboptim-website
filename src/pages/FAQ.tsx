@@ -142,7 +142,7 @@ const FAQ = () => {
                   return (
                     <motion.div
                       key={index}
-                      className="card-shimmer-border rounded-xl border border-border/50"
+                      className="glass rounded-xl"
                     >
                       <button
                         onClick={() => toggleItem(itemId)}

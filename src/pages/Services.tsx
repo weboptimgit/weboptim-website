@@ -128,7 +128,7 @@ const Services = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="card-shimmer-border rounded-2xl p-8 h-full border border-border/50 transition-all duration-300">
+                <div className="glass rounded-2xl p-8 h-full hover:border-primary/40 transition-all duration-300">
                   <div className="flex items-start gap-6">
                     {/* Icon */}
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
@@ -216,7 +216,7 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card-shimmer-border rounded-2xl p-6 text-center relative group border border-border/50 transition-all"
+                className="glass rounded-2xl p-6 text-center relative group hover:border-primary/40 transition-all"
               >
                 <div className="text-5xl font-display font-bold text-primary/20 group-hover:text-primary/40 transition-colors mb-4">
                   {item.step}
