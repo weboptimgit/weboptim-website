@@ -2,20 +2,66 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Code2, Palette, Smartphone, Globe as GlobeIcon, Zap, Shield } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const navLinks = [
-  { name: "Services", href: "/#services" },
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
+];
+
+const services = [
+  {
+    icon: Code2,
+    title: "Web Development",
+    description: "Custom websites with cutting-edge tech",
+    href: "/services/building-website",
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description: "Beautiful, intuitive interfaces",
+    href: "/#services",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Apps",
+    description: "Native and cross-platform apps",
+    href: "/#services",
+  },
+  {
+    icon: GlobeIcon,
+    title: "E-Commerce",
+    description: "Powerful online stores",
+    href: "/services/ecommerce-website",
+  },
+  {
+    icon: Zap,
+    title: "Performance",
+    description: "Lightning-fast optimization",
+    href: "/#services",
+  },
+  {
+    icon: Shield,
+    title: "Security",
+    description: "Enterprise-grade protection",
+    href: "/#services",
+  },
 ];
 
 const languages = [
@@ -27,6 +73,7 @@ const languages = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState("EN");
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
     <motion.nav
@@ -46,26 +93,62 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) =>
-              link.href.startsWith("/") && !link.href.includes("#") ? (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
-                >
-                  {link.name}
-                </a>
-              )
-            )}
+          <div className="hidden md:flex items-center gap-6">
+            {/* Services Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="w-[500px] p-4 bg-card border border-border rounded-xl shadow-xl">
+                      <div className="grid grid-cols-2 gap-2">
+                        {services.map((service, index) => (
+                          <NavigationMenuLink key={index} asChild>
+                            <Link
+                              to={service.href}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
+                            >
+                              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                                <service.icon className="w-5 h-5 text-primary" />
+                              </div>
+                              <div>
+                                <div className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                  {service.title}
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  {service.description}
+                                </div>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <Link
+                          to="/#services"
+                          className="flex items-center justify-center gap-2 py-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+                        >
+                          View All Services
+                          <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
           {/* Right Side: Language + CTA */}
@@ -115,28 +198,53 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="glass-strong rounded-2xl mt-2 p-6 md:hidden"
             >
-              <div className="flex flex-col gap-4">
-                {navLinks.map((link) =>
-                  link.href.startsWith("/") && !link.href.includes("#") ? (
-                    <Link
-                      key={link.name}
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium py-2"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium py-2"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </a>
-                  )
-                )}
+              <div className="flex flex-col gap-2">
+                {/* Mobile Services Accordion */}
+                <div>
+                  <button
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium py-2"
+                  >
+                    Services
+                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-4 py-2 space-y-1">
+                          {services.map((service, index) => (
+                            <Link
+                              key={index}
+                              to={service.href}
+                              onClick={() => setIsOpen(false)}
+                              className="flex items-center gap-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            >
+                              <service.icon className="w-4 h-4" />
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
                 
                 {/* Mobile Language Switcher */}
                 <div className="flex items-center gap-2 py-2 border-t border-border/50 mt-2 pt-4">
