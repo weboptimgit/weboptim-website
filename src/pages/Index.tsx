@@ -8,20 +8,24 @@ import About from "@/components/About";
 import BlogSection from "@/components/BlogSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import AmbientBackground from "@/components/AmbientBackground";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <TrustSection />
-      <About />
-      <BlogSection />
-      <CTA />
-      <Footer />
+    <main className="min-h-screen bg-background overflow-x-hidden relative">
+      <AmbientBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Services />
+        <Portfolio />
+        <Testimonials />
+        <TrustSection />
+        <About />
+        <BlogSection />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   );
 };
