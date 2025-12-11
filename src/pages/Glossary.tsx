@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
+import { Button } from "@/components/ui/button";
 
 const glossaryTerms = [
   {
     term: "API",
     definition: "Application Programming Interface - a set of protocols and tools that allows different software applications to communicate with each other.",
-    category: "Development"
+    category: "Development",
+    hasPage: true,
+    slug: "api"
   },
   {
     term: "Backend",
@@ -248,9 +252,17 @@ const Glossary = () => {
                           {item.category}
                         </span>
                       </div>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground mb-4">
                         {item.definition}
                       </p>
+                      {item.hasPage && item.slug && (
+                        <Link to={`/glossary/${item.slug}`}>
+                          <Button variant="outline" size="sm" className="group">
+                            Learn More
+                            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                          </Button>
+                        </Link>
+                      )}
                     </motion.div>
                   ))}
                 </div>
