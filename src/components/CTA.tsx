@@ -27,17 +27,16 @@ const CTA = () => {
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to start your <span className="text-gradient">project</span>?
           </h2>
-          
+
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-            Let's collaborate and create something extraordinary together. 
-            Get in touch and tell us about your vision.
+            Let's collaborate and create something extraordinary together. Get in touch and tell us about your vision.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="xl" className="group">
+            <a href="#" variant="hero" size="xl" className="group">
               Get In Touch
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            </a>
             <Button variant="glow" size="xl">
               Schedule a Call
             </Button>
