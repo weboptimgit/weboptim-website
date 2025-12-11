@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
+import AnimatedMascot from "@/components/AnimatedMascot";
 import mascotSleeping from "@/assets/mascot-sleeping.png";
 
 const NotFound = () => {
@@ -29,19 +30,18 @@ const NotFound = () => {
       </div>
 
       <div className="text-center relative z-10">
-        {/* Sleeping mascot */}
+        {/* Animated sleeping mascot */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <motion.img
-            src={mascotSleeping}
-            alt="Sleeping mascot"
-            animate={{ y: [-5, 5, -5] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-48 h-48 mx-auto object-contain drop-shadow-2xl"
+          <AnimatedMascot 
+            src={mascotSleeping} 
+            alt="Sleeping mascot" 
+            size="md"
+            className="mx-auto"
           />
         </motion.div>
 
