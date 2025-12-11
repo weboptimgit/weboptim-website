@@ -43,6 +43,66 @@ export interface BlogPost {
 
 export const blogPostsData: BlogPostData[] = [
   {
+    slug: "7-reasons-why-you-should-choose-a-wordpress-based-website/",
+    image:
+      "https://images.unsplash.com/photo-1616469832301-ffaeadc68cf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Webs and eshops",
+    tags: ["UX Design", "Business", "Trends"],
+    author: "Peter Gáborík",
+    date: "Dec 12, 2025",
+    readTime: "5 min read",
+    translations: {
+      EN: {
+        title: "7 Reasons Why You Should Choose a WordPress-Based Website",
+        excerpt:
+          "WordPress is an ideal tool for businesses and companies to showcase their products and services and attract new customers. It helps you share textual content on the internet in the form of a blog, sell products and services through an online store, or simply publish photos and videos of your work.",
+        content: [
+          "Technically speaking, it is a content management system (CMS) for managing your website's content. The best thing about WordPress is that it is easy to use and flexible enough to create various types of websites. That's why it has become so popular. In fact, according to recent surveys, WordPress powers up to 60% of all websites on the internet.",
+          "## WordPress in numbers",
+          "",
+          "- item 1",
+          "- item 2",
+        ],
+      },
+      CZ: {
+        title: "Proč jsou strukturovaná data nezbytná pro vaše SEO",
+        excerpt:
+          'Strukturovaná data nejsou jen "nice to have" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.',
+        content: [
+          "V dnešním digitálním světě je vaše webová stránka často prvním dojmem, který potenciální zákazníci o vašem podnikání mají.",
+          "## Co je schema.org a proč ho používat",
+          "Schema.org je standardizovaný slovník typů a vlastností (například Product, Recipe, Event, FAQ) udržovaný vyhledávači a komunitou pro popis obsahu stránek.",
+          "## Mobile-First již není volitelné",
+          "S více než 60 % webového provozu z mobilních zařízení je responzivní, mobilně přívětivá webová stránka klíčová.",
+          "## Rychlost se rovná příjmům",
+          "Rychlost načítání stránky přímo ovlivňuje váš zisk. Výzkum Google ukazuje, že s rostoucí dobou načítání roste pravděpodobnost odchodu.",
+          "## Zabezpečení a důvěra",
+          "S rostoucími kybernetickými hrozbami je bezpečnost webových stránek důležitější než kdy jindy.",
+          "## Závěr",
+          "Investice do moderní webové stránky není výdaj—je to investice do budoucnosti vašeho podnikání.",
+        ],
+      },
+      SK: {
+        title: "Prečo sú štruktúrované dáta nevyhnutné pre vaše SEO",
+        excerpt:
+          'Štruktúrované dáta nie sú len "nice to have" - sú to metadáta, ktoré hovoria vyhľadávačom (a ďalším službám) presne, čo je na vašej stránke.',
+        content: [
+          "V dnešnom digitálnom svete je vaša webová stránka často prvým dojmom, ktorý potenciálni zákazníci o vašom podnikaní majú.",
+          "## Čo je schema.org a prečo ho používať",
+          "Schema.org je štandardizovaný slovník typov a vlastností (napríklad Product, Recipe, Event, FAQ) udržiavaný vyhľadávačmi a komunitou pre popis obsahu stránok.",
+          "## Mobile-First už nie je voliteľné",
+          "S viac ako 60 % webového prenosu z mobilných zariadení je responzívna, mobilne prívetivá webová stránka kľúčová.",
+          "## Rýchlosť sa rovná príjmom",
+          "Rýchlosť načítania stránky priamo ovplyvňuje váš zisk. Výskum Google ukazuje, že s rastúcou dobou načítania rastie pravdepodobnosť odchodu.",
+          "## Bezpečnosť a dôvera",
+          "S rastúcimi kybernetickými hrozbami je bezpečnosť webových stránok dôležitejšia než kedykoľvek predtým.",
+          "## Záver",
+          "Investícia do modernej webovej stránky nie je výdavok—je to investícia do budúcnosti vášho podnikania.",
+        ],
+      },
+    },
+  },
+  {
     slug: "why-structured-data-is-essential-for-your-seo",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
     category: "Web Design",
@@ -53,7 +113,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "Why Structured Data Is Essential for Your SEO",
-        excerpt: "Structured data isn't just a 'nice to have' - it's metadata that tells search engines (and other services) exactly what's on your page.",
+        excerpt:
+          "Structured data isn't just a 'nice to have' - it's metadata that tells search engines (and other services) exactly what's on your page.",
         content: [
           "In today's digital-first world, your website is often the first impression potential customers have of your business. A modern, well-designed website isn't just a nice-to-have—it's essential for survival in an increasingly competitive marketplace.",
           "## What is schema.org and why use it",
@@ -75,7 +136,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       CZ: {
         title: "Proč jsou strukturovaná data nezbytná pro vaše SEO",
-        excerpt: "Strukturovaná data nejsou jen \"nice to have\" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.",
+        excerpt:
+          'Strukturovaná data nejsou jen "nice to have" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.',
         content: [
           "V dnešním digitálním světě je vaše webová stránka často prvním dojmem, který potenciální zákazníci o vašem podnikání mají.",
           "## Co je schema.org a proč ho používat",
@@ -92,7 +154,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       SK: {
         title: "Prečo sú štruktúrované dáta nevyhnutné pre vaše SEO",
-        excerpt: "Štruktúrované dáta nie sú len \"nice to have\" - sú to metadáta, ktoré hovoria vyhľadávačom (a ďalším službám) presne, čo je na vašej stránke.",
+        excerpt:
+          'Štruktúrované dáta nie sú len "nice to have" - sú to metadáta, ktoré hovoria vyhľadávačom (a ďalším službám) presne, čo je na vašej stránke.',
         content: [
           "V dnešnom digitálnom svete je vaša webová stránka často prvým dojmom, ktorý potenciálni zákazníci o vašom podnikaní majú.",
           "## Čo je schema.org a prečo ho používať",
@@ -120,7 +183,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "Why Your Business Needs a Modern Website in 2024",
-        excerpt: "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
+        excerpt:
+          "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
         content: [
           "In today's digital-first world, your website is often the first impression potential customers have of your business. A modern, well-designed website isn't just a nice-to-have—it's essential for survival in an increasingly competitive marketplace.",
           "## First Impressions Matter More Than Ever",
@@ -142,7 +206,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       CZ: {
         title: "Proč vaše firma potřebuje moderní web v roce 2024",
-        excerpt: "Objevte klíčové důvody, proč vás zastaralý web může stát zákazníky a jak moderní redesign může transformovat vaši online přítomnost.",
+        excerpt:
+          "Objevte klíčové důvody, proč vás zastaralý web může stát zákazníky a jak moderní redesign může transformovat vaši online přítomnost.",
         content: [
           "V dnešním digitálním světě je vaše webová stránka často prvním dojmem, který potenciální zákazníci o vašem podnikání mají. Moderní, dobře navržená webová stránka není jen příjemný doplněk—je nezbytná pro přežití na stále konkurenčnějším trhu.",
           "## První dojmy jsou důležitější než kdy jindy",
@@ -159,7 +224,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       SK: {
         title: "Prečo vaša firma potrebuje moderný web v roku 2024",
-        excerpt: "Objavte kľúčové dôvody, prečo vás zastaraný web môže stáť zákazníkov a ako moderný redizajn môže transformovať vašu online prítomnosť.",
+        excerpt:
+          "Objavte kľúčové dôvody, prečo vás zastaraný web môže stáť zákazníkov a ako moderný redizajn môže transformovať vašu online prítomnosť.",
         content: [
           "V dnešnom digitálnom svete je vaša webová stránka často prvým dojmom, ktorý potenciálni zákazníci o vašom podnikaní majú. Moderná, dobre navrhnutá webová stránka nie je len príjemný doplnok—je nevyhnutná pre prežitie na stále konkurenčnejšom trhu.",
           "## Prvé dojmy sú dôležitejšie než kedykoľvek predtým",
@@ -187,7 +253,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "10 E-commerce Trends That Will Boost Your Sales",
-        excerpt: "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
+        excerpt:
+          "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
         content: [
           "The e-commerce landscape is constantly evolving, and staying ahead of the curve is essential for online retailers looking to maximize their sales. Here are the top 10 trends that are reshaping the industry in 2024.",
           "## 1. AI-Powered Personalization",
@@ -215,7 +282,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       CZ: {
         title: "10 trendů e-commerce, které zvýší vaše prodeje",
-        excerpt: "Od AI doporučení po bezproblémové platby - zjistěte nejnovější trendy formující budoucnost online prodeje.",
+        excerpt:
+          "Od AI doporučení po bezproblémové platby - zjistěte nejnovější trendy formující budoucnost online prodeje.",
         content: [
           "Prostředí e-commerce se neustále vyvíjí a zůstat napřed je nezbytné pro online prodejce, kteří chtějí maximalizovat své prodeje.",
           "## 1. AI personalizace",
@@ -232,7 +300,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       SK: {
         title: "10 trendov e-commerce, ktoré zvýšia vaše predaje",
-        excerpt: "Od AI odporúčaní po bezproblémové platby - zistite najnovšie trendy formujúce budúcnosť online predaja.",
+        excerpt:
+          "Od AI odporúčaní po bezproblémové platby - zistite najnovšie trendy formujúce budúcnosť online predaja.",
         content: [
           "Prostredie e-commerce sa neustále vyvíja a zostať vpredu je nevyhnutné pre online predajcov, ktorí chcú maximalizovať svoje predaje.",
           "## 1. AI personalizácia",
@@ -260,7 +329,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "SEO Strategies Every Small Business Should Know",
-        excerpt: "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
+        excerpt:
+          "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
         content: [
           "Search engine optimization doesn't have to be complicated or expensive. With the right strategies, small businesses can compete with larger competitors and capture valuable organic traffic.",
           "## Understanding the Basics",
@@ -300,7 +370,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       SK: {
         title: "SEO stratégie, ktoré by mal poznať každý malý podnik",
-        excerpt: "Zvládnite základy optimalizácie pre vyhľadávače a naučte sa prekonať konkurenciu bez veľkých nákladov.",
+        excerpt:
+          "Zvládnite základy optimalizácie pre vyhľadávače a naučte sa prekonať konkurenciu bez veľkých nákladov.",
         content: [
           "Optimalizácia pre vyhľadávače nemusí byť zložitá ani drahá. So správnymi stratégiami môžu malé podniky konkurovať väčším konkurentom.",
           "## Pochopenie základov",
@@ -326,7 +397,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "The Importance of Mobile-First Design",
-        excerpt: "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
+        excerpt:
+          "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
         content: [
           "Mobile devices have fundamentally changed how people access the internet. If your website isn't designed with mobile users in mind, you're missing out on the majority of your potential audience.",
           "## What Is Mobile-First Design?",
@@ -363,7 +435,8 @@ export const blogPostsData: BlogPostData[] = [
       },
       SK: {
         title: "Dôležitosť Mobile-First dizajnu",
-        excerpt: "S viac ako 60 % webového prenosu z mobilných zariadení zistite, prečo je dizajn pre mobily nevyhnutný.",
+        excerpt:
+          "S viac ako 60 % webového prenosu z mobilných zariadení zistite, prečo je dizajn pre mobily nevyhnutný.",
         content: [
           "Mobilné zariadenia zásadne zmenili spôsob, akým ľudia pristupujú k internetu.",
           "## Čo je Mobile-First dizajn?",
@@ -389,7 +462,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "WordPress vs Custom Development: Which Is Right for You?",
-        excerpt: "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
+        excerpt:
+          "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
         content: [
           "Choosing between WordPress and custom development is one of the most important decisions you'll make for your web project. Both approaches have their merits, and the right choice depends on your specific needs, budget, and goals.",
           "## Understanding WordPress",
@@ -458,7 +532,8 @@ export const blogPostsData: BlogPostData[] = [
     translations: {
       EN: {
         title: "Building a Strong Brand Identity Online",
-        excerpt: "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
+        excerpt:
+          "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
         content: [
           "In the crowded digital marketplace, a strong brand identity is what sets you apart from competitors. It's more than just a logo—it's the complete experience customers have with your business online.",
           "## What Is Brand Identity?",
@@ -510,9 +585,9 @@ export const blogPostsData: BlogPostData[] = [
 
 // Helper function to get blog post by slug for a specific language
 export const getBlogPost = (slug: string, language: "EN" | "CZ" | "SK" = "EN"): BlogPost | undefined => {
-  const post = blogPostsData.find(p => p.slug === slug);
+  const post = blogPostsData.find((p) => p.slug === slug);
   if (!post) return undefined;
-  
+
   const translation = post.translations[language];
   return {
     title: translation.title,
@@ -529,7 +604,7 @@ export const getBlogPost = (slug: string, language: "EN" | "CZ" | "SK" = "EN"): 
 
 // Helper function to get all blog posts for listing (with language support)
 export const getBlogPostsList = (language: "EN" | "CZ" | "SK" = "EN") => {
-  return blogPostsData.map(post => ({
+  return blogPostsData.map((post) => ({
     slug: post.slug,
     title: post.translations[language].title,
     excerpt: post.translations[language].excerpt,
