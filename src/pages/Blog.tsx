@@ -5,97 +5,15 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getBlogPostsList } from "@/data/blog-posts";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const categories = ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding"];
 
-const blogPosts = [
-  {
-    slug: "why-structured-data-is-essential-for-your-seo",
-    title: "Why Structured Data Is Essential for Your SEO",
-    excerpt:
-      "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
-    category: "Web Design",
-    tags: ["UX Design", "Business", "Trends"],
-    author: "Peter Gáborík",
-    date: "Dec 12, 2025",
-    readTime: "5 min read",
-  },
-  {
-    slug: "why-your-business-needs-modern-website-2024",
-    title: "Why Your Business Needs a Modern Website in 2024",
-    excerpt:
-      "Discover the key reasons why having an outdated website could be costing you customers and how a modern redesign can transform your online presence.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    category: "Web Design",
-    tags: ["UX Design", "Business", "Trends"],
-    author: "Alex Johnson",
-    date: "Dec 5, 2024",
-    readTime: "5 min read",
-  },
-  {
-    slug: "ecommerce-trends-boost-sales",
-    title: "10 E-commerce Trends That Will Boost Your Sales",
-    excerpt:
-      "From AI-powered recommendations to seamless checkout experiences, learn about the latest trends shaping the future of online retail.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    category: "E-commerce",
-    tags: ["Online Store", "Sales", "AI"],
-    author: "Sarah Chen",
-    date: "Nov 28, 2024",
-    readTime: "7 min read",
-  },
-  {
-    slug: "seo-strategies-small-business",
-    title: "SEO Strategies Every Small Business Should Know",
-    excerpt:
-      "Master the fundamentals of search engine optimization and learn how to outrank your competitors without breaking the bank.",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=500&fit=crop",
-    category: "Marketing",
-    tags: ["SEO", "Small Business", "Google"],
-    author: "Mike Peters",
-    date: "Nov 20, 2024",
-    readTime: "6 min read",
-  },
-  {
-    slug: "importance-mobile-first-design",
-    title: "The Importance of Mobile-First Design",
-    excerpt:
-      "With over 60% of web traffic coming from mobile devices, learn why designing for mobile first is no longer optional.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop",
-    category: "Web Design",
-    tags: ["Mobile", "Responsive", "UX Design"],
-    author: "Emma Wilson",
-    date: "Nov 15, 2024",
-    readTime: "4 min read",
-  },
-  {
-    slug: "wordpress-vs-custom-development",
-    title: "WordPress vs Custom Development: Which Is Right for You?",
-    excerpt:
-      "A comprehensive comparison to help you choose the best approach for your next web project based on your needs and budget.",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&h=500&fit=crop",
-    category: "Development",
-    tags: ["WordPress", "Coding", "CMS"],
-    author: "Alex Johnson",
-    date: "Nov 10, 2024",
-    readTime: "8 min read",
-  },
-  {
-    slug: "building-brand-identity-online",
-    title: "Building a Strong Brand Identity Online",
-    excerpt:
-      "Learn how to create a cohesive brand presence across all digital touchpoints that resonates with your target audience.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=500&fit=crop",
-    category: "Branding",
-    tags: ["Identity", "Strategy", "Visual Design"],
-    author: "Sarah Chen",
-    date: "Nov 5, 2024",
-    readTime: "5 min read",
-  },
-];
-
 const Blog = () => {
+  const { language } = useLanguage();
+  const blogPosts = getBlogPostsList(language);
+  
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
