@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Code2, Palette, Smartphone, Globe, Zap, Shield } from "lucide-react";
+import { Code2, Palette, Smartphone, Globe, Zap, Shield, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Code2,
@@ -96,9 +97,13 @@ const Services = () => {
                 <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   {service.description}
                 </p>
+                <Button variant="outline" size="sm" className="group/btn">
+                  Learn More
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
               </>
             );
 
