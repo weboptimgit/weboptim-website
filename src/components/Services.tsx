@@ -23,6 +23,7 @@ const services = [
     icon: Globe,
     title: "E-Commerce",
     description: "Powerful online stores with seamless checkout experiences that maximize conversions.",
+    href: "/services/ecommerce-website",
   },
   {
     icon: Zap,
