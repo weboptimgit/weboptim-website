@@ -1,5 +1,24 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, CreditCard, Globe, Package, Rocket, Search, Server, Settings, Shield, ShoppingBag, ShoppingCart, Sparkles, Star, Store, TrendingUp, Truck, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  CreditCard,
+  Globe,
+  Package,
+  Rocket,
+  Search,
+  Server,
+  Settings,
+  Shield,
+  ShoppingBag,
+  ShoppingCart,
+  Sparkles,
+  Star,
+  Store,
+  TrendingUp,
+  Truck,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,48 +28,68 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ecommerceFaqs = [
-  { question: "Which e-commerce platform is best for me?", answer: "It depends on your needs. WooCommerce is great for WordPress users wanting flexibility. Shopify is ideal for quick setup. Shoptet and Upgates are popular in Czech/Slovak markets. We help you choose the right platform during consultation." },
-  { question: "Can you migrate my existing e-shop?", answer: "Yes, we handle complete migrations including products, customers, orders, and SEO. We ensure minimal downtime and preserve your search rankings." },
-  { question: "Do you integrate payment gateways?", answer: "We integrate all major payment providers including Stripe, PayPal, GoPay, Comgate, and local bank transfers. We also set up invoice generation." },
-  { question: "How do you handle shipping integration?", answer: "We integrate with carriers like Zásilkovna, PPL, DPD, Česká pošta, and more. Including real-time shipping rates and tracking." },
-  { question: "What about inventory management?", answer: "We set up inventory tracking, low-stock alerts, and can integrate with ERP systems like Pohoda, Money S3, or custom solutions." },
+  {
+    question: "Which e-commerce platform is best for me?",
+    answer:
+      "It depends on your needs. WooCommerce is great for WordPress users wanting flexibility. Shopify is ideal for quick setup. Shoptet and Upgates are popular in Czech/Slovak markets. We help you choose the right platform during consultation.",
+  },
+  {
+    question: "Can you migrate my existing e-shop?",
+    answer:
+      "Yes, we handle complete migrations including products, customers, orders, and SEO. We ensure minimal downtime and preserve your search rankings.",
+  },
+  {
+    question: "Do you integrate payment gateways?",
+    answer:
+      "We integrate all major payment providers including Stripe, PayPal, GoPay, Comgate, and local bank transfers. We also set up invoice generation.",
+  },
+  {
+    question: "How do you handle shipping integration?",
+    answer:
+      "We integrate with carriers like Zásilkovna, PPL, DPD, Česká pošta, and more. Including real-time shipping rates and tracking.",
+  },
+  {
+    question: "What about inventory management?",
+    answer:
+      "We set up inventory tracking, low-stock alerts, and can integrate with ERP systems like Pohoda, Money S3, or custom solutions.",
+  },
 ];
 
 const platforms = [
-  { 
-    name: "WooCommerce", 
-    icon: "🛒", 
-    description: "WordPress power", 
+  {
+    name: "WooCommerce",
+    icon: "🛒",
+    description: "WordPress power",
     color: "from-purple-500 to-violet-600",
-    highlight: true 
+    highlight: true,
   },
-  { 
-    name: "Shoptet", 
-    icon: "🏪", 
-    description: "Czech favorite", 
+  {
+    name: "Shoptet",
+    icon: "🏪",
+    description: "Czech favorite",
     color: "from-green-400 to-emerald-500",
-    highlight: false 
+    highlight: false,
   },
-  { 
-    name: "Upgates", 
-    icon: "🚀", 
-    description: "Modern SaaS", 
+  {
+    name: "Upgates",
+    icon: "🚀",
+    description: "Modern SaaS",
     color: "from-blue-400 to-cyan-500",
-    highlight: false 
+    highlight: false,
   },
-  { 
-    name: "Shopify", 
-    icon: "💎", 
-    description: "Global leader", 
+  {
+    name: "Shopify",
+    icon: "💎",
+    description: "Global leader",
     color: "from-lime-400 to-green-500",
-    highlight: false 
+    highlight: false,
   },
-  { 
-    name: "Custom", 
-    icon: "⚡", 
-    description: "Built for you", 
+  {
+    name: "Custom",
+    icon: "⚡",
+    description: "Built for you",
     color: "from-orange-400 to-red-500",
-    highlight: false 
+    highlight: false,
   },
 ];
 
@@ -97,52 +136,52 @@ const features = [
     title: "Security",
     description: "SSL, PCI compliance & fraud protection",
     gradient: "from-indigo-500 to-purple-500",
-  }
+  },
 ];
 
 const processSteps = [
-  { 
-    step: "01", 
-    title: "Discovery", 
+  {
+    step: "01",
+    title: "Discovery",
     description: "Understanding your products, market & goals",
     icon: Search,
-    duration: "1-2 days"
+    duration: "1-2 days",
   },
-  { 
-    step: "02", 
-    title: "Platform Selection", 
+  {
+    step: "02",
+    title: "Platform Selection",
     description: "Choosing the perfect e-commerce solution",
     icon: Settings,
-    duration: "1 day"
+    duration: "1 day",
   },
-  { 
-    step: "03", 
-    title: "Design & UX", 
+  {
+    step: "03",
+    title: "Design & UX",
     description: "Creating a conversion-focused storefront",
     icon: Sparkles,
-    duration: "1-2 weeks"
+    duration: "1-2 weeks",
   },
-  { 
-    step: "04", 
-    title: "Development", 
+  {
+    step: "04",
+    title: "Development",
     description: "Building your custom online store",
     icon: ShoppingBag,
-    duration: "2-4 weeks"
+    duration: "2-4 weeks",
   },
-  { 
-    step: "05", 
-    title: "Product Setup", 
+  {
+    step: "05",
+    title: "Product Setup",
     description: "Importing catalog & configuring inventory",
     icon: Package,
-    duration: "3-5 days"
+    duration: "3-5 days",
   },
-  { 
-    step: "06", 
-    title: "Launch", 
+  {
+    step: "06",
+    title: "Launch",
     description: "Going live with ongoing support",
     icon: Rocket,
-    duration: "Ongoing"
-  }
+    duration: "Ongoing",
+  },
 ];
 
 const packages = [
@@ -157,14 +196,28 @@ const packages = [
     name: "Growth Shop",
     description: "For scaling businesses",
     price: "From €5,000",
-    features: ["Unlimited products", "Custom design", "Multi-payment", "Marketing tools", "Analytics", "3 months support"],
+    features: [
+      "Unlimited products",
+      "Custom design",
+      "Multi-payment",
+      "Marketing tools",
+      "Analytics",
+      "3 months support",
+    ],
     popular: true,
   },
   {
     name: "Enterprise",
     description: "Full-scale solution",
     price: "Custom",
-    features: ["Custom features", "API integrations", "Multi-currency", "Priority support", "Performance SLA", "Dedicated team"],
+    features: [
+      "Custom features",
+      "API integrations",
+      "Multi-currency",
+      "Priority support",
+      "Performance SLA",
+      "Dedicated team",
+    ],
     popular: false,
   },
 ];
@@ -183,7 +236,7 @@ const AnimatedCart = () => {
           </div>
           <span className="text-xs text-muted-foreground">3 items</span>
         </div>
-        
+
         {/* Cart Items */}
         <div className="space-y-3 mb-4">
           {[
@@ -208,7 +261,7 @@ const AnimatedCart = () => {
             </motion.div>
           ))}
         </div>
-        
+
         {/* Total */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -224,7 +277,7 @@ const AnimatedCart = () => {
             Checkout →
           </div>
         </motion.div>
-        
+
         {/* Floating badges */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 10 }}
@@ -245,36 +298,30 @@ const EcommerceWebsite = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent" />
         <div className="absolute top-20 right-1/4 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        
+
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-sm font-medium mb-6">
                 <Store className="w-4 h-4" />
                 {t("ecom.badge")}
               </span>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                 {t("ecom.title1")}{" "}
                 <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
                   {t("ecom.title2")}
                 </span>
               </h1>
-              
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t("ecom.subtitle")}
-              </p>
-              
+
+              <p className="text-lg md:text-xl text-muted-foreground mb-8">{t("ecom.subtitle")}</p>
+
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {metrics.map((metric, i) => (
@@ -291,7 +338,7 @@ const EcommerceWebsite = () => {
                   </motion.div>
                 ))}
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="glow" size="xl" asChild>
                   <Link to="/#contact">
@@ -327,12 +374,8 @@ const EcommerceWebsite = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">
-              Multi-Platform Expertise
-            </h2>
-            <p className="text-muted-foreground">
-              We work with the platforms that fit your business best
-            </p>
+            <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Multi-Platform Expertise</h2>
+            <p className="text-muted-foreground">We work with the platforms that fit your business best</p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -350,28 +393,36 @@ const EcommerceWebsite = () => {
                 }`}
               >
                 {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+
                 {platform.highlight && (
                   <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-primary text-primary-foreground text-[10px] font-medium rounded-full z-10">
                     Popular
                   </span>
                 )}
-                
+
                 {/* Icon with gradient background */}
                 <div className="relative mb-2">
-                  <div className={`relative text-3xl w-12 h-12 rounded-xl bg-gradient-to-br ${platform.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                  <div
+                    className={`relative text-3xl w-12 h-12 rounded-xl bg-gradient-to-br ${platform.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                  >
                     {platform.icon}
                   </div>
                   {/* Animated ring blur */}
-                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                  <div
+                    className={`absolute inset-0 rounded-xl bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                  />
                 </div>
-                
+
                 <h3 className="relative font-semibold group-hover:text-primary transition-colors">{platform.name}</h3>
                 <p className="relative text-xs text-muted-foreground">{platform.description}</p>
-                
+
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div
+                  className={`absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                />
               </motion.div>
             ))}
           </div>
@@ -387,9 +438,7 @@ const EcommerceWebsite = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Everything Your Store Needs
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Everything Your Store Needs</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Complete e-commerce solutions with all the features to run a successful online business
             </p>
@@ -406,24 +455,34 @@ const EcommerceWebsite = () => {
                 className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
               >
                 {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+
                 <div className="relative z-10">
                   {/* Icon with gradient background - match homepage services */}
                   <div className="relative mb-6">
-                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                    <div
+                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                    >
                       <feature.icon className="w-8 h-8 text-white" />
                       {/* Animated ring blur */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                      <div
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                      />
                     </div>
                   </div>
-                  
-                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+
+                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {feature.title}
+                  </h3>
                   <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
-                
+
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div
+                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                />
               </motion.div>
             ))}
           </div>
@@ -439,9 +498,7 @@ const EcommerceWebsite = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              From Idea to Sales
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">From Idea to Sales</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Our proven process gets your online store up and running fast
             </p>
@@ -469,9 +526,7 @@ const EcommerceWebsite = () => {
                       <h3 className="font-semibold">{step.title}</h3>
                     </div>
                     <p className="text-muted-foreground text-sm mb-2">{step.description}</p>
-                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                      {step.duration}
-                    </span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{step.duration}</span>
                   </div>
                 </div>
               </motion.div>
@@ -489,12 +544,8 @@ const EcommerceWebsite = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              E-Shop Packages
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Transparent pricing for every business size
-            </p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">E-Shop Packages</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Transparent pricing for every business size</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -531,11 +582,7 @@ const EcommerceWebsite = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  variant={pkg.popular ? "glow" : "outline"} 
-                  className="w-full"
-                  asChild
-                >
+                <Button variant={pkg.popular ? "glow" : "outline"} className="w-full" asChild>
                   <Link to="/#contact">Get Started</Link>
                 </Button>
               </motion.div>
@@ -544,19 +591,35 @@ const EcommerceWebsite = () => {
         </div>
       </section>
 
+      <ServiceReviews
+        title="What Our Clients Say"
+        subtitle="See what e-commerce businesses say about their online stores."
+      />
+      <ServiceFAQ
+        faqs={ecommerceFaqs}
+        serviceName="E-Commerce"
+        title="Frequently Asked Questions"
+        subtitle="Common questions about our e-commerce services."
+      />
+
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10" />
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="text-center max-w-3xl mx-auto"
+          >
             <Sparkles className="w-12 h-12 text-green-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               Ready to Start <span className="text-gradient">Selling</span>?
@@ -580,9 +643,6 @@ const EcommerceWebsite = () => {
           </motion.div>
         </div>
       </section>
-
-      <ServiceReviews title="What Our Clients Say" subtitle="See what e-commerce businesses say about their online stores." />
-      <ServiceFAQ faqs={ecommerceFaqs} serviceName="E-Commerce" title="Frequently Asked Questions" subtitle="Common questions about our e-commerce services." />
 
       <Footer />
     </div>

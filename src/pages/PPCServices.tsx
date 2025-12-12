@@ -1,6 +1,24 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Target, TrendingUp, MousePointerClick, BarChart3, ShoppingBag, Users, Video, MapPin, Zap, DollarSign, Eye, Clock, ArrowRight, Check, Play, Search, Sparkles } from "lucide-react";
+import {
+  Target,
+  TrendingUp,
+  MousePointerClick,
+  BarChart3,
+  ShoppingBag,
+  Users,
+  Video,
+  MapPin,
+  Zap,
+  DollarSign,
+  Eye,
+  Clock,
+  ArrowRight,
+  Check,
+  Play,
+  Search,
+  Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,27 +30,33 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const ppcFaqs = [
   {
     question: "How quickly will I see results from PPC advertising?",
-    answer: "Unlike SEO, PPC delivers immediate results. You can start seeing traffic and leads within hours of launching your campaign. However, optimization for best ROI typically takes 2-4 weeks as we gather data and refine targeting.",
+    answer:
+      "Unlike SEO, PPC delivers immediate results. You can start seeing traffic and leads within hours of launching your campaign. However, optimization for best ROI typically takes 2-4 weeks as we gather data and refine targeting.",
   },
   {
     question: "What is a good ROAS (Return on Ad Spend)?",
-    answer: "A good ROAS varies by industry, but generally 3:1 to 4:1 is considered healthy for most businesses. This means for every €1 spent on ads, you generate €3-4 in revenue. We optimize campaigns to maximize your specific ROAS goals.",
+    answer:
+      "A good ROAS varies by industry, but generally 3:1 to 4:1 is considered healthy for most businesses. This means for every €1 spent on ads, you generate €3-4 in revenue. We optimize campaigns to maximize your specific ROAS goals.",
   },
   {
     question: "Which platforms do you advertise on?",
-    answer: "We manage campaigns across Google Ads (Search, Shopping, Display, YouTube), Meta Ads (Facebook & Instagram), LinkedIn Ads, TikTok Ads, and Microsoft Advertising (Bing). We recommend platforms based on your target audience and goals.",
+    answer:
+      "We manage campaigns across Google Ads (Search, Shopping, Display, YouTube), Meta Ads (Facebook & Instagram), LinkedIn Ads, TikTok Ads, and Microsoft Advertising (Bing). We recommend platforms based on your target audience and goals.",
   },
   {
     question: "How much should I budget for PPC?",
-    answer: "Budget depends on your industry, competition, and goals. We recommend starting with at least €1,000-2,000/month for meaningful data collection. Our management fee is separate from your ad spend, which goes directly to the platforms.",
+    answer:
+      "Budget depends on your industry, competition, and goals. We recommend starting with at least €1,000-2,000/month for meaningful data collection. Our management fee is separate from your ad spend, which goes directly to the platforms.",
   },
   {
     question: "Do you provide reporting and analytics?",
-    answer: "Yes, we provide detailed reports showing impressions, clicks, conversions, cost per acquisition, ROAS, and more. You get access to real-time dashboards and we schedule regular strategy calls to review performance.",
+    answer:
+      "Yes, we provide detailed reports showing impressions, clicks, conversions, cost per acquisition, ROAS, and more. You get access to real-time dashboards and we schedule regular strategy calls to review performance.",
   },
   {
     question: "Can you help with landing page optimization?",
-    answer: "Absolutely! Great ads need great landing pages to convert. We provide landing page recommendations and can create optimized landing pages as part of our Growth and Enterprise packages.",
+    answer:
+      "Absolutely! Great ads need great landing pages to convert. We provide landing page recommendations and can create optimized landing pages as part of our Growth and Enterprise packages.",
   },
 ];
 
@@ -197,20 +221,20 @@ const PPCServices = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="PPC Advertising Services | WebOptim"
         description="Drive instant traffic and conversions with our data-driven PPC advertising campaigns. Google Ads, Meta Ads, and multi-platform strategies."
       />
       <div className="min-h-screen bg-background">
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
           </div>
-          
+
           <div className="max-w-7xl mx-auto relative">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -224,11 +248,12 @@ const PPCServices = () => {
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   {t("ppc.title1")}
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> {t("ppc.title2")}</span>
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {" "}
+                    {t("ppc.title2")}
+                  </span>
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  {t("ppc.subtitle")}
-                </p>
+                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">{t("ppc.subtitle")}</p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/contact">
                     <Button variant="hero" size="lg" className="gap-2">
@@ -260,7 +285,7 @@ const PPCServices = () => {
 
                   {/* Performance Metrics */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <motion.div 
+                    <motion.div
                       className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -270,7 +295,7 @@ const PPCServices = () => {
                       <div className="text-2xl font-bold text-foreground">12,847</div>
                       <div className="text-xs text-muted-foreground">Clicks Today</div>
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="bg-gradient-to-br from-green-500/20 to-green-500/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -280,7 +305,7 @@ const PPCServices = () => {
                       <div className="text-2xl font-bold text-foreground">324%</div>
                       <div className="text-xs text-muted-foreground">ROAS</div>
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -290,7 +315,7 @@ const PPCServices = () => {
                       <div className="text-2xl font-bold text-foreground">€0.42</div>
                       <div className="text-xs text-muted-foreground">Avg. CPC</div>
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="bg-gradient-to-br from-orange-500/20 to-orange-500/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -309,7 +334,7 @@ const PPCServices = () => {
                       <span className="text-primary font-medium">92%</span>
                     </div>
                     <div className="h-3 bg-muted/30 rounded-full overflow-hidden">
-                      <motion.div 
+                      <motion.div
                         className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: "92%" }}
@@ -343,12 +368,12 @@ const PPCServices = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {campaignTypes.map((campaign, index) => {
                 const gradientStyles: Record<string, string> = {
-                  'from-blue-500 to-cyan-500': 'from-blue-500 to-cyan-500',
-                  'from-green-500 to-emerald-500': 'from-green-500 to-emerald-500',
-                  'from-pink-500 to-rose-500': 'from-pink-500 to-rose-500',
-                  'from-red-500 to-orange-500': 'from-red-500 to-orange-500',
-                  'from-purple-500 to-violet-500': 'from-purple-500 to-violet-500',
-                  'from-amber-500 to-yellow-500': 'from-amber-500 to-yellow-500',
+                  "from-blue-500 to-cyan-500": "from-blue-500 to-cyan-500",
+                  "from-green-500 to-emerald-500": "from-green-500 to-emerald-500",
+                  "from-pink-500 to-rose-500": "from-pink-500 to-rose-500",
+                  "from-red-500 to-orange-500": "from-red-500 to-orange-500",
+                  "from-purple-500 to-violet-500": "from-purple-500 to-violet-500",
+                  "from-amber-500 to-yellow-500": "from-amber-500 to-yellow-500",
                 };
                 return (
                   <motion.div
@@ -360,35 +385,44 @@ const PPCServices = () => {
                     className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                   >
                     {/* Hover glow effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                    
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
+
                     <div className="relative z-10">
                       {/* Icon with gradient background - match homepage services */}
                       <div className="relative mb-6">
-                        <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${campaign.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                        <div
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${campaign.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                        >
                           <campaign.icon className="w-8 h-8 text-white" />
                           {/* Animated ring blur */}
-                          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                          <div
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                          />
                         </div>
                       </div>
-                      
+
                       <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                         {campaign.title}
                       </h3>
-                      <p className="relative text-muted-foreground leading-relaxed mb-4">
-                        {campaign.description}
-                      </p>
+                      <p className="relative text-muted-foreground leading-relaxed mb-4">{campaign.description}</p>
                       <div className="relative flex flex-wrap gap-2">
                         {campaign.platforms.map((platform) => (
-                          <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
+                          <span
+                            key={platform}
+                            className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground"
+                          >
                             {platform}
                           </span>
                         ))}
                       </div>
                     </div>
-                    
+
                     {/* Corner decoration */}
-                    <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                    <div
+                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                    />
                   </motion.div>
                 );
               })}
@@ -409,7 +443,8 @@ const PPCServices = () => {
                 Why Invest in <span className="text-primary">PPC Advertising?</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Unlike organic marketing, PPC gives you immediate visibility and complete control over your advertising budget.
+                Unlike organic marketing, PPC gives you immediate visibility and complete control over your advertising
+                budget.
               </p>
             </motion.div>
 
@@ -425,7 +460,7 @@ const PPCServices = () => {
                 >
                   {/* Hover glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
-                  
+
                   <div className="relative z-10">
                     {/* Icon with gradient background - match homepage services */}
                     <div className="relative mb-6">
@@ -435,11 +470,13 @@ const PPCServices = () => {
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
                       </div>
                     </div>
-                    
-                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{reason.title}</h3>
+
+                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {reason.title}
+                    </h3>
                     <p className="relative text-muted-foreground leading-relaxed">{reason.description}</p>
                   </div>
-                  
+
                   {/* Corner decoration */}
                   <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
                 </motion.div>
@@ -467,7 +504,7 @@ const PPCServices = () => {
 
             <div className="relative">
               <div className="absolute left-[27px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/30 hidden md:block" />
-              
+
               <div className="space-y-8">
                 {process.map((item, index) => (
                   <motion.div
@@ -521,9 +558,7 @@ const PPCServices = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className={`relative glass-strong rounded-2xl p-8 border ${
-                    plan.popular 
-                      ? "border-primary shadow-lg shadow-primary/20" 
-                      : "border-border/50"
+                    plan.popular ? "border-primary shadow-lg shadow-primary/20" : "border-border/50"
                   }`}
                 >
                   {plan.popular && (
@@ -548,11 +583,7 @@ const PPCServices = () => {
                     ))}
                   </ul>
                   <Link to="/contact" className="block">
-                    <Button 
-                      variant={plan.popular ? "hero" : "outline"} 
-                      size="lg" 
-                      className="w-full"
-                    >
+                    <Button variant={plan.popular ? "hero" : "outline"} size="lg" className="w-full">
                       Get Started
                     </Button>
                   </Link>
@@ -562,19 +593,38 @@ const PPCServices = () => {
           </div>
         </section>
 
+        {/* Reviews */}
+        <ServiceReviews
+          title="What Our Clients Say"
+          subtitle="See what businesses say about their PPC campaign results with us."
+        />
+
+        {/* FAQ */}
+        <ServiceFAQ
+          faqs={ppcFaqs}
+          serviceName="PPC Advertising"
+          title="Frequently Asked Questions"
+          subtitle="Common questions about our PPC advertising services."
+        />
+
         {/* CTA Section */}
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-red-500/10" />
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} className="text-center max-w-3xl mx-auto">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="text-center max-w-3xl mx-auto"
+            >
               <Sparkles className="w-12 h-12 text-orange-400 mx-auto mb-6" />
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
                 Ready to Scale Your <span className="text-gradient">Business</span>?
@@ -598,20 +648,6 @@ const PPCServices = () => {
             </motion.div>
           </div>
         </section>
-
-        {/* Reviews */}
-        <ServiceReviews 
-          title="What Our Clients Say"
-          subtitle="See what businesses say about their PPC campaign results with us."
-        />
-
-        {/* FAQ */}
-        <ServiceFAQ 
-          faqs={ppcFaqs}
-          serviceName="PPC Advertising"
-          title="Frequently Asked Questions"
-          subtitle="Common questions about our PPC advertising services."
-        />
 
         <Footer />
       </div>

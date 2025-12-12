@@ -1,5 +1,24 @@
 import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Check, ExternalLink, Globe, LineChart, Link2, MapPin, MousePointerClick, Rocket, Search, Settings, Sparkles, Star, Target, TrendingUp, Users, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Check,
+  ExternalLink,
+  Globe,
+  LineChart,
+  Link2,
+  MapPin,
+  MousePointerClick,
+  Rocket,
+  Search,
+  Settings,
+  Sparkles,
+  Star,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,47 +28,63 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const seoFaqs = [
-  { question: "How long does SEO take to show results?", answer: "SEO is a long-term strategy. You can expect to see initial improvements in 3-6 months, with significant results in 6-12 months depending on competition and your starting point." },
-  { question: "What's included in your SEO packages?", answer: "Our packages include keyword research, on-page optimization, technical SEO audits, link building, content strategy, and monthly reporting. Higher tiers include more keywords and additional services." },
-  { question: "Do you guarantee rankings?", answer: "No ethical SEO agency can guarantee specific rankings as search algorithms change constantly. We focus on sustainable growth and proven strategies that deliver long-term results." },
-  { question: "How do you measure SEO success?", answer: "We track keyword rankings, organic traffic, conversions, and ROI. You receive detailed monthly reports with all key metrics and actionable insights." },
+  {
+    question: "How long does SEO take to show results?",
+    answer:
+      "SEO is a long-term strategy. You can expect to see initial improvements in 3-6 months, with significant results in 6-12 months depending on competition and your starting point.",
+  },
+  {
+    question: "What's included in your SEO packages?",
+    answer:
+      "Our packages include keyword research, on-page optimization, technical SEO audits, link building, content strategy, and monthly reporting. Higher tiers include more keywords and additional services.",
+  },
+  {
+    question: "Do you guarantee rankings?",
+    answer:
+      "No ethical SEO agency can guarantee specific rankings as search algorithms change constantly. We focus on sustainable growth and proven strategies that deliver long-term results.",
+  },
+  {
+    question: "How do you measure SEO success?",
+    answer:
+      "We track keyword rankings, organic traffic, conversions, and ROI. You receive detailed monthly reports with all key metrics and actionable insights.",
+  },
 ];
 
 const seoServices = [
-  { 
-    name: "Keyword Research", 
-    icon: "🔍", 
-    description: "Find winning keywords", 
+  {
+    name: "Keyword Research",
+    icon: "🔍",
+    description: "Find winning keywords",
     color: "from-blue-500 to-cyan-500",
   },
-  { 
-    name: "Link Building", 
-    icon: "🔗", 
-    description: "Quality backlinks", 
+  {
+    name: "Link Building",
+    icon: "🔗",
+    description: "Quality backlinks",
     color: "from-purple-500 to-violet-500",
   },
-  { 
-    name: "Local SEO", 
-    icon: "📍", 
-    description: "Dominate local search", 
+  {
+    name: "Local SEO",
+    icon: "📍",
+    description: "Dominate local search",
     color: "from-green-500 to-emerald-500",
   },
-  { 
-    name: "Technical SEO", 
-    icon: "⚙️", 
-    description: "Site optimization", 
+  {
+    name: "Technical SEO",
+    icon: "⚙️",
+    description: "Site optimization",
     color: "from-orange-500 to-red-500",
   },
-  { 
-    name: "Content Strategy", 
-    icon: "📝", 
-    description: "Rank-worthy content", 
+  {
+    name: "Content Strategy",
+    icon: "📝",
+    description: "Rank-worthy content",
     color: "from-pink-500 to-rose-500",
   },
-  { 
-    name: "Analytics", 
-    icon: "📊", 
-    description: "Data-driven results", 
+  {
+    name: "Analytics",
+    icon: "📊",
+    description: "Data-driven results",
     color: "from-indigo-500 to-blue-500",
   },
 ];
@@ -65,7 +100,8 @@ const features = [
   {
     icon: Search,
     title: "Keyword Research & Analysis",
-    description: "Deep dive into search intent, competition analysis, and identifying high-value keywords that drive qualified traffic",
+    description:
+      "Deep dive into search intent, competition analysis, and identifying high-value keywords that drive qualified traffic",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
@@ -77,7 +113,8 @@ const features = [
   {
     icon: MapPin,
     title: "Local SEO Optimization",
-    description: "Google Business Profile, local citations, and geo-targeted strategies to dominate local search results",
+    description:
+      "Google Business Profile, local citations, and geo-targeted strategies to dominate local search results",
     gradient: "from-green-500 to-emerald-500",
   },
   {
@@ -97,52 +134,52 @@ const features = [
     title: "Reporting & Analytics",
     description: "Transparent monthly reports with rankings, traffic, conversions, and ROI tracking",
     gradient: "from-indigo-500 to-blue-500",
-  }
+  },
 ];
 
 const processSteps = [
-  { 
-    step: "01", 
-    title: "SEO Audit", 
+  {
+    step: "01",
+    title: "SEO Audit",
     description: "Complete analysis of your current SEO health",
     icon: Search,
-    duration: "1-2 days"
+    duration: "1-2 days",
   },
-  { 
-    step: "02", 
-    title: "Strategy", 
+  {
+    step: "02",
+    title: "Strategy",
     description: "Custom roadmap based on your goals",
     icon: Target,
-    duration: "2-3 days"
+    duration: "2-3 days",
   },
-  { 
-    step: "03", 
-    title: "On-Page SEO", 
+  {
+    step: "03",
+    title: "On-Page SEO",
     description: "Optimizing content, meta tags & structure",
     icon: Settings,
-    duration: "1-2 weeks"
+    duration: "1-2 weeks",
   },
-  { 
-    step: "04", 
-    title: "Technical Fixes", 
+  {
+    step: "04",
+    title: "Technical Fixes",
     description: "Speed, mobile, Core Web Vitals",
     icon: Zap,
-    duration: "1-2 weeks"
+    duration: "1-2 weeks",
   },
-  { 
-    step: "05", 
-    title: "Link Building", 
+  {
+    step: "05",
+    title: "Link Building",
     description: "Earning quality backlinks",
     icon: Link2,
-    duration: "Ongoing"
+    duration: "Ongoing",
   },
-  { 
-    step: "06", 
-    title: "Monitor & Grow", 
+  {
+    step: "06",
+    title: "Monitor & Grow",
     description: "Track rankings & refine strategy",
     icon: TrendingUp,
-    duration: "Monthly"
-  }
+    duration: "Monthly",
+  },
 ];
 
 const packages = [
@@ -157,14 +194,28 @@ const packages = [
     name: "SEO Growth",
     description: "For growing businesses",
     price: "€1,200/mo",
-    features: ["20 keywords tracked", "Bi-weekly reports", "Link building", "Content strategy", "Local SEO", "Priority support"],
+    features: [
+      "20 keywords tracked",
+      "Bi-weekly reports",
+      "Link building",
+      "Content strategy",
+      "Local SEO",
+      "Priority support",
+    ],
     popular: true,
   },
   {
     name: "SEO Enterprise",
     description: "Full-scale SEO",
     price: "Custom",
-    features: ["Unlimited keywords", "Weekly reports", "Dedicated manager", "Content creation", "Competitor analysis", "API access"],
+    features: [
+      "Unlimited keywords",
+      "Weekly reports",
+      "Dedicated manager",
+      "Content creation",
+      "Competitor analysis",
+      "API access",
+    ],
     popular: false,
   },
 ];
@@ -189,7 +240,7 @@ const AnimatedRankings = () => {
           </div>
           <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-500">Live</span>
         </div>
-        
+
         {/* Rankings Table */}
         <div className="space-y-3">
           <div className="grid grid-cols-4 gap-2 text-xs text-muted-foreground pb-2">
@@ -208,9 +259,11 @@ const AnimatedRankings = () => {
             >
               <span className="truncate font-medium">{item.keyword}</span>
               <div className="flex justify-center">
-                <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
-                  item.position === 1 ? "bg-yellow-500/20 text-yellow-500" : "bg-primary/20 text-primary"
-                }`}>
+                <span
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
+                    item.position === 1 ? "bg-yellow-500/20 text-yellow-500" : "bg-primary/20 text-primary"
+                  }`}
+                >
                   {item.position}
                 </span>
               </div>
@@ -219,7 +272,7 @@ const AnimatedRankings = () => {
             </motion.div>
           ))}
         </div>
-        
+
         {/* Floating badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 10 }}
@@ -240,36 +293,30 @@ const SEOServices = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
         <div className="absolute top-20 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
-        
+
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <Search className="w-4 h-4" />
                 {t("seo.badge")}
               </span>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                 {t("seo.title1")}{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   {t("seo.title2")}
                 </span>
               </h1>
-              
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t("seo.subtitle")}
-              </p>
-              
+
+              <p className="text-lg md:text-xl text-muted-foreground mb-8">{t("seo.subtitle")}</p>
+
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {metrics.map((metric, i) => (
@@ -286,7 +333,7 @@ const SEOServices = () => {
                   </motion.div>
                 ))}
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="glow" size="xl" asChild>
                   <Link to="/#contact">
@@ -322,12 +369,8 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">
-              Complete SEO Solutions
-            </h2>
-            <p className="text-muted-foreground">
-              Everything you need to dominate search results
-            </p>
+            <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Complete SEO Solutions</h2>
+            <p className="text-muted-foreground">Everything you need to dominate search results</p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -341,26 +384,34 @@ const SEOServices = () => {
                 className="group relative glass rounded-2xl px-6 py-4 hover:border-primary/30 transition-all duration-500 min-w-[160px] cursor-pointer overflow-hidden"
               >
                 {/* Hover glow effect - match homepage services */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+
                 <div className="relative z-10 flex items-center gap-3">
                   {/* Icon with gradient background */}
                   <div className="relative">
-                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                    <div
+                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                    >
                       {service.icon}
                       {/* Animated ring blur */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                      <div
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                      />
                     </div>
                   </div>
-                  
+
                   <div>
                     <h3 className="font-semibold group-hover:text-primary transition-colors">{service.name}</h3>
                     <p className="text-xs text-muted-foreground">{service.description}</p>
                   </div>
                 </div>
-                
+
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div
+                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                />
               </motion.div>
             ))}
           </div>
@@ -376,9 +427,7 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              What's Included
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">What's Included</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Comprehensive SEO services to improve every aspect of your search visibility
             </p>
@@ -395,24 +444,34 @@ const SEOServices = () => {
                 className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
               >
                 {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+
                 <div className="relative z-10">
                   {/* Icon with gradient background - match homepage services */}
                   <div className="relative mb-6">
-                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                    <div
+                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                    >
                       <feature.icon className="w-8 h-8 text-white" />
                       {/* Animated ring blur */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                      <div
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                      />
                     </div>
                   </div>
-                  
-                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+
+                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {feature.title}
+                  </h3>
                   <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
-                
+
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div
+                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                />
               </motion.div>
             ))}
           </div>
@@ -428,9 +487,7 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Our SEO Process
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Our SEO Process</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A proven methodology that delivers consistent results
             </p>
@@ -458,9 +515,7 @@ const SEOServices = () => {
                       <h3 className="font-semibold">{step.title}</h3>
                     </div>
                     <p className="text-muted-foreground text-sm mb-2">{step.description}</p>
-                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                      {step.duration}
-                    </span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{step.duration}</span>
                   </div>
                 </div>
               </motion.div>
@@ -478,12 +533,8 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              SEO Packages
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Flexible plans that grow with your business
-            </p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">SEO Packages</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Flexible plans that grow with your business</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -520,11 +571,7 @@ const SEOServices = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  variant={pkg.popular ? "glow" : "outline"} 
-                  className="w-full"
-                  asChild
-                >
+                <Button variant={pkg.popular ? "glow" : "outline"} className="w-full" asChild>
                   <Link to="/#contact">Get Started</Link>
                 </Button>
               </motion.div>
@@ -533,19 +580,32 @@ const SEOServices = () => {
         </div>
       </section>
 
+      <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their SEO results." />
+      <ServiceFAQ
+        faqs={seoFaqs}
+        serviceName="SEO"
+        title="Frequently Asked Questions"
+        subtitle="Common questions about our SEO services."
+      />
+
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10" />
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="text-center max-w-3xl mx-auto"
+          >
             <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               Ready to Dominate <span className="text-gradient">Search Results</span>?
@@ -570,10 +630,7 @@ const SEOServices = () => {
         </div>
       </section>
 
-        <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their SEO results." />
-        <ServiceFAQ faqs={seoFaqs} serviceName="SEO" title="Frequently Asked Questions" subtitle="Common questions about our SEO services." />
-
-        <Footer />
+      <Footer />
     </div>
   );
 };
