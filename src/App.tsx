@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import BuildingWebsite from "./pages/BuildingWebsite";
 import EcommerceWebsite from "./pages/EcommerceWebsite";
+import SEOServices from "./pages/SEOServices";
 import CaseStudy from "./pages/CaseStudy";
 import Work from "./pages/Work";
 import Services from "./pages/Services";
@@ -38,6 +39,8 @@ const App = () => (
             <Route path="/sluzby/tvorba-webu" element={<BuildingWebsite />} />
             <Route path="/services/ecommerce-website" element={<EcommerceWebsite />} />
             <Route path="/sluzby/eshop" element={<EcommerceWebsite />} />
+            <Route path="/services/seo" element={<SEOServices />} />
+            <Route path="/sluzby/seo" element={<SEOServices />} />
             
             {/* Work/Portfolio - EN, CZ, SK */}
             <Route path="/work" element={<Work />} />

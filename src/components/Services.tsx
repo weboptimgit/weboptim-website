@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Palette, Smartphone, Globe, Zap, Shield, ArrowRight } from "lucide-react";
+import { Code2, Palette, Search, Globe, Zap, Shield, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 const services = [
@@ -15,9 +15,10 @@ const services = [
     description: "Beautiful, intuitive interfaces that delight users and drive engagement across all platforms.",
   },
   {
-    icon: Smartphone,
-    title: "Mobile Apps",
-    description: "Native and cross-platform apps that deliver seamless experiences on iOS and Android.",
+    icon: Search,
+    title: "SEO Services",
+    description: "Boost your rankings with keyword research, link building, and local SEO strategies.",
+    href: "/services/seo",
   },
   {
     icon: Globe,
