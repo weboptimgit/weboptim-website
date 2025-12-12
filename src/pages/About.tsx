@@ -40,6 +40,38 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/peter-gaborik/",
     email: "info@weboptim.eu",
   },
+  {
+    name: "Lucia Kováčová",
+    role: "Creative Director",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
+    bio: "Award-winning designer bringing brands to life with stunning visuals and user-centered design principles.",
+    linkedin: "#",
+    email: "lucia@weboptim.eu",
+  },
+  {
+    name: "Martin Horváth",
+    role: "SEO & Marketing Lead",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    bio: "Data-driven marketer specializing in SEO strategies and PPC campaigns that deliver measurable results.",
+    linkedin: "#",
+    email: "martin@weboptim.eu",
+  },
+  {
+    name: "Jana Novotná",
+    role: "UX/UI Designer",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    bio: "Creating intuitive interfaces and seamless user experiences that delight users and drive conversions.",
+    linkedin: "#",
+    email: "jana@weboptim.eu",
+  },
+  {
+    name: "Tomáš Černý",
+    role: "Full-Stack Developer",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    bio: "Expert in modern frameworks and scalable architecture, building robust web applications from ground up.",
+    linkedin: "#",
+    email: "tomas@weboptim.eu",
+  },
 ];
 
 const stats = [
@@ -402,12 +434,12 @@ const About = () => {
                 Our Team
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                Meet the <span className="text-gradient">Founder</span>
+                Meet the <span className="text-gradient">Team</span>
               </h2>
-              <p className="text-muted-foreground text-lg">The driving force behind WebOptim's success.</p>
+              <p className="text-muted-foreground text-lg">The talented people behind WebOptim's success.</p>
             </motion.div>
             
-            <div className="max-w-lg mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
@@ -415,40 +447,39 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="glass rounded-3xl overflow-hidden group"
+                  className="glass rounded-2xl overflow-hidden group"
                 >
                   <div className="relative overflow-hidden">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  </div>
-                  <div className="p-8 text-center relative -mt-16">
-                    <div className="glass rounded-2xl p-6">
-                      <h3 className="text-2xl font-display font-bold text-foreground">{member.name}</h3>
-                      <p className="text-primary font-medium mb-4">{member.role}</p>
-                      <p className="text-muted-foreground mb-6">{member.bio}</p>
-                      <div className="flex justify-center gap-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                      <div className="flex gap-3">
                         <a
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                           aria-label={`${member.name} LinkedIn`}
                         >
-                          <Linkedin className="w-5 h-5" />
+                          <Linkedin className="w-4 h-4" />
                         </a>
                         <a
                           href={`mailto:${member.email}`}
-                          className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                           aria-label={`Email ${member.name}`}
                         >
-                          <Mail className="w-5 h-5" />
+                          <Mail className="w-4 h-4" />
                         </a>
                       </div>
                     </div>
+                  </div>
+                  <div className="p-4 text-center">
+                    <h3 className="font-bold text-foreground">{member.name}</h3>
+                    <p className="text-sm text-primary mb-2">{member.role}</p>
+                    <p className="text-xs text-muted-foreground line-clamp-2">{member.bio}</p>
                   </div>
                 </motion.div>
               ))}
