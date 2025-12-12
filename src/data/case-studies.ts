@@ -129,11 +129,11 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     ],
   },
   "duo-story-events": {
-    title: "Duo Story Events",
+    title: "Duo Story Reservation System",
     subtitle: "Event Booking & Reservation Management",
     category: "Events",
     client: "Duo Story",
-    duration: "4–8 Weeks",
+    duration: "2-4 Weeks",
     year: "2024",
     team: "2–3 People",
 
@@ -199,7 +199,6 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     gallery: [],
 
     features: [
-      "Custom post type ‘akce’ + taxonomy ‘tema-akce’ for structured events",
       "Archive filtering: future events only, city/topic/date filters, sorting by date",
       "Age validation based on gender-specific limits (ACF fields)",
       "Separate seat capacity for men/women with automatic updates on payment",
