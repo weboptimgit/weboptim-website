@@ -228,6 +228,8 @@ const DigitalizationServices = () => {
     },
   ];
 
+  const { t } = useLanguage();
+
   // JSON-LD Schema for the service
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -280,26 +282,25 @@ const DigitalizationServices = () => {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                   <Cpu className="w-4 h-4" />
-                  Digitalization & Automation
+                  {t("digital.badge")}
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                  Automate Your
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> Business</span>
+                  {t("digital.title1")}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> {t("digital.title2")}</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  Transform manual processes into efficient digital workflows. 
-                  We implement tools that save time, reduce errors, and scale with your growth.
+                  {t("digital.subtitle")}
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/contact">
                     <Button variant="hero" size="lg" className="gap-2">
-                      Free Consultation
+                      {t("cta.freeConsultation")}
                       <ArrowRight className="w-4 h-4" />
                     </Button>
                   </Link>
                   <Button variant="outline" size="lg" className="gap-2 border-border">
                     <Workflow className="w-4 h-4" />
-                    See How It Works
+                    {t("cta.learnMore")}
                   </Button>
                 </div>
               </motion.div>
