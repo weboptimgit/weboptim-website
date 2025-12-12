@@ -101,16 +101,9 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="glass-strong rounded-2xl px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-primary rounded-xl blur-md opacity-60 group-hover:opacity-100 transition-opacity" />
-              <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-primary to-purple-500 p-0.5">
-                <div className="w-full h-full rounded-[10px] bg-background/90 flex items-center justify-center backdrop-blur-sm">
-                  <img src={logoWeboptim} alt="WebOptim" className="w-6 h-6 brightness-0 invert opacity-90" />
-                </div>
-              </div>
-            </div>
-            <span className="font-display font-bold text-xl bg-gradient-to-r from-foreground via-cyan-400 to-primary bg-clip-text text-transparent group-hover:from-cyan-400 group-hover:to-primary transition-all duration-300">WebOptim</span>
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logoWeboptim} alt="WebOptim" className="w-10 h-10" />
+            <span className="font-display font-bold text-xl text-foreground">WebOptim</span>
           </Link>
 
           {/* Desktop Nav */}

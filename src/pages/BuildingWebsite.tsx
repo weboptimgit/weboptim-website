@@ -269,7 +269,7 @@ const BuildingWebsite = () => {
         <Navbar />
 
         {/* Hero Section */}
-        <section className="relative pt-52 pb-24 px-4 overflow-hidden">
+        <section className="relative pt-32 pb-24 px-4 overflow-hidden">
           <div className="container mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left - Content */}

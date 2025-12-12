@@ -229,7 +229,7 @@ const PPCServices = () => {
         <Navbar />
 
         {/* Hero Section */}
-        <section className="pt-52 pb-20 px-6 relative overflow-hidden">
+        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
