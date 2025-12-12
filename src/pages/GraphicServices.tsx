@@ -270,30 +270,37 @@ const GraphicServices = () => {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
                 className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
               >
-                {/* Hover glow effect - match homepage services */}
+                {/* Hover glow */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
-                <div className="relative z-10">
-                  {/* Icon with gradient background - same as homepage services */}
-                  <div className="relative mb-6">
+
+                <div className="relative z-10 flex flex-col gap-4">
+                  {/* Icon */}
+                  <div className="relative">
                     <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
                       <feature.icon className="w-8 h-8 text-white" />
-                      {/* Animated ring blur */}
+                      {/* Blur ring */}
                       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
                     </div>
                   </div>
-                  
-                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
-                  <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
+
+                  {/* Text */}
+                  <div>
+                    <h3 className="text-xl font-display font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-                
-                {/* Corner decoration - same as homepage services */}
+
+                {/* Corner glow */}
                 <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
               </motion.div>
             ))}
