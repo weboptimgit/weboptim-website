@@ -350,6 +350,14 @@ const PPCServices = () => {
                   'from-purple-500 to-violet-500': 'linear-gradient(135deg, hsl(270 60% 55%), hsl(260 70% 55%))',
                   'from-amber-500 to-yellow-500': 'linear-gradient(135deg, hsl(38 90% 50%), hsl(48 95% 50%))',
                 };
+                const glowColors: Record<string, string> = {
+                  'from-blue-500 to-cyan-500': '0 0 30px hsla(200, 85%, 55%, 0.4)',
+                  'from-green-500 to-emerald-500': '0 0 30px hsla(150, 75%, 45%, 0.4)',
+                  'from-pink-500 to-rose-500': '0 0 30px hsla(340, 80%, 58%, 0.4)',
+                  'from-red-500 to-orange-500': '0 0 30px hsla(15, 85%, 55%, 0.4)',
+                  'from-purple-500 to-violet-500': '0 0 30px hsla(265, 65%, 55%, 0.4)',
+                  'from-amber-500 to-yellow-500': '0 0 30px hsla(43, 92%, 50%, 0.4)',
+                };
                 return (
                   <motion.div
                     key={campaign.title}
@@ -357,41 +365,52 @@ const PPCServices = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group relative glass-strong rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden"
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                    className="group relative"
                   >
-                    {/* Blur glow effect on hover */}
+                    {/* Gradient border glow */}
                     <div 
-                      className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500"
-                      style={{ background: gradientStyles[campaign.gradient] }}
+                      className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{ 
+                        background: gradientStyles[campaign.gradient],
+                        filter: 'blur(1px)',
+                      }}
                     />
                     
-                    {/* Icon with animated ring blur */}
-                    <div className="relative mb-4">
+                    {/* Card content */}
+                    <div className="relative glass-strong rounded-2xl p-6 border border-border/50 group-hover:border-transparent transition-all duration-300 h-full"
+                      style={{ 
+                        boxShadow: 'none',
+                        transition: 'box-shadow 0.3s ease',
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColors[campaign.gradient]}
+                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+                    >
+                      {/* Shine sweep effect */}
+                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                      </div>
+                      
                       <div 
-                        className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                        className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
                         style={{ background: gradientStyles[campaign.gradient] }}
                       >
                         <campaign.icon className="w-7 h-7 text-white" />
                       </div>
-                      {/* Animated ring blur behind icon */}
-                      <div 
-                        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-50 group-hover:scale-150 blur-xl transition-all duration-500"
-                        style={{ background: gradientStyles[campaign.gradient] }}
-                      />
-                    </div>
-                    
-                    <h3 className="relative z-10 text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                      {campaign.title}
-                    </h3>
-                    <p className="relative z-10 text-muted-foreground text-sm mb-4">
-                      {campaign.description}
-                    </p>
-                    <div className="relative z-10 flex flex-wrap gap-2">
-                      {campaign.platforms.map((platform) => (
-                        <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
-                          {platform}
-                        </span>
-                      ))}
+                      
+                      <h3 className="relative z-10 text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                        {campaign.title}
+                      </h3>
+                      <p className="relative z-10 text-muted-foreground text-sm mb-4">
+                        {campaign.description}
+                      </p>
+                      <div className="relative z-10 flex flex-wrap gap-2">
+                        {campaign.platforms.map((platform) => (
+                          <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
+                            {platform}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 );
