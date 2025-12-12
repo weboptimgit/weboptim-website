@@ -53,9 +53,84 @@ const translations: Record<Language, Record<string, string>> = {
     "stats.experience": "Years Experience",
     "stats.team": "Team Members",
 
-    //About us
+    // About us
     "about.title.before": "About",
     "about.title.highlight": "WebOptim",
+
+    // Common CTAs
+    "cta.freeConsultation": "Free Consultation",
+    "cta.getQuote": "Get a Quote",
+    "cta.viewPortfolio": "View Portfolio",
+    "cta.learnMore": "Learn More",
+    "cta.contactUs": "Contact Us",
+    "cta.startProject": "Start Your Project",
+
+    // PPC Services Page
+    "ppc.badge": "PPC & Advertising",
+    "ppc.title1": "Drive Results with",
+    "ppc.title2": "Paid Advertising",
+    "ppc.subtitle": "Strategic campaigns on Google, Meta, and more. Get qualified leads and measurable ROI from day one.",
+    "ppc.campaignTypes": "Campaign Types",
+    "ppc.campaignTypesDesc": "We manage all types of paid advertising campaigns",
+    "ppc.whyChoose": "Why Choose Our PPC Services",
+    "ppc.pricing": "Transparent Pricing",
+    "ppc.pricingDesc": "Choose the package that fits your goals",
+
+    // SEO Services Page
+    "seo.badge": "SEO Services",
+    "seo.title1": "Dominate Search with",
+    "seo.title2": "Expert SEO",
+    "seo.subtitle": "Boost your rankings with proven strategies. Keyword research, link building, and technical optimization.",
+    "seo.services": "Our SEO Services",
+    "seo.servicesDesc": "Comprehensive strategies to improve your search visibility",
+    "seo.whyChoose": "Why Invest in SEO",
+    "seo.pricing": "SEO Packages",
+    "seo.pricingDesc": "Flexible plans for businesses of all sizes",
+
+    // E-commerce Page
+    "ecom.badge": "E-Commerce Solutions",
+    "ecom.title1": "Build Your",
+    "ecom.title2": "Online Store",
+    "ecom.subtitle": "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions and sales.",
+    "ecom.features": "E-Commerce Features",
+    "ecom.featuresDesc": "Everything you need to sell online successfully",
+    "ecom.platforms": "Platforms We Work With",
+    "ecom.pricing": "E-Commerce Packages",
+    "ecom.pricingDesc": "Start selling online with our solutions",
+
+    // Web Development Page
+    "webdev.badge": "Web Development",
+    "webdev.title1": "Custom Websites",
+    "webdev.title2": "That Perform",
+    "webdev.subtitle": "Modern WordPress websites built with Oxygen Builder. Fast, scalable, and optimized for results.",
+    "webdev.services": "Our Web Development Services",
+    "webdev.servicesDesc": "From simple landing pages to complex web applications",
+    "webdev.technologies": "Technologies We Use",
+    "webdev.pricing": "Web Development Packages",
+    "webdev.pricingDesc": "Solutions for every budget and need",
+
+    // Digitalization Page
+    "digital.badge": "Digitalization & Automation",
+    "digital.title1": "Automate Your",
+    "digital.title2": "Business",
+    "digital.subtitle": "Transform manual processes into efficient digital workflows. We implement tools that save time, reduce errors, and scale with your growth.",
+    "digital.services": "Our Digitalization Services",
+    "digital.servicesDesc": "Streamline your business with modern tools",
+    "digital.technologies": "Technologies We Use",
+    "digital.pricing": "Digitalization Packages",
+    "digital.pricingDesc": "Solutions to modernize your business",
+
+    // Graphic Design Page
+    "graphic.badge": "Graphic Design",
+    "graphic.title1": "Designs That",
+    "graphic.title2": "Stand Out",
+    "graphic.subtitle": "From flyers and posters to business cards and banner ads, we create eye-catching graphics across all platforms.",
+    "graphic.services": "Full-Service Graphic Design",
+    "graphic.servicesDesc": "We pride ourselves on creating digital content that not only stands out but also fulfils its purpose.",
+    "graphic.portfolio": "Our Work",
+    "graphic.portfolioDesc": "A selection of our recent graphic design projects",
+    "graphic.pricing": "Transparent Pricing",
+    "graphic.pricingDesc": "Choose the package that fits your needs",
   },
   CZ: {
     // Navbar
@@ -100,9 +175,84 @@ const translations: Record<Language, Record<string, string>> = {
     "stats.experience": "Let zkušeností",
     "stats.team": "Členů týmu",
 
-    //About us
+    // About us
     "about.title.before": "O",
     "about.title.highlight": "WebOptim",
+
+    // Common CTAs
+    "cta.freeConsultation": "Bezplatná konzultace",
+    "cta.getQuote": "Získat nabídku",
+    "cta.viewPortfolio": "Zobrazit portfolio",
+    "cta.learnMore": "Zjistit více",
+    "cta.contactUs": "Kontaktujte nás",
+    "cta.startProject": "Zahájit projekt",
+
+    // PPC Services Page
+    "ppc.badge": "PPC & Reklama",
+    "ppc.title1": "Dosáhněte výsledků s",
+    "ppc.title2": "Placenou reklamou",
+    "ppc.subtitle": "Strategické kampaně na Google, Meta a dalších platformách. Získejte kvalifikované kontakty a měřitelnou návratnost od prvního dne.",
+    "ppc.campaignTypes": "Typy kampaní",
+    "ppc.campaignTypesDesc": "Spravujeme všechny typy placených reklamních kampaní",
+    "ppc.whyChoose": "Proč zvolit naše PPC služby",
+    "ppc.pricing": "Transparentní ceny",
+    "ppc.pricingDesc": "Vyberte si balíček podle svých cílů",
+
+    // SEO Services Page
+    "seo.badge": "SEO Služby",
+    "seo.title1": "Dominujte ve vyhledávání s",
+    "seo.title2": "Expertním SEO",
+    "seo.subtitle": "Zlepšete své pozice s osvědčenými strategiemi. Analýza klíčových slov, linkbuilding a technická optimalizace.",
+    "seo.services": "Naše SEO služby",
+    "seo.servicesDesc": "Komplexní strategie pro zlepšení viditelnosti ve vyhledávačích",
+    "seo.whyChoose": "Proč investovat do SEO",
+    "seo.pricing": "SEO balíčky",
+    "seo.pricingDesc": "Flexibilní plány pro firmy všech velikostí",
+
+    // E-commerce Page
+    "ecom.badge": "E-Commerce řešení",
+    "ecom.title1": "Vytvořte svůj",
+    "ecom.title2": "Online obchod",
+    "ecom.subtitle": "Výkonné WooCommerce e-shopy s plynulým nákupním procesem, které maximalizují konverze a prodeje.",
+    "ecom.features": "Funkce e-shopu",
+    "ecom.featuresDesc": "Vše, co potřebujete k úspěšnému online prodeji",
+    "ecom.platforms": "Platformy, se kterými pracujeme",
+    "ecom.pricing": "E-Commerce balíčky",
+    "ecom.pricingDesc": "Začněte prodávat online s našimi řešeními",
+
+    // Web Development Page
+    "webdev.badge": "Tvorba webu",
+    "webdev.title1": "Weby na míru",
+    "webdev.title2": "Které fungují",
+    "webdev.subtitle": "Moderní WordPress weby vytvořené s Oxygen Builderem. Rychlé, škálovatelné a optimalizované pro výsledky.",
+    "webdev.services": "Naše služby tvorby webu",
+    "webdev.servicesDesc": "Od jednoduchých landing pages po komplexní webové aplikace",
+    "webdev.technologies": "Technologie, které používáme",
+    "webdev.pricing": "Balíčky tvorby webu",
+    "webdev.pricingDesc": "Řešení pro každý rozpočet a potřebu",
+
+    // Digitalization Page
+    "digital.badge": "Digitalizace & Automatizace",
+    "digital.title1": "Automatizujte své",
+    "digital.title2": "Podnikání",
+    "digital.subtitle": "Proměňte manuální procesy v efektivní digitální workflow. Implementujeme nástroje, které šetří čas, snižují chyby a rostou s vámi.",
+    "digital.services": "Naše služby digitalizace",
+    "digital.servicesDesc": "Zefektivněte své podnikání moderními nástroji",
+    "digital.technologies": "Technologie, které používáme",
+    "digital.pricing": "Balíčky digitalizace",
+    "digital.pricingDesc": "Řešení pro modernizaci vašeho podnikání",
+
+    // Graphic Design Page
+    "graphic.badge": "Grafický design",
+    "graphic.title1": "Designy, které",
+    "graphic.title2": "Vyniknou",
+    "graphic.subtitle": "Od letáků a plakátů po vizitky a bannery – tvoříme poutavou grafiku pro všechny platformy.",
+    "graphic.services": "Kompletní grafické služby",
+    "graphic.servicesDesc": "Tvoříme obsah, který nejen vynikne, ale také prokazatelně plní svůj účel.",
+    "graphic.portfolio": "Naše práce",
+    "graphic.portfolioDesc": "Výběr z našich nedávných grafických projektů",
+    "graphic.pricing": "Transparentní ceny",
+    "graphic.pricingDesc": "Vyberte si balíček podle svých potřeb",
   },
   SK: {
     // Navbar
@@ -147,9 +297,84 @@ const translations: Record<Language, Record<string, string>> = {
     "stats.experience": "Rokov skúseností",
     "stats.team": "Členov tímu",
 
-    //About us
+    // About us
     "about.title.before": "O",
     "about.title.highlight": "WebOptim",
+
+    // Common CTAs
+    "cta.freeConsultation": "Bezplatná konzultácia",
+    "cta.getQuote": "Získať ponuku",
+    "cta.viewPortfolio": "Zobraziť portfólio",
+    "cta.learnMore": "Zistiť viac",
+    "cta.contactUs": "Kontaktujte nás",
+    "cta.startProject": "Začať projekt",
+
+    // PPC Services Page
+    "ppc.badge": "PPC & Reklama",
+    "ppc.title1": "Dosiahnite výsledky s",
+    "ppc.title2": "Platenou reklamou",
+    "ppc.subtitle": "Strategické kampane na Google, Meta a ďalších platformách. Získajte kvalifikované kontakty a merateľnú návratnosť od prvého dňa.",
+    "ppc.campaignTypes": "Typy kampaní",
+    "ppc.campaignTypesDesc": "Spravujeme všetky typy platených reklamných kampaní",
+    "ppc.whyChoose": "Prečo zvoliť naše PPC služby",
+    "ppc.pricing": "Transparentné ceny",
+    "ppc.pricingDesc": "Vyberte si balíček podľa svojich cieľov",
+
+    // SEO Services Page
+    "seo.badge": "SEO Služby",
+    "seo.title1": "Dominujte vo vyhľadávaní s",
+    "seo.title2": "Expertným SEO",
+    "seo.subtitle": "Zlepšite svoje pozície s osvedčenými stratégiami. Analýza kľúčových slov, linkbuilding a technická optimalizácia.",
+    "seo.services": "Naše SEO služby",
+    "seo.servicesDesc": "Komplexné stratégie pre zlepšenie viditeľnosti vo vyhľadávačoch",
+    "seo.whyChoose": "Prečo investovať do SEO",
+    "seo.pricing": "SEO balíčky",
+    "seo.pricingDesc": "Flexibilné plány pre firmy všetkých veľkostí",
+
+    // E-commerce Page
+    "ecom.badge": "E-Commerce riešenia",
+    "ecom.title1": "Vytvorte si svoj",
+    "ecom.title2": "Online obchod",
+    "ecom.subtitle": "Výkonné WooCommerce e-shopy s plynulým nákupným procesom, ktoré maximalizujú konverzie a predaje.",
+    "ecom.features": "Funkcie e-shopu",
+    "ecom.featuresDesc": "Všetko, čo potrebujete k úspešnému online predaju",
+    "ecom.platforms": "Platformy, s ktorými pracujeme",
+    "ecom.pricing": "E-Commerce balíčky",
+    "ecom.pricingDesc": "Začnite predávať online s našimi riešeniami",
+
+    // Web Development Page
+    "webdev.badge": "Tvorba webu",
+    "webdev.title1": "Weby na mieru",
+    "webdev.title2": "Ktoré fungujú",
+    "webdev.subtitle": "Moderné WordPress weby vytvorené s Oxygen Builderom. Rýchle, škálovateľné a optimalizované pre výsledky.",
+    "webdev.services": "Naše služby tvorby webu",
+    "webdev.servicesDesc": "Od jednoduchých landing pages po komplexné webové aplikácie",
+    "webdev.technologies": "Technológie, ktoré používame",
+    "webdev.pricing": "Balíčky tvorby webu",
+    "webdev.pricingDesc": "Riešenia pre každý rozpočet a potrebu",
+
+    // Digitalization Page
+    "digital.badge": "Digitalizácia & Automatizácia",
+    "digital.title1": "Automatizujte svoje",
+    "digital.title2": "Podnikanie",
+    "digital.subtitle": "Premeňte manuálne procesy na efektívne digitálne workflow. Implementujeme nástroje, ktoré šetria čas, znižujú chyby a rastú s vami.",
+    "digital.services": "Naše služby digitalizácie",
+    "digital.servicesDesc": "Zefektívnite svoje podnikanie modernými nástrojmi",
+    "digital.technologies": "Technológie, ktoré používame",
+    "digital.pricing": "Balíčky digitalizácie",
+    "digital.pricingDesc": "Riešenia pre modernizáciu vášho podnikania",
+
+    // Graphic Design Page
+    "graphic.badge": "Grafický dizajn",
+    "graphic.title1": "Dizajny, ktoré",
+    "graphic.title2": "Vyniknú",
+    "graphic.subtitle": "Od letákov a plagátov po vizitky a bannery – tvoríme pútavú grafiku pre všetky platformy.",
+    "graphic.services": "Kompletné grafické služby",
+    "graphic.servicesDesc": "Tvoríme obsah, ktorý nielen vynikne, ale aj preukázateľne plní svoj účel.",
+    "graphic.portfolio": "Naša práca",
+    "graphic.portfolioDesc": "Výber z našich nedávnych grafických projektov",
+    "graphic.pricing": "Transparentné ceny",
+    "graphic.pricingDesc": "Vyberte si balíček podľa svojich potrieb",
   },
 };
 
