@@ -2,80 +2,20 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { caseStudiesData } from "@/data/case-studies";
 
-const projects = [
-  {
-    title: "Mobilno",
-    category: "Marketplace",
-    description:
-      "Service marketplace connecting customers with mobile professionals through a demand-to-offer platform.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop",
-    tags: ["Marketplace", "WordPress", "SEO"],
-    color: "from-primary/40 via-primary/20 to-transparent",
-    stats: { increase: "+180%", metric: "Organic Visibility" },
-    slug: "mobilno-marketplace" as string | null,
-  },
-  {
-    title: "Fintech Dashboard",
-    category: "Web App",
-    description: "A comprehensive financial management platform with real-time analytics.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    tags: ["UI/UX", "SEO"],
-    color: "from-primary/40 via-primary/20 to-transparent",
-    stats: { increase: "+180%", metric: "Engagement" },
-    slug: null as string | null,
-  },
-  {
-    title: "E-Commerce Platform",
-    category: "Online Store",
-    description: "High-converting WooCommerce store with seamless checkout.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    tags: ["WooCommerce", "PPC"],
-    color: "from-secondary/40 via-secondary/20 to-transparent",
-    stats: { increase: "+250%", metric: "Sales" },
-    slug: null as string | null,
-  },
-  {
-    title: "Health & Fitness App",
-    category: "Mobile App",
-    description: "Cross-platform fitness app with personalized workout plans.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-    tags: ["App Dev", "Branding"],
-    color: "from-primary/40 via-primary/20 to-transparent",
-    stats: { increase: "50K+", metric: "Users" },
-    slug: null as string | null,
-  },
-  {
-    title: "TechFlow SaaS",
-    category: "SaaS",
-    description: "Complete brand identity and marketing website for B2B startup.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
-    tags: ["SEO", "Lead Gen"],
-    color: "from-secondary/40 via-secondary/20 to-transparent",
-    stats: { increase: "+320%", metric: "Traffic" },
-    slug: "techflow-saas" as string | null,
-  },
-  {
-    title: "Real Estate Portal",
-    category: "Web Platform",
-    description: "Property listing platform with advanced search and filters.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
-    tags: ["Web Dev", "Google Ads"],
-    color: "from-primary/40 via-primary/20 to-transparent",
-    stats: { increase: "+400%", metric: "Leads" },
-    slug: null as string | null,
-  },
-  {
-    title: "Flavor Bistro",
-    category: "Restaurant",
-    description: "WordPress website with online reservations and local SEO.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    tags: ["WordPress", "SEO"],
-    color: "from-secondary/40 via-secondary/20 to-transparent",
-    stats: { increase: "+150%", metric: "Bookings" },
-    slug: "flavor-bistro-wordpress" as string | null,
-  },
-];
+// Convert case studies data to portfolio projects array
+const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
+  title: study.title,
+  category: study.category,
+  description: study.description,
+  image: study.image,
+  tags: study.tags,
+  color: "from-primary/40 via-primary/20 to-transparent",
+  stats: { increase: study.statValue, metric: study.statLabel },
+  slug,
+  featured: study.featured,
+}));
 
 const Portfolio = () => {
   return (
@@ -109,9 +49,8 @@ const Portfolio = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <Link
-              key={index}
-              to={project.slug ? `/case-study/${project.slug}` : "#"}
-              className={project.slug ? "" : "pointer-events-none"}
+              key={project.slug}
+              to={`/case-study/${project.slug}`}
             >
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
