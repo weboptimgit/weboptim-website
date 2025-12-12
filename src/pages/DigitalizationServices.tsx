@@ -371,30 +371,30 @@ const DigitalizationServices = () => {
                       <Workflow className="w-10 h-10 text-primary-foreground" />
                     </motion.div>
 
-                    {/* Animated dashed connections using divs */}
+                    {/* Straight dashed connections */}
                     <motion.div
-                      className="absolute top-[54px] left-[54px] w-[90px] h-0.5 origin-left rotate-[35deg] border-t-2 border-dashed border-primary/50"
+                      className="absolute top-[60px] left-[104px] w-24 h-px origin-left border-t-2 border-dashed border-primary/60"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ delay: 0.9, duration: 0.5 }}
+                      transition={{ delay: 0.9, duration: 0.4 }}
                     />
                     <motion.div
-                      className="absolute top-[54px] right-[54px] w-[90px] h-0.5 origin-right rotate-[-35deg] border-t-2 border-dashed border-primary/50"
+                      className="absolute top-[60px] right-[104px] w-24 h-px origin-right border-t-2 border-dashed border-primary/60"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ delay: 1, duration: 0.5 }}
+                      transition={{ delay: 1, duration: 0.4 }}
                     />
                     <motion.div
-                      className="absolute bottom-[54px] left-[54px] w-[90px] h-0.5 origin-left rotate-[-35deg] border-t-2 border-dashed border-primary/50"
+                      className="absolute bottom-[60px] left-[104px] w-24 h-px origin-left border-t-2 border-dashed border-primary/60"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ delay: 1.1, duration: 0.5 }}
+                      transition={{ delay: 1.1, duration: 0.4 }}
                     />
                     <motion.div
-                      className="absolute bottom-[54px] right-[54px] w-[90px] h-0.5 origin-right rotate-[35deg] border-t-2 border-dashed border-primary/50"
+                      className="absolute bottom-[60px] right-[104px] w-24 h-px origin-right border-t-2 border-dashed border-primary/60"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ delay: 1.2, duration: 0.5 }}
+                      transition={{ delay: 1.2, duration: 0.4 }}
                     />
                   </div>
 
