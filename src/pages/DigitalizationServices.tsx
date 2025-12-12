@@ -318,84 +318,111 @@ const DigitalizationServices = () => {
                     <span className="text-sm text-muted-foreground ml-2">Automation Dashboard</span>
                   </div>
 
-                  {/* Workflow Animation */}
-                  <div className="relative h-64">
-                    {/* Nodes */}
+                  {/* Workflow Animation - Clean Grid Layout */}
+                  <div className="relative h-64 flex items-center justify-center">
+                    {/* SVG Connection Lines with viewBox for proper scaling */}
+                    <svg 
+                      className="absolute inset-0 w-full h-full pointer-events-none" 
+                      viewBox="0 0 400 256" 
+                      preserveAspectRatio="none"
+                      style={{ zIndex: 0 }}
+                    >
+                      {/* Top-left to center */}
+                      <motion.line
+                        x1="40" y1="40" x2="200" y2="128"
+                        stroke="hsl(var(--primary))"
+                        strokeWidth="2"
+                        strokeDasharray="8 6"
+                        strokeOpacity="0.6"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ delay: 0.8, duration: 0.5 }}
+                      />
+                      {/* Top-right to center */}
+                      <motion.line
+                        x1="360" y1="40" x2="200" y2="128"
+                        stroke="hsl(var(--primary))"
+                        strokeWidth="2"
+                        strokeDasharray="8 6"
+                        strokeOpacity="0.6"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ delay: 0.9, duration: 0.5 }}
+                      />
+                      {/* Bottom-left to center */}
+                      <motion.line
+                        x1="40" y1="216" x2="200" y2="128"
+                        stroke="hsl(var(--primary))"
+                        strokeWidth="2"
+                        strokeDasharray="8 6"
+                        strokeOpacity="0.6"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ delay: 1.0, duration: 0.5 }}
+                      />
+                      {/* Bottom-right to center */}
+                      <motion.line
+                        x1="360" y1="216" x2="200" y2="128"
+                        stroke="hsl(var(--primary))"
+                        strokeWidth="2"
+                        strokeDasharray="8 6"
+                        strokeOpacity="0.6"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ delay: 1.1, duration: 0.5 }}
+                      />
+                    </svg>
+
+                    {/* Corner Nodes */}
                     <motion.div 
-                      className="absolute top-4 left-4 w-20 h-20 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex flex-col items-center justify-center"
+                      className="absolute top-2 left-2 w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.4 }}
                     >
-                      <Database className="w-6 h-6 text-blue-500 mb-1" />
-                      <span className="text-xs text-muted-foreground">CRM</span>
+                      <Database className="w-5 h-5 text-blue-500 mb-0.5" />
+                      <span className="text-[10px] text-muted-foreground">CRM</span>
                     </motion.div>
                     
                     <motion.div 
-                      className="absolute top-4 right-4 w-20 h-20 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex flex-col items-center justify-center"
+                      className="absolute top-2 right-2 w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <FileCheck className="w-6 h-6 text-purple-500 mb-1" />
-                      <span className="text-xs text-muted-foreground">Invoices</span>
+                      <FileCheck className="w-5 h-5 text-purple-500 mb-0.5" />
+                      <span className="text-[10px] text-muted-foreground">Invoices</span>
                     </motion.div>
                     
                     <motion.div 
-                      className="absolute bottom-4 left-4 w-20 h-20 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 flex flex-col items-center justify-center"
+                      className="absolute bottom-2 left-2 w-16 h-16 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.6 }}
                     >
-                      <Cloud className="w-6 h-6 text-green-500 mb-1" />
-                      <span className="text-xs text-muted-foreground">Cloud</span>
+                      <Cloud className="w-5 h-5 text-green-500 mb-0.5" />
+                      <span className="text-[10px] text-muted-foreground">Cloud</span>
                     </motion.div>
                     
                     <motion.div 
-                      className="absolute bottom-4 right-4 w-20 h-20 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex flex-col items-center justify-center"
+                      className="absolute bottom-2 right-2 w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.7 }}
                     >
-                      <Settings className="w-6 h-6 text-orange-500 mb-1" />
-                      <span className="text-xs text-muted-foreground">Automation</span>
+                      <Settings className="w-5 h-5 text-orange-500 mb-0.5" />
+                      <span className="text-[10px] text-muted-foreground">Automation</span>
                     </motion.div>
 
                     {/* Center Hub */}
                     <motion.div 
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center"
+                      className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center z-10 shadow-lg shadow-primary/30"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.8, type: "spring" }}
                     >
-                      <Workflow className="w-10 h-10 text-primary-foreground" />
+                      <Workflow className="w-8 h-8 text-primary-foreground" />
                     </motion.div>
-
-                    {/* Straight dashed connections */}
-                    <motion.div
-                      className="absolute top-[60px] left-[104px] w-24 h-px origin-left border-t-2 border-dashed border-primary/60"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 0.9, duration: 0.4 }}
-                    />
-                    <motion.div
-                      className="absolute top-[60px] right-[104px] w-24 h-px origin-right border-t-2 border-dashed border-primary/60"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 1, duration: 0.4 }}
-                    />
-                    <motion.div
-                      className="absolute bottom-[60px] left-[104px] w-24 h-px origin-left border-t-2 border-dashed border-primary/60"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 1.1, duration: 0.4 }}
-                    />
-                    <motion.div
-                      className="absolute bottom-[60px] right-[104px] w-24 h-px origin-right border-t-2 border-dashed border-primary/60"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 1.2, duration: 0.4 }}
-                    />
                   </div>
 
                   {/* Stats */}
