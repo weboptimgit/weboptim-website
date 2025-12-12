@@ -17,6 +17,56 @@ export const domainToLanguage: Record<string, Language> = {
   "127.0.0.1": "EN",
 };
 
+// Static page slug translations
+// Key is the base route identifier, values are the translated slugs for each language
+export const staticPageSlugs: Record<string, Record<Language, string>> = {
+  contact: {
+    EN: "contact",
+    CZ: "kontakt",
+    SK: "kontakt",
+  },
+  about: {
+    EN: "about",
+    CZ: "o-nas",
+    SK: "o-nas",
+  },
+  services: {
+    EN: "services",
+    CZ: "sluzby",
+    SK: "sluzby",
+  },
+  work: {
+    EN: "work",
+    CZ: "portfolio",
+    SK: "portfolio",
+  },
+  blog: {
+    EN: "blog",
+    CZ: "blog",
+    SK: "blog",
+  },
+  faq: {
+    EN: "faq",
+    CZ: "caste-dotazy",
+    SK: "caste-otazky",
+  },
+  glossary: {
+    EN: "glossary",
+    CZ: "slovnik",
+    SK: "slovnik",
+  },
+};
+
+// Reverse lookup: find the base route from any translated slug
+export const getBaseRouteFromSlug = (slug: string): string | undefined => {
+  for (const [baseRoute, translations] of Object.entries(staticPageSlugs)) {
+    if (Object.values(translations).includes(slug)) {
+      return baseRoute;
+    }
+  }
+  return undefined;
+};
+
 // Get language from current domain
 export const getLanguageFromDomain = (): Language => {
   const hostname = window.location.hostname;
@@ -49,12 +99,7 @@ export const getLanguageSwitchUrl = (
   if (slugMappings) {
     const translatedSlug = slugMappings[targetLanguage];
     if (translatedSlug) {
-      // Extract the base path (e.g., /blog/ from /blog/some-slug)
-      const pathParts = currentPath.split("/").filter(Boolean);
-      if (pathParts.length >= 2) {
-        const basePath = pathParts[0]; // e.g., "blog"
-        return `${targetDomain}/${basePath}/${translatedSlug}`;
-      }
+      return `${targetDomain}/${translatedSlug}`;
     }
   }
   

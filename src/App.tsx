@@ -30,18 +30,43 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/services/building-website" element={<BuildingWebsite />} />
-            <Route path="/services/ecommerce-website" element={<EcommerceWebsite />} />
-            <Route path="/case-study/:slug" element={<CaseStudy />} />
-            <Route path="/work" element={<Work />} />
+            
+            {/* Services - EN, CZ, SK */}
             <Route path="/services" element={<Services />} />
+            <Route path="/sluzby" element={<Services />} />
+            <Route path="/services/building-website" element={<BuildingWebsite />} />
+            <Route path="/sluzby/tvorba-webu" element={<BuildingWebsite />} />
+            <Route path="/services/ecommerce-website" element={<EcommerceWebsite />} />
+            <Route path="/sluzby/eshop" element={<EcommerceWebsite />} />
+            
+            {/* Work/Portfolio - EN, CZ, SK */}
+            <Route path="/work" element={<Work />} />
+            <Route path="/portfolio" element={<Work />} />
+            <Route path="/case-study/:slug" element={<CaseStudy />} />
+            
+            {/* Contact - EN, CZ, SK */}
             <Route path="/contact" element={<Contact />} />
+            <Route path="/kontakt" element={<Contact />} />
+            
+            {/* Blog - same in all languages */}
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            
+            {/* About - EN, CZ, SK */}
             <Route path="/about" element={<About />} />
+            <Route path="/o-nas" element={<About />} />
+            
+            {/* FAQ - EN, CZ, SK */}
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/caste-dotazy" element={<FAQ />} />
+            <Route path="/caste-otazky" element={<FAQ />} />
+            
+            {/* Glossary - EN, CZ, SK */}
             <Route path="/glossary" element={<Glossary />} />
+            <Route path="/slovnik" element={<Glossary />} />
             <Route path="/glossary/:slug" element={<GlossaryTerm />} />
+            <Route path="/slovnik/:slug" element={<GlossaryTerm />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
