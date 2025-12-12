@@ -38,6 +38,72 @@ export interface CaseStudy {
 }
 
 export const caseStudiesData: Record<string, CaseStudy> = {
+  "mobilno-marketplace": {
+    title: "Mobilno",
+    subtitle: "Service Marketplace & Product Development",
+    category: "Marketplace",
+    client: "Mobilno",
+    duration: "Ongoing",
+    year: "2024–2025",
+    team: "2–4 Specialists",
+    heroImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop",
+    overview:
+      "Mobilno is a marketplace connecting customers with mobile service providers. The goal was to create a fast, SEO-friendly platform with structured service listings, a demand → offer flow, and a smooth provider onboarding experience.",
+    challenge:
+      "The platform needed to handle complex content structure (services, locations, categories, and provider profiles) while keeping the UX simple. Key challenges included scalable filtering/search, clean URL structure for SEO, and conversion-focused onboarding for providers.",
+    solution:
+      "We designed and built a WordPress-based marketplace with custom post types, taxonomies, and advanced fields. We implemented a robust search and filtering experience, SEO-friendly routing, and conversion-driven UX patterns across onboarding, profiles, and service detail pages.",
+    services: [
+      { icon: Code, label: "WordPress Development" },
+      { icon: Palette, label: "UI/UX Design" },
+      { icon: Globe, label: "Technical SEO" },
+      { icon: Megaphone, label: "Conversion Optimization" },
+    ],
+    results: [
+      {
+        metric: "+3.2x",
+        label: "Provider Sign-ups",
+        description: "Increase in providers completing onboarding",
+      },
+      {
+        metric: "+180%",
+        label: "Organic Visibility",
+        description: "Growth in indexed service/location pages",
+      },
+      {
+        metric: "-45%",
+        label: "Time to First Offer",
+        description: "Faster customer → provider connection flow",
+      },
+      {
+        metric: "+28%",
+        label: "CTA Engagement",
+        description: "More clicks on key actions (contact, demand, signup)",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Mobilno finally feels like a product, not just a website. The structure is clean, the UX is simple, and the platform is ready to scale with new categories and locations.",
+      author: "Martin Varga",
+      role: "Founder, Mobilno",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    },
+    gallery: [
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+    ],
+    features: [
+      "Custom post types for services and provider profiles",
+      "Advanced filtering by category, location, and keywords",
+      "SEO-friendly URL structure for service + city pages",
+      "Onboarding flow with role-based access (Free/Premium-ready)",
+      "Optimized templates for conversion (CTA hierarchy, trust blocks)",
+      "Schema markup for improved search appearance",
+      "Performance optimization (caching, lean queries, clean assets)",
+      "Scalable content model ready for new regions and categories",
+    ],
+  },
   "flavor-bistro-wordpress": {
     title: "Flavor Bistro",
     subtitle: "WordPress Website & Brand Identity",
@@ -47,9 +113,12 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     year: "2024",
     team: "4 Specialists",
     heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop",
-    overview: "Flavor Bistro, a growing restaurant chain, needed a complete digital transformation to attract more customers and streamline their online presence. We delivered a stunning WordPress website with online reservations, menu management, and local SEO optimization.",
-    challenge: "The client was struggling with an outdated website that didn't reflect their brand quality. They were losing potential customers to competitors with better online presence and had no way to manage reservations or update their menu easily.",
-    solution: "We built a custom WordPress theme with a focus on visual storytelling, integrating a seamless reservation system, dynamic menu management, and location-based SEO. The design emphasized mouth-watering food photography and the restaurant's warm ambiance.",
+    overview:
+      "Flavor Bistro, a growing restaurant chain, needed a complete digital transformation to attract more customers and streamline their online presence. We delivered a stunning WordPress website with online reservations, menu management, and local SEO optimization.",
+    challenge:
+      "The client was struggling with an outdated website that didn't reflect their brand quality. They were losing potential customers to competitors with better online presence and had no way to manage reservations or update their menu easily.",
+    solution:
+      "We built a custom WordPress theme with a focus on visual storytelling, integrating a seamless reservation system, dynamic menu management, and location-based SEO. The design emphasized mouth-watering food photography and the restaurant's warm ambiance.",
     services: [
       { icon: Code, label: "WordPress Development" },
       { icon: Palette, label: "Brand Identity" },
@@ -63,7 +132,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { metric: "-60%", label: "Bounce Rate", description: "Reduction in visitors leaving immediately" },
     ],
     testimonial: {
-      quote: "The new website has completely transformed our business. We're getting more reservations than ever, and our customers love how easy it is to browse our menu and book a table.",
+      quote:
+        "The new website has completely transformed our business. We're getting more reservations than ever, and our customers love how easy it is to browse our menu and book a table.",
       author: "Marco Rossi",
       role: "Owner, Flavor Bistro",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
@@ -93,9 +163,12 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     year: "2024",
     team: "5 Specialists",
     heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop",
-    overview: "TechFlow, a B2B SaaS startup, needed a high-converting marketing website to launch their product. We created a modern, conversion-focused website with integrated lead capture and analytics.",
-    challenge: "As a new entrant in a competitive market, TechFlow needed to establish credibility quickly while generating qualified leads. Their existing landing page had poor conversion rates and didn't effectively communicate their value proposition.",
-    solution: "We designed a comprehensive marketing website with clear messaging, social proof elements, and strategically placed CTAs. The site includes interactive product demos, a resource center, and sophisticated lead nurturing workflows.",
+    overview:
+      "TechFlow, a B2B SaaS startup, needed a high-converting marketing website to launch their product. We created a modern, conversion-focused website with integrated lead capture and analytics.",
+    challenge:
+      "As a new entrant in a competitive market, TechFlow needed to establish credibility quickly while generating qualified leads. Their existing landing page had poor conversion rates and didn't effectively communicate their value proposition.",
+    solution:
+      "We designed a comprehensive marketing website with clear messaging, social proof elements, and strategically placed CTAs. The site includes interactive product demos, a resource center, and sophisticated lead nurturing workflows.",
     services: [
       { icon: Code, label: "Web Development" },
       { icon: Palette, label: "UI/UX Design" },
@@ -109,7 +182,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { metric: "2.5x", label: "Demo Requests", description: "Increase in product demo bookings" },
     ],
     testimonial: {
-      quote: "The team delivered exactly what we needed - a website that not only looks amazing but actually converts. Our lead generation has skyrocketed since launch.",
+      quote:
+        "The team delivered exactly what we needed - a website that not only looks amazing but actually converts. Our lead generation has skyrocketed since launch.",
       author: "Sarah Chen",
       role: "CEO, TechFlow",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
