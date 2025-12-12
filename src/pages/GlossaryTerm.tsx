@@ -6,16 +6,40 @@ import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { Button } from "@/components/ui/button";
 import { glossaryTermsData } from "@/data/glossary-terms";
+import SEO, { getDefinedTermSchema, getBreadcrumbSchema } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { domainConfig } from "@/config/domains";
 
 const GlossaryTerm = () => {
   const { slug } = useParams();
+  const { language } = useLanguage();
   const termData = slug ? glossaryTermsData[slug.toLowerCase()] : null;
 
   if (!termData) {
     return <Navigate to="/glossary" replace />;
   }
 
+  const jsonLd = [
+    getDefinedTermSchema({
+      term: termData.term,
+      shortDefinition: termData.shortDefinition,
+      fullDefinition: termData.fullDefinition,
+      slug: slug || "",
+    }, language),
+    getBreadcrumbSchema([
+      { name: "Home", url: domainConfig[language] },
+      { name: "Glossary", url: `${domainConfig[language]}/glossary` },
+      { name: termData.term, url: `${domainConfig[language]}/glossary/${slug}` },
+    ]),
+  ];
+
   return (
+    <>
+      <SEO 
+        title={`${termData.term} - Definition | WebOptim Glossary`}
+        description={termData.shortDefinition}
+        jsonLd={jsonLd}
+      />
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <AmbientBackground />
       <Navbar />
@@ -208,6 +232,7 @@ const GlossaryTerm = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

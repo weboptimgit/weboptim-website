@@ -9,12 +9,20 @@ import BlogSection from "@/components/BlogSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
-import SEO from "@/components/SEO";
+import SEO, { getOrganizationSchema, getWebSiteSchema } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { language } = useLanguage();
+  
+  const jsonLd = [
+    getOrganizationSchema(language),
+    getWebSiteSchema(language),
+  ];
+
   return (
     <>
-      <SEO titleKey="home" />
+      <SEO titleKey="home" jsonLd={jsonLd} />
     <main className="min-h-screen bg-background overflow-x-hidden relative">
       <AmbientBackground />
       <div className="relative z-10">
