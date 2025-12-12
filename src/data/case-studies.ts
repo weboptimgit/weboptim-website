@@ -217,10 +217,10 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     title: "Kimbau",
     subtitle: "Building & Renovation Services",
     category: "Construction",
-    client: "Kimbau, stavebně-inženýrská s.r.o.",
-    duration: "Ongoing",
-    year: "2025",
-    team: "5–10 People",
+    client: "Kimbau, s.r.o.",
+    duration: "2-4 weeks",
+    year: "2024",
+    team: "2-4 People",
 
     // Portfolio card fields
     description:
