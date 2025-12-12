@@ -1,5 +1,25 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Check, Code2, Layers, Palette, Rocket, Sparkles, Zap, Globe, Shield, Clock, Users, TrendingUp, Star, ChevronRight, Braces, Terminal, Database, Server } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Code2,
+  Layers,
+  Palette,
+  Rocket,
+  Sparkles,
+  Zap,
+  Globe,
+  Shield,
+  Clock,
+  Users,
+  TrendingUp,
+  Star,
+  ChevronRight,
+  Braces,
+  Terminal,
+  Database,
+  Server,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,11 +32,31 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const webDevFaqs = [
-  { question: "How long does it take to build a website?", answer: "Depending on complexity, a standard website takes 2-4 weeks. Complex e-commerce or custom functionality may take 6-8 weeks. We provide a detailed timeline during our initial consultation." },
-  { question: "What CMS do you use?", answer: "We primarily work with WordPress and Oxygen Builder for most projects. For simpler sites, we also offer hand-coded solutions. The choice depends on your specific needs and future maintenance requirements." },
-  { question: "Do you provide hosting?", answer: "We can recommend reliable hosting providers and help with setup. We also offer managed hosting solutions for clients who prefer a hands-off approach." },
-  { question: "Will my website be mobile-friendly?", answer: "Absolutely! All our websites are fully responsive and optimized for all devices - desktops, tablets, and smartphones." },
-  { question: "Do you offer ongoing maintenance?", answer: "Yes, we offer various maintenance packages including updates, security monitoring, backups, and content changes." },
+  {
+    question: "How long does it take to build a website?",
+    answer:
+      "Depending on complexity, a standard website takes 2-4 weeks. Complex e-commerce or custom functionality may take 6-8 weeks. We provide a detailed timeline during our initial consultation.",
+  },
+  {
+    question: "What CMS do you use?",
+    answer:
+      "We primarily work with WordPress and Oxygen Builder for most projects. For simpler sites, we also offer hand-coded solutions. The choice depends on your specific needs and future maintenance requirements.",
+  },
+  {
+    question: "Do you provide hosting?",
+    answer:
+      "We can recommend reliable hosting providers and help with setup. We also offer managed hosting solutions for clients who prefer a hands-off approach.",
+  },
+  {
+    question: "Will my website be mobile-friendly?",
+    answer:
+      "Absolutely! All our websites are fully responsive and optimized for all devices - desktops, tablets, and smartphones.",
+  },
+  {
+    question: "Do you offer ongoing maintenance?",
+    answer:
+      "Yes, we offer various maintenance packages including updates, security monitoring, backups, and content changes.",
+  },
 ];
 
 const techStack = [
@@ -45,7 +85,8 @@ const features = [
   {
     icon: Code2,
     title: "Clean Architecture",
-    description: "Maintainable, scalable code that grows with your business. No technical debt, just solid foundations.",
+    description:
+      "Maintainable, scalable code that grows with your business. No technical debt, just solid foundations.",
     gradient: "from-cyan-500 to-blue-500",
   },
   {
@@ -63,44 +104,44 @@ const features = [
 ];
 
 const processSteps = [
-  { 
-    step: "01", 
-    title: "Discovery Call", 
+  {
+    step: "01",
+    title: "Discovery Call",
     description: "We dive deep into your business goals, target audience, and competitive landscape.",
     duration: "1-2 days",
     icon: Users,
   },
-  { 
-    step: "02", 
-    title: "Strategy & Wireframes", 
+  {
+    step: "02",
+    title: "Strategy & Wireframes",
     description: "Information architecture, user flows, and wireframes that map out your success.",
     duration: "3-5 days",
     icon: Layers,
   },
-  { 
-    step: "03", 
-    title: "Design & Prototype", 
+  {
+    step: "03",
+    title: "Design & Prototype",
     description: "High-fidelity mockups with interactive prototypes for your approval.",
     duration: "5-7 days",
     icon: Palette,
   },
-  { 
-    step: "04", 
-    title: "Development Sprint", 
+  {
+    step: "04",
+    title: "Development Sprint",
     description: "Agile development with weekly demos. Watch your site come to life.",
     duration: "2-4 weeks",
     icon: Code2,
   },
-  { 
-    step: "05", 
-    title: "Testing & QA", 
+  {
+    step: "05",
+    title: "Testing & QA",
     description: "Rigorous testing across devices, browsers, and performance benchmarks.",
     duration: "3-5 days",
     icon: Shield,
   },
-  { 
-    step: "06", 
-    title: "Launch & Beyond", 
+  {
+    step: "06",
+    title: "Launch & Beyond",
     description: "Deployment, training, and ongoing support to ensure your success.",
     duration: "Ongoing",
     icon: Rocket,
@@ -126,7 +167,14 @@ const packages = [
     name: "Enterprise",
     description: "Custom solutions",
     price: "Custom",
-    features: ["Unlimited pages", "Custom features", "API integrations", "Priority support", "Performance SLA", "Dedicated team"],
+    features: [
+      "Unlimited pages",
+      "Custom features",
+      "API integrations",
+      "Priority support",
+      "Performance SLA",
+      "Dedicated team",
+    ],
     popular: false,
   },
 ];
@@ -152,7 +200,7 @@ const AnimatedCodeBlock = () => {
           <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
           <div className="w-3 h-3 rounded-full bg-green-500/80" />
         </div>
-        
+
         {/* Animated code */}
         <div className="space-y-2">
           <motion.div className="flex flex-wrap">
@@ -168,44 +216,25 @@ const AnimatedCodeBlock = () => {
               </motion.span>
             ))}
           </motion.div>
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 0.8 }}
-            className="pl-4"
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="pl-4">
             <span className="text-green-400">design</span>
             <span className="text-white">: </span>
             <span className="text-amber-300">"stunning"</span>
             <span className="text-white">,</span>
           </motion.div>
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 1 }}
-            className="pl-4"
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="pl-4">
             <span className="text-green-400">performance</span>
             <span className="text-white">: </span>
             <span className="text-amber-300">"blazing"</span>
             <span className="text-white">,</span>
           </motion.div>
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 1.2 }}
-            className="pl-4"
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="pl-4">
             <span className="text-green-400">seo</span>
             <span className="text-white">: </span>
             <span className="text-purple-400">true</span>
             <span className="text-white">,</span>
           </motion.div>
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 1.4 }}
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
             <span className="text-white">{"})"}</span>
             <span className="text-white">;</span>
           </motion.div>
@@ -232,14 +261,14 @@ const BuildingWebsite = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Web Development Services | WebOptim"
         description="Custom web development services. We build stunning, fast, SEO-optimized websites that convert visitors into customers."
       />
       <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="relative pt-32 pb-24 px-4 overflow-hidden">
           <div className="container mx-auto relative z-10">
@@ -250,7 +279,7 @@ const BuildingWebsite = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <motion.span 
+                <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -259,27 +288,27 @@ const BuildingWebsite = () => {
                   <Sparkles className="w-4 h-4" />
                   {t("webdev.badge")}
                 </motion.span>
-                
+
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
                   Websites that{" "}
                   <span className="relative">
                     <span className="text-gradient">convert</span>
-                    <motion.span 
+                    <motion.span
                       className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ delay: 0.8, duration: 0.6 }}
                     />
                   </span>
-                  <br />visitors into customers
+                  <br />
+                  visitors into customers
                 </h1>
-                
+
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  We don't just build websites – we engineer digital experiences that captivate, 
-                  engage, and drive measurable business results. Lightning-fast, SEO-optimized, 
-                  and built to scale.
+                  We don't just build websites – we engineer digital experiences that captivate, engage, and drive
+                  measurable business results. Lightning-fast, SEO-optimized, and built to scale.
                 </p>
-                
+
                 {/* Quick Stats */}
                 <div className="flex flex-wrap gap-6 mb-8">
                   {metrics.map((metric, i) => (
@@ -300,7 +329,7 @@ const BuildingWebsite = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="hero" size="lg" asChild>
                     <Link to="/contact">
@@ -322,7 +351,7 @@ const BuildingWebsite = () => {
                 className="relative"
               >
                 <AnimatedCodeBlock />
-                
+
                 {/* Floating elements */}
                 <motion.div
                   animate={{ y: [0, -15, 0] }}
@@ -339,7 +368,7 @@ const BuildingWebsite = () => {
                     </div>
                   </div>
                 </motion.div>
-                
+
                 <motion.div
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: 1 }}
@@ -373,7 +402,7 @@ const BuildingWebsite = () => {
               <h2 className="text-2xl font-display font-bold mb-2">Powered by Modern Tech</h2>
               <p className="text-muted-foreground">We use the best tools for the job</p>
             </motion.div>
-            
+
             <div className="flex flex-wrap justify-center gap-4">
               {techStack.map((tech, i) => (
                 <motion.div
@@ -385,26 +414,34 @@ const BuildingWebsite = () => {
                   className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
                 >
                   {/* Hover glow effect - match homepage services */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                  
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  />
+
                   <div className="relative z-10 flex items-center gap-4">
                     {/* Icon with gradient background */}
                     <div className="relative">
-                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      <div
+                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                      >
                         {tech.icon}
                         {/* Animated ring blur */}
-                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                        <div
+                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                        />
                       </div>
                     </div>
-                    
+
                     <div className="text-left">
                       <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
                       <div className="text-xs text-muted-foreground">{tech.description}</div>
                     </div>
                   </div>
-                  
+
                   {/* Corner decoration */}
-                  <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                  <div
+                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                  />
                 </motion.div>
               ))}
             </div>
@@ -439,29 +476,35 @@ const BuildingWebsite = () => {
                   className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500"
                 >
                   {/* Hover glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                  
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  />
+
                   <div className="relative z-10">
                     {/* Icon with gradient background */}
                     <div className="relative mb-6">
-                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      <div
+                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                      >
                         <feature.icon className="w-8 h-8 text-white" />
                         {/* Animated ring blur - match homepage services */}
-                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                        <div
+                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                        />
                       </div>
                       {/* Animated ring blur */}
                     </div>
-                    
+
                     <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
-                  
+
                   {/* Corner decoration */}
-                  <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                  <div
+                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                  />
                 </motion.div>
               ))}
             </div>
@@ -495,13 +538,15 @@ const BuildingWebsite = () => {
                   transition={{ delay: index * 0.1 }}
                   onMouseEnter={() => setActiveProcess(index)}
                   className={`relative glass rounded-2xl p-6 cursor-default transition-all duration-300 ${
-                    activeProcess === index ? 'border-primary/50 bg-primary/5' : ''
+                    activeProcess === index ? "border-primary/50 bg-primary/5" : ""
                   }`}
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
-                      activeProcess === index ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
-                    }`}>
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
+                        activeProcess === index ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+                      }`}
+                    >
                       <step.icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
@@ -532,7 +577,8 @@ const BuildingWebsite = () => {
                 Transparent <span className="text-gradient">Pricing</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Choose the package that fits your needs. All prices are starting points – we'll provide a custom quote based on your requirements.
+                Choose the package that fits your needs. All prices are starting points – we'll provide a custom quote
+                based on your requirements.
               </p>
             </motion.div>
 
@@ -544,9 +590,7 @@ const BuildingWebsite = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`relative glass rounded-2xl p-6 ${
-                    pkg.popular ? 'border-primary/50 bg-primary/5' : ''
-                  }`}
+                  className={`relative glass rounded-2xl p-6 ${pkg.popular ? "border-primary/50 bg-primary/5" : ""}`}
                 >
                   {pkg.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -555,13 +599,13 @@ const BuildingWebsite = () => {
                       </span>
                     </div>
                   )}
-                  
+
                   <div className="text-center mb-6 pt-2">
                     <h3 className="text-xl font-display font-bold mb-1">{pkg.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
                     <div className="text-3xl font-display font-bold text-gradient">{pkg.price}</div>
                   </div>
-                  
+
                   <ul className="space-y-3 mb-6">
                     {pkg.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm">
@@ -570,12 +614,8 @@ const BuildingWebsite = () => {
                       </li>
                     ))}
                   </ul>
-                  
-                  <Button 
-                    variant={pkg.popular ? "hero" : "outline"} 
-                    className="w-full"
-                    asChild
-                  >
+
+                  <Button variant={pkg.popular ? "hero" : "outline"} className="w-full" asChild>
                     <Link to="/contact">
                       Get Started
                       <ChevronRight className="w-4 h-4 ml-1" />
@@ -587,19 +627,32 @@ const BuildingWebsite = () => {
           </div>
         </section>
 
+        <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their new websites." />
+        <ServiceFAQ
+          faqs={webDevFaqs}
+          serviceName="Web Development"
+          title="Frequently Asked Questions"
+          subtitle="Common questions about our web development services."
+        />
+
         {/* CTA Section */}
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10" />
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} className="text-center max-w-3xl mx-auto">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="text-center max-w-3xl mx-auto"
+            >
               <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
                 Ready to Launch Your <span className="text-gradient">Dream Website</span>?
@@ -623,9 +676,6 @@ const BuildingWebsite = () => {
             </motion.div>
           </div>
         </section>
-
-        <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their new websites." />
-        <ServiceFAQ faqs={webDevFaqs} serviceName="Web Development" title="Frequently Asked Questions" subtitle="Common questions about our web development services." />
 
         <Footer />
       </div>
