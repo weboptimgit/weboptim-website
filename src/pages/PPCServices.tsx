@@ -5,6 +5,35 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import ServiceReviews from "@/components/ServiceReviews";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
+const ppcFaqs = [
+  {
+    question: "How quickly will I see results from PPC advertising?",
+    answer: "Unlike SEO, PPC delivers immediate results. You can start seeing traffic and leads within hours of launching your campaign. However, optimization for best ROI typically takes 2-4 weeks as we gather data and refine targeting.",
+  },
+  {
+    question: "What is a good ROAS (Return on Ad Spend)?",
+    answer: "A good ROAS varies by industry, but generally 3:1 to 4:1 is considered healthy for most businesses. This means for every €1 spent on ads, you generate €3-4 in revenue. We optimize campaigns to maximize your specific ROAS goals.",
+  },
+  {
+    question: "Which platforms do you advertise on?",
+    answer: "We manage campaigns across Google Ads (Search, Shopping, Display, YouTube), Meta Ads (Facebook & Instagram), LinkedIn Ads, TikTok Ads, and Microsoft Advertising (Bing). We recommend platforms based on your target audience and goals.",
+  },
+  {
+    question: "How much should I budget for PPC?",
+    answer: "Budget depends on your industry, competition, and goals. We recommend starting with at least €1,000-2,000/month for meaningful data collection. Our management fee is separate from your ad spend, which goes directly to the platforms.",
+  },
+  {
+    question: "Do you provide reporting and analytics?",
+    answer: "Yes, we provide detailed reports showing impressions, clicks, conversions, cost per acquisition, ROAS, and more. You get access to real-time dashboards and we schedule regular strategy calls to review performance.",
+  },
+  {
+    question: "Can you help with landing page optimization?",
+    answer: "Absolutely! Great ads need great landing pages to convert. We provide landing page recommendations and can create optimized landing pages as part of our Growth and Enterprise packages.",
+  },
+];
 
 const PPCServices = () => {
   const campaignTypes = [
@@ -525,6 +554,20 @@ const PPCServices = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Reviews */}
+        <ServiceReviews 
+          title="What Our Clients Say"
+          subtitle="See what businesses say about their PPC campaign results with us."
+        />
+
+        {/* FAQ */}
+        <ServiceFAQ 
+          faqs={ppcFaqs}
+          serviceName="PPC Advertising"
+          title="Frequently Asked Questions"
+          subtitle="Common questions about our PPC advertising services."
+        />
 
         <Footer />
       </div>

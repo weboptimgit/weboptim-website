@@ -31,6 +31,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.seoDesc": "Keyword research & link building",
     "services.ppc": "PPC Advertising",
     "services.ppcDesc": "Google & social media ads",
+    "services.digitalization": "Digitalization",
+    "services.digitalizationDesc": "Business process automation",
 
     // Hero
     "hero.badge": "Crafting Digital Excellence",
@@ -74,6 +76,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.seoDesc": "Analýza klíčových slov a linkbuilding",
     "services.ppc": "PPC Reklama",
     "services.ppcDesc": "Google a sociální reklamy",
+    "services.digitalization": "Digitalizace",
+    "services.digitalizationDesc": "Automatizace firemních procesů",
 
     // Hero
     "hero.badge": "Tvoříme digitální dokonalost",
@@ -117,6 +121,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.seoDesc": "Analýza kľúčových slov a linkbuilding",
     "services.ppc": "PPC Reklama",
     "services.ppcDesc": "Google a sociálne reklamy",
+    "services.digitalization": "Digitalizácia",
+    "services.digitalizationDesc": "Automatizácia firemných procesov",
 
     // Hero
     "hero.badge": "Tvoríme digitálnu dokonalosť",
