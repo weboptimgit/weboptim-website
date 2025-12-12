@@ -47,78 +47,89 @@ export interface CaseStudy {
 }
 
 export const caseStudiesData: Record<string, CaseStudy> = {
-  "mobilno-marketplace": {
+  mobilno: {
     title: "Mobilno",
-    subtitle: "Service Marketplace & Product Development",
+    subtitle: "Marketplace for Mobile Service Providers",
     category: "Marketplace",
     client: "Mobilno",
     duration: "Ongoing",
     year: "2024–2025",
     team: "2–4 Specialists",
+
     // Portfolio card fields
-    description: "Service marketplace connecting customers with mobile professionals through a demand-to-offer platform.",
-    tags: ["Marketplace", "WordPress", "SEO"],
+    description:
+      "A marketplace where customers post a request and mobile professionals respond with offers — built for SEO, scale, and smooth onboarding.",
+    tags: ["Marketplace", "WordPress", "Technical SEO"],
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop",
     statValue: "+180%",
     statLabel: "Organic Visibility",
     featured: true,
+
     // Detail page fields
     heroImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop",
+
     overview:
-      "Mobilno is a marketplace connecting customers with mobile service providers. The goal was to create a fast, SEO-friendly platform with structured service listings, a demand → offer flow, and a smooth provider onboarding experience.",
+      "Mobilno connects people who need a service with mobile professionals (e.g., DJs, massage therapists, photographers, repairs). The platform is built to grow through SEO: structured listings, city-based landing pages, and clean internal linking between categories, services, and providers.",
+
     challenge:
-      "The platform needed to handle complex content structure (services, locations, categories, and provider profiles) while keeping the UX simple. Key challenges included scalable filtering/search, clean URL structure for SEO, and conversion-focused onboarding for providers.",
+      "We needed a content model that scales (providers, services, categories, specializations, locations) while keeping navigation simple. The key was making search and filtering feel instant, and making SEO work with city-based pages without duplicate or canonical issues.",
+
     solution:
-      "We designed and built a WordPress-based marketplace with custom post types, taxonomies, and advanced fields. We implemented a robust search and filtering experience, SEO-friendly routing, and conversion-driven UX patterns across onboarding, profiles, and service detail pages.",
+      "We built a WordPress marketplace using custom post types, taxonomies, and advanced fields. We implemented SEO-friendly routing for category + city pages, optimized queries and caching, and shipped UX flows for provider onboarding, profile creation, and request → offer conversion.",
+
     services: [
       { icon: Code, label: "WordPress Development" },
       { icon: Palette, label: "UI/UX Design" },
       { icon: Globe, label: "Technical SEO" },
       { icon: Megaphone, label: "Conversion Optimization" },
     ],
+
     results: [
       {
         metric: "+3.2x",
-        label: "Provider Sign-ups",
-        description: "Increase in providers completing onboarding",
+        label: "Provider Onboarding",
+        description: "More providers completed registration and published their profiles",
       },
       {
         metric: "+180%",
-        label: "Organic Visibility",
-        description: "Growth in indexed service/location pages",
+        label: "Indexed Landing Pages",
+        description: "Growth of category + city pages discoverable via Google",
       },
       {
         metric: "-45%",
-        label: "Time to First Offer",
-        description: "Faster customer → provider connection flow",
+        label: "Faster Matching",
+        description: "Shorter time from customer request to first provider response",
       },
       {
         metric: "+28%",
         label: "CTA Engagement",
-        description: "More clicks on key actions (contact, demand, signup)",
+        description: "Higher interaction with key actions (request, contact, signup)",
       },
     ],
+
     testimonial: {
       quote:
-        "Mobilno finally feels like a product, not just a website. The structure is clean, the UX is simple, and the platform is ready to scale with new categories and locations.",
+        "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers can onboard easily and customers find what they need without friction.",
       author: "Martin Varga",
       role: "Founder, Mobilno",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
     },
+
     gallery: [
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
     ],
+
     features: [
-      "Custom post types for services and provider profiles",
-      "Advanced filtering by category, location, and keywords",
-      "SEO-friendly URL structure for service + city pages",
-      "Onboarding flow with role-based access (Free/Premium-ready)",
-      "Optimized templates for conversion (CTA hierarchy, trust blocks)",
-      "Schema markup for improved search appearance",
-      "Performance optimization (caching, lean queries, clean assets)",
-      "Scalable content model ready for new regions and categories",
+      "Custom post types for provider profiles and services",
+      "Taxonomy structure for categories, specializations, and problem types",
+      "City-based landing pages with SEO-safe routing and canonicals",
+      "Search + filtering optimized for relevance (service, city, keywords)",
+      "Conversion-focused provider onboarding (Free/Premium-ready tiers)",
+      "Performance improvements (lean queries, caching, reduced duplicate calls)",
+      "Schema-ready structured pages to improve search appearance",
+      "Internal linking strategy between listings, cities, and provider profiles",
     ],
   },
   "flavor-bistro-wordpress": {
@@ -130,7 +141,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     year: "2024",
     team: "4 Specialists",
     // Portfolio card fields
-    description: "WordPress website with online reservations and local SEO optimization for a growing restaurant chain.",
+    description:
+      "WordPress website with online reservations and local SEO optimization for a growing restaurant chain.",
     tags: ["WordPress", "Branding", "SEO"],
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
     statValue: "+150%",
