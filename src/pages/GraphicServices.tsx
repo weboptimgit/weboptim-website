@@ -267,26 +267,62 @@ const GraphicServices = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group glass rounded-2xl p-8 hover:border-purple-500/30 transition-all duration-500"
-              >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                  <feature.icon className="w-7 h-7 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-purple-400 transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
+            {features.map((feature, index) => {
+              const gradientStyles: Record<string, string> = {
+                'from-purple-500/20 to-violet-500/20': 'linear-gradient(135deg, hsl(270 60% 55%), hsl(260 70% 55%))',
+                'from-blue-500/20 to-cyan-500/20': 'linear-gradient(135deg, hsl(210 80% 55%), hsl(190 90% 50%))',
+                'from-pink-500/20 to-rose-500/20': 'linear-gradient(135deg, hsl(330 80% 60%), hsl(350 80% 55%))',
+                'from-orange-500/20 to-amber-500/20': 'linear-gradient(135deg, hsl(25 95% 55%), hsl(38 90% 50%))',
+                'from-green-500/20 to-emerald-500/20': 'linear-gradient(135deg, hsl(142 70% 45%), hsl(160 80% 40%))',
+                'from-indigo-500/20 to-blue-500/20': 'linear-gradient(135deg, hsl(240 60% 55%), hsl(210 80% 55%))',
+              };
+              const glowColors: Record<string, string> = {
+                'from-purple-500/20 to-violet-500/20': '0 0 30px hsla(265, 65%, 55%, 0.4)',
+                'from-blue-500/20 to-cyan-500/20': '0 0 30px hsla(200, 85%, 55%, 0.4)',
+                'from-pink-500/20 to-rose-500/20': '0 0 30px hsla(340, 80%, 58%, 0.4)',
+                'from-orange-500/20 to-amber-500/20': '0 0 30px hsla(30, 92%, 52%, 0.4)',
+                'from-green-500/20 to-emerald-500/20': '0 0 30px hsla(150, 75%, 45%, 0.4)',
+                'from-indigo-500/20 to-blue-500/20': '0 0 30px hsla(225, 70%, 55%, 0.4)',
+              };
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  {/* Gradient border glow */}
+                  <div 
+                    className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: gradientStyles[feature.gradient], filter: 'blur(1px)' }}
+                  />
+                  
+                  <div 
+                    className="relative glass rounded-2xl p-8 group-hover:border-transparent transition-all duration-500 h-full overflow-hidden"
+                    style={{ transition: 'box-shadow 0.3s ease' }}
+                    onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColors[feature.gradient]}
+                    onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+                  >
+                    {/* Shine sweep effect */}
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                    </div>
+                    
+                    <div 
+                      className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500"
+                      style={{ background: gradientStyles[feature.gradient] }}
+                    >
+                      <feature.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="relative z-10 text-xl font-bold mb-3 text-foreground">{feature.title}</h3>
+                    <p className="relative z-10 text-muted-foreground">{feature.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
