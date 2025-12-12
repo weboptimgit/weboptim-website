@@ -9,7 +9,7 @@ const services = [
     title: "Web Development",
     description: "Custom WordPress websites with Oxygen Builder. Fast, scalable, and optimized for performance.",
     href: "/services/building-website",
-    gradient: "from-blue-500 to-cyan-400",
+    gradient: "from-brandBlue to-brandCyan",
     accent: "blue",
   },
   {
@@ -17,7 +17,7 @@ const services = [
     title: "E-Commerce",
     description: "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions.",
     href: "/services/ecommerce-website",
-    gradient: "from-purple-500 to-pink-400",
+    gradient: "from-brandPurple to-pink-400",
     accent: "purple",
   },
   {
@@ -91,7 +91,7 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -104,8 +104,8 @@ const Services = () => {
             Services that <span className="text-gradient">elevate</span> your brand
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            We offer comprehensive digital solutions tailored to your unique needs, 
-            helping businesses thrive in the modern digital landscape.
+            We offer comprehensive digital solutions tailored to your unique needs, helping businesses thrive in the
+            modern digital landscape.
           </p>
         </motion.div>
 
@@ -118,31 +118,32 @@ const Services = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, index) => (
-            <motion.div 
-              key={index} 
-              variants={itemVariants}
-            >
+            <motion.div key={index} variants={itemVariants}>
               <Link
                 to={service.href}
                 className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer block h-full overflow-hidden"
               >
                 {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+
                 {/* Icon with gradient background */}
-                <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                <div
+                  className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                >
                   <service.icon className="w-8 h-8 text-white" />
                   {/* Animated ring */}
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                  <div
+                    className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                  />
                 </div>
 
                 <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="relative text-muted-foreground leading-relaxed mb-6">
-                  {service.description}
-                </p>
-                
+                <p className="relative text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+
                 {/* Arrow indicator */}
                 <div className="relative flex items-center text-primary font-medium">
                   <span className="text-sm">Learn More</span>
@@ -150,7 +151,9 @@ const Services = () => {
                 </div>
 
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div
+                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                />
               </Link>
             </motion.div>
           ))}

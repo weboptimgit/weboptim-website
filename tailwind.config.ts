@@ -84,6 +84,9 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        brandBlue: "hsl(var(--blue))",
+        brandCyan: "hsl(var(--cyan))",
+        brandPurple: "hsl(var(--purple))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -92,9 +95,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        cyan: "hsl(var(--cyan))",
-        blue: "hsl(var(--blue))",
-        purple: "hsl(var(--purple))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
