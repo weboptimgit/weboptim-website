@@ -110,16 +110,12 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     testimonial: {
       quote:
         "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers can onboard easily and customers find what they need without friction.",
-      author: "Martin Varga",
+      author: "Peter Gáborík",
       role: "Founder, Mobilno",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+      avatar: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
     },
 
-    gallery: [
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-    ],
+    gallery: [],
 
     features: [
       "Custom post types for provider profiles and services",
