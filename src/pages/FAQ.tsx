@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
+import SEO from "@/components/SEO";
 
 const faqs = [
   {
@@ -92,9 +93,11 @@ const FAQ = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <AmbientBackground />
-      <Navbar />
+    <>
+      <SEO titleKey="faq" />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <AmbientBackground />
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
@@ -206,8 +209,9 @@ const FAQ = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

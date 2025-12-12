@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
+import SEO from "@/components/SEO";
 
 const projects = [
   {
@@ -82,9 +83,11 @@ const projects = [
 
 const Work = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <AmbientBackground />
-      <Navbar />
+    <>
+      <SEO titleKey="work" />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <AmbientBackground />
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
@@ -167,8 +170,9 @@ const Work = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

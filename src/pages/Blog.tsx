@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getBlogPostsList, getCategories } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 const Blog = () => {
   const { language } = useLanguage();
@@ -39,8 +40,10 @@ const Blog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEO titleKey="blog" />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 relative overflow-hidden">
@@ -215,6 +218,7 @@ const Blog = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

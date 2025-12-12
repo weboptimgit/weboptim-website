@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import AnimatedMascot from "@/components/AnimatedMascot";
 import mascotSleeping from "@/assets/mascot-sleeping.png";
+import SEO from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -14,7 +15,9 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background relative overflow-hidden">
+    <>
+      <SEO titleKey="notFound" noindex />
+      <div className="flex min-h-screen items-center justify-center bg-background relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -86,6 +89,7 @@ const NotFound = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const glossaryTerms = [
   {
@@ -149,9 +150,11 @@ const Glossary = () => {
   }, {} as Record<string, typeof glossaryTerms>);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <AmbientBackground />
-      <Navbar />
+    <>
+      <SEO titleKey="glossary" />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <AmbientBackground />
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
@@ -284,8 +287,9 @@ const Glossary = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 
