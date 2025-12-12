@@ -44,7 +44,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle":
       "Transform your vision into stunning digital experiences. We design and develop websites that captivate users and drive real business results.",
     "hero.cta1": "Start Your Project",
-    "hero.cta2": "Watch Showreel",
+    "hero.cta2": "Our Services",
     "hero.happyClients": "happy clients",
 
     // Stats
@@ -69,7 +69,8 @@ const translations: Record<Language, Record<string, string>> = {
     "ppc.badge": "PPC & Advertising",
     "ppc.title1": "Drive Results with",
     "ppc.title2": "Paid Advertising",
-    "ppc.subtitle": "Strategic campaigns on Google, Meta, and more. Get qualified leads and measurable ROI from day one.",
+    "ppc.subtitle":
+      "Strategic campaigns on Google, Meta, and more. Get qualified leads and measurable ROI from day one.",
     "ppc.campaignTypes": "Campaign Types",
     "ppc.campaignTypesDesc": "We manage all types of paid advertising campaigns",
     "ppc.whyChoose": "Why Choose Our PPC Services",
@@ -80,7 +81,8 @@ const translations: Record<Language, Record<string, string>> = {
     "seo.badge": "SEO Services",
     "seo.title1": "Dominate Search with",
     "seo.title2": "Expert SEO",
-    "seo.subtitle": "Boost your rankings with proven strategies. Keyword research, link building, and technical optimization.",
+    "seo.subtitle":
+      "Boost your rankings with proven strategies. Keyword research, link building, and technical optimization.",
     "seo.services": "Our SEO Services",
     "seo.servicesDesc": "Comprehensive strategies to improve your search visibility",
     "seo.whyChoose": "Why Invest in SEO",
@@ -91,7 +93,8 @@ const translations: Record<Language, Record<string, string>> = {
     "ecom.badge": "E-Commerce Solutions",
     "ecom.title1": "Build Your",
     "ecom.title2": "Online Store",
-    "ecom.subtitle": "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions and sales.",
+    "ecom.subtitle":
+      "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions and sales.",
     "ecom.features": "E-Commerce Features",
     "ecom.featuresDesc": "Everything you need to sell online successfully",
     "ecom.platforms": "Platforms We Work With",
@@ -102,7 +105,8 @@ const translations: Record<Language, Record<string, string>> = {
     "webdev.badge": "Web Development",
     "webdev.title1": "Custom Websites",
     "webdev.title2": "That Perform",
-    "webdev.subtitle": "Modern WordPress websites built with Oxygen Builder. Fast, scalable, and optimized for results.",
+    "webdev.subtitle":
+      "Modern WordPress websites built with Oxygen Builder. Fast, scalable, and optimized for results.",
     "webdev.services": "Our Web Development Services",
     "webdev.servicesDesc": "From simple landing pages to complex web applications",
     "webdev.technologies": "Technologies We Use",
@@ -113,7 +117,8 @@ const translations: Record<Language, Record<string, string>> = {
     "digital.badge": "Digitalization & Automation",
     "digital.title1": "Automate Your",
     "digital.title2": "Business",
-    "digital.subtitle": "Transform manual processes into efficient digital workflows. We implement tools that save time, reduce errors, and scale with your growth.",
+    "digital.subtitle":
+      "Transform manual processes into efficient digital workflows. We implement tools that save time, reduce errors, and scale with your growth.",
     "digital.services": "Our Digitalization Services",
     "digital.servicesDesc": "Streamline your business with modern tools",
     "digital.technologies": "Technologies We Use",
@@ -124,9 +129,11 @@ const translations: Record<Language, Record<string, string>> = {
     "graphic.badge": "Graphic Design",
     "graphic.title1": "Designs That",
     "graphic.title2": "Stand Out",
-    "graphic.subtitle": "From flyers and posters to business cards and banner ads, we create eye-catching graphics across all platforms.",
+    "graphic.subtitle":
+      "From flyers and posters to business cards and banner ads, we create eye-catching graphics across all platforms.",
     "graphic.services": "Full-Service Graphic Design",
-    "graphic.servicesDesc": "We pride ourselves on creating digital content that not only stands out but also fulfils its purpose.",
+    "graphic.servicesDesc":
+      "We pride ourselves on creating digital content that not only stands out but also fulfils its purpose.",
     "graphic.portfolio": "Our Work",
     "graphic.portfolioDesc": "A selection of our recent graphic design projects",
     "graphic.pricing": "Transparent Pricing",
@@ -191,7 +198,8 @@ const translations: Record<Language, Record<string, string>> = {
     "ppc.badge": "PPC & Reklama",
     "ppc.title1": "Dosáhněte výsledků s",
     "ppc.title2": "Placenou reklamou",
-    "ppc.subtitle": "Strategické kampaně na Google, Meta a dalších platformách. Získejte kvalifikované kontakty a měřitelnou návratnost od prvního dne.",
+    "ppc.subtitle":
+      "Strategické kampaně na Google, Meta a dalších platformách. Získejte kvalifikované kontakty a měřitelnou návratnost od prvního dne.",
     "ppc.campaignTypes": "Typy kampaní",
     "ppc.campaignTypesDesc": "Spravujeme všechny typy placených reklamních kampaní",
     "ppc.whyChoose": "Proč zvolit naše PPC služby",
@@ -202,7 +210,8 @@ const translations: Record<Language, Record<string, string>> = {
     "seo.badge": "SEO Služby",
     "seo.title1": "Dominujte ve vyhledávání s",
     "seo.title2": "Expertním SEO",
-    "seo.subtitle": "Zlepšete své pozice s osvědčenými strategiemi. Analýza klíčových slov, linkbuilding a technická optimalizace.",
+    "seo.subtitle":
+      "Zlepšete své pozice s osvědčenými strategiemi. Analýza klíčových slov, linkbuilding a technická optimalizace.",
     "seo.services": "Naše SEO služby",
     "seo.servicesDesc": "Komplexní strategie pro zlepšení viditelnosti ve vyhledávačích",
     "seo.whyChoose": "Proč investovat do SEO",
@@ -224,7 +233,8 @@ const translations: Record<Language, Record<string, string>> = {
     "webdev.badge": "Tvorba webu",
     "webdev.title1": "Weby na míru",
     "webdev.title2": "Které fungují",
-    "webdev.subtitle": "Moderní WordPress weby vytvořené s Oxygen Builderem. Rychlé, škálovatelné a optimalizované pro výsledky.",
+    "webdev.subtitle":
+      "Moderní WordPress weby vytvořené s Oxygen Builderem. Rychlé, škálovatelné a optimalizované pro výsledky.",
     "webdev.services": "Naše služby tvorby webu",
     "webdev.servicesDesc": "Od jednoduchých landing pages po komplexní webové aplikace",
     "webdev.technologies": "Technologie, které používáme",
@@ -235,7 +245,8 @@ const translations: Record<Language, Record<string, string>> = {
     "digital.badge": "Digitalizace & Automatizace",
     "digital.title1": "Automatizujte své",
     "digital.title2": "Podnikání",
-    "digital.subtitle": "Proměňte manuální procesy v efektivní digitální workflow. Implementujeme nástroje, které šetří čas, snižují chyby a rostou s vámi.",
+    "digital.subtitle":
+      "Proměňte manuální procesy v efektivní digitální workflow. Implementujeme nástroje, které šetří čas, snižují chyby a rostou s vámi.",
     "digital.services": "Naše služby digitalizace",
     "digital.servicesDesc": "Zefektivněte své podnikání moderními nástroji",
     "digital.technologies": "Technologie, které používáme",
@@ -313,7 +324,8 @@ const translations: Record<Language, Record<string, string>> = {
     "ppc.badge": "PPC & Reklama",
     "ppc.title1": "Dosiahnite výsledky s",
     "ppc.title2": "Platenou reklamou",
-    "ppc.subtitle": "Strategické kampane na Google, Meta a ďalších platformách. Získajte kvalifikované kontakty a merateľnú návratnosť od prvého dňa.",
+    "ppc.subtitle":
+      "Strategické kampane na Google, Meta a ďalších platformách. Získajte kvalifikované kontakty a merateľnú návratnosť od prvého dňa.",
     "ppc.campaignTypes": "Typy kampaní",
     "ppc.campaignTypesDesc": "Spravujeme všetky typy platených reklamných kampaní",
     "ppc.whyChoose": "Prečo zvoliť naše PPC služby",
@@ -324,7 +336,8 @@ const translations: Record<Language, Record<string, string>> = {
     "seo.badge": "SEO Služby",
     "seo.title1": "Dominujte vo vyhľadávaní s",
     "seo.title2": "Expertným SEO",
-    "seo.subtitle": "Zlepšite svoje pozície s osvedčenými stratégiami. Analýza kľúčových slov, linkbuilding a technická optimalizácia.",
+    "seo.subtitle":
+      "Zlepšite svoje pozície s osvedčenými stratégiami. Analýza kľúčových slov, linkbuilding a technická optimalizácia.",
     "seo.services": "Naše SEO služby",
     "seo.servicesDesc": "Komplexné stratégie pre zlepšenie viditeľnosti vo vyhľadávačoch",
     "seo.whyChoose": "Prečo investovať do SEO",
@@ -335,7 +348,8 @@ const translations: Record<Language, Record<string, string>> = {
     "ecom.badge": "E-Commerce riešenia",
     "ecom.title1": "Vytvorte si svoj",
     "ecom.title2": "Online obchod",
-    "ecom.subtitle": "Výkonné WooCommerce e-shopy s plynulým nákupným procesom, ktoré maximalizujú konverzie a predaje.",
+    "ecom.subtitle":
+      "Výkonné WooCommerce e-shopy s plynulým nákupným procesom, ktoré maximalizujú konverzie a predaje.",
     "ecom.features": "Funkcie e-shopu",
     "ecom.featuresDesc": "Všetko, čo potrebujete k úspešnému online predaju",
     "ecom.platforms": "Platformy, s ktorými pracujeme",
@@ -346,7 +360,8 @@ const translations: Record<Language, Record<string, string>> = {
     "webdev.badge": "Tvorba webu",
     "webdev.title1": "Weby na mieru",
     "webdev.title2": "Ktoré fungujú",
-    "webdev.subtitle": "Moderné WordPress weby vytvorené s Oxygen Builderom. Rýchle, škálovateľné a optimalizované pre výsledky.",
+    "webdev.subtitle":
+      "Moderné WordPress weby vytvorené s Oxygen Builderom. Rýchle, škálovateľné a optimalizované pre výsledky.",
     "webdev.services": "Naše služby tvorby webu",
     "webdev.servicesDesc": "Od jednoduchých landing pages po komplexné webové aplikácie",
     "webdev.technologies": "Technológie, ktoré používame",
@@ -357,7 +372,8 @@ const translations: Record<Language, Record<string, string>> = {
     "digital.badge": "Digitalizácia & Automatizácia",
     "digital.title1": "Automatizujte svoje",
     "digital.title2": "Podnikanie",
-    "digital.subtitle": "Premeňte manuálne procesy na efektívne digitálne workflow. Implementujeme nástroje, ktoré šetria čas, znižujú chyby a rastú s vami.",
+    "digital.subtitle":
+      "Premeňte manuálne procesy na efektívne digitálne workflow. Implementujeme nástroje, ktoré šetria čas, znižujú chyby a rastú s vami.",
     "digital.services": "Naše služby digitalizácie",
     "digital.servicesDesc": "Zefektívnite svoje podnikanie modernými nástrojmi",
     "digital.technologies": "Technológie, ktoré používame",
