@@ -244,38 +244,40 @@ const CaseStudy = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl font-display font-bold mb-4">Project Gallery</h2>
-          </motion.div>
+      {study.gallery.length > 0 && (
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-12"
+            >
+              <h2 className="text-3xl font-display font-bold mb-4">Project Gallery</h2>
+            </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {study.gallery.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass rounded-2xl overflow-hidden p-2 group"
-              >
-                <img
-                  src={image}
-                  alt={`${study.title} screenshot ${index + 1}`}
-                  className="w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                />
-              </motion.div>
-            ))}
+            <div className="grid md:grid-cols-3 gap-6">
+              {study.gallery.map((image, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="glass rounded-2xl overflow-hidden p-2 group"
+                >
+                  <img
+                    src={image}
+                    alt={`${study.title} screenshot ${index + 1}`}
+                    className="w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Testimonial Section */}
       <section className="py-16">

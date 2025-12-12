@@ -66,7 +66,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     featured: true,
 
     // Detail page fields
-    heroImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop",
+    heroImage: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
 
     overview:
       "Mobilno connects people who need a service with mobile professionals (e.g., DJs, massage therapists, photographers, repairs). The platform is built to grow through SEO: structured listings, city-based landing pages, and clean internal linking between categories, services, and providers.",
@@ -112,7 +112,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
         "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers can onboard easily and customers find what they need without friction.",
       author: "Peter Gáborík",
       role: "Founder, Mobilno",
-      avatar: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+      avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
     },
 
     gallery: [],
