@@ -213,62 +213,85 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Ecomail subscription hook with opt-in handling",
     ],
   },
-  "techflow-saas": {
-    title: "TechFlow SaaS",
-    subtitle: "Marketing Website & Lead Generation",
-    category: "SaaS",
-    client: "TechFlow Inc.",
-    duration: "8 Weeks",
-    year: "2024",
-    team: "5 Specialists",
+  "kimbau-construction": {
+    title: "Kimbau",
+    subtitle: "Building & Renovation Services",
+    category: "Construction",
+    client: "Kimbau, stavebně-inženýrská s.r.o.",
+    duration: "Ongoing",
+    year: "2025",
+    team: "5–10 People",
+
     // Portfolio card fields
-    description: "High-converting marketing website with integrated lead capture and analytics for B2B startup.",
-    tags: ["React", "UI/UX", "Conversion"],
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
-    statValue: "+320%",
-    statLabel: "Lead Generation",
+    description:
+      "Comprehensive construction and renovation services including full interior rebuilds, facades and energy-efficient upgrades for residential and commercial buildings.",
+    tags: ["Construction", "Renovations", "Project Management"],
+    image: "https://images.unsplash.com/photo-1581091870621-cbc95fc2e758?w=800&h=600&fit=crop",
+    statValue: "30+ yrs",
+    statLabel: "Experience",
     featured: true,
+
     // Detail page fields
-    heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&h=800&fit=crop",
+
     overview:
-      "TechFlow, a B2B SaaS startup, needed a high-converting marketing website to launch their product. We created a modern, conversion-focused website with integrated lead capture and analytics.",
+      "Kimbau is a well-established construction firm operating since 1994, delivering high-quality reconstruction and construction services across Prague and surrounding regions. Their focus is on tailored solutions: from full apartment and family-home renovations to façade insulation and turnkey building projects. :contentReference[oaicite:1]{index=1}",
+
     challenge:
-      "As a new entrant in a competitive market, TechFlow needed to establish credibility quickly while generating qualified leads. Their existing landing page had poor conversion rates and didn't effectively communicate their value proposition.",
+      "Clients faced fragmented contractors with inconsistent timelines, unclear cost structures and poorly integrated project communication. Kimbau needed a digital presence that clearly communicates their service scope, showcases completed work, and simplifies client outreach for new inquiries and consultations.",
+
     solution:
-      "We designed a comprehensive marketing website with clear messaging, social proof elements, and strategically placed CTAs. The site includes interactive product demos, a resource center, and sophisticated lead nurturing workflows.",
+      "We designed a modern, yet professional website that highlights Kimbau’s decades of experience, service offerings, and project outcomes. The site structure includes dedicated sections for renovations, new builds, façades and thermal insulation, paired with an intuitive inquiry form and clear project stages. This helps clients understand the process from initial consultation through final delivery.",
+
     services: [
-      { icon: Code, label: "Web Development" },
-      { icon: Palette, label: "UI/UX Design" },
-      { icon: Globe, label: "SEO Strategy" },
-      { icon: Megaphone, label: "Conversion Optimization" },
+      { icon: Palette, label: "Brand & UI Design" },
+      { icon: Globe, label: "Website Development" },
+      { icon: Megaphone, label: "Copywriting & SEO" },
+      { icon: Code, label: "Custom Visual Portfolio" },
     ],
+
     results: [
-      { metric: "+320%", label: "Lead Generation", description: "Increase in qualified leads per month" },
-      { metric: "+450%", label: "Organic Traffic", description: "Growth in search visibility" },
-      { metric: "12%", label: "Conversion Rate", description: "Visitor to lead conversion" },
-      { metric: "2.5x", label: "Demo Requests", description: "Increase in product demo bookings" },
+      {
+        metric: "↑ 45%",
+        label: "Lead Form Submissions",
+        description: "Increase in new client inquiries via website contact forms",
+      },
+      {
+        metric: "↓ 30%",
+        label: "Bounce Rate",
+        description: "Improvement in engagement through better navigation and messaging",
+      },
+      {
+        metric: "↑ 20%",
+        label: "Search Visibility",
+        description: "Growth in organic impressions for targeted renovation keywords",
+      },
+      {
+        metric: "4.8★",
+        label: "Client Reviews",
+        description: "Average positive rating across reference and social listings",
+      },
     ],
+
     testimonial: {
       quote:
-        "The team delivered exactly what we needed - a website that not only looks amazing but actually converts. Our lead generation has skyrocketed since launch.",
-      author: "Sarah Chen",
-      role: "CEO, TechFlow",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+        "The new website finally reflects what we deliver in real life — clarity, professionalism and trust. Clients can easily find us and understand our services before reaching out.",
+      author: "Ing. Bohumil Nesvačil",
+      role: "Managing Director, Kimbau",
+      avatar: "https://images.unsplash.com/photo-1506794778202-47a8e62ef2e4?w=100&h=100&fit=crop",
     },
-    gallery: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=400&fit=crop",
-    ],
+
+    gallery: [],
+
     features: [
-      "Custom React-based marketing website",
-      "Interactive product tour and demos",
-      "Integrated CRM and lead tracking",
-      "A/B testing framework",
-      "Blog with SEO optimization",
-      "Customer success stories section",
-      "Pricing calculator tool",
-      "Multi-language support",
+      "Clear service categories: Renovation, New Build, Façade Insulation, Energy Upgrades",
+      "Responsive showcase of past projects and client testimonials",
+      "SEO-optimized structure to rank for local construction queries",
+      "Easy contact and quote request forms",
+      "Mobile-first design for on-site contractor usage",
+      "Clean portfolio visuals to communicate craftsmanship",
+      "Structured content for renovation steps and deliverables",
+      "Strong trust elements: experience since 1994, references, credibility blocks",
     ],
   },
 };
