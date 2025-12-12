@@ -9,12 +9,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 const techStack = [
-  { name: "WordPress", color: "bg-blue-600/20 text-blue-300 border-blue-500/30" },
-  { name: "Oxygen Builder", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" },
-  { name: "WooCommerce", color: "bg-purple-500/20 text-purple-400 border-purple-500/30" },
-  { name: "PHP", color: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30" },
-  { name: "Clean Code", color: "bg-green-500/20 text-green-400 border-green-500/30" },
-  { name: "Tailwind", color: "bg-teal-500/20 text-teal-400 border-teal-500/30" },
+  { name: "WordPress", bgColor: "rgba(37, 99, 235, 0.2)", textColor: "#93c5fd", borderColor: "rgba(59, 130, 246, 0.3)" },
+  { name: "Oxygen Builder", bgColor: "rgba(6, 182, 212, 0.2)", textColor: "#22d3ee", borderColor: "rgba(6, 182, 212, 0.3)" },
+  { name: "WooCommerce", bgColor: "rgba(168, 85, 247, 0.2)", textColor: "#c084fc", borderColor: "rgba(168, 85, 247, 0.3)" },
+  { name: "PHP", bgColor: "rgba(99, 102, 241, 0.2)", textColor: "#a5b4fc", borderColor: "rgba(99, 102, 241, 0.3)" },
+  { name: "Clean Code", bgColor: "rgba(34, 197, 94, 0.2)", textColor: "#4ade80", borderColor: "rgba(34, 197, 94, 0.3)" },
+  { name: "Tailwind", bgColor: "rgba(20, 184, 166, 0.2)", textColor: "#2dd4bf", borderColor: "rgba(20, 184, 166, 0.3)" },
 ];
 
 const services = [
@@ -143,7 +143,8 @@ const WebDevCard = ({ service, index }: { service: typeof services[0]; index: nu
           <div className="flex-1">
             <div className="flex items-center gap-4 mb-4">
               <motion.div 
-                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center`}
+                className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                style={{ background: 'linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))' }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -176,7 +177,12 @@ const WebDevCard = ({ service, index }: { service: typeof services[0]; index: nu
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 + i * 0.05 }}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium border ${tech.color}`}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium border"
+                    style={{
+                      backgroundColor: tech.bgColor,
+                      color: tech.textColor,
+                      borderColor: tech.borderColor,
+                    }}
                   >
                     {tech.name}
                   </motion.span>
@@ -243,7 +249,17 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
   >
     <div className="glass rounded-2xl p-8 h-full hover:border-primary/40 transition-all duration-300">
       <div className="flex items-start gap-6">
-        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+        <div 
+          className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+          style={{ 
+            background: service.color === 'from-purple-500 to-pink-500' ? 'linear-gradient(135deg, hsl(270 60% 55%), hsl(320 70% 55%))' :
+                        service.color === 'from-green-500 to-emerald-500' ? 'linear-gradient(135deg, hsl(142 70% 45%), hsl(160 80% 40%))' :
+                        service.color === 'from-orange-500 to-amber-500' ? 'linear-gradient(135deg, hsl(25 95% 55%), hsl(45 95% 50%))' :
+                        service.color === 'from-primary to-accent' ? 'linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))' :
+                        service.color === 'from-pink-500 to-violet-500' ? 'linear-gradient(135deg, hsl(320 70% 55%), hsl(270 60% 55%))' :
+                        'linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))'
+          }}
+        >
           <service.icon className="w-8 h-8 text-white" />
         </div>
         <div className="flex-1">
