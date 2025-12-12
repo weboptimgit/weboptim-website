@@ -66,37 +66,37 @@ const features = [
     icon: Search,
     title: "Keyword Research & Analysis",
     description: "Deep dive into search intent, competition analysis, and identifying high-value keywords that drive qualified traffic",
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    gradient: "from-blue-500 to-cyan-500",
   },
   {
     icon: Link2,
     title: "Link Building Campaigns",
     description: "White-hat strategies to earn quality backlinks from authoritative domains that boost your rankings",
-    gradient: "from-purple-500/20 to-violet-500/20",
+    gradient: "from-purple-500 to-violet-500",
   },
   {
     icon: MapPin,
     title: "Local SEO Optimization",
     description: "Google Business Profile, local citations, and geo-targeted strategies to dominate local search results",
-    gradient: "from-green-500/20 to-emerald-500/20",
+    gradient: "from-green-500 to-emerald-500",
   },
   {
     icon: Settings,
     title: "Technical SEO Audits",
     description: "Core Web Vitals, site speed, crawlability, schema markup, and fixing issues that hurt rankings",
-    gradient: "from-orange-500/20 to-red-500/20",
+    gradient: "from-orange-500 to-red-500",
   },
   {
     icon: BarChart3,
     title: "Content Strategy",
     description: "Data-driven content planning, optimization, and creation that ranks and converts",
-    gradient: "from-pink-500/20 to-rose-500/20",
+    gradient: "from-pink-500 to-rose-500",
   },
   {
     icon: LineChart,
     title: "Reporting & Analytics",
     description: "Transparent monthly reports with rankings, traffic, conversions, and ROI tracking",
-    gradient: "from-indigo-500/20 to-blue-500/20",
+    gradient: "from-indigo-500 to-blue-500",
   }
 ];
 
@@ -388,25 +388,27 @@ const SEOServices = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
               >
                 {/* Hover glow effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
-                {/* Icon with gradient background */}
-                <div className="relative mb-4">
-                  <div className={`relative w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
-                    <feature.icon className="w-6 h-6 text-white" />
+                <div className="relative z-10">
+                  {/* Icon with gradient background - match homepage services */}
+                  <div className="relative mb-6">
+                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      <feature.icon className="w-8 h-8 text-white" />
+                      {/* Animated ring blur */}
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                    </div>
                   </div>
-                  {/* Animated ring blur */}
-                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                  
+                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                  <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
                 
-                <h3 className="relative text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
-                <p className="relative text-muted-foreground text-sm">{feature.description}</p>
-                
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
               </motion.div>
             ))}
           </div>

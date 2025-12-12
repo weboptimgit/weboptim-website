@@ -357,32 +357,34 @@ const PPCServices = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group relative glass-strong rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-500 cursor-pointer overflow-hidden"
+                    className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                   >
                     {/* Hover glow effect */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                     
-                    {/* Icon with gradient background */}
-                    <div className="relative mb-4">
-                      <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${campaign.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
-                        <campaign.icon className="w-7 h-7 text-white" />
+                    <div className="relative z-10">
+                      {/* Icon with gradient background - match homepage services */}
+                      <div className="relative mb-6">
+                        <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${campaign.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                          <campaign.icon className="w-8 h-8 text-white" />
+                          {/* Animated ring blur */}
+                          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                        </div>
                       </div>
-                      {/* Animated ring blur */}
-                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
-                    </div>
-                    
-                    <h3 className="relative text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                      {campaign.title}
-                    </h3>
-                    <p className="relative text-muted-foreground text-sm mb-4">
-                      {campaign.description}
-                    </p>
-                    <div className="relative flex flex-wrap gap-2">
-                      {campaign.platforms.map((platform) => (
-                        <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
-                          {platform}
-                        </span>
-                      ))}
+                      
+                      <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {campaign.title}
+                      </h3>
+                      <p className="relative text-muted-foreground leading-relaxed mb-4">
+                        {campaign.description}
+                      </p>
+                      <div className="relative flex flex-wrap gap-2">
+                        {campaign.platforms.map((platform) => (
+                          <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
+                            {platform}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     
                     {/* Corner decoration */}
@@ -419,25 +421,27 @@ const PPCServices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                 >
                   {/* Hover glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
                   
-                  {/* Icon with gradient background */}
-                  <div className="relative mb-4">
-                    <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
-                      <reason.icon className="w-6 h-6 text-white" />
+                  <div className="relative z-10">
+                    {/* Icon with gradient background - match homepage services */}
+                    <div className="relative mb-6">
+                      <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
+                        <reason.icon className="w-8 h-8 text-white" />
+                        {/* Animated ring blur */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
+                      </div>
                     </div>
-                    {/* Animated ring blur */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
+                    
+                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{reason.title}</h3>
+                    <p className="relative text-muted-foreground leading-relaxed">{reason.description}</p>
                   </div>
                   
-                  <h3 className="relative text-lg font-bold mb-2 group-hover:text-primary transition-colors">{reason.title}</h3>
-                  <p className="relative text-muted-foreground text-sm">{reason.description}</p>
-                  
                   {/* Corner decoration */}
-                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
+                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
                 </motion.div>
               ))}
             </div>
