@@ -1,17 +1,17 @@
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Calculator, Check, Search, Info, ArrowRight, Sparkles } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import AmbientBackground from '@/components/AmbientBackground';
-import SEO from '@/components/SEO';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import { Calculator, Check, Search, Info, ArrowRight, Sparkles } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import AmbientBackground from "@/components/AmbientBackground";
+import SEO from "@/components/SEO";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   designTypes,
   pageCountOptions,
@@ -26,29 +26,29 @@ import {
   EUR_TO_CZK,
   calculatorTranslations,
   PricingOption,
-} from '@/data/calculator-config';
+} from "@/data/calculator-config";
 
 const PriceCalculator = () => {
   const { language } = useLanguage();
   const t = calculatorTranslations[language as keyof typeof calculatorTranslations] || calculatorTranslations.en;
 
   // Form state
-  const [designType, setDesignType] = useState<string>('');
-  const [pageCount, setPageCount] = useState<string>('');
+  const [designType, setDesignType] = useState<string>("");
+  const [pageCount, setPageCount] = useState<string>("");
   const [selectedFunctionalities, setSelectedFunctionalities] = useState<string[]>([]);
-  const [functionalitySearch, setFunctionalitySearch] = useState('');
+  const [functionalitySearch, setFunctionalitySearch] = useState("");
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
-  const [maintenance, setMaintenance] = useState<string>('none');
+  const [maintenance, setMaintenance] = useState<string>("none");
   const [selectedMarketingOneTime, setSelectedMarketingOneTime] = useState<string[]>([]);
   const [selectedMarketingMonthly, setSelectedMarketingMonthly] = useState<string[]>([]);
   const [articleCount, setArticleCount] = useState<number>(0);
-  const [hosting, setHosting] = useState<string>('have');
+  const [hosting, setHosting] = useState<string>("have");
   const [discountPercent, setDiscountPercent] = useState<number>(0);
 
   // Helper to get label based on language
   const getLabel = (option: PricingOption) => {
-    if (language === 'CZ' && option.labelCz) return option.labelCz;
-    if (language === 'SK' && option.labelSk) return option.labelSk;
+    if (language === "CZ" && option.labelCz) return option.labelCz;
+    if (language === "SK" && option.labelSk) return option.labelSk;
     return option.label;
   };
 
@@ -56,19 +56,22 @@ const PriceCalculator = () => {
   const filteredFunctionalities = useMemo(() => {
     if (!functionalitySearch) return functionalityOptions;
     const searchLower = functionalitySearch.toLowerCase();
-    return functionalityOptions.filter(f => 
-      f.label.toLowerCase().includes(searchLower) ||
-      f.labelCz?.toLowerCase().includes(searchLower) ||
-      f.labelSk?.toLowerCase().includes(searchLower)
+    return functionalityOptions.filter(
+      (f) =>
+        f.label.toLowerCase().includes(searchLower) ||
+        f.labelCz?.toLowerCase().includes(searchLower) ||
+        f.labelSk?.toLowerCase().includes(searchLower),
     );
   }, [functionalitySearch]);
 
   // Group functionalities by category
   const groupedFunctionalities = useMemo(() => {
-    return functionalityCategories.map(cat => ({
-      ...cat,
-      options: filteredFunctionalities.filter(f => f.category === cat.id),
-    })).filter(cat => cat.options.length > 0);
+    return functionalityCategories
+      .map((cat) => ({
+        ...cat,
+        options: filteredFunctionalities.filter((f) => f.category === cat.id),
+      }))
+      .filter((cat) => cat.options.length > 0);
   }, [filteredFunctionalities]);
 
   // Calculate prices
@@ -77,40 +80,40 @@ const PriceCalculator = () => {
     let monthlyTotal = 0;
 
     // Design type
-    const designOption = designTypes.find(d => d.id === designType);
+    const designOption = designTypes.find((d) => d.id === designType);
     if (designOption) oneTimeTotal += designOption.price;
 
     // Page count
-    const pageOption = pageCountOptions.find(p => p.id === pageCount);
+    const pageOption = pageCountOptions.find((p) => p.id === pageCount);
     if (pageOption) oneTimeTotal += pageOption.price;
 
     // Functionalities
-    selectedFunctionalities.forEach(id => {
-      const func = functionalityOptions.find(f => f.id === id);
+    selectedFunctionalities.forEach((id) => {
+      const func = functionalityOptions.find((f) => f.id === id);
       if (func) oneTimeTotal += func.price;
     });
 
     // Languages (additional after first)
     if (selectedLanguages.length > 1) {
-      selectedLanguages.slice(1).forEach(id => {
-        const lang = languageOptions.find(l => l.id === id);
+      selectedLanguages.slice(1).forEach((id) => {
+        const lang = languageOptions.find((l) => l.id === id);
         if (lang) oneTimeTotal += lang.price;
       });
     }
 
     // Maintenance
-    const maintenanceOption = maintenanceOptions.find(m => m.id === maintenance);
+    const maintenanceOption = maintenanceOptions.find((m) => m.id === maintenance);
     if (maintenanceOption?.monthlyPrice) monthlyTotal += maintenanceOption.monthlyPrice;
 
     // Marketing one-time
-    selectedMarketingOneTime.forEach(id => {
-      const service = marketingOneTimeOptions.find(s => s.id === id);
+    selectedMarketingOneTime.forEach((id) => {
+      const service = marketingOneTimeOptions.find((s) => s.id === id);
       if (service) oneTimeTotal += service.price;
     });
 
     // Marketing monthly
-    selectedMarketingMonthly.forEach(id => {
-      const service = marketingMonthlyOptions.find(s => s.id === id);
+    selectedMarketingMonthly.forEach((id) => {
+      const service = marketingMonthlyOptions.find((s) => s.id === id);
       if (service?.monthlyPrice) monthlyTotal += service.monthlyPrice;
     });
 
@@ -118,11 +121,11 @@ const PriceCalculator = () => {
     oneTimeTotal += articleCount * ARTICLE_PRICE;
 
     // Hosting
-    const hostingOption = hostingOptions.find(h => h.id === hosting);
+    const hostingOption = hostingOptions.find((h) => h.id === hosting);
     if (hostingOption?.monthlyPrice) monthlyTotal += hostingOption.monthlyPrice;
 
     // Apply discount
-    const discountMultiplier = 1 - (discountPercent / 100);
+    const discountMultiplier = 1 - discountPercent / 100;
     const oneTimeAfterDiscount = oneTimeTotal * discountMultiplier;
 
     return {
@@ -132,19 +135,26 @@ const PriceCalculator = () => {
       discountAmount: oneTimeTotal - oneTimeAfterDiscount,
     };
   }, [
-    designType, pageCount, selectedFunctionalities, selectedLanguages,
-    maintenance, selectedMarketingOneTime, selectedMarketingMonthly,
-    articleCount, hosting, discountPercent
+    designType,
+    pageCount,
+    selectedFunctionalities,
+    selectedLanguages,
+    maintenance,
+    selectedMarketingOneTime,
+    selectedMarketingMonthly,
+    articleCount,
+    hosting,
+    discountPercent,
   ]);
 
   const formatPrice = (eur: number) => ({
-    eur: `€${eur.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
-    czk: `${Math.round(eur * EUR_TO_CZK).toLocaleString('cs-CZ')} Kč`,
+    eur: `€${eur.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
+    czk: `${Math.round(eur * EUR_TO_CZK).toLocaleString("cs-CZ")} Kč`,
   });
 
   const toggleArrayItem = (arr: string[], setArr: React.Dispatch<React.SetStateAction<string[]>>, id: string) => {
     if (arr.includes(id)) {
-      setArr(arr.filter(i => i !== id));
+      setArr(arr.filter((i) => i !== id));
     } else {
       setArr([...arr, id]);
     }
@@ -152,15 +162,12 @@ const PriceCalculator = () => {
 
   return (
     <>
-      <SEO 
-        title={t.title}
-        description={t.subtitle}
-      />
+      <SEO title={t.title} description={t.subtitle} />
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
-        
-        <main className="pt-24 pb-20">
+
+        <main className="pt-52 pb-20">
           <div className="container mx-auto px-4 md:px-6">
             {/* Hero */}
             <motion.div
@@ -176,9 +183,7 @@ const PriceCalculator = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                 <span className="text-gradient">{t.title}</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                {t.subtitle}
-              </p>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t.subtitle}</p>
             </motion.div>
 
             {/* Calculator Layout */}
@@ -198,10 +203,15 @@ const PriceCalculator = () => {
                   </div>
                   <RadioGroup value={designType} onValueChange={setDesignType} className="space-y-3">
                     {designTypes.map((option) => (
-                      <div key={option.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+                      <div
+                        key={option.id}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                      >
                         <div className="flex items-center space-x-3">
                           <RadioGroupItem value={option.id} id={`design-${option.id}`} />
-                          <Label htmlFor={`design-${option.id}`} className="cursor-pointer">{getLabel(option)}</Label>
+                          <Label htmlFor={`design-${option.id}`} className="cursor-pointer">
+                            {getLabel(option)}
+                          </Label>
                         </div>
                         <span className="text-primary font-medium">+€{option.price}</span>
                       </div>
@@ -222,12 +232,17 @@ const PriceCalculator = () => {
                   </div>
                   <RadioGroup value={pageCount} onValueChange={setPageCount} className="grid sm:grid-cols-2 gap-3">
                     {pageCountOptions.map((option) => (
-                      <div key={option.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-border/50">
+                      <div
+                        key={option.id}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-border/50"
+                      >
                         <div className="flex items-center space-x-3">
                           <RadioGroupItem value={option.id} id={`pages-${option.id}`} />
-                          <Label htmlFor={`pages-${option.id}`} className="cursor-pointer">{getLabel(option)}</Label>
+                          <Label htmlFor={`pages-${option.id}`} className="cursor-pointer">
+                            {getLabel(option)}
+                          </Label>
                         </div>
-                        <span className="text-primary font-medium">{option.price > 0 ? `+€${option.price}` : '—'}</span>
+                        <span className="text-primary font-medium">{option.price > 0 ? `+€${option.price}` : "—"}</span>
                       </div>
                     ))}
                   </RadioGroup>
@@ -242,7 +257,9 @@ const PriceCalculator = () => {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-semibold">{t.functionalities}</h2>
-                    <span className="text-sm text-muted-foreground">{selectedFunctionalities.length} {t.selected}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {selectedFunctionalities.length} {t.selected}
+                    </span>
                   </div>
                   <div className="relative mb-4">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -255,26 +272,38 @@ const PriceCalculator = () => {
                   </div>
                   <Accordion type="multiple" className="space-y-2">
                     {groupedFunctionalities.map((category) => (
-                      <AccordionItem key={category.id} value={category.id} className="border border-border/50 rounded-lg overflow-hidden">
+                      <AccordionItem
+                        key={category.id}
+                        value={category.id}
+                        className="border border-border/50 rounded-lg overflow-hidden"
+                      >
                         <AccordionTrigger className="px-4 hover:no-underline hover:bg-muted/30">
                           <span className="text-sm font-medium">
-                            {language === 'CZ' ? category.labelCz : language === 'SK' ? category.labelSk : category.label}
+                            {language === "CZ"
+                              ? category.labelCz
+                              : language === "SK"
+                                ? category.labelSk
+                                : category.label}
                           </span>
                         </AccordionTrigger>
                         <AccordionContent className="px-4 pb-4">
                           <div className="space-y-2">
                             {category.options.map((option) => (
-                              <div 
-                                key={option.id} 
+                              <div
+                                key={option.id}
                                 className="flex items-center justify-between p-2 rounded hover:bg-muted/30 transition-colors"
                               >
                                 <div className="flex items-center space-x-3">
                                   <Checkbox
                                     id={`func-${option.id}`}
                                     checked={selectedFunctionalities.includes(option.id)}
-                                    onCheckedChange={() => toggleArrayItem(selectedFunctionalities, setSelectedFunctionalities, option.id)}
+                                    onCheckedChange={() =>
+                                      toggleArrayItem(selectedFunctionalities, setSelectedFunctionalities, option.id)
+                                    }
                                   />
-                                  <Label htmlFor={`func-${option.id}`} className="cursor-pointer text-sm">{getLabel(option)}</Label>
+                                  <Label htmlFor={`func-${option.id}`} className="cursor-pointer text-sm">
+                                    {getLabel(option)}
+                                  </Label>
                                 </div>
                                 <span className="text-primary text-sm font-medium">+€{option.price}</span>
                               </div>
@@ -296,8 +325,8 @@ const PriceCalculator = () => {
                   <h2 className="text-xl font-semibold mb-4">{t.languages}</h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {languageOptions.map((option) => (
-                      <div 
-                        key={option.id} 
+                      <div
+                        key={option.id}
                         className="flex items-center justify-between p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
                       >
                         <div className="flex items-center space-x-2">
@@ -306,7 +335,9 @@ const PriceCalculator = () => {
                             checked={selectedLanguages.includes(option.id)}
                             onCheckedChange={() => toggleArrayItem(selectedLanguages, setSelectedLanguages, option.id)}
                           />
-                          <Label htmlFor={`lang-${option.id}`} className="cursor-pointer text-sm">{option.label}</Label>
+                          <Label htmlFor={`lang-${option.id}`} className="cursor-pointer text-sm">
+                            {option.label}
+                          </Label>
                         </div>
                       </div>
                     ))}
@@ -327,13 +358,18 @@ const PriceCalculator = () => {
                   <h2 className="text-xl font-semibold mb-4">{t.maintenance}</h2>
                   <RadioGroup value={maintenance} onValueChange={setMaintenance} className="space-y-3">
                     {maintenanceOptions.map((option) => (
-                      <div key={option.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-border/50">
+                      <div
+                        key={option.id}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-border/50"
+                      >
                         <div className="flex items-center space-x-3">
                           <RadioGroupItem value={option.id} id={`maint-${option.id}`} />
-                          <Label htmlFor={`maint-${option.id}`} className="cursor-pointer">{getLabel(option)}</Label>
+                          <Label htmlFor={`maint-${option.id}`} className="cursor-pointer">
+                            {getLabel(option)}
+                          </Label>
                         </div>
                         <span className="text-primary font-medium">
-                          {option.monthlyPrice ? `€${option.monthlyPrice}${t.perMonth}` : '—'}
+                          {option.monthlyPrice ? `€${option.monthlyPrice}${t.perMonth}` : "—"}
                         </span>
                       </div>
                     ))}
@@ -350,17 +386,21 @@ const PriceCalculator = () => {
                   <h2 className="text-xl font-semibold mb-4">{t.marketingOneTime}</h2>
                   <div className="grid sm:grid-cols-2 gap-2">
                     {marketingOneTimeOptions.map((option) => (
-                      <div 
-                        key={option.id} 
+                      <div
+                        key={option.id}
                         className="flex items-center justify-between p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
                       >
                         <div className="flex items-center space-x-2">
                           <Checkbox
                             id={`mkt1-${option.id}`}
                             checked={selectedMarketingOneTime.includes(option.id)}
-                            onCheckedChange={() => toggleArrayItem(selectedMarketingOneTime, setSelectedMarketingOneTime, option.id)}
+                            onCheckedChange={() =>
+                              toggleArrayItem(selectedMarketingOneTime, setSelectedMarketingOneTime, option.id)
+                            }
                           />
-                          <Label htmlFor={`mkt1-${option.id}`} className="cursor-pointer text-sm">{getLabel(option)}</Label>
+                          <Label htmlFor={`mkt1-${option.id}`} className="cursor-pointer text-sm">
+                            {getLabel(option)}
+                          </Label>
                         </div>
                         <span className="text-primary text-sm font-medium">+€{option.price}</span>
                       </div>
@@ -378,19 +418,26 @@ const PriceCalculator = () => {
                   <h2 className="text-xl font-semibold mb-4">{t.marketingMonthly}</h2>
                   <div className="space-y-2">
                     {marketingMonthlyOptions.map((option) => (
-                      <div 
-                        key={option.id} 
+                      <div
+                        key={option.id}
                         className="flex items-center justify-between p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
                       >
                         <div className="flex items-center space-x-2">
                           <Checkbox
                             id={`mkt2-${option.id}`}
                             checked={selectedMarketingMonthly.includes(option.id)}
-                            onCheckedChange={() => toggleArrayItem(selectedMarketingMonthly, setSelectedMarketingMonthly, option.id)}
+                            onCheckedChange={() =>
+                              toggleArrayItem(selectedMarketingMonthly, setSelectedMarketingMonthly, option.id)
+                            }
                           />
-                          <Label htmlFor={`mkt2-${option.id}`} className="cursor-pointer text-sm">{getLabel(option)}</Label>
+                          <Label htmlFor={`mkt2-${option.id}`} className="cursor-pointer text-sm">
+                            {getLabel(option)}
+                          </Label>
                         </div>
-                        <span className="text-primary text-sm font-medium">€{option.monthlyPrice}{t.perMonth}</span>
+                        <span className="text-primary text-sm font-medium">
+                          €{option.monthlyPrice}
+                          {t.perMonth}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -413,7 +460,9 @@ const PriceCalculator = () => {
                       onChange={(e) => setArticleCount(Math.max(0, parseInt(e.target.value) || 0))}
                       className="w-32"
                     />
-                    <span className="text-sm text-muted-foreground">× €{ARTICLE_PRICE} {t.perArticle}</span>
+                    <span className="text-sm text-muted-foreground">
+                      × €{ARTICLE_PRICE} {t.perArticle}
+                    </span>
                     <span className="text-primary font-medium ml-auto">= €{articleCount * ARTICLE_PRICE}</span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-2">{t.articlesHelper}</p>
@@ -432,13 +481,18 @@ const PriceCalculator = () => {
                   </div>
                   <RadioGroup value={hosting} onValueChange={setHosting} className="space-y-3">
                     {hostingOptions.map((option) => (
-                      <div key={option.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-border/50">
+                      <div
+                        key={option.id}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer border border-border/50"
+                      >
                         <div className="flex items-center space-x-3">
                           <RadioGroupItem value={option.id} id={`host-${option.id}`} />
-                          <Label htmlFor={`host-${option.id}`} className="cursor-pointer">{getLabel(option)}</Label>
+                          <Label htmlFor={`host-${option.id}`} className="cursor-pointer">
+                            {getLabel(option)}
+                          </Label>
                         </div>
                         <span className="text-primary font-medium">
-                          {option.monthlyPrice ? `€${option.monthlyPrice}${t.perMonth}` : '—'}
+                          {option.monthlyPrice ? `€${option.monthlyPrice}${t.perMonth}` : "—"}
                         </span>
                       </div>
                     ))}
@@ -464,7 +518,9 @@ const PriceCalculator = () => {
                     />
                     <span className="text-lg">%</span>
                     {discountPercent > 0 && (
-                      <span className="text-green-500 font-medium ml-auto">-€{Math.round(calculations.discountAmount)}</span>
+                      <span className="text-green-500 font-medium ml-auto">
+                        -€{Math.round(calculations.discountAmount)}
+                      </span>
                     )}
                   </div>
                   <p className="text-xs text-muted-foreground mt-2">{t.discountHelper}</p>
@@ -490,8 +546,12 @@ const PriceCalculator = () => {
                       <div className="p-4 rounded-xl bg-muted/30">
                         <p className="text-sm text-muted-foreground mb-1">{t.websitePrice}</p>
                         <div className="flex items-baseline gap-2">
-                          <span className="text-2xl font-bold text-foreground">{formatPrice(calculations.oneTimeTotal).eur}</span>
-                          <span className="text-sm text-muted-foreground">/ {formatPrice(calculations.oneTimeTotal).czk}</span>
+                          <span className="text-2xl font-bold text-foreground">
+                            {formatPrice(calculations.oneTimeTotal).eur}
+                          </span>
+                          <span className="text-sm text-muted-foreground">
+                            / {formatPrice(calculations.oneTimeTotal).czk}
+                          </span>
                         </div>
                       </div>
 
@@ -500,8 +560,12 @@ const PriceCalculator = () => {
                         <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20">
                           <p className="text-sm text-green-400 mb-1">{t.afterDiscount}</p>
                           <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-bold text-green-400">{formatPrice(calculations.oneTimeAfterDiscount).eur}</span>
-                            <span className="text-sm text-green-400/70">/ {formatPrice(calculations.oneTimeAfterDiscount).czk}</span>
+                            <span className="text-2xl font-bold text-green-400">
+                              {formatPrice(calculations.oneTimeAfterDiscount).eur}
+                            </span>
+                            <span className="text-sm text-green-400/70">
+                              / {formatPrice(calculations.oneTimeAfterDiscount).czk}
+                            </span>
                           </div>
                         </div>
                       )}
@@ -511,8 +575,12 @@ const PriceCalculator = () => {
                         <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
                           <p className="text-sm text-purple-400 mb-1">{t.monthlyFee}</p>
                           <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-bold text-purple-400">{formatPrice(calculations.monthlyTotal).eur}</span>
-                            <span className="text-sm text-purple-400/70">/ {formatPrice(calculations.monthlyTotal).czk}</span>
+                            <span className="text-2xl font-bold text-purple-400">
+                              {formatPrice(calculations.monthlyTotal).eur}
+                            </span>
+                            <span className="text-sm text-purple-400/70">
+                              / {formatPrice(calculations.monthlyTotal).czk}
+                            </span>
                           </div>
                         </div>
                       )}
@@ -525,12 +593,17 @@ const PriceCalculator = () => {
                         <p className="text-sm text-primary mb-1">{t.preliminary}</p>
                         <div className="flex items-baseline gap-2">
                           <span className="text-3xl font-bold text-gradient">
-                            {formatPrice(discountPercent > 0 ? calculations.oneTimeAfterDiscount : calculations.oneTimeTotal).eur}
+                            {
+                              formatPrice(
+                                discountPercent > 0 ? calculations.oneTimeAfterDiscount : calculations.oneTimeTotal,
+                              ).eur
+                            }
                           </span>
                         </div>
                         {calculations.monthlyTotal > 0 && (
                           <p className="text-sm text-muted-foreground mt-1">
-                            + {formatPrice(calculations.monthlyTotal).eur}{t.perMonth}
+                            + {formatPrice(calculations.monthlyTotal).eur}
+                            {t.perMonth}
                           </p>
                         )}
                       </div>
