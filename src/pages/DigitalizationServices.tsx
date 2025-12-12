@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { 
-  Cpu, 
-  ArrowRight, 
-  Check, 
-  Workflow, 
-  Database, 
-  Cloud, 
-  Zap, 
-  BarChart3, 
-  Clock, 
-  Users, 
-  Settings, 
+import {
+  Cpu,
+  ArrowRight,
+  Check,
+  Workflow,
+  Database,
+  Cloud,
+  Zap,
+  BarChart3,
+  Clock,
+  Users,
+  Settings,
   RefreshCcw,
   Building2,
   Layers,
   Bot,
   FileCheck,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -205,27 +205,33 @@ const DigitalizationServices = () => {
   const faqs = [
     {
       question: "What is business digitalization?",
-      answer: "Business digitalization is the process of transforming traditional paper-based and manual business processes into digital workflows. This includes implementing cloud-based tools, electronic document management, automated workflows, and integrated systems that improve efficiency and reduce errors.",
+      answer:
+        "Business digitalization is the process of transforming traditional paper-based and manual business processes into digital workflows. This includes implementing cloud-based tools, electronic document management, automated workflows, and integrated systems that improve efficiency and reduce errors.",
     },
     {
       question: "How long does a typical implementation take?",
-      answer: "Implementation timelines vary based on complexity. Simple digitalization projects can take 2-4 weeks, while comprehensive automation and CRM implementations may take 4-8 weeks. We provide detailed timelines during the initial consultation.",
+      answer:
+        "Implementation timelines vary based on complexity. Simple digitalization projects can take 2-4 weeks, while comprehensive automation and CRM implementations may take 4-8 weeks. We provide detailed timelines during the initial consultation.",
     },
     {
       question: "Do you provide training for our team?",
-      answer: "Yes, comprehensive employee training is included in all our packages. We provide hands-on training sessions, documentation, and ongoing support to ensure your team can effectively use the new systems.",
+      answer:
+        "Yes, comprehensive employee training is included in all our packages. We provide hands-on training sessions, documentation, and ongoing support to ensure your team can effectively use the new systems.",
     },
     {
       question: "Can you integrate with our existing tools?",
-      answer: "Absolutely! We specialize in creating seamless integrations between various platforms. Whether you use existing CRM, accounting software, or custom tools, we can connect them to create unified workflows.",
+      answer:
+        "Absolutely! We specialize in creating seamless integrations between various platforms. Whether you use existing CRM, accounting software, or custom tools, we can connect them to create unified workflows.",
     },
     {
       question: "What ongoing support do you offer?",
-      answer: "We offer various support packages including monitoring, optimization, and updates. Our team is available for troubleshooting, adding new features, and ensuring your systems continue to perform optimally.",
+      answer:
+        "We offer various support packages including monitoring, optimization, and updates. Our team is available for troubleshooting, adding new features, and ensuring your systems continue to perform optimally.",
     },
     {
       question: "How do you ensure data security during migration?",
-      answer: "Data security is our top priority. We use encrypted transfers, secure backup procedures, and follow best practices for data migration. All implementations comply with GDPR and other relevant regulations.",
+      answer:
+        "Data security is our top priority. We use encrypted transfers, secure backup procedures, and follow best practices for data migration. All implementations comply with GDPR and other relevant regulations.",
     },
   ];
 
@@ -235,45 +241,42 @@ const DigitalizationServices = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Digitalization & Automation Services",
-    "provider": {
+    name: "Digitalization & Automation Services",
+    provider: {
       "@type": "Organization",
-      "name": "WebOptim",
-      "url": "https://weboptim.eu"
+      name: "WebOptim",
+      url: "https://weboptim.eu",
     },
-    "description": "Transform your business with digital workflows, automation, and CRM implementation",
-    "serviceType": ["Business Digitalization", "Process Automation", "CRM Implementation"],
-    "areaServed": ["Czech Republic", "Slovakia", "Europe"],
-    "offers": pricing.map(p => ({
+    description: "Transform your business with digital workflows, automation, and CRM implementation",
+    serviceType: ["Business Digitalization", "Process Automation", "CRM Implementation"],
+    areaServed: ["Czech Republic", "Slovakia", "Europe"],
+    offers: pricing.map((p) => ({
       "@type": "Offer",
-      "name": p.name,
-      "price": p.price.replace(/[^0-9]/g, ''),
-      "priceCurrency": "CZK"
-    }))
+      name: p.name,
+      price: p.price.replace(/[^0-9]/g, ""),
+      priceCurrency: "CZK",
+    })),
   };
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Digitalization & Automation Services | WebOptim"
         description="Transform your business with digital workflows, process automation, and CRM implementation. Google Workspace, Pipedrive, Make, and more."
       />
       <div className="min-h-screen bg-background">
         {/* JSON-LD Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-        />
-        
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
           </div>
-          
+
           <div className="max-w-7xl mx-auto relative">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -287,11 +290,12 @@ const DigitalizationServices = () => {
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   {t("digital.title1")}
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> {t("digital.title2")}</span>
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {" "}
+                    {t("digital.title2")}
+                  </span>
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  {t("digital.subtitle")}
-                </p>
+                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">{t("digital.subtitle")}</p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/contact">
                     <Button variant="hero" size="lg" className="gap-2">
@@ -324,15 +328,18 @@ const DigitalizationServices = () => {
                   {/* Workflow Animation - Clean Grid Layout */}
                   <div className="relative h-64 flex items-center justify-center">
                     {/* SVG Connection Lines with viewBox for proper scaling */}
-                    <svg 
-                      className="absolute inset-0 w-full h-full pointer-events-none" 
-                      viewBox="0 0 400 256" 
+                    <svg
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                      viewBox="0 0 400 256"
                       preserveAspectRatio="none"
                       style={{ zIndex: 0 }}
                     >
                       {/* Top-left to center */}
                       <motion.line
-                        x1="40" y1="40" x2="200" y2="128"
+                        x1="40"
+                        y1="40"
+                        x2="200"
+                        y2="128"
                         stroke="hsl(var(--primary))"
                         strokeWidth="2"
                         strokeDasharray="8 6"
@@ -343,7 +350,10 @@ const DigitalizationServices = () => {
                       />
                       {/* Top-right to center */}
                       <motion.line
-                        x1="360" y1="40" x2="200" y2="128"
+                        x1="360"
+                        y1="40"
+                        x2="200"
+                        y2="128"
                         stroke="hsl(var(--primary))"
                         strokeWidth="2"
                         strokeDasharray="8 6"
@@ -354,7 +364,10 @@ const DigitalizationServices = () => {
                       />
                       {/* Bottom-left to center */}
                       <motion.line
-                        x1="40" y1="216" x2="200" y2="128"
+                        x1="40"
+                        y1="216"
+                        x2="200"
+                        y2="128"
                         stroke="hsl(var(--primary))"
                         strokeWidth="2"
                         strokeDasharray="8 6"
@@ -365,7 +378,10 @@ const DigitalizationServices = () => {
                       />
                       {/* Bottom-right to center */}
                       <motion.line
-                        x1="360" y1="216" x2="200" y2="128"
+                        x1="360"
+                        y1="216"
+                        x2="200"
+                        y2="128"
                         stroke="hsl(var(--primary))"
                         strokeWidth="2"
                         strokeDasharray="8 6"
@@ -377,7 +393,7 @@ const DigitalizationServices = () => {
                     </svg>
 
                     {/* Corner Nodes */}
-                    <motion.div 
+                    <motion.div
                       className="absolute top-2 left-2 w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -386,8 +402,8 @@ const DigitalizationServices = () => {
                       <Database className="w-5 h-5 text-blue-500 mb-0.5" />
                       <span className="text-[10px] text-muted-foreground">CRM</span>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       className="absolute top-2 right-2 w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -396,8 +412,8 @@ const DigitalizationServices = () => {
                       <FileCheck className="w-5 h-5 text-purple-500 mb-0.5" />
                       <span className="text-[10px] text-muted-foreground">Invoices</span>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       className="absolute bottom-2 left-2 w-16 h-16 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -406,8 +422,8 @@ const DigitalizationServices = () => {
                       <Cloud className="w-5 h-5 text-green-500 mb-0.5" />
                       <span className="text-[10px] text-muted-foreground">Cloud</span>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       className="absolute bottom-2 right-2 w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex flex-col items-center justify-center z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -418,7 +434,7 @@ const DigitalizationServices = () => {
                     </motion.div>
 
                     {/* Center Hub */}
-                    <motion.div 
+                    <motion.div
                       className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center z-10 shadow-lg shadow-primary/30"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -488,9 +504,7 @@ const DigitalizationServices = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               className="text-center text-muted-foreground mt-8"
-            >
-              Upload your technology logos and we will add them here
-            </motion.p>
+            ></motion.p>
           </div>
         </section>
 
@@ -523,7 +537,7 @@ const DigitalizationServices = () => {
                 >
                   {/* Hover glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
-                  
+
                   <div className="relative z-10">
                     {/* Icon with gradient background - match homepage services */}
                     <div className="relative mb-6">
@@ -533,11 +547,13 @@ const DigitalizationServices = () => {
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
                       </div>
                     </div>
-                    
-                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{benefit.title}</h3>
+
+                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {benefit.title}
+                    </h3>
                     <p className="relative text-muted-foreground leading-relaxed">{benefit.description}</p>
                   </div>
-                  
+
                   {/* Corner decoration */}
                   <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
                 </motion.div>
@@ -575,7 +591,7 @@ const DigitalizationServices = () => {
                 >
                   {/* Hover glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
-                  
+
                   {/* Icon with gradient background */}
                   <div className="relative mb-6">
                     <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
@@ -584,8 +600,10 @@ const DigitalizationServices = () => {
                     {/* Animated ring blur */}
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
                   </div>
-                  
-                  <h3 className="relative text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+
+                  <h3 className="relative text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
                   <p className="relative text-muted-foreground text-sm mb-6">{service.description}</p>
                   <ul className="relative space-y-2">
                     {service.features.map((feature) => (
@@ -595,7 +613,7 @@ const DigitalizationServices = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   {/* Corner decoration */}
                   <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
                 </motion.div>
@@ -630,9 +648,7 @@ const DigitalizationServices = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className={`relative glass-strong rounded-2xl overflow-hidden border ${
-                    plan.popular 
-                      ? "border-primary shadow-lg shadow-primary/20" 
-                      : "border-border/50"
+                    plan.popular ? "border-primary shadow-lg shadow-primary/20" : "border-border/50"
                   }`}
                 >
                   {/* Gradient Header */}
@@ -667,11 +683,7 @@ const DigitalizationServices = () => {
                     </ol>
 
                     <Link to="/contact" className="block">
-                      <Button 
-                        variant="hero" 
-                        size="lg" 
-                        className="w-full"
-                      >
+                      <Button variant="hero" size="lg" className="w-full">
                         Free Consultation
                       </Button>
                     </Link>
@@ -701,7 +713,7 @@ const DigitalizationServices = () => {
 
             <div className="relative">
               <div className="absolute left-[27px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/30 hidden md:block" />
-              
+
               <div className="space-y-8">
                 {process.map((item, index) => (
                   <motion.div
@@ -730,13 +742,13 @@ const DigitalizationServices = () => {
         </section>
 
         {/* Reviews */}
-        <ServiceReviews 
+        <ServiceReviews
           title="What Our Clients Say"
           subtitle="See what businesses say about their digital transformation journey with us."
         />
 
         {/* FAQ */}
-        <ServiceFAQ 
+        <ServiceFAQ
           faqs={faqs}
           serviceName="Digitalization & Automation"
           title="Frequently Asked Questions"
@@ -747,15 +759,20 @@ const DigitalizationServices = () => {
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} className="text-center max-w-3xl mx-auto">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="text-center max-w-3xl mx-auto"
+            >
               <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-6" />
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
                 Ready to <span className="text-gradient">Digitalize</span>?

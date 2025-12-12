@@ -76,12 +76,6 @@ const seoServices = [
     color: "from-orange-500 to-red-500",
   },
   {
-    name: "Content Strategy",
-    icon: "📝",
-    description: "Rank-worthy content",
-    color: "from-pink-500 to-rose-500",
-  },
-  {
     name: "Analytics",
     icon: "📊",
     description: "Data-driven results",
