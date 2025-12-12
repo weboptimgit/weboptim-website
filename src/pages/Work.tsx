@@ -89,86 +89,84 @@ const Work = () => {
         <AmbientBackground />
         <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Our Portfolio
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              Case <span className="text-gradient">Studies</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Explore our latest projects and see how we help businesses transform their digital presence
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Projects Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                {project.slug ? (
-                  <Link to={`/case-study/${project.slug}`} className="group block">
-                    <ProjectCard project={project} />
-                  </Link>
-                ) : (
-                  <div className="group">
-                    <ProjectCard project={project} />
-                  </div>
-                )}
-              </motion.div>
-            ))}
+        {/* Hero Section */}
+        <section className="pt-52 pb-16 relative">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-4xl mx-auto"
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                Our Portfolio
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                Case <span className="text-gradient">Studies</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Explore our latest projects and see how we help businesses transform their digital presence
+              </p>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass rounded-3xl p-12 text-center max-w-3xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Let's discuss how we can help transform your digital presence and achieve your business goals.
-            </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-primary text-primary-foreground font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300"
-              >
-                Get in Touch
-                <ArrowUpRight className="w-5 h-5" />
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+        {/* Projects Grid */}
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {project.slug ? (
+                    <Link to={`/case-study/${project.slug}`} className="group block">
+                      <ProjectCard project={project} />
+                    </Link>
+                  ) : (
+                    <div className="group">
+                      <ProjectCard project={project} />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass rounded-3xl p-12 text-center max-w-3xl mx-auto"
+            >
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to Start Your Project?</h2>
+              <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                Let's discuss how we can help transform your digital presence and achieve your business goals.
+              </p>
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-primary text-primary-foreground font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300"
+                >
+                  Get in Touch
+                  <ArrowUpRight className="w-5 h-5" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
 
         <Footer />
       </div>
@@ -176,7 +174,7 @@ const Work = () => {
   );
 };
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
   <div className="glass rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300">
     {/* Image */}
     <div className="relative overflow-hidden">
@@ -187,9 +185,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
       <div className="absolute top-4 left-4">
-        <span className="px-3 py-1 rounded-full glass text-xs font-medium text-primary">
-          {project.category}
-        </span>
+        <span className="px-3 py-1 rounded-full glass text-xs font-medium text-primary">{project.category}</span>
       </div>
       {project.slug && (
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

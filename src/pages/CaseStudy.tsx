@@ -38,7 +38,7 @@ const CaseStudy = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
+      <section className="pt-52 pb-16 relative">
         <div className="container mx-auto px-6">
           {/* Breadcrumb */}
           <motion.div
@@ -68,27 +68,22 @@ const CaseStudy = () => {
             </Breadcrumb>
           </motion.div>
 
-          <Link to="/#work" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8">
+          <Link
+            to="/#work"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
+          >
             <ArrowLeft className="w-4 h-4" />
             Back to Projects
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 {study.category}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-                {study.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                {study.subtitle}
-              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">{study.title}</h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8">{study.subtitle}</p>
 
               {/* Project Meta */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -122,11 +117,7 @@ const CaseStudy = () => {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden glass p-2">
-                <img
-                  src={study.heroImage}
-                  alt={study.title}
-                  className="w-full h-auto rounded-2xl"
-                />
+                <img src={study.heroImage} alt={study.title} className="w-full h-auto rounded-2xl" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/50 via-transparent to-transparent rounded-2xl" />
               </div>
               {/* Decorative elements */}
@@ -149,9 +140,7 @@ const CaseStudy = () => {
               className="lg:col-span-2"
             >
               <h2 className="text-3xl font-display font-bold mb-6">Project Overview</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                {study.overview}
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">{study.overview}</p>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="glass rounded-2xl p-6">
@@ -201,9 +190,7 @@ const CaseStudy = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               The <span className="text-gradient">Results</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Measurable impact that drove real business growth
-            </p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Measurable impact that drove real business growth</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -216,9 +203,7 @@ const CaseStudy = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="glass rounded-2xl p-6 text-center group hover:border-primary/40 transition-all duration-300"
               >
-                <div className="text-4xl md:text-5xl font-display font-bold text-gradient mb-2">
-                  {result.metric}
-                </div>
+                <div className="text-4xl md:text-5xl font-display font-bold text-gradient mb-2">{result.metric}</div>
                 <div className="text-lg font-medium text-foreground mb-2">{result.label}</div>
                 <div className="text-sm text-muted-foreground">{result.description}</div>
               </motion.div>
@@ -335,11 +320,10 @@ const CaseStudy = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Ready to Start Your Project?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to Start Your Project?</h2>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Let's create something amazing together. Get in touch to discuss how we can help transform your digital presence.
+                Let's create something amazing together. Get in touch to discuss how we can help transform your digital
+                presence.
               </p>
               <Link to="/contact">
                 <Button variant="hero" size="lg" className="group">
