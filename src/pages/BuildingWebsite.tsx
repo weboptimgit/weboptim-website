@@ -382,27 +382,29 @@ const BuildingWebsite = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative glass rounded-xl p-4 flex items-center gap-3 cursor-default border border-transparent hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
                 >
-                  {/* Hover glow effect */}
+                  {/* Hover glow effect - match homepage services */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                   
-                  {/* Icon with gradient background */}
-                  <div className="relative">
-                    <div className={`relative w-10 h-10 rounded-lg bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
-                      {tech.icon}
+                  <div className="relative z-10 flex items-center gap-4">
+                    {/* Icon with gradient background */}
+                    <div className="relative">
+                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                        {tech.icon}
+                        {/* Animated ring blur */}
+                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                      </div>
                     </div>
-                    {/* Animated ring blur */}
-                    <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
-                    <div className="text-xs text-muted-foreground">{tech.description}</div>
+                    
+                    <div className="text-left">
+                      <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
+                      <div className="text-xs text-muted-foreground">{tech.description}</div>
+                    </div>
                   </div>
                   
                   {/* Corner decoration */}
-                  <div className={`absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                  <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
                 </motion.div>
               ))}
             </div>

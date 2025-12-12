@@ -338,25 +338,29 @@ const SEOServices = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative p-4 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-500 min-w-[140px] cursor-pointer overflow-hidden"
+                className="group relative glass rounded-2xl px-6 py-4 hover:border-primary/30 transition-all duration-500 min-w-[160px] cursor-pointer overflow-hidden"
               >
-                {/* Hover glow effect */}
+                {/* Hover glow effect - match homepage services */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
-                {/* Icon with gradient background */}
-                <div className="relative mb-2">
-                  <div className={`relative text-3xl w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
-                    {service.icon}
+                <div className="relative z-10 flex items-center gap-3">
+                  {/* Icon with gradient background */}
+                  <div className="relative">
+                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      {service.icon}
+                      {/* Animated ring blur */}
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                    </div>
                   </div>
-                  {/* Animated ring blur */}
-                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                  
+                  <div>
+                    <h3 className="font-semibold group-hover:text-primary transition-colors">{service.name}</h3>
+                    <p className="text-xs text-muted-foreground">{service.description}</p>
+                  </div>
                 </div>
                 
-                <h3 className="relative font-semibold group-hover:text-primary transition-colors">{service.name}</h3>
-                <p className="relative text-xs text-muted-foreground">{service.description}</p>
-                
                 {/* Corner decoration */}
-                <div className={`absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
               </motion.div>
             ))}
           </div>
