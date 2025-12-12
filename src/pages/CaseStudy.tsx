@@ -83,7 +83,21 @@ const CaseStudy = () => {
                 {study.category}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">{study.title}</h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8">{study.subtitle}</p>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-6">{study.subtitle}</p>
+
+              {study.projectUrl && (
+                <a
+                  href={study.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mb-8"
+                >
+                  <Button variant="glow" size="lg" className="group">
+                    Visit Project
+                    <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </Button>
+                </a>
+              )}
 
               {/* Project Meta */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

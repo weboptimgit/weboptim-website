@@ -27,6 +27,7 @@ export interface CaseStudy {
   duration: string;
   year: string;
   team: string;
+  projectUrl?: string;
   // Portfolio card fields
   description: string;
   tags: string[];
@@ -55,6 +56,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     duration: "Ongoing",
     year: "2024–2025",
     team: "2–4 Members",
+    projectUrl: "https://www.mobilno.sk",
 
     // Portfolio card fields
     description:
@@ -136,6 +138,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     duration: "2-4 Weeks",
     year: "2024",
     team: "2–3 People",
+    projectUrl: "https://www.duo-story.cz",
 
     // Portfolio card fields
     description:
@@ -221,6 +224,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     duration: "2-4 weeks",
     year: "2024",
     team: "2-4 People",
+    projectUrl: "https://kimbau.cz",
 
     // Portfolio card fields
     description:
