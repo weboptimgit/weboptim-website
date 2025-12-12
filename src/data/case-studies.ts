@@ -54,7 +54,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     client: "Mobilno",
     duration: "Ongoing",
     year: "2024–2025",
-    team: "2–4 Specialists",
+    team: "2–4 Members",
 
     // Portfolio card fields
     description:
@@ -128,63 +128,84 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Internal linking strategy between listings, cities, and provider profiles",
     ],
   },
-  "flavor-bistro-wordpress": {
-    title: "Flavor Bistro",
-    subtitle: "WordPress Website & Brand Identity",
-    category: "Restaurant",
-    client: "Flavor Bistro Group",
-    duration: "6 Weeks",
+  "duo-story-dating": {
+    title: "Duo Story",
+    subtitle: "Dating Platform & Brand Experience",
+    category: "Dating",
+    client: "Duo Story",
+    duration: "4–6 Weeks",
     year: "2024",
-    team: "4 Specialists",
+    team: "2–3 People",
+
     // Portfolio card fields
-    description:
-      "WordPress website with online reservations and local SEO optimization for a growing restaurant chain.",
-    tags: ["WordPress", "Branding", "SEO"],
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    statValue: "+150%",
-    statLabel: "Online Bookings",
-    featured: true,
+    description: "A calm, story-first dating platform built for meaningful connections — beyond endless swiping.",
+    tags: ["Web Design", "Branding", "UX"],
+    image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&h=600&fit=crop",
+    statValue: "↑",
+    statLabel: "Trust-focused UX",
+    featured: false,
+
     // Detail page fields
-    heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&h=800&fit=crop",
+
     overview:
-      "Flavor Bistro, a growing restaurant chain, needed a complete digital transformation to attract more customers and streamline their online presence. We delivered a stunning WordPress website with online reservations, menu management, and local SEO optimization.",
+      "Duo Story was created to connect people who want more than just a quick swipe. The goal was to build a warm, safe, and calm digital space where users can slow down, communicate honestly, and start real stories — beginning with a simple “hello”.",
+
     challenge:
-      "The client was struggling with an outdated website that didn't reflect their brand quality. They were losing potential customers to competitors with better online presence and had no way to manage reservations or update their menu easily.",
+      "Most dating products optimize for speed and superficial decisions. Duo Story needed a distinct brand and UX direction that feels trustworthy, human, and intentional — while still being easy to use and modern. The tone had to support meaningful conversations, safety, and emotional comfort from the first visit.",
+
     solution:
-      "We built a custom WordPress theme with a focus on visual storytelling, integrating a seamless reservation system, dynamic menu management, and location-based SEO. The design emphasized mouth-watering food photography and the restaurant's warm ambiance.",
+      "We designed a story-led brand and website experience focused on clarity, comfort, and trust. The content and UI reduce noise, highlight authentic communication, and reinforce safety. The structure guides users from the promise of the platform to values, how it works, and a confident next step to join.",
+
     services: [
-      { icon: Code, label: "WordPress Development" },
       { icon: Palette, label: "Brand Identity" },
-      { icon: Globe, label: "SEO Optimization" },
-      { icon: Megaphone, label: "Local Marketing" },
+      { icon: Palette, label: "UI/UX Design" },
+      { icon: Code, label: "Web Development" },
+      { icon: Megaphone, label: "Content & Messaging" },
     ],
+
     results: [
-      { metric: "+150%", label: "Online Bookings", description: "Increase in reservations through the website" },
-      { metric: "+280%", label: "Organic Traffic", description: "Growth in search engine visibility" },
-      { metric: "4.9★", label: "Customer Rating", description: "Average review score post-launch" },
-      { metric: "-60%", label: "Bounce Rate", description: "Reduction in visitors leaving immediately" },
+      {
+        metric: "—",
+        label: "Clear Positioning",
+        description: "Stronger differentiation from swipe-based dating apps",
+      },
+      {
+        metric: "—",
+        label: "Trust Signals",
+        description: "Safety-first messaging and UX patterns across key pages",
+      },
+      {
+        metric: "—",
+        label: "Smoother Onboarding",
+        description: "Clear user journey from landing page to sign-up intent",
+      },
+      {
+        metric: "—",
+        label: "Brand Consistency",
+        description: "Unified tone of voice across sections and CTAs",
+      },
     ],
+
     testimonial: {
       quote:
-        "The new website has completely transformed our business. We're getting more reservations than ever, and our customers love how easy it is to browse our menu and book a table.",
-      author: "Marco Rossi",
-      role: "Owner, Flavor Bistro",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+        "We wanted a place where people can truly get to know each other. The result feels calm, honest, and human — exactly the kind of environment Duo Story needed.",
+      author: "Duo Story Team",
+      role: "Founders",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     },
-    gallery: [
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop",
-    ],
+
+    gallery: [],
+
     features: [
-      "Custom WordPress theme with restaurant-focused design",
-      "Online reservation system with real-time availability",
-      "Dynamic menu management with allergen information",
-      "Multi-location support with individual pages",
-      "Google My Business integration",
-      "Mobile-first responsive design",
-      "Speed optimization for fast loading",
-      "Schema markup for rich search results",
+      "Story-first messaging that avoids swipe culture",
+      "Warm, calm visual system designed for trust",
+      "Clear values section: honesty, safety, meaningful connection",
+      "Simple content structure with strong readability",
+      "CTA flow that feels inviting, not pushy",
+      "Mobile-first responsive layout",
+      "Reusable components for future pages (FAQ, rules, pricing)",
+      "Brand tone guidelines for consistent future content",
     ],
   },
   "techflow-saas": {
