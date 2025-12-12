@@ -165,7 +165,7 @@ const Services = () => {
           className="text-center mt-12"
         >
           <Link to="/services">
-            <Button size="lg" variant="outline" className="group">
+            <Button size="lg" variant="hero" className="group">
               View All Services
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
