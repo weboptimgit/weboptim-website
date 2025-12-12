@@ -128,84 +128,90 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Internal linking strategy between listings, cities, and provider profiles",
     ],
   },
-  "duo-story-dating": {
-    title: "Duo Story",
-    subtitle: "Dating Platform & Brand Experience",
-    category: "Dating",
+  "duo-story-events": {
+    title: "Duo Story Events",
+    subtitle: "Event Booking & Reservation Management",
+    category: "Events",
     client: "Duo Story",
-    duration: "4–6 Weeks",
+    duration: "4–8 Weeks",
     year: "2024",
     team: "2–3 People",
 
     // Portfolio card fields
-    description: "A calm, story-first dating platform built for meaningful connections — beyond endless swiping.",
-    tags: ["Web Design", "Branding", "UX"],
-    image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&h=600&fit=crop",
-    statValue: "↑",
-    statLabel: "Trust-focused UX",
-    featured: false,
+    description:
+      "Event booking system with capacity control (men/women), waitlist logic, automated emails, CSV export, and smart event filtering.",
+    tags: ["WordPress", "FluentForms", "ACF", "Automation"],
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+    statValue: "100%",
+    statLabel: "Automated flow",
+    featured: true,
 
     // Detail page fields
-    heroImage: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&h=800&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=800&fit=crop",
 
     overview:
-      "Duo Story was created to connect people who want more than just a quick swipe. The goal was to build a warm, safe, and calm digital space where users can slow down, communicate honestly, and start real stories — beginning with a simple “hello”.",
+      "Duo Story needed a reliable event system for dating nights — from discovering upcoming events to handling paid registrations, capacity limits, and attendee management. We built a WordPress-based solution that automates the full lifecycle: filtering events, capturing payments, assigning attendee identifiers, sending emails, and supporting admins with export and moderation tools.",
 
     challenge:
-      "Most dating products optimize for speed and superficial decisions. Duo Story needed a distinct brand and UX direction that feels trustworthy, human, and intentional — while still being easy to use and modern. The tone had to support meaningful conversations, safety, and emotional comfort from the first visit.",
+      "The platform required precise logic: show only future events, filter by city/topic/age, manage separate capacities for men and women, and handle overbooking via a waitlist (náhradník). On top of that, admins needed safe tools to edit reservation states, export attendee lists, and keep availability counts accurate.",
 
     solution:
-      "We designed a story-led brand and website experience focused on clarity, comfort, and trust. The content and UI reduce noise, highlight authentic communication, and reinforce safety. The structure guides users from the promise of the platform to values, how it works, and a confident next step to join.",
+      "We implemented a custom reservation data layer (dedicated DB table) connected to ACF event fields and Fluent Forms payments. After successful payment, the system creates a reservation record, assigns an anonymized identifier (A–Z), updates available seats, and sends tailored confirmation emails. Admins can deactivate/delete reservations, restore capacity, export CSV lists, and attendees receive automated reminder emails via WP-Cron.",
 
     services: [
-      { icon: Palette, label: "Brand Identity" },
-      { icon: Palette, label: "UI/UX Design" },
-      { icon: Code, label: "Web Development" },
-      { icon: Megaphone, label: "Content & Messaging" },
+      { icon: Code, label: "WordPress Development" },
+      { icon: Globe, label: "Data & Automations" },
+      { icon: Palette, label: "UX Flow Design" },
+      { icon: Megaphone, label: "Email & Messaging" },
     ],
 
     results: [
       {
-        metric: "—",
-        label: "Clear Positioning",
-        description: "Stronger differentiation from swipe-based dating apps",
+        metric: "↓",
+        label: "Less Manual Work",
+        description: "Automated confirmations, reminders, and seat counting reduced admin workload",
       },
       {
-        metric: "—",
-        label: "Trust Signals",
-        description: "Safety-first messaging and UX patterns across key pages",
+        metric: "✓",
+        label: "Accurate Capacity",
+        description: "Seats update reliably per gender with waitlist (náhradník) fallback",
       },
       {
-        metric: "—",
-        label: "Smoother Onboarding",
-        description: "Clear user journey from landing page to sign-up intent",
+        metric: "CSV",
+        label: "Faster Operations",
+        description: "One-click export of attendees per event for on-site management",
       },
       {
-        metric: "—",
-        label: "Brand Consistency",
-        description: "Unified tone of voice across sections and CTAs",
+        metric: "A–Z",
+        label: "Anonymity Support",
+        description: "Automatic letter assignment for smoother event check-in and privacy",
       },
     ],
 
     testimonial: {
       quote:
-        "We wanted a place where people can truly get to know each other. The result feels calm, honest, and human — exactly the kind of environment Duo Story needed.",
+        "We finally have a system we can trust — registrations, availability, emails, and admin management are all automated and consistent for every event.",
       author: "Duo Story Team",
-      role: "Founders",
+      role: "Operations",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     },
 
     gallery: [],
 
     features: [
-      "Story-first messaging that avoids swipe culture",
-      "Warm, calm visual system designed for trust",
-      "Clear values section: honesty, safety, meaningful connection",
-      "Simple content structure with strong readability",
-      "CTA flow that feels inviting, not pushy",
-      "Mobile-first responsive layout",
-      "Reusable components for future pages (FAQ, rules, pricing)",
-      "Brand tone guidelines for consistent future content",
+      "Custom post type ‘akce’ + taxonomy ‘tema-akce’ for structured events",
+      "Archive filtering: future events only, city/topic/date filters, sorting by date",
+      "Age validation based on gender-specific limits (ACF fields)",
+      "Separate seat capacity for men/women with automatic updates on payment",
+      "Waitlist (náhradník) logic when capacity is full",
+      "Custom DB table for reservations (faster, cleaner than post meta)",
+      "Automatic attendee identifier assignment (A–Z) per gender per event",
+      "Admin actions: deactivate/delete reservation + restore available seats",
+      "One-click CSV export of reservations per event",
+      "Automated email flows: confirmation vs waitlist + day-before reminder (WP-Cron)",
+      "Google Calendar ‘Add to calendar’ link generation from ACF fields",
+      "AJAX update for ‘sympatie’ field (post-event matching workflow)",
+      "Ecomail subscription hook with opt-in handling",
     ],
   },
   "techflow-saas": {
