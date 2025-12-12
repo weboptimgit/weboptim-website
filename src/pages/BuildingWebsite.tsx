@@ -502,7 +502,7 @@ const BuildingWebsite = () => {
                         >
                           <feature.icon className="w-7 h-7 text-white" />
                         </div>
-                        <h3 className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors">
+                        <h3 className="text-xl font-display font-bold mb-3 group-hover:text-white transition-colors">
                           {feature.title}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
