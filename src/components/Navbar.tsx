@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Globe, Code2, ShoppingCart, Search, Target, Cpu } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Code2, ShoppingCart, Search, Target, Cpu, Palette } from "lucide-react";
 import logoWeboptim from "@/assets/logo-weboptim.svg";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { getLanguageSwitchUrl } from "@/config/domains";
@@ -82,6 +82,12 @@ const Navbar = () => {
       title: t("services.digitalization"),
       description: t("services.digitalizationDesc"),
       href: "/services/digitalization",
+    },
+    {
+      icon: Palette,
+      title: t("services.graphic"),
+      description: t("services.graphicDesc"),
+      href: "/services/graphic-design",
     },
   ];
 
