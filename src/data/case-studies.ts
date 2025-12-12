@@ -60,7 +60,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     description:
       "A marketplace where customers post a request and mobile professionals respond with offers — built for SEO, scale, and smooth onboarding.",
     tags: ["Marketplace", "WordPress", "Technical SEO"],
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop",
+    image: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
     statValue: "+180%",
     statLabel: "Organic Visibility",
     featured: true,
