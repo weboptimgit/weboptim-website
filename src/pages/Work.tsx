@@ -1,85 +1,25 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Calendar, Clock, Users } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
+import { caseStudiesData } from "@/data/case-studies";
 
-const projects = [
-  {
-    title: "Flavor Bistro",
-    subtitle: "WordPress Website & Brand Identity",
-    category: "Restaurant",
-    client: "Flavor Bistro Group",
-    duration: "6 Weeks",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-    slug: "flavor-bistro-wordpress",
-    tags: ["WordPress", "Branding", "SEO"],
-    results: ["+150% Bookings", "+280% Traffic"],
-  },
-  {
-    title: "TechFlow SaaS",
-    subtitle: "Marketing Website & Lead Generation",
-    category: "SaaS",
-    client: "TechFlow Inc.",
-    duration: "8 Weeks",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
-    slug: "techflow-saas",
-    tags: ["React", "UI/UX", "Conversion"],
-    results: ["+320% Leads", "12% Conversion"],
-  },
-  {
-    title: "Urban Fitness",
-    subtitle: "Membership Platform & Mobile App",
-    category: "Fitness",
-    client: "Urban Fitness Chain",
-    duration: "10 Weeks",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
-    slug: null,
-    tags: ["Web App", "Mobile", "Payments"],
-    results: ["+200% Signups", "4.8★ Rating"],
-  },
-  {
-    title: "Artisan Coffee Co.",
-    subtitle: "E-commerce & Subscription Service",
-    category: "E-commerce",
-    client: "Artisan Coffee Co.",
-    duration: "8 Weeks",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop",
-    slug: null,
-    tags: ["Shopify", "Subscriptions", "Branding"],
-    results: ["+180% Sales", "3x AOV"],
-  },
-  {
-    title: "Legal Partners LLP",
-    subtitle: "Corporate Website & Client Portal",
-    category: "Legal",
-    client: "Legal Partners LLP",
-    duration: "6 Weeks",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop",
-    slug: null,
-    tags: ["WordPress", "Portal", "Security"],
-    results: ["+90% Inquiries", "-40% Bounce"],
-  },
-  {
-    title: "GreenTech Solutions",
-    subtitle: "Product Launch & Marketing Campaign",
-    category: "Technology",
-    client: "GreenTech Solutions",
-    duration: "12 Weeks",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop",
-    slug: null,
-    tags: ["React", "Marketing", "SEO"],
-    results: ["$2M Raised", "50K Users"],
-  },
-];
+// Convert case studies data to projects array with slug
+const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
+  title: study.title,
+  subtitle: study.subtitle,
+  category: study.category,
+  client: study.client,
+  duration: study.duration,
+  year: study.year,
+  image: study.image,
+  slug,
+  tags: study.tags,
+  results: study.results.slice(0, 2).map(r => `${r.metric} ${r.label}`),
+}));
 
 const Work = () => {
   return (
@@ -118,21 +58,15 @@ const Work = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <motion.div
-                  key={index}
+                  key={project.slug}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  {project.slug ? (
-                    <Link to={`/case-study/${project.slug}`} className="group block">
-                      <ProjectCard project={project} />
-                    </Link>
-                  ) : (
-                    <div className="group">
-                      <ProjectCard project={project} />
-                    </div>
-                  )}
+                  <Link to={`/case-study/${project.slug}`} className="group block">
+                    <ProjectCard project={project} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -187,13 +121,11 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
       <div className="absolute top-4 left-4">
         <span className="px-3 py-1 rounded-full glass text-xs font-medium text-primary">{project.category}</span>
       </div>
-      {project.slug && (
-        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-            <ArrowUpRight className="w-5 h-5 text-primary-foreground" />
-          </div>
+      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+          <ArrowUpRight className="w-5 h-5 text-primary-foreground" />
         </div>
-      )}
+      </div>
     </div>
 
     {/* Content */}

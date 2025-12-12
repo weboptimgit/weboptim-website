@@ -19,6 +19,7 @@ export interface CaseStudyTestimonial {
 }
 
 export interface CaseStudy {
+  // Basic info
   title: string;
   subtitle: string;
   category: string;
@@ -26,6 +27,14 @@ export interface CaseStudy {
   duration: string;
   year: string;
   team: string;
+  // Portfolio card fields
+  description: string;
+  tags: string[];
+  image: string;
+  statValue: string;
+  statLabel: string;
+  featured: boolean;
+  // Detail page fields
   heroImage: string;
   overview: string;
   challenge: string;
@@ -46,6 +55,14 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     duration: "Ongoing",
     year: "2024–2025",
     team: "2–4 Specialists",
+    // Portfolio card fields
+    description: "Service marketplace connecting customers with mobile professionals through a demand-to-offer platform.",
+    tags: ["Marketplace", "WordPress", "SEO"],
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop",
+    statValue: "+180%",
+    statLabel: "Organic Visibility",
+    featured: true,
+    // Detail page fields
     heroImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop",
     overview:
       "Mobilno is a marketplace connecting customers with mobile service providers. The goal was to create a fast, SEO-friendly platform with structured service listings, a demand → offer flow, and a smooth provider onboarding experience.",
@@ -112,6 +129,14 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     duration: "6 Weeks",
     year: "2024",
     team: "4 Specialists",
+    // Portfolio card fields
+    description: "WordPress website with online reservations and local SEO optimization for a growing restaurant chain.",
+    tags: ["WordPress", "Branding", "SEO"],
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
+    statValue: "+150%",
+    statLabel: "Online Bookings",
+    featured: true,
+    // Detail page fields
     heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop",
     overview:
       "Flavor Bistro, a growing restaurant chain, needed a complete digital transformation to attract more customers and streamline their online presence. We delivered a stunning WordPress website with online reservations, menu management, and local SEO optimization.",
@@ -162,6 +187,14 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     duration: "8 Weeks",
     year: "2024",
     team: "5 Specialists",
+    // Portfolio card fields
+    description: "High-converting marketing website with integrated lead capture and analytics for B2B startup.",
+    tags: ["React", "UI/UX", "Conversion"],
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+    statValue: "+320%",
+    statLabel: "Lead Generation",
+    featured: true,
+    // Detail page fields
     heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop",
     overview:
       "TechFlow, a B2B SaaS startup, needed a high-converting marketing website to launch their product. We created a modern, conversion-focused website with integrated lead capture and analytics.",
