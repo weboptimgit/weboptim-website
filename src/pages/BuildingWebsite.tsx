@@ -62,7 +62,6 @@ const webDevFaqs = [
 const techStack = [
   { name: "WordPress", icon: "W", description: "Powerful CMS", color: "from-blue-500 to-indigo-600" },
   { name: "Oxygen Builder", icon: "O₂", description: "Visual builder", color: "from-cyan-400 to-teal-500" },
-  { name: "Clean Code", icon: "</>", description: "Hand-coded themes", color: "from-purple-400 to-pink-500" },
   { name: "WooCommerce", icon: "🛒", description: "E-commerce ready", color: "from-violet-400 to-purple-600" },
   { name: "PHP", icon: "🐘", description: "Custom functions", color: "from-indigo-400 to-blue-600" },
   { name: "Performance", icon: "⚡", description: "Speed optimized", color: "from-yellow-400 to-orange-500" },
