@@ -7,10 +7,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
+import SEO, { getOrganizationSchema } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { domainConfig } from "@/config/domains";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { language } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -18,6 +21,22 @@ const Contact = () => {
     company: "",
     message: "",
   });
+
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    mainEntity: {
+      ...getOrganizationSchema(language),
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+420123456789",
+        email: "hello@weboptim.cz",
+        contactType: "customer service",
+        availableLanguage: ["Czech", "Slovak", "English"],
+      },
+    },
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -64,7 +83,7 @@ const Contact = () => {
   ];
   return (
     <>
-      <SEO titleKey="contact" />
+      <SEO titleKey="contact" jsonLd={contactPageSchema} />
       <div className="min-h-screen bg-background">
         <Navbar />
 

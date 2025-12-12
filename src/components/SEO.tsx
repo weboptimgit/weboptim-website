@@ -10,6 +10,7 @@ interface SEOProps {
   image?: string;
   article?: boolean;
   noindex?: boolean;
+  jsonLd?: object | object[];
 }
 
 // SEO translations for all pages
@@ -146,7 +147,114 @@ export const getSEOData = (key: string, language: Language) => {
   return seoTranslations[key]?.[language] || seoTranslations[key]?.EN;
 };
 
-const SEO = ({ titleKey, descriptionKey, title, description, image, article = false, noindex = false }: SEOProps) => {
+// Helper to generate Organization schema
+export const getOrganizationSchema = (language: Language) => ({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "WebOptim",
+  legalName: "Smart Coach s.r.o.",
+  url: domainConfig[language],
+  logo: `${domainConfig[language]}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Příčná 1892/4",
+    addressLocality: "Praha",
+    postalCode: "110 00",
+    addressCountry: "CZ",
+  },
+  sameAs: [],
+});
+
+// Helper to generate WebSite schema
+export const getWebSiteSchema = (language: Language) => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "WebOptim",
+  url: domainConfig[language],
+  inLanguage: language === "CZ" ? "cs" : language === "SK" ? "sk" : "en",
+});
+
+// Helper to generate Article schema for blog posts
+export const getArticleSchema = (post: {
+  title: string;
+  excerpt: string;
+  image: string;
+  author: string;
+  date: string;
+  tags: string[];
+  slug: string;
+}, language: Language) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.title,
+  description: post.excerpt,
+  image: post.image,
+  author: {
+    "@type": "Person",
+    name: post.author,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "WebOptim",
+    logo: {
+      "@type": "ImageObject",
+      url: `${domainConfig[language]}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`,
+    },
+  },
+  datePublished: post.date,
+  dateModified: post.date,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${domainConfig[language]}/blog/${post.slug}`,
+  },
+  keywords: post.tags.join(", "),
+});
+
+// Helper to generate FAQPage schema
+export const getFAQSchema = (faqs: Array<{ q: string; a: string }>) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+});
+
+// Helper to generate DefinedTerm schema for glossary
+export const getDefinedTermSchema = (term: {
+  term: string;
+  shortDefinition: string;
+  fullDefinition: string;
+  slug: string;
+}, language: Language) => ({
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  name: term.term,
+  description: term.fullDefinition,
+  inDefinedTermSet: {
+    "@type": "DefinedTermSet",
+    name: "WebOptim Glossary",
+    url: `${domainConfig[language]}/glossary`,
+  },
+});
+
+// Helper to generate BreadcrumbList schema
+export const getBreadcrumbSchema = (items: Array<{ name: string; url: string }>) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: item.url,
+  })),
+});
+
+const SEO = ({ titleKey, descriptionKey, title, description, image, article = false, noindex = false, jsonLd }: SEOProps) => {
   const { language } = useLanguage();
   
   const seoData = titleKey ? getSEOData(titleKey, language) : null;
@@ -201,8 +309,28 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
     }
     canonical.href = currentUrl;
 
-    // Cleanup function is not strictly necessary as we're updating, not removing
-  }, [finalTitle, finalDescription, currentUrl, finalImage, article, noindex, language]);
+    // Handle JSON-LD structured data
+    // Remove existing JSON-LD scripts
+    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+    existingScripts.forEach((script) => script.remove());
+
+    // Add new JSON-LD if provided
+    if (jsonLd) {
+      const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+      schemas.forEach((schema) => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
+      });
+    }
+
+    // Cleanup function
+    return () => {
+      const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+      scripts.forEach((script) => script.remove());
+    };
+  }, [finalTitle, finalDescription, currentUrl, finalImage, article, noindex, language, jsonLd]);
 
   return null;
 };

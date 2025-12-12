@@ -8,7 +8,8 @@ import CodeBlock from "@/components/CodeBlock";
 import { getBlogPost } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
-import SEO from "@/components/SEO";
+import SEO, { getArticleSchema, getBreadcrumbSchema } from "@/components/SEO";
+import { domainConfig } from "@/config/domains";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -37,6 +38,29 @@ const BlogPost = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Generate JSON-LD for blog post
+  const getJsonLd = () => {
+    if (!post) return undefined;
+    
+    const articleSchema = getArticleSchema({
+      title: post.title,
+      excerpt: post.excerpt,
+      image: post.image,
+      author: post.author,
+      date: post.date,
+      tags: post.tags,
+      slug: post.slug,
+    }, language);
+
+    const breadcrumbSchema = getBreadcrumbSchema([
+      { name: "Home", url: domainConfig[language] },
+      { name: "Blog", url: `${domainConfig[language]}/blog` },
+      { name: post.title, url: `${domainConfig[language]}/blog/${post.slug}` },
+    ]);
+
+    return [articleSchema, breadcrumbSchema];
   };
 
   if (!post) {
@@ -75,6 +99,7 @@ const BlogPost = () => {
         description={post.excerpt}
         image={post.image}
         article
+        jsonLd={getJsonLd()}
       />
       <div className="min-h-screen bg-background">
       {/* Reading Progress Bar */}

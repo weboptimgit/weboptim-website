@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
-import SEO from "@/components/SEO";
+import SEO, { getFAQSchema } from "@/components/SEO";
 
 const faqs = [
   {
@@ -84,6 +84,12 @@ const faqs = [
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<string[]>([]);
 
+  // Flatten all FAQs for JSON-LD schema
+  const allFaqs = useMemo(() => 
+    faqs.flatMap(category => category.questions),
+    []
+  );
+
   const toggleItem = (id: string) => {
     setOpenItems(prev => 
       prev.includes(id) 
@@ -94,7 +100,7 @@ const FAQ = () => {
 
   return (
     <>
-      <SEO titleKey="faq" />
+      <SEO titleKey="faq" jsonLd={getFAQSchema(allFaqs)} />
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
