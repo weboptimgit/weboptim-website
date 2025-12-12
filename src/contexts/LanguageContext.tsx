@@ -25,16 +25,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Services dropdown
     "services.webDev": "Web Development",
     "services.webDevDesc": "Custom websites with cutting-edge tech",
-    "services.uiux": "UI/UX Design",
-    "services.uiuxDesc": "Beautiful, intuitive interfaces",
-    "services.seo": "SEO Services",
-    "services.seoDesc": "Keyword research & link building",
     "services.ecommerce": "E-Commerce",
     "services.ecommerceDesc": "Powerful online stores",
-    "services.performance": "Performance",
-    "services.performanceDesc": "Lightning-fast optimization",
-    "services.security": "Security",
-    "services.securityDesc": "Enterprise-grade protection",
+    "services.seo": "SEO Services",
+    "services.seoDesc": "Keyword research & link building",
+    "services.ppc": "PPC Advertising",
+    "services.ppcDesc": "Google & social media ads",
 
     // Hero
     "hero.badge": "Crafting Digital Excellence",
@@ -72,16 +68,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Services dropdown
     "services.webDev": "Tvorba webu",
     "services.webDevDesc": "Weby na míru s nejnovějšími technologiemi",
-    "services.uiux": "UI/UX Design",
-    "services.uiuxDesc": "Krásná a intuitivní rozhraní",
-    "services.mobile": "Mobilní aplikace",
-    "services.mobileDesc": "Nativní a multiplatformní aplikace",
     "services.ecommerce": "E-Commerce",
     "services.ecommerceDesc": "Výkonné e-shopy",
-    "services.performance": "Výkon",
-    "services.performanceDesc": "Bleskurychlá optimalizace",
-    "services.security": "Bezpečnost",
-    "services.securityDesc": "Podniková ochrana",
+    "services.seo": "SEO Služby",
+    "services.seoDesc": "Analýza klíčových slov a linkbuilding",
+    "services.ppc": "PPC Reklama",
+    "services.ppcDesc": "Google a sociální reklamy",
 
     // Hero
     "hero.badge": "Tvoříme digitální dokonalost",
@@ -119,16 +111,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Services dropdown
     "services.webDev": "Tvorba webu",
     "services.webDevDesc": "Weby na mieru s najnovšími technológiami",
-    "services.uiux": "UI/UX Dizajn",
-    "services.uiuxDesc": "Krásne a intuitívne rozhrania",
-    "services.mobile": "Mobilné aplikácie",
-    "services.mobileDesc": "Natívne a multiplatformové aplikácie",
     "services.ecommerce": "E-Commerce",
     "services.ecommerceDesc": "Výkonné e-shopy",
-    "services.performance": "Výkon",
-    "services.performanceDesc": "Bleskurýchla optimalizácia",
-    "services.security": "Bezpečnosť",
-    "services.securityDesc": "Podniková ochrana",
+    "services.seo": "SEO Služby",
+    "services.seoDesc": "Analýza kľúčových slov a linkbuilding",
+    "services.ppc": "PPC Reklama",
+    "services.ppcDesc": "Google a sociálne reklamy",
 
     // Hero
     "hero.badge": "Tvoríme digitálnu dokonalosť",

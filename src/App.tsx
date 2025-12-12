@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import BuildingWebsite from "./pages/BuildingWebsite";
 import EcommerceWebsite from "./pages/EcommerceWebsite";
 import SEOServices from "./pages/SEOServices";
+import PPCServices from "./pages/PPCServices";
 import CaseStudy from "./pages/CaseStudy";
 import Work from "./pages/Work";
 import Services from "./pages/Services";
@@ -41,6 +42,8 @@ const App = () => (
             <Route path="/sluzby/eshop" element={<EcommerceWebsite />} />
             <Route path="/services/seo" element={<SEOServices />} />
             <Route path="/sluzby/seo" element={<SEOServices />} />
+            <Route path="/services/ppc" element={<PPCServices />} />
+            <Route path="/sluzby/ppc" element={<PPCServices />} />
             
             {/* Work/Portfolio - EN, CZ, SK */}
             <Route path="/work" element={<Work />} />

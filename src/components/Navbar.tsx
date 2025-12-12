@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Globe, Code2, Palette, Smartphone, Globe as GlobeIcon, Zap, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Code2, ShoppingCart, Search, Target } from "lucide-react";
 import logoWeboptim from "@/assets/logo-weboptim.svg";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { getLanguageSwitchUrl } from "@/config/domains";
@@ -60,34 +60,22 @@ const Navbar = () => {
       href: "/services/building-website",
     },
     {
-      icon: Palette,
-      title: t("services.uiux"),
-      description: t("services.uiuxDesc"),
-      href: "/#services",
-    },
-    {
-      icon: Smartphone,
-      title: t("services.mobile"),
-      description: t("services.mobileDesc"),
-      href: "/#services",
-    },
-    {
-      icon: GlobeIcon,
+      icon: ShoppingCart,
       title: t("services.ecommerce"),
       description: t("services.ecommerceDesc"),
       href: "/services/ecommerce-website",
     },
     {
-      icon: Zap,
-      title: t("services.performance"),
-      description: t("services.performanceDesc"),
-      href: "/#services",
+      icon: Search,
+      title: t("services.seo"),
+      description: t("services.seoDesc"),
+      href: "/services/seo",
     },
     {
-      icon: Shield,
-      title: t("services.security"),
-      description: t("services.securityDesc"),
-      href: "/#services",
+      icon: Target,
+      title: t("services.ppc"),
+      description: t("services.ppcDesc"),
+      href: "/services/ppc",
     },
   ];
 
