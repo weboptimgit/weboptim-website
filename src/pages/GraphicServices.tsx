@@ -66,37 +66,37 @@ const features = [
     icon: Layers,
     title: "Corporate Identity",
     description: "Complete brand systems including logos, color palettes, typography, and brand guidelines that define your visual identity",
-    gradient: "from-purple-500/20 to-violet-500/20",
+    gradient: "from-purple-500 to-violet-500",
   },
   {
     icon: Printer,
     title: "Print Design",
     description: "Professional print materials including business cards, brochures, posters, flyers, and promotional materials",
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    gradient: "from-blue-500 to-cyan-500",
   },
   {
     icon: Image,
     title: "Digital Graphics",
     description: "Eye-catching social media graphics, web banners, email templates, and digital advertising assets",
-    gradient: "from-pink-500/20 to-rose-500/20",
+    gradient: "from-pink-500 to-rose-500",
   },
   {
     icon: FileImage,
     title: "Packaging Design",
     description: "Standout product packaging that captures attention on shelves and reinforces your brand",
-    gradient: "from-orange-500/20 to-amber-500/20",
+    gradient: "from-orange-500 to-amber-500",
   },
   {
     icon: BookOpen,
     title: "Publication Design",
     description: "Magazines, catalogs, annual reports, and multi-page documents with professional layouts",
-    gradient: "from-green-500/20 to-emerald-500/20",
+    gradient: "from-green-500 to-emerald-500",
   },
   {
     icon: PenTool,
     title: "Custom Illustrations",
     description: "Unique illustrations and icons tailored to your brand that make your content stand out",
-    gradient: "from-indigo-500/20 to-blue-500/20",
+    gradient: "from-indigo-500 to-blue-500",
   }
 ];
 
@@ -276,23 +276,25 @@ const GraphicServices = () => {
                 transition={{ delay: index * 0.1 }}
                 className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
               >
-                {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                {/* Hover glow effect - match homepage services */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
-                {/* Icon with gradient background */}
-                <div className="relative mb-6">
-                  <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient.replace('/20', '')} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
-                    <feature.icon className="w-7 h-7 text-white" />
+                <div className="relative z-10">
+                  {/* Icon with gradient background - same as homepage services */}
+                  <div className="relative mb-6">
+                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      <feature.icon className="w-8 h-8 text-white" />
+                      {/* Animated ring blur */}
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                    </div>
                   </div>
-                  {/* Animated ring blur */}
-                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${feature.gradient.replace('/20', '')} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                  
+                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                  <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
                 
-                <h3 className="relative text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{feature.title}</h3>
-                <p className="relative text-muted-foreground">{feature.description}</p>
-                
-                {/* Corner decoration */}
-                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient.replace('/20', '')} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                {/* Corner decoration - same as homepage services */}
+                <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
               </motion.div>
             ))}
           </div>
