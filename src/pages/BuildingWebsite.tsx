@@ -442,8 +442,10 @@ const BuildingWebsite = () => {
                   <div className="relative z-10">
                     {/* Icon with gradient background */}
                     <div className="relative mb-6">
-                      <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
-                        <feature.icon className="w-7 h-7 text-white" />
+                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                        <feature.icon className="w-8 h-8 text-white" />
+                        {/* Animated ring blur - match homepage services */}
+                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
                       </div>
                       {/* Animated ring blur */}
                       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
