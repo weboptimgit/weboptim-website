@@ -10,6 +10,7 @@ import EcommerceWebsite from "./pages/EcommerceWebsite";
 import SEOServices from "./pages/SEOServices";
 import PPCServices from "./pages/PPCServices";
 import DigitalizationServices from "./pages/DigitalizationServices";
+import GraphicServices from "./pages/GraphicServices";
 import CaseStudy from "./pages/CaseStudy";
 import Work from "./pages/Work";
 import Services from "./pages/Services";
@@ -47,6 +48,8 @@ const App = () => (
             <Route path="/sluzby/ppc" element={<PPCServices />} />
             <Route path="/services/digitalization" element={<DigitalizationServices />} />
             <Route path="/sluzby/digitalizace" element={<DigitalizationServices />} />
+            <Route path="/services/graphic-design" element={<GraphicServices />} />
+            <Route path="/sluzby/grafika" element={<GraphicServices />} />
             
             {/* Work/Portfolio - EN, CZ, SK */}
             <Route path="/work" element={<Work />} />

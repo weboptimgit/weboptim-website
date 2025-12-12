@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Search, ShoppingCart, Megaphone, Workflow, ArrowRight, Sparkles } from "lucide-react";
+import { Code2, Search, ShoppingCart, Megaphone, Workflow, Palette, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -43,6 +43,14 @@ const services = [
     href: "/services/digitalization",
     gradient: "from-primary to-accent",
     accent: "primary",
+  },
+  {
+    icon: Palette,
+    title: "Graphic Design",
+    description: "Eye-catching digital and print graphics from logos to brochures and marketing materials.",
+    href: "/services/graphic-design",
+    gradient: "from-pink-500 to-violet-400",
+    accent: "pink",
   },
 ];
 
@@ -113,7 +121,6 @@ const Services = () => {
             <motion.div 
               key={index} 
               variants={itemVariants}
-              className={index === 4 ? "md:col-span-2 lg:col-span-1" : ""}
             >
               <Link
                 to={service.href}

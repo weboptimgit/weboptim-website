@@ -33,6 +33,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.ppcDesc": "Google & social media ads",
     "services.digitalization": "Digitalization",
     "services.digitalizationDesc": "Business process automation",
+    "services.graphic": "Graphic Design",
+    "services.graphicDesc": "Digital and print graphics",
 
     // Hero
     "hero.badge": "Crafting Digital Excellence",
@@ -78,6 +80,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.ppcDesc": "Google a sociální reklamy",
     "services.digitalization": "Digitalizace",
     "services.digitalizationDesc": "Automatizace firemních procesů",
+    "services.graphic": "Grafické práce",
+    "services.graphicDesc": "Digitální a tištěná grafika",
 
     // Hero
     "hero.badge": "Tvoříme digitální dokonalost",
@@ -123,6 +127,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.ppcDesc": "Google a sociálne reklamy",
     "services.digitalization": "Digitalizácia",
     "services.digitalizationDesc": "Automatizácia firemných procesov",
+    "services.graphic": "Grafické práce",
+    "services.graphicDesc": "Digitálna a tlačená grafika",
 
     // Hero
     "hero.badge": "Tvoríme digitálnu dokonalosť",
