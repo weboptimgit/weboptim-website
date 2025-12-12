@@ -331,23 +331,62 @@ const SEOServices = () => {
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {seoServices.map((service, i) => (
-              <motion.div
-                key={service.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="relative p-4 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 min-w-[140px] cursor-pointer"
-              >
-                <div className={`text-3xl mb-2 w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center`}>
-                  {service.icon}
-                </div>
-                <h3 className="font-semibold">{service.name}</h3>
-                <p className="text-xs text-muted-foreground">{service.description}</p>
-              </motion.div>
-            ))}
+            {seoServices.map((service, i) => {
+              const gradientStyles: Record<string, string> = {
+                'from-blue-500 to-cyan-500': 'linear-gradient(135deg, hsl(210 80% 55%), hsl(190 90% 50%))',
+                'from-purple-500 to-violet-500': 'linear-gradient(135deg, hsl(270 60% 55%), hsl(260 70% 55%))',
+                'from-green-500 to-emerald-500': 'linear-gradient(135deg, hsl(142 70% 45%), hsl(160 80% 40%))',
+                'from-orange-500 to-red-500': 'linear-gradient(135deg, hsl(25 95% 55%), hsl(0 75% 55%))',
+                'from-pink-500 to-rose-500': 'linear-gradient(135deg, hsl(330 80% 60%), hsl(350 80% 55%))',
+                'from-indigo-500 to-blue-500': 'linear-gradient(135deg, hsl(240 60% 55%), hsl(210 80% 55%))',
+              };
+              const glowColors: Record<string, string> = {
+                'from-blue-500 to-cyan-500': '0 0 30px hsla(200, 85%, 55%, 0.4)',
+                'from-purple-500 to-violet-500': '0 0 30px hsla(265, 65%, 55%, 0.4)',
+                'from-green-500 to-emerald-500': '0 0 30px hsla(150, 75%, 45%, 0.4)',
+                'from-orange-500 to-red-500': '0 0 30px hsla(15, 85%, 55%, 0.4)',
+                'from-pink-500 to-rose-500': '0 0 30px hsla(340, 80%, 58%, 0.4)',
+                'from-indigo-500 to-blue-500': '0 0 30px hsla(225, 70%, 55%, 0.4)',
+              };
+              return (
+                <motion.div
+                  key={service.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  {/* Gradient border glow */}
+                  <div 
+                    className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: gradientStyles[service.color], filter: 'blur(1px)' }}
+                  />
+                  
+                  <div 
+                    className="relative p-4 rounded-2xl bg-card/50 border border-border/50 group-hover:border-transparent transition-all duration-300 min-w-[140px] cursor-pointer overflow-hidden"
+                    style={{ transition: 'box-shadow 0.3s ease' }}
+                    onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColors[service.color]}
+                    onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+                  >
+                    {/* Shine sweep effect */}
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                    </div>
+                    
+                    <div 
+                      className="relative z-10 text-3xl mb-2 w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: gradientStyles[service.color] }}
+                    >
+                      {service.icon}
+                    </div>
+                    <h3 className="relative z-10 font-semibold">{service.name}</h3>
+                    <p className="relative z-10 text-xs text-muted-foreground">{service.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

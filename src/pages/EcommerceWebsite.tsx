@@ -336,32 +336,69 @@ const EcommerceWebsite = () => {
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {platforms.map((platform, i) => (
-              <motion.div
-                key={platform.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className={`relative p-4 rounded-2xl border cursor-pointer transition-all duration-300 min-w-[140px] ${
-                  platform.highlight
-                    ? "bg-gradient-to-br from-secondary/10 to-primary/10 border-primary/30"
-                    : "bg-card/50 border-border/50 hover:border-primary/30"
-                }`}
-              >
-                {platform.highlight && (
-                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-primary text-primary-foreground text-[10px] font-medium rounded-full">
-                    Popular
-                  </span>
-                )}
-                <div className={`text-3xl mb-2 w-12 h-12 rounded-xl bg-gradient-to-br ${platform.color} flex items-center justify-center`}>
-                  {platform.icon}
-                </div>
-                <h3 className="font-semibold">{platform.name}</h3>
-                <p className="text-xs text-muted-foreground">{platform.description}</p>
-              </motion.div>
-            ))}
+            {platforms.map((platform, i) => {
+              const gradientStyles: Record<string, string> = {
+                'from-purple-500 to-violet-600': 'linear-gradient(135deg, hsl(270 60% 55%), hsl(260 70% 50%))',
+                'from-green-400 to-emerald-500': 'linear-gradient(135deg, hsl(142 70% 50%), hsl(160 80% 45%))',
+                'from-blue-400 to-cyan-500': 'linear-gradient(135deg, hsl(210 80% 55%), hsl(190 90% 50%))',
+                'from-lime-400 to-green-500': 'linear-gradient(135deg, hsl(80 70% 50%), hsl(142 70% 45%))',
+                'from-orange-400 to-red-500': 'linear-gradient(135deg, hsl(25 95% 55%), hsl(0 75% 55%))',
+              };
+              const glowColors: Record<string, string> = {
+                'from-purple-500 to-violet-600': '0 0 30px hsla(265, 65%, 52%, 0.4)',
+                'from-green-400 to-emerald-500': '0 0 30px hsla(150, 75%, 47%, 0.4)',
+                'from-blue-400 to-cyan-500': '0 0 30px hsla(200, 85%, 52%, 0.4)',
+                'from-lime-400 to-green-500': '0 0 30px hsla(110, 70%, 47%, 0.4)',
+                'from-orange-400 to-red-500': '0 0 30px hsla(15, 85%, 55%, 0.4)',
+              };
+              return (
+                <motion.div
+                  key={platform.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  {/* Gradient border glow */}
+                  <div 
+                    className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: gradientStyles[platform.color], filter: 'blur(1px)' }}
+                  />
+                  
+                  <div 
+                    className={`relative p-4 rounded-2xl border group-hover:border-transparent transition-all duration-300 min-w-[140px] cursor-pointer overflow-hidden ${
+                      platform.highlight
+                        ? "bg-gradient-to-br from-secondary/10 to-primary/10 border-primary/30"
+                        : "bg-card/50 border-border/50"
+                    }`}
+                    style={{ transition: 'box-shadow 0.3s ease' }}
+                    onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColors[platform.color]}
+                    onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+                  >
+                    {/* Shine sweep effect */}
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                    </div>
+                    
+                    <div 
+                      className="relative z-10 text-3xl mb-2 w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: gradientStyles[platform.color] }}
+                    >
+                      {platform.icon}
+                    </div>
+                    <h3 className="relative z-10 font-semibold">{platform.name}</h3>
+                    <p className="relative z-10 text-xs text-muted-foreground">{platform.description}</p>
+                    {platform.highlight && (
+                      <div className="relative z-10 mt-2 px-2 py-0.5 text-[10px] rounded-full bg-primary/20 text-primary w-fit font-medium">
+                        Recommended
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
