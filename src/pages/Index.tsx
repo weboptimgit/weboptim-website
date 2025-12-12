@@ -9,9 +9,12 @@ import BlogSection from "@/components/BlogSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
+    <>
+      <SEO titleKey="home" />
     <main className="min-h-screen bg-background overflow-x-hidden relative">
       <AmbientBackground />
       <div className="relative z-10">
@@ -27,6 +30,7 @@ const Index = () => {
         <Footer />
       </div>
     </main>
+    </>
   );
 };
 

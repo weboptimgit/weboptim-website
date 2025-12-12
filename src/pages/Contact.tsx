@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,8 +63,10 @@ const Contact = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEO titleKey="contact" />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 relative overflow-hidden">
@@ -305,8 +309,9 @@ const Contact = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 export default Contact;

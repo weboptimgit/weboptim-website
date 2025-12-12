@@ -8,6 +8,7 @@ import CodeBlock from "@/components/CodeBlock";
 import { getBlogPost } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
+import SEO from "@/components/SEO";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -40,7 +41,10 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background">
+      <>
+        <SEO titleKey="notFound" noindex />
+        <div className="min-h-screen bg-background">
+          <Navbar />
         <Navbar />
         <div className="pt-32 pb-16 px-4 text-center">
           <motion.div
@@ -60,11 +64,19 @@ const BlogPost = () => {
         </div>
         <Footer />
       </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title={`${post.title} | WebOptim Blog`}
+        description={post.excerpt}
+        image={post.image}
+        article
+      />
+      <div className="min-h-screen bg-background">
       {/* Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-hero z-50 origin-left"
@@ -425,6 +437,7 @@ const BlogPost = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

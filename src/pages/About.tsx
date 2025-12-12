@@ -3,6 +3,7 @@ import { Linkedin, Twitter, Mail, Zap, Users, Clock, Target } from "lucide-react
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 const highlights = [
   {
@@ -85,8 +86,10 @@ const stats = [
 const About = () => {
   const { t } = useLanguage();
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEO titleKey="about" />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 relative overflow-hidden">
@@ -315,8 +318,9 @@ const About = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 
