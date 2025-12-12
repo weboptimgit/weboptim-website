@@ -9,6 +9,7 @@ import BuildingWebsite from "./pages/BuildingWebsite";
 import EcommerceWebsite from "./pages/EcommerceWebsite";
 import SEOServices from "./pages/SEOServices";
 import PPCServices from "./pages/PPCServices";
+import DigitalizationServices from "./pages/DigitalizationServices";
 import CaseStudy from "./pages/CaseStudy";
 import Work from "./pages/Work";
 import Services from "./pages/Services";
@@ -44,6 +45,8 @@ const App = () => (
             <Route path="/sluzby/seo" element={<SEOServices />} />
             <Route path="/services/ppc" element={<PPCServices />} />
             <Route path="/sluzby/ppc" element={<PPCServices />} />
+            <Route path="/services/digitalization" element={<DigitalizationServices />} />
+            <Route path="/sluzby/digitalizace" element={<DigitalizationServices />} />
             
             {/* Work/Portfolio - EN, CZ, SK */}
             <Route path="/work" element={<Work />} />

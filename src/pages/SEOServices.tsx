@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import ServiceReviews from "@/components/ServiceReviews";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
+const seoFaqs = [
+  { question: "How long does SEO take to show results?", answer: "SEO is a long-term strategy. You can expect to see initial improvements in 3-6 months, with significant results in 6-12 months depending on competition and your starting point." },
+  { question: "What's included in your SEO packages?", answer: "Our packages include keyword research, on-page optimization, technical SEO audits, link building, content strategy, and monthly reporting. Higher tiers include more keywords and additional services." },
+  { question: "Do you guarantee rankings?", answer: "No ethical SEO agency can guarantee specific rankings as search algorithms change constantly. We focus on sustainable growth and proven strategies that deliver long-term results." },
+  { question: "How do you measure SEO success?", answer: "We track keyword rankings, organic traffic, conversions, and ROI. You receive detailed monthly reports with all key metrics and actionable insights." },
+];
 
 const seoServices = [
   { 
@@ -535,7 +544,10 @@ const SEOServices = () => {
         </div>
       </section>
 
-      <Footer />
+        <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their SEO results." />
+        <ServiceFAQ faqs={seoFaqs} serviceName="SEO" title="Frequently Asked Questions" subtitle="Common questions about our SEO services." />
+
+        <Footer />
     </div>
   );
 };
