@@ -359,17 +359,27 @@ const PPCServices = () => {
                     transition={{ delay: index * 0.1 }}
                     className="group relative glass-strong rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden"
                   >
-                    {/* Gradient overlay on hover */}
+                    {/* Blur glow effect on hover */}
                     <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500"
                       style={{ background: gradientStyles[campaign.gradient] }}
                     />
-                    <div 
-                      className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                      style={{ background: gradientStyles[campaign.gradient] }}
-                    >
-                      <campaign.icon className="w-7 h-7 text-white" />
+                    
+                    {/* Icon with animated ring blur */}
+                    <div className="relative mb-4">
+                      <div 
+                        className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                        style={{ background: gradientStyles[campaign.gradient] }}
+                      >
+                        <campaign.icon className="w-7 h-7 text-white" />
+                      </div>
+                      {/* Animated ring blur behind icon */}
+                      <div 
+                        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-50 group-hover:scale-150 blur-xl transition-all duration-500"
+                        style={{ background: gradientStyles[campaign.gradient] }}
+                      />
                     </div>
+                    
                     <h3 className="relative z-10 text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                       {campaign.title}
                     </h3>
