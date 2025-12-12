@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { getLanguageFromDomain } from "@/config/domains";
 
 export type Language = "EN" | "CZ" | "SK";
 
@@ -155,7 +156,18 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("EN");
+  const [language, setLanguage] = useState<Language>(() => {
+    // Initialize from domain on first load
+    return getLanguageFromDomain();
+  });
+
+  // Update language if domain changes (e.g., navigation)
+  useEffect(() => {
+    const detectedLanguage = getLanguageFromDomain();
+    if (detectedLanguage !== language) {
+      setLanguage(detectedLanguage);
+    }
+  }, []);
 
   const t = (key: string): string => {
     return translations[language][key] || key;

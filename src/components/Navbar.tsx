@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Globe, Code2, Palette, Smartphone, Globe as GlobeIcon, Zap, Shield } from "lucide-react";
 import logoWeboptim from "@/assets/logo-weboptim.svg";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
+import { getLanguageSwitchUrl } from "@/config/domains";
+import { useSlugMappings } from "@/hooks/useSlugMappings";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,7 +31,17 @@ const languages: { code: Language; label: string }[] = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t } = useLanguage();
+  const location = useLocation();
+  const slugMappings = useSlugMappings();
+
+  // Handle language switch - redirects to the corresponding domain
+  const handleLanguageSwitch = (targetLanguage: Language) => {
+    if (targetLanguage === language) return;
+    
+    const targetUrl = getLanguageSwitchUrl(targetLanguage, location.pathname, slugMappings);
+    window.location.href = targetUrl;
+  };
 
   const navLinks = [
     { name: t("nav.work"), href: "/work" },
@@ -165,7 +177,7 @@ const Navbar = () => {
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
+                    onClick={() => handleLanguageSwitch(lang.code)}
                     className={`cursor-pointer ${language === lang.code ? "text-primary" : ""}`}
                   >
                     <span className="font-medium mr-2">{lang.code}</span>
@@ -255,7 +267,7 @@ const Navbar = () => {
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => setLanguage(lang.code)}
+                        onClick={() => handleLanguageSwitch(lang.code)}
                         className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
                           language === lang.code
                             ? "bg-primary text-primary-foreground"
