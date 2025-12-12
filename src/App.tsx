@@ -23,6 +23,7 @@ import Glossary from "./pages/Glossary";
 import GlossaryTerm from "./pages/GlossaryTerm";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import PriceCalculator from "./pages/PriceCalculator";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +81,10 @@ const App = () => (
             <Route path="/slovnik" element={<Glossary />} />
             <Route path="/glossary/:slug" element={<GlossaryTerm />} />
             <Route path="/slovnik/:slug" element={<GlossaryTerm />} />
+            
+            {/* Price Calculator */}
+            <Route path="/calculator" element={<PriceCalculator />} />
+            <Route path="/kalkulacka" element={<PriceCalculator />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
