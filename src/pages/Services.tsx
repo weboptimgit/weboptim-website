@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code2, Palette, Search, Globe, Zap, Shield, CheckCircle, Sparkles, Rocket, Terminal, Braces } from "lucide-react";
+import { ArrowUpRight, Code2, Search, ShoppingCart, Megaphone, Workflow, Palette, CheckCircle, Sparkles, Rocket, Terminal, Braces } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
 
 const techStack = [
-  { name: "React", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" },
-  { name: "Next.js", color: "bg-white/10 text-white border-white/20" },
-  { name: "TypeScript", color: "bg-blue-500/20 text-blue-400 border-blue-500/30" },
   { name: "WordPress", color: "bg-blue-600/20 text-blue-300 border-blue-500/30" },
-  { name: "Node.js", color: "bg-green-500/20 text-green-400 border-green-500/30" },
+  { name: "Oxygen Builder", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" },
+  { name: "WooCommerce", color: "bg-purple-500/20 text-purple-400 border-purple-500/30" },
+  { name: "PHP", color: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30" },
+  { name: "Clean Code", color: "bg-green-500/20 text-green-400 border-green-500/30" },
   { name: "Tailwind", color: "bg-teal-500/20 text-teal-400 border-teal-500/30" },
 ];
 
@@ -20,32 +22,32 @@ const services = [
     icon: Code2,
     title: "Web Development",
     subtitle: "From idea to launch in record time",
-    description: "We don't just build websites – we engineer digital experiences that convert visitors into customers. Lightning-fast, SEO-optimized, and built to scale.",
+    description: "Custom WordPress websites built with Oxygen Builder. Fast, scalable, and optimized for results.",
     href: "/services/building-website",
     features: [
-      "Custom React & Next.js apps",
-      "WordPress & headless CMS",
-      "Real-time integrations",
+      "WordPress & Oxygen Builder",
+      "Hand-coded themes",
+      "Performance optimized",
       "99.9% uptime guarantee",
     ],
     color: "from-cyan-500 to-blue-500",
     isHighlighted: true,
     stats: [
-      { value: "50+", label: "Projects Delivered" },
+      { value: "100+", label: "Projects Delivered" },
       { value: "<1s", label: "Load Time" },
       { value: "100%", label: "Mobile-First" },
     ],
   },
   {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Beautiful, intuitive interfaces that delight users and drive engagement across all platforms.",
-    href: null,
+    icon: ShoppingCart,
+    title: "E-Commerce",
+    description: "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions.",
+    href: "/services/ecommerce-website",
     features: [
-      "User research & testing",
-      "Wireframing & prototyping",
-      "Design systems",
-      "Responsive design",
+      "WooCommerce & Shoptet",
+      "Custom checkout flows",
+      "Payment integrations",
+      "Inventory management",
     ],
     color: "from-purple-500 to-pink-500",
   },
@@ -63,43 +65,43 @@ const services = [
     color: "from-green-500 to-emerald-500",
   },
   {
-    icon: Globe,
-    title: "E-Commerce",
-    description: "Powerful online stores with seamless checkout experiences that maximize conversions.",
-    href: "/services/ecommerce-website",
+    icon: Megaphone,
+    title: "PPC & Advertising",
+    description: "Strategic paid campaigns on Google and social media that drive qualified traffic and leads.",
+    href: "/services/ppc",
     features: [
-      "Shopify & WooCommerce",
-      "Custom checkout flows",
-      "Payment integrations",
-      "Inventory management",
+      "Google Ads management",
+      "Meta & social ads",
+      "Remarketing campaigns",
+      "ROI tracking & reports",
     ],
     color: "from-orange-500 to-amber-500",
   },
   {
-    icon: Zap,
-    title: "Performance",
-    description: "Lightning-fast load times and optimized performance for better SEO and user experience.",
-    href: null,
+    icon: Workflow,
+    title: "Digitalization",
+    description: "Automate your business with CRM, cloud tools, and workflow automation solutions.",
+    href: "/services/digitalization",
     features: [
-      "Core Web Vitals optimization",
-      "Image & asset optimization",
-      "CDN configuration",
-      "Caching strategies",
+      "CRM implementation",
+      "Workflow automation",
+      "Cloud integrations",
+      "Process optimization",
     ],
-    color: "from-yellow-500 to-orange-500",
+    color: "from-primary to-accent",
   },
   {
-    icon: Shield,
-    title: "Security",
-    description: "Enterprise-grade security measures to protect your business and customer data.",
-    href: null,
+    icon: Palette,
+    title: "Graphic Design",
+    description: "Eye-catching digital and print graphics from logos to brochures and marketing materials.",
+    href: "/services/graphic-design",
     features: [
-      "SSL & HTTPS setup",
-      "Security audits",
-      "GDPR compliance",
-      "Data encryption",
+      "Corporate identity",
+      "Print & digital graphics",
+      "Marketing materials",
+      "Packaging design",
     ],
-    color: "from-red-500 to-rose-500",
+    color: "from-pink-500 to-violet-500",
   },
 ];
 
@@ -199,13 +201,12 @@ const WebDevCard = ({ service, index }: { service: typeof services[0]; index: nu
               ))}
             </div>
 
-            <Link
-              to={service.href!}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transition-all group/btn"
-            >
-              <Rocket className="w-4 h-4" />
-              Start Your Project
-              <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+            <Link to={service.href!}>
+              <Button variant="hero" size="lg" className="gap-2">
+                <Rocket className="w-4 h-4" />
+                Start Your Project
+                <ArrowUpRight className="w-4 h-4" />
+              </Button>
             </Link>
           </div>
 
@@ -280,6 +281,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
 );
 
 const Services = () => {
+  const { t } = useLanguage();
   const webDevService = services[0]; // First service is Web Development
   const otherServices = services.slice(1);
 
