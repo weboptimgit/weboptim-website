@@ -341,33 +341,51 @@ const PPCServices = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {campaignTypes.map((campaign, index) => (
-                <motion.div
-                  key={campaign.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative glass-strong rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300"
-                >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${campaign.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <campaign.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {campaign.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {campaign.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {campaign.platforms.map((platform) => (
-                      <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
-                        {platform}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+              {campaignTypes.map((campaign, index) => {
+                const gradientStyles: Record<string, string> = {
+                  'from-blue-500 to-cyan-500': 'linear-gradient(135deg, hsl(210 80% 55%), hsl(190 90% 50%))',
+                  'from-green-500 to-emerald-500': 'linear-gradient(135deg, hsl(142 70% 45%), hsl(160 80% 40%))',
+                  'from-pink-500 to-rose-500': 'linear-gradient(135deg, hsl(330 80% 60%), hsl(350 80% 55%))',
+                  'from-red-500 to-orange-500': 'linear-gradient(135deg, hsl(0 75% 55%), hsl(25 95% 55%))',
+                  'from-purple-500 to-violet-500': 'linear-gradient(135deg, hsl(270 60% 55%), hsl(260 70% 55%))',
+                  'from-amber-500 to-yellow-500': 'linear-gradient(135deg, hsl(38 90% 50%), hsl(48 95% 50%))',
+                };
+                return (
+                  <motion.div
+                    key={campaign.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative glass-strong rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden"
+                  >
+                    {/* Gradient overlay on hover */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{ background: gradientStyles[campaign.gradient] }}
+                    />
+                    <div 
+                      className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                      style={{ background: gradientStyles[campaign.gradient] }}
+                    >
+                      <campaign.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="relative z-10 text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      {campaign.title}
+                    </h3>
+                    <p className="relative z-10 text-muted-foreground text-sm mb-4">
+                      {campaign.description}
+                    </p>
+                    <div className="relative z-10 flex flex-wrap gap-2">
+                      {campaign.platforms.map((platform) => (
+                        <span key={platform} className="px-3 py-1 text-xs rounded-full bg-muted/50 text-muted-foreground">
+                          {platform}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
