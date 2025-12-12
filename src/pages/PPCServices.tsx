@@ -411,7 +411,7 @@ const PPCServices = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {whyPPC.map((reason, index) => (
                 <motion.div
                   key={reason.title}
@@ -419,15 +419,25 @@ const PPCServices = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-4"
+                  className="group relative glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <reason.icon className="w-6 h-6 text-primary" />
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+                  
+                  {/* Icon with gradient background */}
+                  <div className="relative mb-4">
+                    <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
+                      <reason.icon className="w-6 h-6 text-white" />
+                    </div>
+                    {/* Animated ring blur */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2">{reason.title}</h3>
-                    <p className="text-muted-foreground text-sm">{reason.description}</p>
-                  </div>
+                  
+                  <h3 className="relative text-lg font-bold mb-2 group-hover:text-primary transition-colors">{reason.title}</h3>
+                  <p className="relative text-muted-foreground text-sm">{reason.description}</p>
+                  
+                  {/* Corner decoration */}
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
                 </motion.div>
               ))}
             </div>
