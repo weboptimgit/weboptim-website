@@ -588,45 +588,37 @@ const BuildingWebsite = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 px-4">
-          <div className="container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative glass rounded-3xl overflow-hidden p-8 md:p-12 lg:p-16"
-            >
-              {/* Background elements */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
-              
-              <div className="relative z-10 max-w-3xl mx-auto text-center">
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                  className="inline-block mb-6"
-                >
-                  <Rocket className="w-16 h-16 text-primary" />
-                </motion.div>
-                
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
-                  Ready to launch your <span className="text-gradient">dream website</span>?
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Let's discuss your project and create something amazing together. 
-                  Free consultation, no obligations.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="hero" size="lg" asChild>
-                    <Link to="/contact">
-                      Get Free Consultation
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10" />
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} className="text-center max-w-3xl mx-auto">
+              <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                Ready to Launch Your <span className="text-gradient">Dream Website</span>?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Let's discuss your project and create something amazing together
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/contact">
+                  <Button size="lg" variant="hero">
+                    Get Free Consultation
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <Link to="/work">See Our Work</Link>
+                </Link>
+                <Link to="/work">
+                  <Button size="lg" variant="outline">
+                    See Our Work
                   </Button>
-                </div>
+                </Link>
               </div>
             </motion.div>
           </div>
