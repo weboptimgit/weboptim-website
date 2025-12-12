@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code2, Palette, Smartphone, Globe, Zap, Shield, CheckCircle, Sparkles, Rocket, Terminal, Braces } from "lucide-react";
+import { ArrowUpRight, Code2, Palette, Search, Globe, Zap, Shield, CheckCircle, Sparkles, Rocket, Terminal, Braces } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -50,15 +50,15 @@ const services = [
     color: "from-purple-500 to-pink-500",
   },
   {
-    icon: Smartphone,
-    title: "Mobile Apps",
-    description: "Native and cross-platform apps that deliver seamless experiences on iOS and Android.",
-    href: null,
+    icon: Search,
+    title: "SEO Services",
+    description: "Boost your search rankings and drive organic traffic with proven SEO strategies.",
+    href: "/services/seo",
     features: [
-      "React Native development",
-      "iOS & Android native",
-      "App Store optimization",
-      "Push notifications",
+      "Keyword research & analysis",
+      "Link building campaigns",
+      "Local SEO optimization",
+      "Technical SEO audits",
     ],
     color: "from-green-500 to-emerald-500",
   },
