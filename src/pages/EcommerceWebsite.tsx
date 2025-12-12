@@ -4,6 +4,16 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import ServiceReviews from "@/components/ServiceReviews";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
+const ecommerceFaqs = [
+  { question: "Which e-commerce platform is best for me?", answer: "It depends on your needs. WooCommerce is great for WordPress users wanting flexibility. Shopify is ideal for quick setup. Shoptet and Upgates are popular in Czech/Slovak markets. We help you choose the right platform during consultation." },
+  { question: "Can you migrate my existing e-shop?", answer: "Yes, we handle complete migrations including products, customers, orders, and SEO. We ensure minimal downtime and preserve your search rankings." },
+  { question: "Do you integrate payment gateways?", answer: "We integrate all major payment providers including Stripe, PayPal, GoPay, Comgate, and local bank transfers. We also set up invoice generation." },
+  { question: "How do you handle shipping integration?", answer: "We integrate with carriers like Zásilkovna, PPL, DPD, Česká pošta, and more. Including real-time shipping rates and tracking." },
+  { question: "What about inventory management?", answer: "We set up inventory tracking, low-stock alerts, and can integrate with ERP systems like Pohoda, Money S3, or custom solutions." },
+];
 
 const platforms = [
   { 
@@ -547,6 +557,9 @@ const EcommerceWebsite = () => {
           </motion.div>
         </div>
       </section>
+
+      <ServiceReviews title="What Our Clients Say" subtitle="See what e-commerce businesses say about their online stores." />
+      <ServiceFAQ faqs={ecommerceFaqs} serviceName="E-Commerce" title="Frequently Asked Questions" subtitle="Common questions about our e-commerce services." />
 
       <Footer />
     </div>

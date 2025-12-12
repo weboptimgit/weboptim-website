@@ -7,6 +7,16 @@ import AmbientBackground from "@/components/AmbientBackground";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import SEO from "@/components/SEO";
+import ServiceReviews from "@/components/ServiceReviews";
+import ServiceFAQ from "@/components/ServiceFAQ";
+
+const webDevFaqs = [
+  { question: "How long does it take to build a website?", answer: "Depending on complexity, a standard website takes 2-4 weeks. Complex e-commerce or custom functionality may take 6-8 weeks. We provide a detailed timeline during our initial consultation." },
+  { question: "What CMS do you use?", answer: "We primarily work with WordPress and Oxygen Builder for most projects. For simpler sites, we also offer hand-coded solutions. The choice depends on your specific needs and future maintenance requirements." },
+  { question: "Do you provide hosting?", answer: "We can recommend reliable hosting providers and help with setup. We also offer managed hosting solutions for clients who prefer a hands-off approach." },
+  { question: "Will my website be mobile-friendly?", answer: "Absolutely! All our websites are fully responsive and optimized for all devices - desktops, tablets, and smartphones." },
+  { question: "Do you offer ongoing maintenance?", answer: "Yes, we offer various maintenance packages including updates, security monitoring, backups, and content changes." },
+];
 
 const techStack = [
   { name: "WordPress", icon: "W", description: "Powerful CMS", color: "from-blue-500 to-indigo-600" },
@@ -596,6 +606,9 @@ const BuildingWebsite = () => {
             </motion.div>
           </div>
         </section>
+
+        <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their new websites." />
+        <ServiceFAQ faqs={webDevFaqs} serviceName="Web Development" title="Frequently Asked Questions" subtitle="Common questions about our web development services." />
 
         <Footer />
       </div>

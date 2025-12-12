@@ -371,45 +371,31 @@ const DigitalizationServices = () => {
                       <Workflow className="w-10 h-10 text-primary-foreground" />
                     </motion.div>
 
-                    {/* Animated connections */}
-                    <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
-                      <motion.line
-                        x1="60" y1="80" x2="calc(50% - 48px)" y2="50%"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="2"
-                        strokeDasharray="5,5"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ delay: 0.9, duration: 0.5 }}
-                      />
-                      <motion.line
-                        x1="calc(100% - 60px)" y1="80" x2="calc(50% + 48px)" y2="50%"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="2"
-                        strokeDasharray="5,5"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ delay: 1, duration: 0.5 }}
-                      />
-                      <motion.line
-                        x1="60" y1="calc(100% - 80px)" x2="calc(50% - 48px)" y2="50%"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="2"
-                        strokeDasharray="5,5"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ delay: 1.1, duration: 0.5 }}
-                      />
-                      <motion.line
-                        x1="calc(100% - 60px)" y1="calc(100% - 80px)" x2="calc(50% + 48px)" y2="50%"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="2"
-                        strokeDasharray="5,5"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ delay: 1.2, duration: 0.5 }}
-                      />
-                    </svg>
+                    {/* Animated dashed connections using divs */}
+                    <motion.div
+                      className="absolute top-[54px] left-[54px] w-[90px] h-0.5 origin-left rotate-[35deg] border-t-2 border-dashed border-primary/50"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 0.9, duration: 0.5 }}
+                    />
+                    <motion.div
+                      className="absolute top-[54px] right-[54px] w-[90px] h-0.5 origin-right rotate-[-35deg] border-t-2 border-dashed border-primary/50"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 1, duration: 0.5 }}
+                    />
+                    <motion.div
+                      className="absolute bottom-[54px] left-[54px] w-[90px] h-0.5 origin-left rotate-[-35deg] border-t-2 border-dashed border-primary/50"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 1.1, duration: 0.5 }}
+                    />
+                    <motion.div
+                      className="absolute bottom-[54px] right-[54px] w-[90px] h-0.5 origin-right rotate-[35deg] border-t-2 border-dashed border-primary/50"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 1.2, duration: 0.5 }}
+                    />
                   </div>
 
                   {/* Stats */}
