@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Target, TrendingUp, MousePointerClick, BarChart3, ShoppingBag, Users, Video, MapPin, Zap, DollarSign, Eye, Clock, ArrowRight, Check, Play, Search } from "lucide-react";
+import { Target, TrendingUp, MousePointerClick, BarChart3, ShoppingBag, Users, Video, MapPin, Zap, DollarSign, Eye, Clock, ArrowRight, Check, Play, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -562,29 +562,36 @@ const PPCServices = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass-strong rounded-3xl p-12 text-center border border-primary/20 relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-              <div className="relative">
-                <Target className="w-16 h-16 text-primary mx-auto mb-6" />
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                  Ready to <span className="text-primary">Scale Your Business?</span>
-                </h2>
-                <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                  Get a free PPC audit and discover how much revenue you're leaving on the table. 
-                  Our experts will analyze your current campaigns and opportunities.
-                </p>
+        {/* CTA Section */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-red-500/10" />
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} className="text-center max-w-3xl mx-auto">
+              <Sparkles className="w-12 h-12 text-orange-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                Ready to Scale Your <span className="text-gradient">Business</span>?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Get a free PPC audit and discover how much revenue you're leaving on the table
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
-                  <Button variant="hero" size="lg" className="gap-2">
+                  <Button size="lg" variant="hero">
                     Get Free PPC Audit
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/work">
+                  <Button size="lg" variant="outline">
+                    View Case Studies
                   </Button>
                 </Link>
               </div>

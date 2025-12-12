@@ -534,38 +534,37 @@ const SEOServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden p-8 md:p-12 lg:p-16 text-center"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20" />
-            <div className="absolute inset-0 bg-card/80 backdrop-blur-sm" />
-            
-            <div className="relative z-10">
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary mb-6"
-              >
-                <Rocket className="w-8 h-8 text-primary-foreground" />
-              </motion.div>
-              
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Ready to Dominate Search?
-              </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Get a free SEO audit and discover how we can boost your rankings and drive more organic traffic.
-              </p>
-              <Button variant="glow" size="xl" asChild>
-                <Link to="/#contact">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10" />
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="text-center max-w-3xl mx-auto">
+            <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+              Ready to Dominate <span className="text-gradient">Search Results</span>?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Get a free SEO audit and discover how we can boost your rankings and drive more organic traffic
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact">
+                <Button size="lg" variant="hero">
                   Get Free SEO Audit
-                  <Search className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+              <Link to="/work">
+                <Button size="lg" variant="outline">
+                  View Case Studies
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -545,38 +545,37 @@ const EcommerceWebsite = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden p-8 md:p-12 lg:p-16 text-center"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-primary/20 to-secondary/20" />
-            <div className="absolute inset-0 bg-card/80 backdrop-blur-sm" />
-            
-            <div className="relative z-10">
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary mb-6"
-              >
-                <ShoppingBag className="w-8 h-8 text-primary-foreground" />
-              </motion.div>
-              
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Ready to Start Selling?
-              </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Let's build an online store that converts visitors into customers and grows your business.
-              </p>
-              <Button variant="glow" size="xl" asChild>
-                <Link to="/#contact">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10" />
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="text-center max-w-3xl mx-auto">
+            <Sparkles className="w-12 h-12 text-green-400 mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+              Ready to Start <span className="text-gradient">Selling</span>?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Let's build an online store that converts visitors into customers and grows your business
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact">
+                <Button size="lg" variant="hero">
                   Launch Your E-Shop
-                  <Rocket className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+              <Link to="/work">
+                <Button size="lg" variant="outline">
+                  View E-Shop Projects
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

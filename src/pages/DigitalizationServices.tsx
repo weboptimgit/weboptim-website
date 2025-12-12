@@ -17,7 +17,8 @@ import {
   Building2,
   Layers,
   Bot,
-  FileCheck
+  FileCheck,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -742,29 +743,36 @@ const DigitalizationServices = () => {
           subtitle="Common questions about our digitalization services."
         />
 
-        {/* CTA */}
-        <section className="py-20 px-6 bg-muted/20">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass-strong rounded-3xl p-12 text-center border border-primary/20 relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-              <div className="relative">
-                <Cpu className="w-16 h-16 text-primary mx-auto mb-6" />
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                  Ready to <span className="text-primary">Digitalize?</span>
-                </h2>
-                <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                  Get a free consultation and discover how automation can transform your business. 
-                  Our experts will analyze your processes and recommend the best solutions.
-                </p>
+        {/* CTA Section */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} className="text-center max-w-3xl mx-auto">
+              <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                Ready to <span className="text-gradient">Digitalize</span>?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Get a free consultation and discover how automation can transform your business
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
-                  <Button variant="hero" size="lg" className="gap-2">
+                  <Button size="lg" variant="hero">
                     Free Consultation
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/work">
+                  <Button size="lg" variant="outline">
+                    View Our Work
                   </Button>
                 </Link>
               </div>
