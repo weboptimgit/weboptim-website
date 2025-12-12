@@ -551,55 +551,42 @@ const DigitalizationServices = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {services.map((service, index) => {
-                const glowColor = '0 0 30px hsla(193, 88%, 61%, 0.4)';
-                return (
-                  <motion.div
-                    key={service.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                    className="group relative"
-                  >
-                    {/* Gradient border glow */}
-                    <div 
-                      className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ background: 'linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))', filter: 'blur(1px)' }}
-                    />
-                    
-                    <div 
-                      className="relative glass-strong rounded-2xl p-8 border border-border/50 group-hover:border-transparent transition-all duration-300 h-full overflow-hidden"
-                      style={{ transition: 'box-shadow 0.3s ease' }}
-                      onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColor}
-                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
-                    >
-                      {/* Shine sweep effect */}
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-                      </div>
-                      
-                      <div 
-                        className="relative z-10 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                        style={{ background: 'linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))' }}
-                      >
-                        <service.icon className="w-7 h-7 text-primary-foreground" />
-                      </div>
-                      <h3 className="relative z-10 text-xl font-bold mb-3">{service.title}</h3>
-                      <p className="relative z-10 text-muted-foreground text-sm mb-6">{service.description}</p>
-                      <ul className="relative z-10 space-y-2">
-                        {service.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-sm">
-                            <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                            <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative glass-strong rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+                  
+                  {/* Icon with gradient background */}
+                  <div className="relative mb-6">
+                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
+                      <service.icon className="w-7 h-7 text-primary-foreground" />
                     </div>
-                  </motion.div>
-                );
-              })}
+                    {/* Animated ring blur */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
+                  </div>
+                  
+                  <h3 className="relative text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                  <p className="relative text-muted-foreground text-sm mb-6">{service.description}</p>
+                  <ul className="relative space-y-2">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-sm">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  {/* Corner decoration */}
+                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

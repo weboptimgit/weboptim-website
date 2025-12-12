@@ -375,64 +375,36 @@ const BuildingWebsite = () => {
             </motion.div>
             
             <div className="flex flex-wrap justify-center gap-4">
-              {techStack.map((tech, i) => {
-                const gradientStyles: Record<string, string> = {
-                  'from-blue-500 to-indigo-600': 'linear-gradient(135deg, hsl(210 80% 55%), hsl(240 60% 50%))',
-                  'from-cyan-400 to-teal-500': 'linear-gradient(135deg, hsl(190 90% 50%), hsl(170 70% 45%))',
-                  'from-purple-400 to-pink-500': 'linear-gradient(135deg, hsl(270 60% 60%), hsl(330 70% 55%))',
-                  'from-violet-400 to-purple-600': 'linear-gradient(135deg, hsl(260 60% 60%), hsl(270 65% 50%))',
-                  'from-indigo-400 to-blue-600': 'linear-gradient(135deg, hsl(240 60% 60%), hsl(210 80% 50%))',
-                  'from-yellow-400 to-orange-500': 'linear-gradient(135deg, hsl(45 95% 55%), hsl(25 95% 55%))',
-                };
-                const glowColors: Record<string, string> = {
-                  'from-blue-500 to-indigo-600': '0 0 25px hsla(225, 70%, 52%, 0.4)',
-                  'from-cyan-400 to-teal-500': '0 0 25px hsla(180, 80%, 47%, 0.4)',
-                  'from-purple-400 to-pink-500': '0 0 25px hsla(300, 65%, 57%, 0.4)',
-                  'from-violet-400 to-purple-600': '0 0 25px hsla(265, 62%, 55%, 0.4)',
-                  'from-indigo-400 to-blue-600': '0 0 25px hsla(225, 70%, 55%, 0.4)',
-                  'from-yellow-400 to-orange-500': '0 0 25px hsla(35, 95%, 55%, 0.4)',
-                };
-                return (
-                  <motion.div
-                    key={tech.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                    className="group relative"
-                  >
-                    {/* Gradient border glow */}
-                    <div 
-                      className="absolute -inset-[1px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ background: gradientStyles[tech.color], filter: 'blur(1px)' }}
-                    />
-                    
-                    <div 
-                      className="relative glass rounded-xl p-4 flex items-center gap-3 cursor-default border border-transparent group-hover:border-transparent transition-all overflow-hidden"
-                      style={{ transition: 'box-shadow 0.3s ease' }}
-                      onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColors[tech.color]}
-                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
-                    >
-                      {/* Shine sweep effect */}
-                      <div className="absolute inset-0 rounded-xl overflow-hidden">
-                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-                      </div>
-                      
-                      <div 
-                        className="relative z-10 w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                        style={{ background: gradientStyles[tech.color] }}
-                      >
-                        {tech.icon}
-                      </div>
-                      <div className="relative z-10">
-                        <div className="font-semibold">{tech.name}</div>
-                        <div className="text-xs text-muted-foreground">{tech.description}</div>
-                      </div>
+              {techStack.map((tech, i) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative glass rounded-xl p-4 flex items-center gap-3 cursor-default border border-transparent hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                >
+                  {/* Hover glow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                  
+                  {/* Icon with gradient background */}
+                  <div className="relative">
+                    <div className={`relative w-10 h-10 rounded-lg bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                      {tech.icon}
                     </div>
-                  </motion.div>
-                );
-              })}
+                    {/* Animated ring blur */}
+                    <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
+                  </div>
+                  
+                  <div className="relative">
+                    <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
+                    <div className="text-xs text-muted-foreground">{tech.description}</div>
+                  </div>
+                  
+                  {/* Corner decoration */}
+                  <div className={`absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -455,64 +427,40 @@ const BuildingWebsite = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {features.map((feature, index) => {
-                const gradientStyles: Record<string, string> = {
-                  'from-pink-500 to-rose-500': 'linear-gradient(135deg, hsl(330 80% 60%), hsl(350 80% 55%))',
-                  'from-cyan-500 to-blue-500': 'linear-gradient(135deg, hsl(190 90% 50%), hsl(210 80% 55%))',
-                  'from-amber-500 to-orange-500': 'linear-gradient(135deg, hsl(38 90% 50%), hsl(25 95% 55%))',
-                  'from-emerald-500 to-green-500': 'linear-gradient(135deg, hsl(160 80% 40%), hsl(142 70% 45%))',
-                };
-                const glowColors: Record<string, string> = {
-                  'from-pink-500 to-rose-500': '0 0 30px hsla(340, 80%, 57%, 0.4)',
-                  'from-cyan-500 to-blue-500': '0 0 30px hsla(200, 85%, 52%, 0.4)',
-                  'from-amber-500 to-orange-500': '0 0 30px hsla(30, 92%, 52%, 0.4)',
-                  'from-emerald-500 to-green-500': '0 0 30px hsla(150, 75%, 42%, 0.4)',
-                };
-                return (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                    className="group relative"
-                  >
-                    {/* Gradient border glow */}
-                    <div 
-                      className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ background: gradientStyles[feature.gradient], filter: 'blur(1px)' }}
-                    />
-                    
-                    <div 
-                      className="relative glass rounded-2xl p-8 overflow-hidden group-hover:border-transparent transition-all h-full"
-                      style={{ transition: 'box-shadow 0.3s ease' }}
-                      onMouseEnter={(e) => e.currentTarget.style.boxShadow = glowColors[feature.gradient]}
-                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
-                    >
-                      {/* Shine sweep effect */}
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500"
+                >
+                  {/* Hover glow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                  
+                  <div className="relative z-10">
+                    {/* Icon with gradient background */}
+                    <div className="relative mb-6">
+                      <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}>
+                        <feature.icon className="w-7 h-7 text-white" />
                       </div>
-                      
-                      <div className="relative z-10">
-                        <div 
-                          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                          style={{ background: gradientStyles[feature.gradient] }}
-                        >
-                          <feature.icon className="w-7 h-7 text-white" />
-                        </div>
-                        <h3 className="text-xl font-display font-bold mb-3 group-hover:text-white transition-colors">
-                          {feature.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
+                      {/* Animated ring blur */}
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`} />
                     </div>
-                  </motion.div>
-                );
-              })}
+                    
+                    <h3 className="text-xl font-display font-bold mb-3 group-hover:text-white transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                  
+                  {/* Corner decoration */}
+                  <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
