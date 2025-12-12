@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const graphicFaqs = [
   { question: "What file formats do you deliver?", answer: "We deliver all industry-standard formats including AI, EPS, PDF, PNG, JPG, and SVG. For print projects, we provide press-ready files with proper bleed and color profiles." },
@@ -145,6 +146,7 @@ const pricingPlans = [
 ];
 
 const GraphicServices = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -171,17 +173,17 @@ const GraphicServices = () => {
                 animate={{ opacity: 1, scale: 1 }}
               >
                 <Palette className="w-4 h-4 text-purple-400" />
-                <span className="text-purple-400 font-medium text-sm">Graphic Design</span>
+                <span className="text-purple-400 font-medium text-sm">{t("graphic.badge")}</span>
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-                Designs That
+                {t("graphic.title1")}
                 <br />
-                <span className="text-gradient">Stand Out</span>
+                <span className="text-gradient">{t("graphic.title2")}</span>
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                From flyers and posters to business cards and banner ads, we create eye-catching graphics across all platforms and mediums to build awareness and grow your business.
+                {t("graphic.subtitle")}
               </p>
 
               <div className="flex flex-wrap gap-4">

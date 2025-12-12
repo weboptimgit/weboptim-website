@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const seoFaqs = [
   { question: "How long does SEO take to show results?", answer: "SEO is a long-term strategy. You can expect to see initial improvements in 3-6 months, with significant results in 6-12 months depending on competition and your starting point." },
@@ -235,6 +236,7 @@ const AnimatedRankings = () => {
 };
 
 const SEOServices = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -254,18 +256,18 @@ const SEOServices = () => {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <Search className="w-4 h-4" />
-                SEO Experts
+                {t("seo.badge")}
               </span>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                Rank Higher,{" "}
+                {t("seo.title1")}{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Grow Faster
+                  {t("seo.title2")}
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Data-driven SEO strategies that boost your rankings, drive organic traffic, and turn visitors into customers.
+                {t("seo.subtitle")}
               </p>
               
               {/* Quick Stats */}

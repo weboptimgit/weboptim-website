@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ecommerceFaqs = [
   { question: "Which e-commerce platform is best for me?", answer: "It depends on your needs. WooCommerce is great for WordPress users wanting flexibility. Shopify is ideal for quick setup. Shoptet and Upgates are popular in Czech/Slovak markets. We help you choose the right platform during consultation." },
@@ -240,6 +241,7 @@ const AnimatedCart = () => {
 };
 
 const EcommerceWebsite = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -259,18 +261,18 @@ const EcommerceWebsite = () => {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-sm font-medium mb-6">
                 <Store className="w-4 h-4" />
-                E-Commerce Experts
+                {t("ecom.badge")}
               </span>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                Sell More With a{" "}
+                {t("ecom.title1")}{" "}
                 <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-                  Powerful E-Shop
+                  {t("ecom.title2")}
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                From WooCommerce to Shopify, Shoptet to custom solutions – we build online stores that convert visitors into loyal customers.
+                {t("ecom.subtitle")}
               </p>
               
               {/* Quick Stats */}

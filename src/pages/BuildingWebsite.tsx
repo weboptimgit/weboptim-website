@@ -9,6 +9,7 @@ import { useRef, useState } from "react";
 import SEO from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const webDevFaqs = [
   { question: "How long does it take to build a website?", answer: "Depending on complexity, a standard website takes 2-4 weeks. Complex e-commerce or custom functionality may take 6-8 weeks. We provide a detailed timeline during our initial consultation." },
@@ -227,6 +228,7 @@ const BuildingWebsite = () => {
   const { scrollYProgress } = useScroll({ target: containerRef });
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [activeProcess, setActiveProcess] = useState(0);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -255,7 +257,7 @@ const BuildingWebsite = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary text-sm font-medium mb-6"
                 >
                   <Sparkles className="w-4 h-4" />
-                  Web Development
+                  {t("webdev.badge")}
                 </motion.span>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
