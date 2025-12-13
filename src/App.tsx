@@ -43,7 +43,6 @@ const App = () => (
             {/* Services - EN, CZ, SK */}
             <Route path="/services" element={<ServicesLanguageProvider><Services /></ServicesLanguageProvider>} />
             <Route path="/sluzby" element={<ServicesLanguageProvider><Services /></ServicesLanguageProvider>} />
-            <Route path="/sluzby" element={<Services />} />
             <Route path="/services/building-website" element={<BuildingWebsite />} />
             <Route path="/sluzby/tvorba-webstranok" element={<BuildingWebsite />} />
             <Route path="/sluzby/tvorba-webstranek" element={<BuildingWebsite />} />
