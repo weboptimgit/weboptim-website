@@ -99,8 +99,8 @@ export const serviceDetailSlugs: Record<
   },
   graphicDesign: {
     EN: "graphic-design",
-    CZ: "graficky-design",
-    SK: "graficky-design",
+    CZ: "grafika",
+    SK: "grafika",
   },
 };
 
