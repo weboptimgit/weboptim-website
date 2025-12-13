@@ -175,7 +175,7 @@ const CaseStudy = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-xl font-display font-bold mb-6">Services Provided</h3>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {study.services.map((service, index) => (
                   <div key={index} className="flex items-center gap-4 glass rounded-xl p-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -183,6 +183,23 @@ const CaseStudy = () => {
                     </div>
                     <span className="font-medium text-foreground">{service.label}</span>
                   </div>
+                ))}
+              </div>
+
+              {/* Tech Stack */}
+              <h3 className="text-xl font-display font-bold mb-4">Tech Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                {study.technologies.map((tech, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="px-3 py-1.5 rounded-lg glass text-sm font-medium text-primary border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+                  >
+                    {tech}
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
