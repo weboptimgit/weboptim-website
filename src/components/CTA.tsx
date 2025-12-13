@@ -45,9 +45,11 @@ const CTA = () => {
               </Button>
             </a>
 
-            <Button variant="glow" size="xl">
-              {t("ctaSection.secondary")}
-            </Button>
+            <a href={buildPath(language, "services")}>
+              <Button variant="glow" size="xl">
+                {t("ctaSection.secondary")}
+              </Button>
+            </a>
           </div>
 
           {/* Email */}
