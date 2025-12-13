@@ -4,20 +4,13 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
-import { blogPosts } from "@/data/blog-posts";
-
-const latestPosts = [...blogPosts]
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .slice(0, 3);
-
-{latestPosts.map(post => (
-  <Link key={post.slug} to={`/blog/${post.slug}`}>
-    ...
-  </Link>
-))}
+import { getLatestBlogPosts } from "@/data/blog-posts";
 
 const BlogSection = () => {
   const { t, language } = useLanguage();
+
+  const latestPosts = getLatestBlogPosts(language, 3);
+  const blogBase = buildPath(language, "blog"); // napr. "/blog"
 
   return (
     <section id="blog" className="py-24 relative overflow-hidden">
@@ -42,46 +35,53 @@ const BlogSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {blogPosts.map((post, index) => (
-            <motion.article
-              key={index}
+          {latestPosts.map((post, index) => (
+            <motion.div
+              key={post.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-300"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/90 text-primary-foreground">
-                    {post.category}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{post.excerpt}</p>
-
-                <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    <span>{post.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    <span>{post.readTime}</span>
+              <Link
+                to={`${blogBase}/${post.slug}`}
+                className="block glass rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/90 text-primary-foreground">
+                      {post.category}
+                    </span>
                   </div>
                 </div>
-              </div>
-            </motion.article>
+
+                <div className="p-6">
+                  <h3 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      <span>{post.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
 
@@ -92,7 +92,7 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Link to={buildPath(language, "blog")}>
+          <Link to={blogBase}>
             <Button variant="glow" size="lg" className="group">
               {t("blogSection.viewAll")}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
