@@ -7,6 +7,7 @@ import logoWeboptim from "@/assets/logo-weboptim.svg";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { getLanguageSwitchUrl } from "@/config/domains";
 import { useSlugMappings } from "@/hooks/useSlugMappings";
+import { staticPageSlugs } from "@/config/domains";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,6 +29,8 @@ const languages: { code: Language; label: string }[] = [
   { code: "SK", label: "Slovenčina" },
 ];
 
+const sp = (key: keyof typeof staticPageSlugs) => staticPageSlugs[key][language];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -44,12 +47,12 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: t("nav.work"), href: "/work" },
-    { name: t("nav.about"), href: "/about" },
-    { name: t("nav.blog"), href: "/blog" },
-    { name: t("nav.faq"), href: "/faq" },
-    { name: t("nav.glossary"), href: "/glossary" },
-    { name: t("nav.contact"), href: "/contact" },
+    { name: t("nav.work"), href: sp("work") },
+    { name: t("nav.about"), href: sp("about") },
+    { name: t("nav.blog"), href: sp("blog") },
+    { name: t("nav.faq"), href: sp("faq") },
+    { name: t("nav.glossary"), href: sp("glossary") },
+    { name: t("nav.contact"), href: sp("contact") },
   ];
 
   const services = [
