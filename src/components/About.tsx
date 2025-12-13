@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Zap, Users, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { buildPath } from "@/config/domains";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const features = [
     {
@@ -54,7 +55,7 @@ const About = () => {
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">{t("about.p2")}</p>
 
-            <Link to="/about">
+            <Link to={buildPath(language, "about")}>
               <Button size="lg">{t("about.cta")}</Button>
             </Link>
           </motion.div>
