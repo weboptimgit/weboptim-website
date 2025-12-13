@@ -75,7 +75,7 @@ export const blogPostsData: BlogPostData[] = [
         slug: "50-seo-prikazu-pro-chatgpt-od-openai",
         title: "50+ SEO příkazů pro ChatGPT od OpenAI",
         excerpt:
-          "Chcete využít plný potenciál ChatGPT pro SEO? Pak jsme právě pro vás připravili tento článek o velmi užitečném nástroji pro SEO konzultanty. "Prompts" jsou krátké textové instrukce, které mohou pomoci ChatGPT generovat relevantní a kvalitní odpovědi na dotazy a požadavky uživatelů.",
+          "Chcete využít plný potenciál ChatGPT pro SEO? Pak jsme právě pro vás připravili tento článek o velmi užitečném nástroji pro SEO konzultanty. Prompts jsou krátké textové instrukce, které mohou pomoci ChatGPT generovat relevantní a kvalitní odpovědi na dotazy a požadavky uživatelů.",
         category: "(AI) Umělá inteligence",
         tags: ["ChatGPT", "SEO", "Trendy", "OpenAI", "Příkazy"],
         date: "15. Květen 2023",
@@ -140,7 +140,7 @@ export const blogPostsData: BlogPostData[] = [
         slug: "50-seo-prikazov-pre-chatgpt-od-openai",
         title: "50+ SEO príkazov pre ChatGPT od OpenAI",
         excerpt:
-          "Chcete naplno využiť potenciál ChatGPT pre SEO? Potom sme práve pre vás pripravili tento článok o veľmi užitočnom nástroji pre SEO konzultantov. "Prompts" sú krátke textové inštrukcie, ktoré môžu pomôcť ChatGPT generovať relevantné a kvalitné odpovede na otázky a požiadavky používateľov.",
+          "Chcete naplno využiť potenciál ChatGPT pre SEO? Potom sme práve pre vás pripravili tento článok o veľmi užitočnom nástroji pre SEO konzultantov. Prompts sú krátke textové inštrukcie, ktoré môžu pomôcť ChatGPT generovať relevantné a kvalitné odpovede na otázky a požiadavky používateľov.",
         category: "(UI) Umelá inteligencia",
         tags: ["ChatGPT", "SEO", "Trendy", "OpenAI", "Príkazy"],
         date: "15. máj 2023",
