@@ -11,6 +11,12 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    // Trust section
+    "trust.title.before": "They",
+    "trust.title.highlight": "Trust Us",
+    "trust.subtitle": "For years, we have been helping to meet the marketing goals of our clients in various industries.",
+    "trust.cta": "I Want to Become Your Client",
+
     // Navbar
     "nav.services": "Services",
     "nav.work": "Work",
@@ -196,6 +202,13 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+
+    // Trust section
+    "trust.title.before": "Důvěřují nám",
+    "trust.title.highlight": "klienti",
+    "trust.subtitle": "Už roky pomáháme klientům z různých odvětví plnit jejich marketingové cíle.",
+    "trust.cta": "Chci se stát vaším klientem",
+
     // Navbar
     "nav.services": "Služby",
     "nav.work": "Portfolio",
@@ -378,6 +391,12 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    // Trust section
+    "trust.title.before": "Dôverujú nám",
+    "trust.title.highlight": "klienti",
+    "trust.subtitle": "Už roky pomáhame klientom z rôznych odvetví napĺňať ich marketingové ciele.",
+    "trust.cta": "Chcem sa stať vaším klientom",
+
     // Navbar
     "nav.services": "Služby",
     "nav.work": "Portfólio",
