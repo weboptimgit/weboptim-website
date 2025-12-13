@@ -67,6 +67,43 @@ export const staticPageSlugs: Record<string, Record<Language, string>> = {
   },
 };
 
+// Service detail slug translations
+export const serviceDetailSlugs: Record<
+  string,
+  Record<Language, string>
+> = {
+  buildingWebsite: {
+    EN: "building-website",
+    CZ: "tvorba-webstranok",
+    SK: "tvorba-webstranek",
+  },
+  ecommerceWebsite: {
+    EN: "ecommerce-website",
+    CZ: "tvorba-eshopu",
+    SK: "tvorba-eshopu",
+  },
+  seo: {
+    EN: "seo",
+    CZ: "seo",
+    SK: "seo",
+  },
+  ppc: {
+    EN: "ppc",
+    CZ: "ppc",
+    SK: "ppc",
+  },
+  digitalization: {
+    EN: "digitalization-and-automation",
+    CZ: "digitalizace-a-automatizace-procesu",
+    SK: "digitalizacia-a-automatizacia-procesov",
+  },
+  graphicDesign: {
+    EN: "graphic-design",
+    CZ: "graficky-design",
+    SK: "graficky-design",
+  },
+};
+
 // Reverse lookup: find the base route from any translated slug
 export const getBaseRouteFromSlug = (slug: string): string | undefined => {
   for (const [baseRoute, translations] of Object.entries(staticPageSlugs)) {
@@ -75,6 +112,17 @@ export const getBaseRouteFromSlug = (slug: string): string | undefined => {
     }
   }
   return undefined;
+};
+
+// Helper na generovanie ciest
+export const buildPath = (language: Language, baseRoute: keyof typeof staticPageSlugs, detailSlug?: string) => {
+  const base = staticPageSlugs[baseRoute][language];
+  return detailSlug ? `/${base}/${detailSlug}` : `/${base}`;
+};
+
+export const servicePath = (language: Language, serviceKey: keyof typeof serviceDetailSlugs) => {
+  const detail = serviceDetailSlugs[serviceKey][language];
+  return buildPath(language, "services", detail);
 };
 
 // Get language from current domain
