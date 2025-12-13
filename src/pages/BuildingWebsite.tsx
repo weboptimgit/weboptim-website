@@ -25,6 +25,7 @@ import { useRef, useState } from "react";
 import SEO from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import Testimonials from "@/components/Testimonials";
 
 // ✅ language contexts
 import { useLanguage } from "@/contexts/LanguageContext";
