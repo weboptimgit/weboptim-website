@@ -186,6 +186,13 @@ const translations: Record<Language, Record<string, string>> = {
     "services.card.graphic.title": "Graphic Design",
     "services.card.graphic.desc":
     "Eye-catching digital and print graphics from logos to brochures and marketing materials.",
+    
+    // Portfolio section
+    "portfolio.badge": "Our Work",
+    "portfolio.title": "Featured Projects",
+    "portfolio.subtitle": "Explore our recent work and see how we've helped businesses achieve their digital goals.",
+    "portfolio.viewCaseStudy": "View Case Study",
+    "portfolio.viewAll": "View All Projects",
 
   },
   CZ: {
@@ -362,6 +369,13 @@ const translations: Record<Language, Record<string, string>> = {
     "services.card.graphic.desc":
     "Poutavá digitální i tisková grafika — od log po brožury a marketingové materiály.",
 
+    // Portfolio section
+    "portfolio.badge": "Naše práce",
+    "portfolio.title": "Vybrané projekty",
+    "portfolio.subtitle": "Prohlédněte si naši poslední práci a podívejte se, jak jsme firmám pomohli dosáhnout jejich digitálních cílů.",
+    "portfolio.viewCaseStudy": "Zobrazit případovou studii",
+    "portfolio.viewAll": "Zobrazit všechny projekty",
+
   },
   SK: {
     // Navbar
@@ -537,6 +551,13 @@ const translations: Record<Language, Record<string, string>> = {
     "services.card.graphic.title": "Grafický dizajn",
     "services.card.graphic.desc":
     "Pútavá digitálna aj tlačená grafika — od log po brožúry a marketingové materiály.",
+
+    // Portfolio section
+    "portfolio.badge": "Naše práce",
+    "portfolio.title": "Vybrané projekty",
+    "portfolio.subtitle": "Pozrite si našu poslednú prácu a zistite, ako sme firmám pomohli dosiahnuť ich digitálne ciele.",
+    "portfolio.viewCaseStudy": "Zobraziť case study",
+    "portfolio.viewAll": "Zobraziť všetky projekty",
 
   },
 };
