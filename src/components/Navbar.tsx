@@ -191,9 +191,11 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="hero" size="lg">
+          <Button asChild variant="hero" size="lg">
+            <Link to={buildPath(language, "contact")}>
               {t("nav.startProject")}
-            </Button>
+            </Link>
+          </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -284,9 +286,12 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                <Button variant="hero" size="lg" className="mt-2">
+              <Button asChild variant="hero" size="lg" className="mt-2">
+                <Link to={buildPath(language, "contact")} onClick={() => setIsOpen(false)}>
                   {t("nav.startProject")}
-                </Button>
+                </Link>
+              </Button>
+
               </div>
             </motion.div>
           )}
