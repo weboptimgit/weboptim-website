@@ -152,8 +152,18 @@ export const getLanguageFromDomain = (): Language => {
 };
 
 // Get the target URL for language switch with translated slug
-export const getLanguageSwitchUrl = (targetLanguage: Language, currentPath: string): string => {
+export const getLanguageSwitchUrl = (
+  targetLanguage: Language,
+  currentPath: string,
+  slugMappings?: Record<Language, string>
+): string => {
   const targetDomain = domainConfig[targetLanguage];
+  
+  const mapped = slugMappings?.[targetLanguage];
+  if (mapped) {
+    // mapped býva napr "blog/xxx" alebo "kontakt"
+    return `${targetDomain}/${mapped.replace(/^\/+/, "")}`;
+  }
 
   const path = currentPath.replace(/^\//, "");
   const [first, second, ...rest] = path.split("/");
@@ -167,12 +177,12 @@ export const getLanguageSwitchUrl = (targetLanguage: Language, currentPath: stri
 
   // 2) ak sme v /services/<detail>, prelož aj detail slug podľa mapy
   if (baseRoute === "services" && second) {
-    const serviceKey = (Object.keys(serviceDetailSlugs) as Array<keyof typeof serviceDetailSlugs>).find((key) =>
-      Object.values(serviceDetailSlugs[key]).includes(second)
-    );
+    const serviceKey = (Object.keys(serviceDetailSlugs) as Array<
+      keyof typeof serviceDetailSlugs
+    >).find((key) => Object.values(serviceDetailSlugs[key]).includes(second));
 
     if (serviceKey) {
-     const translatedSecond = serviceDetailSlugs[serviceKey][targetLanguage];
+      const translatedSecond = serviceDetailSlugs[serviceKey][targetLanguage];
       return `${targetDomain}/${[translatedFirst, translatedSecond, ...rest].join("/")}`;
     }
   }
