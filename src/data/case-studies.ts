@@ -221,6 +221,90 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Ecomail subscription hook with opt-in handling",
     ],
   },
+  "penzion-snezna-website": {
+    title: "Penzion Sněžná",
+    subtitle: "Accommodation Website & Conversion Flows",
+    category: "Hospitality",
+    client: "Penzion Sněžná",
+    duration: "2–3 Weeks",
+    year: "2023",
+    team: "1–2 Members",
+    projectUrl: "https://www.penzionsnezna.cz/",
+
+    // Portfolio card fields
+    description:
+      "Accommodation website focused on clear presentation, seasonal offers, and conversion through forms, popups, and inquiries.",
+    tags: ["Hospitality", "WordPress", "Lead Generation"],
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=600&fit=crop",
+    statValue: "✓",
+    statLabel: "Inquiry Ready",
+    featured: false,
+
+    // Detail page fields
+    heroImage: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&h=800&fit=crop",
+
+    overview:
+      "Penzion Sněžná is a family accommodation website designed to clearly present rooms, location, and surrounding activities while guiding visitors toward direct inquiries. The site balances informative content with conversion-focused elements such as contact forms, popups, and clear calls-to-action.",
+
+    challenge:
+      "The main challenge was to turn a static accommodation website into a conversion-oriented experience. Visitors needed to quickly understand availability, location, and benefits, while the owner needed a simple way to receive inquiries without complex booking systems.",
+
+    solution:
+      "We built a WordPress website with a clean content structure, optimized forms, and contextual popups that support user intent. Inquiry flows are placed strategically across the site to capture interest at the right moment, while keeping the experience simple and distraction-free.",
+
+    services: [
+      { icon: Code, label: "WordPress Development" },
+      { icon: Palette, label: "UI/UX & Page Structure" },
+      { icon: Megaphone, label: "Lead & Inquiry Optimization" },
+      { icon: Globe, label: "Basic SEO Setup" },
+    ],
+
+    technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "MySQL"],
+
+    results: [
+      {
+        metric: "✓",
+        label: "Direct Inquiries",
+        description: "Website structured to drive direct contact without third-party booking fees",
+      },
+      {
+        metric: "↑",
+        label: "User Clarity",
+        description: "Visitors understand rooms, location, and next steps faster",
+      },
+      {
+        metric: "↓",
+        label: "Drop-offs",
+        description: "Reduced friction thanks to simple forms and clear CTAs",
+      },
+      {
+        metric: "✓",
+        label: "Seasonal Flexibility",
+        description: "Easy updates for seasonal offers and messaging",
+      },
+    ],
+
+    testimonial: {
+      quote:
+        "The website is clear, easy to use, and brings us direct inquiries without unnecessary complexity. Everything important is easy to update and works reliably.",
+      author: "Penzion Sněžná",
+      role: "Owner",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+    },
+
+    gallery: [],
+
+    features: [
+      "Clear presentation of accommodation, rooms, and surroundings",
+      "Inquiry-focused contact forms placed across key pages",
+      "Popup logic for seasonal offers and engagement",
+      "Simple content structure optimized for non-technical editors",
+      "Mobile-first responsive layout",
+      "SEO-friendly page structure for local discoverability",
+      "Fast-loading pages with minimal overhead",
+      "Flexible setup for future booking or availability extensions",
+    ],
+  },
   "kimbau-construction": {
     title: "Kimbau",
     subtitle: "Building & Renovation Services",
