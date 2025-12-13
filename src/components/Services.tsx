@@ -3,6 +3,7 @@ import { Code2, Search, ShoppingCart, Megaphone, Workflow, Palette, ArrowRight, 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { servicePath, buildPath } from "@/config/domains";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,14 +23,14 @@ const itemVariants = {
 };
 
 const Services = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const services = [
     {
       icon: Code2,
       title: t("services.card.webDev.title"),
       description: t("services.card.webDev.desc"),
-      href: "/services/building-website",
+      href: servicePath(language, "buildingWebsite"),
       gradient: "from-brandBlue to-brandCyan",
       accent: "blue",
     },
@@ -37,7 +38,7 @@ const Services = () => {
       icon: ShoppingCart,
       title: t("services.card.ecom.title"),
       description: t("services.card.ecom.desc"),
-      href: "/services/ecommerce-website",
+      href: servicePath(language, "ecommerceWebsite"),
       gradient: "from-brandPurple to-pink-400",
       accent: "purple",
     },
@@ -45,7 +46,7 @@ const Services = () => {
       icon: Search,
       title: t("services.card.seo.title"),
       description: t("services.card.seo.desc"),
-      href: "/services/seo",
+      href: servicePath(language, "seo"),
       gradient: "from-emerald-500 to-teal-400",
       accent: "emerald",
     },
@@ -53,7 +54,7 @@ const Services = () => {
       icon: Megaphone,
       title: t("services.card.ppc.title"),
       description: t("services.card.ppc.desc"),
-      href: "/services/ppc",
+      href: servicePath(language, "ppc"),
       gradient: "from-orange-500 to-amber-400",
       accent: "orange",
     },
@@ -61,7 +62,7 @@ const Services = () => {
       icon: Workflow,
       title: t("services.card.digital.title"),
       description: t("services.card.digital.desc"),
-      href: "/services/digitalization",
+      href: servicePath(language, "digitalization"),
       gradient: "from-primary to-accent",
       accent: "primary",
     },
@@ -69,7 +70,7 @@ const Services = () => {
       icon: Palette,
       title: t("services.card.graphic.title"),
       description: t("services.card.graphic.desc"),
-      href: "/services/graphic-design",
+      href: servicePath(language, "graphicDesign"),
       gradient: "from-pink-500 to-violet-400",
       accent: "pink",
     },
