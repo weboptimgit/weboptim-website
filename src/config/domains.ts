@@ -104,6 +104,12 @@ export const serviceDetailSlugs: Record<
   },
 };
 
+export const routes = (language: Language) => ({
+  contact: buildPath(language, "contact"),
+  work: buildPath(language, "work"),
+  services: buildPath(language, "services"),
+});
+
 // Reverse lookup: find the base route from any translated slug
 export const getBaseRouteFromSlug = (slug: string): string | undefined => {
   for (const [baseRoute, translations] of Object.entries(staticPageSlugs)) {
