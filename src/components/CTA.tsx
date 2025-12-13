@@ -56,12 +56,13 @@ const CTA = () => {
           <p className="mt-8 text-muted-foreground">
             {t("ctaSection.email.before")}{" "}
             <a
-              href="mailto:hello@nexus.agency"
+              href={`mailto:${email}`}
               className="text-primary hover:underline"
             >
-              hello@nexus.agency
+              {email}
             </a>
           </p>
+
         </motion.div>
       </div>
     </section>
