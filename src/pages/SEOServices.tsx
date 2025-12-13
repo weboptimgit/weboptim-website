@@ -3,13 +3,9 @@ import {
   ArrowRight,
   BarChart3,
   Check,
-  ExternalLink,
-  Globe,
   LineChart,
   Link2,
   MapPin,
-  MousePointerClick,
-  Rocket,
   Search,
   Settings,
   Sparkles,
@@ -25,202 +21,31 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
+import { useSeoLang } from "@/contexts/LanguageSEO";
 
-const seoFaqs = [
-  {
-    question: "How long does SEO take to show results?",
-    answer:
-      "SEO is a long-term strategy. You can expect to see initial improvements in 3-6 months, with significant results in 6-12 months depending on competition and your starting point.",
-  },
-  {
-    question: "What's included in your SEO packages?",
-    answer:
-      "Our packages include keyword research, on-page optimization, technical SEO audits, link building, content strategy, and monthly reporting. Higher tiers include more keywords and additional services.",
-  },
-  {
-    question: "Do you guarantee rankings?",
-    answer:
-      "No ethical SEO agency can guarantee specific rankings as search algorithms change constantly. We focus on sustainable growth and proven strategies that deliver long-term results.",
-  },
-  {
-    question: "How do you measure SEO success?",
-    answer:
-      "We track keyword rankings, organic traffic, conversions, and ROI. You receive detailed monthly reports with all key metrics and actionable insights.",
-  },
+// vizuálne farby nechávame v page (nemá sa prekladať)
+const seoServicesColors = [
+  "from-blue-500 to-cyan-500",
+  "from-purple-500 to-violet-500",
+  "from-green-500 to-emerald-500",
+  "from-orange-500 to-red-500",
+  "from-indigo-500 to-blue-500",
 ];
 
-const seoServices = [
-  {
-    name: "Keyword Research",
-    icon: "🔍",
-    description: "Find winning keywords",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    name: "Link Building",
-    icon: "🔗",
-    description: "Quality backlinks",
-    color: "from-purple-500 to-violet-500",
-  },
-  {
-    name: "Local SEO",
-    icon: "📍",
-    description: "Dominate local search",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    name: "Technical SEO",
-    icon: "⚙️",
-    description: "Site optimization",
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    name: "Analytics",
-    icon: "📊",
-    description: "Data-driven results",
-    color: "from-indigo-500 to-blue-500",
-  },
+const featuresMeta = [
+  { icon: Search, gradient: "from-blue-500 to-cyan-500" },
+  { icon: Link2, gradient: "from-purple-500 to-violet-500" },
+  { icon: MapPin, gradient: "from-green-500 to-emerald-500" },
+  { icon: Settings, gradient: "from-orange-500 to-red-500" },
+  { icon: BarChart3, gradient: "from-pink-500 to-rose-500" },
+  { icon: LineChart, gradient: "from-indigo-500 to-blue-500" },
 ];
 
-const metrics = [
-  { value: "300%", label: "Avg. Traffic Increase", icon: TrendingUp },
-  { value: "Top 10", label: "Keyword Rankings", icon: Target },
-  { value: "150+", label: "Happy Clients", icon: Users },
-  { value: "5.0", label: "Client Rating", icon: Star },
-];
+const processMeta = [Search, Target, Settings, Zap, Link2, TrendingUp];
 
-const features = [
-  {
-    icon: Search,
-    title: "Keyword Research & Analysis",
-    description:
-      "Deep dive into search intent, competition analysis, and identifying high-value keywords that drive qualified traffic",
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Link2,
-    title: "Link Building Campaigns",
-    description: "White-hat strategies to earn quality backlinks from authoritative domains that boost your rankings",
-    gradient: "from-purple-500 to-violet-500",
-  },
-  {
-    icon: MapPin,
-    title: "Local SEO Optimization",
-    description:
-      "Google Business Profile, local citations, and geo-targeted strategies to dominate local search results",
-    gradient: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: Settings,
-    title: "Technical SEO Audits",
-    description: "Core Web Vitals, site speed, crawlability, schema markup, and fixing issues that hurt rankings",
-    gradient: "from-orange-500 to-red-500",
-  },
-  {
-    icon: BarChart3,
-    title: "Content Strategy",
-    description: "Data-driven content planning, optimization, and creation that ranks and converts",
-    gradient: "from-pink-500 to-rose-500",
-  },
-  {
-    icon: LineChart,
-    title: "Reporting & Analytics",
-    description: "Transparent monthly reports with rankings, traffic, conversions, and ROI tracking",
-    gradient: "from-indigo-500 to-blue-500",
-  },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "SEO Audit",
-    description: "Complete analysis of your current SEO health",
-    icon: Search,
-    duration: "1-2 days",
-  },
-  {
-    step: "02",
-    title: "Strategy",
-    description: "Custom roadmap based on your goals",
-    icon: Target,
-    duration: "2-3 days",
-  },
-  {
-    step: "03",
-    title: "On-Page SEO",
-    description: "Optimizing content, meta tags & structure",
-    icon: Settings,
-    duration: "1-2 weeks",
-  },
-  {
-    step: "04",
-    title: "Technical Fixes",
-    description: "Speed, mobile, Core Web Vitals",
-    icon: Zap,
-    duration: "1-2 weeks",
-  },
-  {
-    step: "05",
-    title: "Link Building",
-    description: "Earning quality backlinks",
-    icon: Link2,
-    duration: "Ongoing",
-  },
-  {
-    step: "06",
-    title: "Monitor & Grow",
-    description: "Track rankings & refine strategy",
-    icon: TrendingUp,
-    duration: "Monthly",
-  },
-];
-
-const packages = [
-  {
-    name: "SEO Starter",
-    description: "For small businesses",
-    price: "€500/mo",
-    features: ["5 keywords tracked", "Monthly report", "On-page optimization", "Technical audit", "Email support"],
-    popular: false,
-  },
-  {
-    name: "SEO Growth",
-    description: "For growing businesses",
-    price: "€1,200/mo",
-    features: [
-      "20 keywords tracked",
-      "Bi-weekly reports",
-      "Link building",
-      "Content strategy",
-      "Local SEO",
-      "Priority support",
-    ],
-    popular: true,
-  },
-  {
-    name: "SEO Enterprise",
-    description: "Full-scale SEO",
-    price: "Custom",
-    features: [
-      "Unlimited keywords",
-      "Weekly reports",
-      "Dedicated manager",
-      "Content creation",
-      "Competitor analysis",
-      "API access",
-    ],
-    popular: false,
-  },
-];
-
-// Animated rankings component
 const AnimatedRankings = () => {
-  const rankings = [
-    { keyword: "web design agency", position: 3, change: "+5", volume: "2.4K" },
-    { keyword: "wordpress developer", position: 1, change: "+12", volume: "1.8K" },
-    { keyword: "ecommerce website", position: 4, change: "+8", volume: "3.1K" },
-  ];
+  const s = useSeoLang();
 
   return (
     <div className="relative">
@@ -230,20 +55,23 @@ const AnimatedRankings = () => {
         <div className="flex items-center justify-between mb-4 pb-3 border-b border-border/30">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-500" />
-            <span className="font-semibold">Keyword Rankings</span>
+            <span className="font-semibold">{s.animatedRankings.title}</span>
           </div>
-          <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-500">Live</span>
+          <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-500">
+            {s.animatedRankings.liveBadge}
+          </span>
         </div>
 
         {/* Rankings Table */}
         <div className="space-y-3">
           <div className="grid grid-cols-4 gap-2 text-xs text-muted-foreground pb-2">
-            <span>Keyword</span>
-            <span className="text-center">Pos.</span>
-            <span className="text-center">Change</span>
-            <span className="text-right">Volume</span>
+            <span>{s.animatedRankings.columns.keyword}</span>
+            <span className="text-center">{s.animatedRankings.columns.pos}</span>
+            <span className="text-center">{s.animatedRankings.columns.change}</span>
+            <span className="text-right">{s.animatedRankings.columns.volume}</span>
           </div>
-          {rankings.map((item, i) => (
+
+          {s.animatedRankings.rows.map((item, i) => (
             <motion.div
               key={item.keyword}
               initial={{ opacity: 0, x: -20 }}
@@ -275,7 +103,7 @@ const AnimatedRankings = () => {
           className="absolute -bottom-4 -right-4 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-medium flex items-center gap-1.5 shadow-lg"
         >
           <TrendingUp className="w-3 h-3" />
-          +156% Traffic
+          {s.animatedRankings.trafficBadge}
         </motion.div>
       </div>
     </div>
@@ -283,9 +111,18 @@ const AnimatedRankings = () => {
 };
 
 const SEOServices = () => {
-  const { t } = useLanguage();
+  const s = useSeoLang();
+
+  const metrics = [
+    { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
+    { value: s.metrics[1].value, label: s.metrics[1].label, icon: Target },
+    { value: s.metrics[2].value, label: s.metrics[2].label, icon: Users },
+    { value: s.metrics[3].value, label: s.metrics[3].label, icon: Star },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO title={s.seo.title} description={s.seo.description} />
       <Navbar />
 
       {/* Hero Section */}
@@ -299,17 +136,17 @@ const SEOServices = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <Search className="w-4 h-4" />
-                {t("seo.badge")}
+                {s.hero.badge}
               </span>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                {t("seo.title1")}{" "}
+                {s.hero.title1}{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  {t("seo.title2")}
+                  {s.hero.title2}
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">{t("seo.subtitle")}</p>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8">{s.hero.subtitle}</p>
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -331,12 +168,12 @@ const SEOServices = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="glow" size="xl" asChild>
                   <Link to="/#contact">
-                    Get Free SEO Audit
+                    {s.hero.ctaPrimary}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
                 <Button variant="outline" size="xl" asChild>
-                  <Link to="/#portfolio">View Case Studies</Link>
+                  <Link to="/#portfolio">{s.hero.ctaSecondary}</Link>
                 </Button>
               </div>
             </motion.div>
@@ -363,12 +200,12 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Complete SEO Solutions</h2>
-            <p className="text-muted-foreground">Everything you need to dominate search results</p>
+            <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">{s.servicesShowcase.title}</h2>
+            <p className="text-muted-foreground">{s.servicesShowcase.subtitle}</p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {seoServices.map((service, i) => (
+            {s.servicesShowcase.items.map((service, i) => (
               <motion.div
                 key={service.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -377,21 +214,18 @@ const SEOServices = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group relative glass rounded-2xl px-6 py-4 hover:border-primary/30 transition-all duration-500 min-w-[160px] cursor-pointer overflow-hidden"
               >
-                {/* Hover glow effect - match homepage services */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
 
                 <div className="relative z-10 flex items-center gap-3">
-                  {/* Icon with gradient background */}
                   <div className="relative">
                     <div
-                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
                     >
                       {service.icon}
-                      {/* Animated ring blur */}
                       <div
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
                       />
                     </div>
                   </div>
@@ -402,9 +236,8 @@ const SEOServices = () => {
                   </div>
                 </div>
 
-                {/* Corner decoration */}
                 <div
-                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
                 />
               </motion.div>
             ))}
@@ -421,53 +254,52 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">What's Included</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive SEO services to improve every aspect of your search visibility
-            </p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{s.features.title}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{s.features.subtitle}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
-              >
-                {/* Hover glow effect */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                />
+            {s.features.items.map((feature, index) => {
+              const meta = featuresMeta[index] ?? featuresMeta[0];
+              const Icon = meta.icon as any;
 
-                <div className="relative z-10">
-                  {/* Icon with gradient background - match homepage services */}
-                  <div className="relative mb-6">
-                    <div
-                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                    >
-                      <feature.icon className="w-8 h-8 text-white" />
-                      {/* Animated ring blur */}
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  />
+
+                  <div className="relative z-10">
+                    <div className="relative mb-6">
                       <div
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                      />
+                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                      >
+                        <Icon className="w-8 h-8 text-white" />
+                        <div
+                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                        />
+                      </div>
                     </div>
+
+                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
 
-                  <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
-                </div>
-
-                {/* Corner decoration */}
-                <div
-                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                />
-              </motion.div>
-            ))}
+                  <div
+                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                  />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -481,39 +313,41 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Our SEO Process</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A proven methodology that delivers consistent results
-            </p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{s.process.title}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{s.process.subtitle}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <span className="block text-4xl font-display font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all">
-                      {step.step}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <step.icon className="w-4 h-4 text-primary" />
-                      <h3 className="font-semibold">{step.title}</h3>
+            {s.process.steps.map((step, index) => {
+              const Icon = (processMeta[index] ?? Search) as any;
+
+              return (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 group"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <span className="block text-4xl font-display font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all">
+                        {step.step}
+                      </span>
                     </div>
-                    <p className="text-muted-foreground text-sm mb-2">{step.description}</p>
-                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{step.duration}</span>
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Icon className="w-4 h-4 text-primary" />
+                        <h3 className="font-semibold">{step.title}</h3>
+                      </div>
+                      <p className="text-muted-foreground text-sm mb-2">{step.description}</p>
+                      <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{step.duration}</span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -527,12 +361,12 @@ const SEOServices = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">SEO Packages</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Flexible plans that grow with your business</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{s.pricing.title}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{s.pricing.subtitle}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {packages.map((pkg, index) => (
+            {s.pricing.packages.map((pkg, index) => (
               <motion.div
                 key={pkg.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -547,7 +381,7 @@ const SEOServices = () => {
               >
                 {pkg.popular && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-medium rounded-full">
-                    Most Popular
+                    {s.pricing.popularBadge}
                   </span>
                 )}
                 <div className="text-center mb-6 pt-2">
@@ -566,7 +400,7 @@ const SEOServices = () => {
                   ))}
                 </ul>
                 <Button variant={pkg.popular ? "glow" : "outline"} className="w-full" asChild>
-                  <Link to="/#contact">Get Started</Link>
+                  <Link to="/#contact">{s.pricing.cta}</Link>
                 </Button>
               </motion.div>
             ))}
@@ -574,49 +408,34 @@ const SEOServices = () => {
         </div>
       </section>
 
-      <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their SEO results." />
-      <ServiceFAQ
-        faqs={seoFaqs}
-        serviceName="SEO"
-        title="Frequently Asked Questions"
-        subtitle="Common questions about our SEO services."
-      />
+      <ServiceReviews title={s.reviews.title} subtitle={s.reviews.subtitle} />
+      <ServiceFAQ faqs={s.faq.items} serviceName={s.faq.serviceName} title={s.faq.title} subtitle={s.faq.subtitle} />
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
             <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Ready to Dominate <span className="text-gradient">Search Results</span>?
+              {s.ctaBottom.titleBefore} <span className="text-gradient">{s.ctaBottom.titleHighlight}</span>?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Get a free SEO audit and discover how we can boost your rankings and drive more organic traffic
-            </p>
+            <p className="text-lg text-muted-foreground mb-8">{s.ctaBottom.subtitle}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contact">
                 <Button size="lg" variant="hero">
-                  Get Free SEO Audit
+                  {s.ctaBottom.primary}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link to="/work">
                 <Button size="lg" variant="outline">
-                  View Case Studies
+                  {s.ctaBottom.secondary}
                 </Button>
               </Link>
             </div>
