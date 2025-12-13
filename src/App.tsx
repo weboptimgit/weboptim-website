@@ -42,15 +42,17 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/sluzby" element={<Services />} />
             <Route path="/services/building-website" element={<BuildingWebsite />} />
-            <Route path="/sluzby/tvorba-webu" element={<BuildingWebsite />} />
+            <Route path="/sluzby/tvorba-webstranok" element={<BuildingWebsite />} />
+            <Route path="/sluzby/tvorba-webstranek" element={<BuildingWebsite />} />
             <Route path="/services/ecommerce-website" element={<EcommerceWebsite />} />
-            <Route path="/sluzby/eshop" element={<EcommerceWebsite />} />
+            <Route path="/sluzby/tvorba-eshopu" element={<EcommerceWebsite />} />
             <Route path="/services/seo" element={<SEOServices />} />
             <Route path="/sluzby/seo" element={<SEOServices />} />
             <Route path="/services/ppc" element={<PPCServices />} />
             <Route path="/sluzby/ppc" element={<PPCServices />} />
-            <Route path="/services/digitalization" element={<DigitalizationServices />} />
-            <Route path="/sluzby/digitalizace" element={<DigitalizationServices />} />
+            <Route path="/services/digitalization-and-automation" element={<DigitalizationServices />} />
+            <Route path="/sluzby/digitalizacia-a-automatizacia-procesov" element={<DigitalizationServices />} />
+            <Route path="/sluzby/digitalizace-a-automatizace-procesu" element={<DigitalizationServices />} />
             <Route path="/services/graphic-design" element={<GraphicServices />} />
             <Route path="/sluzby/grafika" element={<GraphicServices />} />
             
