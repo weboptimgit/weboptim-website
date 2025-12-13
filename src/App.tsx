@@ -52,8 +52,8 @@ const App = () => (
             <Route path="/sluzby/tvorba-eshopu" element={<EcommerceLanguageProvider><EcommerceWebsite /></EcommerceLanguageProvider>} /> 
             <Route path="/services/seo" element={<SeoLanguageProvider><SEOServices /></SeoLanguageProvider>} />
             <Route path="/sluzby/seo" element={<SeoLanguageProvider><SEOServices /></SeoLanguageProvider>} />
-            <Route path="/services/ppc" element={<PPCServices />} />
-            <Route path="/sluzby/ppc" element={<PPCServices />} />
+            <Route path="/services/ppc" element={<PpcLanguageProvider><PPCServices /></PpcLanguageProvider>} /> 
+            <Route path="/sluzby/ppc" element={<PpcLanguageProvider><PPCServices /></PpcLanguageProvider>} /> 
             <Route path="/services/digitalization-and-automation" element={<DigitalizationServices />} />
             <Route path="/sluzby/digitalizacia-a-automatizacia-procesov" element={<DigitalizationServices />} />
             <Route path="/sluzby/digitalizace-a-automatizace-procesu" element={<DigitalizationServices />} />
