@@ -46,12 +46,12 @@ const About = () => {
               We're a team of <span className="text-gradient">innovators</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Founded in 2012, Nexus has grown from a small design studio to a full-service digital agency. We combine
-              creativity with technical expertise to deliver solutions that make a real impact.
+              We’re a full-service digital agency helping brands grow through smart marketing, performance-driven
+              advertising, and scalable web solutions.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Our mission is simple: help businesses thrive in the digital world by creating experiences that users love
-              and that drive measurable results.
+              From PPC and SEO to modern websites, we focus on what actually moves your business forward — no shortcuts,
+              no average results.
             </p>
             <Link to="/about">
               <Button size="lg">Learn More About Us</Button>
