@@ -23,8 +23,8 @@ import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { useSeoLang } from "@/contexts/LanguageSEO";
-import { useRoutes } from "@/config/domains";
-import { useLanguage } from "@/contexts/LanguageContext";;
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 // vizuálne farby nechávame v page (nemá sa prekladať)
 const seoServicesColors = [
@@ -114,10 +114,10 @@ const AnimatedRankings = () => {
 
 const SEOServices = () => {
   const s = useSeoLang();
-  const lang = getLanguageFromDomain();
   const { language } = useLanguage();
-  const r = useRoutes(language);
-
+  const contactUrl = buildPath(language, "contact");
+  const workUrl = buildPath(language, "work");
+  
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
     { value: s.metrics[1].value, label: s.metrics[1].label, icon: Target },
@@ -172,13 +172,13 @@ const SEOServices = () => {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="glow" size="xl" asChild>
-                  <Link to={r.contact}>
+                  <Link to={contactUrl}>
                     {s.hero.ctaPrimary}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
                 <Button variant="outline" size="xl" asChild>
-                  <Link to={r.work}>{s.hero.ctaSecondary}</Link>
+                  <Link to={workUrl}{s.hero.ctaSecondary}</Link>
                 </Button>
               </div>
             </motion.div>
@@ -405,7 +405,7 @@ const SEOServices = () => {
                   ))}
                 </ul>
                 <Button variant={pkg.popular ? "glow" : "outline"} className="w-full" asChild>
-                  <Link to="/#contact">{s.pricing.cta}</Link>
+                  <Link to={contactUrl}>{s.pricing.cta}</Link>
                 </Button>
               </motion.div>
             ))}
@@ -432,13 +432,13 @@ const SEOServices = () => {
             </h2>
             <p className="text-lg text-muted-foreground mb-8">{s.ctaBottom.subtitle}</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact">
+              <Link to={contactUrl}>
                 <Button size="lg" variant="hero">
                   {s.ctaBottom.primary}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
-              <Link to="/work">
+              <Link to={workUrl}>
                 <Button size="lg" variant="outline">
                   {s.ctaBottom.secondary}
                 </Button>
