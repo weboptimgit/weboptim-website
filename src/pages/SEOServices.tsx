@@ -113,7 +113,7 @@ const AnimatedRankings = () => {
 
 const SEOServices = () => {
   const s = useSeoLang();
-
+  const { language } = useLanguage();
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
 
