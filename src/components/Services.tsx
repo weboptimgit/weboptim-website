@@ -168,7 +168,7 @@ const Services = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="text-center mt-12"
         >
-          <Link to="/services">
+          <Link to={buildPath(language, "services")}>
             <Button size="lg" variant="hero" className="group">
               {t("servicesSection.viewAll")}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
