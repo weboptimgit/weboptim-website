@@ -27,6 +27,7 @@ import PriceCalculator from "./pages/PriceCalculator";
 import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
 import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
 import { EcommerceLanguageProvider } from "@/contexts/LanguageEcommerce";
+import { SeoLanguageProvider } from "@/contexts/LanguageSEO";
 
 const queryClient = new QueryClient();
 
@@ -49,8 +50,8 @@ const App = () => (
             <Route path="/sluzby/tvorba-webstranek" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
             <Route path="/services/ecommerce-website" element={<EcommerceLanguageProvider><EcommerceWebsite /></EcommerceLanguageProvider>} /> 
             <Route path="/sluzby/tvorba-eshopu" element={<EcommerceLanguageProvider><EcommerceWebsite /></EcommerceLanguageProvider>} /> 
-            <Route path="/services/seo" element={<SEOServices />} />
-            <Route path="/sluzby/seo" element={<SEOServices />} />
+            <Route path="/services/seo" element={<SeoLanguageProvider><SEOServices /></SeoLanguageProvider>} />
+            <Route path="/sluzby/seo" element={<SeoLanguageProvider><SEOServices /></SeoLanguageProvider>} />
             <Route path="/services/ppc" element={<PPCServices />} />
             <Route path="/sluzby/ppc" element={<PPCServices />} />
             <Route path="/services/digitalization-and-automation" element={<DigitalizationServices />} />
