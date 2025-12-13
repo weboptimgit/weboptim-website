@@ -24,6 +24,7 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { useSeoLang } from "@/contexts/LanguageSEO";
 import { getLanguageFromDomain, buildPath } from "@/config/domains";
+import { routes, getLanguageFromDomain } from "@/config/domains";
 
 // vizuálne farby nechávame v page (nemá sa prekladať)
 const seoServicesColors = [
