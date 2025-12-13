@@ -19,6 +19,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ctaSection.primary": "Get In Touch",
     "ctaSection.secondary": "Our Services",
     "ctaSection.email.before": "Or email us directly at",
+    "ctaSection.email.domain": "info@weboptim.eu",
 
     "testimonials.title.before": "What Our",
     "testimonials.title.highlight": "Clients Say",
@@ -229,6 +230,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ctaSection.primary": "Kontaktujte nás",
     "ctaSection.secondary": "Naše služby",
     "ctaSection.email.before": "Nebo nám napište přímo na",
+    "ctaSection.email.domain": "info@weboptim.cz",
 
     "testimonials.title.before": "Co říkají",
     "testimonials.title.highlight": "klienti",
@@ -436,6 +438,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ctaSection.primary": "Kontaktujte nás",
     "ctaSection.secondary": "Naše služby",
     "ctaSection.email.before": "Alebo nám napíšte priamo na",
+    "ctaSection.email.domain": "info@weboptim.sk",
 
     "testimonials.title.before": "Čo hovoria",
     "testimonials.title.highlight": "klienti",
