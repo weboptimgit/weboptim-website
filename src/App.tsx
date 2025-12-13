@@ -26,6 +26,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import PriceCalculator from "./pages/PriceCalculator";
 import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
 import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
+import { EcommerceLanguageProvider } from "@/contexts/LanguageEcommerce";
 
 const queryClient = new QueryClient();
 
