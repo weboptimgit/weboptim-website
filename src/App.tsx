@@ -46,8 +46,8 @@ const App = () => (
             <Route path="/services/building-website" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
             <Route path="/sluzby/tvorba-webstranok" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
             <Route path="/sluzby/tvorba-webstranek" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
-            <Route path="/services/ecommerce-website" element={<EcommerceWebsite />} />
-            <Route path="/sluzby/tvorba-eshopu" element={<EcommerceWebsite />} />
+            <Route path="/services/ecommerce-website" element={<EcommerceLanguageProvider><EcommerceWebsite /></EcommerceLanguageProvider>} /> 
+            <Route path="/sluzby/tvorba-eshopu" element={<EcommerceLanguageProvider><EcommerceWebsite /></EcommerceLanguageProvider>} /> 
             <Route path="/services/seo" element={<SEOServices />} />
             <Route path="/sluzby/seo" element={<SEOServices />} />
             <Route path="/services/ppc" element={<PPCServices />} />
