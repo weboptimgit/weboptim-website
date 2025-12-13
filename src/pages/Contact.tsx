@@ -52,19 +52,61 @@ const Contact = () => {
     },
   };
 
+  const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast({
-      title: s.form.toastTitle,
-      description: s.form.toastDescription,
-    });
-
-    setFormData({ name: "", email: "", company: "", message: "" });
-    setIsSubmitting(false);
+  
+    try {
+      const formDataToSend = new FormData();
+  
+      formDataToSend.append("access_key", WEB3FORMS_KEY);
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("company", formData.company);
+      formDataToSend.append("message", formData.message);
+  
+      // voliteľné – pekný predmet mailu
+      formDataToSend.append(
+        "subject",
+        `New contact from WebOptim (${language})`
+      );
+  
+      // voliteľné – reply-to
+      formDataToSend.append("replyto", formData.email);
+  
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+  
+      const result = await response.json();
+  
+      if (result.success) {
+        toast({
+          title: s.form.toastTitle,
+          description: s.form.toastDescription,
+        });
+  
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+        });
+      } else {
+        throw new Error(result.message || "Form error");
+      }
+    } catch (err) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
