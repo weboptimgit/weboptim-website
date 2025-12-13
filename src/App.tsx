@@ -31,6 +31,7 @@ import { SeoLanguageProvider } from "@/contexts/LanguageSEO";
 import { PpcLanguageProvider } from "@/contexts/LanguagePPC";
 import { DigitalizationLanguageProvider } from "@/contexts/LanguageDigitalization";
 import { GraphicLanguageProvider } from "@/contexts/LanguageGraphic";
+import { ContactLanguageProvider } from "@/contexts/LanguageContact";
 
 const queryClient = new QueryClient();
 
@@ -69,8 +70,8 @@ const App = () => (
             <Route path="/case-study/:slug" element={<CaseStudy />} />
             
             {/* Contact - EN, CZ, SK */}
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/kontakt" element={<Contact />} />
+            <Route path="/contact" element={<ContactLanguageProvider><Contact /></ContactLanguageProvider>} /> 
+            <Route path="/kontakt" element={<ContactLanguageProvider><Contact /></ContactLanguageProvider>} /> 
             
             {/* Blog - same in all languages */}
             <Route path="/blog" element={<Blog />} />
