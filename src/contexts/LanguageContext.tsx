@@ -17,7 +17,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ctaSection.subtitle":
       "Let's collaborate and create something extraordinary together. Get in touch and tell us about your vision.",
     "ctaSection.primary": "Get In Touch",
-    "ctaSection.secondary": "Schedule a Call",
+    "ctaSection.secondary": "Our Services",
     "ctaSection.email.before": "Or email us directly at",
 
     "testimonials.title.before": "What Our",
@@ -227,7 +227,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ctaSection.subtitle":
       "Pojďme spolupracovat a vytvořit něco výjimečného. Ozvěte se nám a řekněte nám o své vizi.",
     "ctaSection.primary": "Kontaktujte nás",
-    "ctaSection.secondary": "Naplánovat hovor",
+    "ctaSection.secondary": "Naše služby",
     "ctaSection.email.before": "Nebo nám napište přímo na",
 
     "testimonials.title.before": "Co říkají",
@@ -434,7 +434,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ctaSection.subtitle":
       "Poďme spolupracovať a vytvoriť niečo výnimočné. Ozvite sa nám a povedzte nám o svojej vízii.",
     "ctaSection.primary": "Kontaktujte nás",
-    "ctaSection.secondary": "Naplánovať hovor",
+    "ctaSection.secondary": "Naše služby",
     "ctaSection.email.before": "Alebo nám napíšte priamo na",
 
     "testimonials.title.before": "Čo hovoria",
