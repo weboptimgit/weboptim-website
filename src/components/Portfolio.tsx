@@ -17,6 +17,8 @@ const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
   featured: study.featured,
 }));
 
+const projects6 = projects.slice(0, 6);
+
 const Portfolio = () => {
   return (
     <section id="work" className="py-24 relative overflow-hidden">
@@ -47,11 +49,8 @@ const Portfolio = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Link
-              key={project.slug}
-              to={`/case-study/${project.slug}`}
-            >
+          {projects6.map((project, index) => (
+            <Link key={project.slug} to={`/case-study/${project.slug}`}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
