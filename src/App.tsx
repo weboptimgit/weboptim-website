@@ -25,7 +25,7 @@ import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import PriceCalculator from "./pages/PriceCalculator";
 import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
-
+import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
 
 const queryClient = new QueryClient();
 
@@ -43,9 +43,9 @@ const App = () => (
             {/* Services - EN, CZ, SK */}
             <Route path="/services" element={<ServicesLanguageProvider><Services /></ServicesLanguageProvider>} />
             <Route path="/sluzby" element={<ServicesLanguageProvider><Services /></ServicesLanguageProvider>} />
-            <Route path="/services/building-website" element={<BuildingWebsite />} />
-            <Route path="/sluzby/tvorba-webstranok" element={<BuildingWebsite />} />
-            <Route path="/sluzby/tvorba-webstranek" element={<BuildingWebsite />} />
+            <Route path="/services/building-website" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
+            <Route path="/sluzby/tvorba-webstranok" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
+            <Route path="/sluzby/tvorba-webstranek" element={<BuildingWebsiteLanguageProvider><BuildingWebsite /></BuildingWebsiteLanguageProvider>} />
             <Route path="/services/ecommerce-website" element={<EcommerceWebsite />} />
             <Route path="/sluzby/tvorba-eshopu" element={<EcommerceWebsite />} />
             <Route path="/services/seo" element={<SEOServices />} />
