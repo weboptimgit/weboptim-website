@@ -112,10 +112,9 @@ const AnimatedRankings = () => {
 };
 
 const SEOServices = () => {
- const s = useSeoLang();
-const lang = getLanguageFromDomain();
-const contactUrl = buildPath(lang, "contact");
-const workUrl = buildPath(lang, "work");
+  const s = useSeoLang();
+  const lang = getLanguageFromDomain();
+  const r = routes(lang);
 
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
@@ -171,13 +170,13 @@ const workUrl = buildPath(lang, "work");
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="glow" size="xl" asChild>
-                  <Link to={contactUrl}>
+                  <Link to={r.contact}>
                     {s.hero.ctaPrimary}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
                 <Button variant="outline" size="xl" asChild>
-                  <Link to={workUrl}>{s.hero.ctaSecondary}</Link>
+                  <Link to={r.work}>{s.hero.ctaSecondary}</Link>
                 </Button>
               </div>
             </motion.div>
