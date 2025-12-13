@@ -113,8 +113,8 @@ const AnimatedRankings = () => {
 
 const SEOServices = () => {
   const s = useSeoLang();
-  const contactUrl = buildPath(s, "contact");
-  const workUrl = buildPath(s, "work");
+  const contactUrl = buildPath(s, "ctaPrimary");
+  const workUrl = buildPath(s, "ctaSecondary");
 
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
