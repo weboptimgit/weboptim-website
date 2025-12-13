@@ -14,6 +14,7 @@ import {
   Star,
   ChevronRight,
   Server,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
