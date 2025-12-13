@@ -309,7 +309,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     title: "UzdravTelo",
     subtitle: "Nutrition Consulting & Life Coaching Platform",
     category: "Health & Coaching",
-    client: "Ing. Romana Nemcová – UzdravTelo.sk",
+    client: "UzdravTelo",
     duration: "Ongoing",
     year: "2024–2025",
     team: "1–3 People",
