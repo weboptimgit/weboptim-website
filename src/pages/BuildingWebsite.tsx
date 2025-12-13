@@ -529,7 +529,7 @@ const BuildingWebsite = () => {
         </section>
 
         {/* Reviews + FAQ */}
-        <ServiceReviews title={bw.reviews.title} subtitle={bw.reviews.subtitle} />
+        <Testimonials />
 
         <ServiceFAQ
           faqs={bw.faq.items}
