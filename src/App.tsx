@@ -29,6 +29,7 @@ import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebs
 import { EcommerceLanguageProvider } from "@/contexts/LanguageEcommerce";
 import { SeoLanguageProvider } from "@/contexts/LanguageSEO";
 import { PpcLanguageProvider } from "@/contexts/LanguagePPC";
+import { DigitalizationLanguageProvider } from "@/contexts/LanguageDigitalization";
 
 const queryClient = new QueryClient();
 
@@ -55,9 +56,9 @@ const App = () => (
             <Route path="/sluzby/seo" element={<SeoLanguageProvider><SEOServices /></SeoLanguageProvider>} />
             <Route path="/services/ppc" element={<PpcLanguageProvider><PPCServices /></PpcLanguageProvider>} /> 
             <Route path="/sluzby/ppc" element={<PpcLanguageProvider><PPCServices /></PpcLanguageProvider>} /> 
-            <Route path="/services/digitalization-and-automation" element={<DigitalizationServices />} />
-            <Route path="/sluzby/digitalizacia-a-automatizacia-procesov" element={<DigitalizationServices />} />
-            <Route path="/sluzby/digitalizace-a-automatizace-procesu" element={<DigitalizationServices />} />
+            <Route path="/services/digitalization-and-automation" element={<DigitalizationLanguageProvider><DigitalizationServices /></DigitalizationLanguageProvider>} /> 
+            <Route path="/sluzby/digitalizacia-a-automatizacia-procesov" element={<DigitalizationLanguageProvider><DigitalizationServices /></DigitalizationLanguageProvider>} /> 
+            <Route path="/sluzby/digitalizace-a-automatizace-procesu" element={<DigitalizationLanguageProvider><DigitalizationServices /></DigitalizationLanguageProvider>} /> 
             <Route path="/services/graphic-design" element={<GraphicServices />} />
             <Route path="/sluzby/grafika" element={<GraphicServices />} />
             
