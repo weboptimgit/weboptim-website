@@ -28,6 +28,7 @@ import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
 import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
 import { EcommerceLanguageProvider } from "@/contexts/LanguageEcommerce";
 import { SeoLanguageProvider } from "@/contexts/LanguageSEO";
+import { PpcLanguageProvider } from "@/contexts/LanguagePPC";
 
 const queryClient = new QueryClient();
 
