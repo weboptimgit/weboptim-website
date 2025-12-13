@@ -1,5 +1,5 @@
 // src/contexts/LanguagePPC.tsx
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 
 type FaqItem = { question: string; answer: string };
@@ -12,7 +12,7 @@ type CampaignType = {
 
 type WhyItem = { title: string; description: string };
 
-type ProcessStep = { step: string; title: string; description: string; duration: string };
+type ProcessItem = { step: string; title: string; description: string; duration: string };
 
 type PricingPlan = {
   name: string;
@@ -33,41 +33,24 @@ export type PpcLang = {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    dashboardTitle: string;
+    dashboard: {
+      clicksToday: string;
+      roas: string;
+      avgCpc: string;
+      conversions: string;
+      performance: string;
+    };
   };
 
-  dashboard: {
-    title: string;
-    clicksTodayLabel: string;
-    roasLabel: string;
-    avgCpcLabel: string;
-    conversionsLabel: string;
-    performanceLabel: string;
-  };
+  campaignTypes: { title: string; subtitle: string; items: CampaignType[] };
 
-  campaignTypes: {
-    titleBefore: string;
-    titleHighlight: string;
-    subtitle: string;
-    items: CampaignType[];
-  };
+  why: { title: string; subtitle: string; items: WhyItem[] };
 
-  whyPpc: {
-    titleBefore: string;
-    titleHighlight: string;
-    subtitle: string;
-    items: WhyItem[];
-  };
-
-  process: {
-    titleBefore: string;
-    titleHighlight: string;
-    subtitle: string;
-    steps: ProcessStep[];
-  };
+  process: { title: string; subtitle: string; items: ProcessItem[] };
 
   pricing: {
-    titleBefore: string;
-    titleHighlight: string;
+    title: string;
     subtitle: string;
     popularBadge: string;
     cta: string;
@@ -458,7 +441,11 @@ const PpcLanguageContext = createContext<PpcLang | null>(null);
 
 export const PpcLanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const { language } = useLanguage();
-  return <PpcLanguageContext.Provider value={translations[language]}>{children}</PpcLanguageContext.Provider>;
+  return (
+    <PpcLanguageContext.Provider value={translations[language]}>
+      {children}
+    </PpcLanguageContext.Provider>
+  );
 };
 
 export const usePpcLang = () => {
