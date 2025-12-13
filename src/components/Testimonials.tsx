@@ -1,31 +1,37 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const testimonials = [
   {
     name: "Sarah Mitchell",
     role: "CEO, TechStart Inc.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-    quote: "Working with this team transformed our online presence completely. Our conversion rates increased by 200% within the first quarter.",
+    quote:
+      "Working with this team transformed our online presence completely. Our conversion rates increased by 200% within the first quarter.",
     rating: 5,
   },
   {
     name: "David Chen",
     role: "Founder, GreenLeaf Solutions",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    quote: "The e-commerce platform they built for us is incredibly intuitive. Sales have doubled since launch. Highly recommend!",
+    quote:
+      "The e-commerce platform they built for us is incredibly intuitive. Sales have doubled since launch. Highly recommend!",
     rating: 5,
   },
   {
     name: "Emma Rodriguez",
     role: "Marketing Director, Bloom Agency",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    quote: "Exceptional design and flawless execution. They understood our vision perfectly and delivered beyond expectations.",
+    quote:
+      "Exceptional design and flawless execution. They understood our vision perfectly and delivered beyond expectations.",
     rating: 5,
   },
 ];
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background glow */}
@@ -41,11 +47,12 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            <span className="text-foreground">What Our </span>
-            <span className="text-gradient">Clients Say</span>
+            <span className="text-foreground">{t("testimonials.title.before")} </span>
+            <span className="text-gradient">{t("testimonials.title.highlight")}</span>
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            {t("testimonials.subtitle")}
           </p>
         </motion.div>
 
