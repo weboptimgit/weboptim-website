@@ -6,7 +6,8 @@ import { buildPath } from "@/config/domains";
 
 const CTA = () => {
   const { t, language } = useLanguage();
-
+  const email = t("ctaSection.email.domain");
+  
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background effects */}
