@@ -820,3 +820,29 @@ export const getBlogPostsList = (language: "EN" | "CZ" | "SK" = "EN") => {
 export const getCategories = (language: "EN" | "CZ" | "SK" = "EN") => {
   return categoriesTranslations[language];
 };
+
+import type { Language } from "@/contexts/LanguageContext";
+
+export const getLatestBlogPosts = (language: Language, limit = 3) => {
+  return blogPostsData
+    .slice()
+    // zoradíme podľa EN dátumu (stabilný parse)
+    .sort(
+      (a, b) =>
+        new Date(b.translations.EN.date).getTime() -
+        new Date(a.translations.EN.date).getTime()
+    )
+    .slice(0, limit)
+    // vrátime list už v správnom jazyku (ako tvoj getBlogPostsList)
+    .map((post) => ({
+      slug: post.translations[language].slug,
+      title: post.translations[language].title,
+      excerpt: post.translations[language].excerpt,
+      image: post.image,
+      category: post.translations[language].category,
+      tags: post.translations[language].tags,
+      author: post.author,
+      date: post.translations[language].date,
+      readTime: post.translations[language].readTime,
+    }));
+};
