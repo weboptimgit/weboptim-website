@@ -23,7 +23,8 @@ import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { useSeoLang } from "@/contexts/LanguageSEO";
-import { routes, getLanguageFromDomain } from "@/config/domains";
+import { useRoutes } from "@/config/domains";
+import { useLanguage } from "@/contexts/LanguageContext";;
 
 // vizuálne farby nechávame v page (nemá sa prekladať)
 const seoServicesColors = [
