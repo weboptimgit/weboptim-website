@@ -99,7 +99,7 @@ const translations: Record<Language, DigitalizationLang> = {
       description: "Transform your business with digital workflows, automation, and CRM implementation",
       serviceType: ["Business Digitalization", "Process Automation", "CRM Implementation"],
       areaServed: ["Czech Republic", "Slovakia", "Europe"],
-      priceCurrency: "CZK",
+      priceCurrency: "EUR",
     },
 
     hero: {
@@ -235,7 +235,7 @@ const translations: Record<Language, DigitalizationLang> = {
     pricing: [
       {
         name: "Digitalization of Business Processes",
-        price: "from 7 990 Kč",
+        price: "from 330 €",
         gradient: "from-blue-500 to-cyan-500",
         technologies: ["Google Workspace", "Microsoft 365", "Fakturoid", "Digitoo", "Odoo", "Signi"],
         techHighlightKey: TECH_HIGHLIGHT_EN,
@@ -251,7 +251,7 @@ const translations: Record<Language, DigitalizationLang> = {
       },
       {
         name: "Automation of Business Processes",
-        price: "from 8 990 Kč",
+        price: "from 370 €",
         gradient: "from-purple-500 to-pink-500",
         technologies: ["Make", "IFTTT", "Zapier", "Odoo", "n8n"],
         techHighlightKey: TECH_HIGHLIGHT_EN,
@@ -268,7 +268,7 @@ const translations: Record<Language, DigitalizationLang> = {
       },
       {
         name: "Implementation of CRM Systems",
-        price: "from 9 990 Kč",
+        price: "from 410 €",
         gradient: "from-orange-500 to-amber-500",
         technologies: ["Pipedrive", "Tabidoo", "AirTable", "SalesForce", "HubSpot"],
         techHighlightKey: TECH_HIGHLIGHT_EN,
@@ -562,7 +562,7 @@ const translations: Record<Language, DigitalizationLang> = {
       description: "Transformujte firmu vďaka digitálnym workflow, automatizácii a implementácii CRM",
       serviceType: ["Digitalizácia procesov", "Automatizácia procesov", "Implementácia CRM"],
       areaServed: ["Slovensko", "Česká republika", "Európa"],
-      priceCurrency: "CZK",
+      priceCurrency: "EUR",
     },
 
     hero: {
@@ -683,7 +683,7 @@ const translations: Record<Language, DigitalizationLang> = {
     pricing: [
       {
         name: "Digitalizácia firemných procesov",
-        price: "od 7 990 Kč",
+        price: "od 330 €",
         gradient: "from-blue-500 to-cyan-500",
         technologies: ["Google Workspace", "Microsoft 365", "Fakturoid", "Digitoo", "Odoo", "Signi"],
         techHighlightKey: TECH_HIGHLIGHT_SK,
@@ -699,7 +699,7 @@ const translations: Record<Language, DigitalizationLang> = {
       },
       {
         name: "Automatizácia procesov",
-        price: "od 8 990 Kč",
+        price: "od 370 €",
         gradient: "from-purple-500 to-pink-500",
         technologies: ["Make", "IFTTT", "Zapier", "Odoo", "n8n"],
         techHighlightKey: TECH_HIGHLIGHT_SK,
@@ -716,7 +716,7 @@ const translations: Record<Language, DigitalizationLang> = {
       },
       {
         name: "Implementácia CRM systémov",
-        price: "od 9 990 Kč",
+        price: "od 410 €",
         gradient: "from-orange-500 to-amber-500",
         technologies: ["Pipedrive", "Tabidoo", "AirTable", "SalesForce", "HubSpot"],
         techHighlightKey: TECH_HIGHLIGHT_SK,
