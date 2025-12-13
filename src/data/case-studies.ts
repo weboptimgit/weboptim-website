@@ -403,13 +403,13 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     description:
       "Responsive informational site promoting Yoga and Massage services focused on balance, relaxation, and body–mind harmony.",
     tags: ["Yoga", "Massage", "Responsive Web"],
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop",
+    image: "https://esttt3x94jo.exactdn.com/wp-content/uploads/2024/06/DSC_5422.jpg?strip=all",
     statValue: "5.0★",
     statLabel: "Client Reviews",
     featured: false,
 
     // Detail page fields
-    heroImage: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&h=800&fit=crop",
+    heroImage: "https://esttt3x94jo.exactdn.com/wp-content/uploads/2024/06/DSC_5422.jpg?strip=all",
 
     overview:
       "YogaTree.cz is a calm and inviting wellness site for yoga classes and massage services based in Prague-Braník. The goal of the site was to provide clear information about offerings, build trust through testimonials, and streamline contact and reservations for clients seeking body and mind relaxation and balance.",
