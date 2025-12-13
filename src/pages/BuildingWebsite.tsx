@@ -59,7 +59,7 @@ const featureMeta = [
 ];
 
 const processMeta = [
-  { icon: UsersIcon },
+  { icon: Users },
   { icon: Layers },
   { icon: Palette },
   { icon: Code2 },
