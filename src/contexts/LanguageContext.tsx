@@ -252,8 +252,8 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.title3": "které prodávají",
     "hero.subtitle":
       "Proměňte svou vizi v úžasné digitální zážitky. Navrhujeme a vyvíjíme weby, které zaujmou uživatele a přinášejí skutečné obchodní výsledky.",
-    "hero.cta1": "Zahájit projekt",
-    "hero.cta2": "Přehrát ukázku",
+    "hero.cta1": "Nezávazně nás kontaktovat",
+    "hero.cta2": "Naše služby"
     "hero.happyClients": "spokojených klientů",
 
     // Stats
@@ -446,8 +446,8 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.title3": "ktoré predávajú",
     "hero.subtitle":
       "Premeňte svoju víziu na úžasné digitálne zážitky. Navrhujeme a vyvíjame weby, ktoré zaujmú používateľov a prinášajú skutočné obchodné výsledky.",
-    "hero.cta1": "Začať projekt",
-    "hero.cta2": "Prehrať ukážku",
+    "hero.cta1": "Nezáväzne nás kontaktovať",
+    "hero.cta2": "Naše služby"
     "hero.happyClients": "spokojných klientov",
 
     // Stats
