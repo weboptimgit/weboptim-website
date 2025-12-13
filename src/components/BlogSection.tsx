@@ -4,37 +4,17 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
+import { blogPosts } from "@/data/blog-posts";
 
-const blogPosts = [
-  {
-    title: "10 Web Design Trends to Watch in 2024",
-    excerpt:
-      "Discover the latest design trends that are shaping the digital landscape and how to implement them in your projects.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-    author: "Sarah Mitchell",
-    date: "Dec 5, 2024",
-    readTime: "5 min read",
-    category: "Design",
-  },
-  {
-    title: "Why WooCommerce is the Best Choice for E-commerce",
-    excerpt: "A comprehensive guide to understanding why WooCommerce dominates the e-commerce platform market.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    author: "David Chen",
-    date: "Dec 2, 2024",
-    readTime: "7 min read",
-    category: "E-commerce",
-  },
-  {
-    title: "SEO Best Practices for Modern Websites",
-    excerpt: "Learn the essential SEO strategies that will help your website rank higher and attract more organic traffic.",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop",
-    author: "Emma Rodriguez",
-    date: "Nov 28, 2024",
-    readTime: "6 min read",
-    category: "Marketing",
-  },
-];
+const latestPosts = [...blogPosts]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+
+{latestPosts.map(post => (
+  <Link key={post.slug} to={`/blog/${post.slug}`}>
+    ...
+  </Link>
+))}
 
 const BlogSection = () => {
   const { t, language } = useLanguage();
