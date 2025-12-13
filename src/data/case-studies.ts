@@ -298,6 +298,88 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Strong trust elements: experience since 1994, references, credibility blocks",
     ],
   },
+  "uzdravtelo-nutrition-coaching-platform": {
+    title: "UzdravTelo",
+    subtitle: "Nutrition Consulting & Life Coaching Platform",
+    category: "Health & Coaching",
+    client: "Ing. Romana Nemcová – UzdravTelo.sk",
+    duration: "Ongoing",
+    year: "2024–2025",
+    team: "1–3 People",
+
+    // Portfolio card fields
+    description:
+      "Health and coaching platform combining nutrition consulting, diagnostics, courses, payments, and digital vouchers.",
+    tags: ["Nutrition", "Life Coaching", "WordPress", "Stripe"],
+    image: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?w=800&h=600&fit=crop",
+    statValue: "5.0★",
+    statLabel: "Google Reviews",
+    featured: true,
+
+    // Detail page fields
+    heroImage: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?w=1200&h=800&fit=crop",
+
+    overview:
+      "UzdravTelo is a personal health and coaching platform led by Ing. Romana Nemcová, focused on nutrition consulting, lifestyle change, and long-term results. The website presents a structured approach built on four core pillars — nutrition, movement, regeneration, and mental wellbeing — supported by diagnostics, education, and paid programs.",
+
+    challenge:
+      "The challenge was to communicate a complex, long-term health approach in a clear and human way while also supporting real business needs: paid consultations, courses, and gift vouchers. The platform needed to build trust, showcase expertise, and automate payments and digital delivery without adding friction for clients.",
+
+    solution:
+      "We designed and developed a WordPress platform that combines content, education, and monetization into one system. Clients can book consultations, purchase courses, and buy digital vouchers through Fluent Forms with Stripe payments. Automated flows handle confirmations, voucher delivery, and course access, while the structure clearly explains the four-pillar methodology and the step-by-step process clients go through.",
+
+    services: [
+      { icon: Palette, label: "UI/UX & Content Structure" },
+      { icon: Code, label: "WordPress Development" },
+      { icon: Globe, label: "SK / CZ Localization" },
+      { icon: Megaphone, label: "Payments & Automation" },
+    ],
+
+    results: [
+      {
+        metric: "5.0★",
+        label: "Client Trust",
+        description: "Strong Google reviews reinforcing credibility and expertise",
+      },
+      {
+        metric: "✓",
+        label: "Online Payments",
+        description: "Courses, consultations, and vouchers sold online",
+      },
+      {
+        metric: "PDF",
+        label: "Digital Vouchers",
+        description: "Instant voucher generation and email delivery after payment",
+      },
+      {
+        metric: "↓",
+        label: "Manual Work",
+        description: "Automated flows reduced admin overhead significantly",
+      },
+    ],
+
+    testimonial: {
+      quote:
+        "The website finally reflects my approach to health and coaching. Clients understand the process, trust the system, and can easily book, pay, or purchase vouchers online.",
+      author: "Ing. Romana Nemcová",
+      role: "Nutrition Consultant & Life Coach",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+    },
+
+    gallery: [],
+
+    features: [
+      "Clear presentation of nutrition consulting and life coaching services",
+      "Structured explanation of the 4 health pillars: nutrition, movement, regeneration, mental wellbeing",
+      "Paid courses and programs handled via Fluent Forms",
+      "Stripe integration for secure online payments",
+      "Custom digital voucher system with PDF generation",
+      "Seasonal voucher variants and preset/custom values",
+      "Automated email confirmations and digital delivery",
+      "Google reviews integration as trust and social proof",
+      "Scalable structure for future programs and educational content",
+    ],
+  },
   "yogatree-yoga-massage": {
     title: "YogaTree",
     subtitle: "Yoga & Massage Services",
