@@ -25,206 +25,41 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import { useLanguage } from "@/contexts/LanguageContext";
 
-const ppcFaqs = [
-  {
-    question: "How quickly will I see results from PPC advertising?",
-    answer:
-      "Unlike SEO, PPC delivers immediate results. You can start seeing traffic and leads within hours of launching your campaign. However, optimization for best ROI typically takes 2-4 weeks as we gather data and refine targeting.",
-  },
-  {
-    question: "What is a good ROAS (Return on Ad Spend)?",
-    answer:
-      "A good ROAS varies by industry, but generally 3:1 to 4:1 is considered healthy for most businesses. This means for every €1 spent on ads, you generate €3-4 in revenue. We optimize campaigns to maximize your specific ROAS goals.",
-  },
-  {
-    question: "Which platforms do you advertise on?",
-    answer:
-      "We manage campaigns across Google Ads (Search, Shopping, Display, YouTube), Meta Ads (Facebook & Instagram), LinkedIn Ads, TikTok Ads, and Microsoft Advertising (Bing). We recommend platforms based on your target audience and goals.",
-  },
-  {
-    question: "How much should I budget for PPC?",
-    answer:
-      "Budget depends on your industry, competition, and goals. We recommend starting with at least €1,000-2,000/month for meaningful data collection. Our management fee is separate from your ad spend, which goes directly to the platforms.",
-  },
-  {
-    question: "Do you provide reporting and analytics?",
-    answer:
-      "Yes, we provide detailed reports showing impressions, clicks, conversions, cost per acquisition, ROAS, and more. You get access to real-time dashboards and we schedule regular strategy calls to review performance.",
-  },
-  {
-    question: "Can you help with landing page optimization?",
-    answer:
-      "Absolutely! Great ads need great landing pages to convert. We provide landing page recommendations and can create optimized landing pages as part of our Growth and Enterprise packages.",
-  },
-];
+// ✅ language
+import { useLanguage } from "@/contexts/LanguageContext";
+import { usePpcLang } from "@/contexts/LanguagePPC";
+
+// ✅ localized routes
+import { buildPath } from "@/config/domains";
 
 const PPCServices = () => {
-  const { t } = useLanguage();
-  const campaignTypes = [
-    {
-      icon: Search,
-      title: "Search Ads",
-      description: "Target users actively searching for your products or services on Google",
-      platforms: ["Google Ads", "Bing Ads"],
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: ShoppingBag,
-      title: "Shopping Ads",
-      description: "Showcase your products with images, prices, and direct purchase links",
-      platforms: ["Google Shopping", "Meta Shops"],
-      gradient: "from-green-500 to-emerald-500",
-    },
-    {
-      icon: Users,
-      title: "Social Media Ads",
-      description: "Reach your audience on Facebook, Instagram, LinkedIn, and TikTok",
-      platforms: ["Meta Ads", "LinkedIn", "TikTok"],
-      gradient: "from-pink-500 to-rose-500",
-    },
-    {
-      icon: Video,
-      title: "Video Ads",
-      description: "Engage users with compelling video content on YouTube and social platforms",
-      platforms: ["YouTube Ads", "Reels Ads"],
-      gradient: "from-red-500 to-orange-500",
-    },
-    {
-      icon: Eye,
-      title: "Display & Remarketing",
-      description: "Visual banner ads across millions of websites and retarget past visitors",
-      platforms: ["Google Display", "Remarketing"],
-      gradient: "from-purple-500 to-violet-500",
-    },
-    {
-      icon: MapPin,
-      title: "Local Ads",
-      description: "Drive foot traffic to your physical locations with geo-targeted campaigns",
-      platforms: ["Local Services", "Maps Ads"],
-      gradient: "from-amber-500 to-yellow-500",
-    },
-  ];
+  const s = usePpcLang();
+  const { language } = useLanguage();
 
-  const whyPPC = [
-    {
-      icon: Zap,
-      title: "Instant Results",
-      description: "Start getting traffic and leads immediately after campaign launch",
-    },
-    {
-      icon: Target,
-      title: "Precise Targeting",
-      description: "Reach exact audiences based on demographics, interests, and intent",
-    },
-    {
-      icon: DollarSign,
-      title: "Budget Control",
-      description: "Set daily budgets, pause anytime, and pay only for actual clicks",
-    },
-    {
-      icon: BarChart3,
-      title: "Measurable ROI",
-      description: "Track every conversion, sale, and return on your ad spend",
-    },
-    {
-      icon: TrendingUp,
-      title: "Scalable Growth",
-      description: "Increase budget on winning campaigns to scale your success",
-    },
-    {
-      icon: Clock,
-      title: "Time Flexibility",
-      description: "Show ads when your customers are most likely to convert",
-    },
-  ];
+  // localized routes
+  const contactUrl = buildPath(language, "contact");
+  const workUrl = buildPath(language, "work");
 
-  const process = [
-    {
-      step: "01",
-      title: "Audit & Strategy",
-      description: "We analyze your business, competitors, and market to create a winning PPC strategy",
-      duration: "Week 1",
-    },
-    {
-      step: "02",
-      title: "Campaign Setup",
-      description: "Creating optimized campaigns, ad groups, and compelling ad creatives",
-      duration: "Week 2",
-    },
-    {
-      step: "03",
-      title: "Launch & Monitor",
-      description: "Going live with continuous monitoring and quick optimizations",
-      duration: "Week 3",
-    },
-    {
-      step: "04",
-      title: "Optimize & Scale",
-      description: "Data-driven improvements to maximize ROI and scale successful campaigns",
-      duration: "Ongoing",
-    },
-  ];
+  /* -------------------- STATIC VISUAL META (non-translated) -------------------- */
 
-  const pricing = [
-    {
-      name: "Starter",
-      price: "€499",
-      period: "/month",
-      adSpend: "Up to €2,000 ad spend",
-      features: [
-        "1 advertising platform",
-        "Campaign setup & management",
-        "Weekly optimization",
-        "Monthly performance reports",
-        "Basic remarketing",
-        "Email support",
-      ],
-      popular: false,
-    },
-    {
-      name: "Growth",
-      price: "€999",
-      period: "/month",
-      adSpend: "Up to €10,000 ad spend",
-      features: [
-        "Up to 3 platforms",
-        "Advanced campaign structure",
-        "Daily optimization",
-        "Bi-weekly strategy calls",
-        "A/B testing",
-        "Conversion tracking setup",
-        "Landing page recommendations",
-        "Priority support",
-      ],
-      popular: true,
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      adSpend: "€10,000+ ad spend",
-      features: [
-        "Unlimited platforms",
-        "Dedicated account manager",
-        "Real-time dashboard access",
-        "Weekly strategy sessions",
-        "Creative development",
-        "Attribution modeling",
-        "Competitor monitoring",
-        "24/7 premium support",
-      ],
-      popular: false,
-    },
-  ];
+  const campaignMeta = [
+    { icon: Search, gradient: "from-blue-500 to-cyan-500" },
+    { icon: ShoppingBag, gradient: "from-green-500 to-emerald-500" },
+    { icon: Users, gradient: "from-pink-500 to-rose-500" },
+    { icon: Video, gradient: "from-red-500 to-orange-500" },
+    { icon: Eye, gradient: "from-purple-500 to-violet-500" },
+    { icon: MapPin, gradient: "from-amber-500 to-yellow-500" },
+  ] as const;
+
+  const whyMeta = [Zap, Target, DollarSign, BarChart3, TrendingUp, Clock] as const;
+
+  const processMeta = [Target, Sparkles, Zap, TrendingUp] as const;
 
   return (
     <>
-      <SEO
-        title="PPC Advertising Services | WebOptim"
-        description="Drive instant traffic and conversions with our data-driven PPC advertising campaigns. Google Ads, Meta Ads, and multi-platform strategies."
-      />
+      <SEO title={s.seo.title} description={s.seo.description} />
+
       <div className="min-h-screen bg-background">
         <Navbar />
 
@@ -244,27 +79,33 @@ const PPCServices = () => {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                   <Target className="w-4 h-4" />
-                  {t("ppc.badge")}
+                  {s.hero.badge}
                 </span>
+
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                  {t("ppc.title1")}
+                  {s.hero.title1}
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     {" "}
-                    {t("ppc.title2")}
+                    {s.hero.title2}
                   </span>
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">{t("ppc.subtitle")}</p>
+
+                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">{s.hero.subtitle}</p>
+
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/contact">
+                  <Link to={contactUrl}>
                     <Button variant="hero" size="lg" className="gap-2">
-                      {t("cta.freeConsultation")}
+                      {s.hero.ctaPrimary}
                       <ArrowRight className="w-4 h-4" />
                     </Button>
                   </Link>
-                  <Button variant="outline" size="lg" className="gap-2 border-border">
-                    <Play className="w-4 h-4" />
-                    {t("cta.viewPortfolio")}
-                  </Button>
+
+                  <Link to={workUrl}>
+                    <Button variant="outline" size="lg" className="gap-2 border-border">
+                      <Play className="w-4 h-4" />
+                      {s.hero.ctaSecondary}
+                    </Button>
+                  </Link>
                 </div>
               </motion.div>
 
@@ -280,10 +121,10 @@ const PPCServices = () => {
                     <div className="w-3 h-3 rounded-full bg-red-500" />
                     <div className="w-3 h-3 rounded-full bg-yellow-500" />
                     <div className="w-3 h-3 rounded-full bg-green-500" />
-                    <span className="text-sm text-muted-foreground ml-2">Campaign Dashboard</span>
+                    <span className="text-sm text-muted-foreground ml-2">{s.dashboard.title}</span>
                   </div>
 
-                  {/* Performance Metrics */}
+                  {/* Performance Metrics (demo numbers keep hard-coded) */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <motion.div
                       className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl p-4"
@@ -293,8 +134,9 @@ const PPCServices = () => {
                     >
                       <MousePointerClick className="w-5 h-5 text-primary mb-2" />
                       <div className="text-2xl font-bold text-foreground">12,847</div>
-                      <div className="text-xs text-muted-foreground">Clicks Today</div>
+                      <div className="text-xs text-muted-foreground">{s.dashboard.clicksTodayLabel}</div>
                     </motion.div>
+
                     <motion.div
                       className="bg-gradient-to-br from-green-500/20 to-green-500/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
@@ -303,8 +145,9 @@ const PPCServices = () => {
                     >
                       <TrendingUp className="w-5 h-5 text-green-500 mb-2" />
                       <div className="text-2xl font-bold text-foreground">324%</div>
-                      <div className="text-xs text-muted-foreground">ROAS</div>
+                      <div className="text-xs text-muted-foreground">{s.dashboard.roasLabel}</div>
                     </motion.div>
+
                     <motion.div
                       className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
@@ -313,8 +156,9 @@ const PPCServices = () => {
                     >
                       <DollarSign className="w-5 h-5 text-purple-500 mb-2" />
                       <div className="text-2xl font-bold text-foreground">€0.42</div>
-                      <div className="text-xs text-muted-foreground">Avg. CPC</div>
+                      <div className="text-xs text-muted-foreground">{s.dashboard.avgCpcLabel}</div>
                     </motion.div>
+
                     <motion.div
                       className="bg-gradient-to-br from-orange-500/20 to-orange-500/5 rounded-xl p-4"
                       initial={{ scale: 0.9, opacity: 0 }}
@@ -323,14 +167,14 @@ const PPCServices = () => {
                     >
                       <Target className="w-5 h-5 text-orange-500 mb-2" />
                       <div className="text-2xl font-bold text-foreground">847</div>
-                      <div className="text-xs text-muted-foreground">Conversions</div>
+                      <div className="text-xs text-muted-foreground">{s.dashboard.conversionsLabel}</div>
                     </motion.div>
                   </div>
 
                   {/* Campaign Performance Bar */}
                   <div className="space-y-3">
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Campaign Performance</span>
+                      <span className="text-muted-foreground">{s.dashboard.performanceLabel}</span>
                       <span className="text-primary font-medium">92%</span>
                     </div>
                     <div className="h-3 bg-muted/30 rounded-full overflow-hidden">
@@ -358,23 +202,16 @@ const PPCServices = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Types of <span className="text-primary">PPC Campaigns</span>
+                {s.campaignTypes.titleBefore} <span className="text-primary">{s.campaignTypes.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                We create and manage campaigns across all major advertising platforms to maximize your reach and ROI.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{s.campaignTypes.subtitle}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {campaignTypes.map((campaign, index) => {
-                const gradientStyles: Record<string, string> = {
-                  "from-blue-500 to-cyan-500": "from-blue-500 to-cyan-500",
-                  "from-green-500 to-emerald-500": "from-green-500 to-emerald-500",
-                  "from-pink-500 to-rose-500": "from-pink-500 to-rose-500",
-                  "from-red-500 to-orange-500": "from-red-500 to-orange-500",
-                  "from-purple-500 to-violet-500": "from-purple-500 to-violet-500",
-                  "from-amber-500 to-yellow-500": "from-amber-500 to-yellow-500",
-                };
+              {s.campaignTypes.items.map((campaign, index) => {
+                const meta = campaignMeta[index] ?? campaignMeta[0];
+                const Icon = meta.icon as any;
+
                 return (
                   <motion.div
                     key={campaign.title}
@@ -386,19 +223,19 @@ const PPCServices = () => {
                   >
                     {/* Hover glow effect */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                      className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                     />
 
                     <div className="relative z-10">
-                      {/* Icon with gradient background - match homepage services */}
+                      {/* Icon with gradient background */}
                       <div className="relative mb-6">
                         <div
-                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${campaign.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
                         >
-                          <campaign.icon className="w-8 h-8 text-white" />
+                          <Icon className="w-8 h-8 text-white" />
                           {/* Animated ring blur */}
                           <div
-                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
                           />
                         </div>
                       </div>
@@ -421,7 +258,7 @@ const PPCServices = () => {
 
                     {/* Corner decoration */}
                     <div
-                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${campaign.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
                     />
                   </motion.div>
                 );
@@ -440,47 +277,44 @@ const PPCServices = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Why Invest in <span className="text-primary">PPC Advertising?</span>
+                {s.whyPpc.titleBefore} <span className="text-primary">{s.whyPpc.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Unlike organic marketing, PPC gives you immediate visibility and complete control over your advertising
-                budget.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{s.whyPpc.subtitle}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {whyPPC.map((reason, index) => (
-                <motion.div
-                  key={reason.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
-                >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+              {s.whyPpc.items.map((reason, index) => {
+                const Icon = (whyMeta[index] ?? Zap) as any;
 
-                  <div className="relative z-10">
-                    {/* Icon with gradient background - match homepage services */}
-                    <div className="relative mb-6">
-                      <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
-                        <reason.icon className="w-8 h-8 text-white" />
-                        {/* Animated ring blur */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
+                return (
+                  <motion.div
+                    key={reason.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+
+                    <div className="relative z-10">
+                      <div className="relative mb-6">
+                        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500">
+                          <Icon className="w-8 h-8 text-white" />
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500" />
+                        </div>
                       </div>
+
+                      <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {reason.title}
+                      </h3>
+                      <p className="relative text-muted-foreground leading-relaxed">{reason.description}</p>
                     </div>
 
-                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {reason.title}
-                    </h3>
-                    <p className="relative text-muted-foreground leading-relaxed">{reason.description}</p>
-                  </div>
-
-                  {/* Corner decoration */}
-                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
-                </motion.div>
-              ))}
+                    <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500" />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -495,38 +329,44 @@ const PPCServices = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Our PPC <span className="text-primary">Process</span>
+                {s.process.titleBefore} <span className="text-primary">{s.process.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                A proven methodology to launch and optimize high-performing campaigns.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{s.process.subtitle}</p>
             </motion.div>
 
             <div className="relative">
               <div className="absolute left-[27px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/30 hidden md:block" />
 
               <div className="space-y-8">
-                {process.map((item, index) => (
-                  <motion.div
-                    key={item.step}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 }}
-                    className="flex gap-6 items-start"
-                  >
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 text-primary-foreground font-bold text-lg relative z-10">
-                      {item.step}
-                    </div>
-                    <div className="glass-strong rounded-xl p-6 flex-1 border border-border/50">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-xl font-bold">{item.title}</h3>
-                        <span className="text-sm text-primary font-medium">{item.duration}</span>
+                {s.process.steps.map((item, index) => {
+                  const Icon = (processMeta[index] ?? Target) as any;
+
+                  return (
+                    <motion.div
+                      key={item.step}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.15 }}
+                      className="flex gap-6 items-start"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 text-primary-foreground font-bold text-lg relative z-10">
+                        {item.step}
                       </div>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
+
+                      <div className="glass-strong rounded-xl p-6 flex-1 border border-border/50">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Icon className="w-4 h-4 text-primary" />
+                            <h3 className="text-xl font-bold">{item.title}</h3>
+                          </div>
+                          <span className="text-sm text-primary font-medium">{item.duration}</span>
+                        </div>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -542,15 +382,13 @@ const PPCServices = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                PPC Management <span className="text-primary">Pricing</span>
+                {s.pricing.titleBefore} <span className="text-primary">{s.pricing.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Transparent pricing based on your ad spend and campaign complexity.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{s.pricing.subtitle}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {pricing.map((plan, index) => (
+              {s.pricing.plans.map((plan, index) => (
                 <motion.div
                   key={plan.name}
                   initial={{ opacity: 0, y: 20 }}
@@ -563,9 +401,10 @@ const PPCServices = () => {
                 >
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-accent rounded-full text-primary-foreground text-sm font-medium">
-                      Most Popular
+                      {s.pricing.popularBadge}
                     </div>
                   )}
+
                   <div className="text-center mb-6">
                     <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                     <div className="flex items-end justify-center gap-1">
@@ -574,6 +413,7 @@ const PPCServices = () => {
                     </div>
                     <p className="text-sm text-muted-foreground mt-2">{plan.adSpend}</p>
                   </div>
+
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm">
@@ -582,9 +422,10 @@ const PPCServices = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="block">
+
+                  <Link to={contactUrl} className="block">
                     <Button variant={plan.popular ? "hero" : "outline"} size="lg" className="w-full">
-                      Get Started
+                      {s.pricing.cta}
                     </Button>
                   </Link>
                 </motion.div>
@@ -594,17 +435,14 @@ const PPCServices = () => {
         </section>
 
         {/* Reviews */}
-        <ServiceReviews
-          title="What Our Clients Say"
-          subtitle="See what businesses say about their PPC campaign results with us."
-        />
+        <ServiceReviews title={s.reviews.title} subtitle={s.reviews.subtitle} />
 
         {/* FAQ */}
         <ServiceFAQ
-          faqs={ppcFaqs}
-          serviceName="PPC Advertising"
-          title="Frequently Asked Questions"
-          subtitle="Common questions about our PPC advertising services."
+          faqs={s.faq.items}
+          serviceName={s.faq.serviceName}
+          title={s.faq.title}
+          subtitle={s.faq.subtitle}
         />
 
         {/* CTA Section */}
@@ -612,36 +450,31 @@ const PPCServices = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-red-500/10" />
           <div className="container mx-auto px-6 relative z-10">
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               className="text-center max-w-3xl mx-auto"
             >
               <Sparkles className="w-12 h-12 text-orange-400 mx-auto mb-6" />
+
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Ready to Scale Your <span className="text-gradient">Business</span>?
+                {s.ctaBottom.titleBefore} <span className="text-gradient">{s.ctaBottom.titleHighlight}</span>
+                {s.ctaBottom.titleAfter}
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Get a free PPC audit and discover how much revenue you're leaving on the table
-              </p>
+
+              <p className="text-lg text-muted-foreground mb-8">{s.ctaBottom.subtitle}</p>
+
               <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact">
+                <Link to={contactUrl}>
                   <Button size="lg" variant="hero">
-                    Get Free PPC Audit
+                    {s.ctaBottom.primary}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
-                <Link to="/work">
+
+                <Link to={workUrl}>
                   <Button size="lg" variant="outline">
-                    View Case Studies
+                    {s.ctaBottom.secondary}
                   </Button>
                 </Link>
               </div>
