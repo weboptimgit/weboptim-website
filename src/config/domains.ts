@@ -2,18 +2,28 @@ import { Language } from "@/contexts/LanguageContext";
 
 // Domain configuration for multi-language support
 export const domainConfig: Record<Language, string> = {
-  EN: "https://weboptim.eu",
-  CZ: "https://weboptim.cz",
-  SK: "https://weboptim.sk",
+  EN: "https://test.weboptim.eu",
+  CZ: "https://test.weboptim.cz",
+  SK: "https://test.weboptim.sk",
 };
 
 // Reverse mapping: domain -> language
 export const domainToLanguage: Record<string, Language> = {
+  // TEST / STAGING
+  "test.weboptim.eu": "EN",
+  "test.weboptim.cz": "CZ",
+  "test.weboptim.sk": "SK",
+
+  // PRODUCTION (neskôr)
   "weboptim.eu": "EN",
+  "www.weboptim.eu": "EN",
   "weboptim.cz": "CZ",
+  "www.weboptim.cz": "CZ",
   "weboptim.sk": "SK",
-  // Development fallbacks
-  "localhost": "EN",
+  "www.weboptim.sk": "SK",
+
+  // Local dev
+  localhost: "EN",
   "127.0.0.1": "EN",
 };
 
@@ -70,19 +80,19 @@ export const getBaseRouteFromSlug = (slug: string): string | undefined => {
 // Get language from current domain
 export const getLanguageFromDomain = (): Language => {
   const hostname = window.location.hostname;
-  
+
   // Check for exact match first
   if (domainToLanguage[hostname]) {
     return domainToLanguage[hostname];
   }
-  
+
   // Check for subdomain match (e.g., www.weboptim.cz)
   for (const [domain, lang] of Object.entries(domainToLanguage)) {
     if (hostname.endsWith(domain) || hostname.includes(domain)) {
       return lang;
     }
   }
-  
+
   // Default to English
   return "EN";
 };
@@ -91,10 +101,10 @@ export const getLanguageFromDomain = (): Language => {
 export const getLanguageSwitchUrl = (
   targetLanguage: Language,
   currentPath: string,
-  slugMappings?: Record<Language, string>
+  slugMappings?: Record<Language, string>,
 ): string => {
   const targetDomain = domainConfig[targetLanguage];
-  
+
   // If we have slug mappings (for blog posts, case studies, etc.)
   if (slugMappings) {
     const translatedSlug = slugMappings[targetLanguage];
@@ -102,7 +112,7 @@ export const getLanguageSwitchUrl = (
       return `${targetDomain}/${translatedSlug}`;
     }
   }
-  
+
   // For pages without slug translations, just use the same path
   return `${targetDomain}${currentPath}`;
 };
