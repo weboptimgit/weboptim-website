@@ -74,8 +74,8 @@ export const serviceDetailSlugs: Record<
 > = {
   buildingWebsite: {
     EN: "building-website",
-    CZ: "tvorba-webstranok",
-    SK: "tvorba-webstranek",
+    CZ: "tvorba-webstranek",
+    SK: "tvorba-webstranok",
   },
   ecommerceWebsite: {
     EN: "ecommerce-website",
@@ -146,21 +146,30 @@ export const getLanguageFromDomain = (): Language => {
 };
 
 // Get the target URL for language switch with translated slug
-export const getLanguageSwitchUrl = (
-  targetLanguage: Language,
-  currentPath: string,
-  slugMappings?: Record<Language, string>,
-): string => {
+export const getLanguageSwitchUrl = (targetLanguage: Language, currentPath: string): string => {
   const targetDomain = domainConfig[targetLanguage];
 
-  // If we have slug mappings (for blog posts, case studies, etc.)
-  if (slugMappings) {
-    const translatedSlug = slugMappings[targetLanguage];
-    if (translatedSlug) {
-      return `${targetDomain}/${translatedSlug}`;
+  const path = currentPath.replace(/^\//, "");
+  const [first, second, ...rest] = path.split("/");
+
+  // 1) prelož top-level slug (services/about/faq/...)
+  const baseRoute = getBaseRouteFromSlug(first);
+  const translatedFirst =
+    baseRoute && staticPageSlugs[baseRoute]
+      ? staticPageSlugs[baseRoute][targetLanguage]
+      : first;
+
+  // 2) ak sme v /services/<detail>, prelož aj detail slug podľa mapy
+  if (baseRoute === "services" && second) {
+    const serviceKey = (Object.keys(serviceDetailSlugs) as Array<keyof typeof serviceDetailSlugs>).find((key) =>
+      Object.values(serviceDetailSlugs[key]).includes(second)
+    );
+
+    if (serviceKey) {
+     const translatedSecond = serviceDetailSlugs[serviceKey][targetLanguage];
+      return `${targetDomain}/${[translatedFirst, translatedSecond, ...rest].join("/")}`;
     }
   }
 
-  // For pages without slug translations, just use the same path
-  return `${targetDomain}${currentPath}`;
+  return `${targetDomain}/${[translatedFirst, second, ...rest].filter(Boolean).join("/")}`;
 };
