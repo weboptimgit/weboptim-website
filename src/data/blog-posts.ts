@@ -40,9 +40,9 @@ export interface BlogPost {
 
 // Translated categories for filtering
 export const categoriesTranslations = {
-  EN: ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding", "Webs and eshops"],
-  CZ: ["Vše", "Webový design", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy"],
-  SK: ["Všetko", "Webový dizajn", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy"],
+  EN: ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding", "Webs and eshops", "(AI) Artificial Intelligence"],
+  CZ: ["Vše", "Webový design", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy", "(AI) Umělá inteligence"],
+  SK: ["Všetko", "Webový dizajn", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy", "(UI) Umelá inteligencia"],
 };
 
 // ========================================
@@ -50,6 +50,61 @@ export const categoriesTranslations = {
 // ========================================
 
 export const blogPostsData: BlogPostData[] = [
+    {
+    image:
+      "https://images.unsplash.com/photo-1737641624486-7846df8528dc?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    author: "Peter Gáborík",
+    translations: {
+      EN: {
+        slug: "50-seo-prompts-for-chatgpt-by-openai",
+        title: "50+ SEO prompts for ChatGPT by OpenAI",
+        excerpt:
+          "Would you like to use the full potential of ChatGPT for SEO? Then we have prepared this article about a very useful tool for SEO consultants just for you. Prompts are short text instructions that can help ChatGPT generate relevant and quality answers to user questions and requests.",
+        category: "(AI) Artificial Intelligence",
+        tags: ["ChatGPT", "SEO", "Trends", "OpenAI", "Prompts"],
+        date: "May 15, 2023",
+        readTime: "5 min read",
+        content: [
+          "In this article, we'll look at how SEO consultants can use Prompts to improve a website's performance in search engines and how they can use different types of Prompts to improve their SEO strategies. ",
+          "## Take your SEO up several levels with artificial intelligence!",
+          "1. “Generate a list of related keywords for [topic]”",
+          "2. “Identify long-tail keywords for [topic] content optimization”",
+        ],
+      },
+      CZ: {
+        slug: "50-seo-prompts-for-chatgpt-by-openai",
+        title: "50+ SEO prompts for ChatGPT by OpenAI",
+        excerpt:
+          "Would you like to use the full potential of ChatGPT for SEO? Then we have prepared this article about a very useful tool for SEO consultants just for you. Prompts are short text instructions that can help ChatGPT generate relevant and quality answers to user questions and requests.",
+        category: "(AI) Artificial Intelligence",
+        tags: ["ChatGPT", "SEO", "Trends", "OpenAI", "Prompts"],
+        date: "May 15, 2023",
+        readTime: "5 min read",
+        content: [
+          "In this article, we'll look at how SEO consultants can use Prompts to improve a website's performance in search engines and how they can use different types of Prompts to improve their SEO strategies. ",
+          "## Take your SEO up several levels with artificial intelligence!",
+          "1. “Generate a list of related keywords for [topic]”",
+          "2. “Identify long-tail keywords for [topic] content optimization”",
+        ],
+      },
+      SK: {
+        slug: "50-seo-prompts-for-chatgpt-by-openai",
+        title: "50+ SEO prompts for ChatGPT by OpenAI",
+        excerpt:
+          "Would you like to use the full potential of ChatGPT for SEO? Then we have prepared this article about a very useful tool for SEO consultants just for you. Prompts are short text instructions that can help ChatGPT generate relevant and quality answers to user questions and requests.",
+        category: "(AI) Artificial Intelligence",
+        tags: ["ChatGPT", "SEO", "Trends", "OpenAI", "Prompts"],
+        date: "May 15, 2023",
+        readTime: "5 min read",
+        content: [
+          "In this article, we'll look at how SEO consultants can use Prompts to improve a website's performance in search engines and how they can use different types of Prompts to improve their SEO strategies. ",
+          "## Take your SEO up several levels with artificial intelligence!",
+          "1. “Generate a list of related keywords for [topic]”",
+          "2. “Identify long-tail keywords for [topic] content optimization”",
+        ],
+      },
+    },
+  },
   {
     image:
       "https://images.unsplash.com/photo-1616469832301-ffaeadc68cf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
