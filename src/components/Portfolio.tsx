@@ -3,6 +3,8 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { caseStudiesData } from "@/data/case-studies";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 // Convert case studies data to portfolio projects array
 const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
@@ -20,6 +22,8 @@ const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
 const projects6 = projects.slice(0, 6);
 
 const Portfolio = () => {
+  const { t, language } = useLanguage();
+
   return (
     <section id="work" className="py-24 relative overflow-hidden">
       {/* Background Elements */}
@@ -37,13 +41,24 @@ const Portfolio = () => {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Our Work
+            {t("portfolio.badge")}
           </span>
+
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
+            {t("portfolio.title").includes(" ") ? (
+              <>
+                {t("portfolio.title").split(" ").slice(0, -1).join(" ")}{" "}
+                <span className="text-gradient">{t("portfolio.title").split(" ").slice(-1)[0]}</span>
+              </>
+            ) : (
+              <>
+                <span className="text-gradient">{t("portfolio.title")}</span>
+              </>
+            )}
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Explore our recent work and see how we've helped businesses achieve their digital goals.
+            {t("portfolio.subtitle")}
           </p>
         </motion.div>
 
@@ -94,14 +109,16 @@ const Portfolio = () => {
                   <span className="text-secondary text-sm font-medium mb-2 block uppercase tracking-wider">
                     {project.category}
                   </span>
+
                   <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
+
                   <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{project.description}</p>
 
                   {/* View Project Link */}
                   <div className="flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <span>View Case Study</span>
+                    <span>{t("portfolio.viewCaseStudy")}</span>
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </div>
                 </div>
@@ -124,9 +141,9 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Link to="/portfolio">
+          <Link to={buildPath(language, "work")}>
             <Button variant="glow" size="lg" className="group">
-              View All Projects
+              {t("portfolio.viewAll")}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
