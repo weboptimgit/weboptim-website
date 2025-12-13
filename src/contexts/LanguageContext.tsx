@@ -158,6 +158,35 @@ const translations: Record<Language, Record<string, string>> = {
     "about.features.ontime.desc": "Projects delivered within agreed timelines",
     "about.features.results.title": "Results Driven",
     "about.features.results.desc": "Focused on achieving measurable outcomes",
+
+    // Services section (homepage)
+    "servicesSection.badge": "What We Do",
+    "servicesSection.title": "Services that elevate your brand",
+    "servicesSection.subtitle":
+    "We offer comprehensive digital solutions tailored to your unique needs, helping businesses thrive in the modern digital landscape.",
+    "servicesSection.learnMore": "Learn More",
+    "servicesSection.viewAll": "View All Services",
+    
+    // Services cards
+    "services.card.webDev.title": "Web Development",
+    "services.card.webDev.desc":
+    "Custom WordPress websites with Oxygen Builder. Fast, scalable, and optimized for performance.",
+    "services.card.ecom.title": "E-Commerce",
+    "services.card.ecom.desc":
+    "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions.",
+    "services.card.seo.title": "SEO Services",
+    "services.card.seo.desc":
+    "Boost your rankings with keyword research, link building, and local SEO strategies.",
+    "services.card.ppc.title": "PPC & Advertising",
+    "services.card.ppc.desc":
+    "Strategic paid campaigns on Google and social media that drive qualified traffic and leads.",
+    "services.card.digital.title": "Digitalization",
+    "services.card.digital.desc":
+    "Automate your business with CRM, cloud tools, and workflow automation solutions.",
+    "services.card.graphic.title": "Graphic Design",
+    "services.card.graphic.desc":
+    "Eye-catching digital and print graphics from logos to brochures and marketing materials.",
+
   },
   CZ: {
     // Navbar
@@ -304,6 +333,35 @@ const translations: Record<Language, Record<string, string>> = {
     "about.features.ontime.desc": "Dodáváme v domluvených termínech",
     "about.features.results.title": "Na výsledky",
     "about.features.results.desc": "Zaměřeno na měřitelné dopady",
+
+    // Services section (homepage)
+    "servicesSection.badge": "Co děláme",
+    "servicesSection.title": "Služby, které posunou vaši značku",
+    "servicesSection.subtitle":
+    "Nabízíme komplexní digitální řešení na míru vašim potřebám, aby vaše podnikání uspělo v moderním online prostředí.",
+    "servicesSection.learnMore": "Zjistit více",
+    "servicesSection.viewAll": "Zobrazit všechny služby",
+    
+    // Services cards
+    "services.card.webDev.title": "Tvorba webu",
+    "services.card.webDev.desc":
+    "WordPress weby na míru s Oxygen Builderem. Rychlé, škálovatelné a optimalizované pro výkon.",
+    "services.card.ecom.title": "E-Commerce",
+    "services.card.ecom.desc":
+    "Výkonné WooCommerce e-shopy s plynulým nákupním procesem, které maximalizují konverze.",
+    "services.card.seo.title": "SEO služby",
+    "services.card.seo.desc":
+    "Zvyšte pozice díky analýze klíčových slov, linkbuildingu a lokálním SEO strategiím.",
+    "services.card.ppc.title": "PPC & reklama",
+    "services.card.ppc.desc":
+    "Strategické placené kampaně na Googlu a sociálních sítích, které přivádějí relevantní návštěvnost a poptávky.",
+    "services.card.digital.title": "Digitalizace",
+    "services.card.digital.desc":
+    "Automatizujte byznys pomocí CRM, cloudových nástrojů a automatizace procesů.",
+    "services.card.graphic.title": "Grafický design",
+    "services.card.graphic.desc":
+    "Poutavá digitální i tisková grafika — od log po brožury a marketingové materiály.",
+
   },
   SK: {
     // Navbar
@@ -451,6 +509,35 @@ const translations: Record<Language, Record<string, string>> = {
     "about.features.ontime.desc": "Projekty dodávame v dohodnutých termínoch",
     "about.features.results.title": "Zamerané na výsledky",
     "about.features.results.desc": "Fokus na merateľné výstupy",
+
+    // Services section (homepage)
+    "servicesSection.badge": "Čo robíme",
+    "servicesSection.title": "Služby, ktoré posunú vašu značku",
+    "servicesSection.subtitle":
+    "Ponúkame komplexné digitálne riešenia na mieru vašim potrebám, aby váš biznis uspel v modernom online prostredí.",
+    "servicesSection.learnMore": "Zistiť viac",
+    "servicesSection.viewAll": "Zobraziť všetky služby",
+    
+    // Services cards
+    "services.card.webDev.title": "Tvorba webu",
+    "services.card.webDev.desc":
+    "WordPress weby na mieru s Oxygen Builderom. Rýchle, škálovateľné a optimalizované pre výkon.",
+    "services.card.ecom.title": "E-Commerce",
+    "services.card.ecom.desc":
+    "Výkonné WooCommerce e-shopy s plynulým nákupným procesom, ktoré maximalizujú konverzie.",
+    "services.card.seo.title": "SEO služby",
+    "services.card.seo.desc":
+    "Zlepšite pozície vďaka analýze kľúčových slov, linkbuildingu a lokálnym SEO stratégiám.",
+    "services.card.ppc.title": "PPC & reklama",
+    "services.card.ppc.desc":
+    "Strategické platené kampane na Google a sociálnych sieťach, ktoré privádzajú relevantnú návštevnosť a dopyty.",
+    "services.card.digital.title": "Digitalizácia",
+    "services.card.digital.desc":
+    "Automatizujte biznis pomocou CRM, cloud nástrojov a automatizácie procesov.",
+    "services.card.graphic.title": "Grafický dizajn",
+    "services.card.graphic.desc":
+    "Pútavá digitálna aj tlačená grafika — od log po brožúry a marketingové materiály.",
+
   },
 };
 
