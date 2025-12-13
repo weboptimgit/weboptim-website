@@ -1,10 +1,17 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  Options -MultiViews
+
+  # TEST (docasne)
+  RewriteRule ^__htaccess_test__$ index.html [L,R=302]
+
   RewriteBase /
 
+  # existujuce subory/adresare nechaj
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  RewriteRule ^ index.html [L]
+  # SPA fallback
+  RewriteRule . index.html [L]
 </IfModule>
