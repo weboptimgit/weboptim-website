@@ -256,6 +256,7 @@ export const getBreadcrumbSchema = (items: Array<{ name: string; url: string }>)
 
 const SEO = ({ titleKey, descriptionKey, title, description, image, article = false, noindex = false, jsonLd }: SEOProps) => {
   const { language } = useLanguage();
+  const GLOBAL_NOINDEX = import.meta.env.VITE_NOINDEX === "true";
   
   const seoData = titleKey ? getSEOData(titleKey, language) : null;
   const finalTitle = title || seoData?.title || "WebOptim";
@@ -283,7 +284,7 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
 
     // Basic meta tags
     setMeta("description", finalDescription);
-    setMeta("robots", noindex ? "noindex, nofollow" : "index, follow");
+    setMeta("robots", (GLOBAL_NOINDEX || noindex) ? "noindex, nofollow" : "index, follow");
 
     // Open Graph tags
     setMeta("og:title", finalTitle, true);
