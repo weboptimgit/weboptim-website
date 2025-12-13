@@ -31,14 +31,13 @@ const languages: { code: Language; label: string }[] = [
 
 const Navbar = () => {
   const { language, t } = useLanguage();
-  const sp = (key: keyof typeof staticPageSlugs) =>
-    `/${staticPageSlugs[key][language]}`;
-  
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const { language, t } = useLanguage();
   const location = useLocation();
   const slugMappings = useSlugMappings();
+
+  const sp = (key: keyof typeof staticPageSlugs) =>
+  `/${staticPageSlugs[key][language]}`;
 
   // Handle language switch - redirects to the corresponding domain
   const handleLanguageSwitch = (targetLanguage: Language) => {
@@ -146,7 +145,7 @@ const Navbar = () => {
                       </div>
                       <div className="mt-4 pt-4 border-t border-border">
                         <Link
-                          to="/services"
+                          to={sp("services")}
                           className="flex items-center justify-center gap-2 py-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
                         >
                           {t("nav.viewAllServices")}
