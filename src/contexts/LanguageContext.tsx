@@ -11,6 +11,15 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    // CTA
+    "ctaSection.title.before": "Ready to start your",
+    "ctaSection.title.highlight": "project",
+    "ctaSection.subtitle":
+      "Let's collaborate and create something extraordinary together. Get in touch and tell us about your vision.",
+    "ctaSection.primary": "Get In Touch",
+    "ctaSection.secondary": "Schedule a Call",
+    "ctaSection.email.before": "Or email us directly at",
+
     "testimonials.title.before": "What Our",
     "testimonials.title.highlight": "Clients Say",
     "testimonials.subtitle": "Don't just take our word for it. Here's what our clients have to say about working with us.",
@@ -212,6 +221,15 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+    // CTA
+    "ctaSection.title.before": "Připraveni začít váš",
+    "ctaSection.title.highlight": "projekt",
+    "ctaSection.subtitle":
+      "Pojďme spolupracovat a vytvořit něco výjimečného. Ozvěte se nám a řekněte nám o své vizi.",
+    "ctaSection.primary": "Kontaktujte nás",
+    "ctaSection.secondary": "Naplánovat hovor",
+    "ctaSection.email.before": "Nebo nám napište přímo na",
+
     "testimonials.title.before": "Co říkají",
     "testimonials.title.highlight": "klienti",
     "testimonials.subtitle": "Neberte to jen od nás. Podívejte se, co říkají naši klienti o spolupráci s námi.",
@@ -410,6 +428,15 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    // CTA
+    "ctaSection.title.before": "Pripravení začať váš",
+    "ctaSection.title.highlight": "projekt",
+    "ctaSection.subtitle":
+      "Poďme spolupracovať a vytvoriť niečo výnimočné. Ozvite sa nám a povedzte nám o svojej vízii.",
+    "ctaSection.primary": "Kontaktujte nás",
+    "ctaSection.secondary": "Naplánovať hovor",
+    "ctaSection.email.before": "Alebo nám napíšte priamo na",
+
     "testimonials.title.before": "Čo hovoria",
     "testimonials.title.highlight": "klienti",
     "testimonials.subtitle": "Neberte to len od nás. Pozrite sa, čo hovoria naši klienti o spolupráci s nami.",
