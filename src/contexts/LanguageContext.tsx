@@ -11,6 +11,10 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    "testimonials.title.before": "What Our",
+    "testimonials.title.highlight": "Clients Say",
+    "testimonials.subtitle": "Don't just take our word for it. Here's what our clients have to say about working with us.",
+
     // Blog section
     "blogSection.title.before": "Latest from Our",
     "blogSection.title.highlight": "Blog",
@@ -208,6 +212,10 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+    "testimonials.title.before": "Co říkají",
+    "testimonials.title.highlight": "klienti",
+    "testimonials.subtitle": "Neberte to jen od nás. Podívejte se, co říkají naši klienti o spolupráci s námi.",
+
     // Blog section
     "blogSection.title.before": "To nejnovější z našeho",
     "blogSection.title.highlight": "blogu",
@@ -402,6 +410,10 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    "testimonials.title.before": "Čo hovoria",
+    "testimonials.title.highlight": "klienti",
+    "testimonials.subtitle": "Neberte to len od nás. Pozrite sa, čo hovoria naši klienti o spolupráci s nami.",
+
     // Blog section
     "blogSection.title.before": "To najnovšie z nášho",
     "blogSection.title.highlight": "blogu",
