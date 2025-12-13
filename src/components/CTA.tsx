@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 const CTA = () => {
+  const { t, language } = useLanguage();
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background effects */}
@@ -25,29 +29,34 @@ const CTA = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            Ready to start your <span className="text-gradient">project</span>?
+            {t("ctaSection.title.before")}{" "}
+            <span className="text-gradient">{t("ctaSection.title.highlight")}</span>?
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-            Let's collaborate and create something extraordinary together. Get in touch and tell us about your vision.
+            {t("ctaSection.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/contact/">
+            <a href={buildPath(language, "contact")}>
               <Button variant="hero" size="xl" className="group">
-                Get In Touch
+                {t("ctaSection.primary")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
+
             <Button variant="glow" size="xl">
-              Schedule a Call
+              {t("ctaSection.secondary")}
             </Button>
           </div>
 
           {/* Email */}
           <p className="mt-8 text-muted-foreground">
-            Or email us directly at{" "}
-            <a href="mailto:hello@nexus.agency" className="text-primary hover:underline">
+            {t("ctaSection.email.before")}{" "}
+            <a
+              href="mailto:hello@nexus.agency"
+              className="text-primary hover:underline"
+            >
               hello@nexus.agency
             </a>
           </p>
