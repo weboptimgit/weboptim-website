@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Star, Play, Rocket, Heart, Clock, Users } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -147,13 +148,18 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button variant="hero" size="xl" className="group">
-              {t("hero.cta1")}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="glow" size="xl" className="group gap-2">
-              {t("hero.cta2")}
-            </Button>
+            <Link to={buildPath(language, "contact")}>
+              <Button variant="hero" size="xl" className="group">
+                {t("hero.cta1")}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          
+            <Link to={buildPath(language, "services")}>
+              <Button variant="glow" size="xl" className="group gap-2">
+                {t("hero.cta2")}
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Trust indicators */}
