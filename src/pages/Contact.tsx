@@ -123,8 +123,8 @@ const Contact = () => {
     {
       icon: Phone,
       label: s.contactInfo.phoneLabel,
-      value: "+420 123 456 789",
-      href: "tel:+420123456789",
+      value: "+420 776 292 799",
+      href: "tel:+420776292799",
     },
     {
       icon: MapPin,
