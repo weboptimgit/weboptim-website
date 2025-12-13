@@ -137,8 +137,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     title: "EUROPEUM",
     subtitle: "Content Platform, Events & Advanced Filtering",
     category: "Non-profit / Think Tank",
-    client: "EUROPEUM Institute for European Policy",
-    duration: "Ongoing",
+    client: "EUROPEUM",
+    duration: "4-6 weeks",
     year: "2024",
     team: "2–3 Members",
     projectUrl: "https://www.europeum.org/",
@@ -171,7 +171,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { icon: Megaphone, label: "UX for Filtering & Discovery" },
     ],
 
-    technologies: ["WordPress", "PHP", "WP_Query", "MySQL", "JavaScript", "HTML5", "CSS3", "Polylang"],
+    technologies: ["WordPress", "PHP", "WP_Query", "MySQL", "JavaScript", "HTML5", "CSS3"],
 
     results: [
       {
@@ -211,7 +211,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Support for past and future-dated content",
       "Custom publication type filtering via search logic",
       "Author-centric content views with dynamic counters",
-      "Multilingual content handling (Polylang)",
+      "Multilingual content handling",
       "Pagination optimized for large datasets",
       "Reusable filtering UI across events, articles, and projects",
       "Performance-aware WP_Query configurations",
