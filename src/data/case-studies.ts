@@ -254,33 +254,33 @@ export const caseStudiesData: Record<string, CaseStudy> = {
 
     services: [
       { icon: Code, label: "WordPress Development" },
-      { icon: Palette, label: "UI/UX & Page Structure" },
-      { icon: Megaphone, label: "Lead & Inquiry Optimization" },
-      { icon: Globe, label: "Basic SEO Setup" },
+      { icon: Palette, label: "UI/UX & Content Architecture" },
+      { icon: Globe, label: "Technical & Local SEO" },
+      { icon: Megaphone, label: "Conversion Strategy (Forms & Popups)" },
     ],
 
     technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "MySQL"],
 
     results: [
       {
-        metric: "✓",
-        label: "Direct Inquiries",
-        description: "Website structured to drive direct contact without third-party booking fees",
+        metric: "↑",
+        label: "Local Visibility",
+        description: "Improved rankings for accommodation-related local searches",
       },
       {
-        metric: "↑",
-        label: "User Clarity",
-        description: "Visitors understand rooms, location, and next steps faster",
+        metric: "✓",
+        label: "Direct Inquiries",
+        description: "More leads without third-party booking fees",
       },
       {
         metric: "↓",
-        label: "Drop-offs",
-        description: "Reduced friction thanks to simple forms and clear CTAs",
+        label: "Bounce Rate",
+        description: "Clear structure and fast load times improved engagement",
       },
       {
         metric: "✓",
-        label: "Seasonal Flexibility",
-        description: "Easy updates for seasonal offers and messaging",
+        label: "SEO Scalability",
+        description: "Content and structure ready for seasonal expansion",
       },
     ],
 
@@ -295,14 +295,14 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     gallery: [],
 
     features: [
-      "Clear presentation of accommodation, rooms, and surroundings",
-      "Inquiry-focused contact forms placed across key pages",
-      "Popup logic for seasonal offers and engagement",
-      "Simple content structure optimized for non-technical editors",
+      "Local SEO–oriented page structure for accommodation queries",
+      "Optimized headings, internal linking, and content hierarchy",
+      "Inquiry forms embedded across key pages",
+      "Contextual popups supporting seasonal offers",
       "Mobile-first responsive layout",
-      "SEO-friendly page structure for local discoverability",
-      "Fast-loading pages with minimal overhead",
-      "Flexible setup for future booking or availability extensions",
+      "Fast-loading pages with optimized assets",
+      "Easy content editing for non-technical users",
+      "Prepared structure for future booking integrations",
     ],
   },
   "kimbau-construction": {
