@@ -23,7 +23,7 @@ import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { useSeoLang } from "@/contexts/LanguageSEO";
-import { buildPath } from "@/config/domains";
+import { getLanguageFromDomain, buildPath } from "@/config/domains";
 
 // vizuálne farby nechávame v page (nemá sa prekladať)
 const seoServicesColors = [
@@ -112,9 +112,10 @@ const AnimatedRankings = () => {
 };
 
 const SEOServices = () => {
-  const s = useSeoLang();
-  const contactUrl = buildPath(s, "ctaPrimary");
-  const workUrl = buildPath(s, "ctaSecondary");
+ const s = useSeoLang();
+const lang = getLanguageFromDomain();
+const contactUrl = buildPath(lang, "contact");
+const workUrl = buildPath(lang, "work");
 
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
