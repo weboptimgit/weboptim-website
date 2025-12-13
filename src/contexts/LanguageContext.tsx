@@ -11,6 +11,12 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    // Blog section
+    "blogSection.title.before": "Latest from Our",
+    "blogSection.title.highlight": "Blog",
+    "blogSection.subtitle": "Insights, tips, and industry news to help you stay ahead in the digital world.",
+    "blogSection.viewAll": "View All Articles",
+
     // Trust section
     "trust.title.before": "They",
     "trust.title.highlight": "Trust Us",
@@ -202,6 +208,11 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+    // Blog section
+    "blogSection.title.before": "To nejnovější z našeho",
+    "blogSection.title.highlight": "blogu",
+    "blogSection.subtitle": "Tipy, poznatky a novinky z oboru, které vám pomohou držet krok v digitálním světě.",
+    "blogSection.viewAll": "Zobrazit všechny články",
 
     // Trust section
     "trust.title.before": "Důvěřují nám",
@@ -391,6 +402,12 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    // Blog section
+    "blogSection.title.before": "To najnovšie z nášho",
+    "blogSection.title.highlight": "blogu",
+    "blogSection.subtitle": "Tipy, poznatky a novinky z odvetvia, ktoré vám pomôžu byť v digitálnom svete o krok vpred.",
+    "blogSection.viewAll": "Zobraziť všetky články",
+
     // Trust section
     "trust.title.before": "Dôverujú nám",
     "trust.title.highlight": "klienti",
