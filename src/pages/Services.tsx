@@ -19,13 +19,9 @@ import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-
-// ✅ services-only language
 import { useServicesLang } from "@/contexts/LanguageServices";
-
-// ✅ only for paths + small UI labels (not page copy)
 import { useLanguage } from "@/contexts/LanguageContext";
-import { buildPath } from "@/config/domains";
+import { buildPath, servicePath } from "@/config/domains";
 
 const techStack = [
   {
@@ -66,13 +62,45 @@ const techStack = [
   },
 ];
 
-const services = [
-  { icon: Code2, href: "/services/building-website", features: [] as string[], color: "from-cyan-500 to-blue-500", isHighlighted: true, stats: [] as { value: string; label: string }[] },
-  { icon: ShoppingCart, href: "/services/ecommerce-website", features: [] as string[], color: "from-purple-500 to-pink-500" },
-  { icon: Search, href: "/services/seo", features: [] as string[], color: "from-green-500 to-emerald-500" },
-  { icon: Megaphone, href: "/services/ppc", features: [] as string[], color: "from-orange-500 to-amber-500" },
-  { icon: Workflow, href: "/services/digitalization", features: [] as string[], color: "from-primary to-accent" },
-  { icon: Palette, href: "/services/graphic-design", features: [] as string[], color: "from-pink-500 to-violet-500" },
+const getServices = (language: "EN" | "CZ" | "SK") => [
+  {
+    icon: Code2,
+    href: servicePath(language, "buildingWebsite"),
+    features: [] as string[],
+    color: "from-cyan-500 to-blue-500",
+    isHighlighted: true,
+    stats: [] as { value: string; label: string }[],
+  },
+  {
+    icon: ShoppingCart,
+    href: servicePath(language, "ecommerceWebsite"),
+    features: [] as string[],
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    icon: Search,
+    href: servicePath(language, "seo"),
+    features: [] as string[],
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    icon: Megaphone,
+    href: servicePath(language, "ppc"),
+    features: [] as string[],
+    color: "from-orange-500 to-amber-500",
+  },
+  {
+    icon: Workflow,
+    href: servicePath(language, "digitalization"),
+    features: [] as string[],
+    color: "from-primary to-accent",
+  },
+  {
+    icon: Palette,
+    href: servicePath(language, "graphicDesign"),
+    features: [] as string[],
+    color: "from-pink-500 to-violet-500",
+  },
 ];
 
 // --- helpers ---
@@ -337,7 +365,8 @@ const ServiceCard = ({
 
 const Services = () => {
   const s = useServicesLang();
-  const { language } = useLanguage(); // EN/CZ/SK
+  const { language } = useLanguage();
+  const services = getServices(language);
   const labels = uiLabels(language);
 
   const webDevService = services[0];
