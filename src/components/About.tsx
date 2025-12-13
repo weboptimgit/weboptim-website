@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Zap, Users, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const features = [
   {
@@ -27,38 +28,60 @@ const features = [
 ];
 
 const About = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Zap,
+      title: t("about.features.fast.title"),
+      description: t("about.features.fast.desc"),
+    },
+    {
+      icon: Users,
+      title: t("about.features.team.title"),
+      description: t("about.features.team.desc"),
+    },
+    {
+      icon: Clock,
+      title: t("about.features.ontime.title"),
+      description: t("about.features.ontime.desc"),
+    },
+    {
+      icon: Target,
+      title: t("about.features.results.title"),
+      description: t("about.features.results.desc"),
+    },
+  ];
+
   return (
     <section id="about" className="py-24 relative">
-      {/* Background glow */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">About Us</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+              {t("about.badge")}
+            </span>
+
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              We're a team of <span className="text-gradient">innovators</span>
+              {t("about.heading.before")} <span className="text-gradient">{t("about.heading.highlight")}</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              We’re a full-service digital agency helping brands grow through smart marketing, performance-driven
-              advertising, and scalable web solutions.
-            </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              From PPC and SEO to modern websites, we focus on what actually moves your business forward — no shortcuts,
-              no average results.
-            </p>
+
+            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">{t("about.p1")}</p>
+
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">{t("about.p2")}</p>
+
             <Link to="/about">
-              <Button size="lg">Learn More About Us</Button>
+              <Button size="lg">{t("about.cta")}</Button>
             </Link>
           </motion.div>
 
-          {/* Right Grid */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}

@@ -138,6 +138,26 @@ const translations: Record<Language, Record<string, string>> = {
     "graphic.portfolioDesc": "A selection of our recent graphic design projects",
     "graphic.pricing": "Transparent Pricing",
     "graphic.pricingDesc": "Choose the package that fits your needs",
+
+    // About section
+    "about.badge": "About Us",
+    "about.heading.before": "We're a team of",
+    "about.heading.highlight": "innovators",
+    "about.p1":
+      "We’re a full-service digital agency helping brands grow through smart marketing, performance-driven advertising, and scalable web solutions.",
+    "about.p2":
+      "From PPC and SEO to modern websites, we focus on what actually moves your business forward — no shortcuts, no average results.",
+    "about.cta": "Learn More About Us",
+
+    // About features
+    "about.features.fast.title": "Fast Delivery",
+    "about.features.fast.desc": "Quick turnaround without compromising quality",
+    "about.features.team.title": "Expert Team",
+    "about.features.team.desc": "Skilled professionals passionate about innovation",
+    "about.features.ontime.title": "On-Time Delivery",
+    "about.features.ontime.desc": "Projects delivered within agreed timelines",
+    "about.features.results.title": "Results Driven",
+    "about.features.results.desc": "Focused on achieving measurable outcomes",
   },
   CZ: {
     // Navbar
@@ -264,6 +284,26 @@ const translations: Record<Language, Record<string, string>> = {
     "graphic.portfolioDesc": "Výběr z našich nedávných grafických projektů",
     "graphic.pricing": "Transparentní ceny",
     "graphic.pricingDesc": "Vyberte si balíček podle svých potřeb",
+
+    // About section
+    "about.badge": "O nás",
+    "about.heading.before": "Jsme tým",
+    "about.heading.highlight": "inovátorů",
+    "about.p1":
+      "Jsme full-service digitální agentura, která pomáhá značkám růst díky chytrému marketingu, výkonnostní reklamě a škálovatelným webovým řešením.",
+    "about.p2":
+      "Od PPC a SEO po moderní weby – soustředíme se na to, co skutečně posouvá váš byznys vpřed. Bez zkratek, bez průměrných výsledků.",
+    "about.cta": "Zjistit více o nás",
+
+    // About features
+    "about.features.fast.title": "Rychlé dodání",
+    "about.features.fast.desc": "Rychlý turnaround bez kompromisů v kvalitě",
+    "about.features.team.title": "Zkušený tým",
+    "about.features.team.desc": "Profesionálové, kteří mají rádi inovace",
+    "about.features.ontime.title": "Včasné termíny",
+    "about.features.ontime.desc": "Dodáváme v domluvených termínech",
+    "about.features.results.title": "Na výsledky",
+    "about.features.results.desc": "Zaměřeno na měřitelné dopady",
   },
   SK: {
     // Navbar
@@ -391,6 +431,26 @@ const translations: Record<Language, Record<string, string>> = {
     "graphic.portfolioDesc": "Výber z našich nedávnych grafických projektov",
     "graphic.pricing": "Transparentné ceny",
     "graphic.pricingDesc": "Vyberte si balíček podľa svojich potrieb",
+
+    // About section
+    "about.badge": "O nás",
+    "about.heading.before": "Sme tím",
+    "about.heading.highlight": "inovátorov",
+    "about.p1":
+      "Sme full-service digitálna agentúra, ktorá pomáha značkám rásť vďaka smart marketingu, výkonnostnej reklame a škálovateľným webovým riešeniam.",
+    "about.p2":
+      "Od PPC a SEO po moderné weby – sústredíme sa na to, čo reálne posúva váš biznis vpred. Bez skratiek, bez priemerných výsledkov.",
+    "about.cta": "Zistiť viac o nás",
+
+    // About features
+    "about.features.fast.title": "Rýchle dodanie",
+    "about.features.fast.desc": "Rýchly turnaround bez kompromisov v kvalite",
+    "about.features.team.title": "Skúsený tím",
+    "about.features.team.desc": "Profesionáli, ktorých bavia inovácie",
+    "about.features.ontime.title": "Dodanie načas",
+    "about.features.ontime.desc": "Projekty dodávame v dohodnutých termínoch",
+    "about.features.results.title": "Zamerané na výsledky",
+    "about.features.results.desc": "Fokus na merateľné výstupy",
   },
 };
 
