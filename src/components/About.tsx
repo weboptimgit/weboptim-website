@@ -4,29 +4,6 @@ import { Zap, Users, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const features = [
-  {
-    icon: Zap,
-    title: "Fast Delivery",
-    description: "Quick turnaround without compromising quality",
-  },
-  {
-    icon: Users,
-    title: "Expert Team",
-    description: "Skilled professionals passionate about innovation",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    description: "Projects delivered within agreed timelines",
-  },
-  {
-    icon: Target,
-    title: "Results Driven",
-    description: "Focused on achieving measurable outcomes",
-  },
-];
-
 const About = () => {
   const { t } = useLanguage();
 
