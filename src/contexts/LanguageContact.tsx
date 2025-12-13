@@ -121,7 +121,7 @@ const translations: Record<Language, ContactLang> = {
     schema: {
       contactType: "customer service",
       availableLanguage: ["English", "Czech", "Slovak"],
-      telephone: "+420123456789",
+      telephone: "+420 776 292 799",
     },
   },
 
@@ -175,7 +175,7 @@ const translations: Record<Language, ContactLang> = {
     schema: {
       contactType: "zákaznická podpora",
       availableLanguage: ["Czech", "Slovak", "English"],
-      telephone: "+420123456789",
+      telephone: "+420 776 292 799",
     },
   },
 
@@ -229,7 +229,7 @@ const translations: Record<Language, ContactLang> = {
     schema: {
       contactType: "zákaznícka podpora",
       availableLanguage: ["Slovak", "Czech", "English"],
-      telephone: "+420123456789",
+      telephone: "+420 776 292 799",
     },
   },
 };
