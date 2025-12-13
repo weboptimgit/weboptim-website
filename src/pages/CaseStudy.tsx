@@ -15,6 +15,38 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+// Tech color mapping by category
+const getTechColor = (tech: string): string => {
+  const techLower = tech.toLowerCase();
+  
+  // Backend/Server languages
+  if (["php", "mysql", "rest api", "wp-cron"].includes(techLower)) {
+    return "bg-violet-500/20 text-violet-300 border-violet-500/30";
+  }
+  // JavaScript ecosystem
+  if (["javascript", "js", "typescript", "node.js"].includes(techLower)) {
+    return "bg-yellow-500/20 text-yellow-300 border-yellow-500/30";
+  }
+  // Markup & Styling
+  if (["html5", "html", "css3", "css", "responsive design"].includes(techLower)) {
+    return "bg-orange-500/20 text-orange-300 border-orange-500/30";
+  }
+  // CMS & Frameworks
+  if (["wordpress", "acf", "fluentforms", "oxygen"].includes(techLower)) {
+    return "bg-cyan-500/20 text-cyan-300 border-cyan-500/30";
+  }
+  // Payments & APIs
+  if (["stripe", "pdf generation"].includes(techLower)) {
+    return "bg-emerald-500/20 text-emerald-300 border-emerald-500/30";
+  }
+  // Design tools
+  if (["figma", "xd", "photoshop"].includes(techLower)) {
+    return "bg-pink-500/20 text-pink-300 border-pink-500/30";
+  }
+  // Default
+  return "bg-primary/20 text-primary border-primary/30";
+};
+
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
   const study = slug ? caseStudiesData[slug] : null;
@@ -100,7 +132,7 @@ const CaseStudy = () => {
               )}
 
               {/* Project Meta */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 <div className="glass rounded-xl p-4">
                   <Users className="w-5 h-5 text-primary mb-2" />
                   <div className="text-sm text-muted-foreground">Client</div>
@@ -120,6 +152,24 @@ const CaseStudy = () => {
                   <TrendingUp className="w-5 h-5 text-primary mb-2" />
                   <div className="text-sm text-muted-foreground">Team</div>
                   <div className="font-medium text-foreground">{study.team}</div>
+                </div>
+              </div>
+
+              {/* Tech Stack */}
+              <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-3">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {study.technologies.map((tech, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium border backdrop-blur-sm ${getTechColor(tech)}`}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -175,7 +225,7 @@ const CaseStudy = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-xl font-display font-bold mb-6">Services Provided</h3>
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4">
                 {study.services.map((service, index) => (
                   <div key={index} className="flex items-center gap-4 glass rounded-xl p-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -183,23 +233,6 @@ const CaseStudy = () => {
                     </div>
                     <span className="font-medium text-foreground">{service.label}</span>
                   </div>
-                ))}
-              </div>
-
-              {/* Tech Stack */}
-              <h3 className="text-xl font-display font-bold mb-4">Tech Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {study.technologies.map((tech, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="px-3 py-1.5 rounded-lg glass text-sm font-medium text-primary border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
-                  >
-                    {tech}
-                  </motion.span>
                 ))}
               </div>
             </motion.div>
