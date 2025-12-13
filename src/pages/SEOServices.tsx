@@ -24,7 +24,6 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { useSeoLang } from "@/contexts/LanguageSEO";
 import { buildPath } from "@/config/domains";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 // vizuálne farby nechávame v page (nemá sa prekladať)
 const seoServicesColors = [
@@ -114,9 +113,8 @@ const AnimatedRankings = () => {
 
 const SEOServices = () => {
   const s = useSeoLang();
-  const { language } = useLanguage();
-  const contactUrl = buildPath(language, "contact");
-  const workUrl = buildPath(language, "work");
+  const contactUrl = buildPath(s, "contact");
+  const workUrl = buildPath(s, "work");
 
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
