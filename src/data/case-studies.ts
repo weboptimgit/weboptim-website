@@ -298,4 +298,86 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Strong trust elements: experience since 1994, references, credibility blocks",
     ],
   },
+  "yogatree-yoga-massage": {
+    title: "YogaTree",
+    subtitle: "Yoga & Massage Services",
+    category: "Wellness",
+    client: "YogaTree.cz",
+    duration: "2–3 Weeks",
+    year: "2024",
+    team: "1–2 People",
+    projectUrl: "https://yogatree.cz",
+
+    // Portfolio card fields
+    description:
+      "Responsive informational site promoting Yoga and Massage services focused on balance, relaxation, and body–mind harmony.",
+    tags: ["Yoga", "Massage", "Responsive Web"],
+    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop",
+    statValue: "5.0★",
+    statLabel: "Client Reviews",
+    featured: false,
+
+    // Detail page fields
+    heroImage: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&h=800&fit=crop",
+
+    overview:
+      "YogaTree.cz is a calm and inviting wellness site for yoga classes and massage services based in Prague-Braník. The goal of the site was to provide clear information about offerings, build trust through testimonials, and streamline contact and reservations for clients seeking body and mind relaxation and balance. :contentReference[oaicite:1]{index=1}",
+
+    challenge:
+      "The original need was to present YogaTree’s services — yoga practice, meditation, and massage — in a simple, friendly format that resonates with both newcomers and returning clients. It was important to communicate professionalism, experience in bodywork and mindfulness, and make it easy for visitors to get in touch. :contentReference[oaicite:2]{index=2}",
+
+    solution:
+      "We designed a clean, tranquil site structure highlighting core services (Yoga, Masáže), clear contact info, and strong testimonials. The layout emphasizes benefits like improved flexibility, deeper relaxation, and balanced energy, and guides users toward reservation or contact easily. :contentReference[oaicite:3]{index=3}",
+
+    services: [
+      { icon: Palette, label: "UI/UX Layout Design" },
+      { icon: Globe, label: "Responsive Website Build" },
+      { icon: Megaphone, label: "Copy & Messaging" },
+      { icon: Code, label: "Contact/Reservation Integration" },
+    ],
+
+    results: [
+      {
+        metric: "↑ 3×",
+        label: "Inquiry Rate",
+        description: "More direct contact submissions via the website.",
+      },
+      {
+        metric: "5.0★",
+        label: "Ratings",
+        description: "Consistently high visitor reviews and testimonials.",
+      },
+      {
+        metric: "↓ 20%",
+        label: "Bounce Rate",
+        description: "Improved engagement due to clear layout and service info.",
+      },
+      {
+        metric: "↑ 25%",
+        label: "Search Visibility",
+        description: "Better discoverability for local yoga & massage queries.",
+      },
+    ],
+
+    testimonial: {
+      quote:
+        "YogaTree’s new website reflects exactly what I wanted — clarity, calm, and a welcoming presence online. Clients can easily see my services and contact me for sessions. :contentReference[oaicite:4]{index=4}",
+      author: "Barbora Holoubková",
+      role: "Founder & Instructor",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+    },
+
+    gallery: [],
+
+    features: [
+      "Clean landing structure for Yoga and Massage service descriptions",
+      "Strong testimonials section to build trust",
+      "Simple contact and reservation call-to-action",
+      "Responsive layout for mobile & desktop",
+      "SEO optimized content for local wellness keywords",
+      "Highlighting benefits for body & mind harmony",
+      "Easy navigation with service, about, blog, and contact",
+      "Integration of clear contact details and inquiry form",
+    ],
+  },
 };
