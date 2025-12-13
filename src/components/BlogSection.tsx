@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, User } from "lucide-react";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 const blogPosts = [
   {
     title: "10 Web Design Trends to Watch in 2024",
-    excerpt: "Discover the latest design trends that are shaping the digital landscape and how to implement them in your projects.",
+    excerpt:
+      "Discover the latest design trends that are shaping the digital landscape and how to implement them in your projects.",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
     author: "Sarah Mitchell",
     date: "Dec 5, 2024",
@@ -34,13 +37,13 @@ const blogPosts = [
 ];
 
 const BlogSection = () => {
+  const { t, language } = useLanguage();
+
   return (
     <section id="blog" className="py-24 relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,15 +52,15 @@ const BlogSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            <span className="text-foreground">Latest from Our </span>
-            <span className="text-gradient">Blog</span>
+            <span className="text-foreground">{t("blogSection.title.before")} </span>
+            <span className="text-gradient">{t("blogSection.title.highlight")}</span>
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Insights, tips, and industry news to help you stay ahead in the digital world.
+            {t("blogSection.subtitle")}
           </p>
         </motion.div>
 
-        {/* Blog Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {blogPosts.map((post, index) => (
             <motion.article
@@ -68,7 +71,6 @@ const BlogSection = () => {
               viewport={{ once: true }}
               className="glass rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-300"
             >
-              {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={post.image}
@@ -82,16 +84,12 @@ const BlogSection = () => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-6">
                 <h3 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {post.excerpt}
-                </p>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{post.excerpt}</p>
 
-                {/* Meta */}
                 <div className="flex items-center gap-4 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
@@ -107,7 +105,6 @@ const BlogSection = () => {
           ))}
         </div>
 
-        {/* View All Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,9 +112,9 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Link to="/blog">
+          <Link to={buildPath(language, "blog")}>
             <Button variant="glow" size="lg" className="group">
-              View All Articles
+              {t("blogSection.viewAll")}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
