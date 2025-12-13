@@ -24,6 +24,8 @@ import GlossaryTerm from "./pages/GlossaryTerm";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import PriceCalculator from "./pages/PriceCalculator";
+import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
+
 
 const queryClient = new QueryClient();
 
@@ -39,7 +41,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             
             {/* Services - EN, CZ, SK */}
-            <Route path="/services" element={<Services />} />
+            <Route path="/services" element={<ServicesLanguageProvider><Services /></ServicesLanguageProvider>} />
+            <Route path="/sluzby" element={<ServicesLanguageProvider><Services /></ServicesLanguageProvider>} />
             <Route path="/sluzby" element={<Services />} />
             <Route path="/services/building-website" element={<BuildingWebsite />} />
             <Route path="/sluzby/tvorba-webstranok" element={<BuildingWebsite />} />
