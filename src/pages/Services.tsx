@@ -20,8 +20,12 @@ import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 
-// ✅ NEW: services-only language
+// ✅ services-only language
 import { useServicesLang } from "@/contexts/LanguageServices";
+
+// ✅ only for paths + small UI labels (not page copy)
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 const techStack = [
   {
@@ -63,203 +67,204 @@ const techStack = [
 ];
 
 const services = [
-  {
-    icon: Code2,
-    // title/desc/feature/stats sa budú ťahať z contextu
-    href: "/services/building-website",
-    features: [] as string[],
-    color: "from-cyan-500 to-blue-500",
-    isHighlighted: true,
-    stats: [] as { value: string; label: string }[],
-  },
-  {
-    icon: ShoppingCart,
-    href: "/services/ecommerce-website",
-    features: [] as string[],
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Search,
-    href: "/services/seo",
-    features: [] as string[],
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: Megaphone,
-    href: "/services/ppc",
-    features: [] as string[],
-    color: "from-orange-500 to-amber-500",
-  },
-  {
-    icon: Workflow,
-    href: "/services/digitalization",
-    features: [] as string[],
-    color: "from-primary to-accent",
-  },
-  {
-    icon: Palette,
-    href: "/services/graphic-design",
-    features: [] as string[],
-    color: "from-pink-500 to-violet-500",
-  },
+  { icon: Code2, href: "/services/building-website", features: [] as string[], color: "from-cyan-500 to-blue-500", isHighlighted: true, stats: [] as { value: string; label: string }[] },
+  { icon: ShoppingCart, href: "/services/ecommerce-website", features: [] as string[], color: "from-purple-500 to-pink-500" },
+  { icon: Search, href: "/services/seo", features: [] as string[], color: "from-green-500 to-emerald-500" },
+  { icon: Megaphone, href: "/services/ppc", features: [] as string[], color: "from-orange-500 to-amber-500" },
+  { icon: Workflow, href: "/services/digitalization", features: [] as string[], color: "from-primary to-accent" },
+  { icon: Palette, href: "/services/graphic-design", features: [] as string[], color: "from-pink-500 to-violet-500" },
 ];
+
+// --- helpers ---
+const highlightLastWord = (text: string) => {
+  const parts = text.trim().split(/\s+/);
+  if (parts.length <= 1) return { before: text, highlight: "" };
+  return {
+    before: parts.slice(0, -1).join(" "),
+    highlight: parts[parts.length - 1],
+  };
+};
+
+const uiLabels = (lang: "EN" | "SK" | "CZ") => {
+  switch (lang) {
+    case "SK":
+      return {
+        techStack: "Technológie",
+        learnMore: "Zistiť viac",
+        startProject: "Začať projekt",
+      };
+    case "CZ":
+      return {
+        techStack: "Technologie",
+        learnMore: "Zjistit více",
+        startProject: "Začít projekt",
+      };
+    default:
+      return {
+        techStack: "Tech Stack",
+        learnMore: "Learn More",
+        startProject: "Start Project",
+      };
+  }
+};
 
 // Highlighted Web Development Card Component
 const WebDevCard = ({
   service,
   index,
   s,
+  lang,
 }: {
   service: (typeof services)[0];
   index: number;
   s: ReturnType<typeof useServicesLang>;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="lg:col-span-2 group"
-  >
-    <div className="relative glass rounded-3xl p-8 lg:p-10 overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+  lang: "EN" | "SK" | "CZ";
+}) => {
+  const labels = uiLabels(lang);
 
-      {/* Floating code elements */}
-      <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-        <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
-          <Braces className="w-16 h-16 text-primary" />
-        </motion.div>
-      </div>
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="lg:col-span-2 group"
+    >
+      <div className="relative glass rounded-3xl p-8 lg:p-10 overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="absolute bottom-4 right-20 opacity-10 group-hover:opacity-30 transition-opacity">
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 1 }}>
-          <Terminal className="w-12 h-12 text-cyan-400" />
-        </motion.div>
-      </div>
+        <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
+          <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
+            <Braces className="w-16 h-16 text-primary" />
+          </motion.div>
+        </div>
 
-      <div className="relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-          {/* Left side */}
-          <div className="flex-1">
-            <div className="flex items-center gap-4 mb-4">
-              <motion.div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))" }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <service.icon className="w-8 h-8 text-white" />
-              </motion.div>
+        <div className="absolute bottom-4 right-20 opacity-10 group-hover:opacity-30 transition-opacity">
+          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 1 }}>
+            <Terminal className="w-12 h-12 text-cyan-400" />
+          </motion.div>
+        </div>
 
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Sparkles className="w-4 h-4 text-amber-400" />
-                  <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
-                    {s.services.webDev.badge ?? "Most Popular"}
-                  </span>
+        <div className="relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-4 mb-4">
+                <motion.div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  style={{ background: "linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))" }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <service.icon className="w-8 h-8 text-white" />
+                </motion.div>
+
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
+                      {s.services.webDev.badge ?? "Most Popular"}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
+                    {s.services.webDev.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
-                  {s.services.webDev.title}
-                </h3>
               </div>
-            </div>
 
-            {s.services.webDev.subtitle && (
-              <p className="text-lg text-primary font-medium mb-3">{s.services.webDev.subtitle}</p>
-            )}
+              {s.services.webDev.subtitle && (
+                <p className="text-lg text-primary font-medium mb-3">{s.services.webDev.subtitle}</p>
+              )}
 
-            <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-              {s.services.webDev.description}
-            </p>
-
-            {/* Tech Stack Badges */}
-            <div className="mb-6">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                Tech Stack
+              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                {s.services.webDev.description}
               </p>
-              <div className="flex flex-wrap gap-2">
-                {techStack.map((tech, i) => (
-                  <motion.span
-                    key={tech.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+
+              <div className="mb-6">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
+                  {labels.techStack}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {techStack.map((tech, i) => (
+                    <motion.span
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 + i * 0.05 }}
+                      className="px-3 py-1.5 rounded-full text-xs font-medium border"
+                      style={{
+                        backgroundColor: tech.bgColor,
+                        color: tech.textColor,
+                        borderColor: tech.borderColor,
+                      }}
+                    >
+                      {tech.name}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                {s.services.webDev.features.map((feature, i) => (
+                  <motion.div
+                    key={i}
+                    className="flex items-center gap-2"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.1 + i * 0.05 }}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium border"
-                    style={{
-                      backgroundColor: tech.bgColor,
-                      color: tech.textColor,
-                      borderColor: tech.borderColor,
-                    }}
+                    transition={{ delay: 0.2 + i * 0.1 }}
                   >
-                    {tech.name}
-                  </motion.span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-foreground font-medium">{feature}</span>
+                  </motion.div>
                 ))}
               </div>
+
+              <Link to={service.href!}>
+                <Button variant="hero" size="lg" className="gap-2">
+                  <Rocket className="w-4 h-4" />
+                  {labels.startProject}
+                  <ArrowUpRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
 
-            {/* Features */}
-            <div className="grid sm:grid-cols-2 gap-3 mb-6">
-              {s.services.webDev.features.map((feature, i) => (
+            <div className="lg:w-64 flex lg:flex-col gap-4">
+              {s.services.webDev.stats?.map((stat, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-center gap-2"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.1 }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="flex-1 glass rounded-xl p-4 text-center border border-primary/10 hover:border-primary/30 transition-colors"
                 >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground font-medium">{feature}</span>
+                  <div className="text-2xl lg:text-3xl font-display font-bold text-gradient">{stat.value}</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
-
-            <Link to={service.href!}>
-              <Button variant="hero" size="lg" className="gap-2">
-                <Rocket className="w-4 h-4" />
-                {s.cta.button}
-                <ArrowUpRight className="w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-
-          {/* Right side - Stats */}
-          <div className="lg:w-64 flex lg:flex-col gap-4">
-            {s.services.webDev.stats?.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                className="flex-1 glass rounded-xl p-4 text-center border border-primary/10 hover:border-primary/30 transition-colors"
-              >
-                <div className="text-2xl lg:text-3xl font-display font-bold text-gradient">{stat.value}</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
-// Regular Service Card Component
 const ServiceCard = ({
   service,
   index,
   title,
   description,
   features,
+  learnMoreLabel,
 }: {
   service: (typeof services)[0];
   index: number;
   title: string;
   description: string;
   features: string[];
+  learnMoreLabel: string;
 }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -320,7 +325,7 @@ const ServiceCard = ({
               to={service.href}
               className="inline-flex items-center gap-2 mt-6 text-primary font-medium hover:gap-3 transition-all"
             >
-              Learn More
+              {learnMoreLabel}
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           )}
@@ -332,11 +337,12 @@ const ServiceCard = ({
 
 const Services = () => {
   const s = useServicesLang();
+  const { language } = useLanguage(); // EN/CZ/SK
+  const labels = uiLabels(language);
 
   const webDevService = services[0];
   const otherServices = services.slice(1);
 
-  // mapujeme preklady na poradie kariet (tak ako máš v services[])
   const otherCards = [
     s.services.ecommerce,
     s.services.seo,
@@ -344,6 +350,11 @@ const Services = () => {
     s.services.digitalization,
     s.services.graphic,
   ];
+
+  const heroTitle = highlightLastWord(s.hero.title);
+  const processTitle = highlightLastWord(s.process.title);
+
+  const contactPath = buildPath(language, "contact");
 
   return (
     <>
@@ -367,10 +378,8 @@ const Services = () => {
               </span>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                {s.hero.title.split(" ")[0]}{" "}
-                <span className="text-gradient">
-                  {s.hero.title.split(" ").slice(1).join(" ")}
-                </span>
+                {heroTitle.before}{" "}
+                {heroTitle.highlight && <span className="text-gradient">{heroTitle.highlight}</span>}
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -384,7 +393,7 @@ const Services = () => {
         <section className="py-16">
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-8">
-              <WebDevCard service={webDevService} index={0} s={s} />
+              <WebDevCard service={webDevService} index={0} s={s} lang={language} />
 
               {otherServices.map((service, index) => {
                 const copy = otherCards[index];
@@ -396,6 +405,7 @@ const Services = () => {
                     title={copy.title}
                     description={copy.description}
                     features={copy.features}
+                    learnMoreLabel={labels.learnMore}
                   />
                 );
               })}
@@ -415,10 +425,8 @@ const Services = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                {s.process.title.split(" ")[0]}{" "}
-                <span className="text-gradient">
-                  {s.process.title.split(" ").slice(1).join(" ")}
-                </span>
+                {processTitle.before}{" "}
+                {processTitle.highlight && <span className="text-gradient">{processTitle.highlight}</span>}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 {s.process.subtitle}
@@ -465,7 +473,7 @@ const Services = () => {
                 {s.cta.subtitle}
               </p>
 
-              <Link to="/contact">
+              <Link to={contactPath}>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
