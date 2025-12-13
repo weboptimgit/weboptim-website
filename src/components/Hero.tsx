@@ -5,6 +5,7 @@ import { ArrowRight, Sparkles, Star, Play, Rocket, Heart, Clock, Users } from "l
 import FloatingShapes from "./FloatingShapes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const { t, language } = useLanguage();
