@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Calendar, Clock, Users, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar, Clock, Users, TrendingUp, Sparkles, CheckCircle2, ArrowUp, ArrowDown, Zap, Star, Filter, FileText } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -258,20 +258,38 @@ const CaseStudy = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {study.results.map((result, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass rounded-2xl p-6 text-center group hover:border-primary/40 transition-all duration-300"
-              >
-                <div className="text-4xl md:text-5xl font-display font-bold text-gradient mb-2">{result.metric}</div>
-                <div className="text-lg font-medium text-foreground mb-2">{result.label}</div>
-                <div className="text-sm text-muted-foreground">{result.description}</div>
-              </motion.div>
-            ))}
+            {study.results.map((result, index) => {
+              // Render icon based on metric value
+              const renderMetricIcon = () => {
+                const metric = result.metric;
+                if (metric === "✓") return <CheckCircle2 className="w-10 h-10 text-primary" />;
+                if (metric === "↑") return <TrendingUp className="w-10 h-10 text-emerald-400" />;
+                if (metric === "↓") return <ArrowDown className="w-10 h-10 text-amber-400" />;
+                if (metric === "CSV") return <FileText className="w-10 h-10 text-secondary" />;
+                if (metric === "A–Z") return <Filter className="w-10 h-10 text-violet-400" />;
+                // For numeric metrics like "+180%", show as text
+                return <span className="text-4xl md:text-5xl font-display font-bold text-gradient">{metric}</span>;
+              };
+              
+              const isIconMetric = ["✓", "↑", "↓", "CSV", "A–Z"].includes(result.metric);
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="glass rounded-2xl p-6 text-center group hover:border-primary/40 transition-all duration-300"
+                >
+                  <div className={`mb-3 flex justify-center ${isIconMetric ? '' : ''}`}>
+                    {renderMetricIcon()}
+                  </div>
+                  <div className="text-lg font-medium text-foreground mb-2">{result.label}</div>
+                  <div className="text-sm text-muted-foreground">{result.description}</div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
