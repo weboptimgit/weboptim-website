@@ -133,6 +133,90 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Internal linking strategy between listings, cities, and provider profiles",
     ],
   },
+  "europeum-platform": {
+    title: "EUROPEUM",
+    subtitle: "Content Platform, Events & Advanced Filtering",
+    category: "Non-profit / Think Tank",
+    client: "EUROPEUM Institute for European Policy",
+    duration: "Ongoing",
+    year: "2024",
+    team: "2–3 Members",
+    projectUrl: "https://www.europeum.org/",
+
+    // Portfolio card fields
+    description:
+      "Large-scale content platform with events, publications, projects, and advanced filtering across dates, authors, categories, and languages.",
+    tags: ["WordPress", "Content Platform", "Custom Filtering"],
+    image: "https://www.europeum.org/wp-content/uploads/2021/10/europeum-logo.png",
+    statValue: "1000+",
+    statLabel: "Content Items",
+    featured: true,
+
+    // Detail page fields
+    heroImage: "https://www.europeum.org/wp-content/uploads/2021/10/europeum-logo.png",
+
+    overview:
+      "EUROPEUM is a multilingual think-tank platform publishing articles, events, analyses, policy papers, reports, and projects. The website serves as a central hub for public communication, expert content, and event promotion, requiring complex filtering and scalable content architecture.",
+
+    challenge:
+      "The platform needed to handle a large volume of content across multiple categories, authors, dates, and content types. Key challenges included advanced filtering (date ranges, authors, publication types), future-dated events, multilingual support, and maintaining performance with complex queries.",
+
+    solution:
+      "We built custom WordPress logic using advanced WP_Query configurations, GET-based filtering, and dynamic date queries. The platform supports past and future content, author-based filtering, publication type detection via search logic, and multilingual compatibility while keeping the UX intuitive and consistent.",
+
+    services: [
+      { icon: Code, label: "Custom WordPress Development" },
+      { icon: Globe, label: "Content Architecture & Data Modeling" },
+      { icon: Palette, label: "UI Logic for Large Content Sets" },
+      { icon: Megaphone, label: "UX for Filtering & Discovery" },
+    ],
+
+    technologies: ["WordPress", "PHP", "WP_Query", "MySQL", "JavaScript", "HTML5", "CSS3", "Polylang"],
+
+    results: [
+      {
+        metric: "✓",
+        label: "Advanced Filtering",
+        description: "Filtering by date ranges, authors, categories, and publication types",
+      },
+      {
+        metric: "✓",
+        label: "Future Content Support",
+        description: "Events and projects displayed using future post logic",
+      },
+      {
+        metric: "↑",
+        label: "Content Discoverability",
+        description: "Users can easily find relevant articles, events, and projects",
+      },
+      {
+        metric: "✓",
+        label: "Scalable Architecture",
+        description: "Platform ready for long-term content growth",
+      },
+    ],
+
+    testimonial: {
+      quote:
+        "The platform handles a large amount of content without losing clarity. Filtering, events, and publications work reliably and are easy to manage for our editorial team.",
+      author: "EUROPEUM",
+      role: "Institute Team",
+      avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+    },
+
+    gallery: [],
+
+    features: [
+      "Advanced GET-based filtering (dates, authors, categories)",
+      "Support for past and future-dated content",
+      "Custom publication type filtering via search logic",
+      "Author-centric content views with dynamic counters",
+      "Multilingual content handling (Polylang)",
+      "Pagination optimized for large datasets",
+      "Reusable filtering UI across events, articles, and projects",
+      "Performance-aware WP_Query configurations",
+    ],
+  },
   "duo-story-events": {
     title: "Duo Story Reservation System",
     subtitle: "Event Booking & Reservation Management",
