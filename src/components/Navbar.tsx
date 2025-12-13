@@ -29,9 +29,11 @@ const languages: { code: Language; label: string }[] = [
   { code: "SK", label: "Slovenčina" },
 ];
 
-const sp = (key: keyof typeof staticPageSlugs) => staticPageSlugs[key][language];
-
 const Navbar = () => {
+  const { language, t } = useLanguage();
+  const sp = (key: keyof typeof staticPageSlugs) =>
+    `/${staticPageSlugs[key][language]}`;
+  
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { language, t } = useLanguage();
