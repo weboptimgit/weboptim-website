@@ -228,7 +228,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.faq": "FAQ",
     "nav.glossary": "Slovník",
     "nav.contact": "Kontakt",
-    "nav.startProject": "Zahájit projekt",
+    "nav.startProject": "Nezávazná konzultace",
     "nav.viewAllServices": "Zobrazit všechny služby",
 
     // Services dropdown
@@ -422,7 +422,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.faq": "FAQ",
     "nav.glossary": "Slovník",
     "nav.contact": "Kontakt",
-    "nav.startProject": "Začať projekt",
+    "nav.startProject": "Nezáväzná konzultácia",
     "nav.viewAllServices": "Zobraziť všetky služby",
 
     // Services dropdown
