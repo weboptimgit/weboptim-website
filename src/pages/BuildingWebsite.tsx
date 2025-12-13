@@ -10,14 +10,9 @@ import {
   Zap,
   Globe,
   Shield,
-  Clock,
-  Users,
   TrendingUp,
   Star,
   ChevronRight,
-  Braces,
-  Terminal,
-  Database,
   Server,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,154 +24,53 @@ import { useRef, useState } from "react";
 import SEO from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
+
+// ✅ language contexts
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
 
-const webDevFaqs = [
-  {
-    question: "How long does it take to build a website?",
-    answer:
-      "Depending on complexity, a standard website takes 2-4 weeks. Complex e-commerce or custom functionality may take 6-8 weeks. We provide a detailed timeline during our initial consultation.",
-  },
-  {
-    question: "What CMS do you use?",
-    answer:
-      "We primarily work with WordPress and Oxygen Builder for most projects. For simpler sites, we also offer hand-coded solutions. The choice depends on your specific needs and future maintenance requirements.",
-  },
-  {
-    question: "Do you provide hosting?",
-    answer:
-      "We can recommend reliable hosting providers and help with setup. We also offer managed hosting solutions for clients who prefer a hands-off approach.",
-  },
-  {
-    question: "Will my website be mobile-friendly?",
-    answer:
-      "Absolutely! All our websites are fully responsive and optimized for all devices - desktops, tablets, and smartphones.",
-  },
-  {
-    question: "Do you offer ongoing maintenance?",
-    answer:
-      "Yes, we offer various maintenance packages including updates, security monitoring, backups, and content changes.",
-  },
+// ✅ localized routes
+import { buildPath } from "@/config/domains";
+
+/* -------------------- STATIC VISUAL DATA (non-translated) -------------------- */
+
+const metricsMeta = [
+  { icon: Server },
+  { icon: Zap },
+  { icon: Globe },
+  { icon: Star },
 ];
 
+// Keep brand names as-is; translate descriptions via bw.tech.descriptions.*
 const techStack = [
-  { name: "WordPress", icon: "W", description: "Powerful CMS", color: "from-blue-500 to-indigo-600" },
-  { name: "Oxygen Builder", icon: "O₂", description: "Visual builder", color: "from-cyan-400 to-teal-500" },
-  { name: "WooCommerce", icon: "🛒", description: "E-commerce ready", color: "from-violet-400 to-purple-600" },
-  { name: "PHP", icon: "🐘", description: "Custom functions", color: "from-indigo-400 to-blue-600" },
-  { name: "Performance", icon: "⚡", description: "Speed optimized", color: "from-yellow-400 to-orange-500" },
+  { key: "wordpress", name: "WordPress", icon: "W", color: "from-blue-500 to-indigo-600" },
+  { key: "oxygen", name: "Oxygen Builder", icon: "O₂", color: "from-cyan-400 to-teal-500" },
+  { key: "woocommerce", name: "WooCommerce", icon: "🛒", color: "from-violet-400 to-purple-600" },
+  { key: "php", name: "PHP", icon: "🐘", color: "from-indigo-400 to-blue-600" },
+  { key: "performance", name: "Performance", icon: "⚡", color: "from-yellow-400 to-orange-500" },
+] as const;
+
+const featureMeta = [
+  { icon: Palette, gradient: "from-pink-500 to-rose-500" },
+  { icon: Code2, gradient: "from-cyan-500 to-blue-500" },
+  { icon: Zap, gradient: "from-amber-500 to-orange-500" },
+  { icon: Shield, gradient: "from-emerald-500 to-green-500" },
 ];
 
-const metrics = [
-  { value: "99.9%", label: "Uptime", icon: Server },
-  { value: "<1s", label: "Load Time", icon: Zap },
-  { value: "100+", label: "Projects", icon: Globe },
-  { value: "5.0", label: "Rating", icon: Star },
+const processMeta = [
+  { icon: UsersIcon },
+  { icon: Layers },
+  { icon: Palette },
+  { icon: Code2 },
+  { icon: Shield },
+  { icon: Rocket },
 ];
 
-const features = [
-  {
-    icon: Palette,
-    title: "Pixel-Perfect Design",
-    description: "Every pixel matters. We craft stunning visuals that capture your brand essence and engage visitors.",
-    gradient: "from-pink-500 to-rose-500",
-  },
-  {
-    icon: Code2,
-    title: "Clean Architecture",
-    description:
-      "Maintainable, scalable code that grows with your business. No technical debt, just solid foundations.",
-    gradient: "from-cyan-500 to-blue-500",
-  },
-  {
-    icon: Zap,
-    title: "Blazing Performance",
-    description: "Sub-second load times, Core Web Vitals optimized. Your site will fly on any device.",
-    gradient: "from-amber-500 to-orange-500",
-  },
-  {
-    icon: Shield,
-    title: "Fort Knox Security",
-    description: "SSL, secure headers, input validation, and regular audits. Your data stays protected.",
-    gradient: "from-emerald-500 to-green-500",
-  },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Discovery Call",
-    description: "We dive deep into your business goals, target audience, and competitive landscape.",
-    duration: "1-2 days",
-    icon: Users,
-  },
-  {
-    step: "02",
-    title: "Strategy & Wireframes",
-    description: "Information architecture, user flows, and wireframes that map out your success.",
-    duration: "3-5 days",
-    icon: Layers,
-  },
-  {
-    step: "03",
-    title: "Design & Prototype",
-    description: "High-fidelity mockups with interactive prototypes for your approval.",
-    duration: "5-7 days",
-    icon: Palette,
-  },
-  {
-    step: "04",
-    title: "Development Sprint",
-    description: "Agile development with weekly demos. Watch your site come to life.",
-    duration: "2-4 weeks",
-    icon: Code2,
-  },
-  {
-    step: "05",
-    title: "Testing & QA",
-    description: "Rigorous testing across devices, browsers, and performance benchmarks.",
-    duration: "3-5 days",
-    icon: Shield,
-  },
-  {
-    step: "06",
-    title: "Launch & Beyond",
-    description: "Deployment, training, and ongoing support to ensure your success.",
-    duration: "Ongoing",
-    icon: Rocket,
-  },
-];
-
-const packages = [
-  {
-    name: "Starter",
-    description: "Perfect for small businesses",
-    price: "From €1,500",
-    features: ["5-7 pages", "Mobile responsive", "Basic SEO", "Contact form", "1 month support"],
-    popular: false,
-  },
-  {
-    name: "Professional",
-    description: "For growing businesses",
-    price: "From €3,500",
-    features: ["10-15 pages", "CMS integration", "Advanced SEO", "Analytics", "3 months support", "Blog setup"],
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    description: "Custom solutions",
-    price: "Custom",
-    features: [
-      "Unlimited pages",
-      "Custom features",
-      "API integrations",
-      "Priority support",
-      "Performance SLA",
-      "Dedicated team",
-    ],
-    popular: false,
-  },
-];
+function UsersIcon(props: any) {
+  // lucide Users is in your imports originally; keeping a small helper in case
+  // but you can replace with "Users" import if you prefer.
+  return <svg {...props} />;
+}
 
 // Animated code block component
 const AnimatedCodeBlock = () => {
@@ -193,14 +87,12 @@ const AnimatedCodeBlock = () => {
     <div className="relative">
       <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl" />
       <div className="relative glass rounded-xl p-6 font-mono text-sm overflow-hidden border border-primary/20">
-        {/* Window controls */}
         <div className="flex gap-2 mb-4">
           <div className="w-3 h-3 rounded-full bg-red-500/80" />
           <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
           <div className="w-3 h-3 rounded-full bg-green-500/80" />
         </div>
 
-        {/* Animated code */}
         <div className="space-y-2">
           <motion.div className="flex flex-wrap">
             {codeLines.map((part, i) => (
@@ -215,28 +107,33 @@ const AnimatedCodeBlock = () => {
               </motion.span>
             ))}
           </motion.div>
+
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="pl-4">
             <span className="text-green-400">design</span>
             <span className="text-white">: </span>
             <span className="text-amber-300">"stunning"</span>
             <span className="text-white">,</span>
           </motion.div>
+
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="pl-4">
             <span className="text-green-400">performance</span>
             <span className="text-white">: </span>
             <span className="text-amber-300">"blazing"</span>
             <span className="text-white">,</span>
           </motion.div>
+
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="pl-4">
             <span className="text-green-400">seo</span>
             <span className="text-white">: </span>
             <span className="text-purple-400">true</span>
             <span className="text-white">,</span>
           </motion.div>
+
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
             <span className="text-white">{"})"}</span>
             <span className="text-white">;</span>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
@@ -256,14 +153,18 @@ const BuildingWebsite = () => {
   const { scrollYProgress } = useScroll({ target: containerRef });
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [activeProcess, setActiveProcess] = useState(0);
-  const { t } = useLanguage();
+
+  const bw = useBuildingWebsiteLang();
+  const { language } = useLanguage();
+
+  // localized routes
+  const contactUrl = buildPath(language, "contact");
+  const workUrl = buildPath(language, "work");
 
   return (
     <>
-      <SEO
-        title="Web Development Services | WebOptim"
-        description="Custom web development services. We build stunning, fast, SEO-optimized websites that convert visitors into customers."
-      />
+      <SEO title={bw.seo.title} description={bw.seo.description} />
+
       <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
@@ -273,11 +174,7 @@ const BuildingWebsite = () => {
           <div className="container mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left - Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-              >
+              <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -285,13 +182,13 @@ const BuildingWebsite = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary text-sm font-medium mb-6"
                 >
                   <Sparkles className="w-4 h-4" />
-                  {t("webdev.badge")}
+                  {bw.hero.badge}
                 </motion.span>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-                  Websites that{" "}
+                  {bw.hero.titleBefore}{" "}
                   <span className="relative">
-                    <span className="text-gradient">convert</span>
+                    <span className="text-gradient">{bw.hero.titleHighlight}</span>
                     <motion.span
                       className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
                       initial={{ scaleX: 0 }}
@@ -300,44 +197,45 @@ const BuildingWebsite = () => {
                     />
                   </span>
                   <br />
-                  visitors into customers
+                  {bw.hero.titleAfter1}
                 </h1>
 
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  We don't just build websites – we engineer digital experiences that captivate, engage, and drive
-                  measurable business results. Lightning-fast, SEO-optimized, and built to scale.
-                </p>
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{bw.hero.subtitle}</p>
 
                 {/* Quick Stats */}
                 <div className="flex flex-wrap gap-6 mb-8">
-                  {metrics.map((metric, i) => (
-                    <motion.div
-                      key={metric.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 + i * 0.1 }}
-                      className="flex items-center gap-3"
-                    >
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <metric.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-gradient">{metric.value}</div>
-                        <div className="text-xs text-muted-foreground">{metric.label}</div>
-                      </div>
-                    </motion.div>
-                  ))}
+                  {bw.metrics.map((metric, i) => {
+                    const Icon = metricsMeta[i]?.icon ?? Globe;
+                    return (
+                      <motion.div
+                        key={`${metric.label}-${i}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 + i * 0.1 }}
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-xl font-bold text-gradient">{metric.value}</div>
+                          <div className="text-xs text-muted-foreground">{metric.label}</div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="hero" size="lg" asChild>
-                    <Link to="/contact">
-                      Start Your Project
+                    <Link to={contactUrl}>
+                      {bw.hero.ctaPrimary}
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
+
                   <Button variant="outline" size="lg" asChild>
-                    <Link to="/work">View Portfolio</Link>
+                    <Link to={workUrl}>{bw.hero.ctaSecondary}</Link>
                   </Button>
                 </div>
               </motion.div>
@@ -348,6 +246,7 @@ const BuildingWebsite = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
+                style={{ y }}
               >
                 <AnimatedCodeBlock />
 
@@ -362,8 +261,8 @@ const BuildingWebsite = () => {
                       <Check className="w-4 h-4 text-green-500" />
                     </div>
                     <div>
-                      <div className="text-xs font-medium">Build Passed</div>
-                      <div className="text-xs text-muted-foreground">2ms ago</div>
+                      <div className="text-xs font-medium">{bw.hero.statsBuildPassedTitle}</div>
+                      <div className="text-xs text-muted-foreground">{bw.hero.statsBuildPassedTime}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -378,8 +277,8 @@ const BuildingWebsite = () => {
                       <TrendingUp className="w-4 h-4 text-cyan-500" />
                     </div>
                     <div>
-                      <div className="text-xs font-medium">Performance</div>
-                      <div className="text-xs text-green-500 font-bold">100/100</div>
+                      <div className="text-xs font-medium">{bw.hero.statsPerformanceTitle}</div>
+                      <div className="text-xs text-green-500 font-bold">{bw.hero.statsPerformanceScore}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -398,51 +297,56 @@ const BuildingWebsite = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl font-display font-bold mb-2">Powered by Modern Tech</h2>
-              <p className="text-muted-foreground">We use the best tools for the job</p>
+              <h2 className="text-2xl font-display font-bold mb-2">{bw.tech.title}</h2>
+              <p className="text-muted-foreground">{bw.tech.subtitle}</p>
             </motion.div>
 
             <div className="flex flex-wrap justify-center gap-4">
-              {techStack.map((tech, i) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
-                >
-                  {/* Hover glow effect - match homepage services */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  />
+              {techStack.map((tech, i) => {
+                const desc =
+                  tech.key === "wordpress"
+                    ? bw.tech.descriptions.wordpress
+                    : tech.key === "oxygen"
+                      ? bw.tech.descriptions.oxygen
+                      : tech.key === "woocommerce"
+                        ? bw.tech.descriptions.woocommerce
+                        : tech.key === "php"
+                          ? bw.tech.descriptions.php
+                          : bw.tech.descriptions.performance;
 
-                  <div className="relative z-10 flex items-center gap-4">
-                    {/* Icon with gradient background */}
-                    <div className="relative">
-                      <div
-                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                      >
-                        {tech.icon}
-                        {/* Animated ring blur */}
+                return (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+
+                    <div className="relative z-10 flex items-center gap-4">
+                      <div className="relative">
                         <div
-                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                        />
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                        >
+                          {tech.icon}
+                          <div
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="text-left">
+                        <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
+                        <div className="text-xs text-muted-foreground">{desc}</div>
                       </div>
                     </div>
 
-                    <div className="text-left">
-                      <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
-                      <div className="text-xs text-muted-foreground">{tech.description}</div>
-                    </div>
-                  </div>
-
-                  {/* Corner decoration */}
-                  <div
-                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                  />
-                </motion.div>
-              ))}
+                    <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -457,55 +361,48 @@ const BuildingWebsite = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                What Makes Us <span className="text-gradient">Different</span>
+                {bw.features.titleBefore} <span className="text-gradient">{bw.features.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                We obsess over the details so you can focus on growing your business.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{bw.features.subtitle}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500"
-                >
-                  {/* Hover glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  />
+              {bw.features.items.map((feature, index) => {
+                const meta = featureMeta[index] ?? featureMeta[0];
+                const Icon = meta.icon;
+                return (
+                  <motion.div
+                    key={`${feature.title}-${index}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
-                  <div className="relative z-10">
-                    {/* Icon with gradient background */}
-                    <div className="relative mb-6">
-                      <div
-                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                      >
-                        <feature.icon className="w-8 h-8 text-white" />
-                        {/* Animated ring blur - match homepage services */}
+                    <div className="relative z-10">
+                      <div className="relative mb-6">
                         <div
-                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                        />
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                          <div
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                          />
+                        </div>
                       </div>
-                      {/* Animated ring blur */}
+
+                      <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </div>
 
-                    <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </div>
-
-                  {/* Corner decoration */}
-                  <div
-                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                  />
-                </motion.div>
-              ))}
+                    <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -520,45 +417,52 @@ const BuildingWebsite = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                From Idea to <span className="text-gradient">Launch</span>
+                {bw.process.titleBefore} <span className="text-gradient">{bw.process.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Our battle-tested process ensures predictable timelines and exceptional results.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{bw.process.subtitle}</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-3 gap-6">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  onMouseEnter={() => setActiveProcess(index)}
-                  className={`relative glass rounded-2xl p-6 cursor-default transition-all duration-300 ${
-                    activeProcess === index ? "border-primary/50 bg-primary/5" : ""
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
-                        activeProcess === index ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
-                      }`}
-                    >
-                      <step.icon className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-primary font-bold">STEP {step.step}</span>
-                        <span className="text-xs text-muted-foreground">{step.duration}</span>
+              {bw.process.steps.map((step, index) => {
+                const meta = processMeta[index] ?? processMeta[0];
+                const Icon = meta.icon as any;
+
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    onMouseEnter={() => setActiveProcess(index)}
+                    className={`relative glass rounded-2xl p-6 cursor-default transition-all duration-300 ${
+                      activeProcess === index ? "border-primary/50 bg-primary/5" : ""
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
+                          activeProcess === index ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+                        }`}
+                      >
+                        <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-lg font-display font-bold mb-2">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground">{step.description}</p>
+
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs text-primary font-bold">
+                            {bw.process.stepLabel} {step.step}
+                          </span>
+                          <span className="text-xs text-muted-foreground">{step.duration}</span>
+                        </div>
+
+                        <h3 className="text-lg font-display font-bold mb-2">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground">{step.description}</p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -573,18 +477,15 @@ const BuildingWebsite = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Transparent <span className="text-gradient">Pricing</span>
+                {bw.pricing.titleBefore} <span className="text-gradient">{bw.pricing.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Choose the package that fits your needs. All prices are starting points – we'll provide a custom quote
-                based on your requirements.
-              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{bw.pricing.subtitle}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {packages.map((pkg, index) => (
+              {bw.packages.map((pkg, index) => (
                 <motion.div
-                  key={pkg.name}
+                  key={`${pkg.name}-${index}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -594,7 +495,7 @@ const BuildingWebsite = () => {
                   {pkg.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <span className="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-bold">
-                        Most Popular
+                        {bw.pricing.popularBadge}
                       </span>
                     </div>
                   )}
@@ -606,17 +507,17 @@ const BuildingWebsite = () => {
                   </div>
 
                   <ul className="space-y-3 mb-6">
-                    {pkg.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm">
+                    {pkg.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm">
                         <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span>{feature}</span>
+                        <span>{f}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Button variant={pkg.popular ? "hero" : "outline"} className="w-full" asChild>
-                    <Link to="/contact">
-                      Get Started
+                    <Link to={contactUrl}>
+                      {bw.pricing.cta}
                       <ChevronRight className="w-4 h-4 ml-1" />
                     </Link>
                   </Button>
@@ -626,49 +527,44 @@ const BuildingWebsite = () => {
           </div>
         </section>
 
-        <ServiceReviews title="What Our Clients Say" subtitle="See what businesses say about their new websites." />
+        {/* Reviews + FAQ */}
+        <ServiceReviews title={bw.reviews.title} subtitle={bw.reviews.subtitle} />
+
         <ServiceFAQ
-          faqs={webDevFaqs}
-          serviceName="Web Development"
-          title="Frequently Asked Questions"
-          subtitle="Common questions about our web development services."
+          faqs={bw.faq.items}
+          serviceName={bw.faq.serviceName}
+          title={bw.faq.title}
+          subtitle={bw.faq.subtitle}
         />
 
-        {/* CTA Section */}
+        {/* Bottom CTA */}
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10" />
           <div className="container mx-auto px-6 relative z-10">
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               className="text-center max-w-3xl mx-auto"
             >
               <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Ready to Launch Your <span className="text-gradient">Dream Website</span>?
+                {bw.bottomCta.titleBefore} <span className="text-gradient">{bw.bottomCta.titleHighlight}</span>
+                {bw.bottomCta.titleAfter}
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Let's discuss your project and create something amazing together
-              </p>
+
+              <p className="text-lg text-muted-foreground mb-8">{bw.bottomCta.subtitle}</p>
+
               <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact">
+                <Link to={contactUrl}>
                   <Button size="lg" variant="hero">
-                    Get Free Consultation
+                    {bw.bottomCta.primary}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
-                <Link to="/work">
+                <Link to={workUrl}>
                   <Button size="lg" variant="outline">
-                    See Our Work
+                    {bw.bottomCta.secondary}
                   </Button>
                 </Link>
               </div>
