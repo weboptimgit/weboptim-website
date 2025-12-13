@@ -178,7 +178,7 @@ const SEOServices = () => {
                   </Link>
                 </Button>
                 <Button variant="outline" size="xl" asChild>
-                  <Link to={workUrl}{s.hero.ctaSecondary}</Link>
+                  <Link to={workUrl}>{s.hero.ctaSecondary}</Link>
                 </Button>
               </div>
             </motion.div>
