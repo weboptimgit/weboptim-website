@@ -41,6 +41,7 @@ export interface CaseStudy {
   challenge: string;
   solution: string;
   services: CaseStudyService[];
+  technologies: string[];
   results: CaseStudyResult[];
   testimonial: CaseStudyTestimonial;
   gallery: string[];
@@ -85,6 +86,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { icon: Globe, label: "Technical SEO" },
       { icon: Megaphone, label: "Conversion Optimization" },
     ],
+
+    technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3", "REST API"],
 
     results: [
       {
@@ -167,6 +170,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { icon: Palette, label: "UX Flow Design" },
       { icon: Megaphone, label: "Email & Messaging" },
     ],
+
+    technologies: ["PHP", "WordPress", "FluentForms", "ACF", "MySQL", "JavaScript", "WP-Cron", "HTML5", "CSS3"],
 
     results: [
       {
@@ -254,6 +259,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { icon: Code, label: "Custom Visual Portfolio" },
     ],
 
+    technologies: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "Figma"],
+
     results: [
       {
         metric: "↑ 45%",
@@ -334,6 +341,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { icon: Globe, label: "SK / CZ Localization" },
       { icon: Megaphone, label: "Payments & Automation" },
     ],
+
+    technologies: ["WordPress", "PHP", "Stripe", "FluentForms", "JavaScript", "HTML5", "CSS3", "PDF Generation"],
 
     results: [
       {
@@ -417,6 +426,8 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       { icon: Megaphone, label: "Copy & Messaging" },
       { icon: Code, label: "Contact/Reservation Integration" },
     ],
+
+    technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "Responsive Design"],
 
     results: [
       {
