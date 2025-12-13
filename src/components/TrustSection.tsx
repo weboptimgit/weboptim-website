@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
+import { buildPath } from "@/config/domains";
 
 const clientsRow1 = [
   { name: "TechCorp", logo: "TechCorp" },
@@ -29,6 +32,8 @@ const clientsRow2 = [
 ];
 
 const TrustSection = () => {
+  const { t, language } = useLanguage();
+
   return (
     <section className="py-24 relative overflow-hidden bg-card/30">
       {/* Section Header */}
@@ -40,11 +45,11 @@ const TrustSection = () => {
         className="text-center mb-16 px-6"
       >
         <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-          <span className="text-foreground">They </span>
-          <span className="text-gradient">Trust Us</span>
+          <span className="text-foreground">{t("trust.title.before")} </span>
+          <span className="text-gradient">{t("trust.title.highlight")}</span>
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          For years, we have been helping to meet the marketing goals of our clients in various industries.
+          {t("trust.subtitle")}
         </p>
       </motion.div>
 
@@ -88,10 +93,12 @@ const TrustSection = () => {
         viewport={{ once: true }}
         className="text-center px-6"
       >
-        <Button variant="hero" size="xl" className="group">
-          I Want to Become Your Client
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        <Link to={buildPath(language, "contact")}>
+          <Button variant="hero" size="xl" className="group">
+            {t("trust.cta")}
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </Link>
       </motion.div>
     </section>
   );
