@@ -18,8 +18,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+
+// ✅ NEW: services-only language
+import { useServicesLang } from "@/contexts/LanguageServices";
 
 const techStack = [
   {
@@ -40,7 +42,12 @@ const techStack = [
     textColor: "#c084fc",
     borderColor: "rgba(168, 85, 247, 0.3)",
   },
-  { name: "PHP", bgColor: "rgba(99, 102, 241, 0.2)", textColor: "#a5b4fc", borderColor: "rgba(99, 102, 241, 0.3)" },
+  {
+    name: "PHP",
+    bgColor: "rgba(99, 102, 241, 0.2)",
+    textColor: "#a5b4fc",
+    borderColor: "rgba(99, 102, 241, 0.3)",
+  },
   {
     name: "Clean Code",
     bgColor: "rgba(34, 197, 94, 0.2)",
@@ -58,68 +65,55 @@ const techStack = [
 const services = [
   {
     icon: Code2,
-    title: "Web Development",
-    subtitle: "From idea to launch in record time",
-    description: "Custom WordPress websites built with Oxygen Builder. Fast, scalable, and optimized for results.",
+    // title/desc/feature/stats sa budú ťahať z contextu
     href: "/services/building-website",
-    features: ["WordPress & Oxygen Builder", "Hand-coded themes", "Performance optimized", "99.9% uptime guarantee"],
+    features: [] as string[],
     color: "from-cyan-500 to-blue-500",
     isHighlighted: true,
-    stats: [
-      { value: "100+", label: "Projects Delivered" },
-      { value: "<1s", label: "Load Time" },
-      { value: "100%", label: "Mobile-First" },
-    ],
+    stats: [] as { value: string; label: string }[],
   },
   {
     icon: ShoppingCart,
-    title: "E-Commerce",
-    description: "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions.",
     href: "/services/ecommerce-website",
-    features: ["WooCommerce & Shoptet", "Custom checkout flows", "Payment integrations", "Inventory management"],
+    features: [] as string[],
     color: "from-purple-500 to-pink-500",
   },
   {
     icon: Search,
-    title: "SEO Services",
-    description: "Boost your search rankings and drive organic traffic with proven SEO strategies.",
     href: "/services/seo",
-    features: [
-      "Keyword research & analysis",
-      "Link building campaigns",
-      "Local SEO optimization",
-      "Technical SEO audits",
-    ],
+    features: [] as string[],
     color: "from-green-500 to-emerald-500",
   },
   {
     icon: Megaphone,
-    title: "PPC & Advertising",
-    description: "Strategic paid campaigns on Google and social media that drive qualified traffic and leads.",
     href: "/services/ppc",
-    features: ["Google Ads management", "Meta & social ads", "Remarketing campaigns", "ROI tracking & reports"],
+    features: [] as string[],
     color: "from-orange-500 to-amber-500",
   },
   {
     icon: Workflow,
-    title: "Digitalization",
-    description: "Automate your business with CRM, cloud tools, and workflow automation solutions.",
     href: "/services/digitalization",
-    features: ["CRM implementation", "Workflow automation", "Cloud integrations", "Process optimization"],
+    features: [] as string[],
     color: "from-primary to-accent",
   },
   {
     icon: Palette,
-    title: "Graphic Design",
-    description: "Eye-catching digital and print graphics from logos to brochures and marketing materials.",
     href: "/services/graphic-design",
-    features: ["Corporate identity", "Print & digital graphics", "Marketing materials", "Packaging design"],
+    features: [] as string[],
     color: "from-pink-500 to-violet-500",
   },
 ];
 
 // Highlighted Web Development Card Component
-const WebDevCard = ({ service, index }: { service: (typeof services)[0]; index: number }) => (
+const WebDevCard = ({
+  service,
+  index,
+  s,
+}: {
+  service: (typeof services)[0];
+  index: number;
+  s: ReturnType<typeof useServicesLang>;
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -157,21 +151,33 @@ const WebDevCard = ({ service, index }: { service: (typeof services)[0]; index: 
               >
                 <service.icon className="w-8 h-8 text-white" />
               </motion.div>
+
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <Sparkles className="w-4 h-4 text-amber-400" />
-                  <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">Most Popular</span>
+                  <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
+                    {s.services.webDev.badge ?? "Most Popular"}
+                  </span>
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-display font-bold text-foreground">{service.title}</h3>
+                <h3 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
+                  {s.services.webDev.title}
+                </h3>
               </div>
             </div>
 
-            <p className="text-lg text-primary font-medium mb-3">{service.subtitle}</p>
-            <p className="text-muted-foreground mb-6 text-lg leading-relaxed">{service.description}</p>
+            {s.services.webDev.subtitle && (
+              <p className="text-lg text-primary font-medium mb-3">{s.services.webDev.subtitle}</p>
+            )}
+
+            <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+              {s.services.webDev.description}
+            </p>
 
             {/* Tech Stack Badges */}
             <div className="mb-6">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Tech Stack</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
+                Tech Stack
+              </p>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech, i) => (
                   <motion.span
@@ -195,7 +201,7 @@ const WebDevCard = ({ service, index }: { service: (typeof services)[0]; index: 
 
             {/* Features */}
             <div className="grid sm:grid-cols-2 gap-3 mb-6">
-              {service.features.map((feature, i) => (
+              {s.services.webDev.features.map((feature, i) => (
                 <motion.div
                   key={i}
                   className="flex items-center gap-2"
@@ -213,7 +219,7 @@ const WebDevCard = ({ service, index }: { service: (typeof services)[0]; index: 
             <Link to={service.href!}>
               <Button variant="hero" size="lg" className="gap-2">
                 <Rocket className="w-4 h-4" />
-                Start Your Project
+                {s.cta.button}
                 <ArrowUpRight className="w-4 h-4" />
               </Button>
             </Link>
@@ -221,7 +227,7 @@ const WebDevCard = ({ service, index }: { service: (typeof services)[0]; index: 
 
           {/* Right side - Stats */}
           <div className="lg:w-64 flex lg:flex-col gap-4">
-            {service.stats?.map((stat, i) => (
+            {s.services.webDev.stats?.map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -242,7 +248,19 @@ const WebDevCard = ({ service, index }: { service: (typeof services)[0]; index: 
 );
 
 // Regular Service Card Component
-const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index: number }) => (
+const ServiceCard = ({
+  service,
+  index,
+  title,
+  description,
+  features,
+}: {
+  service: (typeof services)[0];
+  index: number;
+  title: string;
+  description: string;
+  features: string[];
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -271,10 +289,11 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
         >
           <service.icon className="w-8 h-8 text-white" />
         </div>
+
         <div className="flex-1">
           <div className="flex items-start justify-between mb-3">
             <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
-              {service.title}
+              {title}
             </h3>
             {service.href && (
               <Link to={service.href} className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -284,15 +303,18 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
               </Link>
             )}
           </div>
-          <p className="text-muted-foreground mb-6">{service.description}</p>
+
+          <p className="text-muted-foreground mb-6">{description}</p>
+
           <div className="grid grid-cols-2 gap-2">
-            {service.features.map((feature, i) => (
+            {features.map((feature, i) => (
               <div key={i} className="flex items-center gap-2 text-sm">
                 <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                 <span className="text-muted-foreground">{feature}</span>
               </div>
             ))}
           </div>
+
           {service.href && (
             <Link
               to={service.href}
@@ -309,9 +331,19 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
 );
 
 const Services = () => {
-  const { t } = useLanguage();
-  const webDevService = services[0]; // First service is Web Development
+  const s = useServicesLang();
+
+  const webDevService = services[0];
   const otherServices = services.slice(1);
+
+  // mapujeme preklady na poradie kariet (tak ako máš v services[])
+  const otherCards = [
+    s.services.ecommerce,
+    s.services.seo,
+    s.services.ppc,
+    s.services.digitalization,
+    s.services.graphic,
+  ];
 
   return (
     <>
@@ -331,14 +363,18 @@ const Services = () => {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                What We Offer
+                {s.hero.badge}
               </span>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                Our <span className="text-gradient">Services</span>
+                {s.hero.title.split(" ")[0]}{" "}
+                <span className="text-gradient">
+                  {s.hero.title.split(" ").slice(1).join(" ")}
+                </span>
               </h1>
+
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive digital solutions tailored to your unique needs, helping businesses thrive in the modern
-                digital landscape.
+                {s.hero.subtitle}
               </p>
             </motion.div>
           </div>
@@ -348,13 +384,21 @@ const Services = () => {
         <section className="py-16">
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Highlighted Web Development Card */}
-              <WebDevCard service={webDevService} index={0} />
+              <WebDevCard service={webDevService} index={0} s={s} />
 
-              {/* Other Services */}
-              {otherServices.map((service, index) => (
-                <ServiceCard key={index} service={service} index={index + 1} />
-              ))}
+              {otherServices.map((service, index) => {
+                const copy = otherCards[index];
+                return (
+                  <ServiceCard
+                    key={index}
+                    service={service}
+                    index={index + 1}
+                    title={copy.title}
+                    description={copy.description}
+                    features={copy.features}
+                  />
+                );
+              })}
             </div>
           </div>
         </section>
@@ -371,20 +415,18 @@ const Services = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Our <span className="text-gradient">Process</span>
+                {s.process.title.split(" ")[0]}{" "}
+                <span className="text-gradient">
+                  {s.process.title.split(" ").slice(1).join(" ")}
+                </span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                A proven approach to delivering exceptional results
+                {s.process.subtitle}
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { step: "01", title: "Discovery", desc: "Understanding your goals and requirements" },
-                { step: "02", title: "Strategy", desc: "Planning the perfect solution" },
-                { step: "03", title: "Development", desc: "Building with precision and care" },
-                { step: "04", title: "Launch", desc: "Deploying and optimizing for success" },
-              ].map((item, index) => (
+              {s.process.steps.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -396,7 +438,9 @@ const Services = () => {
                   <div className="text-5xl font-display font-bold text-primary/20 group-hover:text-primary/40 transition-colors mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-lg font-display font-bold text-foreground mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-display font-bold text-foreground mb-2">
+                    {item.title}
+                  </h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </motion.div>
               ))}
@@ -414,17 +458,20 @@ const Services = () => {
               transition={{ duration: 0.6 }}
               className="glass rounded-3xl p-12 text-center max-w-3xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to Get Started?</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                {s.cta.title}
+              </h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                Let's discuss your project and find the perfect solution for your business needs.
+                {s.cta.subtitle}
               </p>
+
               <Link to="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-primary text-primary-foreground font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300"
                 >
-                  Contact Us
+                  {s.cta.button}
                   <ArrowUpRight className="w-5 h-5" />
                 </motion.button>
               </Link>
