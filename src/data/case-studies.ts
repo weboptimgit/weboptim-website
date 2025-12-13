@@ -239,7 +239,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     heroImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&h=800&fit=crop",
 
     overview:
-      "Kimbau is a well-established construction firm operating since 1994, delivering high-quality reconstruction and construction services across Prague and surrounding regions. Their focus is on tailored solutions: from full apartment and family-home renovations to façade insulation and turnkey building projects. :contentReference[oaicite:1]{index=1}",
+      "Kimbau is a well-established construction firm operating since 1994, delivering high-quality reconstruction and construction services across Prague and surrounding regions. Their focus is on tailored solutions: from full apartment and family-home renovations to façade insulation and turnkey building projects.",
 
     challenge:
       "Clients faced fragmented contractors with inconsistent timelines, unclear cost structures and poorly integrated project communication. Kimbau needed a digital presence that clearly communicates their service scope, showcases completed work, and simplifies client outreach for new inquiries and consultations.",
@@ -321,13 +321,13 @@ export const caseStudiesData: Record<string, CaseStudy> = {
     heroImage: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&h=800&fit=crop",
 
     overview:
-      "YogaTree.cz is a calm and inviting wellness site for yoga classes and massage services based in Prague-Braník. The goal of the site was to provide clear information about offerings, build trust through testimonials, and streamline contact and reservations for clients seeking body and mind relaxation and balance. :contentReference[oaicite:1]{index=1}",
+      "YogaTree.cz is a calm and inviting wellness site for yoga classes and massage services based in Prague-Braník. The goal of the site was to provide clear information about offerings, build trust through testimonials, and streamline contact and reservations for clients seeking body and mind relaxation and balance.",
 
     challenge:
-      "The original need was to present YogaTree’s services — yoga practice, meditation, and massage — in a simple, friendly format that resonates with both newcomers and returning clients. It was important to communicate professionalism, experience in bodywork and mindfulness, and make it easy for visitors to get in touch. :contentReference[oaicite:2]{index=2}",
+      "The original need was to present YogaTree’s services — yoga practice, meditation, and massage — in a simple, friendly format that resonates with both newcomers and returning clients. It was important to communicate professionalism, experience in bodywork and mindfulness, and make it easy for visitors to get in touch.",
 
     solution:
-      "We designed a clean, tranquil site structure highlighting core services (Yoga, Masáže), clear contact info, and strong testimonials. The layout emphasizes benefits like improved flexibility, deeper relaxation, and balanced energy, and guides users toward reservation or contact easily. :contentReference[oaicite:3]{index=3}",
+      "We designed a clean, tranquil site structure highlighting core services (Yoga, Masáže), clear contact info, and strong testimonials. The layout emphasizes benefits like improved flexibility, deeper relaxation, and balanced energy, and guides users toward reservation or contact easily.",
 
     services: [
       { icon: Palette, label: "UI/UX Layout Design" },
@@ -361,7 +361,7 @@ export const caseStudiesData: Record<string, CaseStudy> = {
 
     testimonial: {
       quote:
-        "YogaTree’s new website reflects exactly what I wanted — clarity, calm, and a welcoming presence online. Clients can easily see my services and contact me for sessions. :contentReference[oaicite:4]{index=4}",
+        "YogaTree’s new website reflects exactly what I wanted — clarity, calm, and a welcoming presence online. Clients can easily see my services and contact me for sessions.",
       author: "Barbora Holoubková",
       role: "Founder & Instructor",
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
