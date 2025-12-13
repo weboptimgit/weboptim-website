@@ -8,6 +8,7 @@ import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { getLanguageSwitchUrl } from "@/config/domains";
 import { useSlugMappings } from "@/hooks/useSlugMappings";
 import { staticPageSlugs } from "@/config/domains";
+import { servicePath, buildPath } from "@/config/domains";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -61,37 +62,37 @@ const Navbar = () => {
       icon: Code2,
       title: t("services.webDev"),
       description: t("services.webDevDesc"),
-      href: "/services/building-website",
+      href: servicePath(language, "buildingWebsite"),
     },
     {
       icon: ShoppingCart,
       title: t("services.ecommerce"),
       description: t("services.ecommerceDesc"),
-      href: "/services/ecommerce-website",
+      href: servicePath(language, "ecommerceWebsite"),
     },
     {
       icon: Search,
       title: t("services.seo"),
       description: t("services.seoDesc"),
-      href: "/services/seo",
+      href: servicePath(language, "seo"),
     },
     {
       icon: Target,
       title: t("services.ppc"),
       description: t("services.ppcDesc"),
-      href: "/services/ppc",
+      href: servicePath(language, "ppc"),
     },
     {
       icon: Cpu,
       title: t("services.digitalization"),
       description: t("services.digitalizationDesc"),
-      href: "/services/digitalization",
+      href: servicePath(language, "digitalization"),
     },
     {
       icon: Palette,
       title: t("services.graphic"),
       description: t("services.graphicDesc"),
-      href: "/services/graphic-design",
+      href: servicePath(language, "graphicDesign"),
     },
   ];
 
@@ -145,7 +146,7 @@ const Navbar = () => {
                       </div>
                       <div className="mt-4 pt-4 border-t border-border">
                         <Link
-                          to={sp("services")}
+                          <Link to={buildPath(language, "services")}>
                           className="flex items-center justify-center gap-2 py-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
                         >
                           {t("nav.viewAllServices")}
