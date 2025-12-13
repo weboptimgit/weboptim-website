@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Calendar, Clock, Users, TrendingUp, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar, Clock, Users, TrendingUp, Sparkles } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -299,7 +299,7 @@ const CaseStudy = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="flex items-center gap-4 glass rounded-xl p-4"
               >
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
                 <span className="text-foreground">{feature}</span>
               </motion.div>
             ))}
