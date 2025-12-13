@@ -2,65 +2,13 @@ import { motion } from "framer-motion";
 import { Code2, Search, ShoppingCart, Megaphone, Workflow, Palette, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    icon: Code2,
-    title: "Web Development",
-    description: "Custom WordPress websites with Oxygen Builder. Fast, scalable, and optimized for performance.",
-    href: "/services/building-website",
-    gradient: "from-brandBlue to-brandCyan",
-    accent: "blue",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce",
-    description: "Powerful WooCommerce stores with seamless checkout experiences that maximize conversions.",
-    href: "/services/ecommerce-website",
-    gradient: "from-brandPurple to-pink-400",
-    accent: "purple",
-  },
-  {
-    icon: Search,
-    title: "SEO Services",
-    description: "Boost your rankings with keyword research, link building, and local SEO strategies.",
-    href: "/services/seo",
-    gradient: "from-emerald-500 to-teal-400",
-    accent: "emerald",
-  },
-  {
-    icon: Megaphone,
-    title: "PPC & Advertising",
-    description: "Strategic paid campaigns on Google and social media that drive qualified traffic and leads.",
-    href: "/services/ppc",
-    gradient: "from-orange-500 to-amber-400",
-    accent: "orange",
-  },
-  {
-    icon: Workflow,
-    title: "Digitalization",
-    description: "Automate your business with CRM, cloud tools, and workflow automation solutions.",
-    href: "/services/digitalization",
-    gradient: "from-primary to-accent",
-    accent: "primary",
-  },
-  {
-    icon: Palette,
-    title: "Graphic Design",
-    description: "Eye-catching digital and print graphics from logos to brochures and marketing materials.",
-    href: "/services/graphic-design",
-    gradient: "from-pink-500 to-violet-400",
-    accent: "pink",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -74,6 +22,59 @@ const itemVariants = {
 };
 
 const Services = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: Code2,
+      title: t("services.card.webDev.title"),
+      description: t("services.card.webDev.desc"),
+      href: "/services/building-website",
+      gradient: "from-brandBlue to-brandCyan",
+      accent: "blue",
+    },
+    {
+      icon: ShoppingCart,
+      title: t("services.card.ecom.title"),
+      description: t("services.card.ecom.desc"),
+      href: "/services/ecommerce-website",
+      gradient: "from-brandPurple to-pink-400",
+      accent: "purple",
+    },
+    {
+      icon: Search,
+      title: t("services.card.seo.title"),
+      description: t("services.card.seo.desc"),
+      href: "/services/seo",
+      gradient: "from-emerald-500 to-teal-400",
+      accent: "emerald",
+    },
+    {
+      icon: Megaphone,
+      title: t("services.card.ppc.title"),
+      description: t("services.card.ppc.desc"),
+      href: "/services/ppc",
+      gradient: "from-orange-500 to-amber-400",
+      accent: "orange",
+    },
+    {
+      icon: Workflow,
+      title: t("services.card.digital.title"),
+      description: t("services.card.digital.desc"),
+      href: "/services/digitalization",
+      gradient: "from-primary to-accent",
+      accent: "primary",
+    },
+    {
+      icon: Palette,
+      title: t("services.card.graphic.title"),
+      description: t("services.card.graphic.desc"),
+      href: "/services/graphic-design",
+      gradient: "from-pink-500 to-violet-400",
+      accent: "pink",
+    },
+  ];
+
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       {/* Background decoration */}
@@ -98,18 +99,19 @@ const Services = () => {
             viewport={{ once: true }}
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-primary font-medium text-sm">What We Do</span>
+            <span className="text-primary font-medium text-sm">{t("servicesSection.badge")}</span>
           </motion.div>
+
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            Services that <span className="text-gradient">elevate</span> your brand
+            {t("servicesSection.title")}
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            We offer comprehensive digital solutions tailored to your unique needs, helping businesses thrive in the
-            modern digital landscape.
+            {t("servicesSection.subtitle")}
           </p>
         </motion.div>
 
-        {/* Services Grid - Featured layout */}
+        {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -123,17 +125,14 @@ const Services = () => {
                 to={service.href}
                 className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer block h-full overflow-hidden"
               >
-                {/* Hover glow effect */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
 
-                {/* Icon with gradient background */}
                 <div
                   className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
                 >
                   <service.icon className="w-8 h-8 text-white" />
-                  {/* Animated ring */}
                   <div
                     className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
                   />
@@ -142,15 +141,16 @@ const Services = () => {
                 <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="relative text-muted-foreground leading-relaxed mb-6">{service.description}</p>
 
-                {/* Arrow indicator */}
+                <p className="relative text-muted-foreground leading-relaxed mb-6">
+                  {service.description}
+                </p>
+
                 <div className="relative flex items-center text-primary font-medium">
-                  <span className="text-sm">Learn More</span>
+                  <span className="text-sm">{t("servicesSection.learnMore")}</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
 
-                {/* Corner decoration */}
                 <div
                   className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
                 />
@@ -169,7 +169,7 @@ const Services = () => {
         >
           <Link to="/services">
             <Button size="lg" variant="hero" className="group">
-              View All Services
+              {t("servicesSection.viewAll")}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
