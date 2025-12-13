@@ -115,7 +115,8 @@ const AnimatedRankings = () => {
 const SEOServices = () => {
   const s = useSeoLang();
   const lang = getLanguageFromDomain();
-  const r = routes(lang);
+  const { language } = useLanguage();
+  const r = useRoutes(language);
 
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
