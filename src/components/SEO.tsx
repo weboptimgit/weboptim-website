@@ -260,19 +260,18 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
   const finalTitle = title || seoData?.title || "WebOptim";
   const finalDescription = description || seoData?.description || "";
   const currentDomain = domainConfig[language];
-  const currentUrl = typeof window !== "undefined" ? window.location.href : currentDomain;
+  const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
   const canonicalUrl = `${currentDomain}${currentPath}`;
   const defaultImage = `${currentDomain}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`;
   const finalImage = image || defaultImage;
 
   useEffect(() => {
-    // Set document title
     document.title = finalTitle;
-    // Set <html lang="..."> based on current language
+
+    // <html lang="">
     const htmlLang = language === "CZ" ? "cs" : language === "SK" ? "sk" : "en";
     document.documentElement.setAttribute("lang", htmlLang);
-    
-    // Helper to set or create meta tag
+
     const setMeta = (name: string, content: string, property = false) => {
       const attr = property ? "property" : "name";
       let meta = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement;
@@ -284,44 +283,39 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
       meta.content = content;
     };
 
-    // Helper to set or create link tag
     const setLink = (rel: string, href: string, additionalAttrs?: Record<string, string>) => {
-      const selector = additionalAttrs 
-        ? `link[rel="${rel}"]${Object.entries(additionalAttrs).map(([k, v]) => `[${k}="${v}"]`).join('')}`
+      const selector = additionalAttrs
+        ? `link[rel="${rel}"]${Object.entries(additionalAttrs).map(([k, v]) => `[${k}="${v}"]`).join("")}`
         : `link[rel="${rel}"]`;
       let link = document.querySelector(selector) as HTMLLinkElement;
       if (!link) {
         link = document.createElement("link");
         link.rel = rel;
         if (additionalAttrs) {
-          Object.entries(additionalAttrs).forEach(([key, value]) => {
-            link.setAttribute(key, value);
-          });
+          Object.entries(additionalAttrs).forEach(([key, value]) => link.setAttribute(key, value));
         }
         document.head.appendChild(link);
       }
       link.href = href;
     };
 
-    // Basic meta tags
+    // Basic meta
     setMeta("description", finalDescription);
-    
-    // Remove any existing robots tags
+
     document.querySelectorAll('meta[name="robots"]').forEach(m => m.remove());
     document.querySelectorAll('meta[name="googlebot"]').forEach(m => m.remove());
-    
-    // Global NOINDEX (remove this when ready to go live)
+
     const robots = document.createElement("meta");
     robots.name = "robots";
     robots.content = "noindex, nofollow";
     document.head.appendChild(robots);
-    
+
     const googlebot = document.createElement("meta");
     googlebot.name = "googlebot";
     googlebot.content = "noindex, nofollow";
     document.head.appendChild(googlebot);
 
-    // Open Graph tags
+    // Open Graph
     setMeta("og:title", finalTitle, true);
     setMeta("og:description", finalDescription, true);
     setMeta("og:url", canonicalUrl, true);
@@ -330,13 +324,13 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
     setMeta("og:site_name", "WebOptim", true);
     setMeta("og:locale", language === "CZ" ? "cs_CZ" : language === "SK" ? "sk_SK" : "en_US", true);
 
-    // Twitter Card tags
+    // Twitter
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", finalTitle);
     setMeta("twitter:description", finalDescription);
     setMeta("twitter:image", finalImage);
 
-    // Set canonical URL
+    // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
       canonical = document.createElement("link");
@@ -345,24 +339,18 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
     }
     canonical.href = canonicalUrl;
 
-    // Update hreflang tags for current page
-    const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
-    
     const hrefEn = getLanguageSwitchUrl("EN", currentPath);
     const hrefCz = getLanguageSwitchUrl("CZ", currentPath);
     const hrefSk = getLanguageSwitchUrl("SK", currentPath);
-    
+
     setLink("alternate", hrefEn, { hreflang: "en" });
     setLink("alternate", hrefCz, { hreflang: "cs" });
     setLink("alternate", hrefSk, { hreflang: "sk" });
     setLink("alternate", hrefEn, { hreflang: "x-default" });
 
-    // Handle JSON-LD structured data
-    // Remove existing JSON-LD scripts
-    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-    existingScripts.forEach((script) => script.remove());
+    // JSON-LD
+    document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => script.remove());
 
-    // Add new JSON-LD if provided
     if (jsonLd) {
       const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
       schemas.forEach((schema) => {
@@ -373,12 +361,10 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
       });
     }
 
-    // Cleanup function
     return () => {
-      const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-      scripts.forEach((script) => script.remove());
+      document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => script.remove());
     };
-  }, [finalTitle, finalDescription, currentUrl, finalImage, article, noindex, language, jsonLd]);
+  }, [finalTitle, finalDescription, canonicalUrl, finalImage, article, language, jsonLd, currentPath]);
 
   return null;
 };
