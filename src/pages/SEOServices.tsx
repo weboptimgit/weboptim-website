@@ -21,7 +21,8 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import SEO from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import { domainConfig } from "@/config/domains";
 import { useSeoLang } from "@/contexts/LanguageSEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
@@ -117,6 +118,11 @@ const SEOServices = () => {
   const { language } = useLanguage();
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
+  const canonicalUrl =
+    typeof window !== "undefined"
+      ? `${domainConfig[language]}${window.location.pathname}`
+      : `${domainConfig[language]}${buildPath(language, "seo-services")}`;
+
   
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
@@ -127,7 +133,19 @@ const SEOServices = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title={s.seo.title} description={s.seo.description} />
+      <SEO
+          title={s.seo.title}
+          description={s.seo.description}
+          jsonLd={[
+            getServicePageSchema({
+              language,
+              canonicalUrl,
+              serviceName: s.faq.serviceName || "SEO",
+              serviceDescription: s.seo.description,
+            }),
+            getFAQSchema(mapFaqItems(s.faq.items)),
+          ]}
+        />
       <Navbar />
 
       {/* Hero Section */}
