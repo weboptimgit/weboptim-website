@@ -82,8 +82,8 @@ const AboutInner = () => {
   ];
 
   const stats = [
-    { value: "150+", label: ta("about.stats.projectsCompleted") },
-    { value: "50+", label: ta("about.stats.happyClients") },
+    { value: "50+", label: ta("about.stats.projectsCompleted") },
+    { value: "30+", label: ta("about.stats.happyClients") },
     { value: "8+", label: ta("about.stats.yearsExperience") },
     { value: "5", label: ta("about.stats.awards") },
   ];
