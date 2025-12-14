@@ -21,16 +21,18 @@ const esc = (s: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 
-const normPath = (p: string) => {
+const normalize = (p: string) => {
   if (!p) return "/";
-  const withLeading = p.startsWith("/") ? p : `/${p}`;
-  return withLeading.replace(/\/{2,}/g, "/"); // z // spraví /
+  let out = p.startsWith("/") ? p : `/${p}`;
+  if (out !== "/" && !out.endsWith("/")) out += "/";
+  out = out.replace(/\/{2,}/g, "/");
+  return out;
 };
 
 const urlEntry = (paths: Record<Lang, string>) => {
-  const enPath = normPath(paths.EN);
-  const czPath = normPath(paths.CZ);
-  const skPath = normPath(paths.SK);
+  const enPath = normalize(paths.EN);
+  const czPath = normalize(paths.CZ);
+  const skPath = normalize(paths.SK);
 
   const loc = `${domains.EN}${enPath}`;
 
@@ -69,9 +71,9 @@ const staticEntries = Object.entries(staticPages)
   .filter(Boolean) as string[];
 
 const joinPath = (base: string, slug: string) => {
-  const b = base?.replace(/\/+$/, "") ?? ""; // odstráni trailing /
-  const s = slug?.replace(/^\/+/, "") ?? ""; // odstráni leading /
-  return `${b}/${s}`;
+  const b = (base ?? "").replace(/^\/+|\/+$/g, "");
+  const s = (slug ?? "").replace(/^\/+|\/+$/g, "");
+  return `/${b}/${s}/`;
 };
 
 // --- BLOG POSTS ---
