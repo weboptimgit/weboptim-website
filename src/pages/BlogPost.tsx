@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, User, Share2, Tag, BookOpen, ChevronUp } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, User, Share2, Tag, BookOpen, ChevronUp, ExternalLink  } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -404,9 +404,9 @@ const BlogPost = () => {
                 );
               })}
             </div>
-
+            
             {/* Resources */}
-            {BlogPostContent.resources?.length ? (
+            {post.resources?.length ? (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -418,7 +418,7 @@ const BlogPost = () => {
                   Learn More
                 </h2>
                 <div className="space-y-3">
-                  {BlogPostContent.resources.map((resource) => (
+                  {post.resources.map((resource) => (
                     <a
                       key={resource.title}
                       href={resource.url}
