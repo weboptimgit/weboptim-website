@@ -14,6 +14,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 // Tech color mapping by category
 const getTechColor = (tech: string): string => {
@@ -48,6 +50,8 @@ const getTechColor = (tech: string): string => {
 };
 
 const CaseStudy = () => {
+  const { language } = useLanguage();
+  const backToWork = buildPath(language, "work");
   const { slug } = useParams<{ slug: string }>();
   const study = slug ? caseStudiesData[slug] : null;
 
@@ -56,7 +60,7 @@ const CaseStudy = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Case Study Not Found</h1>
-          <Link to="/#work">
+          <Link to={backToWork}>
             <Button variant="glow">Back to Projects</Button>
           </Link>
         </div>
@@ -89,7 +93,7 @@ const CaseStudy = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/#work">Projects</Link>
+                    <Link to={backToWork}>Projects</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -101,7 +105,7 @@ const CaseStudy = () => {
           </motion.div>
 
           <Link
-            to="/#work"
+            to={backToWork}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
