@@ -132,10 +132,74 @@ const Contact = () => {
       // voliteľné – reply-to
       formDataToSend.append("replyto", formData.email);
   
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formDataToSend,
-      });
+      const MAKE_WEBHOOK_URL = import.meta.env.VITE_MAKE_WEBHOOK_URL;
+      const MAKE_API_KEY = import.meta.env.VITE_MAKE_API_KEY;
+      
+      const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+      
+        if (!formData.consent) {
+          toast({
+            title: "Error",
+            description: s.form.consentError ?? "Please agree with personal data processing.",
+            variant: "destructive",
+          });
+          return;
+        }
+      
+        setIsSubmitting(true);
+      
+        try {
+          const response = await fetch(MAKE_WEBHOOK_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-make-apikey": MAKE_API_KEY,
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              phone: `${formData.phoneCountry} ${formData.phone}`,
+              website: formData.website,
+              topic: formData.topic,
+              message: formData.message,
+              language,
+              consent: formData.consent,
+              source: "contact-form",
+              createdAt: new Date().toISOString(),
+            }),
+          });
+      
+          if (!response.ok) {
+            throw new Error("Make webhook failed");
+          }
+      
+          toast({
+            title: s.form.toastTitle,
+            description: s.form.toastDescription,
+          });
+      
+          setFormData({
+            name: "",
+            email: "",
+            phoneCountry: defaultPhoneCountry,
+            phone: "",
+            website: "",
+            topic: "",
+            message: "",
+            consent: false,
+          });
+      
+        } catch (err) {
+          toast({
+            title: "Error",
+            description: "Something went wrong. Please try again.",
+            variant: "destructive",
+          });
+        } finally {
+          setIsSubmitting(false);
+        }
+      };
   
       const result = await response.json();
   
