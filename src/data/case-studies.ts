@@ -272,7 +272,213 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       },
     },
   },
-
+  biodent: {
+    translations: {
+      EN: {
+        slug: "biodent-dental-clinic",
+        title: "Biodent",
+        subtitle: "Dental Clinic Website & Patient Conversion",
+        category: "Healthcare",
+        client: "Biodent",
+        duration: "6–8 Weeks",
+        year: "2024",
+        team: "2–3 Members",
+        projectUrl: "https://biodent.sk/",
+  
+        description:
+          "Modern dental clinic website focused on trust, clarity, and patient conversion — combining service presentation, doctor profiles, and local SEO.",
+        tags: ["Healthcare", "WordPress", "Local SEO"],
+        image: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        statValue: "+60%",
+        statLabel: "Inquiry Growth",
+        featured: true,
+  
+        heroImage: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+  
+        overview:
+          "Biodent is a modern dental clinic offering comprehensive dental care — from preventive dentistry and hygiene to implantology and aesthetic treatments. The website is designed to build trust with new patients through clear service explanations, doctor profiles, and strong local SEO visibility.",
+  
+        challenge:
+          "Dental websites must balance medical credibility with accessibility. The challenge was to clearly explain complex procedures, reduce hesitation for first-time patients, and support local search visibility while keeping the experience calm, professional, and conversion-focused.",
+  
+        solution:
+          "We built a WordPress website structured around patient intent: services, doctors, pricing transparency, and contact paths. The site uses SEO-optimized service pages, local signals, and conversion-focused CTAs to guide visitors from information to appointment request with minimal friction.",
+  
+        services: [
+          { icon: Code, label: "WordPress Development" },
+          { icon: Palette, label: "UI/UX Design" },
+          { icon: Globe, label: "Local & Medical SEO" },
+          { icon: Megaphone, label: "Conversion Optimization" },
+        ],
+  
+        technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3"],
+  
+        results: [
+          { metric: "+60%", label: "Patient Inquiries", description: "More appointment requests via contact forms and CTAs" },
+          { metric: "+40%", label: "Local Visibility", description: "Improved rankings for dental services in local search results" },
+          { metric: "-35%", label: "Bounce Rate", description: "Better engagement through clearer structure and messaging" },
+          { metric: "+25%", label: "CTA Interaction", description: "Higher engagement with booking and contact actions" },
+        ],
+  
+        testimonial: {
+          quote:
+            "The new website communicates professionalism and trust. Patients understand our services better and contacting us is much easier than before.",
+          author: "Biodent Team",
+          role: "Dental Clinic",
+          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+        },
+  
+        gallery: [],
+  
+        features: [
+          "Clear service pages for individual dental treatments",
+          "Doctor profiles to build trust and credibility",
+          "Local SEO structure for city-based dental searches",
+          "Conversion-focused CTAs for appointments and consultations",
+          "Mobile-first design for patients on the go",
+          "Fast-loading pages with optimized assets",
+          "Structured content explaining procedures in a patient-friendly way",
+          "Strong trust elements: expertise, equipment, and clinic environment",
+        ],
+      },
+  
+      CZ: {
+        slug: "biodent-zubni-klinika",
+        title: "Biodent",
+        subtitle: "Web zubní kliniky & konverze pacientů",
+        category: "Zdravotnictví",
+        client: "Biodent",
+        duration: "6–8 týdnů",
+        year: "2024",
+        team: "2–3 členové",
+        projectUrl: "https://biodent.sk/",
+  
+        description:
+          "Moderní web zubní kliniky zaměřený na důvěru, přehlednost a získávání nových pacientů pomocí lokálního SEO.",
+        tags: ["Zdravotnictví", "WordPress", "Lokální SEO"],
+        image: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        statValue: "+60%",
+        statLabel: "Nárůst poptávek",
+        featured: true,
+  
+        heroImage: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+  
+        overview:
+          "Biodent je moderní zubní klinika poskytující komplexní stomatologickou péči — od prevence a dentální hygieny až po implantologii a estetickou stomatologii. Web je navržen tak, aby budoval důvěru nových pacientů a zvyšoval viditelnost ve vyhledávání.",
+  
+        challenge:
+          "Zubní web musí působit odborně, ale zároveň srozumitelně a uklidňujícím dojmem. Výzvou bylo vysvětlit složitější zákroky, snížit obavy nových pacientů a podpořit lokální dohledatelnost bez zahlcení informacemi.",
+  
+        solution:
+          "Vytvořili jsme WordPress web strukturovaný podle potřeb pacientů: služby, lékaři, informace a snadná cesta ke kontaktu. Optimalizované servisní stránky, lokální SEO signály a jasné výzvy k akci pomáhají převádět návštěvníky na objednávky.",
+  
+        services: [
+          { icon: Code, label: "Vývoj ve WordPressu" },
+          { icon: Palette, label: "UI/UX design" },
+          { icon: Globe, label: "Lokální & medicínské SEO" },
+          { icon: Megaphone, label: "Optimalizace konverzí" },
+        ],
+  
+        technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3"],
+  
+        results: [
+          { metric: "+60%", label: "Poptávky pacientů", description: "Více objednávek přes kontaktní formuláře" },
+          { metric: "+40%", label: "Lokální viditelnost", description: "Lepší pozice pro zubní služby v lokálním vyhledávání" },
+          { metric: "-35%", label: "Míra opuštění", description: "Vyšší zapojení díky přehlednější struktuře" },
+          { metric: "+25%", label: "Interakce s CTA", description: "Více kliknutí na objednání a kontakt" },
+        ],
+  
+        testimonial: {
+          quote:
+            "Nový web působí profesionálně a důvěryhodně. Pacienti se v nabídce lépe orientují a častěji nás kontaktují.",
+          author: "Tým Biodent",
+          role: "Zubní klinika",
+          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+        },
+  
+        gallery: [],
+  
+        features: [
+          "Přehledné stránky jednotlivých stomatologických služeb",
+          "Profily lékařů pro budování důvěry",
+          "Lokální SEO struktura pro vyhledávání podle města",
+          "Konverzní výzvy k objednání a konzultaci",
+          "Responzivní mobile-first design",
+          "Rychlé načítání stránek",
+          "Srozumitelné vysvětlení zákroků pro pacienty",
+          "Silné prvky důvěry: odbornost, vybavení, prostředí kliniky",
+        ],
+      },
+  
+      SK: {
+        slug: "biodent-zubna-klinika",
+        title: "Biodent",
+        subtitle: "Web zubnej kliniky & získavanie pacientov",
+        category: "Zdravotníctvo",
+        client: "Biodent",
+        duration: "6–8 týždňov",
+        year: "2024",
+        team: "2–3 členovia",
+        projectUrl: "https://biodent.sk/",
+  
+        description:
+          "Moderná webová stránka zubnej kliniky zameraná na dôveru, prehľadnosť a konverziu pacientov pomocou lokálneho SEO.",
+        tags: ["Zdravotníctvo", "WordPress", "Lokálne SEO"],
+        image: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        statValue: "+60%",
+        statLabel: "Nárast dopytov",
+        featured: true,
+  
+        heroImage: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+  
+        overview:
+          "Biodent je moderná zubná klinika poskytujúca komplexnú stomatologickú starostlivosť — od prevencie a dentálnej hygieny až po implantológiu a estetické zákroky. Web je navrhnutý tak, aby budoval dôveru nových pacientov a zvyšoval lokálnu viditeľnosť.",
+  
+        challenge:
+          "Zubné weby musia pôsobiť odborne, no zároveň upokojujúco a zrozumiteľne. Výzvou bolo vysvetliť zložitejšie zákroky, znížiť obavy nových pacientov a podporiť lokálne vyhľadávanie bez preťaženia obsahom.",
+  
+        solution:
+          "Vytvorili sme WordPress web postavený na potrebách pacientov: služby, lekári, informácie a jednoduchá cesta ku kontaktu. SEO-optimalizované servisné stránky, lokálne signály a konverzné CTA vedú návštevníkov od informácií k objednaniu.",
+  
+        services: [
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Palette, label: "UI/UX dizajn" },
+          { icon: Globe, label: "Lokálne & medicínske SEO" },
+          { icon: Megaphone, label: "Optimalizácia konverzií" },
+        ],
+  
+        technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3"],
+  
+        results: [
+          { metric: "+60%", label: "Dopyty pacientov", description: "Viac objednávok cez kontaktné formuláre" },
+          { metric: "+40%", label: "Lokálna viditeľnosť", description: "Lepšie pozície pre zubné služby v lokálnom vyhľadávaní" },
+          { metric: "-35%", label: "Miera odchodov", description: "Vyššia angažovanosť vďaka jasnej štruktúre" },
+          { metric: "+25%", label: "Interakcie s CTA", description: "Viac kliknutí na objednanie a kontakt" },
+        ],
+  
+        testimonial: {
+          quote:
+            "Nový web pôsobí profesionálne a dôveryhodne. Pacienti sa v službách lepšie orientujú a jednoduchšie nás kontaktujú.",
+          author: "Tím Biodent",
+          role: "Zubná klinika",
+          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+        },
+  
+        gallery: [],
+  
+        features: [
+          "Prehľadné stránky stomatologických služieb",
+          "Profily lekárov na budovanie dôvery",
+          "Lokálna SEO štruktúra pre vyhľadávanie podľa mesta",
+          "Konverzné CTA pre objednanie a konzultáciu",
+          "Mobile-first responzívny dizajn",
+          "Rýchle načítanie stránok",
+          "Zrozumiteľné vysvetlenie zákrokov pre pacientov",
+          "Silné prvky dôvery: odbornosť, vybavenie, prostredie kliniky",
+        ],
+      },
+    },
+  },
   "europeum-platform": {
     translations: {
       EN: {
