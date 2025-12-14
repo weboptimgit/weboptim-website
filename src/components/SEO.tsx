@@ -206,6 +206,49 @@ export const getAboutPageSchema = (language: Language, canonicalUrl: string) => 
   };
 };
 
+export const getServicePageSchema = (args: {
+  language: Language;
+  canonicalUrl: string;
+  serviceName: string;        // napr. "Tvorba webových stránok"
+  serviceDescription: string; // krátky popis (z bw.seo.description)
+  image?: string;             // voliteľne OG image
+}) => {
+  const base = domainConfig[args.language];
+  const orgId = `${base}/#organization`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${args.canonicalUrl}#service`,
+    name: args.serviceName,
+    description: args.serviceDescription,
+    url: args.canonicalUrl,
+    provider: { "@id": orgId },
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "Slovakia"
+      },
+      {
+        "@type": "Country",
+        name: "Czech Republic"
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Europe"
+      }
+    ],
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: args.canonicalUrl,
+      availableLanguage: [
+        args.language === "CZ" ? "cs" : args.language === "SK" ? "sk" : "en"
+      ]
+    },
+    image: args.image || `${base}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`
+  };
+};
+
 // Helper to generate Article schema for blog posts
 export const getArticleSchema = (post: {
   title: string;
