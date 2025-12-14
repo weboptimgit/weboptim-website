@@ -11,6 +11,20 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    // Blog
+    "common.home": "Home",
+    "common.blog": "Blog",    
+    "blogPost.notFound.title": "Post Not Found",
+    "blogPost.notFound.subtitle": "The blog post you're looking for doesn't exist.",
+    "blogPost.notFound.backToBlog": "Back to Blog",    
+    "blogPost.backToBlog": "Back to Blog",  
+    "blogPost.share.label": "Share this article:",
+    "blogPost.share.button": "Share",    
+    "blogPost.resources.title": "Learn More",
+    "blogPost.author.writtenBy": "Written by",
+    "blogPost.author.bio": "Content Writer & Digital Marketing Specialist with expertise in web development trends and SEO strategies.",    
+    "blogPost.exploreMore": "Explore More Articles",
+
     // CTA
     "ctaSection.title.before": "Ready to start your",
     "ctaSection.title.highlight": "project",
@@ -222,6 +236,20 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+    // Blog
+    "common.home": "Domů",
+    "common.blog": "Blog",
+    "blogPost.notFound.title": "Článek nebyl nalezen",
+    "blogPost.notFound.subtitle": "Článek, který hledáte, neexistuje.",
+    "blogPost.notFound.backToBlog": "Zpět na blog",    
+    "blogPost.backToBlog": "Zpět na blog",    
+    "blogPost.share.label": "Sdílet článek:",
+    "blogPost.share.button": "Sdílet",    
+    "blogPost.resources.title": "Další zdroje",    
+    "blogPost.author.writtenBy": "Autor",
+    "blogPost.author.bio": "Copywriter a specialista na digitální marketing se zaměřením na webové trendy a SEO strategie.",    
+    "blogPost.exploreMore": "Prozkoumat další články",
+
     // CTA
     "ctaSection.title.before": "Připraveni začít váš",
     "ctaSection.title.highlight": "projekt",
@@ -430,6 +458,20 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    // Blog
+    "common.home": "Domov",
+    "common.blog": "Blog",  
+    "blogPost.notFound.title": "Článok sa nenašiel",
+    "blogPost.notFound.subtitle": "Článok, ktorý hľadáte, neexistuje.",
+    "blogPost.notFound.backToBlog": "Späť na blog",  
+    "blogPost.backToBlog": "Späť na blog",  
+    "blogPost.share.label": "Zdieľať článok:",
+    "blogPost.share.button": "Zdieľať",    
+    "blogPost.resources.title": "Ďalšie zdroje",    
+    "blogPost.author.writtenBy": "Autor",
+    "blogPost.author.bio": "Copywriter a špecialista na digitálny marketing so zameraním na webové trendy a SEO stratégie.",    
+    "blogPost.exploreMore": "Pozrieť ďalšie články",
+
     // CTA
     "ctaSection.title.before": "Pripravení začať váš",
     "ctaSection.title.highlight": "projekt",
