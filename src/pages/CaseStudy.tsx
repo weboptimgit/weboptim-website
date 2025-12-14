@@ -58,7 +58,7 @@ const getTechColor = (tech: string): string => {
 };
 
 const CaseStudy = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const backToWork = buildPath(language, "work");
   const { slug } = useParams();
 
@@ -70,9 +70,11 @@ const CaseStudy = () => {
         <SEO titleKey="notFound" />
         <div className="min-h-screen bg-background flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-display font-bold mb-4">Case Study Not Found</h1>
+            <h1 className="text-4xl font-display font-bold mb-4">
+              {t("caseStudy.notFound.title")}
+            </h1>
             <Link to={backToWork}>
-              <Button variant="glow">Back to Projects</Button>
+              <Button variant="glow">{t("caseStudy.notFound.backToProjects")}</Button>
             </Link>
           </div>
         </div>
@@ -109,7 +111,7 @@ const CaseStudy = () => {
                 <BreadcrumbList>
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                      <Link to="/">Home</Link>
+                      <Link to="/">{t("common.home")}</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
 
@@ -117,7 +119,7 @@ const CaseStudy = () => {
 
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                      <Link to={backToWork}>Projects</Link>
+                      <Link to={backToWork}>{t("caseStudy.breadcrumb.projects")}</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
 
@@ -135,7 +137,7 @@ const CaseStudy = () => {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Projects
+              {t("caseStudy.backToProjects")}
             </Link>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -160,7 +162,7 @@ const CaseStudy = () => {
                     className="inline-flex items-center gap-2 mb-8"
                   >
                     <Button variant="glow" size="lg" className="group">
-                      Visit Project
+                      {t("caseStudy.visitProject")}
                       <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Button>
                   </a>
@@ -170,32 +172,32 @@ const CaseStudy = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                   <div className="glass rounded-xl p-4">
                     <Users className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-sm text-muted-foreground">Client</div>
+                    <div className="text-sm text-muted-foreground">{t("caseStudy.meta.client")}</div>
                     <div className="font-medium text-foreground">{study.client}</div>
                   </div>
 
                   <div className="glass rounded-xl p-4">
                     <Clock className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-sm text-muted-foreground">Duration</div>
+                    <div className="text-sm text-muted-foreground">{t("caseStudy.meta.duration")}</div>
                     <div className="font-medium text-foreground">{study.duration}</div>
                   </div>
 
                   <div className="glass rounded-xl p-4">
                     <Calendar className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-sm text-muted-foreground">Year</div>
+                    <div className="text-sm text-muted-foreground">{t("caseStudy.meta.year")}</div>
                     <div className="font-medium text-foreground">{study.year}</div>
                   </div>
 
                   <div className="glass rounded-xl p-4">
                     <TrendingUp className="w-5 h-5 text-primary mb-2" />
-                    <div className="text-sm text-muted-foreground">Team</div>
+                    <div className="text-sm text-muted-foreground">{t("caseStudy.meta.team")}</div>
                     <div className="font-medium text-foreground">{study.team}</div>
                   </div>
                 </div>
 
                 {/* Tech Stack */}
                 <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-3">Tech Stack</h3>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-3">{t("caseStudy.techStack")}</h3>
                   <div className="flex flex-wrap gap-2">
                     {technologies.map((tech, index) => (
                       <motion.span
@@ -244,17 +246,17 @@ const CaseStudy = () => {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-2"
               >
-                <h2 className="text-3xl font-display font-bold mb-6">Project Overview</h2>
+                <h2 className="text-3xl font-display font-bold mb-6">{t("caseStudy.projectOverview")}</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-8">{study.overview}</p>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="glass rounded-2xl p-6">
-                    <h3 className="text-xl font-display font-bold mb-4 text-primary">The Challenge</h3>
+                    <h3 className="text-xl font-display font-bold mb-4 text-primary">{t("caseStudy.challenge")}</h3>
                     <p className="text-muted-foreground">{study.challenge}</p>
                   </div>
 
                   <div className="glass rounded-2xl p-6">
-                    <h3 className="text-xl font-display font-bold mb-4 text-secondary">Our Solution</h3>
+                    <h3 className="text-xl font-display font-bold mb-4 text-secondary">{t("caseStudy.solution")}</h3>
                     <p className="text-muted-foreground">{study.solution}</p>
                   </div>
                 </div>
@@ -266,7 +268,7 @@ const CaseStudy = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h3 className="text-xl font-display font-bold mb-6">Services Provided</h3>
+                <h3 className="text-xl font-display font-bold mb-6">{t("caseStudy.servicesProvided")}</h3>
                 <div className="space-y-4">
                   {services.map((service, index) => (
                     <div key={index} className="flex items-center gap-4 glass rounded-xl p-4">
@@ -295,11 +297,16 @@ const CaseStudy = () => {
                 className="text-center mb-12"
               >
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                  The <span className="text-gradient">Results</span>
+                  {t("caseStudy.results.title").includes(" ") ? (
+                    <>
+                      {t("caseStudy.results.title").split(" ").slice(0, -1).join(" ")}{" "}
+                      <span className="text-gradient">{t("caseStudy.results.title").split(" ").slice(-1)[0]}</span>
+                    </>
+                  ) : (
+                    <span className="text-gradient">{t("caseStudy.results.title")}</span>
+                  )}
                 </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Measurable impact that drove real business growth
-                </p>
+                <p className="text-muted-foreground max-w-2xl mx-auto">{t("caseStudy.results.subtitle")}</p>
               </motion.div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -347,7 +354,7 @@ const CaseStudy = () => {
                 transition={{ duration: 0.6 }}
                 className="mb-12"
               >
-                <h2 className="text-3xl font-display font-bold mb-4">Key Features Delivered</h2>
+                <h2 className="text-3xl font-display font-bold mb-4">{t("caseStudy.keyFeatures")}</h2>
               </motion.div>
 
               <div className="grid md:grid-cols-2 gap-4">
@@ -380,7 +387,7 @@ const CaseStudy = () => {
                 transition={{ duration: 0.6 }}
                 className="mb-12"
               >
-                <h2 className="text-3xl font-display font-bold mb-4">Project Gallery</h2>
+                <h2 className="text-3xl font-display font-bold mb-4">{t("caseStudy.projectGallery")}</h2>
               </motion.div>
 
               <div className="grid md:grid-cols-3 gap-6">
@@ -449,15 +456,12 @@ const CaseStudy = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10" />
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to Start Your Project?</h2>
-                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Let's create something amazing together. Get in touch to discuss how we can help transform your digital
-                  presence.
-                </p>
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{t("caseStudy.readyTitle")}</h2>
+                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">{t("caseStudy.readySubtitle")}</p>
 
                 <Link to="/contact">
                   <Button variant="hero" size="lg" className="group">
-                    Get in Touch
+                    {t("caseStudy.readyCta")}
                     <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Button>
                 </Link>
