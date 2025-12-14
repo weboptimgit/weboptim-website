@@ -78,7 +78,7 @@ const BlogPost = () => {
             <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
               <BookOpen className="w-12 h-12 text-primary" />
             </div>
-            <<h1 className="text-4xl font-bold mb-4">{t("blogPost.notFound.title")}</h1>
+            <h1 className="text-4xl font-bold mb-4">{t("blogPost.notFound.title")}</h1>
             <p className="text-muted-foreground mb-8">{t("blogPost.notFound.subtitle")}</p>
             <Link to="/blog">
               <Button className="bg-gradient-hero hover:opacity-90">
