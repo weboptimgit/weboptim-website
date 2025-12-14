@@ -25,6 +25,8 @@ const Contact = () => {
   const { toast } = useToast();
   const { language } = useLanguage();
   const s = useContactLang();
+  const MAKE_WEBHOOK_URL = import.meta.env.VITE_MAKE_WEBHOOK_URL as string;
+  const MAKE_API_KEY = import.meta.env.VITE_MAKE_API_KEY as string;
   const emailByLang: Record<string, string> = {
     EN: "info@weboptim.eu",
     CZ: "info@weboptim.cz",
@@ -36,17 +38,16 @@ const Contact = () => {
   const base = domainConfig[language];
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
   const canonicalUrl = `${base}${currentPath}`;
-  const defaultPhoneCountry = (() => {
-  switch (language) {
-      case "CZ":
-        return "CZ";
-      case "SK":
-        return "SK";
-      case "EN":
-      default:
-        return "SK";
-    }
-  })();
+  const getDefaultPhoneCountry = () => {
+    if (typeof window === "undefined") return "SK";
+    const host = window.location.hostname.toLowerCase();
+  
+    if (host.endsWith(".cz")) return "CZ";
+    if (host.endsWith(".sk")) return "SK";
+    return "SK";
+  };
+  
+  const defaultPhoneCountry = getDefaultPhoneCountry();
 
   const phonePlaceholderByCountry: Record<string, string> = {
     SK: "+421 900 000 000",
@@ -96,133 +97,61 @@ const Contact = () => {
     HU: "+36 ",
   };
 
-  const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";
-  
+  const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     if (!formData.consent) {
       toast({
         title: "Error",
         description: s.form.consentError ?? "Please agree with personal data processing.",
         variant: "destructive",
       });
-      setIsSubmitting(false);
       return;
     }
+  
     setIsSubmitting(true);
   
     try {
-      const formDataToSend = new FormData();
-      
-      formDataToSend.append("access_key", WEB3FORMS_KEY);
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", `${formData.phoneCountry} ${formData.phone}`.trim());
-      formDataToSend.append("website", formData.website);
-      formDataToSend.append("topic", formData.topic);
-      formDataToSend.append("message", formData.message);
-      formDataToSend.append("consent", formData.consent ? "yes" : "no");
-
-      // voliteľné – pekný predmet mailu
-      formDataToSend.append(
-        "subject",
-        `Weboptim webformulár (${language})`
-      );
+      const response = await fetch(MAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-make-apikey": MAKE_API_KEY,
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: `${formData.phoneCountry} ${formData.phone}`.trim(),
+          website: formData.website,
+          topic: formData.topic,
+          message: formData.message,
+          language,
+          consent: formData.consent,
+          source: "contact-form",
+          createdAt: new Date().toISOString(),
+          host: typeof window !== "undefined" ? window.location.hostname : "",
+          path: typeof window !== "undefined" ? window.location.pathname : "",
+        }),
+      });
   
-      // voliteľné – reply-to
-      formDataToSend.append("replyto", formData.email);
+      if (!response.ok) throw new Error("Make webhook failed");
   
-      const MAKE_WEBHOOK_URL = import.meta.env.VITE_MAKE_WEBHOOK_URL;
-      const MAKE_API_KEY = import.meta.env.VITE_MAKE_API_KEY;
-      
-      const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-      
-        if (!formData.consent) {
-          toast({
-            title: "Error",
-            description: s.form.consentError ?? "Please agree with personal data processing.",
-            variant: "destructive",
-          });
-          return;
-        }
-      
-        setIsSubmitting(true);
-      
-        try {
-          const response = await fetch(MAKE_WEBHOOK_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "x-make-apikey": MAKE_API_KEY,
-            },
-            body: JSON.stringify({
-              name: formData.name,
-              email: formData.email,
-              phone: `${formData.phoneCountry} ${formData.phone}`,
-              website: formData.website,
-              topic: formData.topic,
-              message: formData.message,
-              language,
-              consent: formData.consent,
-              source: "contact-form",
-              createdAt: new Date().toISOString(),
-            }),
-          });
-      
-          if (!response.ok) {
-            throw new Error("Make webhook failed");
-          }
-      
-          toast({
-            title: s.form.toastTitle,
-            description: s.form.toastDescription,
-          });
-      
-          setFormData({
-            name: "",
-            email: "",
-            phoneCountry: defaultPhoneCountry,
-            phone: "",
-            website: "",
-            topic: "",
-            message: "",
-            consent: false,
-          });
-      
-        } catch (err) {
-          toast({
-            title: "Error",
-            description: "Something went wrong. Please try again.",
-            variant: "destructive",
-          });
-        } finally {
-          setIsSubmitting(false);
-        }
-      };
+      toast({
+        title: s.form.toastTitle,
+        description: s.form.toastDescription,
+      });
   
-      const result = await response.json();
-  
-      if (result.success) {
-        toast({
-          title: s.form.toastTitle,
-          description: s.form.toastDescription,
-        });
-  
-        setFormData({
-          name: "",
-          email: "",
-          phoneCountry: defaultPhoneCountry,
-          phone: "",
-          website: "",
-          topic: "",
-          message: "",
-          consent: false,
-        });
-
-      } else {
-        throw new Error(result.message || "Form error");
-      }
+      setFormData({
+        name: "",
+        email: "",
+        phoneCountry: defaultPhoneCountry,
+        phone: "",
+        website: "",
+        topic: "",
+        message: "",
+        consent: false,
+      });
     } catch (err) {
       toast({
         title: "Error",
@@ -233,7 +162,7 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
