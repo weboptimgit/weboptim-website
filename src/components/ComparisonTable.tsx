@@ -17,7 +17,7 @@ export default function ComparisonTable({
       ) : null}
 
       <div className="glass rounded-2xl border border-border/60 overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto -mx-6 px-6 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent hover:scrollbar-thumb-primary/50">
           <table className="w-full min-w-[980px] border-separate border-spacing-0">
             <thead>
               <tr className="bg-background/50">
