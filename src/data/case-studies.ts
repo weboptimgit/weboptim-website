@@ -322,10 +322,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   
         testimonial: {
           quote:
-            "The new website communicates professionalism and trust. Patients understand our services better and contacting us is much easier than before.",
-          author: "Biodent Team",
-          role: "Dental Clinic",
-          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+            "The cooperation with Mr. Gáborík and his team on the new website of our institution worked great, we clarified everything, set it up and the final price corresponded to the agreed one. After experience with the creation of various other websites, this is really not a given and I appreciate it very much.",
+          author: "Martin Vokálek",
+          role: "Executive Director",
+          avatar: "/img/europeum-quote.png",
         },
   
         gallery: [],
@@ -390,10 +390,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   
         testimonial: {
           quote:
-            "Nový web působí profesionálně a důvěryhodně. Pacienti se v nabídce lépe orientují a častěji nás kontaktují.",
-          author: "Tým Biodent",
-          role: "Zubní klinika",
-          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+            "Spolupráce s panem Gáboríkem a jeho týmem na novém webu naší instituce fungovala skvěle, vše jsme si vyjasnili, nastavili a finální cenu odpovídali té dohodnuté. Po zkušenostech s tvorbou různých webů toto opravdu není samozřejmost a moc si toho vážím.",
+          author: "Martin Vokálek",
+          role: "Výkonný ředitel",
+          avatar: "/img/europeum-quote.png",
         },
   
         gallery: [],
@@ -458,10 +458,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   
         testimonial: {
           quote:
-            "Nový web pôsobí profesionálne a dôveryhodne. Pacienti sa v službách lepšie orientujú a jednoduchšie nás kontaktujú.",
-          author: "Tím Biodent",
-          role: "Zubná klinika",
-          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+            "Spolupráca s pánom Gáboríkom a jeho tímom na novom webe našej inštitúcie fungovala skvele, všetko sme si vyjasnili, nastavili a finálna cena zodpovedala tej dohodnutej. Po skúsenostiach s tvorbou rôznych iných webov toto naozaj nie je samozrejmosť a veľmi si to vážim.",
+          author: "Martin Vokálek",
+          role: "Výkonný riaditeľ",
+          avatar: "/img/europeum-quote.png",
         },
   
         gallery: [],
