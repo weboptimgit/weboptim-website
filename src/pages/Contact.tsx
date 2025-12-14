@@ -87,6 +87,15 @@ const Contact = () => {
     phonePlaceholderByCountry[defaultPhoneCountry] ??
     "+421 900 000 000";
 
+  const phonePrefixByCountry: Record<string, string> = {
+    SK: "+421 ",
+    CZ: "+420 ",
+    AT: "+43 ",
+    DE: "+49 ",
+    PL: "+48 ",
+    HU: "+36 ",
+  };
+
   const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";
   
   const handleSubmit = async (e: React.FormEvent) => {
@@ -278,7 +287,7 @@ const Contact = () => {
                         </label>
                   
                         <div className="flex gap-2">
-                          <div className="w-[120px]">
+                          <div className="w-[60px]">
                             <Select value={formData.phoneCountry} onValueChange={(v) => setField("phoneCountry", v)}>
                               <SelectTrigger className="bg-background/50">
                                 <SelectValue />
@@ -293,13 +302,21 @@ const Contact = () => {
                               </SelectContent>
                             </Select>
                           </div>
-                  
+              
                           <Input
                             id="phone"
                             name="phone"
                             inputMode="tel"
                             value={formData.phone}
                             onChange={handleChange}
+                            onFocus={() => {
+                              if (!formData.phone) {
+                                setField(
+                                  "phone",
+                                  phonePrefixByCountry[formData.phoneCountry] ?? "+421 "
+                                );
+                              }
+                            }}
                             placeholder={phonePlaceholder}
                             className="bg-background/50 flex-1"
                           />
