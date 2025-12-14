@@ -9,6 +9,16 @@ const tipText: Record<Language, string> = {
   SK: "Tip: Na mobile sa tabuľka posúva horizontálne.",
 };
 
+const defaultHeaders: string[] = [
+  "Platform",
+  "Audience",
+  "Business type",
+  "Review trust",
+  "Conversion impact",
+  "SEO / visibility impact",
+  "Where it’s used",
+];
+
 export default function ComparisonTable({
   title,
   rows,
@@ -16,21 +26,11 @@ export default function ComparisonTable({
 }: {
   title?: string;
   rows: ReviewsPlatformRow[];
-  headers?: string[];
+  headers?: string[]; // 👈 nech je optional
 }) {
   const { language } = useLanguage();
 
-  const finalHeaders =
-    headers ??
-    [
-      "Platforma",
-      "Cieľová skupina",
-      "Typ podnikania",
-      "Dôveryhodnosť recenzií",
-      "Vplyv na konverzie",
-      "Vplyv na SEO / viditeľnosť",
-      "Lokalita použitia",
-    ];
+  const finalHeaders = headers?.length ? headers : defaultHeaders;
 
   return (
     <div className="my-10">
@@ -45,15 +45,7 @@ export default function ComparisonTable({
           <table className="w-full min-w-[980px] border-separate border-spacing-0">
             <thead>
               <tr className="bg-background/50">
-                {[
-                  "Platforma",
-                  "Cieľová skupina",
-                  "Typ podnikania",
-                  "Dôveryhodnosť recenzií",
-                  "Vplyv na konverzie",
-                  "Vplyv na SEO / viditeľnosť",
-                  "Lokalita použitia",
-                ].map((h) => (
+                {finalHeaders.map((h) => (
                   <th
                     key={h}
                     className="text-left text-sm font-semibold text-foreground/80 px-5 py-4 border-b border-border/60"
