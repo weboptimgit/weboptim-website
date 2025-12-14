@@ -17,10 +17,46 @@ import {
 
 import ComparisonTable from "@/components/ComparisonTable";
 
+type TocItem = {
+  id: string;
+  text: string;
+  level: 2 | 3 | 4;
+};
+
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
 const BlogPost = () => {
   const { slug } = useParams();
   const { language, t } = useLanguage();
   const post = slug ? getBlogPost(slug, language) : null;
+  const toc: TocItem[] = post
+  ? post.content
+      .filter(
+        (p) =>
+          p.startsWith("## ") ||
+          p.startsWith("### ") ||
+          p.startsWith("#### ")
+      )
+      .map((p) => {
+        const level = p.startsWith("#### ")
+          ? 4
+          : p.startsWith("### ")
+          ? 3
+          : 2;
+
+        const text = p.replace(/^#{2,4}\s/, "");
+        return {
+          id: slugify(text),
+          text,
+          level,
+        };
+      })
+  : [];
   const [readingProgress, setReadingProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const articleRef = useRef<HTMLElement>(null);
@@ -252,6 +288,35 @@ const BlogPost = () => {
               </Button>
             </motion.div>
 
+            {toc.length > 0 && (
+              <motion.aside
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-10 p-6 rounded-2xl glass border border-border/50"
+              >
+                <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                  {t("blogPost.toc.title")}
+                </h3>
+            
+                <ul className="space-y-2 text-sm">
+                  {toc.map((item) => (
+                    <li
+                      key={item.id}
+                      className={`pl-${(item.level - 2) * 4}`}
+                    >
+                      <a
+                        href={`#${item.id}`}
+                        className="text-muted-foreground hover:text-primary transition-colors block"
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </motion.aside>
+            )}
+
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
               {(() => {
@@ -368,15 +433,19 @@ const BlogPost = () => {
             
                   // H2
                   if (paragraph.startsWith("## ")) {
+                    const text = paragraph.replace("## ", "");
+                    const id = slugify(text);
+                  
                     out.push(
                       <motion.h2
+                        id={id}
                         key={`h2-${i}`}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-foreground relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-hero before:rounded-full"
+                        className="scroll-mt-32 text-2xl md:text-3xl font-bold mt-12 mb-6 text-foreground relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-hero before:rounded-full"
                       >
-                        {paragraph.replace("## ", "")}
+                        {text}
                       </motion.h2>
                     );
                     i++;
@@ -385,15 +454,19 @@ const BlogPost = () => {
             
                   // H3
                   if (paragraph.startsWith("### ")) {
+                    const text = paragraph.replace("### ", "");
+                    const id = slugify(text);
+                  
                     out.push(
                       <motion.h3
+                        id={id}
                         key={`h3-${i}`}
                         initial={{ opacity: 0, x: -15 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground relative pl-6 before:absolute before:left-0 before:top-2 before:w-1 before:h-4 before:bg-primary/60 before:rounded-full"
+                        className="scroll-mt-32 text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground"
                       >
-                        {paragraph.replace("### ", "")}
+                        {text}
                       </motion.h3>
                     );
                     i++;
