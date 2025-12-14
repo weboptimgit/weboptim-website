@@ -957,6 +957,7 @@ export const getBlogPost = (slug: string, language: "EN" | "CZ" | "SK" = "EN"): 
     date: translation.date,
     readTime: translation.readTime,
     content: translation.content,
+    resources: translation.resources,
   };
 };
 
