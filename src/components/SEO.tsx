@@ -299,6 +299,10 @@ export const getFAQSchema = (faqs: Array<{ q: string; a: string }>) => ({
   })),
 });
 
+// Helper to map FAQ items from page contexts (question/answer → q/a)
+export const mapFaqItems = (items: Array<{ question: string; answer: string }>) =>
+  items.map((i) => ({ q: i.question, a: i.answer }));
+
 // Helper to generate DefinedTerm schema for glossary
 export const getDefinedTermSchema = (term: {
   term: string;
