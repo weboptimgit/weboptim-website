@@ -54,7 +54,7 @@ export const categoriesTranslations = {
 export const blogPostsData: BlogPostData[] = [
     {
     image:
-      "https://www.sectorwp.com/wp-content/uploads/2023/06/Oxygen-Builder.png.webp",
+      "https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?q=80&w=968&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Peter Gáborík",
     translations: {
       EN: {
@@ -230,82 +230,143 @@ export const blogPostsData: BlogPostData[] = [
         ],
         date: "22. května 2025",
         readTime: "8 min čtení",
-        content: [
+         content: [
           "V dnešní digitální době je e-commerce bezpochyby klíčovým nástrojem pro podnikatele, kteří chtějí oslovit širší publikum a zvýšit své prodeje.",
-          "Rozhodnout se, jaké řešení zvolit pro svůj e-shop, však není jednoduché. Na trhu existuje několik možností, z nichž každá má svá specifika, výhody i omezení.",
-          "V tomto článku vám představíme přehled dostupných e-shopových řešení a poradíme, na co se při výběru zaměřit.",
-      
+          "Rozhodnout se, jaké řešení zvolit pro svůj internetový obchod, však není jednoduché. Na trhu existuje několik možností, z nichž každá má svá specifika, výhody i omezení.",
+          "V tomto článku vám přinášíme přehled dostupných e-shopových řešení a pomůžeme vám zorientovat se v tom, na co se při výběru zaměřit.",
+        
           "## Na co se zaměřit při výběru e-shopového řešení",
-          "Při rozhodování o nejvhodnějším řešení pro váš e-shop je důležité zvážit několik faktorů. Mezi ty nejdůležitější patří:",
-      
+          "Při rozhodování o nejvhodnějším řešení pro váš e-shop je důležité zvážit několik faktorů. Zde jsou ty nejdůležitější:",
+        
           "### Velikost e-shopu",
           "Plánujete prodávat desítky nebo tisíce produktů?",
-          "Pro menší e-shop s omezeným sortimentem postačí pronajatá platforma, jako je Shoptet.",
-          "Pokud však plánujete růst do stovek nebo tisíců kategorií, zvažte open-source systém nebo řešení na míru.",
-      
+          "Pro menší e-shop s omezeným sortimentem postačí pronajatá platforma, jako je například Shoptet.",
+          "Pokud však máte ambice růst na stovky či tisíce kategorií, zvažte open-source systém nebo řešení na míru.",
+        
           "### Možnosti optimalizace a rychlost webu",
-          "Pronajatá řešení jsou většinou optimalizována automaticky, ale nabízejí omezené možnosti úprav.",
-          "Open-source platformy jako WooCommerce poskytují větší flexibilitu, vyžadují však technické znalosti nebo správce.",
-          "Řešení na míru vám dává plnou kontrolu nad rychlostí i optimalizací, ale patří k nejdražším variantám.",
-      
+          "Pronajatá řešení bývají optimalizována automaticky, jejich možnosti přizpůsobení jsou však omezené.",
+          "Open-source platformy, jako je WooCommerce, nabízejí větší flexibilitu, ale vyžadují technické znalosti nebo externí správu.",
+          "Řešení na míru vám dává plnou kontrolu nad rychlostí i optimalizací, zároveň však patří k nejdražším variantám.",
+        
           "### Podpora a integrace",
-          "Potřebujete propojení se skladovým systémem, marketingovými nástroji nebo platebními branami?",
-          "Pronajaté platformy mají často tato propojení již připravená.",
-          "Open-source systémy je řeší pomocí pluginů, zatímco u řešení na míru je nutné je naprogramovat.",
-      
+          "Potřebujete propojení se skladovým systémem, marketingovými nástroji nebo platebními bránami?",
+          "Pronajaté platformy mají tyto integrace často připravené předem.",
+          "Open-source systémy je podporují pomocí pluginů, zatímco u řešení na míru je nutné je naprogramovat.",
+        
           "### Rozpočet",
-          "Finance jsou často rozhodujícím faktorem.",
-          "Pronajatá řešení jsou levná na start, ale jejich cena roste s rozšiřujícími se funkcemi.",
-          "Open-source systémy šetří náklady na licence, ale vyžadují investice do správy a hostingu.",
-          "Řešení na míru je nejdražší, ale u velkých a dlouhodobých projektů se může vyplatit.",
-      
+          "Finance bývají často rozhodujícím faktorem.",
+          "Pronajatá řešení jsou levná na start, jejich cena však roste s rozšiřováním funkcí.",
+          "Open-source systémy šetří na licencích, ale vyžadují investice do správy a hostingu.",
+          "Řešení na míru je nejdražší variantou, u velkých a dlouhodobých projektů se však může vyplatit.",
+        
           "## Jaká e-shopová řešení můžete zvolit",
           "Při výběru e-shopového řešení máte na výběr ze tří hlavních kategorií:",
-      
+        
           "### Pronajatá / krabicová e-shopová řešení",
           "Jedná se o hotová řešení, která si pronajímáte za měsíční poplatek a nevyžadují technické znalosti.",
           "Patří sem platformy jako Upgates, Shoptet nebo Shopify.",
-      
+        
           "### Open-source řešení",
-          "Tyto platformy jsou dostupné zdarma, ale jejich správa a úpravy vyžadují technické dovednosti.",
+          "Tyto platformy jsou dostupné zdarma, jejich správa a úpravy však vyžadují technické dovednosti.",
           "Patří sem systémy jako WooCommerce, PrestaShop, OpenCart nebo Magento.",
-      
+        
           "### E-shop na míru",
-          "Řešení na míru je ideální pro specifické požadavky, které standardní platformy neumí pokrýt.",
-          "Je však časově i finančně nejnáročnější.",
-      
+          "Řešení na míru je ideální pro specifické požadavky, které standardní platformy nedokážou splnit.",
+          "Je však časově i finančně náročnější.",
+        
           "## Porovnání e-shopových řešení",
-          "Podívejme se nyní detailněji na jednotlivé kategorie a platformy, které zahrnují.",
-      
+          "Podívejme se nyní blíže na jednotlivé kategorie a platformy, které do nich patří.",
+        
           "## Pronajatá (krabicová) řešení",
           "Pronajaté e-shopy jsou hotové platformy, které si pronajímáte za pravidelný měsíční nebo roční poplatek.",
           "Poskytovatel vám dodá kompletní systém včetně hostingu, šablon designu, základních funkcí a technické podpory.",
-          "Nemusíte řešit instalaci, servery ani aktualizace — vše je připraveno k okamžitému použití.",
-      
+          "Nemusíte se starat o instalaci, servery ani aktualizace — vše je připraveno k okamžitému použití.",
+        
+          "Pronajatá, tzv. krabicová e-shopová řešení patří mezi nejoblíbenější volby pro startupy, malé a střední firmy nebo kohokoli, kdo chce rychle spustit svůj online obchod bez hlubších technických znalostí.",
+        
           "### Nejznámější platformy",
           "1. Shoptet",
           "- Velmi populární zejména na českém a slovenském trhu.",
-          "- Nabízí širokou škálu šablon, snadné ovládání a množství hotových integrací.",
-      
+          "- Nabízí širokou škálu šablon, jednoduché ovládání a mnoho hotových integrací, jako jsou platební brány a dopravci.",
+        
           "2. Upgates",
-          "- Další lokální alternativa se zaměřením na jednoduchost a propojení se skladovými systémy.",
+          "- Další lokální alternativa se silným důrazem na jednoduchost a napojení na skladové systémy.",
           "- Vyniká přehlednou administrací a rychlou technickou podporou.",
-      
+          "- Cenově srovnatelný se Shoptetem.",
+        
           "3. Shopify",
           "- Globální lídr s mezinárodním dosahem.",
-          "- Ideální pro podnikatele, kteří chtějí prodávat do zahraničí.",
-      
+          "- Ideální pro podnikatele, kteří chtějí prodávat do zahraničí díky podpoře více jazyků a měn.",
+        
           "### Výhody",
-          "- Rychlý start — e-shop může být online během několika dní.",
-          "- Snadné ovládání bez nutnosti programování.",
-          "- Podpora a aktualizace zajištěné poskytovatelem.",
-          "- Hotové integrace třetích stran.",
-          "- Nízké vstupní náklady.",
-      
+          "- Rychlý start — e-shop může být online během několika dnů.",
+          "- Snadné ovládání — není potřeba programování.",
+          "- Podpora a aktualizace řeší poskytovatel.",
+          "- Hotové integrace se službami třetích stran.",
+          "- Nízké vstupní náklady oproti řešením na míru.",
+        
           "### Nevýhody",
           "- Omezené možnosti přizpůsobení.",
-          "- Pravidelné poplatky, které se mohou časem zvyšovat.",
-          "- Závislost na poskytovateli platformy."
+          "- Měsíční poplatky, které se časem zvyšují.",
+          "- Závislost na poskytovateli platformy.",
+        
+          "![Example of an e-shop on the Upgates platform, which we integrated on the website of the luxury swimming pool manufacturer Magiline](/images/blog/Magiline-1024x629.png)",
+        
+          "## Open-source řešení",
+          "Open-source e-shopová řešení jsou systémy s otevřeným zdrojovým kódem, vyvíjené komunitou programátorů a dostupné zdarma.",
+          "Instalují se na vlastní hosting a spravujete je sami, což přináší flexibilitu i odpovědnost.",
+        
+          "Tato řešení jsou oblíbená mezi firmami, které chtějí plnou kontrolu a škálovatelnost bez omezení pronajatých platforem.",
+        
+          "### Nejznámější platformy",
+          "1. WooCommerce",
+          "- Plugin pro WordPress, nejrozšířenější CMS na světě.",
+          "- Ideální pro malé a středně velké e-shopy.",
+          "- Silná SEO podpora a tisíce pluginů.",
+          "2. PrestaShop",
+          "- Samostatný e-commerce systém vhodný pro středně velké obchody.",
+          "- Velmi populární v Evropě s širokou nabídkou modulů.",
+          "3. OpenCart",
+          "- Lehký a rychlý systém pro menší e-shopy.",
+          "- Menší počet doplňků, ale velmi úsporný na zdroje.",
+          "4. Magento",
+          "- Robustní řešení pro velké a komplexní e-shopy.",
+          "- Pokročilé funkce, ale vysoké nároky na hosting a technické znalosti.",
+        
+          "### Výhody",
+          "- Bezplatný základní systém.",
+          "- Vysoká míra přizpůsobení.",
+          "- Silná komunita a ekosystém pluginů.",
+          "- Nezávislost na dodavateli.",
+        
+          "### Nevýhody",
+          "- Vyšší technická náročnost.",
+          "- Dodatečné náklady na prémiové pluginy a hosting.",
+          "- Odpovědnost za aktualizace a bezpečnost.",
+        
+          "![Example of an e-shop based on the open-source platform WooCommerce, which we created for yourkush.cz](/images/blog/yourkush-1024x592.png)",
+        
+          "## E-shop na míru",
+          "E-shop na míru představuje nejvyšší úroveň přizpůsobení.",
+          "Je vytvořen přesně podle potřeb vašeho podnikání a technických požadavků.",
+        
+          "### Výhody",
+          "- Plná kontrola nad funkcionalitou i designem.",
+          "- Maximální flexibilita.",
+          "- Výborná škálovatelnost pro velké projekty.",
+        
+          "### Nevýhody",
+          "- Vysoké náklady na vývoj.",
+          "- Závislost na vývojovém týmu.",
+          "- Delší doba spuštění.",
+        
+          "## Závěr",
+          "Jaké e-shopové řešení je tedy nejlepší? Univerzální odpověď neexistuje.",
+          "Správná volba závisí na vašem rozpočtu, cílech a dlouhodobých plánech.",
+          "Pronajaté platformy jsou ideální pro rychlý start, open-source systémy pro flexibilitu a řešení na míru pro komplexní požadavky.",
+        
+          "V agentuře WebOptim vám rádi pomůžeme analyzovat vaše potřeby a vybrat nejlepší řešení pro váš e-shop.",
+          "Kontaktujte nás a společně najdeme cestu k vašemu úspěchu v digitálním světě."
         ],
       },
       SK: {
@@ -326,81 +387,142 @@ export const blogPostsData: BlogPostData[] = [
         date: "22. mája 2025",
         readTime: "8 min čítania",
         content: [
-          "V dnešnej digitálnej dobe je e-commerce bezpochyby kľúčovým nástrojom pre podnikateľov, ktorí chcú osloviť širšie publikum a zvýšiť svoje predaje.",
-          "Rozhodnúť sa, aké riešenie zvoliť pre svoj e-shop, však nie je jednoduché. Na trhu existuje viacero možností, pričom každá má svoje špecifiká, výhody aj obmedzenia.",
-          "V tomto článku vám prinášame prehľad dostupných e-shopových riešení a poradíme, na čo sa pri výbere zamerať.",
-      
+          "V dnešnej digitálnej dobe je e-commerce nepochybne kľúčovým nástrojom pre podnikateľov, ktorí chcú osloviť širšie publikum a zvýšiť svoje predaje.",
+          "Rozhodnúť sa, ktoré riešenie zvoliť pre svoj internetový obchod, však nie je jednoduché. Na trhu existuje viacero možností, z ktorých každá má svoje špecifiká, výhody aj obmedzenia.",
+          "V tomto článku vám prinášame prehľad dostupných e-shopových riešení a pomôžeme vám zorientovať sa v tom, na čo sa pri výbere zamerať.",
+        
           "## Na čo sa zamerať pri výbere e-shopového riešenia",
-          "Pri rozhodovaní o najvhodnejšom riešení pre váš e-shop je dôležité zvážiť niekoľko faktorov. Medzi tie najdôležitejšie patria:",
-      
+          "Pri rozhodovaní o najvhodnejšom riešení pre váš e-shop je dôležité zvážiť niekoľko faktorov. Tu sú tie najdôležitejšie:",
+        
           "### Veľkosť e-shopu",
           "Plánujete predávať desiatky alebo tisíce produktov?",
-          "Pre menší e-shop s obmedzeným sortimentom postačí prenajatá platforma, ako je Shoptet.",
-          "Ak však plánujete rast na stovky alebo tisíce kategórií, zvážte open-source systém alebo riešenie na mieru.",
-      
+          "Pre menší e-shop s obmedzeným sortimentom postačí prenajatá platforma, ako je napríklad Shoptet.",
+          "Ak však máte ambíciu rásť na stovky či tisíce kategórií, zvážte open-source systém alebo riešenie na mieru.",
+        
           "### Možnosti optimalizácie a rýchlosť webu",
-          "Prenajaté riešenia sú zvyčajne optimalizované automaticky, no ponúkajú obmedzené možnosti úprav.",
-          "Open-source platformy ako WooCommerce poskytujú väčšiu flexibilitu, vyžadujú však technické znalosti alebo správcu.",
-          "Riešenie na mieru vám dáva plnú kontrolu nad rýchlosťou aj optimalizáciou, no patrí k najdrahším variantom.",
-      
+          "Prenajaté riešenia bývajú optimalizované automaticky, ich možnosti prispôsobenia sú však obmedzené.",
+          "Open-source platformy, ako je WooCommerce, ponúkajú väčšiu flexibilitu, no vyžadujú technické znalosti alebo externú správu.",
+          "Riešenie na mieru vám dáva plnú kontrolu nad rýchlosťou aj optimalizáciou, zároveň však patrí medzi najdrahšie varianty.",
+        
           "### Podpora a integrácie",
           "Potrebujete prepojenie so skladovým systémom, marketingovými nástrojmi alebo platobnými bránami?",
           "Prenajaté platformy majú tieto integrácie často pripravené vopred.",
-          "Open-source systémy ich riešia pomocou pluginov, pri riešení na mieru je potrebné ich naprogramovať.",
-      
+          "Open-source systémy ich podporujú prostredníctvom pluginov, zatiaľ čo pri riešení na mieru je potrebné ich naprogramovať.",
+        
           "### Rozpočet",
           "Financie sú často rozhodujúcim faktorom.",
-          "Prenajaté riešenia sú lacné na štart, no ich cena rastie s rozširovaním funkcií.",
-          "Open-source systémy šetria náklady na licencie, no vyžadujú investície do správy a hostingu.",
-          "Riešenie na mieru je najdrahšie, no pri veľkých a dlhodobých projektoch sa môže oplatiť.",
-      
-          "## Aké e-shopové riešenia si môžete vybrať",
+          "Prenajaté riešenia sú lacné na začiatok, ich cena však rastie s rozširovaním funkcií.",
+          "Open-source systémy šetria na licenciách, no vyžadujú investície do správy a hostingu.",
+          "Riešenie na mieru je najdrahšou možnosťou, pri veľkých a dlhodobých projektoch sa však môže vyplatiť.",
+        
+          "## Aké e-shopové riešenia môžete zvoliť",
           "Pri výbere e-shopového riešenia máte na výber z troch hlavných kategórií:",
-      
+        
           "### Prenajaté / krabicové e-shopové riešenia",
           "Ide o hotové riešenia, ktoré si prenajímate za mesačný poplatok a nevyžadujú technické znalosti.",
           "Patria sem platformy ako Upgates, Shoptet alebo Shopify.",
-      
+        
           "### Open-source riešenia",
-          "Tieto platformy sú dostupné zadarmo, no ich správa a úpravy vyžadujú technické zručnosti.",
+          "Tieto platformy sú dostupné zdarma, ich správa a úpravy si však vyžadujú technické zručnosti.",
           "Patria sem systémy ako WooCommerce, PrestaShop, OpenCart alebo Magento.",
-      
+        
           "### E-shop na mieru",
-          "Riešenie na mieru je ideálne pre špecifické požiadavky, ktoré štandardné platformy nedokážu pokryť.",
-          "Je však časovo aj finančne najnáročnejšie.",
-      
+          "Riešenie na mieru je ideálne pre špecifické požiadavky, ktoré štandardné platformy nedokážu splniť.",
+          "Je však časovo aj finančne náročnejšie.",
+        
           "## Porovnanie e-shopových riešení",
-          "Pozrime sa teraz detailnejšie na jednotlivé kategórie a platformy, ktoré zahŕňajú.",
-      
+          "Pozrime sa teraz bližšie na jednotlivé kategórie a platformy, ktoré do nich patria.",
+        
           "## Prenajaté (krabicové) riešenia",
           "Prenajaté e-shopy sú hotové platformy, ktoré si prenajímate za pravidelný mesačný alebo ročný poplatok.",
           "Poskytovateľ vám dodá kompletný systém vrátane hostingu, dizajnových šablón, základných funkcií a technickej podpory.",
-          "Nemusíte riešiť inštaláciu, servery ani aktualizácie — všetko je pripravené na okamžité použitie.",
-      
+          "Nemusíte sa starať o inštaláciu, servery ani aktualizácie — všetko je pripravené na okamžité použitie.",
+        
+          "Prenajaté, tzv. krabicové e-shopové riešenia patria medzi najobľúbenejšie voľby pre startupy, malé a stredné firmy alebo kohokoľvek, kto chce rýchlo spustiť svoj online obchod bez hlbokých technických znalostí.",
+        
           "### Najznámejšie platformy",
           "1. Shoptet",
           "- Veľmi populárny najmä na českom a slovenskom trhu.",
-          "- Ponúka širokú škálu šablón, jednoduché ovládanie a množstvo hotových integrácií.",
-      
+          "- Ponúka širokú škálu šablón, jednoduché ovládanie a množstvo hotových integrácií, ako sú platobné brány a dopravcovia.",
+        
           "2. Upgates",
-          "- Ďalšia lokálna alternatíva so zameraním na jednoduchosť a prepojenie so skladovými systémami.",
+          "- Ďalšia lokálna alternatíva so silným dôrazom na jednoduchosť a prepojenie so skladovými systémami.",
           "- Vyniká prehľadnou administráciou a rýchlou technickou podporou.",
-      
+          "- Cenovo porovnateľný so Shoptetom.",
+        
           "3. Shopify",
           "- Globálny líder s medzinárodným dosahom.",
-          "- Ideálny pre podnikateľov, ktorí chcú predávať do zahraničia.",
-      
+          "- Ideálny pre podnikateľov, ktorí chcú predávať do zahraničia vďaka podpore viacerých jazykov a mien.",
+        
           "### Výhody",
           "- Rýchly štart — e-shop môže byť online už v priebehu niekoľkých dní.",
-          "- Jednoduché ovládanie bez potreby programovania.",
-          "- Podpora a aktualizácie zabezpečené poskytovateľom.",
-          "- Hotové integrácie tretích strán.",
-          "- Nízke vstupné náklady.",
-      
+          "- Jednoduché používanie — nie sú potrebné programátorské znalosti.",
+          "- Podporu a aktualizácie rieši poskytovateľ.",
+          "- Hotové integrácie so službami tretích strán.",
+          "- Nízke vstupné náklady v porovnaní s riešeniami na mieru.",
+        
           "### Nevýhody",
           "- Obmedzené možnosti prispôsobenia.",
-          "- Pravidelné poplatky, ktoré sa môžu časom zvyšovať.",
-          "- Závislosť od poskytovateľa platformy."
+          "- Mesačné poplatky, ktoré sa časom zvyšujú.",
+          "- Závislosť od poskytovateľa platformy.",
+        
+          "![Example of an e-shop on the Upgates platform, which we integrated on the website of the luxury swimming pool manufacturer Magiline](/images/blog/Magiline-1024x629.png)",
+        
+          "## Open-source riešenia",
+          "Open-source e-shopové riešenia sú systémy s otvoreným zdrojovým kódom, vyvíjané komunitou programátorov a dostupné zdarma.",
+          "Inštalujú sa na vlastný hosting a spravujete ich sami, čo prináša flexibilitu aj zodpovednosť.",
+        
+          "Tieto riešenia sú obľúbené medzi firmami, ktoré chcú plnú kontrolu a škálovateľnosť bez obmedzení prenajatých platforiem.",
+        
+          "### Najznámejšie platformy",
+          "1. WooCommerce",
+          "- Plugin pre WordPress, najrozšírenejší CMS systém na svete.",
+          "- Ideálny pre malé a stredne veľké e-shopy.",
+          "- Silná SEO podpora a tisíce pluginov.",
+          "2. PrestaShop",
+          "- Samostatný e-commerce systém vhodný pre stredne veľké obchody.",
+          "- Veľmi populárny v Európe so širokou ponukou modulov.",
+          "3. OpenCart",
+          "- Ľahké a rýchle riešenie pre menšie e-shopy.",
+          "- Menší počet doplnkov, no veľmi úsporné na zdroje.",
+          "4. Magento",
+          "- Robustné riešenie pre veľké a komplexné e-shopy.",
+          "- Pokročilé funkcie, no vysoké nároky na hosting a technické znalosti.",
+        
+          "### Výhody",
+          "- Bezplatný základný systém.",
+          "- Vysoká miera prispôsobenia.",
+          "- Silná komunita a ekosystém pluginov.",
+          "- Nezávislosť od dodávateľa.",
+        
+          "### Nevýhody",
+          "- Vyššia technická náročnosť.",
+          "- Dodatočné náklady na prémiové pluginy a hosting.",
+          "- Zodpovednosť za aktualizácie a bezpečnosť.",
+        
+          "![Example of an e-shop based on the open-source platform WooCommerce, which we created for yourkush.cz](/images/blog/yourkush-1024x592.png)",
+        
+          "## E-shop na mieru",
+          "E-shop na mieru predstavuje najvyššiu úroveň prispôsobenia.",
+          "Je vytvorený presne podľa potrieb vášho podnikania a technických požiadaviek.",
+        
+          "### Výhody",
+          "- Plná kontrola nad funkcionalitou aj dizajnom.",
+          "- Maximálna flexibilita.",
+          "- Výborná škálovateľnosť pre veľké projekty.",
+        
+          "### Nevýhody",
+          "- Vysoké náklady na vývoj.",
+          "- Závislosť od vývojového tímu.",
+          "- Dlhší čas spustenia.",
+        
+          "## Záver",
+          "Ktoré e-shopové riešenie je teda najlepšie? Univerzálna odpoveď neexistuje.",
+          "Správna voľba závisí od vášho rozpočtu, cieľov a dlhodobých plánov.",
+          "Prenajaté platformy sú ideálne na rýchly štart, open-source systémy na flexibilitu a riešenia na mieru pre komplexné požiadavky.",
+        
+          "V agentúre WebOptim vám radi pomôžeme analyzovať vaše potreby a vybrať najlepšie riešenie pre váš e-shop.",
+          "Kontaktujte nás a spoločne nájdeme cestu k vášmu úspechu v digitálnom svete."
         ],
       },
      },
