@@ -21,14 +21,25 @@ const esc = (s: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 
+const withSlash = (p: string) => {
+  if (!p) return "/";
+  if (p === "/") return "/";
+  return p.startsWith("/") ? p : `/${p}`;
+};
+
 const urlEntry = (paths: Record<Lang, string>) => {
-  const loc = `${domains.EN}${paths.EN}`;
+  const enPath = withSlash(paths.EN);
+  const czPath = withSlash(paths.CZ);
+  const skPath = withSlash(paths.SK);
+
+  const loc = `${domains.EN}${enPath}`;
+
   return `  <url>
     <loc>${esc(loc)}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${esc(domains.EN + paths.EN)}"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="${esc(domains.CZ + paths.CZ)}"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="${esc(domains.SK + paths.SK)}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(domains.EN + paths.EN)}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${esc(domains.EN + enPath)}"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="${esc(domains.CZ + czPath)}"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="${esc(domains.SK + skPath)}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(domains.EN + enPath)}"/>
   </url>`;
 };
 
@@ -57,6 +68,12 @@ const staticEntries = Object.entries(staticPages)
   })
   .filter(Boolean) as string[];
 
+const joinPath = (base: string, slug: string) => {
+  const b = base?.replace(/\/+$/, "") ?? ""; // odstráni trailing /
+  const s = slug?.replace(/^\/+/, "") ?? ""; // odstráni leading /
+  return `${b}/${s}`;
+};
+
 // --- BLOG POSTS ---
 const blogEntries =
   staticPageSlugs.blog?.EN && staticPageSlugs.blog?.CZ && staticPageSlugs.blog?.SK
@@ -69,13 +86,14 @@ const blogEntries =
           if (!enSlug || !czSlug || !skSlug) return null;
 
           return urlEntry({
-            EN: `${staticPageSlugs.blog.EN}/${enSlug}`,
-            CZ: `${staticPageSlugs.blog.CZ}/${czSlug}`,
-            SK: `${staticPageSlugs.blog.SK}/${skSlug}`,
+            EN: joinPath(staticPageSlugs.blog.EN, enSlug),
+            CZ: joinPath(staticPageSlugs.blog.CZ, czSlug),
+            SK: joinPath(staticPageSlugs.blog.SK, skSlug),
           });
         })
         .filter(Boolean) as string[]
     : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
+
 
 // FINAL XML
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
