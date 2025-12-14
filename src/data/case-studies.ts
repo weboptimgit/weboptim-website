@@ -569,8 +569,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         subtitle: "Nutrition Consulting & Life Coaching Platform",
         category: "Health & Coaching",
         client: "UzdravTelo",
-        duration: "Ongoing",
-        year: "2024–2025",
+        duration: "2-4 weeks",
+        year: "2023",
         team: "1–3 People",
 
         description:
@@ -635,8 +635,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         subtitle: "Platforma výživového poradenstva & life coachingu",
         category: "Zdravie & koučing",
         client: "UzdravTelo",
-        duration: "Dlhodobá spolupráca",
-        year: "2024–2025",
+        duration: "2-4 týždne",
+        year: "2023",
         team: "1–3 osoby",
       
         description:
@@ -701,8 +701,8 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         subtitle: "Platforma výživového poradenství & life coachingu",
         category: "Zdraví & koučink",
         client: "UzdravTelo",
-        duration: "Dlouhodobá spolupráce",
-        year: "2024–2025",
+        duration: "2-4 týdny",
+        year: "2023",
         team: "1–3 osoby",
       
         description:
