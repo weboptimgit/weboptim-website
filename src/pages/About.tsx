@@ -83,28 +83,39 @@ const stats = [
 
 const timeline = [
   {
-    year: "2016",
+    year: "2017",
     title: "The Beginning",
-    description: "Started as a freelance developer, helping local businesses establish their online presence.",
+    description:
+      "Začiatky ako freelancer, zároveň nástup do SEO agentúry na plný úväzok a prvé reálne skúsenosti s online marketingom.",
     icon: Rocket,
   },
   {
-    year: "2018",
+    year: "2020",
+    title: "Founding the Company",
+    description:
+      "Založenie vlastnej firmy. Portfólio služieb sa rozšírilo o webdizajn, tvorbu webových stránok a e-shopov plne optimalizovaných pre vyhľadávače.",
+    icon: Target,
+  },
+  {
+    year: "2021",
     title: "Expanding Services",
-    description: "Added SEO, PPC advertising, and graphic design to offer complete digital solutions.",
+    description:
+      "Pridanie ďalších služieb, najmä PPC marketing, čím vznikol komplexnejší balík digitálnych riešení.",
     icon: TrendingUp,
   },
   {
-    year: "2020",
-    title: "WordPress Mastery",
-    description: "Became experts in WordPress and Oxygen Builder, delivering high-performance websites.",
-    icon: Code,
+    year: "2023",
+    title: "Automation & Digitalization",
+    description:
+      "Začiatok špecializácie na digitalizáciu a automatizáciu firemných procesov, čo otvorilo nové segmenty spolupráce s podnikmi.",
+    icon: Zap,
   },
   {
-    year: "2023",
-    title: "Full-Service Agency",
-    description: "Grew into a comprehensive digital agency serving clients across Europe.",
-    icon: Palette,
+    year: "2025",
+    title: "50+ Completed Projects",
+    description:
+      "Agentúra prekročila míľnik 50 úspešných projektov a výrazne rozšírila svoje portfólio aj klientskú základňu.",
+    icon: Users,
   },
 ];
 
