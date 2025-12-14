@@ -280,7 +280,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         subtitle: "Dental Clinic Website & Patient Conversion",
         category: "Healthcare",
         client: "Biodent",
-        duration: "6–8 Weeks",
+        duration: "2-4 Weeks",
         year: "2024",
         team: "2–3 Members",
         projectUrl: "https://biodent.sk/",
@@ -288,12 +288,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Modern dental clinic website focused on trust, clarity, and patient conversion — combining service presentation, doctor profiles, and local SEO.",
         tags: ["Healthcare", "WordPress", "Local SEO"],
-        image: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        image: "/img/weboptim-biodent-mockup.jpg",
         statValue: "+60%",
         statLabel: "Inquiry Growth",
         featured: true,
   
-        heroImage: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        heroImage: "/img/weboptim-biodent-mockup.jpg",
   
         overview:
           "Biodent is a modern dental clinic offering comprehensive dental care — from preventive dentistry and hygiene to implantology and aesthetic treatments. The website is designed to build trust with new patients through clear service explanations, doctor profiles, and strong local SEO visibility.",
@@ -348,7 +348,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         subtitle: "Web zubní kliniky & konverze pacientů",
         category: "Zdravotnictví",
         client: "Biodent",
-        duration: "6–8 týdnů",
+        duration: "2-4 týdny",
         year: "2024",
         team: "2–3 členové",
         projectUrl: "https://biodent.sk/",
@@ -356,12 +356,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Moderní web zubní kliniky zaměřený na důvěru, přehlednost a získávání nových pacientů pomocí lokálního SEO.",
         tags: ["Zdravotnictví", "WordPress", "Lokální SEO"],
-        image: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        image: "/img/weboptim-biodent-mockup.jpg",
         statValue: "+60%",
         statLabel: "Nárůst poptávek",
         featured: true,
   
-        heroImage: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        heroImage: "/img/weboptim-biodent-mockup.jpg",
   
         overview:
           "Biodent je moderní zubní klinika poskytující komplexní stomatologickou péči — od prevence a dentální hygieny až po implantologii a estetickou stomatologii. Web je navržen tak, aby budoval důvěru nových pacientů a zvyšoval viditelnost ve vyhledávání.",
@@ -416,7 +416,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         subtitle: "Web zubnej kliniky & získavanie pacientov",
         category: "Zdravotníctvo",
         client: "Biodent",
-        duration: "6–8 týždňov",
+        duration: "2-4 týždňov",
         year: "2024",
         team: "2–3 členovia",
         projectUrl: "https://biodent.sk/",
@@ -424,12 +424,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Moderná webová stránka zubnej kliniky zameraná na dôveru, prehľadnosť a konverziu pacientov pomocou lokálneho SEO.",
         tags: ["Zdravotníctvo", "WordPress", "Lokálne SEO"],
-        image: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        image: "/img/weboptim-biodent-mockup.jpg",
         statValue: "+60%",
         statLabel: "Nárast dopytov",
         featured: true,
   
-        heroImage: "https://biodent.sk/wp-content/uploads/biodent-hero.jpg",
+        heroImage: "/img/weboptim-biodent-mockup.jpg",
   
         overview:
           "Biodent je moderná zubná klinika poskytujúca komplexnú stomatologickú starostlivosť — od prevencie a dentálnej hygieny až po implantológiu a estetické zákroky. Web je navrhnutý tak, aby budoval dôveru nových pacientov a zvyšoval lokálnu viditeľnosť.",
