@@ -1,6 +1,12 @@
 import React from "react";
 import type { ReviewsPlatformRow } from "@/data/blog-tables";
 
+const tipText: Record<Language, string> = {
+  EN: "Tip: On mobile, the table scrolls horizontally.",
+  CZ: "Tip: Na mobilu se tabulka posouvá horizontálně.",
+  SK: "Tip: Na mobile sa tabuľka posúva horizontálne.",
+};
+
 export default function ComparisonTable({
   title,
   rows,
@@ -74,7 +80,7 @@ export default function ComparisonTable({
         </div>
 
         <div className="px-5 py-3 text-xs text-muted-foreground border-t border-border/40">
-          Tip: na mobile sa tabuľka posúva horizontálne.
+          {tipText[language]}
         </div>
       </div>
     </div>
