@@ -338,87 +338,73 @@ const BlogPost = () => {
                   );
                 }
 
-                // Handle list items
-                if (paragraph.startsWith("- ")) {
-                  const isFirstInList = index === 0 || !arr[index - 1].startsWith("- ");
-
-                  if (isFirstInList) {
-                    const listItems: string[] = [];
-                    let i = index;
-                    while (i < arr.length && arr[i].startsWith("- ")) {
-                      listItems.push(arr[i].replace("- ", ""));
-                      i++;
-                    }
-                    return (
-                      <motion.ul
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="mb-6 space-y-3"
-                      >
-                        {listItems.map((item, itemIndex) => (
-                          <motion.li
-                            key={itemIndex}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: itemIndex * 0.1 }}
-                            className="flex items-start gap-3 text-muted-foreground leading-relaxed"
-                          >
-                            <span className="mt-2 w-2 h-2 rounded-full bg-gradient-hero flex-shrink-0" />
-                            <span>{item}</span>
-                          </motion.li>
-                        ))}
-                      </motion.ul>
-                    );
-                  }
-                  return null;
-                }
-
-                // Handle numbered list items (e.g. "1. Something")
+                // Handle ordered list items with nested bullet points
                 if (/^\d+\.\s/.test(paragraph)) {
                   const isFirstInList = index === 0 || !/^\d+\.\s/.test(arr[index - 1]);
-
+                
                   if (isFirstInList) {
-                    const listItems: string[] = [];
+                    const items: { title: string; bullets: string[] }[] = [];
                     let i = index;
-
+                
                     while (i < arr.length && /^\d+\.\s/.test(arr[i])) {
-                      listItems.push(arr[i].replace(/^\d+\.\s/, ""));
+                      const title = arr[i].replace(/^\d+\.\s/, "").trim();
                       i++;
+                
+                      const bullets: string[] = [];
+                      while (i < arr.length && arr[i].startsWith("- ")) {
+                        bullets.push(arr[i].replace("- ", "").trim());
+                        i++;
+                      }
+                
+                      items.push({ title, bullets });
                     }
-
+                
                     return (
                       <motion.ol
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mb-6 space-y-3"
+                        className="mb-6 space-y-6"
                       >
-                        {listItems.map((item, itemIndex) => (
+                        {items.map((it, itemIndex) => (
                           <motion.li
                             key={itemIndex}
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: itemIndex * 0.1 }}
-                            className="flex items-start gap-3 text-muted-foreground leading-relaxed"
+                            transition={{ delay: itemIndex * 0.08 }}
+                            className="text-muted-foreground leading-relaxed"
                           >
-                            {/* Číslovanie so štýlom ako bullet gradient */}
-                            <span className="mt-1 w-6 h-6 rounded-full bg-gradient-hero text-xs flex items-center justify-center text-white font-semibold flex-shrink-0">
-                              {itemIndex + 1}
-                            </span>
-                            <span>{item}</span>
+                            <div className="flex items-start gap-3">
+                              <span className="mt-1 w-6 h-6 rounded-full bg-gradient-hero text-xs flex items-center justify-center text-white font-semibold flex-shrink-0">
+                                {itemIndex + 1}
+                              </span>
+                              <span className="font-semibold text-foreground">{it.title}</span>
+                            </div>
+                
+                            {it.bullets.length ? (
+                              <ul className="mt-3 ml-9 space-y-2">
+                                {it.bullets.map((b, bi) => (
+                                  <li key={bi} className="flex items-start gap-3">
+                                    <span className="mt-2 w-2 h-2 rounded-full bg-gradient-hero flex-shrink-0" />
+                                    <span>{b}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
                           </motion.li>
                         ))}
                       </motion.ol>
                     );
                   }
-
+                
                   return null;
                 }
+                
+                // IMPORTANT: remove/disable your old "- " handler,
+                // otherwise bullets will be rendered twice/outside the ol.
+                if (paragraph.startsWith("- ")) return null;
 
                 // Skip empty lines
                 if (paragraph.trim() === "") {
