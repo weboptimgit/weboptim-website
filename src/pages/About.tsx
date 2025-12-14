@@ -25,8 +25,9 @@ import { buildPath } from "@/config/domains";
 
 const AboutInner = () => {
   const { t } = useLanguage();
-  const contactUrl = buildPath(t, "contact");
-  const workUrl = buildPath(t, "work");
+   const { language } = useLanguage();
+  const contactUrl = buildPath(language, "contact");
+  const workUrl = buildPath(language, "work");
   const { ta } = useAbout();
 
   const highlights = [
