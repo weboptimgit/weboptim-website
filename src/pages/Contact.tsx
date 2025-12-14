@@ -36,6 +36,17 @@ const Contact = () => {
   const base = domainConfig[language];
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
   const canonicalUrl = `${base}${currentPath}`;
+  const defaultPhoneCountry = (() => {
+  switch (language) {
+      case "CZ":
+        return "CZ";
+      case "SK":
+        return "SK";
+      case "EN":
+      default:
+        return "SK";
+    }
+  })();
   
   const contactSchema = getContactPageSchema({
     language,
@@ -55,7 +66,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phoneCountry: "CZ",
+    phoneCountry: defaultPhoneCountry,
     phone: "",
     website: "",
     topic: "",
@@ -115,7 +126,7 @@ const Contact = () => {
         setFormData({
           name: "",
           email: "",
-          phoneCountry: "CZ",
+          phoneCountry: defaultPhoneCountry,
           phone: "",
           website: "",
           topic: "",
@@ -257,7 +268,7 @@ const Contact = () => {
                           <div className="w-[120px]">
                             <Select value={formData.phoneCountry} onValueChange={(v) => setField("phoneCountry", v)}>
                               <SelectTrigger className="bg-background/50">
-                                <SelectValue placeholder="CZ" />
+                                <SelectValue />
                               </SelectTrigger>
                               <SelectContent>
                                 <SelectItem value="SK">🇸🇰 SK</SelectItem>
