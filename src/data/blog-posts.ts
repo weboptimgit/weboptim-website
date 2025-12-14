@@ -74,6 +74,12 @@ export const blogPostsData: BlogPostData[] = [
           ],
           date: "May 23, 2025",
           readTime: "5 min read",
+          resources: [
+            {
+              title: "Spiegel Research Center",
+              url: "https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/"
+            }
+          ],
           content: [
             "## Impact of customer reviews on purchasing decisions",
             "There is no doubt that customer reviews have a direct impact on consumer psychology. According to a 2023 BrightLocal study, **87% of customers read reviews before making a purchase and 79% trust them as much as personal recommendations.** These numbers clearly show that reviews are not just an add-on, but a fundamental pillar of trust in the online space.",
@@ -125,6 +131,12 @@ export const blogPostsData: BlogPostData[] = [
           ],
           date: "23. května 2025",
           readTime: "5 min čtení",
+          resources: [
+            {
+              title: "Spiegel Research Center",
+              url: "https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/"
+            }
+          ],
           content: [
             "## Vliv zákaznických recenzí na nákupní rozhodování",
             "Není pochyb o tom, že zákaznické recenze mají přímý vliv na psychologii spotřebitele. Podle studie společnosti BrightLocal z roku 2023 **87 % zákazníků čte recenze před nákupem a 79 % jim důvěřuje stejně jako osobním doporučením.** Tato čísla jasně ukazují, že recenze nejsou jen doplňkem, ale základním pilířem důvěry v online prostředí.",
@@ -176,6 +188,12 @@ export const blogPostsData: BlogPostData[] = [
           ],
           date: "23. mája 2025",
           readTime: "5 min čítania",
+          resources: [
+            {
+              title: "Spiegel Research Center",
+              url: "https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/"
+            }
+          ],
           content: [
             "## Vplyv zákazníckych recenzií na nákupné rozhodnutia",
             "Niet pochýb, že zákaznícke recenzie majú priamy vplyv na psychológiu spotrebiteľa. Podľa štúdie spoločnosti BrightLocal z roku 2023 až **87 % zákazníkov číta pred nákupom recenzie a 79 % im dôveruje rovnako ako osobným odporúčaniam.** Tieto čísla jasne ukazujú, že recenzie nie sú len doplnkom, ale základným pilierom dôvery v online priestore.",
