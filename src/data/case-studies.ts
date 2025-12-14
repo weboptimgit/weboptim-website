@@ -844,12 +844,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Komplexné stavebné a rekonštrukčné služby vrátane kompletných rekonštrukcií interiérov, fasád a energeticky úsporných riešení pre rezidenčné aj komerčné objekty.",
         tags: ["Stavebníctvo", "Rekonštrukcie", "Projektový manažment"],
-        image: "/img/weboptim-kimbau-mockup",
+        image: "/img/weboptim-kimbau-mockup.jpg",
         statValue: "30+ r.",
         statLabel: "Skúseností",
         featured: true,
       
-        heroImage: "/img/weboptim-kimbau-mockup",
+        heroImage: "/img/weboptim-kimbau-mockup.jpg",
       
         overview:
           "Kimbau je etablovaná stavebná spoločnosť pôsobiaca na trhu od roku 1994, poskytujúca kvalitné rekonštrukčné a stavebné služby v Prahe a okolí. Zameriava sa na riešenia na mieru — od kompletných rekonštrukcií bytov a rodinných domov až po zatepľovanie fasád a stavebné projekty na kľúč.",
@@ -910,12 +910,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Komplexní stavební a rekonstrukční služby včetně kompletních rekonstrukcí interiérů, fasád a energeticky úsporných řešení pro rezidenční i komerční objekty.",
         tags: ["Stavebnictví", "Rekonstrukce", "Projektový management"],
-        image: "/img/weboptim-kimbau-mockup",
+        image: "/img/weboptim-kimbau-mockup.jpg",
         statValue: "30+ let",
         statLabel: "Zkušeností",
         featured: true,
       
-        heroImage: "/img/weboptim-kimbau-mockup",
+        heroImage: "/img/weboptim-kimbau-mockup.jpg",
       
         overview:
           "Kimbau je zavedená stavební společnost působící na trhu od roku 1994, která poskytuje kvalitní rekonstrukční a stavební služby v Praze a okolí. Zaměřuje se na řešení na míru — od kompletních rekonstrukcí bytů a rodinných domů až po zateplování fasád a stavební projekty na klíč.",
