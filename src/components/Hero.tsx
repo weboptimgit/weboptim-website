@@ -18,10 +18,10 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const stats = [
-    { value: "150+", label: t("stats.projects"), icon: Rocket, color: "from-primary to-cyan" },
+    { value: "50+", label: t("stats.projects"), icon: Rocket, color: "from-primary to-cyan" },
     { value: "98%", label: t("stats.satisfaction"), icon: Heart, color: "from-pink-500 to-rose-400" },
     { value: "8+", label: t("stats.experience"), icon: Clock, color: "from-amber-500 to-orange-400" },
-    { value: "35+", label: t("stats.team"), icon: Users, color: "from-emerald-500 to-green-400" },
+    { value: "5+", label: t("stats.team"), icon: Users, color: "from-emerald-500 to-green-400" },
   ];
 
   return (
