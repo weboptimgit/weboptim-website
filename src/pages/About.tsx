@@ -127,7 +127,6 @@ const AboutInner = () => {
     <>
       <SEO
         titleKey="about"
-        noindex
         jsonLd={getAboutPageSchema(language, canonicalUrl)}
       />
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
