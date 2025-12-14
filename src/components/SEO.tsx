@@ -45,17 +45,17 @@ const seoTranslations: Record<string, Record<Language, { title: string; descript
   },
   about: {
     EN: {
-      title: "About WebOptim | Web, E-commerce & SEO Specialists",
+      title: "About Us | WebOptim",
       description:
         "Discover WebOptim’s story, values and team. We specialize in high-performance websites, e-commerce solutions and SEO strategies that deliver measurable results.",
     },
     CZ: {
-      title: "O nás | WebOptim – Weby, e-shopy a SEO",
+      title: "O nás | WebOptim",
       description:
         "Poznejte příběh WebOptim, naše hodnoty a tým. Specializujeme se na výkonné weby, e-shopy a SEO řešení, která přinášejí měřitelné výsledky.",
     },
     SK: {
-      title: "O nás | WebOptim – Weby, e-shopy a SEO",
+      title: "O nás | WebOptim ",
       description:
         "Spoznajte príbeh WebOptim, naše hodnoty a tím. Špecializujeme sa na výkonné weby, e-shopy a SEO riešenia, ktoré prinášajú merateľné výsledky.",
     },
