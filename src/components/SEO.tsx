@@ -280,6 +280,25 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
       meta.content = content;
     };
 
+    // Helper to set or create link tag
+    const setLink = (rel: string, href: string, additionalAttrs?: Record<string, string>) => {
+      const selector = additionalAttrs 
+        ? `link[rel="${rel}"]${Object.entries(additionalAttrs).map(([k, v]) => `[${k}="${v}"]`).join('')}`
+        : `link[rel="${rel}"]`;
+      let link = document.querySelector(selector) as HTMLLinkElement;
+      if (!link) {
+        link = document.createElement("link");
+        link.rel = rel;
+        if (additionalAttrs) {
+          Object.entries(additionalAttrs).forEach(([key, value]) => {
+            link.setAttribute(key, value);
+          });
+        }
+        document.head.appendChild(link);
+      }
+      link.href = href;
+    };
+
     // Basic meta tags
     setMeta("description", finalDescription);
     
@@ -287,7 +306,7 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
     document.querySelectorAll('meta[name="robots"]').forEach(m => m.remove());
     document.querySelectorAll('meta[name="googlebot"]').forEach(m => m.remove());
     
-    // Global NOINDEX
+    // Global NOINDEX (remove this when ready to go live)
     const robots = document.createElement("meta");
     robots.name = "robots";
     robots.content = "noindex, nofollow";
@@ -321,6 +340,13 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
       document.head.appendChild(canonical);
     }
     canonical.href = currentUrl;
+
+    // Update hreflang tags for current page
+    const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
+    setLink("alternate", `${domainConfig.EN}${currentPath}`, { hreflang: "en" });
+    setLink("alternate", `${domainConfig.CZ}${currentPath}`, { hreflang: "cs" });
+    setLink("alternate", `${domainConfig.SK}${currentPath}`, { hreflang: "sk" });
+    setLink("alternate", `${domainConfig.EN}${currentPath}`, { hreflang: "x-default" });
 
     // Handle JSON-LD structured data
     // Remove existing JSON-LD scripts
