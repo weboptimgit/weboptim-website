@@ -319,7 +319,22 @@ const BlogPost = () => {
                     i++;
                     continue;
                   }
-            
+
+                  const renderBold = (text: string) => {
+                      const parts = text.split(/(\*\*[^*]+\*\*)/g);
+                  
+                    return parts.map((part, i) => {
+                      if (part.startsWith("**") && part.endsWith("**")) {
+                        return (
+                          <strong key={i} className="font-semibold text-foreground">
+                            {part.slice(2, -2)}
+                          </strong>
+                        );
+                      }
+                      return <span key={i}>{part}</span>;
+                    });
+                  };
+              
                   // image ![alt](url)
                   if (paragraph.startsWith("![")) {
                     const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
@@ -425,7 +440,9 @@ const BlogPost = () => {
                               <span className="mt-1 w-6 h-6 rounded-full bg-gradient-hero text-xs flex items-center justify-center text-white font-semibold flex-shrink-0">
                                 {itemIndex + 1}
                               </span>
-                              <span className="font-semibold text-foreground">{it.title}</span>
+                              <span className="font-semibold text-foreground">
+                                {renderBold(it.title)}
+                              </span>
                             </div>
             
                             {it.bullets.length ? (
@@ -465,7 +482,7 @@ const BlogPost = () => {
                         {bullets.map((b, bi) => (
                           <li key={bi} className="flex items-start gap-3 text-muted-foreground">
                             <span className="mt-2 w-2 h-2 rounded-full bg-gradient-hero flex-shrink-0" />
-                            <span>{b}</span>
+                            <span>{renderBold(b)}</span>
                           </li>
                         ))}
                       </motion.ul>
@@ -483,7 +500,7 @@ const BlogPost = () => {
                       viewport={{ once: true, margin: "-50px" }}
                       className="text-muted-foreground mb-6 leading-relaxed text-lg"
                     >
-                      {paragraph}
+                      {renderBold(paragraph)}
                     </motion.p>
                   );
             
