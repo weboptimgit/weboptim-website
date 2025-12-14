@@ -79,8 +79,11 @@ export const blogPostsData: BlogPostData[] = [
           "However, deciding which solution to choose for your online store is not easy. There are several options on the market, each with its own specifics, advantages and limitations.",
           "In this article, we'll give you an overview of the available e-commerce solutions and help you navigate what to consider when choosing one.",
           
-          "Pripravili sme tabuľku porovnávajúcu tieto platformy podľa cieľovej skupiny, dôveryhodnosti a vplyvu na konverzie:",
-          "[[TABLE:reviews-platforms]]",
+          "Existuje niekoľko hlavných platforiem na zhromažďovanie recenzií...",
+          "",
+          "!!TABLE_REVIEWS_PLATFORMS!!",
+          "",
+          "Ako vidíte v tabuľke vyššie, Google Business Profile má najväčší vplyv...",
       
           "## What to focus on when choosing an e-shop solution",
           "When deciding on the most suitable solution for your e-shop, it is important to consider several factors. Here are the most important ones:",
