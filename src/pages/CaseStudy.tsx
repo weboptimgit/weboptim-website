@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
+import SEO from "@/components/SEO";
 
 // Tech color mapping by category
 const getTechColor = (tech: string): string => {
@@ -57,6 +58,7 @@ const CaseStudy = () => {
 
   if (!study) {
     return (
+      <SEO titleKey="notFound" />
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Case Study Not Found</h1>
@@ -69,6 +71,11 @@ const CaseStudy = () => {
   }
 
   return (
+    <SEO
+      title={`${study.title} | WebOptim`}
+      description={study.description}
+      image={study.heroImage}
+    />
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <AmbientBackground />
       <Navbar />
