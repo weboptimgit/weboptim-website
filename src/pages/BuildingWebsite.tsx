@@ -22,7 +22,7 @@ import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
-import SEO, { getFAQSchema, getServicePageSchema } from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import Testimonials from "@/components/Testimonials";
@@ -179,7 +179,20 @@ const BuildingWebsite = () => {
 
   return (
     <>
-      <SEOtitle={bw.seo.title}description={bw.seo.description}jsonLd={jsonLd}/>
+      
+      <SEO
+        title={bw.seo.title}
+        description={bw.seo.description}
+        jsonLd={[
+          getServicePageSchema({
+            language,
+            canonicalUrl,
+            serviceName: bw.faq.serviceName,
+            serviceDescription: bw.seo.description,
+          }),
+          getFAQSchema(mapFaqItems(bw.faq.items)),
+        ]}
+      />
       <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
