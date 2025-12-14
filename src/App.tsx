@@ -32,6 +32,7 @@ import { PpcLanguageProvider } from "@/contexts/LanguagePPC";
 import { DigitalizationLanguageProvider } from "@/contexts/LanguageDigitalization";
 import { GraphicLanguageProvider } from "@/contexts/LanguageGraphic";
 import { ContactLanguageProvider } from "@/contexts/LanguageContact";
+import CookieBanner from "@/components/CookieBanner";
 
 const queryClient = new QueryClient();
 
