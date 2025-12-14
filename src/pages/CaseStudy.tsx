@@ -55,22 +55,30 @@ const CaseStudy = () => {
   const backToWork = buildPath(language, "work");
   const { slug } = useParams<{ slug: string }>();
   const study = slug ? caseStudiesData[slug] : null;
-
+  
   if (!study) {
     return (
-      <SEO titleKey="notFound" />
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-display font-bold mb-4">Case Study Not Found</h1>
-          <Link to={backToWork}>
-            <Button variant="glow">Back to Projects</Button>
-          </Link>
+      <>
+        <SEO titleKey="notFound" />
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-display font-bold mb-4">
+              Case Study Not Found
+            </h1>
+  
+            <Link to={backToWork}>
+              <Button variant="glow">
+                Back to Projects
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
+    <>
     <SEO
       title={`${study.title} | WebOptim`}
       description={study.description}
@@ -433,6 +441,7 @@ const CaseStudy = () => {
 
       <Footer />
     </div>
+   <>   
   );
 };
 
