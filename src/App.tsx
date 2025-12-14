@@ -32,6 +32,7 @@ import { PpcLanguageProvider } from "@/contexts/LanguagePPC";
 import { DigitalizationLanguageProvider } from "@/contexts/LanguageDigitalization";
 import { GraphicLanguageProvider } from "@/contexts/LanguageGraphic";
 import { ContactLanguageProvider } from "@/contexts/LanguageContact";
+import { WorkCaseStudyProvider } from "@/contexts/WorkCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -69,8 +70,8 @@ const App = () => (
             <Route path="/nase-prace" element={<Work />} />
             
             {/* Detail case study - via work base */}
-            <Route path="/work/:slug" element={<CaseStudy />} />
-            <Route path="/nase-prace/:slug" element={<CaseStudy />} />
+            <Route path="/work/:slug" element={<WorkCaseStudyProvider> <CaseStudy /> </WorkCaseStudyProvider>} />
+            <Route path="/nase-prace/:slug" element={<WorkCaseStudyProvider> <CaseStudy /> </WorkCaseStudyProvider>} />
             
             {/* Backward compatible old URLs */}
             <Route path="/portfolio" element={<Navigate to="/nase-prace" replace />} />
