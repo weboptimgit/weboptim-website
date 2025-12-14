@@ -1,17 +1,16 @@
-// src/contexts/WorkMobilno.tsx
-import React, { createContext, useContext, ReactNode, useMemo } from "react";
+import React, { createContext, useContext } from "react";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
-import { CaseStudy } from "@/data/case-studies";
 
-type MobilnoOverride = Partial<CaseStudy>;
-
-type CtxValue = {
-  mobilno: MobilnoOverride;
+type MobilnoLang = {
+  title: string;
+  subtitle: string;
+  overview: string;
+  challenge: string;
+  solution: string;
+  features: string[];
 };
 
-const WorkMobilnoContext = createContext<CtxValue | null>(null);
-
-const mobilnoTranslations: Record<Language, MobilnoOverride> = {
+const translations: Record<Language, MobilnoLang> = {
   EN: {
     title: "Mobilno",
     subtitle: "Marketplace for Mobile Service Providers",
@@ -217,18 +216,19 @@ const mobilnoTranslations: Record<Language, MobilnoOverride> = {
   },
 };
 
-export const WorkMobilnoProvider = ({ children }: { children: ReactNode }) => {
+const WorkMobilnoContext = createContext<MobilnoLang | null>(null);
+
+export const WorkMobilnoProvider = ({ children }: { children: React.ReactNode }) => {
   const { language } = useLanguage();
-
-  const value = useMemo<CtxValue>(() => {
-    return { mobilno: mobilnoTranslations[language] || mobilnoTranslations.EN };
-  }, [language]);
-
-  return <WorkMobilnoContext.Provider value={value}>{children}</WorkMobilnoContext.Provider>;
+  return (
+    <WorkMobilnoContext.Provider value={translations[language]}>
+      {children}
+    </WorkMobilnoContext.Provider>
+  );
 };
 
 export const useWorkMobilno = () => {
   const ctx = useContext(WorkMobilnoContext);
-  if (!ctx) throw new Error("useWorkMobilno must be used within WorkMobilnoProvider");
+  if (!ctx) throw new Error("useWorkMobilno must be used inside WorkMobilnoProvider");
   return ctx;
 };
