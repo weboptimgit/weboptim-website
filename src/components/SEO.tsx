@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
-import { domainConfig } from "@/config/domains";
+import { domainConfig, getLanguageSwitchUrl } from "@/config/domains";
 
 interface SEOProps {
   titleKey?: string;
@@ -261,6 +261,7 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
   const finalDescription = description || seoData?.description || "";
   const currentDomain = domainConfig[language];
   const currentUrl = typeof window !== "undefined" ? window.location.href : currentDomain;
+  const canonicalUrl = `${currentDomain}${currentPath}`;
   const defaultImage = `${currentDomain}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`;
   const finalImage = image || defaultImage;
 
@@ -323,7 +324,7 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
     // Open Graph tags
     setMeta("og:title", finalTitle, true);
     setMeta("og:description", finalDescription, true);
-    setMeta("og:url", currentUrl, true);
+    setMeta("og:url", canonicalUrl, true);
     setMeta("og:image", finalImage, true);
     setMeta("og:type", article ? "article" : "website", true);
     setMeta("og:site_name", "WebOptim", true);
@@ -342,14 +343,19 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
       canonical.rel = "canonical";
       document.head.appendChild(canonical);
     }
-    canonical.href = currentUrl;
+    canonical.href = canonicalUrl;
 
     // Update hreflang tags for current page
     const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
-    setLink("alternate", `${domainConfig.EN}${currentPath}`, { hreflang: "en" });
-    setLink("alternate", `${domainConfig.CZ}${currentPath}`, { hreflang: "cs" });
-    setLink("alternate", `${domainConfig.SK}${currentPath}`, { hreflang: "sk" });
-    setLink("alternate", `${domainConfig.EN}${currentPath}`, { hreflang: "x-default" });
+    
+    const hrefEn = getLanguageSwitchUrl("EN", currentPath);
+    const hrefCz = getLanguageSwitchUrl("CZ", currentPath);
+    const hrefSk = getLanguageSwitchUrl("SK", currentPath);
+    
+    setLink("alternate", hrefEn, { hreflang: "en" });
+    setLink("alternate", hrefCz, { hreflang: "cs" });
+    setLink("alternate", hrefSk, { hreflang: "sk" });
+    setLink("alternate", hrefEn, { hreflang: "x-default" });
 
     // Handle JSON-LD structured data
     // Remove existing JSON-LD scripts
