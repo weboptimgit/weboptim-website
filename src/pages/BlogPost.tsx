@@ -248,120 +248,137 @@ const BlogPost = () => {
 
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              {post.content.map((paragraph, index, arr) => {
-                // Handle code blocks - format: ```language\ncode\n``` or ```\ncode\n```
-                if (paragraph.startsWith("```")) {
-                  const lines = paragraph.split("\n");
-                  const firstLine = lines[0].replace("```", "").trim();
-                  const hasLanguage = firstLine.length > 0 && !firstLine.includes("<") && !firstLine.includes("{");
-                  const language = hasLanguage ? firstLine : "code";
-
-                  // Extract code (remove first and last lines with ```)
-                  const codeLines = hasLanguage ? lines.slice(1) : lines;
-                  const code = codeLines
-                    .join("\n")
-                    .replace(/```\s*$/, "")
-                    .trim();
-
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                    >
-                      <CodeBlock code={code} language={language} />
-                    </motion.div>
-                  );
-                }
-
-                // Handle images (Markdown syntax: ![alt](url))
-                if (paragraph.startsWith("![")) {
-                  const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
-                  if (!match) return null;
-                
-                  const [, alt, src] = match;
-                
-                  return (
-                    <motion.figure
-                      key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="my-10"
-                    >
-                      <div className="overflow-hidden rounded-2xl border border-border/50 shadow-xl">
-                        <img
-                          src={src}
-                          alt={alt}
-                          loading="lazy"
-                          className="w-full h-auto object-cover"
-                        />
-                      </div>
-                
-                      {alt && (
-                        <figcaption className="mt-3 text-sm text-muted-foreground text-center">
-                          {alt}
-                        </figcaption>
-                      )}
-                    </motion.figure>
-                  );
-                }
-
-                // Handle headings
-                if (paragraph.startsWith("## ")) {
-                  return (
-                    <motion.h2
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-foreground relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-hero before:rounded-full"
-                    >
-                      {paragraph.replace("## ", "")}
-                    </motion.h2>
-                  );
-                }
-
-                // Handle H3 headings
-                if (paragraph.startsWith("### ")) {
-                  return (
-                    <motion.h3
-                      key={index}
-                      initial={{ opacity: 0, x: -15 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      className="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground relative pl-6 before:absolute before:left-0 before:top-2 before:w-1 before:h-4 before:bg-primary/60 before:rounded-full"
-                    >
-                      {paragraph.replace("### ", "")}
-                    </motion.h3>
-                  );
-                }
-
-                // Handle ordered list items with nested bullet points
-                if (/^\d+\.\s/.test(paragraph)) {
-                  const isFirstInList = index === 0 || !/^\d+\.\s/.test(arr[index - 1]);
-                
-                  if (isFirstInList) {
+              {(() => {
+                const arr = post.content;
+                const out: React.ReactNode[] = [];
+                let i = 0;
+            
+                const isNumbered = (s: string) => /^\d+\.\s/.test(s);
+                const isBullet = (s: string) => s.startsWith("- ");
+                const isEmpty = (s: string) => !s || s.trim() === "";
+            
+                while (i < arr.length) {
+                  const paragraph = arr[i];
+            
+                  // skip empty
+                  if (isEmpty(paragraph)) {
+                    i++;
+                    continue;
+                  }
+            
+                  // code block
+                  if (paragraph.startsWith("```")) {
+                    const lines = paragraph.split("\n");
+                    const firstLine = lines[0].replace("```", "").trim();
+                    const hasLanguage =
+                      firstLine.length > 0 && !firstLine.includes("<") && !firstLine.includes("{");
+                    const language = hasLanguage ? firstLine : "code";
+            
+                    const codeLines = hasLanguage ? lines.slice(1) : lines;
+                    const code = codeLines.join("\n").replace(/```\s*$/, "").trim();
+            
+                    out.push(
+                      <motion.div
+                        key={`code-${i}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                      >
+                        <CodeBlock code={code} language={language} />
+                      </motion.div>
+                    );
+            
+                    i++;
+                    continue;
+                  }
+            
+                  // image ![alt](url)
+                  if (paragraph.startsWith("![")) {
+                    const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
+                    if (match) {
+                      const [, alt, src] = match;
+            
+                      out.push(
+                        <motion.figure
+                          key={`img-${i}`}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="my-10"
+                        >
+                          <div className="overflow-hidden rounded-2xl border border-border/50 shadow-xl">
+                            <img src={src} alt={alt} loading="lazy" className="w-full h-auto object-cover" />
+                          </div>
+            
+                          {alt ? (
+                            <figcaption className="mt-3 text-sm text-muted-foreground text-center">
+                              {alt}
+                            </figcaption>
+                          ) : null}
+                        </motion.figure>
+                      );
+                    }
+            
+                    i++;
+                    continue;
+                  }
+            
+                  // H2
+                  if (paragraph.startsWith("## ")) {
+                    out.push(
+                      <motion.h2
+                        key={`h2-${i}`}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-foreground relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-hero before:rounded-full"
+                      >
+                        {paragraph.replace("## ", "")}
+                      </motion.h2>
+                    );
+                    i++;
+                    continue;
+                  }
+            
+                  // H3
+                  if (paragraph.startsWith("### ")) {
+                    out.push(
+                      <motion.h3
+                        key={`h3-${i}`}
+                        initial={{ opacity: 0, x: -15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground relative pl-6 before:absolute before:left-0 before:top-2 before:w-1 before:h-4 before:bg-primary/60 before:rounded-full"
+                      >
+                        {paragraph.replace("### ", "")}
+                      </motion.h3>
+                    );
+                    i++;
+                    continue;
+                  }
+            
+                  // ORDERED list with nested bullets
+                  if (isNumbered(paragraph)) {
                     const items: { title: string; bullets: string[] }[] = [];
-                    let i = index;
-                
-                    while (i < arr.length && /^\d+\.\s/.test(arr[i])) {
+            
+                    while (i < arr.length && isNumbered(arr[i])) {
                       const title = arr[i].replace(/^\d+\.\s/, "").trim();
                       i++;
-                
+            
                       const bullets: string[] = [];
-                      while (i < arr.length && arr[i].startsWith("- ")) {
+                      while (i < arr.length && isBullet(arr[i])) {
                         bullets.push(arr[i].replace("- ", "").trim());
                         i++;
                       }
-                
+            
                       items.push({ title, bullets });
+            
+                      while (i < arr.length && isEmpty(arr[i])) i++; // optional spacing
                     }
-                
-                    return (
+            
+                    out.push(
                       <motion.ol
-                        key={index}
+                        key={`ol-${i}`}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -382,7 +399,7 @@ const BlogPost = () => {
                               </span>
                               <span className="font-semibold text-foreground">{it.title}</span>
                             </div>
-                
+            
                             {it.bullets.length ? (
                               <ul className="mt-3 ml-9 space-y-2">
                                 {it.bullets.map((b, bi) => (
@@ -397,59 +414,56 @@ const BlogPost = () => {
                         ))}
                       </motion.ol>
                     );
+            
+                    continue; // i už je posunuté, nepokračuj ďalšími handler-mi
                   }
-                
-                  return null;
-                }
-                
-                // Standalone bullet list (only if previous line is NOT a numbered item)
-                if (
-                  paragraph.startsWith("- ") &&
-                  (index === 0 || !/^\d+\.\s/.test(arr[index - 1]))
-                ) {
-                  const bullets: string[] = [];
-                  let i = index;
-                
-                  while (i < arr.length && arr[i].startsWith("- ")) {
-                    bullets.push(arr[i].replace("- ", "").trim());
-                    i++;
+            
+                  // STANDALONE bullet list (not after numbered item)
+                  if (isBullet(paragraph)) {
+                    const bullets: string[] = [];
+                    while (i < arr.length && isBullet(arr[i])) {
+                      bullets.push(arr[i].replace("- ", "").trim());
+                      i++;
+                    }
+            
+                    out.push(
+                      <motion.ul
+                        key={`ul-${i}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="mb-6 space-y-3"
+                      >
+                        {bullets.map((b, bi) => (
+                          <li key={bi} className="flex items-start gap-3 text-muted-foreground">
+                            <span className="mt-2 w-2 h-2 rounded-full bg-gradient-hero flex-shrink-0" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    );
+            
+                    continue;
                   }
-                
-                  return (
-                    <motion.ul
-                      key={index}
+            
+                  // paragraph
+                  out.push(
+                    <motion.p
+                      key={`p-${i}`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="mb-6 space-y-3"
+                      viewport={{ once: true, margin: "-50px" }}
+                      className="text-muted-foreground mb-6 leading-relaxed text-lg"
                     >
-                      {bullets.map((b, bi) => (
-                        <li key={bi} className="flex items-start gap-3 text-muted-foreground">
-                          <span className="mt-2 w-2 h-2 rounded-full bg-gradient-hero flex-shrink-0" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </motion.ul>
+                      {paragraph}
+                    </motion.p>
                   );
+            
+                  i++;
                 }
-
-                // Skip empty lines
-                if (paragraph.trim() === "") {
-                  return null;
-                }
-
-                return (
-                  <motion.p
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="text-muted-foreground mb-6 leading-relaxed text-lg"
-                  >
-                    {paragraph}
-                  </motion.p>
-                );
-              })}
+            
+                return out;
+              })()}
             </div>
             
             {/* Resources */}
