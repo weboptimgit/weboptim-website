@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { blogPostsData } from "../src/data/blog-posts";
-import { staticPageSlugs } from "../src/config/domains";
+import { staticPageSlugs, serviceDetailSlugs } from "../src/config/domains";
+
 
 const domains = {
   EN: "https://test.weboptim.eu",
@@ -102,12 +103,34 @@ const blogEntries =
         .filter(Boolean) as string[]
     : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
 
+// --- SERVICES (detail pages) ---
+const servicesEntries =
+  staticPageSlugs.services?.EN && staticPageSlugs.services?.CZ && staticPageSlugs.services?.SK
+    ? (Object.keys(serviceDetailSlugs) as Array<keyof typeof serviceDetailSlugs>)
+        .map((key) => {
+          const enSlug = serviceDetailSlugs[key]?.EN;
+          const czSlug = serviceDetailSlugs[key]?.CZ;
+          const skSlug = serviceDetailSlugs[key]?.SK;
+
+          if (!enSlug || !czSlug || !skSlug) return null;
+
+          return urlEntry({
+            EN: joinPath(staticPageSlugs.services.EN, enSlug),
+            CZ: joinPath(staticPageSlugs.services.CZ, czSlug),
+            SK: joinPath(staticPageSlugs.services.SK, skSlug),
+          });
+        })
+        .filter(Boolean) as string[]
+    : (console.log("⚠️ staticPageSlugs.services is missing"), []);
+
+
 // FINAL XML
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${staticEntries.join("\n")}
 ${blogEntries.length ? "\n" + blogEntries.join("\n") : ""}
+${servicesEntries.length ? "\n" + servicesEntries.join("\n") : ""}
 </urlset>
 `;
 
