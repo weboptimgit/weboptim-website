@@ -296,3 +296,30 @@
 .animate-scroll-right {
   animation: scroll-right 30s linear infinite;
 }
+
+/* nicer horizontal scrollbar */
+.scrollbar-thin {
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: rgba(255,255,255,.25) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 10px;                       /* horizontal scrollbar height */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.28);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
