@@ -54,7 +54,7 @@ export const categoriesTranslations = {
 export const blogPostsData: BlogPostData[] = [
     {
     image:
-      "https://oxygenbuilder.com/wp-content/uploads/2025/05/oxygen-6.0-beta.2.jpg",
+      "https://www.sectorwp.com/wp-content/uploads/2023/06/Oxygen-Builder.png.webp",
     author: "Peter Gáborík",
     translations: {
       EN: {
