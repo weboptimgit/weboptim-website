@@ -778,12 +778,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Comprehensive construction and renovation services including full interior rebuilds, facades and energy-efficient upgrades for residential and commercial buildings.",
         tags: ["Construction", "Renovations", "Project Management"],
-        image: "https://images.unsplash.com/photo-1581091870621-cbc95fc2e758?w=800&h=600&fit=crop",
+        image: "/img/weboptim-kimbau-mockup",
         statValue: "30+ yrs",
         statLabel: "Experience",
         featured: true,
 
-        heroImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&h=800&fit=crop",
+        heroImage: "/img/weboptim-kimbau-mockup",
 
         overview:
           "Kimbau is a well-established construction firm operating since 1994, delivering high-quality reconstruction and construction services across Prague and surrounding regions. Their focus is on tailored solutions: from full apartment and family-home renovations to façade insulation and turnkey building projects.",
@@ -830,9 +830,140 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
           "Strong trust elements: experience since 1994, references, credibility blocks",
         ],
       },
+      SK: {
+        slug: "kimbau-construction",
+        title: "Kimbau",
+        subtitle: "Stavebné & rekonštrukčné služby",
+        category: "Stavebníctvo",
+        client: "Kimbau, s.r.o.",
+        duration: "2–4 týždne",
+        year: "2024",
+        team: "2–4 osoby",
+        projectUrl: "https://kimbau.cz",
+      
+        description:
+          "Komplexné stavebné a rekonštrukčné služby vrátane kompletných rekonštrukcií interiérov, fasád a energeticky úsporných riešení pre rezidenčné aj komerčné objekty.",
+        tags: ["Stavebníctvo", "Rekonštrukcie", "Projektový manažment"],
+        image: "/img/weboptim-kimbau-mockup",
+        statValue: "30+ r.",
+        statLabel: "Skúseností",
+        featured: true,
+      
+        heroImage: "/img/weboptim-kimbau-mockup",
+      
+        overview:
+          "Kimbau je etablovaná stavebná spoločnosť pôsobiaca na trhu od roku 1994, poskytujúca kvalitné rekonštrukčné a stavebné služby v Prahe a okolí. Zameriava sa na riešenia na mieru — od kompletných rekonštrukcií bytov a rodinných domov až po zatepľovanie fasád a stavebné projekty na kľúč.",
+      
+        challenge:
+          "Klienti sa často stretávali s roztrieštenými dodávateľmi, nejednotnými termínmi, neprehľadnými nákladmi a slabou komunikáciou počas realizácie projektu. Kimbau potrebovalo digitálnu prezentáciu, ktorá jasne komunikuje rozsah služieb, prezentuje realizované projekty a zjednodušuje kontakt pre nové dopyty a konzultácie.",
+      
+        solution:
+          "Navrhli sme modernú, no zároveň profesionálnu webovú stránku, ktorá zvýrazňuje desaťročia skúseností spoločnosti Kimbau, ponuku služieb a výsledky projektov. Štruktúra webu obsahuje samostatné sekcie pre rekonštrukcie, novostavby, fasády a zatepľovanie, doplnené o prehľadný kontaktný formulár a jasne definované fázy projektu. Vďaka tomu klienti ľahko pochopia celý proces od úvodnej konzultácie až po finálne odovzdanie.",
+      
+        services: [
+          { icon: Palette, label: "Branding & UI dizajn" },
+          { icon: Globe, label: "Vývoj webovej stránky" },
+          { icon: Megaphone, label: "Copywriting & SEO" },
+          { icon: Code, label: "Vlastné vizuálne portfólio" },
+        ],
+      
+        technologies: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "Figma"],
+      
+        results: [
+          { metric: "↑ 45 %", label: "Dopyty cez formuláre", description: "Nárast počtu nových dopytov cez webové kontaktné formuláre" },
+          { metric: "↓ 30 %", label: "Miera odchodov", description: "Lepšia angažovanosť vďaka prehľadnej navigácii a komunikácii" },
+          { metric: "↑ 20 %", label: "Viditeľnosť vo vyhľadávaní", description: "Rast organických zobrazení pre cielené rekonštrukčné kľúčové slová" },
+          { metric: "4.8★", label: "Hodnotenia klientov", description: "Priemerné pozitívne hodnotenie naprieč referenciami a profilmi" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Nová webová stránka konečne vystihuje to, čo dodávame aj v realite — prehľadnosť, profesionalitu a dôveru. Klienti nás ľahko nájdu a ešte pred kontaktom pochopia naše služby.",
+          author: "Ing. Bohumil Nesvačil",
+          role: "Konateľ, Kimbau",
+          avatar: "https://images.unsplash.com/photo-1506794778202-47a8e62ef2e4?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Jasné kategórie služieb: rekonštrukcie, novostavby, zatepľovanie fasád, energetické úpravy",
+          "Responzívna prezentácia realizovaných projektov a referencií",
+          "SEO optimalizovaná štruktúra pre lokálne stavebné vyhľadávania",
+          "Jednoduché kontaktné a dopytové formuláre",
+          "Mobile-first dizajn vhodný aj pre použitie priamo na stavbe",
+          "Čisté portfóliové vizuály zdôrazňujúce remeselnú kvalitu",
+          "Štruktúrovaný obsah vysvetľujúci jednotlivé kroky rekonštrukcie",
+          "Silné prvky dôvery: pôsobenie od roku 1994, referencie, dôveryhodné bloky",
+        ],
+      },
+      CZ: {
+        slug: "kimbau-construction",
+        title: "Kimbau",
+        subtitle: "Stavební & rekonstrukční služby",
+        category: "Stavebnictví",
+        client: "Kimbau, s.r.o.",
+        duration: "2–4 týdny",
+        year: "2024",
+        team: "2–4 osoby",
+        projectUrl: "https://kimbau.cz",
+      
+        description:
+          "Komplexní stavební a rekonstrukční služby včetně kompletních rekonstrukcí interiérů, fasád a energeticky úsporných řešení pro rezidenční i komerční objekty.",
+        tags: ["Stavebnictví", "Rekonstrukce", "Projektový management"],
+        image: "/img/weboptim-kimbau-mockup",
+        statValue: "30+ let",
+        statLabel: "Zkušeností",
+        featured: true,
+      
+        heroImage: "/img/weboptim-kimbau-mockup",
+      
+        overview:
+          "Kimbau je zavedená stavební společnost působící na trhu od roku 1994, která poskytuje kvalitní rekonstrukční a stavební služby v Praze a okolí. Zaměřuje se na řešení na míru — od kompletních rekonstrukcí bytů a rodinných domů až po zateplování fasád a stavební projekty na klíč.",
+      
+        challenge:
+          "Klienti se často setkávali s roztříštěnými dodavateli, nejednotnými termíny, nejasnou cenovou strukturou a slabou komunikací v průběhu projektu. Kimbau potřebovalo digitální prezentaci, která jasně komunikuje rozsah služeb, ukazuje realizované projekty a zjednodušuje kontakt pro nové poptávky a konzultace.",
+      
+        solution:
+          "Navrhli jsme moderní, ale zároveň profesionální webovou stránku, která zdůrazňuje desítky let zkušeností společnosti Kimbau, nabídku služeb a výsledky projektů. Struktura webu obsahuje samostatné sekce pro rekonstrukce, novostavby, fasády a zateplení, doplněné o přehledný poptávkový formulář a jasně definované fáze projektu. Díky tomu klienti snadno pochopí celý proces od úvodní konzultace až po finální předání.",
+      
+        services: [
+          { icon: Palette, label: "Branding & UI design" },
+          { icon: Globe, label: "Vývoj webových stránek" },
+          { icon: Megaphone, label: "Copywriting & SEO" },
+          { icon: Code, label: "Vlastní vizuální portfolio" },
+        ],
+      
+        technologies: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "Figma"],
+      
+        results: [
+          { metric: "↑ 45 %", label: "Poptávky z formulářů", description: "Nárůst počtu nových poptávek přes webové kontaktní formuláře" },
+          { metric: "↓ 30 %", label: "Míra okamžitého opuštění", description: "Zlepšení zapojení díky lepší navigaci a komunikaci" },
+          { metric: "↑ 20 %", label: "Viditelnost ve vyhledávání", description: "Růst organických zobrazení pro cílená rekonstrukční klíčová slova" },
+          { metric: "4.8★", label: "Hodnocení klientů", description: "Průměrné pozitivní hodnocení napříč referencemi a profily" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Nový web konečně odráží to, co dodáváme i v praxi — přehlednost, profesionalitu a důvěru. Klienti nás snadno najdou a ještě před kontaktováním pochopí naše služby.",
+          author: "Ing. Bohumil Nesvačil",
+          role: "Jednatel, Kimbau",
+          avatar: "https://images.unsplash.com/photo-1506794778202-47a8e62ef2e4?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Jasné kategorie služeb: rekonstrukce, novostavby, zateplení fasád, energetické úpravy",
+          "Responzivní prezentace realizovaných projektů a referencí",
+          "SEO optimalizovaná struktura pro lokální stavební vyhledávání",
+          "Snadné kontaktní a poptávkové formuláře",
+          "Mobile-first design vhodný i pro použití přímo na stavbě",
+          "Čisté portfoliové vizuály zdůrazňující kvalitu řemesla",
+          "Strukturovaný obsah vysvětlující jednotlivé kroky rekonstrukce",
+          "Silné prvky důvěry: působení od roku 1994, reference, důvěryhodné bloky",
+        ],
+      },
     },
   },
-
   "uzdravtelo-nutrition-coaching-platform": {
     translations: {
       EN: {
