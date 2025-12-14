@@ -355,17 +355,17 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         duration: "2-4 Weeks",
         year: "2024",
         team: "2–3 People",
-        projectUrl: "https://www.duo-story.cz",
+        projectUrl: "https://www.duostory.cz",
 
         description:
           "Event booking system with capacity control (men/women), waitlist logic, automated emails, CSV export, and smart event filtering.",
         tags: ["WordPress", "FluentForms", "ACF", "Automation"],
-        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+        image: "/img/weboptim-duostory-mockup.jpg",
         statValue: "100%",
         statLabel: "Automated flow",
         featured: true,
 
-        heroImage: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=800&fit=crop",
+        heroImage: "/img/weboptim-duostory-mockup.jpg",
 
         overview:
           "Duo Story needed a reliable event system for dating nights — from discovering upcoming events to handling paid registrations, capacity limits, and attendee management. We built a WordPress-based solution that automates the full lifecycle: filtering events, capturing payments, assigning attendee identifiers, sending emails, and supporting admins with export and moderation tools.",
@@ -414,6 +414,146 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
           "Google Calendar ‘Add to calendar’ link generation from ACF fields",
           "AJAX update for ‘sympatie’ field (post-event matching workflow)",
           "Ecomail subscription hook with opt-in handling",
+        ],
+      },
+      SK: {
+        slug: "duo-story-events",
+        title: "Duo Story Rezervačný systém",
+        subtitle: "Rezervácie eventov & správa účastníkov",
+        category: "Eventy",
+        client: "Duo Story",
+        duration: "2–4 týždne",
+        year: "2024",
+        team: "2–3 osoby",
+        projectUrl: "https://www.duostory.cz",
+      
+        description:
+          "Rezervačný systém pre eventy s kontrolou kapacity (muži/ženy), logikou náhradníkov, automatickými e-mailmi, CSV exportom a inteligentným filtrovaním podujatí.",
+        tags: ["WordPress", "FluentForms", "ACF", "Automatizácia"],
+        image: "/img/weboptim-duostory-mockup.jpg",
+        statValue: "100 %",
+        statLabel: "Automatizovaný proces",
+        featured: true,
+      
+        heroImage: "/img/weboptim-duostory-mockup.jpg",
+      
+        overview:
+          "Duo Story potrebovalo spoľahlivý eventový systém pre zoznamovacie večery — od prehľadu nadchádzajúcich podujatí až po platené registrácie, kapacitné limity a správu účastníkov. Vytvorili sme WordPress riešenie, ktoré automatizuje celý životný cyklus: filtrovanie eventov, spracovanie platieb, prideľovanie identifikátorov účastníkom, odosielanie e-mailov a administráciu vrátane exportov.",
+      
+        challenge:
+          "Platforma vyžadovala presnú logiku: zobrazovať len budúce eventy, filtrovať podľa mesta/témy/veku, spravovať samostatné kapacity pre mužov a ženy a riešiť preplnenie pomocou náhradníkov. Zároveň administrátori potrebovali bezpečné nástroje na úpravu stavov rezervácií, export zoznamov účastníkov a zachovanie presných kapacitných údajov.",
+      
+        solution:
+          "Implementovali sme vlastnú dátovú vrstvu rezervácií (samostatná DB tabuľka) prepojenú s ACF poľami eventov a platbami cez Fluent Forms. Po úspešnej platbe systém vytvorí rezerváciu, priradí anonymizovaný identifikátor (A–Z), aktualizuje dostupné miesta a odošle personalizované potvrdzovacie e-maily. Administrátori môžu rezervácie deaktivovať alebo mazať, obnovovať kapacitu, exportovať CSV zoznamy a účastníkom sa automaticky odosielajú pripomienky cez WP-Cron.",
+      
+        services: [
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Globe, label: "Dáta & automatizácie" },
+          { icon: Palette, label: "Návrh UX tokov" },
+          { icon: Megaphone, label: "E-maily & komunikácia" },
+        ],
+      
+        technologies: ["PHP", "WordPress", "FluentForms", "ACF", "MySQL", "JavaScript", "WP-Cron", "HTML5", "CSS3"],
+      
+        results: [
+          { metric: "↓", label: "Menej manuálnej práce", description: "Automatické potvrdenia, pripomienky a počítanie miest znížili administratívu" },
+          { metric: "✓", label: "Presná kapacita", description: "Spoľahlivá aktualizácia miest podľa pohlavia s podporou náhradníkov" },
+          { metric: "CSV", label: "Rýchle operácie", description: "Export účastníkov na jedno kliknutie pre každý event" },
+          { metric: "A–Z", label: "Podpora anonymity", description: "Automatické prideľovanie písmen pre jednoduchý check-in a ochranu súkromia" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Konečne máme systém, na ktorý sa môžeme spoľahnúť — registrácie, dostupnosť, e-maily aj administrácia sú plne automatizované a konzistentné pre každý event.",
+          author: "Tím Duo Story",
+          role: "Prevádzka",
+          avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Filtrovanie archívu: len budúce eventy, filtre podľa mesta/témy/dátumu, triedenie podľa dátumu",
+          "Validácia veku na základe pohlavia (ACF polia)",
+          "Samostatná kapacita miest pre mužov a ženy s automatickou aktualizáciou po platbe",
+          "Logika náhradníkov pri naplnenej kapacite",
+          "Vlastná DB tabuľka rezervácií (rýchlejšie a čistejšie než post meta)",
+          "Automatické prideľovanie identifikátora účastníka (A–Z) podľa pohlavia a eventu",
+          "Admin akcie: deaktivácia/odstránenie rezervácie + obnovenie kapacity",
+          "CSV export rezervácií pre každý event jedným kliknutím",
+          "Automatizované e-maily: potvrdenie vs. náhradník + pripomienka deň vopred (WP-Cron)",
+          "Generovanie odkazu „Pridať do kalendára“ (Google Calendar) z ACF polí",
+          "AJAX aktualizácia poľa „sympatie“ (workflow párovania po evente)",
+          "Prepojenie na Ecomail s opt-in logikou",
+        ],
+      },
+      CZ: {
+        slug: "duo-story-events",
+        title: "Duo Story Rezervační systém",
+        subtitle: "Rezervace eventů & správa účastníků",
+        category: "Eventy",
+        client: "Duo Story",
+        duration: "2–4 týdny",
+        year: "2024",
+        team: "2–3 osoby",
+        projectUrl: "https://www.duostory.cz",
+      
+        description:
+          "Rezervační systém pro eventy s kontrolou kapacity (muži/ženy), logikou náhradníků, automatickými e-maily, CSV exportem a chytrým filtrováním událostí.",
+        tags: ["WordPress", "FluentForms", "ACF", "Automatizace"],
+        image: "/img/weboptim-duostory-mockup.jpg",
+        statValue: "100 %",
+        statLabel: "Automatizovaný proces",
+        featured: true,
+      
+        heroImage: "/img/weboptim-duostory-mockup.jpg",
+      
+        overview:
+          "Duo Story potřebovalo spolehlivý eventový systém pro seznamovací večery — od přehledu nadcházejících akcí až po placené registrace, kapacitní limity a správu účastníků. Vytvořili jsme WordPress řešení, které automatizuje celý životní cyklus: filtrování eventů, zpracování plateb, přiřazování identifikátorů účastníkům, odesílání e-mailů a administraci včetně exportů.",
+      
+        challenge:
+          "Platforma vyžadovala přesnou logiku: zobrazovat pouze budoucí eventy, filtrovat podle města/tématu/věku, spravovat oddělené kapacity pro muže a ženy a řešit přeplnění pomocí náhradníků. Zároveň administrátoři potřebovali bezpečné nástroje pro úpravu stavů rezervací, export seznamů účastníků a zachování přesných kapacit.",
+      
+        solution:
+          "Implementovali jsme vlastní datovou vrstvu rezervací (samostatná DB tabulka) propojenou s ACF poli eventů a platbami přes Fluent Forms. Po úspěšné platbě systém vytvoří rezervaci, přiřadí anonymizovaný identifikátor (A–Z), aktualizuje dostupná místa a odešle personalizované potvrzovací e-maily. Administrátoři mohou rezervace deaktivovat nebo mazat, obnovovat kapacitu, exportovat CSV seznamy a účastníkům jsou automaticky zasílány připomínky přes WP-Cron.",
+      
+        services: [
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Globe, label: "Data & automatizace" },
+          { icon: Palette, label: "Návrh UX toků" },
+          { icon: Megaphone, label: "E-maily & komunikace" },
+        ],
+      
+        technologies: ["PHP", "WordPress", "FluentForms", "ACF", "MySQL", "JavaScript", "WP-Cron", "HTML5", "CSS3"],
+      
+        results: [
+          { metric: "↓", label: "Méně manuální práce", description: "Automatická potvrzení, připomínky a počítání míst snížily administrativu" },
+          { metric: "✓", label: "Přesná kapacita", description: "Spolehlivá aktualizace míst podle pohlaví s podporou náhradníků" },
+          { metric: "CSV", label: "Rychlejší provoz", description: "Export účastníků jedním kliknutím pro každý event" },
+          { metric: "A–Z", label: "Podpora anonymity", description: "Automatické přiřazování písmen pro hladký check-in a ochranu soukromí" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Konečně máme systém, kterému můžeme důvěřovat — registrace, dostupnost, e-maily i administrace jsou plně automatizované a konzistentní pro každý event.",
+          author: "Tým Duo Story",
+          role: "Provoz",
+          avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Filtrování archivu: pouze budoucí eventy, filtry podle města/tématu/data, řazení podle data",
+          "Validace věku na základě pohlaví (ACF pole)",
+          "Oddělená kapacita míst pro muže a ženy s automatickou aktualizací po platbě",
+          "Logika náhradníků při plné kapacitě",
+          "Vlastní DB tabulka rezervací (rychlejší a čistší než post meta)",
+          "Automatické přiřazování identifikátoru účastníka (A–Z) podle pohlaví a eventu",
+          "Admin akce: deaktivace/odstranění rezervace + obnovení kapacity",
+          "CSV export rezervací pro každý event jedním kliknutím",
+          "Automatizované e-maily: potvrzení vs. náhradník + připomínka den předem (WP-Cron)",
+          "Generování odkazu „Přidat do kalendáře“ (Google Calendar) z ACF polí",
+          "AJAX aktualizace pole „sympatie“ (workflow párování po eventu)",
+          "Napojení na Ecomail s opt-in logikou",
         ],
       },
     },
