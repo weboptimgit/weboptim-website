@@ -17,7 +17,6 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import SEO from "@/components/SEO";
-import { useParams } from "react-router-dom";
 import { getCaseStudy } from "@/data/case-studies";
 
 // Tech color mapping by category
