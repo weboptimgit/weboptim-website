@@ -54,11 +54,11 @@ const BlogPost = () => {
       slug: post.slug,
     }, language);
 
-    const breadcrumbSchema = getBreadcrumbSchema([
-      { name: "Home", url: domainConfig[language] },
-      { name: "Blog", url: `${domainConfig[language]}/blog` },
-      { name: post.title, url: `${domainConfig[language]}/blog/${post.slug}` },
-    ]);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: t("common.home"), url: domainConfig[language] },
+    { name: t("common.blog"), url: `${domainConfig[language]}/blog` },
+    { name: post.title, url: `${domainConfig[language]}/blog/${post.slug}` },
+  ]);
 
     return [articleSchema, breadcrumbSchema];
   };
@@ -68,7 +68,6 @@ const BlogPost = () => {
       <>
         <SEO titleKey="notFound" noindex />
         <div className="min-h-screen bg-background">
-          <Navbar />
         <Navbar />
         <div className="pt-32 pb-16 px-4 text-center">
           <motion.div
@@ -79,10 +78,12 @@ const BlogPost = () => {
             <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
               <BookOpen className="w-12 h-12 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-            <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
+            <<h1 className="text-4xl font-bold mb-4">{t("blogPost.notFound.title")}</h1>
+            <p className="text-muted-foreground mb-8">{t("blogPost.notFound.subtitle")}</p>
             <Link to="/blog">
-              <Button className="bg-gradient-hero hover:opacity-90">Back to Blog</Button>
+              <Button className="bg-gradient-hero hover:opacity-90">
+                {t("blogPost.notFound.backToBlog")}
+              </Button>
             </Link>
           </motion.div>
         </div>
@@ -148,7 +149,7 @@ const BlogPost = () => {
                 className="inline-flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors mb-6 group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                Back to Blog
+                {t("blogPost.backToBlog")}
               </Link>
 
               {/* Category Badge */}
@@ -233,7 +234,7 @@ const BlogPost = () => {
               viewport={{ once: true }}
               className="flex items-center gap-4 mb-12 pb-8 border-b border-border/50"
             >
-              <span className="text-sm text-muted-foreground">Share this article:</span>
+              <span className="text-sm text-muted-foreground">{t("blogPost.share.label")}</span>
               <Button
                 variant="outline"
                 size="sm"
@@ -241,7 +242,7 @@ const BlogPost = () => {
                 onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
               >
                 <Share2 className="w-4 h-4 mr-2" />
-                Share
+                {t("blogPost.share.button")}
               </Button>
             </motion.div>
 
@@ -415,7 +416,7 @@ const BlogPost = () => {
                 className="mt-10"
               >
                 <h2 className="text-xl font-display font-bold text-foreground mb-4">
-                  Learn More
+                  {t("blogPost.resources.title")}
                 </h2>
                 <div className="space-y-3">
                   {post.resources.map((resource) => (
@@ -453,11 +454,12 @@ const BlogPost = () => {
                   </div>
                 </div>
                 <div className="text-center sm:text-left">
-                  <p className="text-xs uppercase tracking-wider text-primary mb-1">Written by</p>
+                  <p className="text-xs uppercase tracking-wider text-primary mb-1">
+                    {t("blogPost.author.writtenBy")}
+                  </p>
                   <p className="text-xl font-bold text-foreground mb-2">{post.author}</p>
                   <p className="text-muted-foreground">
-                    Content Writer & Digital Marketing Specialist with expertise in web development trends and SEO
-                    strategies.
+                    {t("blogPost.author.bio")}
                   </p>
                 </div>
               </div>
