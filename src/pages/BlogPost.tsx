@@ -275,6 +275,39 @@ const BlogPost = () => {
                   );
                 }
 
+                // Handle images (Markdown syntax: ![alt](url))
+                if (paragraph.startsWith("![")) {
+                  const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
+                  if (!match) return null;
+                
+                  const [, alt, src] = match;
+                
+                  return (
+                    <motion.figure
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="my-10"
+                    >
+                      <div className="overflow-hidden rounded-2xl border border-border/50 shadow-xl">
+                        <img
+                          src={src}
+                          alt={alt}
+                          loading="lazy"
+                          className="w-full h-auto object-cover"
+                        />
+                      </div>
+                
+                      {alt && (
+                        <figcaption className="mt-3 text-sm text-muted-foreground text-center">
+                          {alt}
+                        </figcaption>
+                      )}
+                    </motion.figure>
+                  );
+                }
+
                 // Handle headings
                 if (paragraph.startsWith("## ")) {
                   return (
