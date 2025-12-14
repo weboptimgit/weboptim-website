@@ -57,9 +57,6 @@ const staticEntries = Object.entries(staticPages)
   })
   .filter(Boolean) as string[];
 
-// vygeneruj statické
-const staticEntries = Object.values(staticPages).map(urlEntry);
-
 // --- BLOG POSTS ---
 const blogEntries =
   staticPageSlugs.blog?.EN && staticPageSlugs.blog?.CZ && staticPageSlugs.blog?.SK
