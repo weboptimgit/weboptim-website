@@ -1,4 +1,5 @@
 import { LucideIcon, Code, Palette, Globe, Megaphone } from "lucide-react";
+import type { Language } from "@/contexts/LanguageContext";
 
 export interface CaseStudyService {
   icon: LucideIcon;
@@ -18,7 +19,10 @@ export interface CaseStudyTestimonial {
   avatar: string;
 }
 
-export interface CaseStudy {
+export interface CaseStudyContent {
+  // slug per language (môže byť rovnaký)
+  slug: string;
+
   // Basic info
   title: string;
   subtitle: string;
@@ -28,6 +32,7 @@ export interface CaseStudy {
   year: string;
   team: string;
   projectUrl?: string;
+
   // Portfolio card fields
   description: string;
   tags: string[];
@@ -35,6 +40,7 @@ export interface CaseStudy {
   statValue: string;
   statLabel: string;
   featured: boolean;
+
   // Detail page fields
   heroImage: string;
   overview: string;
@@ -48,90 +54,228 @@ export interface CaseStudy {
   features: string[];
 }
 
-export const caseStudiesData: Record<string, CaseStudy> = {
+export interface CaseStudyBase {
+  // sem si môžeš dať veci spoločné pre všetky jazyky,
+  // ale zatiaľ to nepotrebujeme – nechávam prázdne
+}
+
+export interface CaseStudyTranslations {
+  EN: CaseStudyContent;
+  CZ?: CaseStudyContent;
+  SK?: CaseStudyContent;
+}
+
+export interface CaseStudyData extends CaseStudyBase {
+  translations: CaseStudyTranslations;
+}
+
+export const caseStudiesData: Record<string, CaseStudyData> = {
   mobilno: {
-    title: "Mobilno",
-    subtitle: "Marketplace for Mobile Service Providers",
-    category: "Marketplace",
-    client: "Mobilno",
-    duration: "Ongoing",
-    year: "2024–2025",
-    team: "2–4 Members",
-    projectUrl: "https://www.mobilno.sk",
+    translations: {
+      EN: {
+        slug: "mobilno",
+        title: "Mobilno",
+        subtitle: "Marketplace for Mobile Service Providers",
+        category: "Marketplace",
+        client: "Mobilno",
+        duration: "Ongoing",
+        year: "2024–2025",
+        team: "2–4 Members",
+        projectUrl: "https://www.mobilno.sk",
 
-    // Portfolio card fields
-    description:
-      "A marketplace where customers post a request and mobile professionals respond with offers — built for SEO, scale, and smooth onboarding.",
-    tags: ["Marketplace", "WordPress", "Technical SEO"],
-    image: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
-    statValue: "+180%",
-    statLabel: "Organic Visibility",
-    featured: true,
+        description:
+          "A marketplace where customers post a request and mobile professionals respond with offers — built for SEO, scale, and smooth onboarding.",
+        tags: ["Marketplace", "WordPress", "Technical SEO"],
+        image: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+        statValue: "+180%",
+        statLabel: "Organic Visibility",
+        featured: true,
 
-    // Detail page fields
-    heroImage: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+        heroImage: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
 
-    overview:
-      "Mobilno connects people who need a service with mobile professionals (e.g., DJs, massage therapists, photographers, repairs). The platform is built to grow through SEO: structured listings, city-based landing pages, and clean internal linking between categories, services, and providers.",
+        overview:
+          "Mobilno connects people who need a service with mobile professionals (e.g., DJs, massage therapists, photographers, repairs). The platform is built to grow through SEO: structured listings, city-based landing pages, and clean internal linking between categories, services, and providers.",
 
-    challenge:
-      "We needed a content model that scales (providers, services, categories, specializations, locations) while keeping navigation simple. The key was making search and filtering feel instant, and making SEO work with city-based pages without duplicate or canonical issues.",
+        challenge:
+          "We needed a content model that scales (providers, services, categories, specializations, locations) while keeping navigation simple. The key was making search and filtering feel instant, and making SEO work with city-based pages without duplicate or canonical issues.",
 
-    solution:
-      "We built a WordPress marketplace using custom post types, taxonomies, and advanced fields. We implemented SEO-friendly routing for category + city pages, optimized queries and caching, and shipped UX flows for provider onboarding, profile creation, and request → offer conversion.",
+        solution:
+          "We built a WordPress marketplace using custom post types, taxonomies, and advanced fields. We implemented SEO-friendly routing for category + city pages, optimized queries and caching, and shipped UX flows for provider onboarding, profile creation, and request → offer conversion.",
 
-    services: [
-      { icon: Code, label: "WordPress Development" },
-      { icon: Palette, label: "UI/UX Design" },
-      { icon: Globe, label: "Technical SEO" },
-      { icon: Megaphone, label: "Conversion Optimization" },
-    ],
+        services: [
+          { icon: Code, label: "WordPress Development" },
+          { icon: Palette, label: "UI/UX Design" },
+          { icon: Globe, label: "Technical SEO" },
+          { icon: Megaphone, label: "Conversion Optimization" },
+        ],
 
-    technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3", "REST API"],
+        technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3", "REST API"],
 
-    results: [
-      {
-        metric: "+3.2x",
-        label: "Provider Onboarding",
-        description: "More providers completed registration and published their profiles",
+        results: [
+          { metric: "+3.2x", label: "Provider Onboarding", description: "More providers completed registration and published their profiles" },
+          { metric: "+180%", label: "Indexed Landing Pages", description: "Growth of category + city pages discoverable via Google" },
+          { metric: "-45%", label: "Faster Matching", description: "Shorter time from customer request to first provider response" },
+          { metric: "+28%", label: "CTA Engagement", description: "Higher interaction with key actions (request, contact, signup)" },
+        ],
+
+        testimonial: {
+          quote:
+            "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers can onboard easily and customers find what they need without friction.",
+          author: "Peter Gáborík",
+          role: "Founder, Mobilno",
+          avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
+        },
+
+        gallery: [],
+
+        features: [
+          "Custom post types for provider profiles and services",
+          "Taxonomy structure for categories, specializations, and problem types",
+          "City-based landing pages with SEO-safe routing and canonicals",
+          "Search + filtering optimized for relevance (service, city, keywords)",
+          "Conversion-focused provider onboarding (Free/Premium-ready tiers)",
+          "Performance improvements (lean queries, caching, reduced duplicate calls)",
+          "Schema-ready structured pages to improve search appearance",
+          "Internal linking strategy between listings, cities, and provider profiles",
+        ],
       },
-      {
-        metric: "+180%",
-        label: "Indexed Landing Pages",
-        description: "Growth of category + city pages discoverable via Google",
-      },
-      {
-        metric: "-45%",
-        label: "Faster Matching",
-        description: "Shorter time from customer request to first provider response",
-      },
-      {
-        metric: "+28%",
-        label: "CTA Engagement",
-        description: "Higher interaction with key actions (request, contact, signup)",
-      },
-    ],
 
-    testimonial: {
-      quote:
-        "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers can onboard easily and customers find what they need without friction.",
-      author: "Peter Gáborík",
-      role: "Founder, Mobilno",
-      avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
+      CZ: {
+        slug: "mobilno",
+        title: "Mobilno",
+        subtitle: "Marketplace pro mobilní poskytovatele služeb",
+        category: "Marketplace",
+        client: "Mobilno",
+        duration: "Průběžně",
+        year: "2024–2025",
+        team: "2–4 členové",
+        projectUrl: "https://www.mobilno.sk",
+
+        description:
+          "Marketplace, kde zákazník zadá poptávku a mobilní profesionálové odpovídají nabídkami — postavené pro SEO, škálování a plynulý onboarding.",
+        tags: ["Marketplace", "WordPress", "Technické SEO"],
+        image: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+        statValue: "+180%",
+        statLabel: "Organická viditelnost",
+        featured: true,
+
+        heroImage: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+
+        overview:
+          "Mobilno propojuje lidi, kteří potřebují službu, s mobilními profesionály (např. DJové, maséři, fotografové, opravy). Platforma je postavená tak, aby rostla přes SEO: strukturované profily, landing pages podle měst a čisté interní prolinkování mezi kategoriemi, službami a poskytovateli.",
+
+        challenge:
+          "Potřebovali jsme obsahový model, který se dá škálovat (poskytovatelé, služby, kategorie, specializace, lokality), ale zároveň zůstane jednoduchý na používání. Klíčové bylo, aby vyhledávání a filtrování působilo okamžitě a aby SEO fungovalo i u stránek podle měst bez duplicit a canonical problémů.",
+
+        solution:
+          "Postavili jsme WordPress marketplace na custom post types, taxonomiích a pokročilých polích. Implementovali jsme SEO-friendly routing pro kategorie + města, optimalizovali dotazy a cache a dodali UX flow pro onboarding poskytovatelů, tvorbu profilu a konverzi poptávka → nabídka.",
+
+        services: [
+          { icon: Code, label: "Vývoj ve WordPressu" },
+          { icon: Palette, label: "UI/UX design" },
+          { icon: Globe, label: "Technické SEO" },
+          { icon: Megaphone, label: "Optimalizace konverzí" },
+        ],
+
+        technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3", "REST API"],
+
+        results: [
+          { metric: "+3.2×", label: "Onboarding poskytovatelů", description: "Více poskytovatelů dokončilo registraci a publikovalo profil" },
+          { metric: "+180%", label: "Indexované landing pages", description: "Růst stránek kategorie + město dohledatelných přes Google" },
+          { metric: "-45%", label: "Rychlejší spárování", description: "Kratší čas od poptávky ke první reakci poskytovatele" },
+          { metric: "+28%", label: "Interakce s CTA", description: "Vyšší aktivita u klíčových akcí (poptávka, kontakt, registrace)" },
+        ],
+
+        testimonial: {
+          quote:
+            "Mobilno teď působí jako skutečný produkt. Platforma je strukturovaná, rychlá a připravená škálovat — poskytovatelé se jednoduše onboardují a zákazníci najdou, co potřebují, bez zbytečného tření.",
+          author: "Peter Gáborík",
+          role: "Founder, Mobilno",
+          avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
+        },
+
+        gallery: [],
+
+        features: [
+          "Custom post types pro profily poskytovatelů a služby",
+          "Taxonomie pro kategorie, specializace a typy problémů",
+          "Landing pages podle měst se SEO-safe routingem a canonicaly",
+          "Vyhledávání + filtrování optimalizované na relevanci (služba, město, klíčová slova)",
+          "Konverzní onboarding poskytovatelů (připravené pro Free/Premium model)",
+          "Výkonové optimalizace (lean dotazy, cache, méně duplicitních volání)",
+          "Stránky připravené na structured data pro lepší vzhled ve vyhledávání",
+          "Interní prolinkování mezi výpisy, městy a profily poskytovatelů",
+        ],
+      },
+
+      SK: {
+        slug: "mobilno",
+        title: "Mobilno",
+        subtitle: "Marketplace pre mobilných poskytovateľov služieb",
+        category: "Marketplace",
+        client: "Mobilno",
+        duration: "Priebežne",
+        year: "2024–2025",
+        team: "2–4 členovia",
+        projectUrl: "https://www.mobilno.sk",
+
+        description:
+          "Marketplace, kde zákazník zadá dopyt a mobilní profesionáli odpovedajú ponukami — postavené pre SEO, škálovanie a plynulý onboarding.",
+        tags: ["Marketplace", "WordPress", "Technické SEO"],
+        image: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+        statValue: "+180%",
+        statLabel: "Organická viditeľnosť",
+        featured: true,
+
+        heroImage: "https://www.mobilno.sk/wp-content/uploads/mobilno-mockup.webp",
+
+        overview:
+          "Mobilno spája ľudí, ktorí potrebujú službu, s mobilnými profesionálmi (napr. DJ, maséri, fotografi, opravy). Platforma je navrhnutá tak, aby rástla cez SEO: štruktúrované profily, landing pages podľa miest a čisté interné prelinkovanie medzi kategóriami, službami a poskytovateľmi.",
+
+        challenge:
+          "Potrebovali sme obsahový model, ktorý sa dá škálovať (poskytovatelia, služby, kategórie, špecializácie, lokality), ale zároveň ostane jednoduchý na používanie. Kľúčové bolo, aby vyhľadávanie a filtrovanie pôsobilo okamžite a aby SEO fungovalo aj pri stránkach podľa miest bez duplicitných/canonical problémov.",
+
+        solution:
+          "Postavili sme WordPress marketplace na custom post types, taxonómiách a pokročilých poliach. Implementovali sme SEO-friendly routing pre kategórie + mestá, optimalizovali dopyty a cache a dodali UX flow pre onboarding poskytovateľov, tvorbu profilu a konverziu dopyt → ponuka.",
+
+        services: [
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Palette, label: "UI/UX dizajn" },
+          { icon: Globe, label: "Technické SEO" },
+          { icon: Megaphone, label: "Optimalizácia konverzií" },
+        ],
+
+        technologies: ["PHP", "WordPress", "ACF", "JavaScript", "MySQL", "HTML5", "CSS3", "REST API"],
+
+        results: [
+          { metric: "+3.2×", label: "Onboarding poskytovateľov", description: "Viac poskytovateľov dokončilo registráciu a publikovalo profil" },
+          { metric: "+180%", label: "Indexované landing pages", description: "Rast stránok kategória + mesto dohľadateľných cez Google" },
+          { metric: "-45%", label: "Rýchlejšie spárovanie", description: "Kratší čas od dopytu po prvú reakciu poskytovateľa" },
+          { metric: "+28%", label: "Interakcie s CTA", description: "Vyššia aktivita pri kľúčových akciách (dopyt, kontakt, registrácia)" },
+        ],
+
+        testimonial: {
+          quote:
+            "Mobilno teraz pôsobí ako reálny produkt. Platforma je štruktúrovaná, rýchla a pripravená škálovať — poskytovatelia sa jednoducho onboardujú a zákazníci nájdu, čo potrebujú, bez zbytočného trenia.",
+          author: "Peter Gáborík",
+          role: "Founder, Mobilno",
+          avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
+        },
+
+        gallery: [],
+
+        features: [
+          "Custom post types pre profily poskytovateľov a služby",
+          "Taxonómie pre kategórie, špecializácie a typy problémov",
+          "Landing pages podľa miest so SEO-safe routingom a canonicalmi",
+          "Vyhľadávanie + filtrovanie optimalizované na relevanciu (služba, mesto, kľúčové slová)",
+          "Konverzný onboarding poskytovateľov (pripravené pre Free/Premium model)",
+          "Výkonnostné optimalizácie (lean dopyty, cache, menej duplicitných volaní)",
+          "Stránky pripravené na structured data pre lepší vzhľad vo vyhľadávaní",
+          "Interné prelinkovanie medzi výpismi, mestami a profilmi poskytovateľov",
+        ],
+      },
     },
-
-    gallery: [],
-
-    features: [
-      "Custom post types for provider profiles and services",
-      "Taxonomy structure for categories, specializations, and problem types",
-      "City-based landing pages with SEO-safe routing and canonicals",
-      "Search + filtering optimized for relevance (service, city, keywords)",
-      "Conversion-focused provider onboarding (Free/Premium-ready tiers)",
-      "Performance improvements (lean queries, caching, reduced duplicate calls)",
-      "Schema-ready structured pages to improve search appearance",
-      "Internal linking strategy between listings, cities, and provider profiles",
-    ],
   },
   "europeum-platform": {
     title: "EUROPEUM",
@@ -641,4 +785,48 @@ export const caseStudiesData: Record<string, CaseStudy> = {
       "Integration of clear contact details and inquiry form",
     ],
   },
+};
+
+/**
+ * Helper: get case study by slug for a language (blog-like)
+ * - najprv skúsi nájsť slug v danom jazyku
+ * - ak nemá preklad, spadne na EN
+ */
+export const getCaseStudy = (slug: string, language: Language = "EN") => {
+  const entries = Object.values(caseStudiesData);
+
+  // 1) nájdi podľa slug v target jazyku (ak existuje)
+  let found = entries.find((cs) => cs.translations[language]?.slug === slug);
+
+  // 2) fallback: hľadaj podľa EN slug
+  if (!found) found = entries.find((cs) => cs.translations.EN.slug === slug);
+
+  if (!found) return undefined;
+
+  const t = found.translations[language] ?? found.translations.EN;
+
+  return t;
+};
+
+/**
+ * Helper: list pre Work/Portfolio (cards) – jazykovo
+ */
+export const getCaseStudiesList = (language: Language = "EN") => {
+  return Object.values(caseStudiesData).map((cs) => {
+    const t = cs.translations[language] ?? cs.translations.EN;
+    return {
+      slug: t.slug,
+      title: t.title,
+      subtitle: t.subtitle,
+      category: t.category,
+      description: t.description,
+      tags: t.tags,
+      image: t.image,
+      statValue: t.statValue,
+      statLabel: t.statLabel,
+      featured: t.featured,
+      client: t.client,
+      year: t.year,
+    };
+  });
 };
