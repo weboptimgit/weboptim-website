@@ -47,8 +47,8 @@ export const staticPageSlugs: Record<string, Record<Language, string>> = {
   },
   work: {
     EN: "work",
-    CZ: "portfolio",
-    SK: "portfolio",
+    CZ: "nase-prace",
+    SK: "nase-prace",
   },
   blog: {
     EN: "blog",
