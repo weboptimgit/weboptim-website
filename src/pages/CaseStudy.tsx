@@ -441,7 +441,7 @@ const CaseStudy = () => {
 
       <Footer />
     </div>
-   <>   
+    </>>   
   );
 };
 
