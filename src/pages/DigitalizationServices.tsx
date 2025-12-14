@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDigitalizationLang } from "@/contexts/LanguageDigitalization";
-import { buildPath } from "@/config/domains";
 
 import {
   Cpu,
@@ -27,13 +26,18 @@ import {
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import { buildPath, servicePath, domainConfig } from "@/config/domains";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 
 const DigitalizationServices = () => {
   const s = useDigitalizationLang();
   const { language } = useLanguage();
+  const canonicalUrl =
+  typeof window !== "undefined"
+    ? `${domainConfig[language]}${window.location.pathname}`
+    : `${domainConfig[language]}${servicePath(language, "digitalization")}`;
 
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
@@ -41,36 +45,25 @@ const DigitalizationServices = () => {
   // visuals stay static (icons + colors)
   const benefitsMeta = [Clock, Zap, BarChart3, Users, RefreshCcw, Cloud] as const;
   const servicesMeta = [Building2, Bot, Layers] as const;
-
-  // JSON-LD Schema (localized + uses context)
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: s.schema.name,
-    provider: {
-      "@type": "Organization",
-      name: "WebOptim",
-      url: "https://weboptim.eu",
-    },
-    description: s.schema.description,
-    serviceType: s.schema.serviceType,
-    areaServed: s.schema.areaServed,
-    offers: s.pricing.map((p) => ({
-      "@type": "Offer",
-      name: p.name,
-      price: p.price.replace(/[^0-9]/g, ""),
-      priceCurrency: s.schema.priceCurrency,
-    })),
-  };
-
+  
   return (
     <>
-      <SEO title={s.seo.title} description={s.seo.description} />
+      <SEO
+        title={s.seo.title}
+        description={s.seo.description}
+        jsonLd={[
+          getServicePageSchema({
+            language,
+            canonicalUrl,
+            serviceName: s.sections?.faq?.serviceName || "Digitalization & Automation",
+            serviceDescription: s.seo.description,
+          }),
+          // ServiceFAQ u teba berie faqs={s.faqs}, takže mapujeme práve s.faqs
+          getFAQSchema(mapFaqItems(s.faqs)),
+        ]}
+      />
 
       <div className="min-h-screen bg-background">
-        {/* JSON-LD Schema */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-
         <Navbar />
 
         {/* Hero Section */}
