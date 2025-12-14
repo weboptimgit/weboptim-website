@@ -22,10 +22,9 @@ import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
-import { domainConfig } from "@/config/domains";
+import { buildPath, servicePath, domainConfig } from "@/config/domains";
 import { useSeoLang } from "@/contexts/LanguageSEO";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { buildPath } from "@/config/domains";
 
 // vizuálne farby nechávame v page (nemá sa prekladať)
 const seoServicesColors = [
@@ -121,9 +120,8 @@ const SEOServices = () => {
   const canonicalUrl =
     typeof window !== "undefined"
       ? `${domainConfig[language]}${window.location.pathname}`
-      : `${domainConfig[language]}${buildPath(language, "seo-services")}`;
+      : `${domainConfig[language]}${servicePath(language, "seo")}`;
 
-  
   const metrics = [
     { value: s.metrics[0].value, label: s.metrics[0].label, icon: TrendingUp },
     { value: s.metrics[1].value, label: s.metrics[1].label, icon: Target },
@@ -134,18 +132,18 @@ const SEOServices = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-          title={s.seo.title}
-          description={s.seo.description}
-          jsonLd={[
-            getServicePageSchema({
-              language,
-              canonicalUrl,
-              serviceName: s.faq.serviceName || "SEO",
-              serviceDescription: s.seo.description,
-            }),
-            getFAQSchema(mapFaqItems(s.faq.items)),
-          ]}
-        />
+        title={s.seo.title}
+        description={s.seo.description}
+        jsonLd={[
+          getServicePageSchema({
+            language,
+            canonicalUrl,
+            serviceName: s.faq.serviceName || "SEO",
+            serviceDescription: s.seo.description,
+          }),
+          getFAQSchema(mapFaqItems(s.faq.items)),
+        ]}
+      />
       <Navbar />
 
       {/* Hero Section */}
