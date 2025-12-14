@@ -13,8 +13,8 @@ const Portfolio = () => {
   // Build projects list from translations (EN fallback handled inside helper)
   const projects = getCaseStudiesList(language);
 
-  // Keep only first 6 (same as you had)
-  const projects6 = projects.slice(0, 6);
+  // Keep only first 3 (same as you had)
+  const projects6 = projects.slice(0, 3);
 
   return (
     <section id="work" className="py-24 relative overflow-hidden">
