@@ -54,12 +54,12 @@ export const categoriesTranslations = {
 export const blogPostsData: BlogPostData[] = [
     {
     image:
-      "https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1170&auto=format&fit=crop",
+      "https://oxygenbuilder.com/wp-content/uploads/2025/05/oxygen-6.0-beta.2.jpg",
     author: "Peter Gáborík",
     translations: {
       EN: {
         slug: "why-do-we-use-oxygen-builder-when-creating-websites-in-wordpress",
-        title: "Why Do We Use Oxygen Builder When Creating Websites in WordPress?",
+        title: "Why do we use Oxygen Builder when creating websites in WordPress?",
         excerpt:
           "Oxygen Builder stands out as one of the most powerful tools for building fast, scalable, and fully customizable WordPress websites.",
         category: "Webs and eshops",
@@ -128,8 +128,8 @@ export const blogPostsData: BlogPostData[] = [
         ],
       },  
       CZ: {
-        slug: "proc-pouzivame-oxygen-builder-pri-tvorbe-wordpress-webu",
-        title: "Proč používáme Oxygen Builder při tvorbě WordPress webů?",
+        slug: "proc-pri-vytvareni-webovych-stranek-ve-wordpress-pouzivame-oxygen-builder",
+        title: "Proč při tvorbě webových stránek ve WordPress používáme Oxygen Builder?",
         excerpt:
           "Oxygen Builder patří mezi nejvýkonnější nástroje pro tvorbu rychlých, škálovatelných a plně přizpůsobitelných WordPress webů.",
         category: "Weby a e-shopy",
@@ -198,8 +198,8 @@ export const blogPostsData: BlogPostData[] = [
         ],
       },
       SK: {
-        slug: "preco-pouzivame-oxygen-builder-pri-tvorbe-wordpress-webov",
-        title: "Prečo používame Oxygen Builder pri tvorbe WordPress webov?",
+        slug: "preco-pri-vytvarani-webovych-stranok-vo-wordpress-pouzivame-oxygen-builder",
+        title: "Prečo pri vytváraní webových stránok vo WordPress používame Oxygen Builder?",
         excerpt:
           "Oxygen Builder patrí medzi najvýkonnejšie nástroje na tvorbu rýchlych, škálovateľných a plne prispôsobiteľných WordPress webov.",
         category: "Weby a e-shopy",
