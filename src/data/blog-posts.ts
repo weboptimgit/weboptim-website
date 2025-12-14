@@ -43,7 +43,7 @@ export interface BlogPost {
 // Translated categories for filtering
 export const categoriesTranslations = {
   EN: ["All", "Web Design", "E-commerce", "Marketing", "Development", "Branding", "Webs and eshops", "(AI) Artificial Intelligence"],
-  CZ: ["Vše", "Webový design", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy", "(AI) Umělá inteligence"],
+  CZ: ["Vše", "Webový design", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy", "(UI) Umělá inteligence"],
   SK: ["Všetko", "Webový dizajn", "E-shop", "Marketing", "Vývoj", "Branding", "Weby a eshopy", "(UI) Umelá inteligencia"],
 };
 
@@ -715,7 +715,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "50+ SEO příkazů pro ChatGPT od OpenAI",
         excerpt:
           "Chcete využít plný potenciál ChatGPT pro SEO? Pak jsme právě pro vás připravili tento článek o velmi užitečném nástroji pro SEO konzultanty. Prompts jsou krátké textové instrukce, které mohou pomoci ChatGPT generovat relevantní a kvalitní odpovědi na dotazy a požadavky uživatelů.",
-        category: "(AI) Umělá inteligence",
+        category: "(UI) Umělá inteligence",
         tags: ["ChatGPT", "SEO", "Trendy", "OpenAI", "Příkazy"],
         date: "15. Květen 2023",
         readTime: "5 min čtení",
