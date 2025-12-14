@@ -32,16 +32,36 @@ type ContactLang = {
 
   form: {
     title: string;
+  
     nameLabel: string;
     namePlaceholder: string;
+  
     emailLabel: string;
     emailPlaceholder: string;
-    companyLabel: string;
-    companyPlaceholder: string;
+  
+    phoneLabel: string;
+    phonePlaceholder: string;
+  
+    websiteLabel: string;
+    websitePlaceholder: string;
+  
+    topicLabel: string;
+    topicPlaceholder: string;
+    topicWeb: string;
+    topicSeo: string;
+    topicPpc: string;
+    topicConsulting: string;
+    topicOther: string;
+  
     messageLabel: string;
     messagePlaceholder: string;
+  
+    consentText: string;
+    consentError: string;
+  
     submitIdle: string;
     submitSending: string;
+  
     toastTitle: string;
     toastDescription: string;
   };
@@ -84,16 +104,36 @@ const translations: Record<Language, ContactLang> = {
     },
     form: {
       title: "Send us a message",
-      nameLabel: "Your Name",
-      namePlaceholder: "John Doe",
+    
+      nameLabel: "Your Name / Company Name",
+      namePlaceholder: "John Doe / Acme s.r.o.",
+    
       emailLabel: "Email Address",
       emailPlaceholder: "john@example.com",
-      companyLabel: "Company (Optional)",
-      companyPlaceholder: "Your Company",
+    
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "+421 900 000 000",
+    
+      websiteLabel: "Your Website (Optional)",
+      websitePlaceholder: "https://",
+    
+      topicLabel: "What do you need help with?",
+      topicPlaceholder: "— Select —",
+      topicWeb: "Website / Development",
+      topicSeo: "SEO",
+      topicPpc: "PPC / Ads",
+      topicConsulting: "Consultation",
+      topicOther: "Other",
+    
       messageLabel: "Your Message",
       messagePlaceholder: "Tell us about your project...",
+    
+      consentText: "I agree to the processing of personal data.",
+      consentError: "Please agree to personal data processing to continue.",
+    
       submitIdle: "Send Message",
       submitSending: "Sending...",
+    
       toastTitle: "Message sent!",
       toastDescription: "We'll get back to you within 24 hours.",
     },
@@ -138,16 +178,36 @@ const translations: Record<Language, ContactLang> = {
     },
     form: {
       title: "Napište nám zprávu",
-      nameLabel: "Vaše jméno",
-      namePlaceholder: "Jan Novák",
+    
+      nameLabel: "Vaše jméno / Název společnosti",
+      namePlaceholder: "Jan Novák / Firma s.r.o.",
+    
       emailLabel: "E-mail",
       emailPlaceholder: "jan@firma.cz",
-      companyLabel: "Firma (nepovinné)",
-      companyPlaceholder: "Název firmy",
+    
+      phoneLabel: "Telefonní číslo",
+      phonePlaceholder: "+420 777 000 000",
+    
+      websiteLabel: "Vaše webová stránka (nepovinné)",
+      websitePlaceholder: "https://",
+    
+      topicLabel: "S čím potřebujete pomoct?",
+      topicPlaceholder: "— Vyberte —",
+      topicWeb: "Web / Vývoj",
+      topicSeo: "SEO",
+      topicPpc: "PPC / Reklamy",
+      topicConsulting: "Konzultace",
+      topicOther: "Jiné",
+    
       messageLabel: "Zpráva",
       messagePlaceholder: "Napište nám, co potřebujete…",
+    
+      consentText: "Souhlasím se zpracováním osobních údajů.",
+      consentError: "Pro pokračování prosím potvrďte souhlas se zpracováním osobních údajů.",
+    
       submitIdle: "Odeslat zprávu",
       submitSending: "Odesílám…",
+    
       toastTitle: "Zpráva odeslána!",
       toastDescription: "Ozveme se vám do 24 hodin.",
     },
@@ -192,16 +252,36 @@ const translations: Record<Language, ContactLang> = {
     },
     form: {
       title: "Napíšte nám správu",
-      nameLabel: "Vaše meno",
-      namePlaceholder: "Ján Novák",
+    
+      nameLabel: "Vaše meno / Názov spoločnosti",
+      namePlaceholder: "Ján Novák / Firma s.r.o.",
+    
       emailLabel: "E-mail",
       emailPlaceholder: "jan@firma.sk",
-      companyLabel: "Firma (nepovinné)",
-      companyPlaceholder: "Názov firmy",
+    
+      phoneLabel: "Telefónne číslo",
+      phonePlaceholder: "+421 900 000 000",
+    
+      websiteLabel: "Vaša webová stránka (nepovinné)",
+      websitePlaceholder: "https://",
+    
+      topicLabel: "S čím potrebujete pomôcť?",
+      topicPlaceholder: "— Vyberte —",
+      topicWeb: "Web / Vývoj",
+      topicSeo: "SEO",
+      topicPpc: "PPC / Reklamy",
+      topicConsulting: "Konzultácia",
+      topicOther: "Iné",
+    
       messageLabel: "Správa",
       messagePlaceholder: "Napíšte nám, čo potrebujete…",
+    
+      consentText: "Súhlasím so spracovaním osobných údajov.",
+      consentError: "Pre pokračovanie prosím potvrďte súhlas so spracovaním osobných údajov.",
+    
       submitIdle: "Odoslať správu",
       submitSending: "Odosielam…",
+    
       toastTitle: "Správa odoslaná!",
       toastDescription: "Ozveme sa vám do 24 hodín.",
     },
