@@ -576,7 +576,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Health and coaching platform combining nutrition consulting, diagnostics, courses, payments, and digital vouchers.",
         tags: ["Nutrition", "Life Coaching", "WordPress", "Stripe"],
-        image: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?w=800&h=600&fit=crop",
+        image: "/img/weboptim-uzdravtelo_1600-min.jpg",
         statValue: "5.0★",
         statLabel: "Google Reviews",
         featured: true,
