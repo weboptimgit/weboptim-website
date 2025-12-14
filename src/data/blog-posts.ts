@@ -7,6 +7,7 @@ export interface BlogPostContent {
   date: string;
   readTime: string;
   content: string[];
+  resources?: ResourceLink[];
 }
 
 export interface BlogPostBase {
