@@ -13,7 +13,7 @@ import { domainConfig } from "@/config/domains";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const post = slug ? getBlogPost(slug, language) : null;
   const [readingProgress, setReadingProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
