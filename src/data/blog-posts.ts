@@ -310,7 +310,7 @@ export const blogPostsData: BlogPostData[] = [
           "- Měsíční poplatky, které se časem zvyšují.",
           "- Závislost na poskytovateli platformy.",
         
-          "![Example of an e-shop on the Upgates platform, which we integrated on the website of the luxury swimming pool manufacturer Magiline](/images/blog/Magiline-1024x629.png)",
+          "![Příklad e-shopu na platformě Upgates, který jsme integrovali na webové stránky výrobce luxusních bazénů Magiline](/images/blog/Magiline-1024x629.png)",
         
           "## Open-source řešení",
           "Open-source e-shopová řešení jsou systémy s otevřeným zdrojovým kódem, vyvíjené komunitou programátorů a dostupné zdarma.",
@@ -344,7 +344,7 @@ export const blogPostsData: BlogPostData[] = [
           "- Dodatečné náklady na prémiové pluginy a hosting.",
           "- Odpovědnost za aktualizace a bezpečnost.",
         
-          "![Example of an e-shop based on the open-source platform WooCommerce, which we created for yourkush.cz](/images/blog/yourkush-1024x592.png)",
+          "![Příklad e-shopu založeného na open-source platformě WooCommerce, který jsme vytvořili pro yourkush.cz](/images/blog/yourkush-1024x592.png)",
         
           "## E-shop na míru",
           "E-shop na míru představuje nejvyšší úroveň přizpůsobení.",
@@ -466,7 +466,7 @@ export const blogPostsData: BlogPostData[] = [
           "- Mesačné poplatky, ktoré sa časom zvyšujú.",
           "- Závislosť od poskytovateľa platformy.",
         
-          "![Example of an e-shop on the Upgates platform, which we integrated on the website of the luxury swimming pool manufacturer Magiline](/images/blog/Magiline-1024x629.png)",
+          "![Príklad e-shopu na platforme Upgates, ktorý sme integrovali na webovú stránku výrobcu luxusných bazénov Magiline](/images/blog/Magiline-1024x629.png)",
         
           "## Open-source riešenia",
           "Open-source e-shopové riešenia sú systémy s otvoreným zdrojovým kódom, vyvíjané komunitou programátorov a dostupné zdarma.",
@@ -500,7 +500,7 @@ export const blogPostsData: BlogPostData[] = [
           "- Dodatočné náklady na prémiové pluginy a hosting.",
           "- Zodpovednosť za aktualizácie a bezpečnosť.",
         
-          "![Example of an e-shop based on the open-source platform WooCommerce, which we created for yourkush.cz](/images/blog/yourkush-1024x592.png)",
+          "![Príklad e-shopu založeného na open-source platforme WooCommerce, ktorý sme vytvorili pre yourkush.cz](/images/blog/yourkush-1024x592.png)",
         
           "## E-shop na mieru",
           "E-shop na mieru predstavuje najvyššiu úroveň prispôsobenia.",
