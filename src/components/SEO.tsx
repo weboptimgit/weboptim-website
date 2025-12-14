@@ -177,7 +177,38 @@ export const getWebSiteSchema = (language: Language) => ({
   inLanguage: language === "CZ" ? "cs" : language === "SK" ? "sk" : "en",
 });
 
-// SEO.tsx
+// Kontakt schema
+export const getContactPageSchema = (args: {
+  language: Language;
+  canonicalUrl: string;
+  telephone: string;
+  email: string;
+  contactType: string;
+  availableLanguage: string[]; // napr ["en","cs","sk"]
+}) => {
+  const base = domainConfig[args.language];
+  const org = getOrganizationSchema(args.language);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${args.canonicalUrl}#contact`,
+    url: args.canonicalUrl,
+    mainEntity: {
+      ...org,
+      "@id": `${base}/#organization`,
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: args.telephone,
+        email: args.email,
+        contactType: args.contactType,
+        availableLanguage: args.availableLanguage,
+      },
+    },
+  };
+};
+
+// Case study detail schema
 export const getCaseStudySchema = (args: {
   canonicalUrl: string;
   language: Language;
