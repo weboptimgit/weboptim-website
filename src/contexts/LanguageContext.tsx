@@ -62,6 +62,7 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.author.writtenBy": "Written by",
     "blogPost.author.bio": "Content Writer & Digital Marketing Specialist with expertise in web development trends and SEO strategies.",    
     "blogPost.exploreMore": "Explore More Articles",
+    "blogPost.toc.title": "Table of contents",
 
     // CTA
     "ctaSection.title.before": "Ready to start your",
@@ -251,6 +252,7 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.author.writtenBy": "Autor",
     "blogPost.author.bio": "Copywriter a specialista na digitální marketing se zaměřením na webové trendy a SEO strategie.",    
     "blogPost.exploreMore": "Prozkoumat další články",
+    "blogPost.toc.title": "Obsah článku",
 
     // CTA
     "ctaSection.title.before": "Připraveni začít váš",
@@ -440,6 +442,7 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.author.writtenBy": "Autor",
     "blogPost.author.bio": "Copywriter a špecialista na digitálny marketing so zameraním na webové trendy a SEO stratégie.",    
     "blogPost.exploreMore": "Pozrieť ďalšie články",
+    "blogPost.toc.title": "Obsah článku",
 
     // CTA
     "ctaSection.title.before": "Pripravení začať váš",
