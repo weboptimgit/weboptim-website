@@ -22,20 +22,20 @@ import {
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import { buildPath, servicePath, domainConfig } from "@/config/domains";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-
-// ✅ language
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePpcLang } from "@/contexts/LanguagePPC";
-
-// ✅ localized routes
-import { buildPath } from "@/config/domains";
 
 const PPCServices = () => {
   const s = usePpcLang();
   const { language } = useLanguage();
+  const canonicalUrl =
+  typeof window !== "undefined"
+    ? `${domainConfig[language]}${window.location.pathname}`
+    : `${domainConfig[language]}${servicePath(language, "ppc")}`;
 
   // localized routes
   const contactUrl = buildPath(language, "contact");
@@ -58,7 +58,19 @@ const PPCServices = () => {
 
   return (
     <>
-      <SEO title={s.seo.title} description={s.seo.description} />
+      <SEO
+        title={s.seo.title}
+        description={s.seo.description}
+        jsonLd={[
+          getServicePageSchema({
+            language,
+            canonicalUrl,
+            serviceName: s.faq.serviceName || "PPC",
+            serviceDescription: s.seo.description,
+          }),
+          getFAQSchema(mapFaqItems(s.faq.items)),
+        ]}
+      />
 
       <div className="min-h-screen bg-background">
         <Navbar />
