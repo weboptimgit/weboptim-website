@@ -6,10 +6,8 @@ import FloatingShapes from "./FloatingShapes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import { Link } from "react-router-dom";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
- const { disableHeavyMotion } = useIsMobile();
   const { t, language } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
