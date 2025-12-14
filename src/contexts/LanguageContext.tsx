@@ -11,6 +11,15 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    // Work (archive)
+    "work.badge": "Our Portfolio",
+    "work.title.before": "Case",
+    "work.title.highlight": "Studies",
+    "work.subtitle": "Explore our latest projects and see how we help businesses transform their digital presence",
+    "work.cta.title": "Ready to Start Your Project?",
+    "work.cta.subtitle": "Let's discuss how we can help transform your digital presence and achieve your business goals.",
+    "work.cta.button": "Get in Touch",
+
     // Case Study
     "caseStudy.backToProjects": "Back to Projects",
     "caseStudy.notFound.title": "Case Study Not Found",
@@ -191,6 +200,15 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+    // Work (archive)
+    "work.badge": "Naše portfolio",
+    "work.title.before": "Případové",
+    "work.title.highlight": "studie",
+    "work.subtitle": "Prozkoumejte naše nejnovější projekty a podívejte se, jak pomáháme firmám posunout jejich online prezentaci",
+    "work.cta.title": "Jste připraveni začít svůj projekt?",
+    "work.cta.subtitle": "Pojďme probrat, jak vám můžeme pomoci zlepšit online prezentaci a dosáhnout vašich obchodních cílů.",
+    "work.cta.button": "Kontaktujte nás",
+
     // Case Study
     "caseStudy.backToProjects": "Zpět na projekty",
     "caseStudy.notFound.title": "Případová studie nebyla nalezena",
@@ -371,6 +389,15 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    // Work (archive)
+    "work.badge": "Naše portfólio",
+    "work.title.before": "Case",
+    "work.title.highlight": "studies",
+    "work.subtitle": "Pozrite si naše najnovšie projekty a zistite, ako pomáhame firmám zlepšiť ich online prezentáciu",
+    "work.cta.title": "Pripravení začať váš projekt?",
+    "work.cta.subtitle": "Poďme sa porozprávať, ako vám môžeme pomôcť zlepšiť online prezentáciu a dosiahnuť vaše biznis ciele.",
+    "work.cta.button": "Kontaktujte nás",
+
     // Case Study
     "caseStudy.backToProjects": "Späť na projekty",
     "caseStudy.notFound.title": "Case study sa nenašla",
