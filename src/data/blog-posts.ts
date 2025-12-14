@@ -77,8 +77,9 @@ export const blogPostsData: BlogPostData[] = [
         content: [
           "In today's digital age, e-commerce is undoubtedly a key tool for entrepreneurs who want to reach a wider audience and increase their sales.",
           "However, deciding which solution to choose for your online store is not easy. There are several options on the market, each with its own specifics, advantages and limitations.",
-          "In this article, we'll give you an overview of the available e-commerce solutions and help you navigate what to consider when choosing one.",        
-      
+          "In this article, we'll give you an overview of the available e-commerce solutions and help you navigate what to consider when choosing one.",     
+          "!!TABLE_REVIEWS_PLATFORMS!!",
+    
           "## What to focus on when choosing an e-shop solution",
           "When deciding on the most suitable solution for your e-shop, it is important to consider several factors. Here are the most important ones:",
       
