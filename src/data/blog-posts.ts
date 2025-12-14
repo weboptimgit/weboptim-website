@@ -258,10 +258,6 @@ export const blogPostsData: BlogPostData[] = [
     image:
       "https://images.unsplash.com/photo-1616469832301-ffaeadc68cf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     author: "Peter Gáborík",
-    resources: [
-      { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering" },
-      { title: "Google Search Central – SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
-    ],
     translations: {
       EN: {
         slug: "7-reasons-why-you-should-choose-a-wordpress-based-website",
@@ -318,6 +314,10 @@ export const blogPostsData: BlogPostData[] = [
           "WordPress is a platform that facilitates everyday website management, remains a cost-effective solution, and offers endless growth possibilities.",
           "Choosing the right content management system for your website is just the initial step toward creating a modern website that provides a great user experience and is easy to manage.",
           "If you have any questions about how WordPress can benefit your business or are interested in creating a new or updating an existing WordPress website, check out our reviews and schedule a free consultation."
+        ],
+        resources: [
+          { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering" },
+          { title: "Google Search Central – SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
         ],
       },
         CZ: {
@@ -376,6 +376,10 @@ export const blogPostsData: BlogPostData[] = [
           "Výběr správného CMS je jen první krok k modernímu webu, který nabízí skvělý UX a snadno se spravuje.",
           "Pokud máte otázky, jak může WordPress pomoci vašemu podnikání, nebo máte zájem o nový web či aktualizaci stávajícího, podívejte se na naše recenze a domluvte si bezplatnou konzultaci."
         ],
+        resources: [
+          { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering" },
+          { title: "Google Search Central – SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
+        ],
       },
         SK: {
         slug: "7-dovodov-preco-zvolit-web-postaveny-na-wordpress",
@@ -432,6 +436,10 @@ export const blogPostsData: BlogPostData[] = [
           "Je to platforma, ktorá podporuje každodennú správu, zostáva cenovo efektívna a ponúka prakticky neobmedzené možnosti rastu.",
           "Výber správneho CMS je len prvý krok k modernému webu, ktorý ponúka skvelý UX a ľahko sa spravuje.",
           "Ak máte otázky, ako môže WordPress pomôcť vášmu podnikaniu, alebo máte záujem o nový web či aktualizáciu existujúceho, pozrite si naše recenzie a dohodnite si bezplatnú konzultáciu."
+        ],
+        resources: [
+          { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering" },
+          { title: "Google Search Central – SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
         ],
       },
     },
