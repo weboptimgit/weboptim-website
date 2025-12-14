@@ -23,8 +23,10 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import SEO from "@/components/SEO";
+import { getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
 import { useEcomLang } from "@/contexts/LanguageEcommerce";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { domainConfig } from "@/config/domains";
 
 const platforms = [
   {
@@ -154,13 +156,40 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
   );
 };
 
-const EcommerceWebsite = () => {
-  const e = useEcomLang();
-
-  return (
-    <div className="min-h-screen bg-background">
-      <SEO title={e.seo.title} description={e.seo.description} />
-
+      const EcommerceWebsite = () => {
+        const e = useEcomLang();
+        const { language } = useLanguage();
+      
+        const canonicalUrl =
+          typeof window !== "undefined"
+            ? `${domainConfig[language]}${window.location.pathname}`
+            : "";
+      
+        const serviceSchema = getServicePageSchema({
+          language,
+          canonicalUrl,
+          serviceName:
+            language === "SK" ? "Tvorba e-shopu" :
+            language === "CZ" ? "Tvorba e-shopu" :
+            "E-commerce Website Development",
+          serviceDescription: e.seo.description,
+        });
+      
+        const faqSchema = getFAQSchema(mapFaqItems(e.faq.items));
+      
+        const breadcrumbSchema = getBreadcrumbSchema([
+          { name: language === "SK" ? "Domov" : language === "CZ" ? "Domů" : "Home", url: `${domainConfig[language]}/` },
+          { name: language === "SK" ? "Služby" : language === "CZ" ? "Služby" : "Services", url: `${domainConfig[language]}/services` },
+          { name: language === "SK" ? "Tvorba e-shopu" : language === "CZ" ? "Tvorba e-shopu" : "E-commerce", url: canonicalUrl },
+        ]);
+      
+        return (
+          <div className="min-h-screen bg-background">
+            <SEO
+              title={e.seo.title}
+              description={e.seo.description}
+              jsonLd={[serviceSchema, faqSchema, breadcrumbSchema]}
+            />
       <Navbar />
 
       {/* Hero Section */}
