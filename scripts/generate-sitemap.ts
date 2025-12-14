@@ -33,9 +33,7 @@ const urlEntry = (paths: Record<Lang, string>) => {
 };
 
 // --- STATIC PAGES ---
-// vezmeme priamo z staticPageSlugs (aby to sedelo s appkou)
-const staticPages: Record<string, Record<Lang, string>> = {
-  // home neriešiš cez staticPageSlugs, dáme ručne
+const staticPages: Record<string, Record<Lang, string> | undefined> = {
   home: { EN: "/", CZ: "/", SK: "/" },
 
   about: staticPageSlugs.about,
@@ -48,25 +46,39 @@ const staticPages: Record<string, Record<Lang, string>> = {
   calculator: staticPageSlugs.calculator,
 };
 
+// vygeneruj statické (len tie, čo existujú)
+const staticEntries = Object.entries(staticPages)
+  .map(([key, paths]) => {
+    if (!paths?.EN || !paths?.CZ || !paths?.SK) {
+      console.log(`⚠️ Missing staticPageSlugs mapping for: ${key}`);
+      return null;
+    }
+    return urlEntry(paths);
+  })
+  .filter(Boolean) as string[];
+
 // vygeneruj statické
 const staticEntries = Object.values(staticPages).map(urlEntry);
 
 // --- BLOG POSTS ---
-const blogEntries = blogPostsData
-  .map((post) => {
-    const enSlug = post?.translations?.EN?.slug;
-    const czSlug = post?.translations?.CZ?.slug;
-    const skSlug = post?.translations?.SK?.slug;
+const blogEntries =
+  staticPageSlugs.blog?.EN && staticPageSlugs.blog?.CZ && staticPageSlugs.blog?.SK
+    ? blogPostsData
+        .map((post) => {
+          const enSlug = post?.translations?.EN?.slug;
+          const czSlug = post?.translations?.CZ?.slug;
+          const skSlug = post?.translations?.SK?.slug;
 
-    if (!enSlug || !czSlug || !skSlug) return null;
+          if (!enSlug || !czSlug || !skSlug) return null;
 
-    return urlEntry({
-      EN: `${staticPageSlugs.blog.EN}/${enSlug}`,
-      CZ: `${staticPageSlugs.blog.CZ}/${czSlug}`,
-      SK: `${staticPageSlugs.blog.SK}/${skSlug}`,
-    });
-  })
-  .filter(Boolean) as string[];
+          return urlEntry({
+            EN: `${staticPageSlugs.blog.EN}/${enSlug}`,
+            CZ: `${staticPageSlugs.blog.CZ}/${czSlug}`,
+            SK: `${staticPageSlugs.blog.SK}/${skSlug}`,
+          });
+        })
+        .filter(Boolean) as string[]
+    : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
 
 // FINAL XML
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
