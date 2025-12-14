@@ -7,9 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SEO, { getOrganizationSchema } from "@/components/SEO";
+import SEO, { getContactPageSchema, getBreadcrumbSchema } from "@/components/SEO";
+import { domainConfig } from "@/config/domains";
+import { buildPath } from "@/config/domains"; 
 import { useLanguage } from "@/contexts/LanguageContext";
-
 import { useContactLang } from "@/contexts/LanguageContact";
 
 const Contact = () => {
