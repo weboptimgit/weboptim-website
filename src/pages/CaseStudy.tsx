@@ -88,6 +88,8 @@ const CaseStudy = () => {
   const gallery = study.gallery ?? [];
   const technologies = study.technologies ?? [];
   const services = study.services ?? [];
+  const contactUrl = buildPath(language, "contact");
+  const workUrl = buildPath(language, "work");
 
   return (
     <>
@@ -459,7 +461,7 @@ const CaseStudy = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{t("caseStudy.readyTitle")}</h2>
                 <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">{t("caseStudy.readySubtitle")}</p>
 
-                <Link to="/contact">
+                <Link to={contactUrl}>
                   <Button variant="hero" size="lg" className="group">
                     {t("caseStudy.readyCta")}
                     <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
