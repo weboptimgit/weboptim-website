@@ -1,220 +1,210 @@
 import React, { createContext, useContext, useMemo } from "react";
-import { useParams } from "react-router-dom";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 
-export type CaseStudyText = {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  overview?: string;
-  challenge?: string;
-  solution?: string;
-
-  // UI labels (voliteľné, ak chceš prekladať aj statické texty v CaseStudy page)
-  labels?: {
-    home?: string;
-    projects?: string;
-    backToProjects?: string;
-    visitProject?: string;
-    client?: string;
-    duration?: string;
-    year?: string;
-    team?: string;
-    techStack?: string;
-    projectOverview?: string;
-    theChallenge?: string;
-    ourSolution?: string;
-    servicesProvided?: string;
-    resultsTitle?: string;
-    resultsSubtitle?: string;
-    keyFeaturesDelivered?: string;
-    projectGallery?: string;
-    readyToStart?: string;
-    ctaText?: string;
-    getInTouch?: string;
+type MobilnoText = {
+  title: string;
+  subtitle: string;
+  description: string;
+  overview: string;
+  challenge: string;
+  solution: string;
+  services: string[];
+  results: { label: string; description: string }[];
+  testimonial: {
+    quote: string;
+    role: string;
   };
-
-  // obsahy
-  features?: string[];
-  services?: string[]; // len labely (ak chceš prepísať)
-  results?: Array<{ label?: string; description?: string }>; // preloží len texty
+  features: string[];
 };
 
-type Ctx = {
-  slug?: string;
-  text: CaseStudyText;
-};
-
-const WorkCaseStudyContext = createContext<Ctx | null>(null);
-
-/**
- * MOBILNO translations only
- * slug must be "mobilno"
- */
-const mobilnoTranslations: Record<Language, Required<CaseStudyText>> = {
+const MobilnoTranslations: Record<Language, MobilnoText> = {
   EN: {
     title: "Mobilno",
-    subtitle: "Marketplace for Service Providers",
+    subtitle: "Marketplace for Mobile Service Providers",
     description:
-      "A marketplace where customers post a request and verified providers respond with offers — built for SEO, scale, and smooth onboarding.",
+      "A marketplace where customers post a request and mobile professionals respond with offers — built for SEO, scale, and smooth onboarding.",
     overview:
-      "Mobilno connects customers with local service providers across multiple categories. The platform is designed to scale through SEO using city-based landing pages, structured provider profiles, and strong internal linking between categories, services, and locations.",
+      "Mobilno connects people who need a service with mobile professionals such as DJs, massage therapists, photographers, or repair specialists. The platform is designed to grow through SEO using structured listings, city-based landing pages, and clean internal linking.",
     challenge:
-      "We needed a scalable content model (providers, services, categories, specializations, and locations) while keeping navigation simple. The key was fast search/filtering and SEO-safe routing for local pages without duplicate or canonical conflicts.",
+      "The main challenge was creating a scalable content model (providers, services, categories, specializations, locations) while keeping navigation intuitive. SEO had to work reliably on city-based pages without duplication or canonical conflicts.",
     solution:
-      "We built a custom WordPress marketplace using custom post types, taxonomies, and advanced fields. We implemented SEO-friendly routing for category + city pages, optimized queries/caching, and delivered UX flows for provider onboarding and request → offer conversion.",
-    labels: {
-      home: "Home",
-      projects: "Projects",
-      backToProjects: "Back to Projects",
-      visitProject: "Visit Project",
-      client: "Client",
-      duration: "Duration",
-      year: "Year",
-      team: "Team",
-      techStack: "Tech Stack",
-      projectOverview: "Project Overview",
-      theChallenge: "The Challenge",
-      ourSolution: "Our Solution",
-      servicesProvided: "Services Provided",
-      resultsTitle: "The Results",
-      resultsSubtitle: "Measurable impact that drove real business growth",
-      keyFeaturesDelivered: "Key Features Delivered",
-      projectGallery: "Project Gallery",
-      readyToStart: "Ready to Start Your Project?",
-      ctaText:
-        "Let's create something amazing together. Get in touch to discuss how we can help transform your digital presence.",
-      getInTouch: "Get in Touch",
+      "We built a custom WordPress marketplace using custom post types, taxonomies, and advanced fields. SEO-friendly routing for category + city pages, optimized queries and caching, and conversion-focused UX flows for providers and customers were implemented.",
+    services: [
+      "WordPress Development",
+      "UI/UX Design",
+      "Technical SEO",
+      "Conversion Optimization",
+    ],
+    results: [
+      {
+        label: "Provider Onboarding",
+        description:
+          "Significantly more providers successfully completed registration and published their profiles.",
+      },
+      {
+        label: "Indexed Landing Pages",
+        description:
+          "Strong growth of category + city pages indexed and discoverable via Google.",
+      },
+      {
+        label: "Faster Matching",
+        description:
+          "Reduced time between customer request and first provider response.",
+      },
+      {
+        label: "CTA Engagement",
+        description:
+          "Higher interaction with key actions such as requests, contact, and signups.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers onboard easily and customers find what they need without friction.",
+      role: "Founder, Mobilno",
     },
     features: [
       "Custom post types for provider profiles and services",
       "Taxonomy structure for categories, specializations, and problem types",
       "City-based landing pages with SEO-safe routing and canonicals",
-      "Search + filtering optimized for relevance (service, city, keywords)",
-      "Conversion-focused provider onboarding (Free/Premium-ready tiers)",
-      "Performance improvements (lean queries, caching, reduced duplicate calls)",
-      "Schema-ready structured pages to improve search appearance",
-      "Internal linking strategy between listings, cities, and provider profiles",
+      "Search and filtering optimized for relevance",
+      "Conversion-focused provider onboarding",
+      "Performance optimizations (queries, caching)",
+      "Schema-ready structured pages",
+      "Strong internal linking between listings, cities, and providers",
     ],
-    services: [],
-    results: [],
   },
 
   CZ: {
     title: "Mobilno",
-    subtitle: "Tržiště poskytovatelů služeb",
+    subtitle: "Tržiště mobilních poskytovatelů služeb",
     description:
-      "Tržiště, kde zákazník zadá poptávku a ověření poskytovatelé posílají nabídky — postavené pro SEO, růst a snadný onboarding.",
+      "Tržiště, kde zákazníci zadávají poptávky a poskytovatelé reagují nabídkami — navrženo pro SEO, škálování a snadný onboarding.",
     overview:
-      "Mobilno propojuje zákazníky s lokálními poskytovateli služeb napříč kategoriemi. Platforma je navržena pro růst přes SEO díky lokálním landing pages, strukturovaným profilům a silnému internímu prolinkování mezi kategoriemi, službami a lokalitami.",
+      "Mobilno propojuje lidi, kteří hledají službu, s mobilními profesionály jako DJové, maséři, fotografové nebo řemeslníci. Platforma je postavena pro růst skrze SEO, lokální stránky měst a přehledné interní prolinkování.",
     challenge:
-      "Potřebovali jsme škálovatelný obsahový model (poskytovatelé, služby, kategorie, specializace, lokality) a zároveň jednoduchou navigaci. Klíčové bylo rychlé vyhledávání/filtrování a SEO-safe routing pro lokální stránky bez duplicit a problémů s canonical.",
+      "Výzvou bylo vytvořit škálovatelný obsahový model (poskytovatelé, služby, kategorie, specializace, lokality) a zároveň zachovat jednoduchou navigaci. SEO muselo fungovat spolehlivě na městských stránkách bez duplicit.",
     solution:
-      "Postavili jsme WordPress marketplace na míru pomocí vlastních CPT, taxonomií a pokročilých polí. Implementovali jsme SEO-friendly routing pro kategorie + města, optimalizovali dotazy a cache a dodali UX flow pro onboarding poskytovatelů a konverzi poptávka → nabídka.",
-    labels: {
-      home: "Domů",
-      projects: "Projekty",
-      backToProjects: "Zpět na projekty",
-      visitProject: "Navštívit projekt",
-      client: "Klient",
-      duration: "Trvání",
-      year: "Rok",
-      team: "Tým",
-      techStack: "Technologie",
-      projectOverview: "Přehled projektu",
-      theChallenge: "Výzva",
-      ourSolution: "Řešení",
-      servicesProvided: "Dodané služby",
-      resultsTitle: "Výsledky",
-      resultsSubtitle: "Měřitelný dopad, který přinesl reálný růst",
-      keyFeaturesDelivered: "Klíčové dodané funkce",
-      projectGallery: "Galerie projektu",
-      readyToStart: "Jdeme na váš projekt?",
-      ctaText:
-        "Pojďme spolu vytvořit něco skvělého. Ozvěte se a probereme, jak posunout vaši digitální prezentaci.",
-      getInTouch: "Kontaktovat",
+      "Vytvořili jsme WordPress marketplace na míru pomocí vlastních CPT, taxonomií a pokročilých polí. Implementovali jsme SEO-friendly routing pro kategorie + města, optimalizovali výkon a navrhli konverzní UX flow.",
+    services: [
+      "Vývoj na WordPressu",
+      "UI / UX design",
+      "Technické SEO",
+      "Optimalizace konverzí",
+    ],
+    results: [
+      {
+        label: "Registrace poskytovatelů",
+        description:
+          "Výrazně vyšší počet poskytovatelů dokončujících registraci.",
+      },
+      {
+        label: "Indexované landing pages",
+        description:
+          "Růst počtu kategorií a městských stránek ve vyhledávačích.",
+      },
+      {
+        label: "Rychlejší párování",
+        description:
+          "Kratší čas mezi poptávkou zákazníka a reakcí poskytovatele.",
+      },
+      {
+        label: "Zapojení do CTA",
+        description:
+          "Vyšší míra interakce s klíčovými akcemi na webu.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Mobilno dnes působí jako hotový produkt. Platforma je rychlá, přehledná a připravená na růst.",
+      role: "Zakladatel, Mobilno",
     },
     features: [
-      "Vlastní CPT pro profily poskytovatelů a služby",
+      "Vlastní CPT pro profily a služby",
       "Taxonomie pro kategorie, specializace a typy problémů",
-      "Lokální landing pages s bezpečným routingem a canonical",
-      "Vyhledávání + filtrování optimalizované na relevanci (služba, město, klíčová slova)",
-      "Konverzní onboarding poskytovatelů (připravené pro Free/Premium model)",
-      "Výkonové optimalizace (lean dotazy, cache, méně duplicitních volání)",
-      "Stránky připravené na schema pro lepší výsledky ve vyhledávání",
-      "Interní prolinkování mezi listingy, městy a profily",
+      "Lokální landing pages s bezpečným SEO routingem",
+      "Pokročilé vyhledávání a filtrování",
+      "Onboarding poskytovatelů zaměřený na konverze",
+      "Optimalizace výkonu a databázových dotazů",
+      "Strukturovaná data (schema)",
+      "Silné interní prolinkování",
     ],
-    services: [],
-    results: [],
   },
 
   SK: {
     title: "Mobilno",
-    subtitle: "Trhovisko poskytovateľov služieb",
+    subtitle: "Trhovisko mobilných poskytovateľov služieb",
     description:
-      "Trhovisko, kde zákazník zadá dopyt a overení poskytovatelia posielajú ponuky — postavené pre SEO, rast a jednoduchý onboarding.",
+      "Trhovisko, kde zákazníci zadávajú dopyty a poskytovatelia reagujú ponukami — navrhnuté pre SEO, škálovanie a jednoduchý onboarding.",
     overview:
-      "Mobilno spája zákazníkov s lokálnymi poskytovateľmi služieb naprieč kategóriami. Platforma je navrhnutá pre rast cez SEO vďaka lokálnym landing pages, štruktúrovaným profilom a silnému internému prelinkovaniu medzi kategóriami, službami a lokalitami.",
+      "Mobilno spája ľudí, ktorí hľadajú službu, s mobilnými profesionálmi ako DJ-i, maséri, fotografi či remeselníci. Platforma je navrhnutá pre rast pomocou SEO, lokálnych stránok miest a prehľadného interného prelinkovania.",
     challenge:
-      "Potrebovali sme škálovateľný obsahový model (poskytovatelia, služby, kategórie, špecializácie, lokality) a zároveň jednoduchú navigáciu. Kľúčové bolo rýchle vyhľadávanie/filtrovanie a SEO-safe routing pre lokálne stránky bez duplicit a problémov s canonical.",
+      "Výzvou bolo vytvoriť škálovateľný obsahový model (poskytovatelia, služby, kategórie, špecializácie, lokality) a zároveň zachovať jednoduchú orientáciu. SEO muselo fungovať spoľahlivo na lokálnych stránkach bez duplicit.",
     solution:
-      "Postavili sme WordPress marketplace na mieru pomocou vlastných CPT, taxonómií a pokročilých polí. Implementovali sme SEO-friendly routing pre kategórie + mestá, optimalizovali dotazy a cache a dodali UX flow pre onboarding poskytovateľov a konverziu dopyt → ponuka.",
-    labels: {
-      home: "Domov",
-      projects: "Projekty",
-      backToProjects: "Späť na projekty",
-      visitProject: "Navštíviť projekt",
-      client: "Klient",
-      duration: "Trvanie",
-      year: "Rok",
-      team: "Tím",
-      techStack: "Technológie",
-      projectOverview: "Prehľad projektu",
-      theChallenge: "Výzva",
-      ourSolution: "Riešenie",
-      servicesProvided: "Dodané služby",
-      resultsTitle: "Výsledky",
-      resultsSubtitle: "Merateľný dopad, ktorý priniesol reálny rast",
-      keyFeaturesDelivered: "Kľúčové dodané funkcie",
-      projectGallery: "Galéria projektu",
-      readyToStart: "Ideme na váš projekt?",
-      ctaText:
-        "Poďme spolu vytvoriť niečo skvelé. Ozvite sa a preberieme, ako posunúť vašu digitálnu prezentáciu.",
-      getInTouch: "Kontaktovať",
+      "Vytvorili sme WordPress marketplace na mieru s vlastnými CPT, taxonómiami a pokročilými poľami. Implementovali sme SEO-friendly routing pre kategórie + mestá, optimalizovali výkon a navrhli konverzné UX flow.",
+    services: [
+      "WordPress vývoj",
+      "UI / UX dizajn",
+      "Technické SEO",
+      "Optimalizácia konverzií",
+    ],
+    results: [
+      {
+        label: "Onboarding poskytovateľov",
+        description:
+          "Výrazne viac poskytovateľov úspešne dokončilo registráciu.",
+      },
+      {
+        label: "Indexované landing pages",
+        description:
+          "Nárast počtu kategórií a mestských stránok vo vyhľadávaní.",
+      },
+      {
+        label: "Rýchlejšie párovanie",
+        description:
+          "Kratší čas medzi dopytom zákazníka a odpoveďou poskytovateľa.",
+      },
+      {
+        label: "Zapojenie do CTA",
+        description:
+          "Vyššia interakcia s kľúčovými akciami na webe.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Mobilno dnes pôsobí ako hotový produkt. Platforma je rýchla, prehľadná a pripravená rásť.",
+      role: "Zakladateľ, Mobilno",
     },
     features: [
-      "Vlastné CPT pre profily poskytovateľov a služby",
+      "Vlastné CPT pre profily a služby",
       "Taxonómie pre kategórie, špecializácie a typy problémov",
-      "Lokálne landing pages s bezpečným routingom a canonical",
-      "Vyhľadávanie + filtrovanie optimalizované na relevanciu (služba, mesto, kľúčové slová)",
-      "Konverzný onboarding poskytovateľov (pripravené pre Free/Premium model)",
-      "Výkonové optimalizácie (lean dotazy, cache, menej duplicitných volaní)",
-      "Stránky pripravené na schema pre lepšie výsledky vo vyhľadávaní",
-      "Interné prelinkovanie medzi listingami, mestami a profilmi",
+      "Lokálne landing pages s bezpečným SEO routingom",
+      "Pokročilé vyhľadávanie a filtrovanie",
+      "Konverzný onboarding poskytovateľov",
+      "Optimalizácia výkonu a databázových dotazov",
+      "Štruktúrované dáta (schema)",
+      "Silné interné prelinkovanie",
     ],
-    services: [],
-    results: [],
   },
 };
 
-export const WorkCaseStudyProvider = ({ children }: { children: React.ReactNode }) => {
-  const { slug } = useParams<{ slug: string }>();
+const WorkMobilnoContext = createContext<MobilnoText | null>(null);
+
+export const WorkMobilnoProvider = ({ children }: { children: React.ReactNode }) => {
   const { language } = useLanguage();
 
-  const text = useMemo<CaseStudyText>(() => {
-    if (slug === "mobilno") return mobilnoTranslations[language];
-    return {};
-  }, [slug, language]);
+  const value = useMemo(() => MobilnoTranslations[language], [language]);
 
   return (
-    <WorkCaseStudyContext.Provider value={{ slug, text }}>
+    <WorkMobilnoContext.Provider value={value}>
       {children}
-    </WorkCaseStudyContext.Provider>
+    </WorkMobilnoContext.Provider>
   );
 };
 
-export const useWorkCaseStudy = () => {
-  const ctx = useContext(WorkCaseStudyContext);
-  if (!ctx) throw new Error("useWorkCaseStudy must be used inside WorkCaseStudyProvider");
+export const useWorkMobilno = () => {
+  const ctx = useContext(WorkMobilnoContext);
+  if (!ctx) {
+    throw new Error("useWorkMobilno must be used inside WorkMobilnoProvider");
+  }
   return ctx;
 };
