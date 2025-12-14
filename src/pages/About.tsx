@@ -1,5 +1,18 @@
+// src/pages/About.tsx
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Zap, Users, Clock, Target, Rocket, Code, Palette, TrendingUp, ArrowRight } from "lucide-react";
+import {
+  Linkedin,
+  Mail,
+  Zap,
+  Users,
+  Clock,
+  Target,
+  Rocket,
+  Code,
+  Palette,
+  TrendingUp,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,139 +20,100 @@ import AmbientBackground from "@/components/AmbientBackground";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { AboutLanguageProvider, useAbout } from "@/contexts/LanguageAbout";
 
-const highlights = [
-  {
-    icon: Zap,
-    title: "Fast Delivery",
-    description: "Quick turnaround without compromising quality",
-  },
-  {
-    icon: Users,
-    title: "Expert Team",
-    description: "Skilled professionals passionate about innovation",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    description: "Projects delivered within agreed timelines",
-  },
-  {
-    icon: Target,
-    title: "Results Driven",
-    description: "Focused on achieving measurable outcomes",
-  },
-];
+const AboutInner = () => {
+  const { t } = useLanguage(); // len na headline "about.title.before/highlight" už máš
+  const { ta } = useAbout();
 
-const teamMembers = [
-  {
-    name: "Peter Gáborík",
-    role: "Founder & Lead Developer",
-    image: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
-    bio: "Web development specialist with expertise in WordPress, Oxygen Builder, and modern web technologies.",
-    linkedin: "https://www.linkedin.com/in/peter-gaborik/",
-    email: "info@weboptim.eu",
-  },
-  {
-    name: "Lucia Kováčová",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
-    bio: "Award-winning designer bringing brands to life with stunning visuals and user-centered design principles.",
-    linkedin: "#",
-    email: "lucia@weboptim.eu",
-  },
-  {
-    name: "Martin Horváth",
-    role: "SEO & Marketing Lead",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "Data-driven marketer specializing in SEO strategies and PPC campaigns that deliver measurable results.",
-    linkedin: "#",
-    email: "martin@weboptim.eu",
-  },
-  {
-    name: "Jana Novotná",
-    role: "UX/UI Designer",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    bio: "Creating intuitive interfaces and seamless user experiences that delight users and drive conversions.",
-    linkedin: "#",
-    email: "jana@weboptim.eu",
-  },
-  {
-    name: "Tomáš Černý",
-    role: "Full-Stack Developer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-    bio: "Expert in modern frameworks and scalable architecture, building robust web applications from ground up.",
-    linkedin: "#",
-    email: "tomas@weboptim.eu",
-  },
-];
+  const highlights = [
+    { icon: Zap, title: ta("about.highlights.fast.title"), description: ta("about.highlights.fast.desc") },
+    { icon: Users, title: ta("about.highlights.team.title"), description: ta("about.highlights.team.desc") },
+    { icon: Clock, title: ta("about.highlights.ontime.title"), description: ta("about.highlights.ontime.desc") },
+    { icon: Target, title: ta("about.highlights.results.title"), description: ta("about.highlights.results.desc") },
+  ];
 
-const stats = [
-  { value: "150+", label: "Projects Completed" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "8+", label: "Years Experience" },
-  { value: "15+", label: "Industry Awards" },
-];
+  const teamMembers = [
+    {
+      key: "peter",
+      name: "Peter Gáborík",
+      role: ta("about.team.peter.role"),
+      image: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
+      bio: ta("about.team.peter.bio"),
+      linkedin: "https://www.linkedin.com/in/peter-gaborik/",
+      email: "info@weboptim.eu",
+    },
+    {
+      key: "lucia",
+      name: "Lucia Kováčová",
+      role: ta("about.team.lucia.role"),
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
+      bio: ta("about.team.lucia.bio"),
+      linkedin: "#",
+      email: "lucia@weboptim.eu",
+    },
+    {
+      key: "martin",
+      name: "Martin Horváth",
+      role: ta("about.team.martin.role"),
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      bio: ta("about.team.martin.bio"),
+      linkedin: "#",
+      email: "martin@weboptim.eu",
+    },
+    {
+      key: "jana",
+      name: "Jana Novotná",
+      role: ta("about.team.jana.role"),
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+      bio: ta("about.team.jana.bio"),
+      linkedin: "#",
+      email: "jana@weboptim.eu",
+    },
+    {
+      key: "tomas",
+      name: "Tomáš Černý",
+      role: ta("about.team.tomas.role"),
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      bio: ta("about.team.tomas.bio"),
+      linkedin: "#",
+      email: "tomas@weboptim.eu",
+    },
+  ];
 
-const timeline = [
-  {
-    year: "2017",
-    title: "The Beginning",
-    description:
-      "Začiatky ako freelancer, zároveň nástup do SEO agentúry na plný úväzok a prvé reálne skúsenosti s online marketingom.",
-    icon: Rocket,
-  },
-  {
-    year: "2020",
-    title: "Founding the Company",
-    description:
-      "Založenie vlastnej firmy. Portfólio služieb sa rozšírilo o webdizajn, tvorbu webových stránok a e-shopov plne optimalizovaných pre vyhľadávače.",
-    icon: Target,
-  },
-  {
-    year: "2021",
-    title: "Expanding Services",
-    description:
-      "Pridanie ďalších služieb, najmä PPC marketing, čím vznikol komplexnejší balík digitálnych riešení.",
-    icon: TrendingUp,
-  },
-  {
-    year: "2023",
-    title: "Automation & Digitalization",
-    description:
-      "Začiatok špecializácie na digitalizáciu a automatizáciu firemných procesov, čo otvorilo nové segmenty spolupráce s podnikmi.",
-    icon: Zap,
-  },
-  {
-    year: "2025",
-    title: "50+ Completed Projects",
-    description:
-      "Agentúra prekročila míľnik 50 úspešných projektov a výrazne rozšírila svoje portfólio aj klientskú základňu.",
-    icon: Users,
-  },
-];
+  const stats = [
+    { value: "150+", label: ta("about.stats.projectsCompleted") },
+    { value: "50+", label: ta("about.stats.happyClients") },
+    { value: "8+", label: ta("about.stats.yearsExperience") },
+    { value: "15+", label: ta("about.stats.awards") },
+  ];
 
-const values = [
-  {
-    title: "Innovation",
-    description: "We stay ahead of trends and embrace new technologies to deliver cutting-edge solutions.",
-    gradient: "from-primary/20 to-primary/5",
-  },
-  {
-    title: "Quality",
-    description: "We never compromise on quality. Every pixel, every line of code matters.",
-    gradient: "from-secondary/20 to-secondary/5",
-  },
-  {
-    title: "Partnership",
-    description: "We see ourselves as an extension of your team, invested in your success.",
-    gradient: "from-primary/20 to-secondary/5",
-  },
-];
+  const timeline = [
+    { year: "2017", title: ta("about.timeline.2017.title"), description: ta("about.timeline.2017.desc"), icon: Rocket },
+    { year: "2020", title: ta("about.timeline.2020.title"), description: ta("about.timeline.2020.desc"), icon: Target },
+    { year: "2021", title: ta("about.timeline.2021.title"), description: ta("about.timeline.2021.desc"), icon: TrendingUp },
+    { year: "2023", title: ta("about.timeline.2023.title"), description: ta("about.timeline.2023.desc"), icon: Zap },
+    { year: "2025", title: ta("about.timeline.2025.title"), description: ta("about.timeline.2025.desc"), icon: Users },
+  ];
 
-const About = () => {
-  const { t } = useLanguage();
-  
+  const values = [
+    {
+      title: ta("about.values.innovation.title"),
+      description: ta("about.values.innovation.desc"),
+      gradient: "from-primary/20 to-primary/5",
+    },
+    {
+      title: ta("about.values.quality.title"),
+      description: ta("about.values.quality.desc"),
+      gradient: "from-secondary/20 to-secondary/5",
+    },
+    {
+      title: ta("about.values.partnership.title"),
+      description: ta("about.values.partnership.desc"),
+      gradient: "from-primary/20 to-secondary/5",
+    },
+  ];
+
   return (
     <>
       <SEO titleKey="about" />
@@ -163,16 +137,15 @@ const About = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6"
               >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                About WebOptim
+                {ta("about.hero.badge")}
               </motion.span>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6">
                 {t("about.title.before")} <span className="text-gradient">{t("about.title.highlight")}</span>
               </h1>
-              
+
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                We're a passionate team of designers, developers, and strategists dedicated to crafting exceptional
-                digital experiences that drive real business results.
+                {ta("about.hero.subtitle")}
               </p>
 
               {/* Animated Stats Row */}
@@ -197,7 +170,7 @@ const About = () => {
               </motion.div>
             </motion.div>
           </div>
-          
+
           {/* Decorative elements */}
           <div className="absolute top-1/4 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" />
@@ -214,34 +187,26 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
-                  Our Story
+                  {ta("about.story.badge")}
                 </span>
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-                  Building Digital <span className="text-gradient">Excellence</span>
+                  {ta("about.story.title.before")} <span className="text-gradient">{ta("about.story.title.highlight")}</span>
                 </h2>
+
                 <div className="space-y-4 text-muted-foreground text-lg">
-                  <p>
-                    Founded in 2016, WebOptim started with a simple mission: to help businesses succeed in the digital
-                    world through beautiful, functional websites that drive real results.
-                  </p>
-                  <p>
-                    What began as a small operation has grown into a full-service digital agency, serving clients
-                    across industries from startups to established enterprises throughout Europe.
-                  </p>
-                  <p>
-                    We believe that great design is more than aesthetics—it's about solving problems, creating
-                    connections, and delivering experiences that matter.
-                  </p>
+                  <p>{ta("about.story.p1")}</p>
+                  <p>{ta("about.story.p2")}</p>
+                  <p>{ta("about.story.p3")}</p>
                 </div>
-                
+
                 <Link to="/contact" className="inline-block mt-8">
                   <Button variant="glow" size="lg" className="group">
-                    Work With Us
+                    {ta("about.story.cta")}
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -249,7 +214,6 @@ const About = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                {/* Visual element - floating cards */}
                 <div className="relative h-[500px]">
                   <motion.div
                     animate={{ y: [0, -10, 0] }}
@@ -257,31 +221,30 @@ const About = () => {
                     className="absolute top-0 right-0 w-64 glass rounded-2xl p-6 z-10"
                   >
                     <Code className="w-10 h-10 text-primary mb-3" />
-                    <h4 className="font-bold text-foreground mb-1">Clean Code</h4>
-                    <p className="text-sm text-muted-foreground">Performance-optimized solutions</p>
+                    <h4 className="font-bold text-foreground mb-1">{ta("about.cards.code.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{ta("about.cards.code.desc")}</p>
                   </motion.div>
-                  
+
                   <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }}
                     className="absolute top-1/3 left-0 w-64 glass rounded-2xl p-6 z-20"
                   >
                     <Palette className="w-10 h-10 text-secondary mb-3" />
-                    <h4 className="font-bold text-foreground mb-1">Creative Design</h4>
-                    <p className="text-sm text-muted-foreground">Stunning visual experiences</p>
+                    <h4 className="font-bold text-foreground mb-1">{ta("about.cards.design.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{ta("about.cards.design.desc")}</p>
                   </motion.div>
-                  
+
                   <motion.div
                     animate={{ y: [0, -15, 0] }}
                     transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1 }}
                     className="absolute bottom-0 right-10 w-64 glass rounded-2xl p-6 z-10"
                   >
                     <TrendingUp className="w-10 h-10 text-primary mb-3" />
-                    <h4 className="font-bold text-foreground mb-1">Growth Focus</h4>
-                    <p className="text-sm text-muted-foreground">Results that matter</p>
+                    <h4 className="font-bold text-foreground mb-1">{ta("about.cards.growth.title")}</h4>
+                    <p className="text-sm text-muted-foreground">{ta("about.cards.growth.desc")}</p>
                   </motion.div>
-                  
-                  {/* Background glow */}
+
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 rounded-3xl blur-2xl" />
                 </div>
               </motion.div>
@@ -301,18 +264,17 @@ const About = () => {
               className="text-center max-w-2xl mx-auto mb-16"
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
-                Our Journey
+                {ta("about.timeline.badge")}
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                Years of <span className="text-gradient">Growth</span>
+                {ta("about.timeline.title.before")} <span className="text-gradient">{ta("about.timeline.title.highlight")}</span>
               </h2>
-              <p className="text-muted-foreground text-lg">From humble beginnings to a full-service digital agency.</p>
+              <p className="text-muted-foreground text-lg">{ta("about.timeline.subtitle")}</p>
             </motion.div>
 
             <div className="relative max-w-4xl mx-auto">
-              {/* Timeline line */}
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-secondary/50 to-primary/50 hidden md:block" />
-              
+
               {timeline.map((item, index) => (
                 <motion.div
                   key={item.year}
@@ -320,9 +282,7 @@ const About = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`relative flex items-center gap-8 mb-12 ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className={`relative flex items-center gap-8 mb-12 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                     <div className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
@@ -331,12 +291,11 @@ const About = () => {
                       <p className="text-muted-foreground">{item.description}</p>
                     </div>
                   </div>
-                  
-                  {/* Center icon */}
+
                   <div className="hidden md:flex w-14 h-14 rounded-full glass items-center justify-center flex-shrink-0 z-10 bg-background border-2 border-primary/30">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
-                  
+
                   <div className="flex-1 hidden md:block" />
                 </motion.div>
               ))}
@@ -355,14 +314,14 @@ const About = () => {
               className="text-center max-w-2xl mx-auto mb-12"
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
-                Why Us
+                {ta("about.why.badge")}
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                What Sets Us <span className="text-gradient">Apart</span>
+                {ta("about.why.title.before")} <span className="text-gradient">{ta("about.why.title.highlight")}</span>
               </h2>
-              <p className="text-muted-foreground text-lg">The difference that makes us your ideal digital partner.</p>
+              <p className="text-muted-foreground text-lg">{ta("about.why.subtitle")}</p>
             </motion.div>
-            
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {highlights.map((item, index) => (
                 <motion.div
@@ -399,14 +358,14 @@ const About = () => {
               className="text-center max-w-2xl mx-auto mb-12"
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
-                Core Values
+                {ta("about.values.badge")}
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                Our <span className="text-gradient">Principles</span>
+                {ta("about.values.title.before")} <span className="text-gradient">{ta("about.values.title.highlight")}</span>
               </h2>
-              <p className="text-muted-foreground text-lg">The foundation of everything we do.</p>
+              <p className="text-muted-foreground text-lg">{ta("about.values.subtitle")}</p>
             </motion.div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => (
                 <motion.div
@@ -417,7 +376,9 @@ const About = () => {
                   viewport={{ once: true }}
                   className="glass p-8 rounded-3xl text-center relative overflow-hidden group hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  />
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                       <span className="text-3xl font-display font-bold text-gradient">{index + 1}</span>
@@ -442,14 +403,14 @@ const About = () => {
               className="text-center max-w-2xl mx-auto mb-12"
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
-                Our Team
+                {ta("about.team.badge")}
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                Meet the <span className="text-gradient">Team</span>
+                {ta("about.team.title.before")} <span className="text-gradient">{ta("about.team.title.highlight")}</span>
               </h2>
-              <p className="text-muted-foreground text-lg">The talented people behind WebOptim's success.</p>
+              <p className="text-muted-foreground text-lg">{ta("about.team.subtitle")}</p>
             </motion.div>
-            
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {teamMembers.map((member, index) => (
                 <motion.div
@@ -487,6 +448,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
+
                   <div className="p-4 text-center">
                     <h3 className="font-bold text-foreground">{member.name}</h3>
                     <p className="text-sm text-primary mb-2">{member.role}</p>
@@ -510,7 +472,7 @@ const About = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/90 via-pink-500/90 to-primary/90" />
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJWMGgydjM0em0tNCAwSDI4VjBoNHYzNHptLTYgMGgtNFYwaDR2MzR6bS02IDBoLTJWMGgydjM0em0tNiAwSDhWMGg2djM0em0tOCAwSDBWMGg2djM0eiIvPjwvZz48L2c+PC9zdmc+')] opacity-10" />
-              
+
               <div className="relative z-10 p-8 md:p-16 text-center">
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -521,24 +483,20 @@ const About = () => {
                 >
                   <Rocket className="w-8 h-8 text-white" />
                 </motion.div>
-                
-                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-                  Ready to Start Your Journey?
-                </h2>
-                <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">
-                  Let's create something amazing together. Get in touch to discuss how we can help transform your digital presence.
-                </p>
-                
+
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">{ta("about.cta.title")}</h2>
+                <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">{ta("about.cta.subtitle")}</p>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/contact">
                     <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold group">
-                      Get Started
+                      {ta("about.cta.primary")}
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                   <Link to="/portfolio">
                     <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                      View Our Work
+                      {ta("about.cta.secondary")}
                     </Button>
                   </Link>
                 </div>
@@ -550,6 +508,14 @@ const About = () => {
         <Footer />
       </div>
     </>
+  );
+};
+
+const About = () => {
+  return (
+    <AboutLanguageProvider>
+      <AboutInner />
+    </AboutLanguageProvider>
   );
 };
 
