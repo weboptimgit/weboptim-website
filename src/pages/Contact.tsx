@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Building2, Star } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -47,29 +55,45 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
+    phoneCountry: "CZ",
+    phone: "",
+    website: "",
+    topic: "",
     message: "",
+    consent: false,
   });
-  
+
   const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.consent) {
+      toast({
+        title: "Error",
+        description: s.form.consentError ?? "Please agree with personal data processing.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
     setIsSubmitting(true);
   
     try {
       const formDataToSend = new FormData();
-  
+      
       formDataToSend.append("access_key", WEB3FORMS_KEY);
       formDataToSend.append("name", formData.name);
       formDataToSend.append("email", formData.email);
-      formDataToSend.append("company", formData.company);
+      formDataToSend.append("phone", `${formData.phoneCountry} ${formData.phone}`.trim());
+      formDataToSend.append("website", formData.website);
+      formDataToSend.append("topic", formData.topic);
       formDataToSend.append("message", formData.message);
-  
+      formDataToSend.append("consent", formData.consent ? "yes" : "no");
+
       // voliteľné – pekný predmet mailu
       formDataToSend.append(
         "subject",
-        `New contact from WebOptim (${language})`
+        `Weboptim webformulár (${language})`
       );
   
       // voliteľné – reply-to
@@ -91,9 +115,14 @@ const Contact = () => {
         setFormData({
           name: "",
           email: "",
-          company: "",
+          phoneCountry: "CZ",
+          phone: "",
+          website: "",
+          topic: "",
           message: "",
+          consent: false,
         });
+
       } else {
         throw new Error(result.message || "Form error");
       }
@@ -109,9 +138,15 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
+  
+  // helper pre Select / Checkbox / custom set value
+  const setField = <K extends keyof typeof formData>(key: K, value: (typeof formData)[K]) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  };
+  
   const contactInfo = [
     {
       icon: Mail,
@@ -175,30 +210,28 @@ const Contact = () => {
                 <div className="glass p-8 rounded-2xl">
                   <h2 className="text-2xl font-bold mb-6">{s.form.title}</h2>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* botcheck */}
+                    <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" />
+                  
+                    {/* Name / Company */}
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                        {s.form.nameLabel /* napr. "Vaše meno / Názov vašej spoločnosti" */}
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder={s.form.namePlaceholder}
+                        required
+                        className="bg-background/50"
+                      />
+                    </div>
+                  
+                    {/* Email + Phone */}
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <input
-                          type="text"
-                          name="botcheck"
-                          tabIndex={-1}
-                          autoComplete="off"
-                          className="hidden"
-                        />
-                        <label htmlFor="name" className="block text-sm font-medium mb-2">
-                          {s.form.nameLabel}
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder={s.form.namePlaceholder}
-                          required
-                          className="bg-background/50"
-                        />
-                      </div>
-
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
                           {s.form.emailLabel}
@@ -214,22 +247,78 @@ const Contact = () => {
                           className="bg-background/50"
                         />
                       </div>
+                  
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                          {s.form.phoneLabel ?? "Vaše telefónne číslo"}
+                        </label>
+                  
+                        <div className="flex gap-2">
+                          <div className="w-[120px]">
+                            <Select value={formData.phoneCountry} onValueChange={(v) => setField("phoneCountry", v)}>
+                              <SelectTrigger className="bg-background/50">
+                                <SelectValue placeholder="CZ" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="SK">🇸🇰 SK</SelectItem>
+                                <SelectItem value="CZ">🇨🇿 CZ</SelectItem>
+                                <SelectItem value="AT">🇦🇹 AT</SelectItem>
+                                <SelectItem value="DE">🇩🇪 DE</SelectItem>
+                                <SelectItem value="PL">🇵🇱 PL</SelectItem>
+                                <SelectItem value="HU">🇭🇺 HU</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                  
+                          <Input
+                            id="phone"
+                            name="phone"
+                            inputMode="tel"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder={s.form.phonePlaceholder ?? "+421 900 000 000"}
+                            className="bg-background/50 flex-1"
+                          />
+                        </div>
+                      </div>
                     </div>
-
+                  
+                    {/* Website */}
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium mb-2">
-                        {s.form.companyLabel}
+                      <label htmlFor="website" className="block text-sm font-medium mb-2">
+                        {s.form.websiteLabel ?? "Vaša webová stránka"}
                       </label>
                       <Input
-                        id="company"
-                        name="company"
-                        value={formData.company}
+                        id="website"
+                        name="website"
+                        value={formData.website}
                         onChange={handleChange}
-                        placeholder={s.form.companyPlaceholder}
+                        placeholder={s.form.websitePlaceholder ?? "https://"}
                         className="bg-background/50"
                       />
                     </div>
-
+                  
+                    {/* Select */}
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        {s.form.topicLabel ?? ""}
+                      </label>
+                  
+                      <Select value={formData.topic} onValueChange={(v) => setField("topic", v)}>
+                        <SelectTrigger className="bg-background/50">
+                          <SelectValue placeholder={s.form.topicPlaceholder ?? "– Vyberte –"} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="web">{s.form.topicWeb ?? "Web stránka"}</SelectItem>
+                          <SelectItem value="seo">{s.form.topicSeo ?? "SEO"}</SelectItem>
+                          <SelectItem value="ppc">{s.form.topicPpc ?? "PPC"}</SelectItem>
+                          <SelectItem value="consulting">{s.form.topicConsulting ?? "Konzultácia"}</SelectItem>
+                          <SelectItem value="other">{s.form.topicOther ?? "Iné"}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  
+                    {/* Message */}
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
                         {s.form.messageLabel}
@@ -245,7 +334,23 @@ const Contact = () => {
                         className="bg-background/50 resize-none"
                       />
                     </div>
-
+                  
+                    {/* Consent */}
+                    <div className="flex items-start gap-3">
+                      <Checkbox
+                        id="consent"
+                        checked={formData.consent}
+                        onCheckedChange={(v) => setField("consent", v === true)}
+                      />
+                      <label htmlFor="consent" className="text-sm text-muted-foreground leading-snug cursor-pointer">
+                        {s.form.consentText ?? (
+                          <>
+                            Súhlasím s <span className="underline">spracovaním osobných údajov</span>.
+                          </>
+                        )}
+                      </label>
+                    </div>
+                  
                     <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? (
                         s.form.submitSending
