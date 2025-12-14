@@ -440,7 +440,7 @@ const BlogPost = () => {
                               <span className="mt-1 w-6 h-6 rounded-full bg-gradient-hero text-xs flex items-center justify-center text-white font-semibold flex-shrink-0">
                                 {itemIndex + 1}
                               </span>
-                              <span className="font-semibold text-foreground">
+                              <span className="font-semibold">
                                 {renderBold(it.title)}
                               </span>
                             </div>
