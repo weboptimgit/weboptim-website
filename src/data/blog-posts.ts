@@ -522,6 +522,7 @@ export const blogPostsData: BlogPostData[] = [
           "Contact us and together we will find the way to your success in the digital world."
         ],
       },
+     },
     },
     {
     image:
