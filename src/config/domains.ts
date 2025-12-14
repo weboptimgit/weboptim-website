@@ -30,6 +30,12 @@ export const domainToLanguage: Record<string, Language> = {
 // Static page slug translations
 // Key is the base route identifier, values are the translated slugs for each language
 export const staticPageSlugs: Record<string, Record<Language, string>> = {
+  privacy: {
+    EN: "privacy-policy",
+    CZ: "ochrana-osobnich-udaju",
+    SK: "ochrana-osobnych-udajov",
+  },
+  
   contact: {
     EN: "contact",
     CZ: "kontakt",
