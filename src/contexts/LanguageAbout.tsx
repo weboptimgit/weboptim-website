@@ -20,7 +20,7 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.stats.projectsCompleted": "Projects Completed",
     "about.stats.happyClients": "Happy Clients",
     "about.stats.yearsExperience": "Years Experience",
-    "about.stats.awards": "Industry Awards",
+    "about.stats.awards": "Average Rating",
 
     // Story
     "about.story.badge": "Our Story",
@@ -132,7 +132,7 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.stats.projectsCompleted": "Dokončených projektů",
     "about.stats.happyClients": "Spokojených klientů",
     "about.stats.yearsExperience": "Let zkušeností",
-    "about.stats.awards": "Ocenění v oboru",
+    "about.stats.awards": "Průměrné hodnocení",
 
     // Story
     "about.story.badge": "Náš příběh",
@@ -239,7 +239,7 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.stats.projectsCompleted": "Dokončených projektov",
     "about.stats.happyClients": "Spokojných klientov",
     "about.stats.yearsExperience": "Rokov skúseností",
-    "about.stats.awards": "Ocenení v odvetví",
+    "about.stats.awards": "Priemerné hodnotenie",
 
     // Story
     "about.story.badge": "Náš príbeh",
