@@ -581,7 +581,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         statLabel: "Google Reviews",
         featured: true,
 
-        heroImage: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?w=1200&h=800&fit=crop",
+        heroImage: "/img/weboptim-uzdravtelo_1600-min.jpg",
 
         overview:
           "UzdravTelo is a personal health and coaching platform led by Ing. Romana Nemcová, focused on nutrition consulting, lifestyle change, and long-term results. The website presents a structured approach built on four core pillars — nutrition, movement, regeneration, and mental wellbeing — supported by diagnostics, education, and paid programs.",
