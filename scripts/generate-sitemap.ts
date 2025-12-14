@@ -21,11 +21,26 @@ const esc = (s: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 
+/**
+ * Normalizuj URL PATH:
+ * - vždy začne /
+ * - root je presne "/"
+ * - žiadny trailing slash na konci (okrem "/")
+ * - odstráni duplicitné //
+ */
 const normalize = (p: string) => {
   if (!p) return "/";
   let out = p.startsWith("/") ? p : `/${p}`;
-  if (out !== "/" && !out.endsWith("/")) out += "/";
+
+  // zjednoť // -> /
   out = out.replace(/\/{2,}/g, "/");
+
+  // root nechaj
+  if (out === "/") return "/";
+
+  // odstráň trailing slash
+  out = out.replace(/\/+$/, "");
+
   return out;
 };
 
@@ -70,10 +85,14 @@ const staticEntries = Object.entries(staticPages)
   })
   .filter(Boolean) as string[];
 
+/**
+ * Spoj base + slug do jednej path bez trailing slash:
+ * base="blog", slug="my-post" => "/blog/my-post"
+ */
 const joinPath = (base: string, slug: string) => {
   const b = (base ?? "").replace(/^\/+|\/+$/g, "");
   const s = (slug ?? "").replace(/^\/+|\/+$/g, "");
-  return `/${b}/${s}/`;
+  return normalize(`/${b}/${s}`);
 };
 
 // --- BLOG POSTS ---
@@ -96,7 +115,6 @@ const blogEntries =
         .filter(Boolean) as string[]
     : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
 
-
 // FINAL XML
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -108,3 +126,7 @@ ${blogEntries.length ? "\n" + blogEntries.join("\n") : ""}
 
 const outPath = path.resolve(process.cwd(), "public/sitemap.xml");
 fs.writeFileSync(outPath, xml, "utf8");
+
+console.log(`✅ sitemap.xml generated: ${outPath}`);
+console.log(`   static: ${staticEntries.length}`);
+console.log(`   blog: ${blogEntries.length}`);
