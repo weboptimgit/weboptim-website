@@ -25,7 +25,8 @@ import { buildPath } from "@/config/domains";
 
 const AboutInner = () => {
   const { t } = useLanguage();
-  const contactUrl = buildPath(language, "contact");
+  const contactUrl = buildPath(t, "contact");
+  const workUrl = buildPath(t, "work");
   const { ta } = useAbout();
 
   const highlights = [
@@ -490,13 +491,13 @@ const AboutInner = () => {
                 <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">{ta("about.cta.subtitle")}</p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link to="/contact">
+                  <Link to={contactUrl}>
                     <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold group">
                       {ta("about.cta.primary")}
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
-                  <Link to="/portfolio">
+                  <Link to={workUrl}>
                     <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
                       {ta("about.cta.secondary")}
                     </Button>
