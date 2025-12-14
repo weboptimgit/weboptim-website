@@ -139,12 +139,12 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.story.title.before": "Budujeme digitální",
     "about.story.title.highlight": "excelenci",
     "about.story.p1":
-      "WebOptim vznikl v roce 2016 s jednoduchým cílem: pomáhat firmám uspět online pomocí krásných a funkčních webů, které přinášejí výsledky.",
+    "WebOptim began its journey in 2017 as a freelancer project, where the first websites were created and at the same time real experience in the field of SEO and online marketing was collected.",
     "about.story.p2":
-      "Z malého projektu se postupně stala full-service digitální agentura, která spolupracuje se značkami napříč obory — od startupů až po zavedené firmy po celé Evropě.",
+    "Through gradual growth and founding its own company, WebOptim has emerged as a specialized digital agency focused on creating websites, e-shops and SEO solutions that have a clear business goal.",
     "about.story.p3":
-      "Věříme, že skvělý design není jen o vzhledu — je o řešení problémů, budování vztahů a zkušenostech, které dávají smysl.",
-    "about.story.cta": "Spolupracujme",
+    "We believe that a quality website is not just about design. It is about performance, visibility in search engines and solutions that bring measurable results in the long term.",
+    "about.story.cta":"Let's work together",
 
     // Floating cards
     "about.cards.code.title": "Čistý kód",
@@ -246,12 +246,12 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.story.title.before": "Budujeme digitálnu",
     "about.story.title.highlight": "excelenciu",
     "about.story.p1":
-      "WebOptim vznikol v roku 2016 s jednoduchým cieľom: pomáhať firmám uspieť online cez krásne a funkčné weby, ktoré prinášajú výsledky.",
+      "WebOptim začal svoju cestu v roku 2017 ako freelancer projekt, kde vznikali prvé weby a zároveň sa zbierali reálne skúsenosti z oblasti SEO a online marketingu.",
     "about.story.p2":
-      "Z malého projektu sa postupne stala full-service digitálna agentúra, ktorá spolupracuje so značkami naprieč odvetviami — od startupov až po etablované firmy v Európe.",
+      "Postupným rastom a založením vlastnej firmy sa WebOptim vyprofiloval ako špecializovaná digitálna agentúra zameraná na tvorbu webových stránok, e-shopov a SEO riešení, ktoré majú jasný obchodný cieľ.",
     "about.story.p3":
-      "Veríme, že skvelý dizajn nie je len o vzhľade — je o riešení problémov, budovaní spojení a zážitkoch, ktoré majú zmysel.",
-    "about.story.cta": "Spolupracujme",
+      "Veríme, že kvalitný web nie je len o dizajne. Je o výkone, viditeľnosti vo vyhľadávačoch a riešeniach, ktoré dlhodobo prinášajú merateľné výsledky.",
+    "about.story.cta":"Spolupracujme",
 
     // Floating cards
     "about.cards.code.title": "Čistý kód",
