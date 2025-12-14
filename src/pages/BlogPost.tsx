@@ -10,8 +10,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
 import SEO, { getArticleSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { domainConfig } from "@/config/domains";
+import {
+  reviewsPlatformsRows,
+  reviewsPlatformsTableMeta,
+} from "@/data/blog-tables";
+
 import ComparisonTable from "@/components/ComparisonTable";
-import { reviewsPlatformsRows } from "@/data/blog-tables";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -268,18 +272,20 @@ const BlogPost = () => {
                     continue;
                   }
 
-                  // TABLE marker
-                  if (paragraph.trim() === "[[TABLE:reviews-platforms]]") {
+                  // TABLE: Reviews platforms
+                  if (paragraph === "!!TABLE_REVIEWS_PLATFORMS!!") {
                     out.push(
                       <motion.div
-                        key={`table-${i}`}
-                        initial={{ opacity: 0, y: 20 }}
+                        key={`table-reviews-${i}`}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        className="my-10"
                       >
                         <ComparisonTable
-                          title="Porovnanie platforiem na recenzie"
-                          rows={reviewsPlatformsRows}
+                          title={reviewsPlatformsTableMeta.title[language]}
+                          headers={reviewsPlatformsTableMeta.headers[language]}
+                          rows={reviewsPlatformsRows[language]}
                         />
                       </motion.div>
                     );
@@ -287,7 +293,7 @@ const BlogPost = () => {
                     i++;
                     continue;
                   }
-            
+                  
                   // code block
                   if (paragraph.startsWith("```")) {
                     const lines = paragraph.split("\n");
