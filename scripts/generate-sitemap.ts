@@ -30,6 +30,9 @@ const normalize = (p: string) => {
   return out;
 };
 
+/**
+ * base="blog", slug="my-post" => "/blog/my-post"
+ */
 const joinPath = (base: string, slug: string) => {
   const b = (base ?? "").replace(/^\/+|\/+$/g, "");
   const s = (slug ?? "").replace(/^\/+|\/+$/g, "");
@@ -41,7 +44,6 @@ const urlEntry = (paths: Record<Lang, string>) => {
   const czPath = normalize(paths.CZ);
   const skPath = normalize(paths.SK);
 
-  // loc nechávame na EN doméne (tak ako doteraz)
   const loc = `${domains.EN}${enPath}`;
 
   return `  <url>
@@ -60,8 +62,6 @@ ${entries.join("\n")}
 </urlset>
 `;
 
-const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-
 const sitemapIndexXml = (sitemaps: { loc: string; lastmod?: string }[]) => `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemaps
@@ -74,12 +74,15 @@ ${sitemaps
 </sitemapindex>
 `;
 
+const today = new Date().toISOString().slice(0, 10);
+
 /* --------------------------
-   1) STATIC PAGES (pages)
+   1) STATIC PAGES
 --------------------------- */
 
 const staticPages: Record<string, Record<Lang, string> | undefined> = {
   home: { EN: "/", CZ: "/", SK: "/" },
+
   about: staticPageSlugs.about,
   contact: staticPageSlugs.contact,
   services: staticPageSlugs.services,
@@ -100,7 +103,7 @@ const pagesEntries = Object.entries(staticPages)
   .filter(Boolean) as string[];
 
 /* --------------------------
-   2) BLOG POSTS (blog)
+   2) BLOG POSTS
 --------------------------- */
 
 const blogEntries =
@@ -110,6 +113,7 @@ const blogEntries =
           const enSlug = post?.translations?.EN?.slug;
           const czSlug = post?.translations?.CZ?.slug;
           const skSlug = post?.translations?.SK?.slug;
+
           if (!enSlug || !czSlug || !skSlug) return null;
 
           return urlEntry({
@@ -122,7 +126,7 @@ const blogEntries =
     : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
 
 /* --------------------------
-   3) SERVICES (services)
+   3) SERVICES (detail pages)
 --------------------------- */
 
 const servicesEntries =
@@ -163,7 +167,7 @@ fs.writeFileSync(pagesPath, wrapUrlset(pagesEntries), "utf8");
 fs.writeFileSync(blogPath, wrapUrlset(blogEntries), "utf8");
 fs.writeFileSync(servicesPath, wrapUrlset(servicesEntries), "utf8");
 
-// index (odkazuje na EN doméne, lebo to tak už používaš aj v <loc> vyššie)
+// sitemap index
 fs.writeFileSync(
   indexPath,
   sitemapIndexXml([
