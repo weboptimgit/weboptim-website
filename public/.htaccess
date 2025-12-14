@@ -7,13 +7,6 @@
 
   RewriteBase /
 
-  # --- TRAILING SLASH (SEO) ---
-  # presmeruj /nieco -> /nieco/ (okrem realnych suborov a priecinkov)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !/$
-  RewriteRule ^(.+)$ /$1/ [R=301,L]
-
   # existujuce subory/adresare nechaj
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
