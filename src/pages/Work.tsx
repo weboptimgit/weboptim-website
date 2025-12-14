@@ -5,26 +5,30 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
-import { caseStudiesData } from "@/data/case-studies";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
+import { getCaseStudiesList, getCaseStudy } from "@/data/case-studies";
 
-// Convert case studies data to projects array with slug
-const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
-  title: study.title,
-  subtitle: study.subtitle,
-  category: study.category,
-  client: study.client,
-  duration: study.duration,
-  year: study.year,
-  image: study.image,
-  slug,
-  tags: study.tags,
-  results: study.results.slice(0, 2).map(r => `${r.metric} ${r.label}`),
-}));
+// NOTE: projects robíme vo vnútri komponentu (kvôli language)
 
 const Work = () => {
   const { language } = useLanguage();
+
+  // 1) zoznam kariet (jazykovo)
+  const list = getCaseStudiesList(language);
+
+  // 2) doplníme 2 results (bez pádu) – vyťahujeme cez getCaseStudy(slug)
+  const projects = list.map((item) => {
+    const full = getCaseStudy(item.slug, language);
+    const results = (full?.results ?? []).slice(0, 2).map((r) => `${r.metric} ${r.label}`);
+
+    return {
+      ...item,
+      duration: full?.duration ?? "",
+      results,
+    };
+  });
+
   return (
     <>
       <SEO titleKey="work" />
@@ -67,9 +71,9 @@ const Work = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                <Link to={buildPath(language, "work", project.slug)} className="group block">
-                  <ProjectCard project={project} />
-                </Link>
+                  <Link to={buildPath(language, "work", project.slug)} className="group block">
+                    <ProjectCard project={project} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -111,7 +115,24 @@ const Work = () => {
   );
 };
 
-const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
+type Project = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  description: string;
+  tags: string[];
+  image: string;
+  statValue: string;
+  statLabel: string;
+  featured: boolean;
+  client: string;
+  year: string;
+  duration: string;
+  results: string[];
+};
+
+const ProjectCard = ({ project }: { project: Project }) => (
   <div className="glass rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300">
     {/* Image */}
     <div className="relative overflow-hidden">
@@ -160,13 +181,15 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
       </div>
 
       {/* Results */}
-      <div className="flex gap-2 mt-4 pt-4 border-t border-border/50">
-        {project.results.map((result, i) => (
-          <span key={i} className="text-xs font-semibold text-gradient">
-            {result}
-          </span>
-        ))}
-      </div>
+      {project.results.length > 0 && (
+        <div className="flex gap-2 mt-4 pt-4 border-t border-border/50">
+          {project.results.map((result, i) => (
+            <span key={i} className="text-xs font-semibold text-gradient">
+              {result}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 );
