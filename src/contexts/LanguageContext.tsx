@@ -11,6 +11,35 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   EN: {
+    // Case Study
+    "caseStudy.backToProjects": "Back to Projects",
+    "caseStudy.notFound.title": "Case Study Not Found",
+    "caseStudy.notFound.backToProjects": "Back to Projects",
+    "caseStudy.breadcrumb.projects": "Projects",
+    "caseStudy.visitProject": "Visit Project",
+    
+    "caseStudy.meta.client": "Client",
+    "caseStudy.meta.duration": "Duration",
+    "caseStudy.meta.year": "Year",
+    "caseStudy.meta.team": "Team",
+    
+    "caseStudy.techStack": "Tech Stack",
+    "caseStudy.projectOverview": "Project Overview",
+    "caseStudy.challenge": "The Challenge",
+    "caseStudy.solution": "Our Solution",
+    "caseStudy.servicesProvided": "Services Provided",
+    
+    "caseStudy.results.title": "The Results",
+    "caseStudy.results.subtitle": "Measurable impact that drove real business growth",
+    
+    "caseStudy.keyFeatures": "Key Features Delivered",
+    "caseStudy.projectGallery": "Project Gallery",
+    
+    "caseStudy.readyTitle": "Ready to Start Your Project?",
+    "caseStudy.readySubtitle":
+      "Let's create something amazing together. Get in touch to discuss how we can help transform your digital presence.",
+    "caseStudy.readyCta": "Get in Touch",
+
     // Blog
     "common.home": "Home",
     "common.blog": "Blog",    
@@ -162,6 +191,35 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   CZ: {
+    // Case Study
+    "caseStudy.backToProjects": "Zpět na projekty",
+    "caseStudy.notFound.title": "Případová studie nebyla nalezena",
+    "caseStudy.notFound.backToProjects": "Zpět na projekty",
+    "caseStudy.breadcrumb.projects": "Projekty",
+    "caseStudy.visitProject": "Navštívit projekt",
+    
+    "caseStudy.meta.client": "Klient",
+    "caseStudy.meta.duration": "Doba trvání",
+    "caseStudy.meta.year": "Rok",
+    "caseStudy.meta.team": "Tým",
+    
+    "caseStudy.techStack": "Technologie",
+    "caseStudy.projectOverview": "Přehled projektu",
+    "caseStudy.challenge": "Výzva",
+    "caseStudy.solution": "Naše řešení",
+    "caseStudy.servicesProvided": "Poskytnuté služby",
+    
+    "caseStudy.results.title": "Výsledky",
+    "caseStudy.results.subtitle": "Měřitelný dopad, který přinesl reálný růst",
+    
+    "caseStudy.keyFeatures": "Dodané klíčové funkce",
+    "caseStudy.projectGallery": "Galerie projektu",
+    
+    "caseStudy.readyTitle": "Chcete začít svůj projekt?",
+    "caseStudy.readySubtitle":
+      "Pojďme společně vytvořit něco skvělého. Ozvěte se a probereme, jak zlepšíme vaši digitální prezentaci.",
+    "caseStudy.readyCta": "Kontaktujte nás",
+
     // Blog
     "common.home": "Domů",
     "common.blog": "Blog",
@@ -313,6 +371,35 @@ const translations: Record<Language, Record<string, string>> = {
 
   },
   SK: {
+    // Case Study
+    "caseStudy.backToProjects": "Späť na projekty",
+    "caseStudy.notFound.title": "Case study sa nenašla",
+    "caseStudy.notFound.backToProjects": "Späť na projekty",
+    "caseStudy.breadcrumb.projects": "Projekty",
+    "caseStudy.visitProject": "Navštíviť projekt",
+    
+    "caseStudy.meta.client": "Klient",
+    "caseStudy.meta.duration": "Trvanie",
+    "caseStudy.meta.year": "Rok",
+    "caseStudy.meta.team": "Tím",
+    
+    "caseStudy.techStack": "Technológie",
+    "caseStudy.projectOverview": "Prehľad projektu",
+    "caseStudy.challenge": "Výzva",
+    "caseStudy.solution": "Naše riešenie",
+    "caseStudy.servicesProvided": "Poskytnuté služby",
+    
+    "caseStudy.results.title": "Výsledky",
+    "caseStudy.results.subtitle": "Merateľný dopad, ktorý priniesol reálny rast",
+    
+    "caseStudy.keyFeatures": "Dodané kľúčové funkcie",
+    "caseStudy.projectGallery": "Galéria projektu",
+    
+    "caseStudy.readyTitle": "Pripravení začať váš projekt?",
+    "caseStudy.readySubtitle":
+      "Poďme spolu vytvoriť niečo skvelé. Ozvite sa a preberieme, ako zlepšíme vašu digitálnu prezentáciu.",
+    "caseStudy.readyCta": "Kontaktujte nás",
+
     // Blog
     "common.home": "Domov",
     "common.blog": "Blog",  
