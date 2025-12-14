@@ -406,7 +406,7 @@ const BlogPost = () => {
             </div>
 
             {/* Resources */}
-            {postTranslation.resources?.length ? (
+            {BlogPostContent.resources?.length ? (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -418,7 +418,7 @@ const BlogPost = () => {
                   Learn More
                 </h2>
                 <div className="space-y-3">
-                  {postTranslation.resources.map((resource) => (
+                  {BlogPostContent.resources.map((resource) => (
                     <a
                       key={resource.title}
                       href={resource.url}
