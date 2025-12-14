@@ -17,6 +17,14 @@ const Contact = () => {
   const { toast } = useToast();
   const { language } = useLanguage();
   const s = useContactLang();
+  const emailByLang: Record<string, string> = {
+    EN: "info@weboptim.eu",
+    CZ: "info@weboptim.cz",
+    SK: "info@weboptim.sk",
+  };
+  const contactEmail = emailByLang[language] ?? "info@weboptim.eu";
+  const contactPhone = s.schema.telephone;
+  const contactLocation = "Příčná 1892/4, 110 00 Praha";
   const base = domainConfig[language];
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
   const canonicalUrl = `${base}${currentPath}`;
@@ -43,32 +51,6 @@ const Contact = () => {
     message: "",
   });
   
-  const emailByLang: Record<string, string> = {
-    EN: "info@weboptim.eu",
-    CZ: "info@weboptim.cz",
-    SK: "info@weboptim.sk",
-  };
-  const contactEmail = emailByLang[language] ?? "info@weboptim.eu";
-
-  // (kept as in your code – adjust if you later want phone/address per language)
-  const contactPhone = s.schema.telephone;
-  const contactLocation = "Příčná 1892/4, 110 00 Praha";
-
-  const contactPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    mainEntity: {
-      ...getOrganizationSchema(language),
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: contactPhone,
-        email: contactEmail,
-        contactType: s.schema.contactType,
-        availableLanguage: s.schema.availableLanguage,
-      },
-    },
-  };
-
   const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";
   
   const handleSubmit = async (e: React.FormEvent) => {
