@@ -72,10 +72,6 @@ export const blogPostsData: BlogPostData[] = [
           "1. “Generate a list of related keywords for [topic]”",
           "2. “Identify long-tail keywords for [topic] content optimization”",
         ],
-        resources: [
-          { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering" },
-          { title: "Google Search Central – SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
-        ],
       },
       CZ: {
         slug: "50-seo-prikazu-pro-chatgpt-od-openai",
