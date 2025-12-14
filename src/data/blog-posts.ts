@@ -52,6 +52,147 @@ export const categoriesTranslations = {
 // ========================================
 
 export const blogPostsData: BlogPostData[] = [
+    {
+    image:
+      "https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1170&auto=format&fit=crop",
+    author: "Peter Gáborík",
+    translations: {
+      EN: {
+        slug: "why-do-we-use-oxygen-builder-when-creating-websites-in-wordpress",
+        title: "Why Do We Use Oxygen Builder When Creating Websites in WordPress?",
+        excerpt:
+          "Oxygen Builder stands out as one of the most powerful tools for building fast, scalable, and fully customizable WordPress websites.",
+        category: "Webs and eshops",
+        tags: ["WordPress", "Oxygen Builder", "Performance", "SEO", "Web Development"],
+        date: "May 1, 2025",
+        readTime: "6 min read",
+        content: [
+          "Creating websites that are fast, scalable, and customizable is extremely important for businesses and individuals alike. One WordPress plugin that stands out for its exceptional capabilities in achieving this goal is Oxygen Builder.",
+          "Known for its performance, flexibility, and innovative design features, this tool has garnered considerable attention. Let’s take a closer look at why it has become our number one choice for building WordPress websites.",
+          "## What makes Oxygen Builder special?",
+          "Oxygen Builder is not just another visual builder. Instead of working on top of a WordPress theme, it completely disables it and allows you to build the website from the ground up.",
+          "This approach results in highly customizable and lightweight websites, making Oxygen ideal for modern, performance-focused projects.",
+          "## Efficient code for faster websites",
+          "One of the main reasons we rely on Oxygen Builder is its ability to generate clean and optimized code.",
+          "Unlike many builders that load unnecessary scripts and styles, Oxygen focuses on efficiency. As a result, websites load faster and achieve significantly better Google PageSpeed scores.",
+          "This leads to a better user experience and supports strong SEO performance.",
+          "## Visual drag-and-drop editor",
+          "Oxygen Builder offers a powerful visual drag-and-drop editor that allows users with minimal coding knowledge to create advanced layouts.",
+          "Developers and non-technical users alike can design pages from scratch or edit templates intuitively, without the limitations imposed by traditional themes.",
+          "## Flexibility in design",
+          "One of Oxygen’s strongest advantages is complete design freedom.",
+          "From custom CSS to fully custom components and dynamic elements, Oxygen enables agencies and companies to create bespoke solutions without being constrained by rigid theme structures.",
+          "## Scalability and performance benefits",
+          "Building a website is not only about current needs, but also about future growth.",
+          "Oxygen Builder’s lightweight architecture ensures excellent scalability as traffic, content, or functionality increases.",
+          "## Reusable components",
+          "Oxygen allows the creation of reusable components such as headers, footers, and buttons.",
+          "These components can be reused across the entire website, saving development time and ensuring consistent design standards.",
+          "## Focus on SEO and site performance",
+          "Thanks to its clean code output, websites built with Oxygen have a higher chance of ranking well in search engines.",
+          "Fast load times and optimized structure align perfectly with modern SEO best practices.",
+          "## The latest version – Oxygen 6.0",
+          "Oxygen Builder 6.0 introduced a major redesign based on modern web development standards and the Breakdance codebase.",
+          "This transition was driven by the need for better scalability, improved performance, and more advanced development workflows.",
+          "For existing users, Oxygen 6.0 represents a significant upgrade while still supporting legacy setups.",
+          "## Comparison with other WordPress builders",
+          "Although there are many visual builders available for WordPress, few match the performance and flexibility of Oxygen Builder.",
+          "Compared to Elementor or Divi, Oxygen stands out in efficiency, developer-oriented features, and long-term value.",
+          "## Price efficiency and licensing",
+          "Oxygen uses a one-time license model instead of recurring annual fees.",
+          "This makes it particularly attractive for agencies and businesses managing multiple websites.",
+          "## Developer-friendly features",
+          "For developers, Oxygen offers advanced features such as dynamic data integration and seamless compatibility with third-party plugins.",
+          "These capabilities make it easy to build complex, data-driven websites.",
+          "## Clean and lightweight code output",
+          "Performance benchmarks show that Oxygen loads significantly less CSS and JavaScript compared to other builders.",
+          "It can be up to 50× leaner than Divi, 25× leaner than Elementor, and 10× leaner than Beaver Builder.",
+          "Oxygen only loads what is actually needed, while other builders often load everything by default.",
+          "## Conclusion",
+          "Oxygen Builder has proven itself as a robust solution for building high-performance WordPress websites.",
+          "Its clean code, unmatched flexibility, and developer-oriented tools make it suitable for everything from simple blogs to complex enterprise solutions.",
+          "This exceptional value is why Oxygen Builder remains our primary choice within the WordPress ecosystem."
+        ],
+        resources: [
+          {
+            title: "Oxygen Builder – Official Website",
+            url: "https://oxygenbuilder.com"
+          },
+          {
+            title: "Oxygen Builder Performance Benchmarks",
+            url: "https://classic.oxygenbuilder.com"
+          }
+        ],
+      },  
+      SK: {
+        slug: "preco-pouzivame-oxygen-builder-pri-tvorbe-wordpress-webov",
+        title: "Prečo používame Oxygen Builder pri tvorbe WordPress webov?",
+        excerpt:
+          "Oxygen Builder patrí medzi najvýkonnejšie nástroje na tvorbu rýchlych, škálovateľných a plne prispôsobiteľných WordPress webov.",
+        category: "Weby a e-shopy",
+        tags: ["WordPress", "Oxygen Builder", "Výkon", "SEO", "Tvorba webov"],
+        date: "1. mája 2025",
+        readTime: "6 min čítania",
+        content: [
+          "Tvorba rýchlych, škálovateľných a prispôsobiteľných webových stránok je dnes mimoriadne dôležitá pre firmy aj jednotlivcov.",
+          "Jedným z WordPress nástrojov, ktorý v tomto smere výrazne vyniká, je Oxygen Builder.",
+          "Vďaka vysokému výkonu, flexibilite a moderným dizajnovým možnostiam sa stal našou voľbou číslo jeden pri tvorbe WordPress webov.",
+          "## Čím je Oxygen Builder výnimočný?",
+          "Oxygen Builder nie je klasický vizuálny editor.",
+          "Namiesto práce nad WordPress témou ju úplne deaktivuje a umožňuje vytvoriť web od úplného základu.",
+          "Tento prístup vedie k ľahkým, rýchlym a maximálne prispôsobiteľným webom.",
+          "## Efektívny kód pre rýchlejšie weby",
+          "Jedným z hlavných dôvodov, prečo Oxygen používame, je jeho schopnosť generovať čistý a optimalizovaný kód.",
+          "Na rozdiel od iných builderov nenačítava zbytočné skripty a štýly, čo vedie k rýchlejšiemu načítaniu stránok a lepším výsledkom v Google PageSpeed.",
+          "To má pozitívny vplyv na používateľský zážitok aj SEO.",
+          "## Vizuálny drag-and-drop editor",
+          "Oxygen Builder ponúka výkonný vizuálny editor, vďaka ktorému je možné vytvárať komplexné dizajny aj bez hlbokých znalostí programovania.",
+          "Stránky môžete navrhovať úplne od nuly alebo intuitívne upravovať existujúce šablóny.",
+          "## Flexibilita dizajnu",
+          "Jednou z najväčších výhod Oxygen Buildera je absolútna sloboda pri tvorbe.",
+          "Podpora vlastného CSS, dynamických prvkov a komponentov umožňuje vytvárať riešenia na mieru bez obmedzení klasických tém.",
+          "## Škálovateľnosť a výkon",
+          "Web nie je len o aktuálnych potrebách, ale aj o budúcom raste.",
+          "Ľahká architektúra Oxygen Buildera zabezpečuje výbornú škálovateľnosť aj pri rastúcej návštevnosti alebo funkcionalite.",
+          "## Opakovateľné komponenty",
+          "Oxygen umožňuje vytvárať opakovane použiteľné komponenty, ako sú hlavičky, päty alebo tlačidlá.",
+          "Tieto prvky výrazne urýchľujú vývoj a zabezpečujú konzistentný dizajn naprieč celým webom.",
+          "## Zameranie na SEO a výkon",
+          "Vďaka čistému kódu majú weby vytvorené v Oxygen Builderi vyššiu šancu na dobré pozície vo vyhľadávačoch.",
+          "Rýchlosť a optimalizovaná štruktúra sú v súlade s modernými SEO princípmi.",
+          "## Najnovšia verzia – Oxygen 6.0",
+          "Oxygen Builder 6.0 priniesol kompletný redizajn postavený na moderných webových štandardoch a kódbáze Breakdance.",
+          "Cieľom bolo zvýšiť výkon, škálovateľnosť a ponúknuť pokročilejšie nástroje pre vývojárov aj dizajnérov.",
+          "## Porovnanie s inými WordPress buildermi",
+          "Aj keď existuje množstvo vizuálnych editorov, len máloktorý sa vyrovná Oxygen Builderu z hľadiska výkonu a flexibility.",
+          "V porovnaní s Elementorom alebo Divi vyniká najmä efektivitou a dlhodobou hodnotou.",
+          "## Cena a licencia",
+          "Oxygen ponúka jednorazovú licenciu bez ročných poplatkov.",
+          "To z neho robí ideálne riešenie pre agentúry a firmy spravujúce viacero webov.",
+          "## Funkcie pre vývojárov",
+          "Pre vývojárov je Oxygen ideálny nástroj vďaka podpore dynamických dát a kompatibilite s externými pluginmi.",
+          "Umožňuje vytvárať komplexné a dátovo riadené weby.",
+          "## Čistý a ľahký výstupný kód",
+          "Porovnania ukazujú, že Oxygen načítava výrazne menej CSS a JavaScriptu než konkurenčné nástroje.",
+          "Je až 50× ľahší než Divi, 25× ľahší než Elementor a 10× ľahší než Beaver Builder.",
+          "## Záver",
+          "Oxygen Builder je robustné riešenie na tvorbu výkonných WordPress webov.",
+          "Vďaka čistému kódu, maximálnej flexibilite a nástrojom pre vývojárov je vhodný pre jednoduché blogy aj komplexné firemné riešenia.",
+          "Práve preto zostáva našou primárnou voľbou v rámci WordPress ekosystému."
+        ],
+        resources: [
+          {
+            title: "Oxygen Builder – Official Website",
+            url: "https://oxygenbuilder.com"
+          },
+          {
+            title: "Oxygen Builder Performance Benchmarks",
+            url: "https://classic.oxygenbuilder.com"
+          }
+        ],
+      },
+    },
+  },
   {
     image:
       "https://images.unsplash.com/photo-1674027326254-88c960d8e561?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
