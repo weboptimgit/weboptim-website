@@ -177,6 +177,53 @@ export const getWebSiteSchema = (language: Language) => ({
   inLanguage: language === "CZ" ? "cs" : language === "SK" ? "sk" : "en",
 });
 
+// SEO.tsx
+export const getCaseStudySchema = (args: {
+  canonicalUrl: string;
+  language: Language;
+  title: string;
+  description: string;
+  image?: string;
+  projectUrl?: string;
+  technologies?: string[];
+  client?: string;
+  year?: string;
+}) => {
+  const base = domainConfig[args.language];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `${args.canonicalUrl}#case-study`,
+    url: args.canonicalUrl,
+    name: args.title,
+    description: args.description,
+    image: args.image ? [args.image] : undefined,
+    inLanguage:
+      args.language === "CZ"
+        ? "cs"
+        : args.language === "SK"
+        ? "sk"
+        : "en",
+    creator: {
+      "@type": "Organization",
+      name: "WebOptim",
+      url: base,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "WebOptim",
+      url: base,
+    },
+    sameAs: args.projectUrl ? [args.projectUrl] : undefined,
+    keywords: args.technologies?.join(", "),
+    about: [
+      args.client ? `Client: ${args.client}` : null,
+      args.year ? `Year: ${args.year}` : null,
+    ].filter(Boolean),
+  };
+};
+
 // helper len pre About page
 export const getAboutPageSchema = (language: Language, canonicalUrl: string) => {
   const base = domainConfig[language];
