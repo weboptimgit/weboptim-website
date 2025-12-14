@@ -14,7 +14,9 @@ import { getCaseStudiesList, getCaseStudy } from "@/data/case-studies";
 
 const Work = () => {
   const { language, t } = useLanguage();
-
+  const contactUrl = buildPath(language, "contact");
+  const workUrl = buildPath(language, "work");
+  
   // 1) zoznam kariet (jazykovo)
   const list = getCaseStudiesList(language);
 
@@ -99,7 +101,7 @@ const Work = () => {
                 {t("work.cta.subtitle")}
               </p>
 
-              <Link to="/contact">
+              <Link to={contactUrl}>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
