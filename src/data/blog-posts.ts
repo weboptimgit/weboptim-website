@@ -210,6 +210,8 @@ export const blogPostsData: BlogPostData[] = [
           "Tento prístup vedie k ľahkým, rýchlym a maximálne prispôsobiteľným webom.",
           "## Efektívny kód pre rýchlejšie weby",
           "Jedným z hlavných dôvodov, prečo Oxygen používame, je jeho schopnosť generovať čistý a optimalizovaný kód.",
+          "![Porovnanie výkonu Oxygen Buildera](https://classic.oxygenbuilder.com/wp-content/uploads/oxygen-performance.png)",
+          "Z grafu je vidieť, že Oxygen načítava výrazne menej CSS a JS"
           "Na rozdiel od iných builderov nenačítava zbytočné skripty a štýly, čo vedie k rýchlejšiemu načítaniu stránok a lepším výsledkom v Google PageSpeed.",
           "To má pozitívny vplyv na používateľský zážitok aj SEO.",
           "## Vizuálny drag-and-drop editor",
