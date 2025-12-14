@@ -13,6 +13,8 @@ interface SEOProps {
   jsonLd?: object | object[];
 }
 
+const BRAND_LOGO_PATH = "/img/weboptim-profile-pic.png";
+
 // SEO translations for all pages
 const seoTranslations: Record<string, Record<Language, { title: string; description: string }>> = {
   home: {
@@ -157,7 +159,7 @@ export const getOrganizationSchema = (language: Language) => ({
   name: "WebOptim",
   legalName: "Smart Coach s.r.o.",
   url: domainConfig[language],
-  logo: `${domainConfig[language]}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`,
+  logo: `${domainConfig[language]}${BRAND_LOGO_PATH}`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Příčná 1892/4",
@@ -272,7 +274,10 @@ export const getAboutPageSchema = (language: Language, canonicalUrl: string) => 
       name: "WebOptim",
       legalName: "Smart Coach s.r.o.",
       url: base,
-      logo: `${base}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${domainConfig[language]}${BRAND_LOGO_PATH}`,
+      },
       knowsAbout: [
         "Webové stránky",
         "E-shopy",
@@ -419,7 +424,7 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
   const currentDomain = domainConfig[language];
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
   const canonicalUrl = `${currentDomain}${currentPath}`;
-  const defaultImage = `${currentDomain}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`;
+  const defaultImage = `${currentDomain}${BRAND_LOGO_PATH}`;
   const finalImage = image || defaultImage;
 
   useEffect(() => {
