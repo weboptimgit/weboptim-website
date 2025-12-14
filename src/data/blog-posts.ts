@@ -37,6 +37,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   content: string[];
+  resources?: ResourceLink[];
 }
 
 // Translated categories for filtering
