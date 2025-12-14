@@ -39,17 +39,12 @@ const joinPath = (base: string, slug: string) => {
   return normalize(`/${b}/${s}`);
 };
 
-/**
- * One URL entry, but <loc> is host-specific (EN/CZ/SK)
- * while alternates always point to their own domains.
- */
-const urlEntryForHost = (host: Lang, paths: Record<Lang, string>) => {
+const urlEntry = (paths: Record<Lang, string>) => {
   const enPath = normalize(paths.EN);
   const czPath = normalize(paths.CZ);
   const skPath = normalize(paths.SK);
 
-  const hostPath = normalize(paths[host]);
-  const loc = `${domains[host]}${hostPath}`;
+  const loc = `${domains.EN}${enPath}`;
 
   return `  <url>
     <loc>${esc(loc)}</loc>
@@ -81,9 +76,10 @@ ${sitemaps
 
 const today = new Date().toISOString().slice(0, 10);
 
-// --------------------------
-// 1) STATIC PAGES definitions
-// --------------------------
+/* --------------------------
+   1) STATIC PAGES
+--------------------------- */
+
 const staticPages: Record<string, Record<Lang, string> | undefined> = {
   home: { EN: "/", CZ: "/", SK: "/" },
 
@@ -96,41 +92,46 @@ const staticPages: Record<string, Record<Lang, string> | undefined> = {
   glossary: staticPageSlugs.glossary,
 };
 
-// --------------------------
-// Build entries per host
-// --------------------------
-const buildPagesEntries = (host: Lang) =>
-  Object.entries(staticPages)
-    .map(([key, paths]) => {
-      if (!paths?.EN || !paths?.CZ || !paths?.SK) {
-        console.log(`⚠️ Missing staticPageSlugs mapping for: ${key}`);
-        return null;
-      }
-      return urlEntryForHost(host, paths);
-    })
-    .filter(Boolean) as string[];
+const pagesEntries = Object.entries(staticPages)
+  .map(([key, paths]) => {
+    if (!paths?.EN || !paths?.CZ || !paths?.SK) {
+      console.log(`⚠️ Missing staticPageSlugs mapping for: ${key}`);
+      return null;
+    }
+    return urlEntry(paths);
+  })
+  .filter(Boolean) as string[];
 
-const buildBlogEntries = (host: Lang) =>
+/* --------------------------
+   2) BLOG POSTS
+--------------------------- */
+
+const blogEntries =
   staticPageSlugs.blog?.EN && staticPageSlugs.blog?.CZ && staticPageSlugs.blog?.SK
-    ? (blogPostsData
+    ? blogPostsData
         .map((post) => {
           const enSlug = post?.translations?.EN?.slug;
           const czSlug = post?.translations?.CZ?.slug;
           const skSlug = post?.translations?.SK?.slug;
+
           if (!enSlug || !czSlug || !skSlug) return null;
 
-          return urlEntryForHost(host, {
+          return urlEntry({
             EN: joinPath(staticPageSlugs.blog.EN, enSlug),
             CZ: joinPath(staticPageSlugs.blog.CZ, czSlug),
             SK: joinPath(staticPageSlugs.blog.SK, skSlug),
           });
         })
-        .filter(Boolean) as string[])
+        .filter(Boolean) as string[]
     : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
 
-const buildServicesEntries = (host: Lang) =>
+/* --------------------------
+   3) SERVICES (detail pages)
+--------------------------- */
+
+const servicesEntries =
   staticPageSlugs.services?.EN && staticPageSlugs.services?.CZ && staticPageSlugs.services?.SK
-    ? ((Object.keys(serviceDetailSlugs) as Array<keyof typeof serviceDetailSlugs>)
+    ? (Object.keys(serviceDetailSlugs) as Array<keyof typeof serviceDetailSlugs>)
         .map((key) => {
           const enSlug = serviceDetailSlugs[key]?.EN;
           const czSlug = serviceDetailSlugs[key]?.CZ;
@@ -141,49 +142,38 @@ const buildServicesEntries = (host: Lang) =>
             return null;
           }
 
-          return urlEntryForHost(host, {
+          return urlEntry({
             EN: joinPath(staticPageSlugs.services.EN, enSlug),
             CZ: joinPath(staticPageSlugs.services.CZ, czSlug),
             SK: joinPath(staticPageSlugs.services.SK, skSlug),
           });
         })
-        .filter(Boolean) as string[])
+        .filter(Boolean) as string[]
     : (console.log("⚠️ staticPageSlugs.services is missing"), []);
 
-// --------------------------
-// WRITE FILES (same /public for all domains)
-// --------------------------
+/* --------------------------
+   WRITE FILES
+--------------------------- */
+
 const outDir = path.resolve(process.cwd(), "public");
 fs.mkdirSync(outDir, { recursive: true });
 
-const writeForHost = (host: Lang) => {
-  const suffix = host.toLowerCase(); // en/cz/sk
+const pagesPath = path.join(outDir, "sitemap-pages.xml");
+const blogPath = path.join(outDir, "sitemap-blog.xml");
+const servicesPath = path.join(outDir, "sitemap-services.xml");
+const indexPath = path.join(outDir, "sitemap.xml");
 
-  const pagesFile = `sitemap-pages-${suffix}.xml`;
-  const blogFile = `sitemap-blog-${suffix}.xml`;
-  const servicesFile = `sitemap-services-${suffix}.xml`;
-  const indexFile = `sitemap-${suffix}.xml`;
+fs.writeFileSync(pagesPath, wrapUrlset(pagesEntries), "utf8");
+fs.writeFileSync(blogPath, wrapUrlset(blogEntries), "utf8");
+fs.writeFileSync(servicesPath, wrapUrlset(servicesEntries), "utf8");
 
-  const pagesEntries = buildPagesEntries(host);
-  const blogEntries = buildBlogEntries(host);
-  const servicesEntries = buildServicesEntries(host);
-
-  fs.writeFileSync(path.join(outDir, pagesFile), wrapUrlset(pagesEntries), "utf8");
-  fs.writeFileSync(path.join(outDir, blogFile), wrapUrlset(blogEntries), "utf8");
-  fs.writeFileSync(path.join(outDir, servicesFile), wrapUrlset(servicesEntries), "utf8");
-
-  // Index must point to correct host, but filenames are same on FTP
-  fs.writeFileSync(
-    path.join(outDir, indexFile),
-    sitemapIndexXml([
-      { loc: `${domains[host]}/${pagesFile}`, lastmod: today },
-      { loc: `${domains[host]}/${blogFile}`, lastmod: today },
-      { loc: `${domains[host]}/${servicesFile}`, lastmod: today },
-    ]),
-    "utf8"
-  );
-};
-
-writeForHost("EN");
-writeForHost("CZ");
-writeForHost("SK");
+// sitemap index
+fs.writeFileSync(
+  indexPath,
+  sitemapIndexXml([
+    { loc: `${domains.EN}/sitemap-pages.xml`, lastmod: today },
+    { loc: `${domains.EN}/sitemap-blog.xml`, lastmod: today },
+    { loc: `${domains.EN}/sitemap-services.xml`, lastmod: today },
+  ]),
+  "utf8"
+);
