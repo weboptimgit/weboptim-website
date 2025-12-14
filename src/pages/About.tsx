@@ -21,9 +21,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { AboutLanguageProvider, useAbout } from "@/contexts/LanguageAbout";
+import { buildPath } from "@/config/domains";
 
 const AboutInner = () => {
-  const { t } = useLanguage(); // len na headline "about.title.before/highlight" už máš
+  const { t } = useLanguage();
+  const contactUrl = buildPath(language, "contact");
   const { ta } = useAbout();
 
   const highlights = [
@@ -199,7 +201,7 @@ const AboutInner = () => {
                   <p>{ta("about.story.p3")}</p>
                 </div>
 
-                <Link to="/contact" className="inline-block mt-8">
+                <Link to={contactUrl} className="inline-block mt-8">
                   <Button variant="glow" size="lg" className="group">
                     {ta("about.story.cta")}
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
