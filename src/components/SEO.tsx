@@ -267,7 +267,10 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
   useEffect(() => {
     // Set document title
     document.title = finalTitle;
-
+    // Set <html lang="..."> based on current language
+    const htmlLang = language === "CZ" ? "cs" : language === "SK" ? "sk" : "en";
+    document.documentElement.setAttribute("lang", htmlLang);
+    
     // Helper to set or create meta tag
     const setMeta = (name: string, content: string, property = false) => {
       const attr = property ? "property" : "name";
