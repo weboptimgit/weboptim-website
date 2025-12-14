@@ -25,6 +25,18 @@ const Contact = () => {
   const { toast } = useToast();
   const { language } = useLanguage();
   const s = useContactLang();
+  const phonePlaceholderByCountry: Record<string, string> = {
+    SK: "+421 900 000 000",
+    CZ: "+420 777 000 000",
+    AT: "+43 660 000 000",
+    DE: "+49 170 000 000",
+    PL: "+48 600 000 000",
+    HU: "+36 30 000 0000",
+  };
+  
+  const phonePlaceholder =
+    phonePlaceholderByCountry[formData.phoneCountry] ??
+    "+421 900 000 000";
   const emailByLang: Record<string, string> = {
     EN: "info@weboptim.eu",
     CZ: "info@weboptim.cz",
@@ -47,19 +59,6 @@ const Contact = () => {
         return "SK";
     }
   })();
-
-  const phonePlaceholderByCountry: Record<string, string> = {
-    SK: "+421 900 000 000",
-    CZ: "+420 777 000 000",
-    AT: "+43 660 000 000",
-    DE: "+49 170 000 000",
-    PL: "+48 600 000 000",
-    HU: "+36 30 000 0000",
-  };
-  
-  const phonePlaceholder =
-    phonePlaceholderByCountry[formData.phoneCountry] ??
-    "+421 900 000 000";
 
   const contactSchema = getContactPageSchema({
     language,
