@@ -17,6 +17,23 @@ const Contact = () => {
   const { toast } = useToast();
   const { language } = useLanguage();
   const s = useContactLang();
+  const base = domainConfig[language];
+  const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
+  const canonicalUrl = `${base}${currentPath}`;
+  
+  const contactSchema = getContactPageSchema({
+    language,
+    canonicalUrl,
+    telephone: contactPhone,
+    email: contactEmail,
+    contactType: s.schema.contactType,
+    availableLanguage: s.schema.availableLanguage,
+  });
+  
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: s.breadcrumb.home ?? "Home", url: `${base}/` },
+    { name: s.breadcrumb.contact ?? s.seo.title, url: canonicalUrl },
+  ]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -25,8 +42,7 @@ const Contact = () => {
     company: "",
     message: "",
   });
-
-  // ✅ language-based email
+  
   const emailByLang: Record<string, string> = {
     EN: "info@weboptim.eu",
     CZ: "info@weboptim.cz",
@@ -137,8 +153,11 @@ const Contact = () => {
 
   return (
     <>
-      <SEO title={s.seo.title} description={s.seo.description} jsonLd={contactPageSchema} />
-
+      <SEO
+        title={s.seo.title}
+        description={s.seo.description}
+        jsonLd={[breadcrumbSchema, contactSchema]}
+      />
       <div className="min-h-screen bg-background">
         <Navbar />
 
