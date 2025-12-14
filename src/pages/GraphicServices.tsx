@@ -21,10 +21,10 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useGraphicLang } from "@/contexts/LanguageGraphic";
-import { buildPath } from "@/config/domains";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import { buildPath, servicePath, domainConfig } from "@/config/domains";
 
 const GraphicServices = () => {
   const s = useGraphicLang();
@@ -32,6 +32,10 @@ const GraphicServices = () => {
 
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
+  const canonicalUrl =
+    typeof window !== "undefined"
+      ? `${domainConfig[language]}${window.location.pathname}`
+      : `${domainConfig[language]}${servicePath(language, "graphicDesign")}`;
 
   // icon meta stays static (matching your original meaning)
   const tileIcons = [Layers, Printer, ImageIcon, FileImage, Megaphone, PenTool] as const;
@@ -40,6 +44,19 @@ const GraphicServices = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={s.seo.title}
+        description={s.seo.description}
+        jsonLd={[
+          getServicePageSchema({
+            language,
+            canonicalUrl,
+            serviceName: s.faq.serviceName,
+            serviceDescription: s.seo.description,
+          }),
+          getFAQSchema(mapFaqItems(s.faq.items)),
+        ]}
+      />
       <Navbar />
 
       {/* Hero */}
