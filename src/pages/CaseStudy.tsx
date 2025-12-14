@@ -17,6 +17,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import SEO from "@/components/SEO";
+import { useWorkCaseStudy } from "@/contexts/WorkCaseStudy";
 
 // Tech color mapping by category
 const getTechColor = (tech: string): string => {
@@ -51,6 +52,14 @@ const getTechColor = (tech: string): string => {
 };
 
 const CaseStudy = () => {
+  const { text } = useWorkCaseStudy();
+  const title = text.title ?? study.title;
+  const subtitle = text.subtitle ?? study.subtitle;
+  const description = text.description ?? study.description;
+  const overview = text.overview ?? study.overview;
+  const challenge = text.challenge ?? study.challenge;
+  const solution = text.solution ?? study.solution;
+  const features = text.features ?? study.features;
   const { language } = useLanguage();
   const backToWork = buildPath(language, "work");
   const { slug } = useParams<{ slug: string }>();
