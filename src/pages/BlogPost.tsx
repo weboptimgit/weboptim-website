@@ -405,6 +405,37 @@ const BlogPost = () => {
               })}
             </div>
 
+            {/* Resources */}
+            {postTranslation.resources?.length ? (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-10"
+              >
+                <h2 className="text-xl font-display font-bold text-foreground mb-4">
+                  Learn More
+                </h2>
+                <div className="space-y-3">
+                  {postTranslation.resources.map((resource) => (
+                    <a
+                      key={resource.title}
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-4 glass rounded-xl hover:border-primary/40 transition-all group"
+                    >
+                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <span className="text-foreground group-hover:text-primary transition-colors">
+                        {resource.title}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            ) : null}
+
             {/* Author Box */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
