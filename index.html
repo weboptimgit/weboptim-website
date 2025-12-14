@@ -3,19 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nexus Agency | Digital Experiences That Matter</title>
-    <meta name="description" content="Award-winning digital agency crafting exceptional websites, apps, and brand experiences. Transform your vision into stunning digital reality." />
-    <meta name="author" content="Nexus Agency" />
-    <meta name="keywords" content="web agency, digital design, web development, UI/UX, mobile apps, e-commerce" />
-
-    <meta property="og:title" content="Nexus Agency | Digital Experiences That Matter" />
-    <meta property="og:description" content="Award-winning digital agency crafting exceptional websites, apps, and brand experiences." />
+    
+    <!-- Static fallback meta tags for crawlers that don't execute JS -->
+    <title>WebOptim | Web Development & Digital Marketing Agency</title>
+    <meta name="description" content="Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions." />
+    <meta name="author" content="WebOptim" />
+    <meta name="keywords" content="web development, SEO, digital marketing, e-commerce, web design, WordPress, WooCommerce" />
+    
+    <!-- Robots (will be overridden by React for specific pages) -->
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Open Graph fallback -->
+    <meta property="og:title" content="WebOptim | Web Development & Digital Marketing Agency" />
+    <meta property="og:description" content="Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="https://test.weboptim.eu/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
+    <meta property="og:site_name" content="WebOptim" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <meta property="og:locale:alternate" content="sk_SK" />
 
+    <!-- Twitter Card fallback -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@NexusAgency" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="WebOptim | Web Development & Digital Marketing Agency" />
+    <meta name="twitter:description" content="Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions." />
+    <meta name="twitter:image" content="https://test.weboptim.eu/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
+    
+    <!-- Canonical (will be updated by React) -->
+    <link rel="canonical" href="https://test.weboptim.eu/" />
+    
+    <!-- Hreflang for multi-domain language setup -->
+    <link rel="alternate" hreflang="en" href="https://test.weboptim.eu/" />
+    <link rel="alternate" hreflang="cs" href="https://test.weboptim.cz/" />
+    <link rel="alternate" hreflang="sk" href="https://test.weboptim.sk/" />
+    <link rel="alternate" hreflang="x-default" href="https://test.weboptim.eu/" />
+    
+    <!-- Static Organization JSON-LD schema (fallback) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WebOptim",
+      "legalName": "Smart Coach s.r.o.",
+      "url": "https://test.weboptim.eu",
+      "logo": "https://test.weboptim.eu/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Příčná 1892/4",
+        "addressLocality": "Praha",
+        "postalCode": "110 00",
+        "addressCountry": "CZ"
+      },
+      "sameAs": []
+    }
+    </script>
+    
+    <!-- Static WebSite JSON-LD schema (fallback) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WebOptim",
+      "url": "https://test.weboptim.eu",
+      "inLanguage": ["en", "cs", "sk"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://test.weboptim.eu/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
 
   <body>
