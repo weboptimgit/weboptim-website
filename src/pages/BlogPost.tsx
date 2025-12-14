@@ -402,9 +402,36 @@ const BlogPost = () => {
                   return null;
                 }
                 
-                // IMPORTANT: remove/disable your old "- " handler,
-                // otherwise bullets will be rendered twice/outside the ol.
-                if (paragraph.startsWith("- ")) return null;
+                // Standalone bullet list (only if previous line is NOT a numbered item)
+                if (
+                  paragraph.startsWith("- ") &&
+                  (index === 0 || !/^\d+\.\s/.test(arr[index - 1]))
+                ) {
+                  const bullets: string[] = [];
+                  let i = index;
+                
+                  while (i < arr.length && arr[i].startsWith("- ")) {
+                    bullets.push(arr[i].replace("- ", "").trim());
+                    i++;
+                  }
+                
+                  return (
+                    <motion.ul
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="mb-6 space-y-3"
+                    >
+                      {bullets.map((b, bi) => (
+                        <li key={bi} className="flex items-start gap-3 text-muted-foreground">
+                          <span className="mt-2 w-2 h-2 rounded-full bg-gradient-hero flex-shrink-0" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  );
+                }
 
                 // Skip empty lines
                 if (paragraph.trim() === "") {
