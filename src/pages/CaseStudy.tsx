@@ -30,6 +30,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import SEO from "@/components/SEO";
 import { getCaseStudy } from "@/data/case-studies";
+import {getBreadcrumbSchema,getCaseStudySchema,} from "@/components/SEO";
+import { domainConfig } from "@/config/domains";
 
 // Tech color mapping by category
 const getTechColor = (tech: string): string => {
@@ -90,11 +92,37 @@ const CaseStudy = () => {
   const services = study.services ?? [];
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
+  const base = domainConfig[language];
+  const currentPath =
+    typeof window !== "undefined" ? window.location.pathname : "";
+  const canonicalUrl = `${base}${currentPath}`;
+  
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: t("common.home"), url: `${base}/` },
+    { name: t("caseStudy.breadcrumb.projects"), url: `${base}${backToWork}` },
+    { name: study.title, url: canonicalUrl },
+  ]);
+  
+  const caseStudySchema = getCaseStudySchema({
+    canonicalUrl,
+    language,
+    title: study.title,
+    description: study.description,
+    image: study.heroImage,
+    projectUrl: study.projectUrl,
+    technologies: study.technologies,
+    client: study.client,
+    year: study.year,
+  });
 
   return (
     <>
-      <SEO title={`${study.title} | WebOptim`} description={study.description} image={study.heroImage} />
-
+      <SEO
+        title={`${study.title} | WebOptim`}
+        description={study.description}
+        image={study.heroImage}
+        jsonLd={[breadcrumbSchema, caseStudySchema]}
+      />
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
