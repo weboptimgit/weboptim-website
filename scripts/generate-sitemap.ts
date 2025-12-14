@@ -21,16 +21,16 @@ const esc = (s: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 
-const withSlash = (p: string) => {
+const normPath = (p: string) => {
   if (!p) return "/";
-  if (p === "/") return "/";
-  return p.startsWith("/") ? p : `/${p}`;
+  const withLeading = p.startsWith("/") ? p : `/${p}`;
+  return withLeading.replace(/\/{2,}/g, "/"); // z // spraví /
 };
 
 const urlEntry = (paths: Record<Lang, string>) => {
-  const enPath = withSlash(paths.EN);
-  const czPath = withSlash(paths.CZ);
-  const skPath = withSlash(paths.SK);
+  const enPath = normPath(paths.EN);
+  const czPath = normPath(paths.CZ);
+  const skPath = normPath(paths.SK);
 
   const loc = `${domains.EN}${enPath}`;
 
