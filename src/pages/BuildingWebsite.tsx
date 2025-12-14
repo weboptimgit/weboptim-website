@@ -26,12 +26,8 @@ import SEO from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import Testimonials from "@/components/Testimonials";
-
-// ✅ language contexts
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
-
-// ✅ localized routes
 import { buildPath } from "@/config/domains";
 
 /* -------------------- STATIC VISUAL DATA (non-translated) -------------------- */
