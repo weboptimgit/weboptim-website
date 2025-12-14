@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
 import { caseStudiesData } from "@/data/case-studies";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath } from "@/config/domains";
 
 // Convert case studies data to projects array with slug
 const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
@@ -22,6 +24,7 @@ const projects = Object.entries(caseStudiesData).map(([slug, study]) => ({
 }));
 
 const Work = () => {
+  const { language } = useLanguage();
   return (
     <>
       <SEO titleKey="work" />
@@ -64,9 +67,9 @@ const Work = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Link to={`/case-study/${project.slug}`} className="group block">
-                    <ProjectCard project={project} />
-                  </Link>
+                <Link to={buildPath(language, "work", project.slug)} className="group block">
+                  <ProjectCard project={project} />
+                </Link>
                 </motion.div>
               ))}
             </div>
