@@ -65,7 +65,7 @@ const Portfolio = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects6.map((project, index) => (
-            <Link key={project.slug} to={`/case-study/${project.slug}`}>
+            <Link key={project.slug} to={buildPath(language, "work", project.slug)}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
