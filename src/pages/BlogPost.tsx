@@ -10,6 +10,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
 import SEO, { getArticleSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { domainConfig } from "@/config/domains";
+import ComparisonTable from "@/components/ComparisonTable";
+import { reviewsPlatformsRows } from "@/data/blog-tables";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -262,6 +264,26 @@ const BlogPost = () => {
             
                   // skip empty
                   if (isEmpty(paragraph)) {
+                    i++;
+                    continue;
+                  }
+
+                  // TABLE marker
+                  if (paragraph.trim() === "[[TABLE:reviews-platforms]]") {
+                    out.push(
+                      <motion.div
+                        key={`table-${i}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                      >
+                        <ComparisonTable
+                          title="Porovnanie platforiem na recenzie"
+                          rows={reviewsPlatformsRows}
+                        />
+                      </motion.div>
+                    );
+                  
                     i++;
                     continue;
                   }
