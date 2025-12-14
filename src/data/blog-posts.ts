@@ -521,8 +521,8 @@ export const blogPostsData: BlogPostData[] = [
         ],
       },
         SK: {
-        slug: "7-dovodov-preco-zvolit-web-postaveny-na-wordpress",
-        title: "7 dôvodov, prečo zvoliť web postavený na WordPress",
+        slug: "preco-su-strukturovane-data-zasadne-pre-seo",
+        title: "Prečo sú štrukturované dáta zásadné pre SEO",
         excerpt:
           "WordPress je ideálny nástroj pre firmy a spoločnosti na prezentáciu ich produktov a služieb a získanie nových zákazníkov.",
         category: "Weby a e-shopy",
