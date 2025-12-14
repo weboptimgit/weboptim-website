@@ -177,7 +177,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="flex flex-wrap items-center gap-6 text-foreground/70"
+                className="flex flex-wrap items-center gap-2 text-foreground/70"
               >
                 <div className="flex items-center gap-2 glass px-4 py-2 rounded-full">
                   <User className="w-4 h-4 text-primary" />
