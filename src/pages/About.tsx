@@ -18,18 +18,23 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SEO from "@/components/SEO";
+import SEO, { getAboutPageSchema } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { AboutLanguageProvider, useAbout } from "@/contexts/LanguageAbout";
 import { buildPath } from "@/config/domains";
+import { domainConfig } from "@/config/domains";
 
 const AboutInner = () => {
   const { t } = useLanguage();
-   const { language } = useLanguage();
+  const { language } = useLanguage();
+  const canonicalUrl =
+  typeof window !== "undefined"
+    ? `${domainConfig[language]}${window.location.pathname}`
+    : `${domainConfig[language]}${buildPath(language, "about")}`;
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
   const { ta } = useAbout();
-
+  
   const highlights = [
     { icon: Zap, title: ta("about.highlights.fast.title"), description: ta("about.highlights.fast.desc") },
     { icon: Users, title: ta("about.highlights.team.title"), description: ta("about.highlights.team.desc") },
@@ -120,7 +125,11 @@ const AboutInner = () => {
 
   return (
     <>
-      <SEO titleKey="about" />
+      <SEO
+        titleKey="about"
+        noindex
+        jsonLd={getAboutPageSchema(language, canonicalUrl)}
+      />
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
