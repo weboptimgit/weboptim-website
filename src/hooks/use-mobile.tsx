@@ -3,7 +3,7 @@ import { useReducedMotion } from "framer-motion";
 
 const MOBILE_BREAKPOINT = 768;
 
-export function useDevice() {
+export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined);
   const prefersReducedMotion = useReducedMotion();
 
@@ -17,11 +17,9 @@ export function useDevice() {
     return () => mql.removeEventListener("change", onChange);
   }, []);
 
-  const disableHeavyMotion = !!isMobile || prefersReducedMotion;
-
   return {
     isMobile: !!isMobile,
     prefersReducedMotion,
-    disableHeavyMotion,
+    disableHeavyMotion: !!isMobile || prefersReducedMotion,
   };
 }
