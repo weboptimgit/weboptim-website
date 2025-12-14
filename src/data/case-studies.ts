@@ -289,12 +289,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Large-scale content platform with events, publications, projects, and advanced filtering across dates, authors, categories, and languages.",
         tags: ["WordPress", "Content Platform", "Custom Filtering"],
-        image: "https://www.europeum.org/wp-content/uploads/2021/10/europeum-logo.png",
+        image: "/img/497731082_9657833254306742_4269654853684625963_n.jpg",
         statValue: "1000+",
         statLabel: "Content Items",
         featured: true,
 
-        heroImage: "https://www.europeum.org/wp-content/uploads/2021/10/europeum-logo.png",
+        heroImage: "/img/497731082_9657833254306742_4269654853684625963_n.jpg",
 
         overview:
           "EUROPEUM is a multilingual think-tank platform publishing articles, events, analyses, policy papers, reports, and projects. The website serves as a central hub for public communication, expert content, and event promotion, requiring complex filtering and scalable content architecture.",
@@ -339,6 +339,138 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
           "Pagination optimized for large datasets",
           "Reusable filtering UI across events, articles, and projects",
           "Performance-aware WP_Query configurations",
+        ],
+      },
+      SK: {
+        slug: "europeum-platform",
+        title: "EUROPEUM",
+        subtitle: "Obsahová platforma, eventy & pokročilé filtrovanie",
+        category: "Neziskový sektor / Think tank",
+        client: "EUROPEUM",
+        duration: "4–6 týždňov",
+        year: "2024",
+        team: "2–3 osoby",
+        projectUrl: "https://www.europeum.org/",
+      
+        description:
+          "Rozsiahla obsahová platforma s eventmi, publikáciami, projektmi a pokročilým filtrovaním podľa dátumov, autorov, kategórií a jazykov.",
+        tags: ["WordPress", "Obsahová platforma", "Vlastné filtrovanie"],
+        image: "/img/497731082_9657833254306742_4269654853684625963_n.jpg",
+        statValue: "1000+",
+        statLabel: "Obsahových položiek",
+        featured: true,
+      
+        heroImage: "/img/497731082_9657833254306742_4269654853684625963_n.jpg",
+      
+        overview:
+          "EUROPEUM je viacjazyčná think-tank platforma publikujúca články, eventy, analýzy, policy papers, správy a projekty. Web slúži ako centrálne miesto pre verejnú komunikáciu, odborný obsah a propagáciu podujatí, pričom vyžaduje komplexné filtrovanie a škálovateľnú obsahovú architektúru.",
+      
+        challenge:
+          "Platforma musela zvládnuť veľký objem obsahu naprieč viacerými kategóriami, autormi, dátumami a typmi obsahu. Medzi hlavné výzvy patrilo pokročilé filtrovanie (časové rozsahy, autori, typy publikácií), práca s budúcimi eventmi, viacjazyčná podpora a zachovanie výkonu pri komplexných dotazoch.",
+      
+        solution:
+          "Vytvorili sme vlastnú WordPress logiku postavenú na pokročilých konfiguráciách WP_Query, filtrovaní cez GET parametre a dynamických dátumových dotazoch. Platforma podporuje minulý aj budúci obsah, filtrovanie podľa autorov, rozpoznávanie typov publikácií pomocou vyhľadávacej logiky a viacjazyčnú kompatibilitu pri zachovaní prehľadného a konzistentného UX.",
+      
+        services: [
+          { icon: Code, label: "Vlastný WordPress vývoj" },
+          { icon: Globe, label: "Obsahová architektúra & dátové modelovanie" },
+          { icon: Palette, label: "UI logika pre rozsiahly obsah" },
+          { icon: Megaphone, label: "UX pre filtrovanie & objavovanie obsahu" },
+        ],
+      
+        technologies: ["WordPress", "PHP", "WP_Query", "MySQL", "JavaScript", "HTML5", "CSS3"],
+      
+        results: [
+          { metric: "✓", label: "Pokročilé filtrovanie", description: "Filtrovanie podľa dátumov, autorov, kategórií a typov publikácií" },
+          { metric: "✓", label: "Podpora budúceho obsahu", description: "Eventy a projekty zobrazované pomocou logiky budúcich príspevkov" },
+          { metric: "↑", label: "Lepšia nájditeľnosť obsahu", description: "Používatelia jednoducho nájdu relevantné články, eventy a projekty" },
+          { metric: "✓", label: "Škálovateľná architektúra", description: "Platforma pripravená na dlhodobý rast obsahu" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Platforma zvláda veľké množstvo obsahu bez straty prehľadnosti. Filtrovanie, eventy aj publikácie fungujú spoľahlivo a sú jednoduché na správu pre náš redakčný tím.",
+          author: "EUROPEUM",
+          role: "Tím inštitútu",
+          avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Pokročilé filtrovanie cez GET parametre (dátumy, autori, kategórie)",
+          "Podpora minulého aj budúceho obsahu",
+          "Vlastné filtrovanie typov publikácií pomocou vyhľadávacej logiky",
+          "Autorské prehľady obsahu s dynamickými počítadlami",
+          "Správa viacjazyčného obsahu",
+          "Stránkovanie optimalizované pre veľké datasety",
+          "Znovupoužiteľné UI filtrovania pre eventy, články a projekty",
+          "Výkonovo optimalizované konfigurácie WP_Query",
+        ],
+      },
+      CZ: {
+        slug: "europeum-platform",
+        title: "EUROPEUM",
+        subtitle: "Obsahová platforma, eventy & pokročilé filtrování",
+        category: "Neziskový sektor / Think tank",
+        client: "EUROPEUM",
+        duration: "4–6 týdnů",
+        year: "2024",
+        team: "2–3 osoby",
+        projectUrl: "https://www.europeum.org/",
+      
+        description:
+          "Rozsáhlá obsahová platforma s eventy, publikacemi, projekty a pokročilým filtrováním podle dat, autorů, kategorií a jazyků.",
+        tags: ["WordPress", "Obsahová platforma", "Vlastní filtrování"],
+        image: "/img/497731082_9657833254306742_4269654853684625963_n.jpg",
+        statValue: "1000+",
+        statLabel: "Obsahových položek",
+        featured: true,
+      
+        heroImage: "/img/497731082_9657833254306742_4269654853684625963_n.jpg",
+      
+        overview:
+          "EUROPEUM je vícejazyčná think-tank platforma publikující články, eventy, analýzy, policy papers, zprávy a projekty. Web slouží jako centrální hub pro veřejnou komunikaci, odborný obsah a propagaci akcí a vyžaduje komplexní filtrování a škálovatelnou obsahovou architekturu.",
+      
+        challenge:
+          "Platforma musela zvládnout velké množství obsahu napříč různými kategoriemi, autory, daty a typy obsahu. Mezi hlavní výzvy patřilo pokročilé filtrování (časové rozsahy, autoři, typy publikací), práce s budoucími eventy, vícejazyčná podpora a udržení výkonu při komplexních dotazech.",
+      
+        solution:
+          "Vyvinuli jsme vlastní WordPress logiku postavenou na pokročilých konfiguracích WP_Query, filtrování přes GET parametry a dynamických datových dotazech. Platforma podporuje minulý i budoucí obsah, filtrování podle autorů, rozpoznávání typů publikací pomocí vyhledávací logiky a vícejazyčnou kompatibilitu při zachování přehledného a konzistentního UX.",
+      
+        services: [
+          { icon: Code, label: "Vlastní WordPress vývoj" },
+          { icon: Globe, label: "Obsahová architektura & datové modelování" },
+          { icon: Palette, label: "UI logika pro rozsáhlý obsah" },
+          { icon: Megaphone, label: "UX pro filtrování & objevování obsahu" },
+        ],
+      
+        technologies: ["WordPress", "PHP", "WP_Query", "MySQL", "JavaScript", "HTML5", "CSS3"],
+      
+        results: [
+          { metric: "✓", label: "Pokročilé filtrování", description: "Filtrování podle dat, autorů, kategorií a typů publikací" },
+          { metric: "✓", label: "Podpora budoucího obsahu", description: "Eventy a projekty zobrazované pomocí logiky budoucích příspěvků" },
+          { metric: "↑", label: "Lepší dohledatelnost obsahu", description: "Uživatelé snadno najdou relevantní články, eventy a projekty" },
+          { metric: "✓", label: "Škálovatelná architektura", description: "Platforma připravená na dlouhodobý růst obsahu" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Platforma zvládá velké množství obsahu bez ztráty přehlednosti. Filtrování, eventy i publikace fungují spolehlivě a jsou snadno spravovatelné pro náš redakční tým.",
+          author: "EUROPEUM",
+          role: "Tým institutu",
+          avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Pokročilé filtrování přes GET parametry (data, autoři, kategorie)",
+          "Podpora minulého i budoucího obsahu",
+          "Vlastní filtrování typů publikací pomocí vyhledávací logiky",
+          "Autorské přehledy obsahu s dynamickými počítadly",
+          "Správa vícejazyčného obsahu",
+          "Stránkování optimalizované pro velké datasety",
+          "Znovupoužitelné UI filtrování pro eventy, články a projekty",
+          "Výkonnostně optimalizované konfigurace WP_Query",
         ],
       },
     },
