@@ -33,8 +33,26 @@ import { DigitalizationLanguageProvider } from "@/contexts/LanguageDigitalizatio
 import { GraphicLanguageProvider } from "@/contexts/LanguageGraphic";
 import { ContactLanguageProvider } from "@/contexts/LanguageContact";
 import CookieBanner from "@/components/CookieBanner";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { buildPath, domainConfig } from "@/config/domains";
 
 const queryClient = new QueryClient();
+
+function App() {
+  const { language } = useLanguage();
+
+  const privacyPath = buildPath(language, "privacy"); 
+  const privacyUrl = `${domainConfig[language]}${privacyPath}`;
+
+  return (
+    <>
+      {/* ...tvoje Routes/Providers... */}
+      <CookieBanner privacyUrl={privacyUrl} />
+    </>
+  );
+}
+
+export default App;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
