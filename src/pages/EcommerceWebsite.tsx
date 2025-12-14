@@ -23,7 +23,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import { SEO, getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
 import { useEcomLang } from "@/contexts/LanguageEcommerce";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { domainConfig } from "@/config/domains";
