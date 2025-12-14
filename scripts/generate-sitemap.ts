@@ -21,24 +21,11 @@ const esc = (s: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 
-/**
- * Normalizuj URL PATH:
- * - vždy začne /
- * - root je presne "/"
- * - žiadny trailing slash na konci (okrem "/")
- * - odstráni duplicitné //
- */
 const normalize = (p: string) => {
   if (!p) return "/";
   let out = p.startsWith("/") ? p : `/${p}`;
-
-  // zjednoť // -> /
   out = out.replace(/\/{2,}/g, "/");
-
-  // root nechaj
   if (out === "/") return "/";
-
-  // odstráň trailing slash
   out = out.replace(/\/+$/, "");
 
   return out;
@@ -126,7 +113,3 @@ ${blogEntries.length ? "\n" + blogEntries.join("\n") : ""}
 
 const outPath = path.resolve(process.cwd(), "public/sitemap.xml");
 fs.writeFileSync(outPath, xml, "utf8");
-
-console.log(`✅ sitemap.xml generated: ${outPath}`);
-console.log(`   static: ${staticEntries.length}`);
-console.log(`   blog: ${blogEntries.length}`);
