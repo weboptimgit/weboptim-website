@@ -1,5 +1,7 @@
 import React from "react";
 import type { ReviewsPlatformRow } from "@/data/blog-tables";
+import type { Language } from "@/contexts/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const tipText: Record<Language, string> = {
   EN: "Tip: On mobile, the table scrolls horizontally.",
@@ -10,10 +12,26 @@ const tipText: Record<Language, string> = {
 export default function ComparisonTable({
   title,
   rows,
+  headers,
 }: {
   title?: string;
   rows: ReviewsPlatformRow[];
+  headers?: string[];
 }) {
+  const { language } = useLanguage();
+
+  const finalHeaders =
+    headers ??
+    [
+      "Platforma",
+      "Cieľová skupina",
+      "Typ podnikania",
+      "Dôveryhodnosť recenzií",
+      "Vplyv na konverzie",
+      "Vplyv na SEO / viditeľnosť",
+      "Lokalita použitia",
+    ];
+
   return (
     <div className="my-10">
       {title ? (
