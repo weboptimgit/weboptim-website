@@ -435,12 +435,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Accommodation website focused on clear presentation, seasonal offers, and conversion through forms, popups, and inquiries.",
         tags: ["Hospitality", "WordPress", "Lead Generation"],
-        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=600&fit=crop",
+        image: "/img/weboptim-penzion_1600-min.jpg",
         statValue: "✓",
         statLabel: "Inquiry Ready",
         featured: false,
 
-        heroImage: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&h=800&fit=crop",
+        heroImage: "/img/weboptim-penzion_1600-min.jpg",
 
         overview:
           "Penzion Sněžná is a family accommodation website designed to clearly present rooms, location, and surrounding activities while guiding visitors toward direct inquiries. The site balances informative content with conversion-focused elements such as contact forms, popups, and clear calls-to-action.",
@@ -485,6 +485,138 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
           "Fast-loading pages with optimized assets",
           "Easy content editing for non-technical users",
           "Prepared structure for future booking integrations",
+        ],
+      },
+      SK: {
+        slug: "penzion-snezna-website",
+        title: "Penzión Sněžná",
+        subtitle: "Webová stránka ubytovania & konverzné procesy",
+        category: "Ubytovanie",
+        client: "Penzion Sněžná",
+        duration: "2–3 týždne",
+        year: "2023",
+        team: "1–2 osoby",
+        projectUrl: "https://www.penzionsnezna.cz/",
+      
+        description:
+          "Webová stránka ubytovania zameraná na prehľadnú prezentáciu, sezónne ponuky a získavanie dopytov prostredníctvom formulárov, popupov a výziev k akcii.",
+        tags: ["Ubytovanie", "WordPress", "Získavanie dopytov"],
+        image: "/img/weboptim-penzion_1600-min.jpg",
+        statValue: "✓",
+        statLabel: "Pripravené na dopyty",
+        featured: false,
+      
+        heroImage: "/img/weboptim-penzion_1600-min.jpg",
+      
+        overview:
+          "Penzión Sněžná je rodinný ubytovací web navrhnutý tak, aby prehľadne prezentoval izby, lokalitu a možnosti v okolí a zároveň návštevníkov prirodzene viedol k priamemu dopytu. Web kombinuje informatívny obsah s konverznými prvkami, ako sú kontaktné formuláre, popupy a jasné výzvy k akcii.",
+      
+        challenge:
+          "Hlavnou výzvou bolo premeniť statický ubytovací web na konverzne orientovaný zážitok. Návštevníci potrebovali rýchlo pochopiť dostupnosť, polohu a výhody ubytovania, zatiaľ čo majiteľ potreboval jednoduchý spôsob prijímania dopytov bez zložitého rezervačného systému.",
+      
+        solution:
+          "Vytvorili sme WordPress web s čistou obsahovou štruktúrou, optimalizovanými formulármi a kontextovými popupmi, ktoré reagujú na zámer používateľa. Dopytové toky sú strategicky umiestnené naprieč webom tak, aby zachytili záujem v správnom momente, pričom celkový zážitok zostáva jednoduchý a nerušivý.",
+      
+        services: [
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Palette, label: "UI/UX & obsahová architektúra" },
+          { icon: Globe, label: "Technické & lokálne SEO" },
+          { icon: Megaphone, label: "Konverzná stratégia (formuláre & popupy)" },
+        ],
+      
+        technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "MySQL"],
+      
+        results: [
+          { metric: "↑", label: "Lokálna viditeľnosť", description: "Zlepšené pozície pre lokálne vyhľadávania ubytovania" },
+          { metric: "✓", label: "Priame dopyty", description: "Viac leadov bez poplatkov za rezervačné portály" },
+          { metric: "↓", label: "Miera odchodov", description: "Prehľadná štruktúra a rýchle načítanie zvýšili angažovanosť" },
+          { metric: "✓", label: "SEO škálovateľnosť", description: "Obsah a štruktúra pripravené na sezónne rozšírenia" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Web je prehľadný, jednoducho sa používa a prináša nám priame dopyty bez zbytočnej zložitosti. Všetko dôležité sa dá ľahko upravovať a spoľahlivo funguje.",
+          author: "Penzión Sněžná",
+          role: "Majiteľ",
+          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Štruktúra stránok orientovaná na lokálne SEO pre ubytovanie",
+          "Optimalizované nadpisy, interné prelinkovanie a obsahová hierarchia",
+          "Dopytové formuláre vložené na kľúčových stránkach",
+          "Kontextové popupy podporujúce sezónne ponuky",
+          "Responzívny dizajn s mobile-first prístupom",
+          "Rýchle načítanie stránok s optimalizovanými médiami",
+          "Jednoduchá správa obsahu pre netechnických používateľov",
+          "Pripravená štruktúra pre budúce rezervačné integrácie",
+        ],
+      },
+      CZ: {
+        slug: "penzion-snezna-website",
+        title: "Penzion Sněžná",
+        subtitle: "Webová prezentace ubytování & konverzní procesy",
+        category: "Ubytování",
+        client: "Penzion Sněžná",
+        duration: "2–3 týdny",
+        year: "2023",
+        team: "1–2 osoby",
+        projectUrl: "https://www.penzionsnezna.cz/",
+      
+        description:
+          "Webová prezentace ubytování zaměřená na přehlednou prezentaci, sezónní nabídky a získávání poptávek prostřednictvím formulářů, popupů a výzev k akci.",
+        tags: ["Ubytování", "WordPress", "Získávání poptávek"],
+        image: "/img/weboptim-penzion_1600-min.jpg",
+        statValue: "✓",
+        statLabel: "Připraveno na poptávky",
+        featured: false,
+      
+        heroImage: "/img/weboptim-penzion_1600-min.jpg",
+      
+        overview:
+          "Penzion Sněžná je rodinný ubytovací web navržený tak, aby přehledně prezentoval pokoje, lokalitu a aktivity v okolí a zároveň návštěvníky přirozeně vedl k přímým poptávkám. Web kombinuje informační obsah s konverzně orientovanými prvky, jako jsou kontaktní formuláře, popupy a jasné výzvy k akci.",
+      
+        challenge:
+          "Hlavní výzvou bylo proměnit statický ubytovací web v konverzně orientovaný zážitek. Návštěvníci potřebovali rychle pochopit dostupnost, polohu a výhody ubytování, zatímco majitel potřeboval jednoduchý způsob přijímání poptávek bez složitého rezervačního systému.",
+      
+        solution:
+          "Vytvořili jsme WordPress web s čistou obsahovou strukturou, optimalizovanými formuláři a kontextovými popupy, které reagují na záměr uživatele. Poptávkové toky jsou strategicky umístěny napříč webem tak, aby zachytily zájem ve správný moment, přičemž celý zážitek zůstává jednoduchý a nerušivý.",
+      
+        services: [
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Palette, label: "UI/UX & obsahová architektura" },
+          { icon: Globe, label: "Technické & lokální SEO" },
+          { icon: Megaphone, label: "Konverzní strategie (formuláře & popupy)" },
+        ],
+      
+        technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "MySQL"],
+      
+        results: [
+          { metric: "↑", label: "Lokální viditelnost", description: "Zlepšené pozice pro lokální vyhledávání ubytování" },
+          { metric: "✓", label: "Přímé poptávky", description: "Více leadů bez poplatků rezervačním portálům" },
+          { metric: "↓", label: "Míra okamžitého opuštění", description: "Přehledná struktura a rychlé načítání zlepšily zapojení" },
+          { metric: "✓", label: "SEO škálovatelnost", description: "Obsah a struktura připravené na sezónní rozšiřování" },
+        ],
+      
+        testimonial: {
+          quote:
+            "Web je přehledný, snadno se používá a přináší nám přímé poptávky bez zbytečné složitosti. Vše důležité lze jednoduše upravovat a spolehlivě funguje.",
+          author: "Penzion Sněžná",
+          role: "Majitel",
+          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+        },
+      
+        gallery: [],
+        features: [
+          "Struktura stránek orientovaná na lokální SEO pro ubytování",
+          "Optimalizované nadpisy, interní prolinkování a obsahová hierarchie",
+          "Poptávkové formuláře vložené na klíčových stránkách",
+          "Kontextové popupy podporující sezónní nabídky",
+          "Responzivní design s mobile-first přístupem",
+          "Rychlé načítání stránek s optimalizovanými médii",
+          "Snadná správa obsahu pro netechnické uživatele",
+          "Připravená struktura pro budoucí integrace rezervačních systémů",
         ],
       },
     },
