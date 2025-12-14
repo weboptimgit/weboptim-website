@@ -1354,7 +1354,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
             "The website finally reflects my approach to health and coaching. Clients understand the process, trust the system, and can easily book, pay, or purchase vouchers online.",
           author: "Ing. Romana Nemcová",
           role: "Nutrition Consultant & Life Coach",
-          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+          avatar: "/img/romana_nemcova_portret-1.jpeg",
         },
 
         gallery: [],
@@ -1420,7 +1420,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
             "Webová stránka konečne odráža môj prístup k zdraviu a koučingu. Klienti rozumejú procesu, dôverujú systému a môžu si jednoducho rezervovať termín, zaplatiť alebo zakúpiť poukážky online.",
           author: "Ing. Romana Nemcová",
           role: "Výživová poradkyňa & life koučka",
-          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+          avatar: "/img/romana_nemcova_portret-1.jpeg",
         },
       
         gallery: [],
@@ -1486,7 +1486,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
             "Webové stránky konečně odrážejí můj přístup ke zdraví a koučinku. Klienti rozumí procesu, důvěřují systému a mohou si snadno rezervovat termín, zaplatit nebo zakoupit poukazy online.",
           author: "Ing. Romana Nemcová",
           role: "Výživová poradkyně & life koučka",
-          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+          avatar: "/img/romana_nemcova_portret-1.jpeg",
         },
       
         gallery: [],
