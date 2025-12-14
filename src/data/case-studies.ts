@@ -778,12 +778,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         description:
           "Comprehensive construction and renovation services including full interior rebuilds, facades and energy-efficient upgrades for residential and commercial buildings.",
         tags: ["Construction", "Renovations", "Project Management"],
-        image: "/img/weboptim-kimbau-mockup",
+        image: "/img/weboptim-kimbau-mockup.jpg",
         statValue: "30+ yrs",
         statLabel: "Experience",
         featured: true,
 
-        heroImage: "/img/weboptim-kimbau-mockup",
+        heroImage: "/img/weboptim-kimbau-mockup.jpg",
 
         overview:
           "Kimbau is a well-established construction firm operating since 1994, delivering high-quality reconstruction and construction services across Prague and surrounding regions. Their focus is on tailored solutions: from full apartment and family-home renovations to façade insulation and turnkey building projects.",
