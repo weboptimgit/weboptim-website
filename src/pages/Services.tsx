@@ -143,7 +143,7 @@ const WebDevCard = ({
   s,
   lang,
 }: {
-  service: (typeof services)[0];
+  service: ReturnType<typeof getServices>[0];
   index: number;
   s: ReturnType<typeof useServicesLang>;
   lang: "EN" | "SK" | "CZ";
@@ -287,7 +287,7 @@ const ServiceCard = ({
   features,
   learnMoreLabel,
 }: {
-  service: (typeof services)[0];
+  service: ReturnType<typeof getServices>[0];
   index: number;
   title: string;
   description: string;
