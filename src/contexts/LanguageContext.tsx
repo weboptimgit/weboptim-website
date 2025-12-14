@@ -148,10 +148,10 @@ const translations: Record<Language, Record<string, string>> = {
     "about.heading.before": "We're a team of",
     "about.heading.highlight": "innovators",
     "about.p1":
-      "We’re a full-service digital agency helping brands grow through smart marketing, performance-driven advertising, and scalable web solutions.",
+    "We are a specialist digital agency that helps brands grow with powerful web solutions, e-commerce and data-driven SEO strategies.",
     "about.p2":
-      "From PPC and SEO to modern websites, we focus on what actually moves your business forward — no shortcuts, no average results.",
-    "about.cta": "Learn More About Us",
+    "From technical SEO to modern websites and e-commerce - we focus on what really increases visibility, performance and business results. No shortcuts, no average solutions.",
+    "about.cta": "Learn more about us",
 
     // About features
     "about.features.fast.title": "Fast Delivery",
@@ -336,10 +336,10 @@ const translations: Record<Language, Record<string, string>> = {
     "about.badge": "O nás",
     "about.heading.before": "Jsme tým",
     "about.heading.highlight": "inovátorů",
-    "about.p1":
-      "Jsme full-service digitální agentura, která pomáhá značkám růst díky chytrému marketingu, výkonnostní reklamě a škálovatelným webovým řešením.",
-    "about.p2":
-      "Od PPC a SEO po moderní weby – soustředíme se na to, co skutečně posouvá váš byznys vpřed. Bez zkratek, bez průměrných výsledků.",
+    "about.p1": 
+    "Jsme specializovaná digitální agentura, která pomáhá značkám růst díky výkonným webovým řešením, e-shopům a SEO strategiím postaveným na datech.", 
+    "about.p2": 
+    "Od technického SEO po moderní weby a e-shopy - soustředíme se na to, co reálně zvyšuje viditelnost, výkon a obchodní výsledky. Bez zkratek, bez průměrných řešení.", 
     "about.cta": "Zjistit více o nás",
 
     // About features
@@ -526,9 +526,9 @@ const translations: Record<Language, Record<string, string>> = {
     "about.heading.before": "Sme tím",
     "about.heading.highlight": "inovátorov",
     "about.p1":
-      "Sme full-service digitálna agentúra, ktorá pomáha značkám rásť vďaka smart marketingu, výkonnostnej reklame a škálovateľným webovým riešeniam.",
+      "Sme špecializovaná digitálna agentúra, ktorá pomáha značkám rásť vďaka výkonným webovým riešeniam, e-shopom a SEO stratégiám postaveným na dátach.",
     "about.p2":
-      "Od PPC a SEO po moderné weby – sústredíme sa na to, čo reálne posúva váš biznis vpred. Bez skratiek, bez priemerných výsledkov.",
+      "Od technického SEO po moderné weby a e-shopy – sústredíme sa na to, čo reálne zvyšuje viditeľnosť, výkon a obchodné výsledky. Bez skratiek, bez priemerných riešení.",
     "about.cta": "Zistiť viac o nás",
 
     // About features
