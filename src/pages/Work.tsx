@@ -1,3 +1,4 @@
+// src/pages/Work.tsx
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -12,7 +13,7 @@ import { getCaseStudiesList, getCaseStudy } from "@/data/case-studies";
 // NOTE: projects robíme vo vnútri komponentu (kvôli language)
 
 const Work = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   // 1) zoznam kariet (jazykovo)
   const list = getCaseStudiesList(language);
@@ -47,13 +48,15 @@ const Work = () => {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Our Portfolio
+                {t("work.badge")}
               </span>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-                Case <span className="text-gradient">Studies</span>
+                {t("work.title.before")} <span className="text-gradient">{t("work.title.highlight")}</span>
               </h1>
+
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Explore our latest projects and see how we help businesses transform their digital presence
+                {t("work.subtitle")}
               </p>
             </motion.div>
           </div>
@@ -91,17 +94,18 @@ const Work = () => {
               transition={{ duration: 0.6 }}
               className="glass rounded-3xl p-12 text-center max-w-3xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to Start Your Project?</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{t("work.cta.title")}</h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                Let's discuss how we can help transform your digital presence and achieve your business goals.
+                {t("work.cta.subtitle")}
               </p>
+
               <Link to="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-primary text-primary-foreground font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300"
                 >
-                  Get in Touch
+                  {t("work.cta.button")}
                   <ArrowUpRight className="w-5 h-5" />
                 </motion.button>
               </Link>
@@ -161,7 +165,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {project.tags.map((tag, i) => (
+        {(project.tags ?? []).map((tag, i) => (
           <span key={i} className="px-2 py-1 rounded-md bg-primary/10 text-primary text-xs font-medium">
             {tag}
           </span>
