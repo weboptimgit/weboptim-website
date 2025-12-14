@@ -39,10 +39,10 @@ const Contact = () => {
   });
   
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: s.breadcrumb.home ?? "Home", url: `${base}/` },
-    { name: s.breadcrumb.contact ?? s.seo.title, url: canonicalUrl },
+    { name: s.breadcrumb?.home ?? "Home", url: `${base}/` },
+    { name: s.breadcrumb?.contact ?? s.seo.title ?? "Contact", url: canonicalUrl },
   ]);
-
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
