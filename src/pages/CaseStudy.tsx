@@ -17,7 +17,8 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import SEO from "@/components/SEO";
-import { useWorkCaseStudy } from "@/contexts/WorkCaseStudy";
+import { useParams } from "react-router-dom";
+import { getCaseStudy } from "@/data/case-studies";
 
 // Tech color mapping by category
 const getTechColor = (tech: string): string => {
@@ -62,8 +63,8 @@ const CaseStudy = () => {
   const features = text.features ?? study.features;
   const { language } = useLanguage();
   const backToWork = buildPath(language, "work");
-  const { slug } = useParams<{ slug: string }>();
-  const study = slug ? caseStudiesData[slug] : null;
+  const { slug } = useParams();
+  const study = slug ? getCaseStudy(slug, language) : undefined;
   
   if (!study) {
     return (
