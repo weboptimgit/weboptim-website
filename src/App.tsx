@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import BuildingWebsite from "./pages/BuildingWebsite";
@@ -66,8 +66,15 @@ const App = () => (
             
             {/* Work/Portfolio - EN, CZ, SK */}
             <Route path="/work" element={<Work />} />
-            <Route path="/portfolio" element={<Work />} />
-            <Route path="/case-study/:slug" element={<CaseStudy />} />
+            <Route path="/nase-prace" element={<Work />} />
+            
+            {/* Detail case study - via work base */}
+            <Route path="/work/:slug" element={<CaseStudy />} />
+            <Route path="/nase-prace/:slug" element={<CaseStudy />} />
+            
+            {/* Backward compatible old URLs */}
+            <Route path="/portfolio" element={<Navigate to="/nase-prace" replace />} />
+            <Route path="/case-study/:slug" element={<Navigate to="/nase-prace/:slug" replace />} />
             
             {/* Contact - EN, CZ, SK */}
             <Route path="/contact" element={<ContactLanguageProvider><Contact /></ContactLanguageProvider>} /> 
