@@ -22,13 +22,14 @@ import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
-import SEO from "@/components/SEO";
+import SEO, { getFAQSchema, getServicePageSchema } from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import Testimonials from "@/components/Testimonials";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
 import { buildPath } from "@/config/domains";
+import { domainConfig } from "@/config/domains";
 
 /* -------------------- STATIC VISUAL DATA (non-translated) -------------------- */
 
@@ -155,14 +156,30 @@ const BuildingWebsite = () => {
   const bw = useBuildingWebsiteLang();
   const { language } = useLanguage();
 
+  const canonicalUrl =
+  typeof window !== "undefined"
+    ? `${domainConfig[language]}${window.location.pathname}`
+    : `${domainConfig[language]}${buildPath(language, "building-website")}`; 
+
+  const jsonLd = [
+    getServicePageSchema({
+      language,
+      canonicalUrl,
+      serviceName: bw.faq.serviceName || bw.seo.title, 
+      serviceDescription: bw.seo.description
+    }),
+    getFAQSchema(
+      bw.faq.items.map((x) => ({ q: x.q, a: x.a }))
+    )
+  ];
+  
   // localized routes
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
 
   return (
     <>
-      <SEO title={bw.seo.title} description={bw.seo.description} />
-
+      <SEOtitle={bw.seo.title}description={bw.seo.description}jsonLd={jsonLd}/>
       <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <AmbientBackground />
         <Navbar />
