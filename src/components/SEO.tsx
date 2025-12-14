@@ -174,6 +174,35 @@ export const getWebSiteSchema = (language: Language) => ({
   inLanguage: language === "CZ" ? "cs" : language === "SK" ? "sk" : "en",
 });
 
+// helper len pre About page
+export const getAboutPageSchema = (language: Language, canonicalUrl: string) => {
+  const base = domainConfig[language];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${canonicalUrl}#about`,
+    url: canonicalUrl,
+    name: getSEOData("about", language)?.title || "O nás | WebOptim",
+    description: getSEOData("about", language)?.description || "",
+    about: {
+      "@type": "Organization",
+      "@id": `${base}/#organization`,
+      name: "WebOptim",
+      legalName: "Smart Coach s.r.o.",
+      url: base,
+      logo: `${base}/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png`,
+      knowsAbout: [
+        "Webové stránky",
+        "E-shopy",
+        "SEO",
+        "Technické SEO",
+        "Digitalizácia"
+      ]
+    }
+  };
+};
+
 // Helper to generate Article schema for blog posts
 export const getArticleSchema = (post: {
   title: string;
