@@ -630,140 +630,139 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       },
       SK: {
-        slug: "yogatree-yoga-massage",
-        title: "YogaTree",
-        subtitle: "Joga & Masážne služby",
-        category: "Wellness",
-        client: "YogaTree.cz",
-        duration: "2–3 týždne",
-        year: "2024",
-        team: "1–2 osoby",
-        projectUrl: "https://yogatree.cz",
+        slug: "uzdravtelo-nutrition-coaching-platform",
+        title: "UzdravTelo",
+        subtitle: "Platforma výživového poradenstva & life coachingu",
+        category: "Zdravie & koučing",
+        client: "UzdravTelo",
+        duration: "Dlhodobá spolupráca",
+        year: "2024–2025",
+        team: "1–3 osoby",
       
         description:
-          "Responzívna informačná webstránka propagujúca jogu a masážne služby so zameraním na rovnováhu, relaxáciu a harmóniu tela a mysle.",
-        tags: ["Joga", "Masáže", "Responzívny web"],
-        image: "https://esttt3x94jo.exactdn.com/wp-content/uploads/2024/06/DSC_5422.jpg?strip=all",
+          "Zdravotná a koučingová platforma kombinujúca výživové poradenstvo, diagnostiku, kurzy, platby a digitálne poukážky.",
+        tags: ["Výživa", "Life koučing", "WordPress", "Stripe"],
+        image: "/img/weboptim-uzdravtelo_1600-min.jpg",
         statValue: "5.0★",
-        statLabel: "Hodnotenia klientov",
-        featured: false,
+        statLabel: "Google hodnotenia",
+        featured: true,
       
-        heroImage: "https://esttt3x94jo.exactdn.com/wp-content/uploads/2024/06/DSC_5422.jpg?strip=all",
+        heroImage: "/img/weboptim-uzdravtelo_1600-min.jpg",
       
         overview:
-          "YogaTree.cz je pokojná a prívetivá wellness webstránka pre jogové lekcie a masážne služby so sídlom v Prahe-Braníku. Cieľom webu bolo poskytnúť jasné informácie o ponuke, budovať dôveru prostredníctvom referencií a zjednodušiť kontakt a rezervácie pre klientov hľadajúcich relaxáciu a rovnováhu tela a mysle.",
+          "UzdravTelo je osobná zdravotná a koučingová platforma vedená Ing. Romanou Nemcovou, zameraná na výživové poradenstvo, zmenu životného štýlu a dlhodobé výsledky. Web prezentuje systematický prístup postavený na štyroch hlavných pilieroch — výživa, pohyb, regenerácia a duševná pohoda — podporený diagnostikou, vzdelávaním a platenými programami.",
       
         challenge:
-          "Pôvodnou výzvou bolo prezentovať služby YogaTree — jogu, meditáciu a masáže — jednoduchým a priateľským spôsobom, ktorý osloví nových aj stálych klientov. Dôležité bolo komunikovať profesionalitu, skúsenosti s prácou s telom a vedomou praxou a zároveň uľahčiť návštevníkom kontakt.",
+          "Výzvou bolo zrozumiteľne a ľudsky komunikovať komplexný, dlhodobý prístup k zdraviu a zároveň podporiť reálne biznisové potreby: platené konzultácie, kurzy a darčekové poukážky. Platforma musela budovať dôveru, prezentovať odbornosť a automatizovať platby a digitálne doručenie bez zbytočných prekážok pre klientov.",
       
         solution:
-          "Navrhli sme čistú a harmonickú štruktúru webu so zameraním na hlavné služby (Joga, Masáže), jasné kontaktné informácie a silné referencie. Rozloženie zdôrazňuje benefity ako lepšia flexibilita, hlboká relaxácia a vyvážená energia a prirodzene vedie používateľov ku kontaktu alebo rezervácii.",
+          "Navrhli sme a vyvinuli WordPress platformu, ktorá spája obsah, vzdelávanie a monetizáciu do jedného funkčného systému. Klienti si môžu rezervovať konzultácie, zakúpiť kurzy a kúpiť digitálne poukážky prostredníctvom Fluent Forms s platbami cez Stripe. Automatizované procesy riešia potvrdenia, doručenie poukážok a prístup ku kurzom, pričom štruktúra webu jasne vysvetľuje metodiku štyroch pilierov aj jednotlivé kroky, ktorými klient prechádza.",
       
         services: [
-          { icon: Palette, label: "UI/UX návrh rozloženia" },
-          { icon: Globe, label: "Tvorba responzívnej webstránky" },
-          { icon: Megaphone, label: "Texty & komunikácia značky" },
-          { icon: Code, label: "Integrácia kontaktu a rezervácií" },
+          { icon: Palette, label: "UI/UX & obsahová štruktúra" },
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Globe, label: "SK / CZ lokalizácia" },
+          { icon: Megaphone, label: "Platby & automatizácia" },
         ],
       
-        technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "Responzívny dizajn"],
+        technologies: ["WordPress", "PHP", "Stripe", "FluentForms", "JavaScript", "HTML5", "CSS3", "Generovanie PDF"],
       
         results: [
-          { metric: "↑ 3×", label: "Počet dopytov", description: "Viac priamych kontaktov cez webstránku." },
-          { metric: "5.0★", label: "Hodnotenia", description: "Stabilne vysoké hodnotenia a referencie klientov." },
-          { metric: "↓ 20%", label: "Miera odchodov", description: "Lepšia angažovanosť vďaka prehľadnému rozloženiu a informáciám." },
-          { metric: "↑ 25%", label: "Viditeľnosť vo vyhľadávaní", description: "Lepšia nájditeľnosť pre lokálne jogové a masážne služby." },
+          { metric: "5.0★", label: "Dôvera klientov", description: "Silné Google hodnotenia podporujúce dôveryhodnosť a odbornosť" },
+          { metric: "✓", label: "Online platby", description: "Predaj kurzov, konzultácií a poukážok online" },
+          { metric: "PDF", label: "Digitálne poukážky", description: "Okamžité generovanie poukážok a doručenie e-mailom po zaplatení" },
+          { metric: "↓", label: "Manuálna práca", description: "Automatizované procesy výrazne znížili administratívnu záťaž" },
         ],
       
         testimonial: {
           quote:
-            "Nová webstránka YogaTree presne vystihuje to, čo som chcela — prehľadnosť, pokoj a príjemnú online prezentáciu. Klienti si jednoducho nájdu moje služby a môžu ma ľahko kontaktovať.",
-          author: "Barbora Holoubková",
-          role: "Zakladateľka & lektorka",
+            "Webová stránka konečne odráža môj prístup k zdraviu a koučingu. Klienti rozumejú procesu, dôverujú systému a môžu si jednoducho rezervovať termín, zaplatiť alebo zakúpiť poukážky online.",
+          author: "Ing. Romana Nemcová",
+          role: "Výživová poradkyňa & life koučka",
           avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
         },
       
         gallery: [],
         features: [
-          "Prehľadná úvodná štruktúra pre jogu a masáže",
-          "Silná sekcia referencií na budovanie dôvery",
-          "Jednoduchá výzva na kontakt a rezerváciu",
-          "Responzívne zobrazenie pre mobil aj desktop",
-          "SEO optimalizovaný obsah pre lokálne wellness vyhľadávania",
-          "Zdôraznenie benefitov pre harmóniu tela a mysle",
-          "Jednoduchá navigácia – služby, o mne, blog a kontakt",
-          "Integrácia jasných kontaktných údajov a formulára",
+          "Prehľadná prezentácia výživového poradenstva a life coachingu",
+          "Struktúrované vysvetlenie 4 pilierov zdravia: výživa, pohyb, regenerácia, duševná pohoda",
+          "Platené kurzy a programy spravované cez Fluent Forms",
+          "Integrácia Stripe pre bezpečné online platby",
+          "Vlastný systém digitálnych poukážok s generovaním PDF",
+          "Sezónne varianty poukážok a prednastavené alebo vlastné hodnoty",
+          "Automatizované e-mailové potvrdenia a digitálne doručenie",
+          "Integrácia Google hodnotení ako sociálneho dôkazu",
+          "Škálovateľná štruktúra pre budúce programy a edukačný obsah",
         ],
       },
       CZ: {
-        slug: "yogatree-yoga-massage",
-        title: "YogaTree",
-        subtitle: "Jóga & Masážní služby",
-        category: "Wellness",
-        client: "YogaTree.cz",
-        duration: "2–3 týdny",
-        year: "2024",
-        team: "1–2 osoby",
-        projectUrl: "https://yogatree.cz",
+        slug: "uzdravtelo-nutrition-coaching-platform",
+        title: "UzdravTelo",
+        subtitle: "Platforma výživového poradenství & life coachingu",
+        category: "Zdraví & koučink",
+        client: "UzdravTelo",
+        duration: "Dlouhodobá spolupráce",
+        year: "2024–2025",
+        team: "1–3 osoby",
       
         description:
-          "Responzivní informační webová stránka propagující jógu a masážní služby se zaměřením na rovnováhu, relaxaci a harmonii těla a mysli.",
-        tags: ["Jóga", "Masáže", "Responzivní web"],
-        image: "https://esttt3x94jo.exactdn.com/wp-content/uploads/2024/06/DSC_5422.jpg?strip=all",
+          "Zdravotní a koučinková platforma kombinující výživové poradenství, diagnostiku, kurzy, platby a digitální poukazy.",
+        tags: ["Výživa", "Life koučink", "WordPress", "Stripe"],
+        image: "/img/weboptim-uzdravtelo_1600-min.jpg",
         statValue: "5.0★",
-        statLabel: "Hodnocení klientů",
-        featured: false,
+        statLabel: "Google hodnocení",
+        featured: true,
       
-        heroImage: "https://esttt3x94jo.exactdn.com/wp-content/uploads/2024/06/DSC_5422.jpg?strip=all",
+        heroImage: "/img/weboptim-uzdravtelo_1600-min.jpg",
       
         overview:
-          "YogaTree.cz je klidný a přívětivý wellness web pro lekce jógy a masážní služby se sídlem v Praze-Braníku. Cílem webu bylo poskytnout jasné informace o nabídce, budovat důvěru prostřednictvím referencí a zjednodušit kontakt a rezervace pro klienty hledající relaxaci a rovnováhu těla i mysli.",
+          "UzdravTelo je osobní zdravotní a koučinková platforma vedená Ing. Romanou Nemcovou, zaměřená na výživové poradenství, změnu životního stylu a dlouhodobé výsledky. Web prezentuje systematický přístup postavený na čtyřech hlavních pilířích — výživa, pohyb, regenerace a duševní pohoda — podpořený diagnostikou, vzděláváním a placenými programy.",
       
         challenge:
-          "Hlavní výzvou bylo prezentovat služby YogaTree — jógu, meditaci a masáže — jednoduchou a přátelskou formou, která osloví nové i stávající klienty. Důležité bylo komunikovat profesionalitu, zkušenosti s prací s tělem a mindfulness a zároveň usnadnit návštěvníkům kontakt.",
+          "Výzvou bylo srozumitelně a lidsky komunikovat komplexní, dlouhodobý přístup ke zdraví a zároveň podpořit reálné obchodní potřeby: placené konzultace, kurzy a dárkové poukazy. Platforma musela budovat důvěru, prezentovat odbornost a automatizovat platby a digitální doručení bez zbytečného tření pro klienty.",
       
         solution:
-          "Navrhli jsme čistou a klidnou strukturu webu se zaměřením na hlavní služby (Jóga, Masáže), jasné kontaktní informace a silné reference. Rozložení zdůrazňuje benefity jako lepší flexibilitu, hlubokou relaxaci a vyváženou energii a přirozeně vede uživatele ke kontaktu nebo rezervaci.",
+          "Navrhli jsme a vyvinuli WordPress platformu, která spojuje obsah, vzdělávání a monetizaci do jednoho funkčního systému. Klienti si mohou rezervovat konzultace, zakoupit kurzy a koupit digitální poukazy prostřednictvím Fluent Forms s platbami přes Stripe. Automatizované procesy řeší potvrzení, doručení poukazů a přístup ke kurzům, přičemž struktura webu jasně vysvětluje metodiku čtyř pilířů i jednotlivé kroky, kterými klient prochází.",
       
         services: [
-          { icon: Palette, label: "UI/UX návrh rozložení" },
-          { icon: Globe, label: "Tvorba responzivního webu" },
-          { icon: Megaphone, label: "Textace & sdělení značky" },
-          { icon: Code, label: "Integrace kontaktu a rezervací" },
+          { icon: Palette, label: "UI/UX & obsahová struktura" },
+          { icon: Code, label: "WordPress vývoj" },
+          { icon: Globe, label: "SK / CZ lokalizace" },
+          { icon: Megaphone, label: "Platby & automatizace" },
         ],
       
-        technologies: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript", "Responzivní design"],
+        technologies: ["WordPress", "PHP", "Stripe", "FluentForms", "JavaScript", "HTML5", "CSS3", "Generování PDF"],
       
         results: [
-          { metric: "↑ 3×", label: "Počet poptávek", description: "Více přímých kontaktů prostřednictvím webu." },
-          { metric: "5.0★", label: "Hodnocení", description: "Dlouhodobě vysoká hodnocení a reference klientů." },
-          { metric: "↓ 20%", label: "Míra okamžitého opuštění", description: "Lepší zapojení díky přehlednému rozložení a informacím." },
-          { metric: "↑ 25%", label: "Viditelnost ve vyhledávání", description: "Lepší dohledatelnost pro lokální jógu a masáže." },
+          { metric: "5.0★", label: "Důvěra klientů", description: "Silná Google hodnocení podporující důvěryhodnost a odbornost" },
+          { metric: "✓", label: "Online platby", description: "Prodej kurzů, konzultací a poukazů online" },
+          { metric: "PDF", label: "Digitální poukazy", description: "Okamžité generování poukazů a doručení e-mailem po zaplacení" },
+          { metric: "↓", label: "Manuální práce", description: "Automatizované procesy výrazně snížily administrativní zátěž" },
         ],
       
         testimonial: {
           quote:
-            "Nový web YogaTree přesně vystihuje to, co jsem chtěla — přehlednost, klid a příjemnou online prezentaci. Klienti si snadno najdou mé služby a mohou mě jednoduše kontaktovat.",
-          author: "Barbora Holoubková",
-          role: "Zakladatelka & instruktorka",
+            "Webové stránky konečně odrážejí můj přístup ke zdraví a koučinku. Klienti rozumí procesu, důvěřují systému a mohou si snadno rezervovat termín, zaplatit nebo zakoupit poukazy online.",
+          author: "Ing. Romana Nemcová",
+          role: "Výživová poradkyně & life koučka",
           avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
         },
       
         gallery: [],
         features: [
-          "Přehledná úvodní struktura pro jógu a masáže",
-          "Silná sekce referencí pro budování důvěry",
-          "Jednoduchá výzva ke kontaktu a rezervaci",
-          "Responzivní zobrazení pro mobil i desktop",
-          "SEO optimalizovaný obsah pro lokální wellness dotazy",
-          "Zdůraznění benefitů pro harmonii těla a mysli",
-          "Jednoduchá navigace – služby, o mně, blog a kontakt",
-          "Integrace jasných kontaktních údajů a formuláře",
+          "Přehledná prezentace výživového poradenství a life coachingu",
+          "Strukturované vysvětlení 4 pilířů zdraví: výživa, pohyb, regenerace, duševní pohoda",
+          "Placené kurzy a programy spravované přes Fluent Forms",
+          "Integrace Stripe pro bezpečné online platby",
+          "Vlastní systém digitálních poukazů s generováním PDF",
+          "Sezónní varianty poukazů a přednastavené nebo vlastní hodnoty",
+          "Automatizované e-mailové potvrzení a digitální doručení",
+          "Integrace Google hodnocení jako sociálního důkazu",
+          "Škálovatelná struktura pro budoucí programy a edukační obsah",
         ],
       },
     },
   },
-
   "yogatree-yoga-massage": {
     translations: {
       EN: {
