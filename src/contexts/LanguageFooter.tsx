@@ -51,11 +51,11 @@ const translations: Record<string, FooterLang> = {
       ],
     },
     resources: {
-      title: "Resources",
+      title: "Information",
       links: [
         { name: "FAQ", href: "/faq" },
         { name: "Glossary", href: "/glossary" },
-        { name: "Price Calculator", href: "/calculator" },
+        { name: "Website Configurator", href: "/configurator" },
         { name: "Privacy Policy", href: "/privacy-policy" },
       ],
     },
@@ -84,17 +84,17 @@ const translations: Record<string, FooterLang> = {
       title: "Spoločnosť",
       links: [
         { name: "O nás", href: "/o-nas" },
-        { name: "Realizácie", href: "/nase-prace" },
+        { name: "Naše práce", href: "/nase-prace" },
         { name: "Blog", href: "/blog" },
         { name: "Kontakt", href: "/kontakt" },
       ],
     },
     resources: {
-      title: "Zdroje",
+      title: "Informácie",
       links: [
         { name: "Časté otázky", href: "/caste-otazky" },
         { name: "Slovník pojmov", href: "/slovnik" },
-        { name: "Cenová kalkulačka", href: "/kalkulacka" },
+        { name: "Konfigurátor webstránky", href: "/konfigurator" },
         { name: "Ochrana súkromia", href: "/ochrana-osobnych-udajov" },
       ],
     },
@@ -103,7 +103,7 @@ const translations: Record<string, FooterLang> = {
         "Tvoríme výnimočné digitálne zážitky, ktoré pomáhajú firmám rásť a uspieť v modernom svete.",
     },
     bottom: {
-      copyright: "© 2024 WebOptim. Všetky práva vyhradené.",
+      copyright: "© 2025 WebOptim. Všetky práva vyhradené.",
       tagline: "Tvorené s vášňou a precíznosťou.",
     },
   },
@@ -123,17 +123,17 @@ const translations: Record<string, FooterLang> = {
       title: "Společnost",
       links: [
         { name: "O nás", href: "/o-nas" },
-        { name: "Realizace", href: "/nase-prace" },
+        { name: "Naše práce", href: "/nase-prace" },
         { name: "Blog", href: "/blog" },
         { name: "Kontakt", href: "/kontakt" },
       ],
     },
     resources: {
-      title: "Zdroje",
+      title: "Informace",
       links: [
         { name: "Časté dotazy", href: "/caste-dotazy" },
         { name: "Slovník pojmů", href: "/slovnik" },
-        { name: "Cenová kalkulačka", href: "/kalkulacka" },
+        { name: "Konfigurátor webstránky", href: "/konfigurator" },
         { name: "Ochrana soukromí", href: "/ochrana-osobnich-udaju" },
       ],
     },
