@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CodeBlock from "@/components/CodeBlock";
-import { getBlogPost, getCategorySlug, getAuthorSlug } from "@/data/blog-posts";
+import { getBlogPost, getCategorySlug, getAuthorSlug, getTranslatedCategorySlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
 import SEO, { getArticleSchema, getBreadcrumbSchema } from "@/components/SEO";
-import { domainConfig } from "@/config/domains";
+import { domainConfig, staticPageSlugs } from "@/config/domains";
 import {
   reviewsPlatformsRows,
   reviewsPlatformsTableMeta,
@@ -228,7 +228,7 @@ const BlogPost = () => {
                 className="mb-4"
               >
                 <Link 
-                  to={`/blog/category/${getCategorySlug(post.category)}`}
+                  to={`/${staticPageSlugs.blogCategory[language]}/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}
                   className="inline-block px-4 py-1.5 rounded-full bg-gradient-hero text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
                 >
                   {post.category}
@@ -253,7 +253,7 @@ const BlogPost = () => {
                 className="flex flex-wrap items-center gap-2 text-foreground/70"
               >
                 <Link 
-                  to={`/blog/author/${getAuthorSlug(post.author)}`}
+                  to={`/${staticPageSlugs.blogAuthor[language]}/${getAuthorSlug(post.author)}`}
                   className="flex items-center gap-2 glass px-4 py-2 rounded-full hover:bg-primary/10 transition-colors"
                 >
                   <User className="w-4 h-4 text-primary" />

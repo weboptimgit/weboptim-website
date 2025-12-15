@@ -1595,14 +1595,42 @@ export const getLatestBlogPosts = (language: Language, limit = 3) => {
     }));
 };
 
-// Helper function to create URL-friendly slug from category name
+// Helper function to create URL-friendly slug from category name (removes diacritics)
 export const getCategorySlug = (category: string): string => {
   return category
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove diacritics
     .replace(/[()]/g, "")
     .replace(/\s+/g, "-")
     .replace(/--+/g, "-")
     .trim();
+};
+
+// Category slug translations for each language
+export const categorySlugTranslations: Record<string, Record<Language, string>> = {
+  "online-marketing": { EN: "online-marketing", CZ: "online-marketing", SK: "online-marketing" },
+  "webs-and-eshops": { EN: "webs-and-eshops", CZ: "weby-a-eshopy", SK: "weby-a-eshopy" },
+  "ai-artificial-intelligence": { EN: "ai-artificial-intelligence", CZ: "ui-umela-inteligence", SK: "ui-umela-inteligencia" },
+  "weby-a-eshopy": { EN: "webs-and-eshops", CZ: "weby-a-eshopy", SK: "weby-a-eshopy" },
+  "ui-umela-inteligence": { EN: "ai-artificial-intelligence", CZ: "ui-umela-inteligence", SK: "ui-umela-inteligencia" },
+  "ui-umela-inteligencia": { EN: "ai-artificial-intelligence", CZ: "ui-umela-inteligence", SK: "ui-umela-inteligencia" },
+};
+
+// Get translated category slug for target language
+export const getTranslatedCategorySlug = (categorySlug: string, targetLanguage: Language): string => {
+  const mapping = categorySlugTranslations[categorySlug];
+  return mapping ? mapping[targetLanguage] : categorySlug;
+};
+
+// Get base category slug from any translated slug
+export const getBaseCategorySlug = (translatedSlug: string): string => {
+  for (const [baseSlug, translations] of Object.entries(categorySlugTranslations)) {
+    if (Object.values(translations).includes(translatedSlug)) {
+      return baseSlug;
+    }
+  }
+  return translatedSlug;
 };
 
 // Helper function to create URL-friendly slug from author name
@@ -1635,10 +1663,26 @@ export const getAllAuthors = (language: Language) => {
   }));
 };
 
-// Get posts by category slug
+// Get posts by category slug (searches across all languages to find matching posts)
 export const getPostsByCategory = (categorySlug: string, language: Language) => {
+  // First, find which category this slug belongs to by checking all languages
+  let matchingCategoryName: string | null = null;
+  
+  for (const post of blogPostsData) {
+    // Check each language's category
+    for (const lang of ["EN", "CZ", "SK"] as Language[]) {
+      if (getCategorySlug(post.translations[lang].category) === categorySlug) {
+        matchingCategoryName = post.translations[language].category;
+        break;
+      }
+    }
+    if (matchingCategoryName) break;
+  }
+  
+  if (!matchingCategoryName) return [];
+  
   return blogPostsData
-    .filter((post) => getCategorySlug(post.translations[language].category) === categorySlug)
+    .filter((post) => post.translations[language].category === matchingCategoryName)
     .map((post) => ({
       slug: post.translations[language].slug,
       title: post.translations[language].title,
@@ -1652,12 +1696,16 @@ export const getPostsByCategory = (categorySlug: string, language: Language) => 
     }));
 };
 
-// Get category name from slug
+// Get category name from slug (searches across all languages)
 export const getCategoryNameFromSlug = (categorySlug: string, language: Language): string | null => {
-  const post = blogPostsData.find(
-    (p) => getCategorySlug(p.translations[language].category) === categorySlug
-  );
-  return post ? post.translations[language].category : null;
+  for (const post of blogPostsData) {
+    for (const lang of ["EN", "CZ", "SK"] as Language[]) {
+      if (getCategorySlug(post.translations[lang].category) === categorySlug) {
+        return post.translations[language].category;
+      }
+    }
+  }
+  return null;
 };
 
 // Get posts by author slug
