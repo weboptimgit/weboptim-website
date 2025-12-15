@@ -1,4 +1,4 @@
-// src/lib/gtm-loader.ts
+// src/lib/loadGTM.ts
 import { getGtmIdForDomain } from "@/config/gtm";
 
 declare global {
@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-export function loadGtmOnce() {
+export function loadGTM() {
   if (typeof window === "undefined") return;
 
   // aby sa to nenačítalo 2x
@@ -16,18 +16,15 @@ export function loadGtmOnce() {
   const gtmId = getGtmIdForDomain();
   if (!gtmId) return;
 
-  // dataLayer init
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
 
-  // GTM script
   const s = document.createElement("script");
   s.id = "wo-gtm-script";
   s.async = true;
   s.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
   document.head.appendChild(s);
 
-  // noscript iframe (reálne v SPAs moc nedáva zmysel, ale nech je komplet)
   if (!document.getElementById("wo-gtm-noscript")) {
     const ns = document.createElement("noscript");
     ns.id = "wo-gtm-noscript";
