@@ -26,10 +26,9 @@ const BlogCategory = () => {
   const posts = slug ? getPostsByCategory(slug, language) : [];
   const allCategories = getAllCategories(language);
 
-  // Get translated category path for links
+  // Get category path for links (now just /blog/slug without /category/)
   const getCategoryPath = (catSlug: string) => {
-    const pathPrefix = staticPageSlugs.blogCategory[language];
-    return `/${pathPrefix}/${catSlug}`;
+    return `/blog/${catSlug}`;
   };
 
   if (!categoryName || posts.length === 0) {
