@@ -30,6 +30,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
 import { buildPath } from "@/config/domains";
 import { domainConfig } from "@/config/domains";
+import ConfiguratorCtaBox from "@/components/ConfiguratorCtaBox";
 
 /* -------------------- STATIC VISUAL DATA (non-translated) -------------------- */
 
