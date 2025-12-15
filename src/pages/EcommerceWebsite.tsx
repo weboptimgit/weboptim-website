@@ -311,7 +311,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-10"
           >
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">{e.platforms.title}</h2>
@@ -327,7 +327,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                   key={platform.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: i * 0.1 }}
                   className={`group relative p-4 rounded-2xl border transition-all duration-500 min-w-[140px] cursor-pointer overflow-hidden ${
                     platform.highlight
@@ -382,7 +382,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{e.features.title}</h2>
@@ -399,7 +399,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                   key={`${feature.title}-${index}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.1 }}
                   className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                 >
@@ -442,7 +442,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{e.process.title}</h2>
@@ -459,7 +459,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                   key={step.step}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.1 }}
                   className="relative p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 group"
                 >
@@ -491,7 +491,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">{e.pricing.title}</h2>
@@ -504,7 +504,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                 key={pkg.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.1 }}
                 className={`relative p-6 rounded-2xl border transition-all duration-300 ${
                   pkg.popular
@@ -560,7 +560,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center max-w-3xl mx-auto"
           >
             <Sparkles className="w-12 h-12 text-green-400 mx-auto mb-6" />

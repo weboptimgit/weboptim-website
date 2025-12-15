@@ -230,7 +230,7 @@ const DigitalizationServices = () => {
         {/* Technologies */}
         <section className="py-20 px-6 bg-muted/20">
           <div className="max-w-7xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {s.sections.technologies.title} <span className="text-primary">{s.sections.technologies.highlight}</span>
               </h2>
@@ -243,7 +243,7 @@ const DigitalizationServices = () => {
                   key={tech.name}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.03 }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   className="px-4 py-2 rounded-full glass-strong border border-border/50 hover:border-primary/30 transition-all duration-300 cursor-default"
@@ -259,7 +259,7 @@ const DigitalizationServices = () => {
         {/* Benefits */}
         <section className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {s.sections.benefits.title} <span className="text-primary">{s.sections.benefits.highlight}</span>
               </h2>
@@ -274,7 +274,7 @@ const DigitalizationServices = () => {
                     key={benefit.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: index * 0.1 }}
                     className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                   >
@@ -305,7 +305,7 @@ const DigitalizationServices = () => {
         {/* Services */}
         <section className="py-20 px-6 bg-muted/20">
           <div className="max-w-7xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {s.sections.services.title} <span className="text-primary">{s.sections.services.highlight}</span>
               </h2>
@@ -320,7 +320,7 @@ const DigitalizationServices = () => {
                     key={service.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: index * 0.1 }}
                     className="group relative glass-strong rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                   >
@@ -356,7 +356,7 @@ const DigitalizationServices = () => {
         {/* Pricing */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {s.sections.pricing.title} <span className="text-primary">{s.sections.pricing.highlight}</span>
               </h2>
@@ -369,7 +369,7 @@ const DigitalizationServices = () => {
                   key={plan.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.1 }}
                   className={`relative glass-strong rounded-2xl overflow-hidden border ${
                     plan.popular ? "border-primary shadow-lg shadow-primary/20" : "border-border/50"
@@ -418,7 +418,7 @@ const DigitalizationServices = () => {
         {/* Process */}
         <section className="py-20 px-6 bg-muted/20">
           <div className="max-w-5xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {s.sections.process.title} <span className="text-primary">{s.sections.process.highlight}</span>
               </h2>
@@ -433,7 +433,7 @@ const DigitalizationServices = () => {
                     key={item.step}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: index * 0.15 }}
                     className="flex gap-6 items-start"
                   >
@@ -469,7 +469,7 @@ const DigitalizationServices = () => {
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center max-w-3xl mx-auto">
               <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-6" />
 
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">

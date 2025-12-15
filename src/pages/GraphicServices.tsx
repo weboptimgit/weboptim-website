@@ -208,7 +208,7 @@ const GraphicServices = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-16"
           >
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -230,7 +230,7 @@ const GraphicServices = () => {
                   key={feature.title}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.08 }}
                   className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
                 >
@@ -274,7 +274,7 @@ const GraphicServices = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
@@ -289,7 +289,7 @@ const GraphicServices = () => {
                 key={plan.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.1 }}
                 className={`relative glass rounded-2xl p-8 ${
                   plan.popular ? "border-2 border-purple-500 scale-105" : "border border-border/50"
@@ -349,7 +349,7 @@ const GraphicServices = () => {
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-center max-w-3xl mx-auto">
             <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               {s.ctaBottom.titleBefore} <span className="text-gradient">{s.ctaBottom.titleHighlight}</span>
