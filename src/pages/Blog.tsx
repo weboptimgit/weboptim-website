@@ -5,9 +5,10 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getBlogPostsList, getCategories, getCategorySlug, getAuthorSlug } from "@/data/blog-posts";
+import { getBlogPostsList, getCategories, getCategorySlug, getAuthorSlug, getTranslatedCategorySlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
+import { staticPageSlugs } from "@/config/domains";
 
 const Blog = () => {
   const { language } = useLanguage();
@@ -176,7 +177,7 @@ const Blog = () => {
                           />
                           <div className="absolute top-4 left-4">
                             <Link 
-                              to={`/blog/category/${getCategorySlug(post.category)}`}
+                              to={`/${staticPageSlugs.blogCategory[language]}/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}
                               className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full hover:bg-primary transition-colors"
                               onClick={(e) => e.stopPropagation()}
                             >
@@ -209,7 +210,7 @@ const Blog = () => {
                           </div>
                           <div className="flex items-center justify-between">
                             <Link 
-                              to={`/blog/author/${getAuthorSlug(post.author)}`}
+                              to={`/${staticPageSlugs.blogAuthor[language]}/${getAuthorSlug(post.author)}`}
                               className="text-sm font-medium hover:text-primary transition-colors"
                               onClick={(e) => e.stopPropagation()}
                             >

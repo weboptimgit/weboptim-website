@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { Language } from "@/contexts/LanguageContext";
-import { blogPostsData } from "@/data/blog-posts";
+import { blogPostsData, getTranslatedCategorySlug, getBaseCategorySlug, getAuthorSlug } from "@/data/blog-posts";
 import { staticPageSlugs, getBaseRouteFromSlug } from "@/config/domains";
 
 // Hook to get slug mappings for the current page
@@ -14,11 +14,38 @@ export const useSlugMappings = (): Record<Language, string> | undefined => {
   }
   
   const firstSegment = pathParts[0];
+  const secondSegment = pathParts[1];
+  const thirdSegment = pathParts[2];
+  
+  // Check if we're on a blog category page (e.g., /blog/category/slug or /blog/kategorie/slug)
+  if (firstSegment === "blog" && secondSegment && thirdSegment) {
+    const categoryKeywords = ["category", "kategorie", "kategoria"];
+    const authorKeywords = ["author", "autor"];
+    
+    if (categoryKeywords.includes(secondSegment)) {
+      // Blog category archive
+      const baseSlug = getBaseCategorySlug(thirdSegment);
+      return {
+        EN: `${staticPageSlugs.blogCategory.EN}/${getTranslatedCategorySlug(baseSlug, "EN")}`,
+        CZ: `${staticPageSlugs.blogCategory.CZ}/${getTranslatedCategorySlug(baseSlug, "CZ")}`,
+        SK: `${staticPageSlugs.blogCategory.SK}/${getTranslatedCategorySlug(baseSlug, "SK")}`,
+      };
+    }
+    
+    if (authorKeywords.includes(secondSegment)) {
+      // Blog author archive - author slug stays the same
+      return {
+        EN: `${staticPageSlugs.blogAuthor.EN}/${thirdSegment}`,
+        CZ: `${staticPageSlugs.blogAuthor.CZ}/${thirdSegment}`,
+        SK: `${staticPageSlugs.blogAuthor.SK}/${thirdSegment}`,
+      };
+    }
+  }
   
   // Check if we're on a blog post page (has 2 segments like /blog/slug)
   const blogBaseRoute = getBaseRouteFromSlug(firstSegment);
-  if (blogBaseRoute === "blog" && pathParts[1]) {
-    const currentSlug = pathParts[1];
+  if (blogBaseRoute === "blog" && secondSegment && !thirdSegment) {
+    const currentSlug = secondSegment;
     
     // Find the blog post that matches any language's slug
     const blogPost = blogPostsData.find(
@@ -40,8 +67,8 @@ export const useSlugMappings = (): Record<Language, string> | undefined => {
   
   // Check if we're on a glossary term page
   const glossaryBaseRoute = getBaseRouteFromSlug(firstSegment);
-  if (glossaryBaseRoute === "glossary" && pathParts[1]) {
-    const termSlug = pathParts[1];
+  if (glossaryBaseRoute === "glossary" && secondSegment) {
+    const termSlug = secondSegment;
     // Glossary term slugs stay the same across languages (e.g., "api", "cms")
     return {
       EN: `${staticPageSlugs.glossary.EN}/${termSlug}`,

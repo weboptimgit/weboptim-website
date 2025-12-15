@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { getPostsByAuthor, getAuthorNameFromSlug, getAllAuthors } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
+import { staticPageSlugs } from "@/config/domains";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -23,6 +24,12 @@ const BlogAuthor = () => {
   const authorName = slug ? getAuthorNameFromSlug(slug) : null;
   const posts = slug ? getPostsByAuthor(slug, language) : [];
   const allAuthors = getAllAuthors(language);
+
+  // Get translated author path for links
+  const getAuthorPath = (authorSlug: string) => {
+    const pathPrefix = staticPageSlugs.blogAuthor[language];
+    return `/${pathPrefix}/${authorSlug}`;
+  };
 
   if (!authorName || posts.length === 0) {
     return (
@@ -127,7 +134,7 @@ const BlogAuthor = () => {
               className="flex flex-wrap justify-center gap-2"
             >
               {allAuthors.map((author) => (
-                <Link key={author.slug} to={`/blog/author/${author.slug}`}>
+                <Link key={author.slug} to={getAuthorPath(author.slug)}>
                   <Button
                     variant={author.slug === slug ? "default" : "outline"}
                     size="sm"

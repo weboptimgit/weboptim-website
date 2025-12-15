@@ -4,9 +4,10 @@ import { Calendar, Clock, ArrowRight, Home, ChevronRight, Folder, ArrowLeft } fr
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getPostsByCategory, getCategoryNameFromSlug, getAllCategories } from "@/data/blog-posts";
+import { getPostsByCategory, getCategoryNameFromSlug, getAllCategories, getTranslatedCategorySlug, getCategorySlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
+import { staticPageSlugs } from "@/config/domains";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -20,9 +21,16 @@ const BlogCategory = () => {
   const { slug } = useParams();
   const { language, t } = useLanguage();
   
+  // getCategoryNameFromSlug and getPostsByCategory now search across all languages
   const categoryName = slug ? getCategoryNameFromSlug(slug, language) : null;
   const posts = slug ? getPostsByCategory(slug, language) : [];
   const allCategories = getAllCategories(language);
+
+  // Get translated category path for links
+  const getCategoryPath = (catSlug: string) => {
+    const pathPrefix = staticPageSlugs.blogCategory[language];
+    return `/${pathPrefix}/${catSlug}`;
+  };
 
   if (!categoryName || posts.length === 0) {
     return (
@@ -123,17 +131,21 @@ const BlogCategory = () => {
               transition={{ duration: 0.4, delay: 0.2 }}
               className="flex flex-wrap justify-center gap-2"
             >
-              {allCategories.map((cat) => (
-                <Link key={cat.slug} to={`/blog/category/${cat.slug}`}>
-                  <Button
-                    variant={cat.slug === slug ? "default" : "outline"}
-                    size="sm"
-                    className="rounded-full"
-                  >
-                    {cat.name} ({cat.count})
-                  </Button>
-                </Link>
-              ))}
+              {allCategories.map((cat) => {
+                const catSlug = getTranslatedCategorySlug(getCategorySlug(cat.name), language);
+                const isActive = categoryName === cat.name;
+                return (
+                  <Link key={cat.slug} to={getCategoryPath(catSlug)}>
+                    <Button
+                      variant={isActive ? "default" : "outline"}
+                      size="sm"
+                      className="rounded-full"
+                    >
+                      {cat.name} ({cat.count})
+                    </Button>
+                  </Link>
+                );
+              })}
             </motion.div>
           </div>
         </section>
