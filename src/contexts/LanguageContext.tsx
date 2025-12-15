@@ -65,6 +65,13 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.exploreMore": "Explore More Articles",
     "blogPost.toc.title": "Table of contents",
 
+    // Blog List Page
+    "blog.tagsLabel": "Tags:",
+    "blog.clearTag": "Clear",
+    "blog.clearFilters": "Clear Filters",
+    "blog.noPostsFound": "No posts found for the selected filters.",
+    "blog.readMore": "Read more",
+
     // Blog Category Archive
     "blogCategory.badge": "Category",
     "blogCategory.seoTitle": "Blog Category",
@@ -274,6 +281,13 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.exploreMore": "Prozkoumat další články",
     "blogPost.toc.title": "Obsah článku",
 
+    // Blog List Page
+    "blog.tagsLabel": "Štítky:",
+    "blog.clearTag": "Zrušit",
+    "blog.clearFilters": "Zrušit filtry",
+    "blog.noPostsFound": "Pro vybrané filtry nebyly nalezeny žádné příspěvky.",
+    "blog.readMore": "Číst více",
+
     // Blog Category Archive
     "blogCategory.badge": "Kategorie",
     "blogCategory.seoTitle": "Kategorie blogu",
@@ -482,6 +496,13 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.author.bio": "Copywriter a špecialista na digitálny marketing so zameraním na webové trendy a SEO stratégie.",    
     "blogPost.exploreMore": "Pozrieť ďalšie články",
     "blogPost.toc.title": "Obsah článku",
+
+    // Blog List Page
+    "blog.tagsLabel": "Štítky:",
+    "blog.clearTag": "Zrušiť",
+    "blog.clearFilters": "Zrušiť filtre",
+    "blog.noPostsFound": "Pre vybrané filtre sa nenašli žiadne príspevky.",
+    "blog.readMore": "Čítať viac",
 
     // Blog Category Archive
     "blogCategory.badge": "Kategória",

@@ -711,7 +711,7 @@ const BlogPost = () => {
               <Link to="/blog">
                 <Button size="lg" className="bg-gradient-hero hover:opacity-90 transition-opacity rounded-full px-8">
                   <BookOpen className="w-5 h-5 mr-2" />
-                  Explore More Articles
+                  {t("blogPost.exploreMore")}
                 </Button>
               </Link>
             </motion.div>
