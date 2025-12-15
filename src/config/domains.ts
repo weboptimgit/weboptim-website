@@ -67,11 +67,6 @@ export const staticPageSlugs: Record<string, Record<Language, string>> = {
     CZ: "blog",
     SK: "blog",
   },
-  blogCategory: {
-    EN: "blog/category",
-    CZ: "blog/kategorie",
-    SK: "blog/kategoria",
-  },
   blogAuthor: {
     EN: "blog/author",
     CZ: "blog/autor",

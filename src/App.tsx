@@ -299,12 +299,9 @@ function AppShell() {
 
               {/* Blog */}
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/blog/category/:slug" element={<BlogCategory />} />
-              <Route path="/blog/kategorie/:slug" element={<BlogCategory />} />
-              <Route path="/blog/kategoria/:slug" element={<BlogCategory />} />
               <Route path="/blog/author/:slug" element={<BlogAuthor />} />
               <Route path="/blog/autor/:slug" element={<BlogAuthor />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
 
               {/* About */}
               <Route path="/about" element={<About />} />

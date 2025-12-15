@@ -177,7 +177,7 @@ const Blog = () => {
                           />
                           <div className="absolute top-4 left-4">
                             <Link 
-                              to={`/${staticPageSlugs.blogCategory[language]}/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}
+                              to={`/blog/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}
                               className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full hover:bg-primary transition-colors"
                               onClick={(e) => e.stopPropagation()}
                             >

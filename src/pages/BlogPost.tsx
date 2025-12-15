@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CodeBlock from "@/components/CodeBlock";
-import { getBlogPost, getCategorySlug, getAuthorSlug, getTranslatedCategorySlug } from "@/data/blog-posts";
+import { getBlogPost, getCategorySlug, getAuthorSlug, getTranslatedCategorySlug, getCategoryNameFromSlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import SEO, { getArticleSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { domainConfig, staticPageSlugs } from "@/config/domains";
 import {
@@ -42,6 +42,9 @@ const BlogPost = () => {
   const { slug } = useParams();
   const { language, t } = useLanguage();
   const post = slug ? getBlogPost(slug, language) : null;
+  
+  // Check if slug is actually a category (since /blog/:slug now handles both)
+  const isCategory = !post && slug ? getCategoryNameFromSlug(slug, language) !== null : false;
   const toc: TocItem[] = post
   ? post.content
       .filter(
@@ -112,6 +115,17 @@ const BlogPost = () => {
 
     return [articleSchema, breadcrumbSchema];
   };
+
+  // If this is a category slug, render BlogCategory instead
+  if (isCategory) {
+    // Dynamic import would be cleaner but for simplicity, redirect to category handling
+    const BlogCategory = lazy(() => import("./BlogCategory"));
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
+        <BlogCategory />
+      </Suspense>
+    );
+  }
 
   if (!post) {
     return (
@@ -215,6 +229,16 @@ const BlogPost = () => {
                     <ChevronRight className="w-4 h-4" />
                   </BreadcrumbSeparator>
                   <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to={`/blog/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}>
+                        {post.category}
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
                     <BreadcrumbPage className="max-w-[200px] truncate">{post.title}</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
@@ -228,7 +252,7 @@ const BlogPost = () => {
                 className="mb-4"
               >
                 <Link 
-                  to={`/${staticPageSlugs.blogCategory[language]}/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}
+                  to={`/blog/${getTranslatedCategorySlug(getCategorySlug(post.category), language)}`}
                   className="inline-block px-4 py-1.5 rounded-full bg-gradient-hero text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
                 >
                   {post.category}
