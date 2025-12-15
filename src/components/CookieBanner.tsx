@@ -109,7 +109,10 @@ export default function CookieBanner({ privacyUrl = "/privacy-policy" }: Props) 
 
               <Button
                 variant="outline"
-                onClick={() => setShowPrefs((v) => !v)}
+                onClick={() => {
+                  setOpen(true);
+                  setShowPrefs((v) => !v);
+                }}
               >
                 {showPrefs ? "Skryť nastavenia" : "Nastavenia"}
               </Button>
