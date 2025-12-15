@@ -113,6 +113,14 @@ type BuildingWebsiteLang = {
 
 const translations: Record<string, BuildingWebsiteLang> = {
   EN: {
+    
+      configuratorCta: {
+      badge: "New",
+      title: "Website configurator",
+      subtitle: "Answer a few questions and we’ll prepare a tailored proposal.",
+      cta: "Open configurator",
+    },
+
     seo: {
       title: "Web Development Services | WebOptim",
       description:
@@ -298,6 +306,14 @@ const translations: Record<string, BuildingWebsiteLang> = {
   },
 
   SK: {
+    
+    configuratorCta: {
+      badge: "Novinka",
+      title: "Konfigurátor webu",
+      subtitle: "Odpovedzte na pár otázok a pripravíme návrh na mieru.",
+      cta: "Otvoriť konfigurátor",
+    },
+    
     seo: {
       title: "Tvorba webstránok | WebOptim",
       description:
@@ -483,6 +499,14 @@ const translations: Record<string, BuildingWebsiteLang> = {
   },
 
   CZ: {
+    
+    configuratorCta: {
+      badge: "Novinka",
+      title: "Konfigurátor webu",
+      subtitle: "Odpovězte na pár otázek a připravíme návrh na míru.",
+      cta: "Otevřít konfigurátor",
+    },
+
     seo: {
       title: "Tvorba webů | WebOptim",
       description:
