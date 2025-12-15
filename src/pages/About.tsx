@@ -13,6 +13,8 @@ import {
   Palette,
   TrendingUp,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -24,6 +26,13 @@ import { Button } from "@/components/ui/button";
 import { AboutLanguageProvider, useAbout } from "@/contexts/LanguageAbout";
 import { buildPath } from "@/config/domains";
 import { domainConfig } from "@/config/domains";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const AboutInner = () => {
   const { t } = useLanguage();
@@ -425,88 +434,112 @@ const AboutInner = () => {
               <p className="text-muted-foreground text-lg">{ta("about.team.subtitle")}</p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {teamMembers.map((member, index) => {
-                const hasLinkedin = member.linkedin && member.linkedin !== "#";
-                const hasEmail = member.email && member.email !== "";
-                const hasSocials = hasLinkedin || hasEmail;
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {teamMembers.map((member, index) => {
+                  const hasLinkedin = member.linkedin && member.linkedin !== "#";
+                  const hasEmail = member.email && member.email !== "";
+                  const hasSocials = hasLinkedin || hasEmail;
+                  const isExpanded = expandedBio === member.key;
 
-                return (
-                  <motion.div
-                    key={member.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="glass rounded-2xl overflow-hidden group"
-                  >
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {hasSocials && (
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                          <div className="flex gap-3">
-                            {hasLinkedin && (
-                              <a
-                                href={member.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label={`${member.name} LinkedIn`}
-                              >
-                                <Linkedin className="w-4 h-4" />
-                              </a>
-                            )}
-                            {hasEmail && (
-                              <a
-                                href={`mailto:${member.email}`}
-                                className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label={`Email ${member.name}`}
-                              >
-                                <Mail className="w-4 h-4" />
-                              </a>
-                            )}
-                          </div>
+                  return (
+                    <CarouselItem key={member.name} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/5">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="glass rounded-2xl overflow-hidden group h-full"
+                      >
+                        <div className="relative overflow-hidden">
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          {hasSocials && (
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                              <div className="flex gap-3">
+                                {hasLinkedin && (
+                                  <a
+                                    href={member.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    aria-label={`${member.name} LinkedIn`}
+                                  >
+                                    <Linkedin className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {hasEmail && (
+                                  <a
+                                    href={`mailto:${member.email}`}
+                                    className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    aria-label={`Email ${member.name}`}
+                                  >
+                                    <Mail className="w-4 h-4" />
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
 
-                    <div className="p-5 text-center">
-                      <h3 className="font-bold text-foreground text-sm">{member.name}</h3>
-                      <p className="text-xs text-primary mb-2">{member.role}</p>
-                      <AnimatePresence mode="wait">
-                        {expandedBio === member.key ? (
-                          <motion.p
-                            key="expanded"
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="text-xs text-muted-foreground leading-relaxed cursor-pointer"
-                            onClick={() => setExpandedBio(null)}
-                          >
-                            {member.bio}
-                          </motion.p>
-                        ) : (
-                          <motion.p
-                            key="collapsed"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="text-xs text-muted-foreground line-clamp-2 leading-relaxed cursor-pointer hover:text-foreground transition-colors"
-                            onClick={() => setExpandedBio(member.key)}
-                          >
-                            {member.bio}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+                        <div className="p-5 text-center">
+                          <h3 className="font-bold text-foreground text-sm">{member.name}</h3>
+                          <p className="text-xs text-primary mb-2">{member.role}</p>
+                          <AnimatePresence mode="wait">
+                            {isExpanded ? (
+                              <motion.div
+                                key="expanded"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="cursor-pointer"
+                                onClick={() => setExpandedBio(null)}
+                              >
+                                <p className="text-xs text-muted-foreground leading-relaxed mb-1">
+                                  {member.bio}
+                                </p>
+                                <span className="text-xs text-primary font-medium">
+                                  {language === "EN" ? "Show less" : "Skryť"}
+                                </span>
+                              </motion.div>
+                            ) : (
+                              <motion.div
+                                key="collapsed"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="cursor-pointer group/bio"
+                                onClick={() => setExpandedBio(member.key)}
+                              >
+                                <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed mb-1 group-hover/bio:text-foreground transition-colors">
+                                  {member.bio}
+                                </p>
+                                <span className="text-xs text-primary font-medium opacity-70 group-hover/bio:opacity-100 transition-opacity">
+                                  {language === "EN" ? "Read more..." : "Viac..."}
+                                </span>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      </motion.div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <div className="flex justify-center gap-4 mt-8">
+                <CarouselPrevious className="static translate-y-0 glass hover:bg-primary hover:text-primary-foreground" />
+                <CarouselNext className="static translate-y-0 glass hover:bg-primary hover:text-primary-foreground" />
+              </div>
+            </Carousel>
           </div>
         </section>
 
