@@ -404,6 +404,53 @@ export const getDefinedTermSchema = (term: {
   },
 });
 
+// Helper to generate CollectionPage schema for category/author archives
+export const getCollectionPageSchema = (args: {
+  language: Language;
+  name: string;
+  description: string;
+  url: string;
+  items: Array<{ title: string; url: string; image?: string; date?: string }>;
+  collectionType: "category" | "author";
+}) => {
+  const base = domainConfig[args.language];
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${args.url}#collection`,
+    name: args.name,
+    description: args.description,
+    url: args.url,
+    isPartOf: {
+      "@type": "Blog",
+      "@id": `${base}/blog#blog`,
+      name: "WebOptim Blog",
+      url: `${base}/blog`,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: args.items.length,
+      itemListElement: args.items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: item.url,
+        name: item.title,
+      })),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "WebOptim",
+      url: base,
+      logo: {
+        "@type": "ImageObject",
+        url: `${base}/img/weboptim-profile-pic.png`,
+      },
+    },
+    inLanguage: args.language === "CZ" ? "cs" : args.language === "SK" ? "sk" : "en",
+  };
+};
+
 // Helper to generate BreadcrumbList schema
 export const getBreadcrumbSchema = (items: Array<{ name: string; url: string }>) => ({
   "@context": "https://schema.org",

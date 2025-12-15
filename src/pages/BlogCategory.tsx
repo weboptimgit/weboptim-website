@@ -6,8 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getPostsByCategory, getCategoryNameFromSlug, getAllCategories, getTranslatedCategorySlug, getCategorySlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SEO from "@/components/SEO";
-import { staticPageSlugs } from "@/config/domains";
+import SEO, { getCollectionPageSchema, getBreadcrumbSchema } from "@/components/SEO";
+import { domainConfig } from "@/config/domains";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -29,6 +29,37 @@ const BlogCategory = () => {
   // Get category path for links (now just /blog/slug without /category/)
   const getCategoryPath = (catSlug: string) => {
     return `/blog/${catSlug}`;
+  };
+
+  // Generate JSON-LD schema
+  const getJsonLd = () => {
+    if (!categoryName || !slug) return undefined;
+    
+    const base = domainConfig[language];
+    const translatedSlug = getTranslatedCategorySlug(getCategorySlug(categoryName), language);
+    const canonicalUrl = `${base}/blog/${translatedSlug}`;
+    
+    const collectionSchema = getCollectionPageSchema({
+      language,
+      name: categoryName,
+      description: `${t("blogCategory.seoDescription")} ${categoryName}`,
+      url: canonicalUrl,
+      items: posts.map(post => ({
+        title: post.title,
+        url: `${base}/blog/${post.slug}`,
+        image: post.image,
+        date: post.date,
+      })),
+      collectionType: "category",
+    });
+
+    const breadcrumbSchema = getBreadcrumbSchema([
+      { name: "Home", url: base },
+      { name: t("common.blog"), url: `${base}/blog` },
+      { name: categoryName, url: canonicalUrl },
+    ]);
+
+    return [collectionSchema, breadcrumbSchema];
   };
 
   if (!categoryName || posts.length === 0) {
@@ -66,6 +97,7 @@ const BlogCategory = () => {
       <SEO 
         title={`${categoryName} | ${t("blogCategory.seoTitle")}`}
         description={`${t("blogCategory.seoDescription")} ${categoryName}`}
+        jsonLd={getJsonLd()}
       />
       <div className="min-h-screen bg-background">
         <Navbar />

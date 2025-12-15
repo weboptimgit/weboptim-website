@@ -4,10 +4,10 @@ import { Calendar, Clock, ArrowRight, Home, ChevronRight, User, ArrowLeft } from
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getPostsByAuthor, getAuthorNameFromSlug, getAllAuthors } from "@/data/blog-posts";
+import { getPostsByAuthor, getAuthorNameFromSlug, getAllAuthors, getAuthorSlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SEO from "@/components/SEO";
-import { staticPageSlugs } from "@/config/domains";
+import SEO, { getCollectionPageSchema, getBreadcrumbSchema } from "@/components/SEO";
+import { staticPageSlugs, domainConfig } from "@/config/domains";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -29,6 +29,37 @@ const BlogAuthor = () => {
   const getAuthorPath = (authorSlug: string) => {
     const pathPrefix = staticPageSlugs.blogAuthor[language];
     return `/${pathPrefix}/${authorSlug}`;
+  };
+
+  // Generate JSON-LD schema
+  const getJsonLd = () => {
+    if (!authorName || !slug) return undefined;
+    
+    const base = domainConfig[language];
+    const authorPath = staticPageSlugs.blogAuthor[language];
+    const canonicalUrl = `${base}/${authorPath}/${slug}`;
+    
+    const collectionSchema = getCollectionPageSchema({
+      language,
+      name: authorName,
+      description: `${t("blogAuthor.seoDescription")} ${authorName}`,
+      url: canonicalUrl,
+      items: posts.map(post => ({
+        title: post.title,
+        url: `${base}/blog/${post.slug}`,
+        image: post.image,
+        date: post.date,
+      })),
+      collectionType: "author",
+    });
+
+    const breadcrumbSchema = getBreadcrumbSchema([
+      { name: "Home", url: base },
+      { name: t("common.blog"), url: `${base}/blog` },
+      { name: authorName, url: canonicalUrl },
+    ]);
+
+    return [collectionSchema, breadcrumbSchema];
   };
 
   if (!authorName || posts.length === 0) {
@@ -66,6 +97,7 @@ const BlogAuthor = () => {
       <SEO 
         title={`${authorName} | ${t("blogAuthor.seoTitle")}`}
         description={`${t("blogAuthor.seoDescription")} ${authorName}`}
+        jsonLd={getJsonLd()}
       />
       <div className="min-h-screen bg-background">
         <Navbar />
