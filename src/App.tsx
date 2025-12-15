@@ -42,6 +42,8 @@ import { ContactLanguageProvider } from "@/contexts/LanguageContact";
 
 import CookieBanner from "@/components/CookieBanner";
 import { buildPath, domainConfig } from "@/config/domains";
+import { getConsent } from "@/lib/cookie-consent";
+import { loadGTM } from "@/lib/loadGTM";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +56,21 @@ const PageLoader = () => (
 
 function AppShell() {
   const { language } = useLanguage();
+
+  useEffect(() => {
+    const apply = () => {
+      const c = getConsent();
+      // spustiť GTM len keď je povolené analytics alebo marketing
+      if (c?.analytics || c?.marketing) loadGTM();
+    };
+  
+    apply(); // keď už user súhlasil z minulosti
+  
+    const onChange = () => apply();
+    window.addEventListener("wo:cookie-consent", onChange as any);
+  
+    return () => window.removeEventListener("wo:cookie-consent", onChange as any);
+  }, []);
 
   const privacyPathSafe = (() => {
     try {
