@@ -30,6 +30,7 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
 const PriceCalculator = lazy(() => import("./pages/PriceCalculator"));
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
 import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
@@ -230,6 +231,10 @@ function AppShell() {
                   </GraphicLanguageProvider>
                 }
               />
+
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/ochrana-osobnich-udaju" element={<PrivacyPolicy />} />
+              <Route path="/ochrana-osobnych-udajov" element={<PrivacyPolicy />} />
 
               {/* Work/Portfolio */}
               <Route path="/work" element={<Work />} />
