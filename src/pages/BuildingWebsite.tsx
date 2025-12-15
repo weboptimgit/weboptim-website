@@ -368,18 +368,23 @@ const BuildingWebsite = () => {
           </div>
         </section>
 
-        {/* Tech Stack Section */}
+       {/* Tech Stack Section */}
         <section className="py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
         
           <div className="container mx-auto px-6 relative z-10">
+            {/* Header */}
             <motion.div
               initial={REVEAL.initial}
               whileInView={REVEAL.whileInView}
               viewport={REVEAL.viewport}
               transition={REVEAL.transition}
               className="text-center mb-12"
-              style={{ willChange: "transform, opacity" }}
+              style={{
+                willChange: "transform, opacity",
+                transform: "translate3d(0,0,0)",
+                backfaceVisibility: "hidden",
+              }}
             >
               <h2 className="text-2xl font-display font-bold mb-2">{bw.tech.title}</h2>
               <p className="text-muted-foreground">{bw.tech.subtitle}</p>
@@ -399,42 +404,61 @@ const BuildingWebsite = () => {
                           : bw.tech.descriptions.performance;
         
                 return (
+                  // ✅ Motion len na wrapperi (ako Pricing), nie priamo na "glass" karte
                   <motion.div
                     key={tech.name}
-                    initial={REVEAL.initial}
-                    whileInView={REVEAL.whileInView}
-                    viewport={REVEAL.viewport}
-                    transition={{ ...REVEAL.transition, delay: i * 0.1 }}
-                    className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
-                    style={{ willChange: "transform, opacity" }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
+                    style={{
+                      willChange: "transform, opacity",
+                      transform: "translate3d(0,0,0)",
+                      backfaceVisibility: "hidden",
+                    }}
                   >
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                    />
+                    {/* ✅ Skutočná karta je obyčajný div (stabilnejšie pre blur/gradient) */}
+                    <div className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden">
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                      />
         
-                    <div className="relative z-10 flex items-center gap-4">
-                      <div className="relative">
-                        <div
-                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                        >
-                          {tech.icon}
+                      <div className="relative z-10 flex items-center gap-4">
+                        <div className="relative">
                           <div
-                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                          />
+                            className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                            style={{
+                              transform: "translate3d(0,0,0)",
+                              backfaceVisibility: "hidden",
+                            }}
+                          >
+                            {tech.icon}
+                            <div
+                              className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                              style={{
+                                transform: "translate3d(0,0,0)",
+                                backfaceVisibility: "hidden",
+                              }}
+                            />
+                          </div>
+                        </div>
+        
+                        <div className="text-left">
+                          <div className="font-semibold group-hover:text-primary transition-colors">
+                            {tech.name}
+                          </div>
+                          <div className="text-xs text-muted-foreground">{desc}</div>
                         </div>
                       </div>
         
-                      <div className="text-left">
-                        <div className="font-semibold group-hover:text-primary transition-colors">
-                          {tech.name}
-                        </div>
-                        <div className="text-xs text-muted-foreground">{desc}</div>
-                      </div>
+                      <div
+                        className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                        style={{
+                          transform: "translate3d(0,0,0)",
+                          backfaceVisibility: "hidden",
+                        }}
+                      />
                     </div>
-        
-                    <div
-                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                    />
                   </motion.div>
                 );
               })}
