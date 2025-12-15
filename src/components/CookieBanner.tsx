@@ -1,31 +1,37 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { getConsent, setConsent, type CookieConsent } from "@/lib/cookie-consent";
+import { getConsent, setConsent } from "@/lib/cookie-consent";
 
-type Props = {
-  privacyUrl?: string; // napr. "/privacy-policy" alebo externý link
-};
+type Props = { privacyUrl?: string };
 
 export default function CookieBanner({ privacyUrl = "/privacy-policy" }: Props) {
-  const existing = useMemo(() => {
-    if (typeof window === "undefined") return null;
-    return getConsent();
-  }, []);
-
-  const [open, setOpen] = useState(!existing);
+  const [open, setOpen] = useState(false);
   const [showPrefs, setShowPrefs] = useState(false);
 
-  const [analytics, setAnalytics] = useState(existing?.analytics ?? false);
-  const [marketing, setMarketing] = useState(existing?.marketing ?? false);
+  const [analytics, setAnalytics] = useState(false);
+  const [marketing, setMarketing] = useState(false);
+
+  useEffect(() => {
+    const c = getConsent();
+    setOpen(!c);
+    setAnalytics(c?.analytics ?? false);
+    setMarketing(c?.marketing ?? false);
+  }, []);
 
   useEffect(() => {
     const onOpenPrefs = () => {
+      const c = getConsent();
+      setAnalytics(c?.analytics ?? analytics);
+      setMarketing(c?.marketing ?? marketing);
+
       setOpen(true);
       setShowPrefs(true);
     };
+
     window.addEventListener("wo:open-cookie-settings", onOpenPrefs);
     return () => window.removeEventListener("wo:open-cookie-settings", onOpenPrefs);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!open) return null;
