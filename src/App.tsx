@@ -47,6 +47,8 @@ import { buildPath, domainConfig } from "@/config/domains";
 import { getConsent } from "@/lib/cookie-consent";
 import { loadGTM } from "@/lib/loadGTM";
 
+const WebsiteConfigurator = lazy(() => import("./pages/WebsiteConfigurator"));
+
 const queryClient = new QueryClient();
 
 // Minimal loading fallback to reduce layout shift
