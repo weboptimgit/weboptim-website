@@ -174,7 +174,7 @@ export default function PrivacyPolicy() {
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.45 }}
-                className="glass rounded-2xl border border-border/50 p-6 sticky top-28 h-fit"
+                className="glass rounded-2xl border border-border/50 p-6 lg:sticky top-28 h-fit"
               >
                 <div className="flex items-center gap-2 mb-4">
                   <SlidersHorizontal className="w-4 h-4 text-primary" />
