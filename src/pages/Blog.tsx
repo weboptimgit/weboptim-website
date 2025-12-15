@@ -57,10 +57,10 @@ const Blog = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Our <span className="text-gradient">Blog</span>
+                {t("blog.title").split(" ")[0]} <span className="text-gradient">{t("blog.title").split(" ").slice(1).join(" ") || "Blog"}</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Insights, tips, and trends from the world of web development and digital marketing.
+                {t("blog.subtitle")}
               </p>
             </motion.div>
           </div>

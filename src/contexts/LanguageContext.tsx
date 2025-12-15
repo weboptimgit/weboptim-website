@@ -66,6 +66,8 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.toc.title": "Table of contents",
 
     // Blog List Page
+    "blog.title": "Our Blog",
+    "blog.subtitle": "Insights, tips, and trends from the world of web development and digital marketing.",
     "blog.tagsLabel": "Tags:",
     "blog.clearTag": "Clear",
     "blog.clearFilters": "Clear Filters",
@@ -282,6 +284,8 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.toc.title": "Obsah článku",
 
     // Blog List Page
+    "blog.title": "Náš blog",
+    "blog.subtitle": "Postřehy, tipy a trendy ze světa tvorby webů a digitálního marketingu.",
     "blog.tagsLabel": "Štítky:",
     "blog.clearTag": "Zrušit",
     "blog.clearFilters": "Zrušit filtry",
@@ -498,6 +502,8 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.toc.title": "Obsah článku",
 
     // Blog List Page
+    "blog.title": "Náš blog",
+    "blog.subtitle": "Postrehy, tipy a trendy zo sveta tvorby webov a digitálneho marketingu.",
     "blog.tagsLabel": "Štítky:",
     "blog.clearTag": "Zrušiť",
     "blog.clearFilters": "Zrušiť filtre",
