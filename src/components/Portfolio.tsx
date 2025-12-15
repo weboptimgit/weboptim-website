@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import { getCaseStudiesList } from "@/data/case-studies";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 // NOTE: projects are language-aware (like blog)
 const Portfolio = () => {
   const { t, language } = useLanguage();
-  const isMobile = useIsMobile();
 
   // Build projects list from translations (EN fallback handled inside helper)
   const projects = getCaseStudiesList(language);
+
+  // Keep only first 3
   const projects6 = projects.slice(0, 3);
 
   const revealUp = {
-    hidden: { y: 24 },
-    show: { y: 0 },
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0 },
   };
 
   return (
@@ -31,8 +31,8 @@ const Portfolio = () => {
         {/* Section Header */}
         <motion.div
           variants={revealUp}
-          initial={isMobile ? false : "hidden"}
-          whileInView={isMobile ? undefined : "show"}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
@@ -51,9 +51,7 @@ const Portfolio = () => {
                 </span>
               </>
             ) : (
-              <span className="text-gradient">
-                {t("portfolio.title")}
-              </span>
+              <span className="text-gradient">{t("portfolio.title")}</span>
             )}
           </h2>
 
@@ -80,13 +78,13 @@ const Portfolio = () => {
               >
                 <motion.div
                   variants={revealUp}
-                  initial={isMobile ? false : "hidden"}
-                  whileInView={isMobile ? undefined : "show"}
+                  initial="hidden"
+                  whileInView="show"
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{
                     duration: 0.6,
                     ease: "easeOut",
-                    delay: isMobile ? 0 : index * 0.08,
+                    delay: index * 0.08,
                   }}
                   className="group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
                 >
@@ -161,10 +159,10 @@ const Portfolio = () => {
         {/* View More Button */}
         <motion.div
           variants={revealUp}
-          initial={isMobile ? false : "hidden"}
-          whileInView={isMobile ? undefined : "show"}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: isMobile ? 0 : 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           className="text-center mt-12"
         >
           <Link to={buildPath(language, "work")}>
