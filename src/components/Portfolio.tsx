@@ -5,16 +5,21 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import { getCaseStudiesList } from "@/data/case-studies";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // NOTE: projects are language-aware (like blog)
 const Portfolio = () => {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
 
   // Build projects list from translations (EN fallback handled inside helper)
   const projects = getCaseStudiesList(language);
-
-  // Keep only first 3 (same as you had)
   const projects6 = projects.slice(0, 3);
+
+  const revealUp = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0 },
+  };
 
   return (
     <section id="work" className="py-24 relative overflow-hidden">
@@ -25,10 +30,11 @@ const Portfolio = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          variants={revealUp}
+          initial={isMobile ? false : "hidden"}
+          whileInView={isMobile ? undefined : "show"}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
@@ -40,10 +46,14 @@ const Portfolio = () => {
             {t("portfolio.title").includes(" ") ? (
               <>
                 {t("portfolio.title").split(" ").slice(0, -1).join(" ")}{" "}
-                <span className="text-gradient">{t("portfolio.title").split(" ").slice(-1)[0]}</span>
+                <span className="text-gradient">
+                  {t("portfolio.title").split(" ").slice(-1)[0]}
+                </span>
               </>
             ) : (
-              <span className="text-gradient">{t("portfolio.title")}</span>
+              <span className="text-gradient">
+                {t("portfolio.title")}
+              </span>
             )}
           </h2>
 
@@ -64,12 +74,20 @@ const Portfolio = () => {
             const statLabel = project.statLabel ?? "";
 
             return (
-              <Link key={project.slug} to={buildPath(language, "work", project.slug)}>
+              <Link
+                key={project.slug}
+                to={buildPath(language, "work", project.slug)}
+              >
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  variants={revealUp}
+                  initial={isMobile ? false : "hidden"}
+                  whileInView={isMobile ? undefined : "show"}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: isMobile ? 0 : index * 0.08,
+                  }}
                   className="group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
                 >
                   {/* Image Container */}
@@ -86,8 +104,12 @@ const Portfolio = () => {
 
                     {/* Stats Badge */}
                     <div className="absolute top-4 right-4 glass rounded-xl px-4 py-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                      <div className="text-lg font-display font-bold text-primary">{statValue}</div>
-                      <div className="text-xs text-muted-foreground">{statLabel}</div>
+                      <div className="text-lg font-display font-bold text-primary">
+                        {statValue}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {statLabel}
+                      </div>
                     </div>
                   </div>
 
@@ -138,10 +160,11 @@ const Portfolio = () => {
 
         {/* View More Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          variants={revealUp}
+          initial={isMobile ? false : "hidden"}
+          whileInView={isMobile ? undefined : "show"}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: isMobile ? 0 : 0.2 }}
           className="text-center mt-12"
         >
           <Link to={buildPath(language, "work")}>
