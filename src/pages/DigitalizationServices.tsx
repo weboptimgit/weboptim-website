@@ -244,12 +244,17 @@ const DigitalizationServices = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.03 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="px-4 py-2 rounded-full glass-strong border border-border/50 hover:border-primary/30 transition-all duration-300 cursor-default"
+                  transition={{ delay: index * 0.03, duration: 0.5, ease: "easeOut" }}
+                  style={{
+                    willChange: "transform, opacity",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
-                  <span className="font-medium text-sm">{tech.name}</span>
-                  <span className="text-xs text-muted-foreground ml-2">• {tech.category}</span>
+                  <div className="px-4 py-2 rounded-full glass-strong border border-border/50 hover:border-primary/30 hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+                    <span className="font-medium text-sm">{tech.name}</span>
+                    <span className="text-xs text-muted-foreground ml-2">• {tech.category}</span>
+                  </div>
                 </motion.div>
               ))}
             </div>
