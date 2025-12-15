@@ -38,6 +38,18 @@ export const useSlugMappings = (): Record<Language, string> | undefined => {
     }
   }
   
+  // Check if we're on a glossary term page
+  const glossaryBaseRoute = getBaseRouteFromSlug(firstSegment);
+  if (glossaryBaseRoute === "glossary" && pathParts[1]) {
+    const termSlug = pathParts[1];
+    // Glossary term slugs stay the same across languages (e.g., "api", "cms")
+    return {
+      EN: `${staticPageSlugs.glossary.EN}/${termSlug}`,
+      CZ: `${staticPageSlugs.glossary.CZ}/${termSlug}`,
+      SK: `${staticPageSlugs.glossary.SK}/${termSlug}`,
+    };
+  }
+  
   // Check if it's a static page (single segment like /contact, /kontakt, etc.)
   if (pathParts.length === 1) {
     const baseRoute = getBaseRouteFromSlug(firstSegment);
@@ -45,10 +57,6 @@ export const useSlugMappings = (): Record<Language, string> | undefined => {
       return staticPageSlugs[baseRoute];
     }
   }
-  
-  // TODO: Add similar logic for case studies, glossary terms, services subpages, etc.
-  // Example for services subpages:
-  // if (pathParts[0] === "services" && pathParts[1]) { ... }
   
   return undefined;
 };

@@ -199,5 +199,10 @@ export const getLanguageSwitchUrl = (
     }
   }
 
+  // 3) glossary terms - slug zostáva rovnaký (API, CMS, atď.)
+  if (baseRoute === "glossary" && second) {
+    return `${targetDomain}/${translatedFirst}/${second}`;
+  }
+
   return `${targetDomain}/${[translatedFirst, second, ...rest].filter(Boolean).join("/")}`;
 };
