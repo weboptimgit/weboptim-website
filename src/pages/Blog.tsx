@@ -5,7 +5,7 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getBlogPostsList, getCategories } from "@/data/blog-posts";
+import { getBlogPostsList, getCategories, getCategorySlug, getAuthorSlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
 
@@ -175,9 +175,13 @@ const Blog = () => {
                             className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                           <div className="absolute top-4 left-4">
-                            <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full">
+                            <Link 
+                              to={`/blog/category/${getCategorySlug(post.category)}`}
+                              className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full hover:bg-primary transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
                               {post.category}
-                            </span>
+                            </Link>
                           </div>
                         </div>
                         <div className="p-6">
@@ -204,7 +208,13 @@ const Blog = () => {
                             ))}
                           </div>
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium">{post.author}</span>
+                            <Link 
+                              to={`/blog/author/${getAuthorSlug(post.author)}`}
+                              className="text-sm font-medium hover:text-primary transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {post.author}
+                            </Link>
                             <span className="text-primary flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all">
                               Read more <ArrowRight className="w-4 h-4" />
                             </span>
