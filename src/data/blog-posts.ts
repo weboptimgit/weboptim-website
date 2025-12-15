@@ -1594,3 +1594,91 @@ export const getLatestBlogPosts = (language: Language, limit = 3) => {
       readTime: post.translations[language].readTime,
     }));
 };
+
+// Helper function to create URL-friendly slug from category name
+export const getCategorySlug = (category: string): string => {
+  return category
+    .toLowerCase()
+    .replace(/[()]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/--+/g, "-")
+    .trim();
+};
+
+// Helper function to create URL-friendly slug from author name
+export const getAuthorSlug = (author: string): string => {
+  return author
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove diacritics
+    .replace(/\s+/g, "-")
+    .trim();
+};
+
+// Get all unique categories with slugs
+export const getAllCategories = (language: Language) => {
+  const categories = [...new Set(blogPostsData.map((post) => post.translations[language].category))];
+  return categories.map((cat) => ({
+    name: cat,
+    slug: getCategorySlug(cat),
+    count: blogPostsData.filter((post) => post.translations[language].category === cat).length,
+  }));
+};
+
+// Get all unique authors with slugs
+export const getAllAuthors = (language: Language) => {
+  const authors = [...new Set(blogPostsData.map((post) => post.author))];
+  return authors.map((author) => ({
+    name: author,
+    slug: getAuthorSlug(author),
+    count: blogPostsData.filter((post) => post.author === author).length,
+  }));
+};
+
+// Get posts by category slug
+export const getPostsByCategory = (categorySlug: string, language: Language) => {
+  return blogPostsData
+    .filter((post) => getCategorySlug(post.translations[language].category) === categorySlug)
+    .map((post) => ({
+      slug: post.translations[language].slug,
+      title: post.translations[language].title,
+      excerpt: post.translations[language].excerpt,
+      image: post.image,
+      category: post.translations[language].category,
+      tags: post.translations[language].tags,
+      author: post.author,
+      date: post.translations[language].date,
+      readTime: post.translations[language].readTime,
+    }));
+};
+
+// Get category name from slug
+export const getCategoryNameFromSlug = (categorySlug: string, language: Language): string | null => {
+  const post = blogPostsData.find(
+    (p) => getCategorySlug(p.translations[language].category) === categorySlug
+  );
+  return post ? post.translations[language].category : null;
+};
+
+// Get posts by author slug
+export const getPostsByAuthor = (authorSlug: string, language: Language) => {
+  return blogPostsData
+    .filter((post) => getAuthorSlug(post.author) === authorSlug)
+    .map((post) => ({
+      slug: post.translations[language].slug,
+      title: post.translations[language].title,
+      excerpt: post.translations[language].excerpt,
+      image: post.image,
+      category: post.translations[language].category,
+      tags: post.translations[language].tags,
+      author: post.author,
+      date: post.translations[language].date,
+      readTime: post.translations[language].readTime,
+    }));
+};
+
+// Get author name from slug
+export const getAuthorNameFromSlug = (authorSlug: string): string | null => {
+  const post = blogPostsData.find((p) => getAuthorSlug(p.author) === authorSlug);
+  return post ? post.author : null;
+};

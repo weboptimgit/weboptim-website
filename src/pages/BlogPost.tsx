@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CodeBlock from "@/components/CodeBlock";
-import { getBlogPost } from "@/data/blog-posts";
+import { getBlogPost, getCategorySlug, getAuthorSlug } from "@/data/blog-posts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState, useRef } from "react";
 import SEO, { getArticleSchema, getBreadcrumbSchema } from "@/components/SEO";
@@ -221,14 +221,19 @@ const BlogPost = () => {
               </Breadcrumb>
 
               {/* Category Badge */}
-              <motion.span
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-block px-4 mx-4 py-1.5 rounded-full bg-gradient-hero text-primary-foreground text-sm font-semibold mb-4"
+                className="mb-4"
               >
-                {post.category}
-              </motion.span>
+                <Link 
+                  to={`/blog/category/${getCategorySlug(post.category)}`}
+                  className="inline-block px-4 py-1.5 rounded-full bg-gradient-hero text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+                >
+                  {post.category}
+                </Link>
+              </motion.div>
 
               {/* Title */}
               <motion.h1
@@ -247,10 +252,13 @@ const BlogPost = () => {
                 transition={{ delay: 0.4 }}
                 className="flex flex-wrap items-center gap-2 text-foreground/70"
               >
-                <div className="flex items-center gap-2 glass px-4 py-2 rounded-full">
+                <Link 
+                  to={`/blog/author/${getAuthorSlug(post.author)}`}
+                  className="flex items-center gap-2 glass px-4 py-2 rounded-full hover:bg-primary/10 transition-colors"
+                >
                   <User className="w-4 h-4 text-primary" />
                   <span className="font-medium">{post.author}</span>
-                </div>
+                </Link>
                 <div className="flex items-center gap-2 glass px-4 py-2 rounded-full">
                   <Calendar className="w-4 h-4 text-primary" />
                   <span>{post.date}</span>

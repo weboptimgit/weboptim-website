@@ -65,6 +65,24 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.exploreMore": "Explore More Articles",
     "blogPost.toc.title": "Table of contents",
 
+    // Blog Category Archive
+    "blogCategory.badge": "Category",
+    "blogCategory.seoTitle": "Blog Category",
+    "blogCategory.seoDescription": "Browse all articles in category",
+    "blogCategory.subtitle": "{count} articles in this category",
+    "blogCategory.readMore": "Read more",
+    "blogCategory.notFound.title": "Category Not Found",
+    "blogCategory.notFound.subtitle": "The category you're looking for doesn't exist.",
+
+    // Blog Author Archive
+    "blogAuthor.badge": "Author",
+    "blogAuthor.seoTitle": "Blog Author",
+    "blogAuthor.seoDescription": "Browse all articles by",
+    "blogAuthor.subtitle": "{count} articles by this author",
+    "blogAuthor.readMore": "Read more",
+    "blogAuthor.notFound.title": "Author Not Found",
+    "blogAuthor.notFound.subtitle": "The author you're looking for doesn't exist.",
+
     // CTA
     "ctaSection.title.before": "Ready to start your",
     "ctaSection.title.highlight": "project",
@@ -256,6 +274,24 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.exploreMore": "Prozkoumat další články",
     "blogPost.toc.title": "Obsah článku",
 
+    // Blog Category Archive
+    "blogCategory.badge": "Kategorie",
+    "blogCategory.seoTitle": "Kategorie blogu",
+    "blogCategory.seoDescription": "Procházejte všechny články v kategorii",
+    "blogCategory.subtitle": "{count} článků v této kategorii",
+    "blogCategory.readMore": "Číst více",
+    "blogCategory.notFound.title": "Kategorie nenalezena",
+    "blogCategory.notFound.subtitle": "Kategorie, kterou hledáte, neexistuje.",
+
+    // Blog Author Archive
+    "blogAuthor.badge": "Autor",
+    "blogAuthor.seoTitle": "Autor blogu",
+    "blogAuthor.seoDescription": "Procházejte všechny články od",
+    "blogAuthor.subtitle": "{count} článků od tohoto autora",
+    "blogAuthor.readMore": "Číst více",
+    "blogAuthor.notFound.title": "Autor nenalezen",
+    "blogAuthor.notFound.subtitle": "Autor, kterého hledáte, neexistuje.",
+
     // CTA
     "ctaSection.title.before": "Připraveni začít váš",
     "ctaSection.title.highlight": "projekt",
@@ -446,6 +482,24 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.author.bio": "Copywriter a špecialista na digitálny marketing so zameraním na webové trendy a SEO stratégie.",    
     "blogPost.exploreMore": "Pozrieť ďalšie články",
     "blogPost.toc.title": "Obsah článku",
+
+    // Blog Category Archive
+    "blogCategory.badge": "Kategória",
+    "blogCategory.seoTitle": "Kategória blogu",
+    "blogCategory.seoDescription": "Prehliadajte všetky články v kategórii",
+    "blogCategory.subtitle": "{count} článkov v tejto kategórii",
+    "blogCategory.readMore": "Čítať viac",
+    "blogCategory.notFound.title": "Kategória sa nenašla",
+    "blogCategory.notFound.subtitle": "Kategória, ktorú hľadáte, neexistuje.",
+
+    // Blog Author Archive
+    "blogAuthor.badge": "Autor",
+    "blogAuthor.seoTitle": "Autor blogu",
+    "blogAuthor.seoDescription": "Prehliadajte všetky články od",
+    "blogAuthor.subtitle": "{count} článkov od tohto autora",
+    "blogAuthor.readMore": "Čítať viac",
+    "blogAuthor.notFound.title": "Autor sa nenašiel",
+    "blogAuthor.notFound.subtitle": "Autor, ktorého hľadáte, neexistuje.",
 
     // CTA
     "ctaSection.title.before": "Pripravení začať váš",
