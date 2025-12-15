@@ -152,10 +152,9 @@ const BuildingWebsite = () => {
   const { scrollYProgress } = useScroll({ target: containerRef });
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [activeProcess, setActiveProcess] = useState(0);
-  const configuratorUrl = buildPath(language, "configurator");
-
   const bw = useBuildingWebsiteLang();
   const { language } = useLanguage();
+  const configuratorUrl = buildPath(language, "configurator");
 
   const canonicalUrl =
   typeof window !== "undefined"
