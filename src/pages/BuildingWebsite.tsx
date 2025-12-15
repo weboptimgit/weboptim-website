@@ -503,30 +503,50 @@ const BuildingWebsite = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500"
+                    transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                    style={{
+                      willChange: "transform, opacity",
+                      transform: "translate3d(0,0,0)",
+                      backfaceVisibility: "hidden",
+                    }}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                    <div className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
-                    <div className="relative z-10">
-                      <div className="relative mb-6">
-                        <div
-                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                        >
-                          <Icon className="w-8 h-8 text-white" />
+                      <div className="relative z-10">
+                        <div className="relative mb-6">
                           <div
-                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                          />
+                            className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                            style={{
+                              transform: "translate3d(0,0,0)",
+                              backfaceVisibility: "hidden",
+                            }}
+                          >
+                            <Icon className="w-8 h-8 text-white" />
+                            <div
+                              className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                              style={{
+                                transform: "translate3d(0,0,0)",
+                                backfaceVisibility: "hidden",
+                              }}
+                            />
+                          </div>
                         </div>
+
+                        <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                       </div>
 
-                      <h3 className="text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                      <div
+                        className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                        style={{
+                          transform: "translate3d(0,0,0)",
+                          backfaceVisibility: "hidden",
+                        }}
+                      />
                     </div>
-
-                    <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
                   </motion.div>
                 );
               })}
@@ -560,31 +580,39 @@ const BuildingWebsite = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ delay: index * 0.1 }}
-                    onMouseEnter={() => setActiveProcess(index)}
-                    className={`relative glass rounded-2xl p-6 cursor-default transition-all duration-300 ${
-                      activeProcess === index ? "border-primary/50 bg-primary/5" : ""
-                    }`}
+                    transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                    style={{
+                      willChange: "transform, opacity",
+                      transform: "translate3d(0,0,0)",
+                      backfaceVisibility: "hidden",
+                    }}
                   >
-                    <div className="flex items-start gap-4">
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
-                          activeProcess === index ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
-                        }`}
-                      >
-                        <Icon className="w-6 h-6" />
-                      </div>
-
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-xs text-primary font-bold">
-                            {bw.process.stepLabel} {step.step}
-                          </span>
-                          <span className="text-xs text-muted-foreground">{step.duration}</span>
+                    <div
+                      onMouseEnter={() => setActiveProcess(index)}
+                      className={`relative glass rounded-2xl p-6 cursor-default transition-all duration-300 ${
+                        activeProcess === index ? "border-primary/50 bg-primary/5" : ""
+                      }`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div
+                          className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
+                            activeProcess === index ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+                          }`}
+                        >
+                          <Icon className="w-6 h-6" />
                         </div>
 
-                        <h3 className="text-lg font-display font-bold mb-2">{step.title}</h3>
-                        <p className="text-sm text-muted-foreground">{step.description}</p>
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-xs text-primary font-bold">
+                              {bw.process.stepLabel} {step.step}
+                            </span>
+                            <span className="text-xs text-muted-foreground">{step.duration}</span>
+                          </div>
+
+                          <h3 className="text-lg font-display font-bold mb-2">{step.title}</h3>
+                          <p className="text-sm text-muted-foreground">{step.description}</p>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
