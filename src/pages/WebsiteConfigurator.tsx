@@ -69,6 +69,8 @@ const copy = {
     sending: "Sending…",
     sent: "Sent! We’ll get back to you soon.",
     error: "Something went wrong. Please try again.",
+    hintText: "Please select website type and number of pages to continue.",
+    consentText: "Please fill required contact fields and consent.",
     // fields
     designType: "Type of website / design",
     pageCount: "Number of pages",
@@ -125,6 +127,8 @@ const copy = {
     website: "Současný web (volitelné)",
     gdpr: "Souhlasím se zpracováním osobních údajů za účelem kontaktování",
     summary: "Vaše konfigurace",
+    hintText: "Pro pokračování prosím vyberte typ webu a počet stránek.",
+    consentText: "Vyplňte prosím povinná kontaktní pole a souhlas.",
   },
   SK: {
     title: "Konfigurátor webu",
@@ -161,6 +165,8 @@ const copy = {
     website: "Aktuálny web (voliteľné)",
     gdpr: "Súhlasím so spracovaním osobných údajov za účelom kontaktovania",
     summary: "Tvoja konfigurácia",
+    hintText: "Pre pokračovanie vyberte typ webovej stránky a počet stránok.",
+    consentText: "Vyplňte, prosím, požadované kontaktné polia a súhlas.",
   },
 } as const;
 
@@ -863,13 +869,13 @@ const WebsiteConfigurator = () => {
               {step === 1 && (!designType || !pageCount) && (
                 <p className="text-xs text-muted-foreground text-center">
                   <Info className="w-3 h-3 inline mr-1" />
-                  Please select website type and number of pages to continue.
+                  {t.hintText}
                 </p>
               )}
               {step === 3 && (!gdpr || !name.trim() || !email.trim()) && (
                 <p className="text-xs text-muted-foreground text-center">
                   <Info className="w-3 h-3 inline mr-1" />
-                  Please fill required contact fields and consent.
+                  {t.consentText}
                 </p>
               )}
             </div>
