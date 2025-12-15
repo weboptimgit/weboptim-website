@@ -554,15 +554,17 @@ const BuildingWebsite = () => {
           </div>
         </section>
 
-        <div className="max-w-5xl mx-auto mt-8">
-          <ConfiguratorCtaBox
-            badge={bw.configuratorCta.badge}
-            title={bw.configuratorCta.title}
-            subtitle={bw.configuratorCta.subtitle}
-            cta={bw.configuratorCta.cta}
-            href={configuratorUrl}
-          />
-        </div>
+        <section className="px-4">
+          <div className="max-w-5xl mx-auto mt-8">
+            <ConfiguratorCtaBox
+              badge={bw.configuratorCta.badge}
+              title={bw.configuratorCta.title}
+              subtitle={bw.configuratorCta.subtitle}
+              cta={bw.configuratorCta.cta}
+              href={configuratorUrl}
+            />
+          </div>
+        </section>
 
         {/* Reviews + FAQ */}
         <Testimonials />
