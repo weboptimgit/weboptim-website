@@ -607,7 +607,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Nejlepší e-shopové řešení pro váš byznys: Jak si vybrat to pravé?",
         excerpt:
           "Výběr správného e-shopového řešení je klíčové rozhodnutí, které ovlivní růst vašeho podnikání, jeho škálovatelnost i dlouhodobý úspěch. V tomto článku porovnáváme nejpoužívanější e-shopová řešení a pomůžeme vám vybrat to nejvhodnější.",
-        category: "Weby a e-shopy",
+        category: "Weby a eshopy",
         tags: [
           "E-shop",
           "Online obchod",
@@ -763,7 +763,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Najlepšie e-shopové riešenie pre váš biznis: Ako si vybrať to správne?",
         excerpt:
           "Výber správneho e-shopového riešenia je kľúčové rozhodnutie, ktoré ovplyvní rast vášho podnikania, jeho škálovateľnosť aj dlhodobý úspech. V tomto článku porovnávame najpoužívanejšie e-shopové riešenia a pomôžeme vám vybrať to najvhodnejšie.",
-        category: "Weby a e-shopy",
+        category: "Weby a eshopy",
         tags: [
           "E-shop",
           "Online obchod",
@@ -996,7 +996,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Proč při tvorbě webových stránek ve WordPress používáme Oxygen Builder?",
         excerpt:
           "Oxygen Builder patří mezi nejvýkonnější nástroje pro tvorbu rychlých, škálovatelných a plně přizpůsobitelných WordPress webů.",
-        category: "Weby a e-shopy",
+        category: "Weby a eshopy",
         tags: ["WordPress", "Oxygen Builder", "Výkon", "SEO", "Tvorba webů"],
         date: "1. května 2025",
         readTime: "6 min čtení",
@@ -1066,7 +1066,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Prečo pri vytváraní webových stránok vo WordPress používame Oxygen Builder?",
         excerpt:
           "Oxygen Builder patrí medzi najvýkonnejšie nástroje na tvorbu rýchlych, škálovateľných a plne prispôsobiteľných WordPress webov.",
-        category: "Weby a e-shopy",
+        category: "Weby a eshopy",
         tags: ["WordPress", "Oxygen Builder", "Výkon", "SEO", "Tvorba webov"],
         date: "1. mája 2025",
         readTime: "6 min čítania",
@@ -1204,7 +1204,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "7 důvodů, proč zvolit web postavený na WordPress",
         excerpt:
           "WordPress je ideální nástroj pro firmy a společnosti k prezentaci jejich produktů a služeb a získání nových zákazníků.",
-        category: "Weby a e-shopy",
+        category: "Weby a eshopy",
         tags: ["WordPress", "CMS", "Webový design", "SEO", "WooCommerce"],
         date: "21. října 2023",
         readTime: "7 min čtení",
@@ -1265,7 +1265,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "7 dôvodov, prečo zvoliť web postavený na WordPress",
         excerpt:
           "WordPress je ideálny nástroj pre firmy a spoločnosti na prezentáciu ich produktov a služieb a získanie nových zákazníkov.",
-        category: "Weby a e-shopy",
+        category: "Weby a eshopy",
         tags: ["WordPress", "CMS", "Webový dizajn", "SEO", "WooCommerce"],
         date: "21. októbra 2023",
         readTime: "7 min čítania",
