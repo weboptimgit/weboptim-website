@@ -368,7 +368,7 @@ const BuildingWebsite = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center mb-12"
             >
               <h2 className="text-2xl font-display font-bold mb-2">{bw.tech.title}</h2>
@@ -393,7 +393,7 @@ const BuildingWebsite = () => {
                     key={tech.name}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: i * 0.1 }}
                     className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
                   >
@@ -443,7 +443,7 @@ const BuildingWebsite = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -461,7 +461,7 @@ const BuildingWebsite = () => {
                     key={`${feature.title}-${index}`}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: index * 0.1 }}
                     className="group relative glass rounded-2xl p-8 overflow-hidden hover:border-primary/30 transition-all duration-500"
                   >
@@ -499,7 +499,7 @@ const BuildingWebsite = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -518,7 +518,7 @@ const BuildingWebsite = () => {
                     key={step.step}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ delay: index * 0.1 }}
                     onMouseEnter={() => setActiveProcess(index)}
                     className={`relative glass rounded-2xl p-6 cursor-default transition-all duration-300 ${
@@ -559,7 +559,7 @@ const BuildingWebsite = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -574,7 +574,7 @@ const BuildingWebsite = () => {
                   key={`${pkg.name}-${index}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.1 }}
                   className={`relative glass rounded-2xl p-6 ${pkg.popular ? "border-primary/50 bg-primary/5" : ""}`}
                 >
@@ -630,7 +630,7 @@ const BuildingWebsite = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center max-w-3xl mx-auto"
             >
               <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
