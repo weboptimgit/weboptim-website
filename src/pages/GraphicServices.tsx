@@ -13,6 +13,8 @@ import {
   FileImage,
   BookOpen,
   Megaphone,
+  Home,
+  ChevronRight,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -25,10 +27,18 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useGraphicLang } from "@/contexts/LanguageGraphic";
 import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
 import { buildPath, servicePath, domainConfig } from "@/config/domains";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const GraphicServices = () => {
   const s = useGraphicLang();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   const contactUrl = buildPath(language, "contact");
   const workUrl = buildPath(language, "work");
@@ -67,6 +77,40 @@ const GraphicServices = () => {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
+          {/* Breadcrumb */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="flex items-center">
+                      <Home className="w-4 h-4" />
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator>
+                  <ChevronRight className="w-4 h-4" />
+                </BreadcrumbSeparator>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={buildPath(language, "services")}>{t("common.services")}</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator>
+                  <ChevronRight className="w-4 h-4" />
+                </BreadcrumbSeparator>
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{s.seo.title.split(" | ")[0]}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </motion.div>
+          
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>

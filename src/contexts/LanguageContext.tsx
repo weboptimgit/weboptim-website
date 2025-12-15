@@ -51,7 +51,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Blog
     "common.home": "Home",
-    "common.blog": "Blog",    
+    "common.blog": "Blog",
+    "common.services": "Services",
     "blogPost.notFound.title": "Post Not Found",
     "blogPost.notFound.subtitle": "The blog post you're looking for doesn't exist.",
     "blogPost.notFound.backToBlog": "Back to Blog",    
@@ -242,6 +243,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Blog
     "common.home": "Domů",
     "common.blog": "Blog",
+    "common.services": "Služby",
     "blogPost.notFound.title": "Článek nebyl nalezen",
     "blogPost.notFound.subtitle": "Článek, který hledáte, neexistuje.",
     "blogPost.notFound.backToBlog": "Zpět na blog",    
@@ -431,7 +433,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Blog
     "common.home": "Domov",
-    "common.blog": "Blog",  
+    "common.blog": "Blog",
+    "common.services": "Služby",
     "blogPost.notFound.title": "Článok sa nenašiel",
     "blogPost.notFound.subtitle": "Článok, ktorý hľadáte, neexistuje.",
     "blogPost.notFound.backToBlog": "Späť na blog",  

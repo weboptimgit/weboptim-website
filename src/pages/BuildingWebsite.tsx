@@ -15,6 +15,7 @@ import {
   ChevronRight,
   Server,
   Users,
+  Home,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -31,6 +32,14 @@ import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
 import { buildPath } from "@/config/domains";
 import { domainConfig } from "@/config/domains";
 import ConfiguratorCtaBox from "@/components/ConfiguratorCtaBox";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 /* -------------------- STATIC VISUAL DATA (non-translated) -------------------- */
 
@@ -154,7 +163,7 @@ const BuildingWebsite = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [activeProcess, setActiveProcess] = useState(0);
   const bw = useBuildingWebsiteLang();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const configuratorUrl = buildPath(language, "configurator");
 
   const canonicalUrl =
@@ -199,6 +208,39 @@ const BuildingWebsite = () => {
         {/* Hero Section */}
         <section className="relative pt-52 pb-24 px-4 overflow-hidden">
           <div className="container mx-auto relative z-10">
+            {/* Breadcrumb */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/" className="flex items-center">
+                        <Home className="w-4 h-4" />
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to={buildPath(language, "services")}>{t("common.services")}</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>{bw.seo.title.split(" | ")[0]}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </motion.div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left - Content */}
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
