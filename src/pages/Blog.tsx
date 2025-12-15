@@ -157,14 +157,17 @@ const Blog = () => {
                   className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                   {filteredPosts.map((post, index) => (
-                    <motion.article
+                    <motion.div
                       key={post.slug}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="glass rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow duration-300"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                      viewport={{ once: true }}
                     >
-                      <Link to={`/blog/${post.slug}`}>
+                      <Link
+                        to={`/blog/${post.slug}`}
+                        className="block glass rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow duration-300"
+                      >
                         <div className="relative overflow-hidden">
                           <img
                             src={post.image}
@@ -208,7 +211,7 @@ const Blog = () => {
                           </div>
                         </div>
                       </Link>
-                    </motion.article>
+                    </motion.div>
                   ))}
                 </motion.div>
               )}
