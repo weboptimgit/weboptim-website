@@ -16,7 +16,7 @@ const Footer = lazy(() => import("@/components/Footer"));
 const AmbientBackground = lazy(() => import("@/components/AmbientBackground"));
 import ConfiguratorPopup from "@/components/ConfiguratorPopup";
 import { buildPath } from "@/config/domains";
-import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
+import { configuratorCtaText } from "@/data/configuratorCta";
 
 // Minimal section loader
 const SectionLoader = () => (
@@ -27,7 +27,7 @@ const SectionLoader = () => (
 
 const Index = () => {
   const { language } = useLanguage();
-  const bw = useBuildingWebsiteLang();
+  const t = configuratorCtaText[language];
   const configuratorUrl = buildPath(language, "configurator");
   
   const jsonLd = [
@@ -79,16 +79,14 @@ const Index = () => {
             <CTA />
           </Suspense>
 
-          {bw.configuratorCta && (
-            <ConfiguratorPopup
-              badge={bw.configuratorCta.badge}
-              title={bw.configuratorCta.title}
-              subtitle={bw.configuratorCta.subtitle}
-              cta={bw.configuratorCta.cta}
-              href={configuratorUrl}
-            />
-          )}
-          
+          <ConfiguratorPopup
+            badge={t.badge}
+            title={t.title}
+            subtitle={t.subtitle}
+            cta={t.cta}
+            href={configuratorUrl}
+          />
+                    
           <Suspense fallback={<SectionLoader />}>
             <Footer />
           </Suspense>
