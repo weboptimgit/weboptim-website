@@ -10,22 +10,11 @@ import { getCaseStudiesList } from "@/data/case-studies";
 const Portfolio = () => {
   const { t, language } = useLanguage();
 
+  // Build projects list from translations (EN fallback handled inside helper)
   const projects = getCaseStudiesList(language);
+
+  // Keep only first 3
   const projects6 = projects.slice(0, 3);
-
-  // Tiny opacity avoids some mobile "flash" edge cases vs opacity: 0
-  const revealUp = {
-    hidden: { opacity: 0.001, y: 24 },
-    show: { opacity: 1, y: 0 },
-  };
-
-  // This is the key: make "in view" happen a bit later (prevents first-paint blink)
-  const viewportCommon = {
-    once: true,
-    amount: 0.35,
-    // Negative bottom margin means: treat as NOT in view until it's more inside viewport
-    margin: "0px 0px -20% 0px",
-  } as const;
 
   return (
     <section id="work" className="py-24 relative overflow-hidden">
@@ -34,15 +23,13 @@ const Portfolio = () => {
       <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
+        {/* Section Header (same style as BlogSection) */}
         <motion.div
-          variants={revealUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportCommon}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
-          style={{ willChange: "transform, opacity" }}
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -79,23 +66,16 @@ const Portfolio = () => {
             const statLabel = project.statLabel ?? "";
 
             return (
-              <Link key={project.slug} to={buildPath(language, "work", project.slug)}>
-                <motion.div
-                  variants={revealUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{
-                    ...viewportCommon,
-                    amount: 0.25,
-                    margin: "0px 0px -15% 0px",
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeOut",
-                    delay: index * 0.08,
-                  }}
-                  className="group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
-                  style={{ willChange: "transform, opacity" }}
+              <motion.div
+                key={project.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Link
+                  to={buildPath(language, "work", project.slug)}
+                  className="block group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
                 >
                   {/* Image Container */}
                   <div className="relative aspect-[16/10] overflow-hidden">
@@ -112,8 +92,12 @@ const Portfolio = () => {
 
                     {/* Stats Badge */}
                     <div className="absolute top-4 right-4 glass rounded-xl px-4 py-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                      <div className="text-lg font-display font-bold text-primary">{statValue}</div>
-                      <div className="text-xs text-muted-foreground">{statLabel}</div>
+                      <div className="text-lg font-display font-bold text-primary">
+                        {statValue}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {statLabel}
+                      </div>
                     </div>
                   </div>
 
@@ -156,21 +140,19 @@ const Portfolio = () => {
                     <div className="absolute inset-0 border border-primary/30 rounded-3xl" />
                     <div className="absolute -inset-1 bg-primary/5 rounded-3xl blur-xl" />
                   </div>
-                </motion.div>
-              </Link>
+                </Link>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* View More Button */}
+        {/* View More Button (same style as BlogSection) */}
         <motion.div
-          variants={revealUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportCommon}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
           className="text-center mt-12"
-          style={{ willChange: "transform, opacity" }}
         >
           <Link to={buildPath(language, "work")}>
             <Button variant="glow" size="lg" className="group">
