@@ -274,30 +274,33 @@ const Glossary = () => {
               </div>
 
               {/* A-Z Letter Filter */}
-              <div className="flex flex-wrap gap-1.5 justify-center">
-                <button
-                  onClick={() => handleLetterClick("")}
-                  className={`w-9 h-9 rounded-lg text-sm font-medium transition-all ${
-                    !activeLetter
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                  }`}
-                >
-                  {t.allLetters}
-                </button>
-                {alphabet.map((letter) => (
+              <div className="overflow-x-auto pb-2 -mx-6 px-6">
+                <div className="flex gap-1 min-w-max justify-center">
                   <button
-                    key={letter}
-                    onClick={() => handleLetterClick(letter)}
-                    className={`w-9 h-9 rounded-lg text-sm font-medium transition-all ${
-                      activeLetter === letter
+                    onClick={() => handleLetterClick("")}
+                    className={`px-3 h-8 rounded-md text-xs font-medium transition-all ${
+                      !activeLetter
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
                     }`}
                   >
-                    {letter}
+                    {t.allLetters}
                   </button>
-                ))}
+                  <div className="w-px h-8 bg-border mx-1" />
+                  {alphabet.map((letter) => (
+                    <button
+                      key={letter}
+                      onClick={() => handleLetterClick(letter)}
+                      className={`w-7 h-8 rounded-md text-xs font-medium transition-all ${
+                        activeLetter === letter
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {letter}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* Category Filter */}

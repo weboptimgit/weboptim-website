@@ -71,7 +71,7 @@ export const glossaryTranslations = {
     learnMore: "Zistiť viac",
     loadMore: "Načítať ďalšie",
     showingOf: "Zobrazených {shown} z {total} pojmov",
-    allLetters: "Všetko",
+    allLetters: "Vše",
     categories: {
       All: "Všetko",
       Development: "Vývoj",
