@@ -28,6 +28,60 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  backend: {
+    slugs: { EN: "backend", CZ: "backend", SK: "backend" },
+    category: "Development",
+    relatedTerms: ["Frontend", "API", "Database", "Server", "Authentication"],
+    resources: [
+      { title: "Server-side development (MDN)", url: "https://developer.mozilla.org/en-US/docs/Learn/Server-side" },
+      { title: "What is Backend Development?", url: "https://www.freecodecamp.org/news/what-is-backend-development/" },
+      { title: "Web.dev – Backend Basics", url: "https://web.dev/learn/server-side/" }
+    ],
+    content: {
+      EN: {
+        term: "Backend",
+        shortDefinition: "Server-side development",
+        fullDefinition:
+          "Backend is the “invisible” part of a website or application responsible for server-side logic, databases, and background operations. It handles everything that happens behind the scenes, such as processing forms, registrations, and orders, communicating with databases, managing APIs, and handling user accounts. Backend development ensures that data flows correctly, securely, and efficiently between the user interface and the server.",
+        examples: [
+          "Saving an e-commerce order into a database.",
+          "Verifying user credentials during login.",
+          "Sending emails through a website contact form.",
+          "Automatically generating invoices."
+        ],
+        whyItMatters:
+          "Without a backend, a website would be nothing more than a static visual interface. Backend development is responsible for security, performance, data management, and all critical processes that allow a website to function in real-world scenarios. A well-built backend ensures reliability, scalability, and safe handling of sensitive data."
+      },
+      CZ: {
+        term: "Backend",
+        shortDefinition: "Serverová logika aplikace",
+        fullDefinition:
+          "Backend je „neviditelná“ část webové stránky nebo aplikace, která zajišťuje logiku na straně serveru, práci s databázemi a procesy běžící na pozadí. Řeší zpracování formulářů, registrací a objednávek, komunikaci s databází, API propojení a správu uživatelských účtů. Backend zajišťuje, aby data proudila správně, bezpečně a efektivně mezi uživatelským rozhraním a serverem.",
+        examples: [
+          "Uložení objednávky z e-shopu do databáze.",
+          "Ověření uživatele při přihlášení.",
+          "Odesílání e-mailů přes kontaktní formulář.",
+          "Automatické generování faktur."
+        ],
+        whyItMatters:
+          "Bez backendu by web fungoval pouze jako statický obrázek bez skutečné funkcionality. Backend řeší bezpečnost, výkon, správu dat a všechny klíčové procesy, které umožňují webu fungovat v praxi. Kvalitní backend je základem stabilních a škálovatelných webových aplikací."
+      },
+      SK: {
+        term: "Backend",
+        shortDefinition: "Serverová logika a spracovanie dát",
+        fullDefinition:
+          "Backend je „neviditeľná“ časť webu alebo aplikácie, ktorá zabezpečuje serverovú logiku, prácu s databázami a operácie prebiehajúce na pozadí. Rieši spracovanie formulárov, registrácií a objednávok, komunikáciu s databázou, API prepojenia a správu používateľských účtov. Backend zabezpečuje, aby dáta prúdili správne, bezpečne a efektívne medzi rozhraním používateľa a serverom.",
+        examples: [
+          "Uloženie objednávky z e-shopu do databázy.",
+          "Overenie používateľa pri prihlásení.",
+          "Odosielanie e-mailov cez kontaktný formulár.",
+          "Automatické generovanie faktúr."
+        ],
+        whyItMatters:
+          "Bez backendu by web fungoval len ako statický vizuálny prvok bez reálnej funkcionality. Backend rieši bezpečnosť, výkon, správu dát a všetky kľúčové procesy, ktoré umožňujú webu fungovať v praxi. Kvalitne navrhnutý backend je základom spoľahlivých, škálovateľných a bezpečných webových aplikácií."
+      }
+    }
+  },
   frontend: {
     slugs: { EN: "frontend", CZ: "frontend", SK: "frontend" },
     category: "Development",
