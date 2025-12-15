@@ -41,6 +41,13 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+const REVEAL = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" as const },
+  viewport: { once: true as const },
+};
+
 /* -------------------- STATIC VISUAL DATA (non-translated) -------------------- */
 
 const metricsMeta = [
@@ -364,17 +371,20 @@ const BuildingWebsite = () => {
         {/* Tech Stack Section */}
         <section className="py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+        
           <div className="container mx-auto px-6 relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial={REVEAL.initial}
+              whileInView={REVEAL.whileInView}
+              viewport={REVEAL.viewport}
+              transition={REVEAL.transition}
               className="text-center mb-12"
+              style={{ willChange: "transform, opacity" }}
             >
               <h2 className="text-2xl font-display font-bold mb-2">{bw.tech.title}</h2>
               <p className="text-muted-foreground">{bw.tech.subtitle}</p>
             </motion.div>
-
+        
             <div className="flex flex-wrap justify-center gap-4">
               {techStack.map((tech, i) => {
                 const desc =
@@ -387,18 +397,21 @@ const BuildingWebsite = () => {
                         : tech.key === "php"
                           ? bw.tech.descriptions.php
                           : bw.tech.descriptions.performance;
-
+        
                 return (
                   <motion.div
                     key={tech.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ delay: i * 0.1 }}
+                    initial={REVEAL.initial}
+                    whileInView={REVEAL.whileInView}
+                    viewport={REVEAL.viewport}
+                    transition={{ ...REVEAL.transition, delay: i * 0.1 }}
                     className="group relative glass rounded-2xl px-6 py-4 flex items-center gap-4 cursor-default hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                    style={{ willChange: "transform, opacity" }}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
+        
                     <div className="relative z-10 flex items-center gap-4">
                       <div className="relative">
                         <div
@@ -410,14 +423,18 @@ const BuildingWebsite = () => {
                           />
                         </div>
                       </div>
-
+        
                       <div className="text-left">
-                        <div className="font-semibold group-hover:text-primary transition-colors">{tech.name}</div>
+                        <div className="font-semibold group-hover:text-primary transition-colors">
+                          {tech.name}
+                        </div>
                         <div className="text-xs text-muted-foreground">{desc}</div>
                       </div>
                     </div>
-
-                    <div className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`} />
+        
+                    <div
+                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                    />
                   </motion.div>
                 );
               })}
