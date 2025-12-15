@@ -378,6 +378,18 @@ const BuildingWebsite = () => {
           </div>
         </section>
 
+        <section className="px-4">
+          <div className="max-w-5xl mx-auto mt-8">
+            <ConfiguratorCtaBox
+              badge={bw.configuratorCta.badge}
+              title={bw.configuratorCta.title}
+              subtitle={bw.configuratorCta.subtitle}
+              cta={bw.configuratorCta.cta}
+              href={configuratorUrl}
+            />
+          </div>
+        </section>
+
         {/* Features Grid */}
         <section className="py-24 px-4">
           <div className="container mx-auto">
@@ -551,18 +563,6 @@ const BuildingWebsite = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="px-4">
-          <div className="max-w-5xl mx-auto mt-8">
-            <ConfiguratorCtaBox
-              badge={bw.configuratorCta.badge}
-              title={bw.configuratorCta.title}
-              subtitle={bw.configuratorCta.subtitle}
-              cta={bw.configuratorCta.cta}
-              href={configuratorUrl}
-            />
           </div>
         </section>
 
