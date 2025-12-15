@@ -4,21 +4,9 @@ import { Zap, Users, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { buildPath } from "@/config/domains";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const About = () => {
   const { t, language } = useLanguage();
-  const isMobile = useIsMobile();
-
-  const revealSide = {
-    hidden: { x: 40 },
-    show: { x: 0 },
-  };
-  
-  const revealUp = {
-    hidden: { y: 20 },
-    show: { y: 0 },
-  };
 
   const features = [
     {
@@ -49,13 +37,12 @@ const About = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text column */}
+          {/* Text column (same pattern as Blog/Portfolio fixed) */}
           <motion.div
-            variants={revealSide}
-            initial={isMobile ? false : "hidden"}
-            whileInView={isMobile ? undefined : "show"}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
               {t("about.badge")}
@@ -63,9 +50,7 @@ const About = () => {
 
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               {t("about.heading.before")}{" "}
-              <span className="text-gradient">
-                {t("about.heading.highlight")}
-              </span>
+              <span className="text-gradient">{t("about.heading.highlight")}</span>
             </h2>
 
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
@@ -81,27 +66,21 @@ const About = () => {
             </Link>
           </motion.div>
 
-          {/* Features grid */}
+          {/* Features grid wrapper */}
           <motion.div
-            variants={revealSide}
-            initial={isMobile ? false : "hidden"}
-            whileInView={isMobile ? undefined : "show"}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: isMobile ? 0 : 0.1 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            viewport={{ once: true }}
             className="grid grid-cols-2 gap-4"
           >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                variants={revealUp}
-                initial={isMobile ? false : "hidden"}
-                whileInView={isMobile ? undefined : "show"}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeOut",
-                  delay: isMobile ? 0 : index * 0.08,
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
+                viewport={{ once: true }}
                 className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
