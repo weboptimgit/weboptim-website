@@ -1,31 +1,37 @@
-// src/lib/loadGTM.ts
+// src/lib/gtm-loader.ts
 import { getGtmIdForDomain } from "@/config/gtm";
 
 declare global {
   interface Window {
     dataLayer?: any[];
-    __woGtmLoaded?: boolean;
   }
 }
 
-export function loadGTM() {
-  if (window.__woGtmLoaded) return;
+export function loadGtmOnce() {
+  if (typeof window === "undefined") return;
+
+  // aby sa to nenačítalo 2x
+  if (document.getElementById("wo-gtm-script")) return;
 
   const gtmId = getGtmIdForDomain();
   if (!gtmId) return;
 
+  // dataLayer init
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
 
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
-  document.head.appendChild(script);
+  // GTM script
+  const s = document.createElement("script");
+  s.id = "wo-gtm-script";
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
+  document.head.appendChild(s);
 
-  // noscript fallback (voliteľné, ale ok)
-  const noscript = document.createElement("noscript");
-  noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
-  document.body.appendChild(noscript);
-
-  window.__woGtmLoaded = true;
+  // noscript iframe (reálne v SPAs moc nedáva zmysel, ale nech je komplet)
+  if (!document.getElementById("wo-gtm-noscript")) {
+    const ns = document.createElement("noscript");
+    ns.id = "wo-gtm-noscript";
+    ns.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    document.body.prepend(ns);
+  }
 }
