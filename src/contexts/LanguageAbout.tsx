@@ -99,20 +99,20 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.team.title.highlight": "Team",
     "about.team.subtitle": "The talented people behind WebOptim's success.",
 
-    "about.team.peter.role": "Founder & Lead Developer",
+    "about.team.peter.role": "Project Manager & SEO",
     "about.team.peter.bio":
-      "Web development specialist with expertise in WordPress, Oxygen Builder, and modern web technologies.",
-    "about.team.lucia.role": "Creative Director",
-    "about.team.lucia.bio":
-      "Award-winning designer bringing brands to life with stunning visuals and user-centered design principles.",
-    "about.team.martin.role": "SEO & Marketing Lead",
+      "Many years of experience in the field of marketing led me to the idea of putting together a team of professionals to guide you through the entire journey of online business. From simple websites to complex marketing strategies.",
+    "about.team.monika.role": "PPC Marketing",
+    "about.team.monika.bio":
+      "I manage marketing in context. I connect creativity, strategy and data. I bring new approaches, out-of-the-box solutions, critical insight and a very individual approach. I reflect the real needs of the client. I thrive on creative strategies.",
+    "about.team.martin.role": "Graphics & Front-End Dev",
     "about.team.martin.bio":
-      "Data-driven marketer specializing in SEO strategies and PPC campaigns that deliver measurable results.",
-    "about.team.jana.role": "UX/UI Designer",
-    "about.team.jana.bio": "Creating intuitive interfaces and seamless user experiences that delight users and drive conversions.",
-    "about.team.tomas.role": "Full-Stack Developer",
-    "about.team.tomas.bio":
-      "Expert in modern frameworks and scalable architecture, building robust web applications from the ground up.",
+      "I will prepare a graphic for your business card and a comprehensive brand manual. I follow new trends in the industry and implement them in each of my works. I create modern, easy-to-remember and punchy graphics and websites that are etched deep into the subconscious. All about HTML, CSS/SCSS, VueJS.",
+    "about.team.matej.role": "Reels Maker",
+    "about.team.matej.bio": "Every day I create posts on my or my client's networks. I love graphics, visuals and all types of creativity. I have a degree in marketing, so I offer the most innovative practices to your business. Let's create something epic together.",
+    "about.team.milan.role": "Copywriter & Editor",
+    "about.team.milan.bio":
+      "There is power in words. I find the right words to move your business forward. That's my role. My goal is also to relieve people of the stress of creating content, because creating content shouldn't be stressful. It should be joyful and meaningful.",
 
     // CTA
     "about.cta.title": "Ready to Start Your Journey?",
@@ -210,16 +210,16 @@ const aboutTranslations: Record<Language, Dict> = {
     "about.team.title.highlight": "tým",
     "about.team.subtitle": "Lidé, kteří stojí za úspěchem WebOptim.",
 
-    "about.team.peter.role": "Zakladatel & Lead Developer",
-    "about.team.peter.bio": "Specialista na vývoj webů se zaměřením na WordPress, Oxygen Builder a moderní technologie.",
-    "about.team.lucia.role": "Creative Director",
-    "about.team.lucia.bio": "Designérka, která oživuje značky silnou vizuální identitou a UX přístupem.",
-    "about.team.martin.role": "SEO & Marketing Lead",
-    "about.team.martin.bio": "Marketing postavený na datech — SEO strategie a PPC kampaně s měřitelným dopadem.",
-    "about.team.jana.role": "UX/UI Designer",
-    "about.team.jana.bio": "Navrhuje intuitivní rozhraní a zážitky, které zvyšují konverze a baví uživatele.",
-    "about.team.tomas.role": "Full-Stack Developer",
-    "about.team.tomas.bio": "Moderní frameworky a škálovatelná architektura — robustní aplikace od základu.",
+    "about.team.peter.role": "Projektový manažer a SEO",
+    "about.team.peter.bio": "Dlouholeté zkušenosti v oblasti marketingu mě přivedly k myšlence sestavit tým profesionálů, kteří vás provedou celou cestou online podnikání. Od jednoduchých webových stránek až po komplexní marketingové strategie.",
+    "about.team.monika.role": "PPC marketing",
+    "about.team.monika.bio": "Řídím marketing v souvislostech. Propojuji kreativitu, strategii a data. Přináším nové přístupy, neotřelá řešení, kritický vhled a velmi individuální přístup. Reflektuji skutečné potřeby klienta. Vyžívám se v kreativních strategiích.",
+    "about.team.martin.role": "Grafika a vývoj front-endu",
+    "about.team.martin.bio": "Připravím grafiku pro vaši vizitku a komplexní příručku značky. Sleduji nové trendy v oboru a implementuji je do každé své práce. Vytvářím moderní, snadno zapamatovatelnou a údernou grafiku a webové stránky, které se vryjí hluboko do podvědomí. Vše o HTML, CSS/SCSS, VueJS.",
+    "about.team.matej.role": "Reels Maker",
+    "about.team.matej.bio": "Každý den vytvářím příspěvky na svých sítích nebo sítích svých klientů. Miluji grafiku, vizuály a všechny druhy kreativity. Vystudoval jsem marketing, takže nabízím nejinovativnější postupy pro vaše podnikání. Pojďme společně vytvořit něco epického.",
+    "about.team.milan.role": "Copywriter a editor",
+    "about.team.milan.bio": "Ve slovech je síla. Najdu ta správná slova, která posunou vaše podnikání kupředu. To je moje role. Mým cílem je také zbavit lidi stresu z tvorby obsahu, protože tvorba obsahu by neměla být stresující. Mělo by být radostné a smysluplné.",
 
     // CTA
     "about.cta.title": "Jdeme do toho spolu?",
