@@ -9,10 +9,12 @@ import { glossaryTermsData } from "@/data/glossary-terms";
 import SEO, { getDefinedTermSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { domainConfig } from "@/config/domains";
+import { glossaryTranslations } from "@/contexts/LanguageGlossary";
 
 const GlossaryTerm = () => {
   const { slug } = useParams();
   const { language } = useLanguage();
+  const t = glossaryTranslations[language];
   const termData = slug ? glossaryTermsData[slug.toLowerCase()] : null;
 
   if (!termData) {
@@ -56,7 +58,7 @@ const GlossaryTerm = () => {
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to Glossary
+                {t.backToGlossary}
               </Link>
             </motion.div>
 
@@ -94,7 +96,7 @@ const GlossaryTerm = () => {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <BookOpen className="w-5 h-5 text-primary" />
                   </div>
-                  What is {termData.term}?
+                  {t.whatIs} {termData.term}?
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">{termData.fullDefinition}</p>
               </motion.div>
@@ -111,7 +113,7 @@ const GlossaryTerm = () => {
                   <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
                     <Lightbulb className="w-5 h-5 text-amber-500" />
                   </div>
-                  Why It Matters
+                  {t.whyItMatters}
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">{termData.whyItMatters}</p>
               </motion.div>
@@ -128,7 +130,7 @@ const GlossaryTerm = () => {
                   <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
                     <Code2 className="w-5 h-5 text-green-500" />
                   </div>
-                  Real-World Examples
+                  {t.realWorldExamples}
                 </h2>
                 <ul className="space-y-4">
                   {termData.examples.map((example, index) => (
@@ -149,7 +151,7 @@ const GlossaryTerm = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <h2 className="text-xl font-display font-bold text-foreground mb-4">Related Terms</h2>
+                <h2 className="text-xl font-display font-bold text-foreground mb-4">{t.relatedTerms}</h2>
                 <div className="flex flex-wrap gap-2">
                   {termData.relatedTerms.map((term) => (
                     <span
@@ -170,7 +172,7 @@ const GlossaryTerm = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <h2 className="text-xl font-display font-bold text-foreground mb-4">Learn More</h2>
+                  <h2 className="text-xl font-display font-bold text-foreground mb-4">{t.learnMoreResources}</h2>
                   <div className="space-y-3">
                     {termData.resources.map((resource) => (
                       <a
@@ -203,12 +205,12 @@ const GlossaryTerm = () => {
               className="glass rounded-2xl p-8 max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-6"
             >
               <div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-2">Need help with {termData.term}?</h3>
-                <p className="text-muted-foreground">Our team can help you integrate this into your project.</p>
+                <h3 className="text-xl font-display font-bold text-foreground mb-2">{t.needHelp} {termData.term}?</h3>
+                <p className="text-muted-foreground">{t.teamCanHelp}</p>
               </div>
               <Link to="/contact">
                 <Button variant="hero" size="lg">
-                  Get in Touch
+                  {t.getInTouch}
                 </Button>
               </Link>
             </motion.div>
