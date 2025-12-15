@@ -12,6 +12,7 @@ import {
   ArrowDown,
   Filter,
   FileText,
+  Home,
 } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -141,7 +142,9 @@ const CaseStudy = () => {
                 <BreadcrumbList>
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                      <Link to="/">{t("common.home")}</Link>
+                      <Link to="/" aria-label={t("common.home")}>
+                        <Home className="w-4 h-4" />
+                      </Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
 
