@@ -365,7 +365,7 @@ const WebsiteConfigurator = () => {
   };
 
   // IMPORTANT: tu si nastavíš endpoint (nižšie vysvetlím)
-  const SUBMIT_URL = "/api/lead"; // <- zmeň na tvoje (Formspree/Web3Forms/Netlify/PHP endpoint)
+  const SUBMIT_URL = "https://hook.eu1.make.com/l27ltqsj3p4rz427srx2feoj3l3deq08";
 
   const onSubmit = async () => {
     setSubmitting(true);
