@@ -41,6 +41,7 @@ import { PpcLanguageProvider } from "@/contexts/LanguagePPC";
 import { DigitalizationLanguageProvider } from "@/contexts/LanguageDigitalization";
 import { GraphicLanguageProvider } from "@/contexts/LanguageGraphic";
 import { ContactLanguageProvider } from "@/contexts/LanguageContact";
+import { FooterLangProvider } from "@/contexts/LanguageFooter";
 
 import CookieBanner from "@/components/CookieBanner";
 import { buildPath, domainConfig } from "@/config/domains";
@@ -332,7 +333,9 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <AppShell />
+        <FooterLangProvider>
+          <AppShell />
+        </FooterLangProvider>
       </LanguageProvider>
     </QueryClientProvider>
   );
