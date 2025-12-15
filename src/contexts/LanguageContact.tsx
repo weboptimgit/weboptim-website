@@ -88,6 +88,11 @@ type ContactLang = {
     availableLanguage: string[];
     telephone: string;
   };
+
+  breadcrumb: {
+    home: string;
+    contact: string;
+  };
 };
 
 const translations: Record<Language, ContactLang> = {
@@ -163,6 +168,10 @@ const translations: Record<Language, ContactLang> = {
       availableLanguage: ["English", "Czech", "Slovak"],
       telephone: "+420 776 292 799",
     },
+    breadcrumb: {
+      home: "Home",
+      contact: "Contact",
+    },
   },
 
   CZ: {
@@ -237,6 +246,10 @@ const translations: Record<Language, ContactLang> = {
       availableLanguage: ["Czech", "Slovak", "English"],
       telephone: "+420 776 292 799",
     },
+    breadcrumb: {
+      home: "Domů",
+      contact: "Kontakt",
+    },
   },
 
   SK: {
@@ -310,6 +323,10 @@ const translations: Record<Language, ContactLang> = {
       contactType: "zákaznícka podpora",
       availableLanguage: ["Slovak", "Czech", "English"],
       telephone: "+420 776 292 799",
+    },
+    breadcrumb: {
+      home: "Domov",
+      contact: "Kontakt",
     },
   },
 };

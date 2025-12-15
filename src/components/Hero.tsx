@@ -31,46 +31,37 @@ const Hero = () => {
     >
       <FloatingShapes />
 
-      {/* Animated gradient orbs */}
+      {/* Animated gradient orbs - simplified for mobile */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Main cyan glow - top left */}
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/30 to-blue/20 blur-[100px]"
+          className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/30 to-blue/20 blur-[100px] will-change-transform"
+          style={{ transform: "translateZ(0)" }}
         />
         {/* Blue glow - bottom right */}
         <motion.div
           animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-blue/30 to-primary/15 blur-[120px]"
+          className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-blue/30 to-primary/15 blur-[120px] will-change-transform"
+          style={{ transform: "translateZ(0)" }}
         />
-        {/* Subtle purple accent - top right */}
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.08, 0.15, 0.08],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-purple/20 blur-[100px]"
+        {/* Subtle purple accent - static for mobile performance */}
+        <div
+          className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-purple/15 blur-[100px] opacity-10"
         />
       </div>
 
@@ -238,8 +229,9 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="group relative glass rounded-2xl p-5 md:p-6 text-center cursor-default overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  className="group relative glass rounded-2xl p-5 md:p-6 text-center cursor-default overflow-hidden will-change-transform"
+                  style={{ transform: "translateZ(0)" }}
                 >
                   {/* Gradient background on hover */}
                   <div

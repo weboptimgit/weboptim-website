@@ -168,9 +168,7 @@ const BuildingWebsite = () => {
       serviceName: bw.faq.serviceName || bw.seo.title, 
       serviceDescription: bw.seo.description
     }),
-    getFAQSchema(
-      bw.faq.items.map((x) => ({ q: x.q, a: x.a }))
-    )
+    getFAQSchema(mapFaqItems(bw.faq.items))
   ];
   
   // localized routes
