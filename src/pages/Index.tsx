@@ -85,6 +85,8 @@ const Index = () => {
             subtitle={t.subtitle}
             cta={t.cta}
             href={configuratorUrl}
+            showAfterPx={700}
+            reappearAfterHours={24} 
           />
                     
           <Suspense fallback={<SectionLoader />}>
