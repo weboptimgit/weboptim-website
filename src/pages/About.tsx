@@ -1,5 +1,6 @@
 // src/pages/About.tsx
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Linkedin,
   Mail,
@@ -27,6 +28,7 @@ import { domainConfig } from "@/config/domains";
 const AboutInner = () => {
   const { t } = useLanguage();
   const { language } = useLanguage();
+  const [expandedBio, setExpandedBio] = useState<string | null>(null);
   const canonicalUrl =
   typeof window !== "undefined"
     ? `${domainConfig[language]}${window.location.pathname}`
@@ -475,7 +477,31 @@ const AboutInner = () => {
                     <div className="p-5 text-center">
                       <h3 className="font-bold text-foreground text-sm">{member.name}</h3>
                       <p className="text-xs text-primary mb-2">{member.role}</p>
-                      <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">{member.bio}</p>
+                      <AnimatePresence mode="wait">
+                        {expandedBio === member.key ? (
+                          <motion.p
+                            key="expanded"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="text-xs text-muted-foreground leading-relaxed cursor-pointer"
+                            onClick={() => setExpandedBio(null)}
+                          >
+                            {member.bio}
+                          </motion.p>
+                        ) : (
+                          <motion.p
+                            key="collapsed"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="text-xs text-muted-foreground line-clamp-2 leading-relaxed cursor-pointer hover:text-foreground transition-colors"
+                            onClick={() => setExpandedBio(member.key)}
+                          >
+                            {member.bio}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </motion.div>
                 );
