@@ -17,8 +17,8 @@ const Portfolio = () => {
   const projects6 = projects.slice(0, 3);
 
   const revealUp = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0 },
+    hidden: { y: 24 },
+    show: { y: 0 },
   };
 
   return (
