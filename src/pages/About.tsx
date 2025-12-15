@@ -424,50 +424,62 @@ const AboutInner = () => {
             </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={member.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass rounded-2xl overflow-hidden group"
-                >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                      <div className="flex gap-3">
-                        <a
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                          aria-label={`${member.name} LinkedIn`}
-                        >
-                          <Linkedin className="w-4 h-4" />
-                        </a>
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                          aria-label={`Email ${member.name}`}
-                        >
-                          <Mail className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+              {teamMembers.map((member, index) => {
+                const hasLinkedin = member.linkedin && member.linkedin !== "#";
+                const hasEmail = member.email && member.email !== "";
+                const hasSocials = hasLinkedin || hasEmail;
 
-                  <div className="p-4 text-center">
-                    <h3 className="font-bold text-foreground">{member.name}</h3>
-                    <p className="text-sm text-primary mb-2">{member.role}</p>
-                    <p className="text-xs text-muted-foreground line-clamp-2">{member.bio}</p>
-                  </div>
-                </motion.div>
-              ))}
+                return (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="glass rounded-2xl overflow-hidden group"
+                  >
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {hasSocials && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                          <div className="flex gap-3">
+                            {hasLinkedin && (
+                              <a
+                                href={member.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                                aria-label={`${member.name} LinkedIn`}
+                              >
+                                <Linkedin className="w-4 h-4" />
+                              </a>
+                            )}
+                            {hasEmail && (
+                              <a
+                                href={`mailto:${member.email}`}
+                                className="w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                                aria-label={`Email ${member.name}`}
+                              >
+                                <Mail className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-5 text-center">
+                      <h3 className="font-bold text-foreground text-sm">{member.name}</h3>
+                      <p className="text-xs text-primary mb-2">{member.role}</p>
+                      <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">{member.bio}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
