@@ -28,6 +28,63 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  frontend: {
+    slugs: { EN: "frontend", CZ: "frontend", SK: "frontend" },
+    category: "Development",
+    relatedTerms: ["Backend", "UI Design", "UX Design", "JavaScript", "HTML", "CSS"],
+    resources: [
+      { title: "Frontend Web Development (MDN)", url: "https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer" },
+      { title: "What is Frontend Development?", url: "https://www.freecodecamp.org/news/what-is-front-end-development/" },
+      { title: "Web.dev – User Experience", url: "https://web.dev/learn/design/" }
+    ],
+    content: {
+      EN: {
+        term: "Frontend",
+        shortDefinition: "User interface development",
+        fullDefinition:
+          "Frontend is the part of a website or application that users directly see and interact with. It represents the visual and interactive layer of a project and defines how texts, images, buttons, forms, navigation, and other elements look and behave. Frontend development is primarily based on HTML, CSS, and JavaScript, which together define the structure, appearance, and interactivity of a website. A well-built frontend ensures that content is clearly structured, readable, and accessible across different devices, including mobiles and tablets. In practice, it is the first layer of user experience that strongly influences whether a visitor stays on the website or leaves.",
+        examples: [
+          "A navigation menu that automatically changes into a hamburger menu on mobile devices.",
+          "An image slider on the homepage that responds to touch gestures.",
+          "Form validation that alerts users to missing or incorrect input.",
+          "Smooth animations triggered while scrolling the page.",
+          "Color-coded buttons based on action type (primary vs. secondary CTA)."
+        ],
+        whyItMatters:
+          "A high-quality frontend plays a crucial role in how quickly and intuitively users can perform desired actions, such as making a purchase or submitting a contact form. A professionally designed frontend increases brand credibility and creates a positive first impression. Clear navigation reduces user frustration and lowers bounce rates. Frontend also directly impacts page loading speed and mobile optimization, which affects SEO rankings. In modern web projects, frontend is one of the key pillars of overall user experience."
+      },
+      CZ: {
+        term: "Frontend",
+        shortDefinition: "Vývoj uživatelského rozhraní",
+        fullDefinition:
+          "Frontend je část webové stránky nebo aplikace, kterou uživatel přímo vidí a používá. Představuje vizuální a interaktivní vrstvu projektu a určuje, jak vypadají texty, obrázky, tlačítka, formuláře, navigace a další prvky. Je založen především na technologiích HTML, CSS a JavaScript, které definují strukturu, vzhled a chování webu. Kvalitní frontend zajišťuje přehledné uspořádání obsahu, snadnou čitelnost a dostupnost na různých zařízeních, včetně mobilů a tabletů. V praxi jde o první vrstvu uživatelského zážitku, která výrazně ovlivňuje, zda uživatel na webu zůstane.",
+        examples: [
+          "Menu, které se na mobilním zařízení automaticky změní na hamburger ikonu.",
+          "Obrazový slider na hlavní stránce reagující na dotykové ovládání.",
+          "Validace formuláře upozorňující na chybějící nebo nesprávné údaje.",
+          "Moderní animace prvků při scrollování stránky.",
+          "Barevné rozlišení tlačítek podle typu akce (primární vs. sekundární CTA)."
+        ],
+        whyItMatters:
+          "Kvalitní frontend zásadně ovlivňuje rychlost a intuitivnost ovládání webu. Profesionální zpracování zvyšuje důvěryhodnost značky a vytváří pozitivní první dojem. Přehledné rozhraní snižuje frustraci uživatelů a míru okamžitého opuštění stránky. Frontend má také přímý vliv na rychlost načítání a optimalizaci pro mobilní zařízení, což se promítá do SEO. Proto je frontend klíčovým prvkem moderních webových projektů."
+      },
+      SK: {
+        term: "Frontend",
+        shortDefinition: "Vývoj používateľského rozhrania",
+        fullDefinition:
+          "Frontend je časť webstránky alebo aplikácie, ktorú priamo vidí a používa návštevník. Predstavuje vizuálnu a interaktívnu vrstvu projektu a definuje, ako vyzerajú texty, obrázky, tlačidlá, formuláre, navigácia a ďalšie prvky. Je postavený najmä na technológiách HTML, CSS a JavaScript, ktoré určujú štruktúru, vzhľad a správanie webu. Kvalitný frontend zabezpečuje prehľadné usporiadanie obsahu, dobrú čitateľnosť a dostupnosť na rôznych zariadeniach vrátane mobilov a tabletov. V praxi ide o prvú vrstvu používateľského zážitku, ktorá výrazne ovplyvňuje, či sa návštevník rozhodne na webe zostať.",
+        examples: [
+          "Menu, ktoré sa na mobilnom zariadení automaticky zmení na hamburger ikonu.",
+          "Slider s obrázkami na hlavnej stránke reagujúci na dotykové ovládanie.",
+          "Validácia formulára, ktorá upozorní používateľa na chýbajúce alebo nesprávne údaje.",
+          "Moderné animácie prvkov pri scrollovaní stránky.",
+          "Farebné odlíšenie tlačidiel podľa typu akcie (primárna vs. sekundárna CTA)."
+        ],
+        whyItMatters:
+          "Kvalitný frontend zohráva kľúčovú úlohu v tom, ako rýchlo a intuitívne vie používateľ vykonať požadovanú akciu, napríklad nákup alebo odoslanie formulára. Profesionálne spracované rozhranie zvyšuje dôveryhodnosť značky a vytvára pozitívny prvý dojem. Dobrá orientácia znižuje frustráciu používateľov a mieru odchodov zo stránky. Frontend zároveň ovplyvňuje rýchlosť načítania a optimalizáciu pre mobilné zariadenia, čo má priamy dopad aj na SEO. Preto je frontend jedným z najdôležitejších pilierov moderných webových projektov."
+      }
+    }
+  },
   api: {
     slugs: { EN: "api", CZ: "api", SK: "api" },
     category: "Development",
