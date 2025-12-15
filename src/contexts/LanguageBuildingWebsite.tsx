@@ -25,6 +25,13 @@ type PackageItem = {
   popular?: boolean;
 };
 
+type ConfiguratorCtaLang = {
+  badge: string;
+  title: string;
+  subtitle: string;
+  cta: string;
+};
+
 type BuildingWebsiteLang = {
   seo: {
     title: string;
@@ -107,6 +114,8 @@ type BuildingWebsiteLang = {
     primary: string;
     secondary: string;
   };
+
+  configuratorCta: ConfiguratorCtaLang;
 };
 
 /* ---------- TRANSLATIONS ---------- */
