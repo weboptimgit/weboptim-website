@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, BookOpen, Code2, Lightbulb } from "lucide-react";
+import { ExternalLink, BookOpen, Code2, Lightbulb, ChevronRight, Home } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,17 +8,27 @@ import { Button } from "@/components/ui/button";
 import { glossaryTermsData } from "@/data/glossary-terms";
 import SEO, { getDefinedTermSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { domainConfig } from "@/config/domains";
+import { domainConfig, staticPageSlugs } from "@/config/domains";
 import { glossaryTranslations } from "@/contexts/LanguageGlossary";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const GlossaryTerm = () => {
   const { slug } = useParams();
   const { language } = useLanguage();
   const t = glossaryTranslations[language];
   const termData = slug ? glossaryTermsData[slug.toLowerCase()] : null;
+  
+  const glossaryPath = `/${staticPageSlugs.glossary[language]}`;
 
   if (!termData) {
-    return <Navigate to="/glossary" replace />;
+    return <Navigate to={glossaryPath} replace />;
   }
 
   const jsonLd = [
@@ -33,8 +43,8 @@ const GlossaryTerm = () => {
     ),
     getBreadcrumbSchema([
       { name: "Home", url: domainConfig[language] },
-      { name: "Glossary", url: `${domainConfig[language]}/glossary` },
-      { name: termData.term, url: `${domainConfig[language]}/glossary/${slug}` },
+      { name: t.glossary, url: `${domainConfig[language]}${glossaryPath}` },
+      { name: termData.term, url: `${domainConfig[language]}${glossaryPath}/${slug}` },
     ]),
   ];
 
@@ -53,13 +63,31 @@ const GlossaryTerm = () => {
         <section className="pt-52 pb-12 relative">
           <div className="container mx-auto px-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <Link
-                to="/glossary"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                {t.backToGlossary}
-              </Link>
+              <Breadcrumb className="mb-8">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/" className="flex items-center gap-1">
+                        <Home className="w-4 h-4" />
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to={glossaryPath}>{t.glossary}</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>{termData.term}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
             </motion.div>
 
             <motion.div

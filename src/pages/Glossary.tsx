@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { glossaryTranslations } from "@/contexts/LanguageGlossary";
+import { staticPageSlugs } from "@/config/domains";
 
 const glossaryTerms = [
   {
@@ -157,6 +158,7 @@ const ITEMS_PER_PAGE = 12;
 const Glossary = () => {
   const { language } = useLanguage();
   const t = glossaryTranslations[language];
+  const glossaryPath = `/${staticPageSlugs.glossary[language]}`;
   
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
@@ -353,7 +355,7 @@ const Glossary = () => {
                           </div>
                           <p className="text-muted-foreground mb-4">{item.definition}</p>
                           {item.hasPage && item.slug && (
-                            <Link to={`/glossary/${item.slug}`}>
+                            <Link to={`${glossaryPath}/${item.slug}`}>
                               <Button variant="outline" size="sm" className="group">
                                 {t.learnMore}
                                 <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
