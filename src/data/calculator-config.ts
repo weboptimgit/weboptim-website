@@ -91,9 +91,9 @@ export const functionalityCategories = [
 ];
 
 export const languageOptions: PricingOption[] = [
-  { id: 'en', label: 'English (EN)', price: 0 },
-  { id: 'cz', label: 'Czech (CZ)', price: 0 },
-  { id: 'sk', label: 'Slovak (SK)', price: 0 },
+  { id: 'en', label: 'English (EN)', price: 100 },
+  { id: 'cz', label: 'Czech (CZ)', price: 100 },
+  { id: 'sk', label: 'Slovak (SK)', price: 100 },
   { id: 'de', label: 'German (DE)', price: 100 },
   { id: 'hu', label: 'Hungarian (HU)', price: 100 },
   { id: 'ru', label: 'Russian (RU)', price: 100 },
