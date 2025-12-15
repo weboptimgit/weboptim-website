@@ -188,9 +188,9 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
         const faqSchema = getFAQSchema(mapFaqItems(e.faq.items));
       
         const breadcrumbSchema = getBreadcrumbSchema([
-          { name: language === "SK" ? "Domov" : language === "CZ" ? "Domů" : "Home", url: `${domainConfig[language]}/` },
-          { name: language === "SK" ? "Služby" : language === "CZ" ? "Služby" : "Services", url: `${domainConfig[language]}/services` },
-          { name: language === "SK" ? "Tvorba e-shopu" : language === "CZ" ? "Tvorba e-shopu" : "E-commerce", url: canonicalUrl },
+          { name: t("common.home"), url: `${domainConfig[language]}/` },
+          { name: t("common.services"), url: `${domainConfig[language]}${buildPath(language, "services")}` },
+          { name: e.seo.title.split(" | ")[0], url: canonicalUrl },
         ]);
       
         return (

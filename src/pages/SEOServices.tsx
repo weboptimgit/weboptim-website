@@ -23,7 +23,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
 import { buildPath, servicePath, domainConfig } from "@/config/domains";
 import { useSeoLang } from "@/contexts/LanguageSEO";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -152,6 +152,11 @@ const SEOServices = () => {
             serviceDescription: s.seo.description,
           }),
           getFAQSchema(mapFaqItems(s.faq.items)),
+          getBreadcrumbSchema([
+            { name: t("common.home"), url: `${domainConfig[language]}/` },
+            { name: t("common.services"), url: `${domainConfig[language]}${buildPath(language, "services")}` },
+            { name: s.seo.title.split(" | ")[0], url: canonicalUrl },
+          ]),
         ]}
       />
       <Navbar />

@@ -25,7 +25,7 @@ import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useGraphicLang } from "@/contexts/LanguageGraphic";
-import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
 import { buildPath, servicePath, domainConfig } from "@/config/domains";
 import {
   Breadcrumb,
@@ -65,6 +65,11 @@ const GraphicServices = () => {
             serviceDescription: s.seo.description,
           }),
           getFAQSchema(mapFaqItems(s.faq.items)),
+          getBreadcrumbSchema([
+            { name: t("common.home"), url: `${domainConfig[language]}/` },
+            { name: t("common.services"), url: `${domainConfig[language]}${buildPath(language, "services")}` },
+            { name: s.seo.title.split(" | ")[0], url: canonicalUrl },
+          ]),
         ]}
       />
       <Navbar />

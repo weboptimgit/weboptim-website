@@ -28,7 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
 import { buildPath, servicePath, domainConfig } from "@/config/domains";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -68,8 +68,12 @@ const DigitalizationServices = () => {
             serviceName: s.sections?.faq?.serviceName || "Digitalization & Automation",
             serviceDescription: s.seo.description,
           }),
-          // ServiceFAQ u teba berie faqs={s.faqs}, takže mapujeme práve s.faqs
           getFAQSchema(mapFaqItems(s.faqs)),
+          getBreadcrumbSchema([
+            { name: t("common.home"), url: `${domainConfig[language]}/` },
+            { name: t("common.services"), url: `${domainConfig[language]}${buildPath(language, "services")}` },
+            { name: s.seo.title.split(" | ")[0], url: canonicalUrl },
+          ]),
         ]}
       />
 
