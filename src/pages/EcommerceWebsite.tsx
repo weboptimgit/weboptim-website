@@ -323,52 +323,63 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
               const translated = e.platforms.items[i] ?? e.platforms.items[0];
 
               return (
-                <motion.div
+              <motion.div
                   key={platform.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`group relative p-4 rounded-2xl border transition-all duration-500 min-w-[140px] cursor-pointer overflow-hidden ${
-                    platform.highlight
-                      ? "bg-gradient-to-br from-secondary/10 to-primary/10 border-primary/30"
-                      : "bg-card/50 border-border/50 hover:border-primary/30"
-                  }`}
+                  transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                  style={{
+                    willChange: "transform, opacity",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
-                  {/* Hover glow effect */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  />
-
-                  {platform.highlight && (
-                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-primary text-primary-foreground text-[10px] font-medium rounded-full z-10">
-                      {e.platforms.popularBadge}
-                    </span>
-                  )}
-
-                  {/* Icon with gradient background */}
-                  <div className="relative mb-2">
+                    className={`group relative p-4 rounded-2xl border transition-all duration-500 min-w-[140px] cursor-pointer overflow-hidden ${
+                      platform.highlight
+                        ? "bg-gradient-to-br from-secondary/10 to-primary/10 border-primary/30"
+                        : "bg-card/50 border-border/50 hover:border-primary/30"
+                    }`}
+                  >
+                    {/* Hover glow effect */}
                     <div
-                      className={`relative text-3xl w-12 h-12 rounded-xl bg-gradient-to-br ${platform.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                    >
-                      {translated.icon}
+                      className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
+
+                    {platform.highlight && (
+                      <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-primary text-primary-foreground text-[10px] font-medium rounded-full z-10">
+                        {e.platforms.popularBadge}
+                      </span>
+                    )}
+
+                    {/* Icon with gradient background */}
+                    <div className="relative mb-2">
+                      <div
+                        className={`relative text-3xl w-12 h-12 rounded-xl bg-gradient-to-br ${platform.color} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                        style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                      >
+                        {translated.icon}
+                      </div>
+
+                      {/* Animated ring blur */}
+                      <div
+                        className={`absolute inset-0 rounded-xl bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                        style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                      />
                     </div>
 
-                    {/* Animated ring blur */}
+                    <h3 className="relative font-semibold group-hover:text-primary transition-colors">
+                      {translated.name}
+                    </h3>
+                    <p className="relative text-xs text-muted-foreground">{translated.description}</p>
+
+                    {/* Corner decoration */}
                     <div
-                      className={`absolute inset-0 rounded-xl bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                      className={`absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                      style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
                     />
                   </div>
-
-                  <h3 className="relative font-semibold group-hover:text-primary transition-colors">
-                    {translated.name}
-                  </h3>
-                  <p className="relative text-xs text-muted-foreground">{translated.description}</p>
-
-                  {/* Corner decoration */}
-                  <div
-                    className={`absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                  />
                 </motion.div>
               );
             })}
@@ -400,35 +411,44 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                  style={{
+                    willChange: "transform, opacity",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
-                  {/* Hover glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  />
+                  <div className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+                    {/* Hover glow effect */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
 
-                  <div className="relative z-10">
-                    <div className="relative mb-6">
-                      <div
-                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                      >
-                        <Icon className="w-8 h-8 text-white" />
+                    <div className="relative z-10">
+                      <div className="relative mb-6">
                         <div
-                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                        />
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                          style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                          <div
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                            style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                          />
+                        </div>
                       </div>
+
+                      <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                     </div>
 
-                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
+                    <div
+                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                      style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                    />
                   </div>
-
-                  <div
-                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                  />
                 </motion.div>
               );
             })}

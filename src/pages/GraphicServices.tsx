@@ -231,36 +231,45 @@ const GraphicServices = () => {
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.08 }}
-                  className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  transition={{ delay: index * 0.08, duration: 0.6, ease: "easeOut" }}
+                  style={{
+                    willChange: "transform, opacity",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  />
+                  <div className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
 
-                  <div className="relative z-10 flex flex-col gap-4">
-                    <div className="relative">
-                      <div
-                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                      >
-                        <Icon className="w-8 h-8 text-white" />
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <div className="relative">
                         <div
-                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                        />
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                          style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                          <div
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                            style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-display font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{feature.description}</p>
                       </div>
                     </div>
 
-                    <div>
-                      <h3 className="text-xl font-display font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{feature.description}</p>
-                    </div>
+                    <div
+                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                      style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                    />
                   </div>
-
-                  <div
-                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                  />
                 </motion.div>
               );
             })}
