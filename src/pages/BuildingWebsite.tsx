@@ -555,7 +555,13 @@ const BuildingWebsite = () => {
         </section>
 
         <div className="max-w-5xl mx-auto mt-8">
-          <ConfiguratorCtaBox href={configuratorUrl} />
+          <ConfiguratorCtaBox
+            badge={bw.configuratorCta.badge}
+            title={bw.configuratorCta.title}
+            subtitle={bw.configuratorCta.subtitle}
+            cta={bw.configuratorCta.cta}
+            href={configuratorUrl}
+          />
         </div>
 
         {/* Reviews + FAQ */}
