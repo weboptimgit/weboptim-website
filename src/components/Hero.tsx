@@ -10,43 +10,56 @@ import { Link } from "react-router-dom";
 const FloatingShapes = lazy(() => import("./FloatingShapes"));
 
 // Memoized stat card to prevent unnecessary re-renders
-const StatCard = memo(({ stat, index, reducedMotion }: { 
-  stat: { value: string; label: string; icon: any; color: string }; 
-  index: number;
-  reducedMotion: boolean;
-}) => {
-  const Icon = stat.icon;
-  
-  if (reducedMotion) {
-    return (
+const StatCard = memo(
+  ({
+    stat,
+    index,
+    reducedMotion,
+  }: {
+    stat: { value: string; label: string; icon: any; color: string };
+    index: number;
+    reducedMotion: boolean;
+  }) => {
+    const Icon = stat.icon;
+
+    // Shared card UI (no motion inside)
+    const Card = (
       <div className="group relative glass rounded-2xl p-5 md:p-6 text-center cursor-default overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-        <div className={`mx-auto w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 shadow-lg`}>
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+        />
+        <div
+          className={`mx-auto w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 shadow-lg`}
+        >
           <Icon className="w-6 h-6 text-white" />
         </div>
-        <div className="text-3xl md:text-4xl font-display font-bold text-foreground mb-1">{stat.value}</div>
-        <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+        <div className="text-3xl md:text-4xl font-display font-bold text-foreground mb-1">
+          {stat.value}
+        </div>
+        <div className="text-sm text-muted-foreground font-medium">
+          {stat.label}
+        </div>
       </div>
     );
-  }
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-      className="group relative glass rounded-2xl p-5 md:p-6 text-center cursor-default overflow-hidden will-change-transform"
-      style={{ transform: "translateZ(0)" }}
-    >
-      <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-      <div className={`mx-auto w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 shadow-lg`}>
-        <Icon className="w-6 h-6 text-white" />
-      </div>
-      <div className="text-3xl md:text-4xl font-display font-bold text-foreground mb-1">{stat.value}</div>
-      <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-    </motion.div>
-  );
-});
+    // If user prefers reduced motion: render static (no animation)
+    if (reducedMotion) return Card;
+
+    // BlogSection-style: motion wrapper OUTSIDE, static card INSIDE
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 + index * 0.08, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="will-change-transform"
+        style={{ transform: "translateZ(0)" }}
+      >
+        {Card}
+      </motion.div>
+    );
+  }
+);
 
 StatCard.displayName = "StatCard";
 
