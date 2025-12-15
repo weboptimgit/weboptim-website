@@ -11,7 +11,7 @@ import SEO from "@/components/SEO";
 import { staticPageSlugs } from "@/config/domains";
 
 const Blog = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const blogPosts = getBlogPostsList(language);
   const categories = getCategories(language);
 
@@ -97,7 +97,7 @@ const Blog = () => {
               className="flex flex-wrap justify-center gap-2"
             >
               <span className="flex items-center gap-1 text-sm text-muted-foreground mr-2">
-                <Tag className="w-4 h-4" /> Tags:
+                <Tag className="w-4 h-4" /> {t("blog.tagsLabel")}
               </span>
               {allTags.map((tag) => (
                 <button
@@ -117,7 +117,7 @@ const Blog = () => {
                   onClick={() => setActiveTag(null)}
                   className="px-3 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Clear
+                  {t("blog.clearTag")}
                 </button>
               )}
             </motion.div>
@@ -136,16 +136,16 @@ const Blog = () => {
                   exit={{ opacity: 0 }}
                   className="text-center py-16"
                 >
-                  <p className="text-muted-foreground text-lg">No posts found for the selected filters.</p>
+                  <p className="text-muted-foreground text-lg">{t("blog.noPostsFound")}</p>
                   <Button
                     variant="outline"
                     className="mt-4"
                     onClick={() => {
-                      setActiveCategory("All");
+                      setActiveCategory(allCategory);
                       setActiveTag(null);
                     }}
                   >
-                    Clear Filters
+                    {t("blog.clearFilters")}
                   </Button>
                 </motion.div>
               ) : (
@@ -217,7 +217,7 @@ const Blog = () => {
                               {post.author}
                             </Link>
                             <span className="text-primary flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all">
-                              Read more <ArrowRight className="w-4 h-4" />
+                              {t("blog.readMore")} <ArrowRight className="w-4 h-4" />
                             </span>
                           </div>
                         </div>
