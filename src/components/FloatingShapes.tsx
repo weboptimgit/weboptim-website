@@ -28,63 +28,77 @@ const FloatingShapes = memo(() => {
         }}
       />
 
-      {/* Static icons with CSS float animation - reduced count for performance */}
+      {/* Static icons with CSS float animation - wrapper pattern for blur stability */}
       <div
-        className="absolute glass rounded-xl p-4 floating-shape"
-        style={{ top: "15%", right: "18%" }}
+        className="absolute floating-shape"
+        style={{ top: "15%", right: "18%", transform: "translateZ(0)", willChange: "transform" }}
       >
-        <Code className="w-8 h-8 text-primary" />
-      </div>
-
-      <div
-        className="absolute glass rounded-lg overflow-hidden floating-shape-delayed"
-        style={{ top: "25%", left: "8%", width: "120px" }}
-      >
-        <div className="flex gap-1 p-2 border-b border-border/50">
-          <div className="w-2 h-2 rounded-full bg-red-400/60" />
-          <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
-          <div className="w-2 h-2 rounded-full bg-green-400/60" />
-        </div>
-        <div className="p-3 space-y-1.5">
-          <div className="h-1.5 bg-primary/30 rounded w-full" />
-          <div className="h-1.5 bg-secondary/30 rounded w-3/4" />
-          <div className="h-1.5 bg-primary/20 rounded w-1/2" />
+        <div className="glass rounded-xl p-4">
+          <Code className="w-8 h-8 text-primary" />
         </div>
       </div>
 
       <div
-        className="absolute glass rounded-xl p-4 floating-shape-slow"
-        style={{ top: "55%", right: "12%" }}
+        className="absolute floating-shape-delayed"
+        style={{ top: "25%", left: "8%", width: "120px", transform: "translateZ(0)", willChange: "transform" }}
       >
-        <BarChart3 className="w-8 h-8 text-secondary" />
+        <div className="glass rounded-lg overflow-hidden">
+          <div className="flex gap-1 p-2 border-b border-border/50">
+            <div className="w-2 h-2 rounded-full bg-red-400/60" />
+            <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
+            <div className="w-2 h-2 rounded-full bg-green-400/60" />
+          </div>
+          <div className="p-3 space-y-1.5">
+            <div className="h-1.5 bg-primary/30 rounded w-full" />
+            <div className="h-1.5 bg-secondary/30 rounded w-3/4" />
+            <div className="h-1.5 bg-primary/20 rounded w-1/2" />
+          </div>
+        </div>
       </div>
 
       <div
-        className="absolute glass rounded-xl p-3 floating-shape"
-        style={{ top: "40%", left: "5%" }}
+        className="absolute floating-shape-slow"
+        style={{ top: "55%", right: "12%", transform: "translateZ(0)", willChange: "transform" }}
       >
-        <Search className="w-6 h-6 text-primary" />
+        <div className="glass rounded-xl p-4">
+          <BarChart3 className="w-8 h-8 text-secondary" />
+        </div>
       </div>
 
       <div
-        className="absolute glass rounded-xl p-4 floating-shape-delayed"
-        style={{ bottom: "25%", right: "25%" }}
+        className="absolute floating-shape"
+        style={{ top: "40%", left: "5%", transform: "translateZ(0)", willChange: "transform" }}
       >
-        <Target className="w-7 h-7 text-primary" />
+        <div className="glass rounded-xl p-3">
+          <Search className="w-6 h-6 text-primary" />
+        </div>
       </div>
 
       <div
-        className="absolute glass rounded-xl p-3 floating-shape-slow"
-        style={{ top: "70%", left: "12%" }}
+        className="absolute floating-shape-delayed"
+        style={{ bottom: "25%", right: "25%", transform: "translateZ(0)", willChange: "transform" }}
       >
-        <Globe className="w-6 h-6 text-secondary" />
+        <div className="glass rounded-xl p-4">
+          <Target className="w-7 h-7 text-primary" />
+        </div>
       </div>
 
       <div
-        className="absolute glass rounded-xl p-3 floating-shape"
-        style={{ bottom: "35%", left: "18%" }}
+        className="absolute floating-shape-slow"
+        style={{ top: "70%", left: "12%", transform: "translateZ(0)", willChange: "transform" }}
       >
-        <TrendingUp className="w-6 h-6 text-green-400" />
+        <div className="glass rounded-xl p-3">
+          <Globe className="w-6 h-6 text-secondary" />
+        </div>
+      </div>
+
+      <div
+        className="absolute floating-shape"
+        style={{ bottom: "35%", left: "18%", transform: "translateZ(0)", willChange: "transform" }}
+      >
+        <div className="glass rounded-xl p-3">
+          <TrendingUp className="w-6 h-6 text-green-400" />
+        </div>
       </div>
 
       {/* Grid lines - static */}
