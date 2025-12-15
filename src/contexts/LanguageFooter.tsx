@@ -64,7 +64,7 @@ const translations: Record<string, FooterLang> = {
         "Crafting exceptional digital experiences that help businesses grow and succeed in the modern world.",
     },
     bottom: {
-      copyright: "© 2024 WebOptim. All rights reserved.",
+      copyright: "© 2025 WebOptim. All rights reserved.",
       tagline: "Built with passion and precision.",
     },
   },
@@ -142,7 +142,7 @@ const translations: Record<string, FooterLang> = {
         "Tvoříme výjimečné digitální zážitky, které pomáhají firmám růst a uspět v moderním světě.",
     },
     bottom: {
-      copyright: "© 2024 WebOptim. Všechna práva vyhrazena.",
+      copyright: "© 2025 WebOptim. Všechna práva vyhrazena.",
       tagline: "Tvořeno s vášní a precizností.",
     },
   },
