@@ -78,15 +78,16 @@ const Index = () => {
           <Suspense fallback={<SectionLoader />}>
             <CTA />
           </Suspense>
-
+          
           <ConfiguratorPopup
-            badge={t.badge}
-            title={t.title}
-            subtitle={t.subtitle}
-            cta={t.cta}
+            badge={bw.configuratorCta.badge}
+            title={bw.configuratorCta.title}
+            subtitle={bw.configuratorCta.subtitle}
+            cta={bw.configuratorCta.cta}
             href={configuratorUrl}
-            showAfterPx={700}
-            reappearAfterHours={24} 
+            showAfterPercent={0.35}
+            reappearAfterHours={24}
+            offerText="Vyplňte konfigurátor a pri vážnom záujme získate <strong>10% zľavu</strong> na tvorbu webu."
           />
                     
           <Suspense fallback={<SectionLoader />}>
