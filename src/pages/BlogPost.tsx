@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, User, Share2, Tag, BookOpen, ChevronUp, ExternalLink  } from "lucide-react";
+import { Calendar, Clock, User, Share2, Tag, BookOpen, ChevronUp, ExternalLink, Home, ChevronRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +14,14 @@ import {
   reviewsPlatformsRows,
   reviewsPlatformsTableMeta,
 } from "@/data/blog-tables";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 import ComparisonTable from "@/components/ComparisonTable";
 
@@ -185,14 +193,32 @@ const BlogPost = () => {
               transition={{ duration: 0.8 }}
               className="max-w-4xl"
             >
-              {/* Back Button */}
-              <Link
-                to="/blog"
-                className="inline-flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors mb-6 group"
-              >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                {t("blogPost.backToBlog")}
-              </Link>
+              {/* Breadcrumb */}
+              <Breadcrumb className="mb-6">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/" className="flex items-center gap-1">
+                        <Home className="w-4 h-4" />
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/blog">{t("common.blog")}</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <ChevronRight className="w-4 h-4" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage className="max-w-[200px] truncate">{post.title}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
 
               {/* Category Badge */}
               <motion.span
