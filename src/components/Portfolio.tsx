@@ -32,8 +32,7 @@ const Portfolio = () => {
         <motion.div
           variants={revealUp}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          animate="show"
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
@@ -79,8 +78,7 @@ const Portfolio = () => {
                 <motion.div
                   variants={revealUp}
                   initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
+                  animate="show"
                   transition={{
                     duration: 0.6,
                     ease: "easeOut",
@@ -160,8 +158,7 @@ const Portfolio = () => {
         <motion.div
           variants={revealUp}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          animate="show"
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           className="text-center mt-12"
         >
