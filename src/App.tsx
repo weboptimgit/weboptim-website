@@ -233,9 +233,30 @@ function AppShell() {
                 }
               />
 
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/ochrana-osobnich-udaju" element={<PrivacyPolicy />} />
-              <Route path="/ochrana-osobnych-udajov" element={<PrivacyPolicy />} />
+              <Route
+                path="/privacy-policy"
+                element={
+                  <PrivacyLanguageProvider>
+                    <PrivacyPolicy />
+                  </PrivacyLanguageProvider>
+                }
+              />
+              <Route
+                path="/ochrana-osobnich-udaju"
+                element={
+                  <PrivacyLanguageProvider>
+                    <PrivacyPolicy />
+                  </PrivacyLanguageProvider>
+                }
+              />
+              <Route
+                path="/ochrana-osobnych-udajov"
+                element={
+                  <PrivacyLanguageProvider>
+                    <PrivacyPolicy />
+                  </PrivacyLanguageProvider>
+                }
+              />
 
               {/* Work/Portfolio */}
               <Route path="/work" element={<Work />} />
