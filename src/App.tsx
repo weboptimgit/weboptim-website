@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,26 +7,29 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 
+// Critical path - load immediately
 import Index from "./pages/Index";
-import BuildingWebsite from "./pages/BuildingWebsite";
-import EcommerceWebsite from "./pages/EcommerceWebsite";
-import SEOServices from "./pages/SEOServices";
-import PPCServices from "./pages/PPCServices";
-import DigitalizationServices from "./pages/DigitalizationServices";
-import GraphicServices from "./pages/GraphicServices";
-import CaseStudy from "./pages/CaseStudy";
-import Work from "./pages/Work";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import About from "./pages/About";
-import FAQ from "./pages/FAQ";
-import Glossary from "./pages/Glossary";
-import GlossaryTerm from "./pages/GlossaryTerm";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
-import PriceCalculator from "./pages/PriceCalculator";
+
+// Lazy load non-critical routes for better initial load
+const BuildingWebsite = lazy(() => import("./pages/BuildingWebsite"));
+const EcommerceWebsite = lazy(() => import("./pages/EcommerceWebsite"));
+const SEOServices = lazy(() => import("./pages/SEOServices"));
+const PPCServices = lazy(() => import("./pages/PPCServices"));
+const DigitalizationServices = lazy(() => import("./pages/DigitalizationServices"));
+const GraphicServices = lazy(() => import("./pages/GraphicServices"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const Work = lazy(() => import("./pages/Work"));
+const Services = lazy(() => import("./pages/Services"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const About = lazy(() => import("./pages/About"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Glossary = lazy(() => import("./pages/Glossary"));
+const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
+const PriceCalculator = lazy(() => import("./pages/PriceCalculator"));
 
 import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
 import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
@@ -41,20 +45,20 @@ import { buildPath, domainConfig } from "@/config/domains";
 
 const queryClient = new QueryClient();
 
-/**
- * Toto je vnútorná časť appky, kde už môžeme použiť useLanguage()
- * (lebo sme už v LanguageProvider)
- */
+// Minimal loading fallback to reduce layout shift
+const PageLoader = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
+
 function AppShell() {
   const { language } = useLanguage();
 
-  // ak ešte nemáš staticPageSlugs.privacy, tak buildPath môže spadnúť
   const privacyPathSafe = (() => {
     try {
-      // odporúčané riešenie (keď doplníš privacy do staticPageSlugs)
       return buildPath(language, "privacy" as any);
     } catch {
-      // dočasný fallback
       return "/privacy";
     }
   })();
@@ -70,202 +74,203 @@ function AppShell() {
         <BrowserRouter>
           <ScrollToTop />
 
-          <Routes>
-            <Route path="/" element={<Index />} />
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
 
-            {/* Services - EN, CZ, SK */}
-            <Route
-              path="/services"
-              element={
-                <ServicesLanguageProvider>
-                  <Services />
-                </ServicesLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby"
-              element={
-                <ServicesLanguageProvider>
-                  <Services />
-                </ServicesLanguageProvider>
-              }
-            />
+              {/* Services - EN, CZ, SK */}
+              <Route
+                path="/services"
+                element={
+                  <ServicesLanguageProvider>
+                    <Services />
+                  </ServicesLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby"
+                element={
+                  <ServicesLanguageProvider>
+                    <Services />
+                  </ServicesLanguageProvider>
+                }
+              />
 
-            <Route
-              path="/services/building-website"
-              element={
-                <BuildingWebsiteLanguageProvider>
-                  <BuildingWebsite />
-                </BuildingWebsiteLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/tvorba-webstranok"
-              element={
-                <BuildingWebsiteLanguageProvider>
-                  <BuildingWebsite />
-                </BuildingWebsiteLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/tvorba-webstranek"
-              element={
-                <BuildingWebsiteLanguageProvider>
-                  <BuildingWebsite />
-                </BuildingWebsiteLanguageProvider>
-              }
-            />
+              <Route
+                path="/services/building-website"
+                element={
+                  <BuildingWebsiteLanguageProvider>
+                    <BuildingWebsite />
+                  </BuildingWebsiteLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/tvorba-webstranok"
+                element={
+                  <BuildingWebsiteLanguageProvider>
+                    <BuildingWebsite />
+                  </BuildingWebsiteLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/tvorba-webstranek"
+                element={
+                  <BuildingWebsiteLanguageProvider>
+                    <BuildingWebsite />
+                  </BuildingWebsiteLanguageProvider>
+                }
+              />
 
-            <Route
-              path="/services/ecommerce-website"
-              element={
-                <EcommerceLanguageProvider>
-                  <EcommerceWebsite />
-                </EcommerceLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/tvorba-eshopu"
-              element={
-                <EcommerceLanguageProvider>
-                  <EcommerceWebsite />
-                </EcommerceLanguageProvider>
-              }
-            />
+              <Route
+                path="/services/ecommerce-website"
+                element={
+                  <EcommerceLanguageProvider>
+                    <EcommerceWebsite />
+                  </EcommerceLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/tvorba-eshopu"
+                element={
+                  <EcommerceLanguageProvider>
+                    <EcommerceWebsite />
+                  </EcommerceLanguageProvider>
+                }
+              />
 
-            <Route
-              path="/services/seo"
-              element={
-                <SeoLanguageProvider>
-                  <SEOServices />
-                </SeoLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/seo"
-              element={
-                <SeoLanguageProvider>
-                  <SEOServices />
-                </SeoLanguageProvider>
-              }
-            />
+              <Route
+                path="/services/seo"
+                element={
+                  <SeoLanguageProvider>
+                    <SEOServices />
+                  </SeoLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/seo"
+                element={
+                  <SeoLanguageProvider>
+                    <SEOServices />
+                  </SeoLanguageProvider>
+                }
+              />
 
-            <Route
-              path="/services/ppc"
-              element={
-                <PpcLanguageProvider>
-                  <PPCServices />
-                </PpcLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/ppc"
-              element={
-                <PpcLanguageProvider>
-                  <PPCServices />
-                </PpcLanguageProvider>
-              }
-            />
+              <Route
+                path="/services/ppc"
+                element={
+                  <PpcLanguageProvider>
+                    <PPCServices />
+                  </PpcLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/ppc"
+                element={
+                  <PpcLanguageProvider>
+                    <PPCServices />
+                  </PpcLanguageProvider>
+                }
+              />
 
-            <Route
-              path="/services/digitalization-and-automation"
-              element={
-                <DigitalizationLanguageProvider>
-                  <DigitalizationServices />
-                </DigitalizationLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/digitalizacia-a-automatizacia-procesov"
-              element={
-                <DigitalizationLanguageProvider>
-                  <DigitalizationServices />
-                </DigitalizationLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/digitalizace-a-automatizace-procesu"
-              element={
-                <DigitalizationLanguageProvider>
-                  <DigitalizationServices />
-                </DigitalizationLanguageProvider>
-              }
-            />
+              <Route
+                path="/services/digitalization-and-automation"
+                element={
+                  <DigitalizationLanguageProvider>
+                    <DigitalizationServices />
+                  </DigitalizationLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/digitalizacia-a-automatizacia-procesov"
+                element={
+                  <DigitalizationLanguageProvider>
+                    <DigitalizationServices />
+                  </DigitalizationLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/digitalizace-a-automatizace-procesu"
+                element={
+                  <DigitalizationLanguageProvider>
+                    <DigitalizationServices />
+                  </DigitalizationLanguageProvider>
+                }
+              />
 
-            <Route
-              path="/services/graphic-design"
-              element={
-                <GraphicLanguageProvider>
-                  <GraphicServices />
-                </GraphicLanguageProvider>
-              }
-            />
-            <Route
-              path="/sluzby/grafika"
-              element={
-                <GraphicLanguageProvider>
-                  <GraphicServices />
-                </GraphicLanguageProvider>
-              }
-            />
+              <Route
+                path="/services/graphic-design"
+                element={
+                  <GraphicLanguageProvider>
+                    <GraphicServices />
+                  </GraphicLanguageProvider>
+                }
+              />
+              <Route
+                path="/sluzby/grafika"
+                element={
+                  <GraphicLanguageProvider>
+                    <GraphicServices />
+                  </GraphicLanguageProvider>
+                }
+              />
 
-            {/* Work/Portfolio */}
-            <Route path="/work" element={<Work />} />
-            <Route path="/nase-prace" element={<Work />} />
+              {/* Work/Portfolio */}
+              <Route path="/work" element={<Work />} />
+              <Route path="/nase-prace" element={<Work />} />
 
-            {/* Detail case study */}
-            <Route path="/work/:slug" element={<CaseStudy />} />
-            <Route path="/nase-prace/:slug" element={<CaseStudy />} />
+              {/* Detail case study */}
+              <Route path="/work/:slug" element={<CaseStudy />} />
+              <Route path="/nase-prace/:slug" element={<CaseStudy />} />
 
-            {/* Backward compatible old URLs */}
-            <Route path="/portfolio" element={<Navigate to="/nase-prace" replace />} />
-            <Route path="/case-study/:slug" element={<Navigate to="/nase-prace/:slug" replace />} />
+              {/* Backward compatible old URLs */}
+              <Route path="/portfolio" element={<Navigate to="/nase-prace" replace />} />
+              <Route path="/case-study/:slug" element={<Navigate to="/nase-prace/:slug" replace />} />
 
-            {/* Contact */}
-            <Route
-              path="/contact"
-              element={
-                <ContactLanguageProvider>
-                  <Contact />
-                </ContactLanguageProvider>
-              }
-            />
-            <Route
-              path="/kontakt"
-              element={
-                <ContactLanguageProvider>
-                  <Contact />
-                </ContactLanguageProvider>
-              }
-            />
+              {/* Contact */}
+              <Route
+                path="/contact"
+                element={
+                  <ContactLanguageProvider>
+                    <Contact />
+                  </ContactLanguageProvider>
+                }
+              />
+              <Route
+                path="/kontakt"
+                element={
+                  <ContactLanguageProvider>
+                    <Contact />
+                  </ContactLanguageProvider>
+                }
+              />
 
-            {/* Blog */}
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+              {/* Blog */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
 
-            {/* About */}
-            <Route path="/about" element={<About />} />
-            <Route path="/o-nas" element={<About />} />
+              {/* About */}
+              <Route path="/about" element={<About />} />
+              <Route path="/o-nas" element={<About />} />
 
-            {/* FAQ */}
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/caste-dotazy" element={<FAQ />} />
-            <Route path="/caste-otazky" element={<FAQ />} />
+              {/* FAQ */}
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/caste-dotazy" element={<FAQ />} />
+              <Route path="/caste-otazky" element={<FAQ />} />
 
-            {/* Glossary */}
-            <Route path="/glossary" element={<Glossary />} />
-            <Route path="/slovnik" element={<Glossary />} />
-            <Route path="/glossary/:slug" element={<GlossaryTerm />} />
-            <Route path="/slovnik/:slug" element={<GlossaryTerm />} />
+              {/* Glossary */}
+              <Route path="/glossary" element={<Glossary />} />
+              <Route path="/slovnik" element={<Glossary />} />
+              <Route path="/glossary/:slug" element={<GlossaryTerm />} />
+              <Route path="/slovnik/:slug" element={<GlossaryTerm />} />
 
-            {/* Price Calculator */}
-            <Route path="/calculator" element={<PriceCalculator />} />
-            <Route path="/kalkulacka" element={<PriceCalculator />} />
+              {/* Price Calculator */}
+              <Route path="/calculator" element={<PriceCalculator />} />
+              <Route path="/kalkulacka" element={<PriceCalculator />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
 
-          {/* cookie lišta nech je v BrowserRouteri (kvôli linkom) */}
           <CookieBanner privacyUrl={privacyUrl} />
         </BrowserRouter>
       </TooltipProvider>

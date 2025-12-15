@@ -1,16 +1,26 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import TrustSection from "@/components/TrustSection";
-import About from "@/components/About";
-import BlogSection from "@/components/BlogSection";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
-import AmbientBackground from "@/components/AmbientBackground";
 import SEO, { getOrganizationSchema, getWebSiteSchema } from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+// Lazy load below-the-fold components for better initial performance
+const Services = lazy(() => import("@/components/Services"));
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const TrustSection = lazy(() => import("@/components/TrustSection"));
+const About = lazy(() => import("@/components/About"));
+const BlogSection = lazy(() => import("@/components/BlogSection"));
+const CTA = lazy(() => import("@/components/CTA"));
+const Footer = lazy(() => import("@/components/Footer"));
+const AmbientBackground = lazy(() => import("@/components/AmbientBackground"));
+
+// Minimal section loader
+const SectionLoader = () => (
+  <div className="py-16 flex items-center justify-center">
+    <div className="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+);
 
 const Index = () => {
   const { language } = useLanguage();
@@ -23,21 +33,51 @@ const Index = () => {
   return (
     <>
       <SEO titleKey="home" jsonLd={jsonLd} />
-    <main className="min-h-screen bg-background overflow-x-hidden relative">
-      <AmbientBackground />
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Testimonials />
-        <TrustSection />
-        <About />
-        <BlogSection />
-        <CTA />
-        <Footer />
-      </div>
-    </main>
+      <main className="min-h-screen bg-background overflow-x-hidden relative">
+        {/* Lazy load background for better initial paint */}
+        <Suspense fallback={null}>
+          <AmbientBackground />
+        </Suspense>
+        
+        <div className="relative z-10">
+          {/* Critical above-the-fold content - load immediately */}
+          <Navbar />
+          <Hero />
+          
+          {/* Below-the-fold content - lazy loaded */}
+          <Suspense fallback={<SectionLoader />}>
+            <Services />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <Portfolio />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <Testimonials />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <TrustSection />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <About />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <BlogSection />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <CTA />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <Footer />
+          </Suspense>
+        </div>
+      </main>
     </>
   );
 };
