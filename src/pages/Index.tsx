@@ -88,7 +88,7 @@ const Index = () => {
               href={configuratorUrl}
               showAfterPercent={0.35}
               reappearAfterHours={24}
-              offerText='Vyplňte konfigurátor a pri vážnom záujme získajte <strong>10% zľavu.</strong>'
+              offerText={t.offerText}
             />
           )}
  
