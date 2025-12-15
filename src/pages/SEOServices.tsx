@@ -281,34 +281,43 @@ const SEOServices = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative glass rounded-2xl px-6 py-4 hover:border-primary/30 transition-all duration-500 min-w-[160px] cursor-pointer overflow-hidden"
+                transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+                style={{
+                  willChange: "transform, opacity",
+                  transform: "translate3d(0,0,0)",
+                  backfaceVisibility: "hidden",
+                }}
               >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                />
+                <div className="group relative glass rounded-2xl px-6 py-4 hover:border-primary/30 transition-all duration-500 min-w-[160px] cursor-pointer overflow-hidden">
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  />
 
-                <div className="relative z-10 flex items-center gap-3">
-                  <div className="relative">
-                    <div
-                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                    >
-                      {service.icon}
+                  <div className="relative z-10 flex items-center gap-3">
+                    <div className="relative">
                       <div
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                      />
+                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                        style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                      >
+                        {service.icon}
+                        <div
+                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                          style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold group-hover:text-primary transition-colors">{service.name}</h3>
+                      <p className="text-xs text-muted-foreground">{service.description}</p>
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="font-semibold group-hover:text-primary transition-colors">{service.name}</h3>
-                    <p className="text-xs text-muted-foreground">{service.description}</p>
-                  </div>
+                  <div
+                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                    style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                  />
                 </div>
-
-                <div
-                  className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${seoServicesColors[i % seoServicesColors.length]} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                />
               </motion.div>
             ))}
           </div>
@@ -339,34 +348,43 @@ const SEOServices = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                  transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                  style={{
+                    willChange: "transform, opacity",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                  />
+                  <div className="group relative glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
 
-                  <div className="relative z-10">
-                    <div className="relative mb-6">
-                      <div
-                        className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
-                      >
-                        <Icon className="w-8 h-8 text-white" />
+                    <div className="relative z-10">
+                      <div className="relative mb-6">
                         <div
-                          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
-                        />
+                          className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-500`}
+                          style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                        >
+                          <Icon className="w-8 h-8 text-white" />
+                          <div
+                            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-40 group-hover:scale-150 blur-xl transition-all duration-500`}
+                            style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                          />
+                        </div>
                       </div>
+
+                      <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
                     </div>
 
-                    <h3 className="relative text-xl font-display font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="relative text-muted-foreground leading-relaxed">{feature.description}</p>
+                    <div
+                      className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
+                      style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
+                    />
                   </div>
-
-                  <div
-                    className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${meta.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-2xl transition-opacity duration-500`}
-                  />
                 </motion.div>
               );
             })}
