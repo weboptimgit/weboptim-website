@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -64,7 +64,7 @@ function AppShell() {
       if (c?.analytics || c?.marketing) loadGTM();
     };
   
-    apply(); // keď už user súhlasil z minulosti
+    apply();
   
     const onChange = () => apply();
     window.addEventListener("wo:cookie-consent", onChange as any);
