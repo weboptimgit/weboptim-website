@@ -152,6 +152,7 @@ const BuildingWebsite = () => {
   const { scrollYProgress } = useScroll({ target: containerRef });
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [activeProcess, setActiveProcess] = useState(0);
+  const configuratorUrl = buildPath(language, "configurator")
 
   const bw = useBuildingWebsiteLang();
   const { language } = useLanguage();
@@ -552,6 +553,10 @@ const BuildingWebsite = () => {
             </div>
           </div>
         </section>
+
+        <div className="max-w-5xl mx-auto mt-8">
+          <ConfiguratorCtaBox href={configuratorUrl} />
+        </div>
 
         {/* Reviews + FAQ */}
         <Testimonials />
