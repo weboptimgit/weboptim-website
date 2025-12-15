@@ -31,28 +31,32 @@ const GlossaryTerm = () => {
     return <Navigate to={glossaryPath} replace />;
   }
 
+  // Get language-specific content
+  const content = termData.content[language];
+  const termSlug = termData.slugs[language];
+
   const jsonLd = [
     getDefinedTermSchema(
       {
-        term: termData.term,
-        shortDefinition: termData.shortDefinition,
-        fullDefinition: termData.fullDefinition,
-        slug: slug || "",
+        term: content.term,
+        shortDefinition: content.shortDefinition,
+        fullDefinition: content.fullDefinition,
+        slug: termSlug,
       },
       language,
     ),
     getBreadcrumbSchema([
       { name: "Home", url: domainConfig[language] },
       { name: t.glossary, url: `${domainConfig[language]}${glossaryPath}` },
-      { name: termData.term, url: `${domainConfig[language]}${glossaryPath}/${slug}` },
+      { name: content.term, url: `${domainConfig[language]}${glossaryPath}/${termSlug}` },
     ]),
   ];
 
   return (
     <>
       <SEO
-        title={`${termData.term} - Definition | WebOptim Glossary`}
-        description={termData.shortDefinition}
+        title={`${content.term} - Definition | WebOptim Glossary`}
+        description={content.shortDefinition}
         jsonLd={jsonLd}
       />
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -84,7 +88,7 @@ const GlossaryTerm = () => {
                     <ChevronRight className="w-4 h-4" />
                   </BreadcrumbSeparator>
                   <BreadcrumbItem>
-                    <BreadcrumbPage>{termData.term}</BreadcrumbPage>
+                    <BreadcrumbPage>{content.term}</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
@@ -101,9 +105,9 @@ const GlossaryTerm = () => {
                 {termData.category}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-                <span className="text-gradient">{termData.term}</span>
+                <span className="text-gradient">{content.term}</span>
               </h1>
-              <p className="text-2xl text-muted-foreground font-medium">{termData.shortDefinition}</p>
+              <p className="text-2xl text-muted-foreground font-medium">{content.shortDefinition}</p>
             </motion.div>
           </div>
         </section>
@@ -124,9 +128,9 @@ const GlossaryTerm = () => {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <BookOpen className="w-5 h-5 text-primary" />
                   </div>
-                  {t.whatIs} {termData.term}?
+                  {t.whatIs} {content.term}?
                 </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">{termData.fullDefinition}</p>
+                <p className="text-muted-foreground text-lg leading-relaxed">{content.fullDefinition}</p>
               </motion.div>
 
               {/* Why It Matters */}
@@ -143,7 +147,7 @@ const GlossaryTerm = () => {
                   </div>
                   {t.whyItMatters}
                 </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">{termData.whyItMatters}</p>
+                <p className="text-muted-foreground text-lg leading-relaxed">{content.whyItMatters}</p>
               </motion.div>
 
               {/* Examples */}
@@ -161,7 +165,7 @@ const GlossaryTerm = () => {
                   {t.realWorldExamples}
                 </h2>
                 <ul className="space-y-4">
-                  {termData.examples.map((example, index) => (
+                  {content.examples.map((example, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="w-6 h-6 rounded-full bg-primary/20 text-primary text-sm font-medium flex items-center justify-center flex-shrink-0 mt-0.5">
                         {index + 1}
@@ -233,7 +237,7 @@ const GlossaryTerm = () => {
               className="glass rounded-2xl p-8 max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-6"
             >
               <div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-2">{t.needHelp} {termData.term}?</h3>
+                <h3 className="text-xl font-display font-bold text-foreground mb-2">{t.needHelp} {content.term}?</h3>
                 <p className="text-muted-foreground">{t.teamCanHelp}</p>
               </div>
               <Link to="/contact">
