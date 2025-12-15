@@ -30,7 +30,8 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
 const PriceCalculator = lazy(() => import("./pages/PriceCalculator"));
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+import { PrivacyLanguageProvider } from "@/contexts/LanguagePrivacy";
 
 import { ServicesLanguageProvider } from "@/contexts/LanguageServices";
 import { BuildingWebsiteLanguageProvider } from "@/contexts/LanguageBuildingWebsite";
