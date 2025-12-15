@@ -272,6 +272,10 @@ function AppShell() {
               <Route path="/portfolio" element={<Navigate to="/nase-prace" replace />} />
               <Route path="/case-study/:slug" element={<Navigate to="/nase-prace/:slug" replace />} />
 
+              {/* Configurator (no prices for users) */}
+              <Route path="/configurator" element={<WebsiteConfigurator />} />
+              <Route path="/konfigurator" element={<WebsiteConfigurator />} />
+              
               {/* Contact */}
               <Route
                 path="/contact"
