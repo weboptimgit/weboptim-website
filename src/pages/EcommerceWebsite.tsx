@@ -480,22 +480,28 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 group"
+                  transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                  style={{
+                    willChange: "transform, opacity",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <span className="block text-4xl font-display font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all">
-                        {step.step}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Icon className="w-4 h-4 text-primary" />
-                        <h3 className="font-semibold">{step.title}</h3>
+                  <div className="relative p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 group">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <span className="block text-4xl font-display font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all">
+                          {step.step}
+                        </span>
                       </div>
-                      <p className="text-muted-foreground text-sm mb-2">{step.description}</p>
-                      <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{step.duration}</span>
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Icon className="w-4 h-4 text-primary" />
+                          <h3 className="font-semibold">{step.title}</h3>
+                        </div>
+                        <p className="text-muted-foreground text-sm mb-2">{step.description}</p>
+                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{step.duration}</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -525,39 +531,47 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.1 }}
-                className={`relative p-6 rounded-2xl border transition-all duration-300 ${
-                  pkg.popular
-                    ? "bg-gradient-to-b from-primary/10 to-secondary/5 border-primary/30 scale-105"
-                    : "bg-card/50 border-border/50 hover:border-primary/20"
-                }`}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                style={{
+                  willChange: "transform, opacity",
+                  transform: "translate3d(0,0,0)",
+                  backfaceVisibility: "hidden",
+                }}
               >
-                {pkg.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-medium rounded-full">
-                    {e.pricing.popularBadge}
-                  </span>
-                )}
+                <div
+                  className={`relative p-6 rounded-2xl border transition-all duration-300 h-full ${
+                    pkg.popular
+                      ? "bg-gradient-to-b from-primary/10 to-secondary/5 border-primary/30 scale-105"
+                      : "bg-card/50 border-border/50 hover:border-primary/20"
+                  }`}
+                >
+                  {pkg.popular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-medium rounded-full">
+                      {e.pricing.popularBadge}
+                    </span>
+                  )}
 
-                <div className="text-center mb-6 pt-2">
-                  <h3 className="text-xl font-semibold mb-1">{pkg.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    {pkg.price}
+                  <div className="text-center mb-6 pt-2">
+                    <h3 className="text-xl font-semibold mb-1">{pkg.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
+                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                      {pkg.price}
+                    </div>
                   </div>
+
+                  <ul className="space-y-3 mb-6">
+                    {pkg.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-sm">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button variant={pkg.popular ? "glow" : "outline"} className="w-full" asChild>
+                    <Link to="/#contact">{e.pricing.cta}</Link>
+                  </Button>
                 </div>
-
-                <ul className="space-y-3 mb-6">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Button variant={pkg.popular ? "glow" : "outline"} className="w-full" asChild>
-                  <Link to="/#contact">{e.pricing.cta}</Link>
-                </Button>
               </motion.div>
             ))}
           </div>
