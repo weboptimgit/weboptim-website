@@ -11,13 +11,13 @@ const About = () => {
   const isMobile = useIsMobile();
 
   const revealSide = {
-    hidden: { opacity: 0, x: 40 },
-    show: { opacity: 1, x: 0 },
+    hidden: { x: 40 },
+    show: { x: 0 },
   };
-
+  
   const revealUp = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
+    hidden: { y: 20 },
+    show: { y: 0 },
   };
 
   const features = [
