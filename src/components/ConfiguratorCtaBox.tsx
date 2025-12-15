@@ -32,12 +32,12 @@ export default function ConfiguratorCtaBox({
           <p className="text-sm text-muted-foreground">{subtitle}</p>
         </div>
 
-      <Button variant="hero" asChild className="shrink-0">
-        <Link to={href}>
-          {cta}
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </Link>
-      </Button>
+        <Button variant="hero" asChild className="shrink-0">
+          <Link to={href}>
+            {cta}
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
+        </Button>
       </div>
     </div>
   );
