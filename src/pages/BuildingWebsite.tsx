@@ -23,7 +23,7 @@ import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
-import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems } from "@/components/SEO";
+import SEO, { getServicePageSchema, getFAQSchema, mapFaqItems, getBreadcrumbSchema } from "@/components/SEO";
 import ServiceReviews from "@/components/ServiceReviews";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import Testimonials from "@/components/Testimonials";
@@ -199,6 +199,11 @@ const BuildingWebsite = () => {
             serviceDescription: bw.seo.description,
           }),
           getFAQSchema(mapFaqItems(bw.faq.items)),
+          getBreadcrumbSchema([
+            { name: t("common.home"), url: `${domainConfig[language]}/` },
+            { name: t("common.services"), url: `${domainConfig[language]}${buildPath(language, "services")}` },
+            { name: bw.seo.title.split(" | ")[0], url: canonicalUrl },
+          ]),
         ]}
       />
       <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden">
