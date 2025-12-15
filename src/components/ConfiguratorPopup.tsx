@@ -27,7 +27,7 @@ export default function ConfiguratorPopup({
   cta,
   href,
   offerText = "Vyplňte konfigurátor a pri vážnom záujme získate <strong>10% zľavu</strong> na tvorbu webu.",
-  showAfterPx = 650,
+  showAfterPx = 350,
   showAfterPercent = 0,
   reappearAfterHours = 24,
   storageKey = "wo:configuratorPopup:lastClosed",
