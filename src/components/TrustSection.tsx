@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -46,8 +47,14 @@ const TrustSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden bg-card/30">
-      {/* Section Header */}
-      <div className="text-center mb-16 px-6 animate-fade-in">
+      {/* Section Header (Blog-style motion) */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-center mb-16 px-6"
+      >
         <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
           <span className="text-foreground">{t("trust.title.before")} </span>
           <span className="text-gradient">{t("trust.title.highlight")}</span>
@@ -55,7 +62,7 @@ const TrustSection = () => {
         <p className="text-muted-foreground max-w-2xl mx-auto">
           {t("trust.subtitle")}
         </p>
-      </div>
+      </motion.div>
 
       {/* Carousel Row 1 - Left to Right */}
       <div className="relative mb-6 overflow-hidden">
@@ -75,15 +82,21 @@ const TrustSection = () => {
         </div>
       </div>
 
-      {/* CTA Button */}
-      <div className="text-center px-6 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+      {/* CTA Button (Blog-style motion) */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-center px-6"
+      >
         <Link to={buildPath(language, "contact")}>
           <Button variant="hero" size="xl" className="group">
             {t("trust.cta")}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 };
