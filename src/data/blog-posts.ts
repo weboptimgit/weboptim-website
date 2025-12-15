@@ -1,3 +1,8 @@
+export interface ResourceLink {
+  title: string;
+  url: string;
+}
+
 export interface BlogPostContent {
   slug: string;
   title: string;

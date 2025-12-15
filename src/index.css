@@ -241,21 +241,21 @@
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    transform: translateY(0px) translateZ(0);
   }
   50% {
-    transform: translateY(-20px) rotateX(10deg) rotateY(10deg);
+    transform: translateY(-20px) translateZ(0);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 0.6;
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
   }
 }
 
@@ -291,10 +291,14 @@
 
 .animate-scroll-left {
   animation: scroll-left 30s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-scroll-right {
   animation: scroll-right 30s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* nicer horizontal scrollbar */
