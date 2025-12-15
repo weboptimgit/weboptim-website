@@ -150,7 +150,7 @@ const glossaryTerms = [
 ];
 
 const categories = ["All", "Development", "Design", "Marketing", "Business", "Security", "General"];
-const alphabet = ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 const ITEMS_PER_PAGE = 12;
 
@@ -173,11 +173,7 @@ const Glossary = () => {
         
         let matchesLetter = true;
         if (activeLetter) {
-          if (activeLetter === "#") {
-            matchesLetter = /^[0-9]/.test(item.term);
-          } else {
-            matchesLetter = item.term.toUpperCase().startsWith(activeLetter);
-          }
+          matchesLetter = item.term.toUpperCase().startsWith(activeLetter);
         }
         
         return matchesSearch && matchesCategory && matchesLetter;
@@ -190,8 +186,7 @@ const Glossary = () => {
 
   const groupedTerms = visibleTerms.reduce(
     (acc, term) => {
-      const firstChar = term.term[0].toUpperCase();
-      const firstLetter = /^[0-9]/.test(firstChar) ? "#" : firstChar;
+      const firstLetter = term.term[0].toUpperCase();
       if (!acc[firstLetter]) {
         acc[firstLetter] = [];
       }
@@ -274,33 +269,30 @@ const Glossary = () => {
               </div>
 
               {/* A-Z Letter Filter */}
-              <div className="overflow-x-auto pb-2 -mx-6 px-6">
-                <div className="flex gap-1 min-w-max justify-center">
+              <div className="flex flex-wrap gap-0.5 justify-center">
+                <button
+                  onClick={() => handleLetterClick("")}
+                  className={`px-2 h-7 rounded text-xs font-medium transition-all ${
+                    !activeLetter
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {t.allLetters}
+                </button>
+                {alphabet.map((letter) => (
                   <button
-                    onClick={() => handleLetterClick("")}
-                    className={`px-3 h-8 rounded-md text-xs font-medium transition-all ${
-                      !activeLetter
+                    key={letter}
+                    onClick={() => handleLetterClick(letter)}
+                    className={`w-6 h-7 rounded text-xs font-medium transition-all ${
+                      activeLetter === letter
                         ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                        : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted"
                     }`}
                   >
-                    {t.allLetters}
+                    {letter}
                   </button>
-                  <div className="w-px h-8 bg-border mx-1" />
-                  {alphabet.map((letter) => (
-                    <button
-                      key={letter}
-                      onClick={() => handleLetterClick(letter)}
-                      className={`w-7 h-8 rounded-md text-xs font-medium transition-all ${
-                        activeLetter === letter
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted"
-                      }`}
-                    >
-                      {letter}
-                    </button>
-                  ))}
-                </div>
+                ))}
               </div>
 
               {/* Category Filter */}
