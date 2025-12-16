@@ -36,7 +36,7 @@ const clientsRow1: Client[] = [
 
 const clientsRow2: Client[] = [
   { name: "HorvathCannabis", image: "/img/logos1-9-t-300x193.png", url: "https://www.horvathcannabis.sk/" },
-  { name: "Materasso", image: "/img/materasso_logo_-300x111", url: "https://materasso.cz/" },
+  { name: "Materasso", image: "/img/materasso_logo_-300x111.png", url: "https://materasso.cz/" },
   { name: "Modaco", image: "/img/modaco-logo.png", url: "https://www.modaco.cz/" },
   { name: "Odopro", image: "/img/odopro_logo_color-1-300x76.png", url: "https://www.odopro.cz/" },
   { name: "Odpružení.cz", image: "/img/odpruzeni_logo-300x37.png", url: "https://www.odpruzeni.cz/" },
