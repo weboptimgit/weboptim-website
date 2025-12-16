@@ -198,7 +198,6 @@ const AboutInner = () => {
                   </motion.div>
                 ))}
               </div>
-          </div>
 
           {/* Decorative elements */}
           <div className="absolute top-1/4 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
