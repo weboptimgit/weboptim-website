@@ -53,10 +53,29 @@ type ContactLang = {
     topicLabel: string;
     topicPlaceholder: string;
     topicWeb: string;
+    topicEshop: string;
     topicSeo: string;
     topicPpc: string;
+    topicGraphic: string;
     topicConsulting: string;
     topicOther: string;
+  
+    budgetLabel: string;
+    budgetPlaceholder: string;
+    budgetUnder500: string;
+    budget500to1500: string;
+    budget1500to3000: string;
+    budget3000to5000: string;
+    budgetOver5000: string;
+    budgetNotSure: string;
+  
+    timelineLabel: string;
+    timelinePlaceholder: string;
+    timelineAsap: string;
+    timeline1Month: string;
+    timeline1to3Months: string;
+    timeline3to6Months: string;
+    timelineFlexible: string;
   
     messageLabel: string;
     messagePlaceholder: string;
@@ -136,10 +155,29 @@ const translations: Record<Language, ContactLang> = {
       topicLabel: "What do you need help with?",
       topicPlaceholder: "— Select —",
       topicWeb: "Website / Development",
+      topicEshop: "E-commerce / Online store",
       topicSeo: "SEO",
       topicPpc: "PPC / Ads",
+      topicGraphic: "Graphic design",
       topicConsulting: "Consultation",
       topicOther: "Other",
+    
+      budgetLabel: "Estimated budget",
+      budgetPlaceholder: "— Select —",
+      budgetUnder500: "Under €500",
+      budget500to1500: "€500 – €1,500",
+      budget1500to3000: "€1,500 – €3,000",
+      budget3000to5000: "€3,000 – €5,000",
+      budgetOver5000: "Over €5,000",
+      budgetNotSure: "Not sure yet",
+    
+      timelineLabel: "When do you need the project completed?",
+      timelinePlaceholder: "— Select —",
+      timelineAsap: "As soon as possible",
+      timeline1Month: "Within 1 month",
+      timeline1to3Months: "1 – 3 months",
+      timeline3to6Months: "3 – 6 months",
+      timelineFlexible: "Flexible",
     
       messageLabel: "Your Message",
       messagePlaceholder: "Tell us about your project...",
@@ -220,10 +258,29 @@ const translations: Record<Language, ContactLang> = {
       topicLabel: "S čím potřebujete pomoct?",
       topicPlaceholder: "— Vyberte —",
       topicWeb: "Web / Vývoj",
+      topicEshop: "E-shop / Online obchod",
       topicSeo: "SEO",
       topicPpc: "PPC / Reklamy",
+      topicGraphic: "Grafický design",
       topicConsulting: "Konzultace",
       topicOther: "Jiné",
+    
+      budgetLabel: "Orientační rozpočet",
+      budgetPlaceholder: "— Vyberte —",
+      budgetUnder500: "Do 500 €",
+      budget500to1500: "500 – 1 500 €",
+      budget1500to3000: "1 500 – 3 000 €",
+      budget3000to5000: "3 000 – 5 000 €",
+      budgetOver5000: "Více než 5 000 €",
+      budgetNotSure: "Zatím nevím",
+    
+      timelineLabel: "Kdy potřebujete projekt dokončit?",
+      timelinePlaceholder: "— Vyberte —",
+      timelineAsap: "Co nejdříve",
+      timeline1Month: "Do 1 měsíce",
+      timeline1to3Months: "1 – 3 měsíce",
+      timeline3to6Months: "3 – 6 měsíců",
+      timelineFlexible: "Flexibilně",
     
       messageLabel: "Zpráva",
       messagePlaceholder: "Napište nám, co potřebujete…",
@@ -304,10 +361,29 @@ const translations: Record<Language, ContactLang> = {
       topicLabel: "S čím potrebujete pomôcť?",
       topicPlaceholder: "— Vyberte —",
       topicWeb: "Web / Vývoj",
+      topicEshop: "E-shop / Online obchod",
       topicSeo: "SEO",
       topicPpc: "PPC / Reklamy",
+      topicGraphic: "Grafický dizajn",
       topicConsulting: "Konzultácia",
       topicOther: "Iné",
+    
+      budgetLabel: "Orientačný rozpočet",
+      budgetPlaceholder: "— Vyberte —",
+      budgetUnder500: "Do 500 €",
+      budget500to1500: "500 – 1 500 €",
+      budget1500to3000: "1 500 – 3 000 €",
+      budget3000to5000: "3 000 – 5 000 €",
+      budgetOver5000: "Viac ako 5 000 €",
+      budgetNotSure: "Zatiaľ neviem",
+    
+      timelineLabel: "Kedy potrebujete projekt dokončiť?",
+      timelinePlaceholder: "— Vyberte —",
+      timelineAsap: "Čo najskôr",
+      timeline1Month: "Do 1 mesiaca",
+      timeline1to3Months: "1 – 3 mesiace",
+      timeline3to6Months: "3 – 6 mesiacov",
+      timelineFlexible: "Flexibilne",
     
       messageLabel: "Správa",
       messagePlaceholder: "Napíšte nám, čo potrebujete…",
