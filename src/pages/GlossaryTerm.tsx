@@ -19,11 +19,27 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+// Find term by matching any language slug
+const findTermBySlug = (urlSlug: string) => {
+  const normalizedSlug = urlSlug.toLowerCase();
+  for (const [key, term] of Object.entries(glossaryTermsData)) {
+    if (
+      term.slugs.EN.toLowerCase() === normalizedSlug ||
+      term.slugs.CZ.toLowerCase() === normalizedSlug ||
+      term.slugs.SK.toLowerCase() === normalizedSlug
+    ) {
+      return { key, term };
+    }
+  }
+  return null;
+};
+
 const GlossaryTerm = () => {
   const { slug } = useParams();
   const { language } = useLanguage();
   const t = glossaryTranslations[language];
-  const termData = slug ? glossaryTermsData[slug.toLowerCase()] : null;
+  const found = slug ? findTermBySlug(slug) : null;
+  const termData = found?.term ?? null;
   
   const glossaryPath = `/${staticPageSlugs.glossary[language]}`;
 
