@@ -46,7 +46,8 @@ const ClientCard = memo(({ client }: { client: Client }) => {
         <img 
           src={client.image} 
           alt={client.name} 
-          className="max-h-[48px] max-w-[140px] object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+          className="max-h-[48px] max-w-[140px] object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+          style={{ filter: 'brightness(0) invert(1)' }}
         />
       ) : client.text ? (
         <span className="text-lg font-display font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
