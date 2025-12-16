@@ -224,19 +224,19 @@ const Contact = () => {
         </section>
 
         {/* Contact */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <section className="py-12 sm:py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
               {/* Form */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="glass p-8 rounded-2xl">
-                  <h2 className="text-2xl font-bold mb-6">{s.form.title}</h2>
+                <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl">
+                  <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{s.form.title}</h2>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     {/* botcheck */}
                     <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" />
                   
@@ -257,7 +257,7 @@ const Contact = () => {
                     </div>
                   
                     {/* Email + Phone */}
-                    <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
                           {s.form.emailLabel}
@@ -280,7 +280,7 @@ const Contact = () => {
                         </label>
                   
                         <div className="flex gap-2">
-                          <div className="w-[60px]">
+                          <div className="w-[70px] sm:w-[60px]">
                             <Select value={formData.phoneCountry} onValueChange={(v) => setField("phoneCountry", v)}>
                               <SelectTrigger className="bg-background/50">
                                 <SelectValue />
