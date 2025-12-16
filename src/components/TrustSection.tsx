@@ -23,7 +23,7 @@ const clientsRow1: Client[] = [
   { name: "DataFlow", text: "DataFlow" },
   { name: "CloudNine", text: "CloudNine" },
   { name: "PixelPro", text: "PixelPro" },
-  { name: "VisionX", text: "VisionX" },
+  { name: "DuoStory.cz", image: "/img/duostorylogo-gradient-cele-300x54.png", url: "https://duostory.cz/" },
 ];
 
 const clientsRow2: Client[] = [
