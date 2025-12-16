@@ -336,35 +336,42 @@ const AboutInner = () => {
         </section>
 
         {/* Highlights Section */}
-        <section className="py-24 px-4">
+        <section className="py-24 px-4 relative">
           <div className="container mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.35 }}
               className="text-center max-w-2xl mx-auto mb-12"
+              style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
                 {ta("about.why.badge")}
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                {ta("about.why.title.before")} <span className="text-gradient">{ta("about.why.title.highlight")}</span>
+                {ta("about.why.title.before")}{" "}
+                <span className="text-gradient">{ta("about.why.title.highlight")}</span>
               </h2>
               <p className="text-muted-foreground text-lg">{ta("about.why.subtitle")}</p>
             </motion.div>
-
+        
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.08 + index * 0.08,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true, amount: 0.25 }}
                   className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group relative overflow-hidden"
+                  style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <div className="relative z-10">
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <item.icon className="w-7 h-7 text-primary" />
@@ -377,39 +384,47 @@ const AboutInner = () => {
             </div>
           </div>
         </section>
-
+        
         {/* Values Section */}
-        <section className="py-24 px-4 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-transparent" />
+        <section className="py-24 px-4 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-transparent pointer-events-none" />
+        
           <div className="container mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.35 }}
               className="text-center max-w-2xl mx-auto mb-12"
+              style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary font-medium text-sm mb-4">
                 {ta("about.values.badge")}
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                {ta("about.values.title.before")} <span className="text-gradient">{ta("about.values.title.highlight")}</span>
+                {ta("about.values.title.before")}{" "}
+                <span className="text-gradient">{ta("about.values.title.highlight")}</span>
               </h2>
               <p className="text-muted-foreground text-lg">{ta("about.values.subtitle")}</p>
             </motion.div>
-
+        
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.08 + index * 0.08,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true, amount: 0.25 }}
                   className="glass p-8 rounded-3xl text-center relative overflow-hidden group hover:border-primary/30 transition-all duration-300"
+                  style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                    className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
                   />
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
