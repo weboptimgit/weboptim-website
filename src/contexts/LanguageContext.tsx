@@ -154,6 +154,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.cta1": "Start Your Project",
     "hero.cta2": "Our Services",
     "hero.happyClients": "happy clients",
+    "hero.excellentReviews": "Excellent Reviews",
 
     // Stats
     "stats.projects": "Projects Delivered",
@@ -373,6 +374,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.cta1": "Nezávazně nás kontaktovat",
     "hero.cta2": "Naše služby",
     "hero.happyClients": "spokojených klientů",
+    "hero.excellentReviews": "Výborné hodnocení",
 
     // Stats
     "stats.projects": "Dokončených projektů",
@@ -592,6 +594,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.cta1": "Nezáväzne nás kontaktovať",
     "hero.cta2": "Naše služby",
     "hero.happyClients": "spokojných klientov",
+    "hero.excellentReviews": "Výborné hodnotenie",
 
     // Stats
     "stats.projects": "Dokončených projektov",
