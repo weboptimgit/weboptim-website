@@ -1,3 +1,5 @@
+# WebOptim robots.txt
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +14,13 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://test.weboptim.eu/sitemap.xml
+Sitemap: https://test.weboptim.cz/sitemap.xml
+Sitemap: https://test.weboptim.sk/sitemap.xml
+
+# RSS Feeds
+# EN: https://test.weboptim.eu/rss.xml
+# CZ: https://test.weboptim.cz/rss-cz.xml
+# SK: https://test.weboptim.sk/rss-sk.xml
