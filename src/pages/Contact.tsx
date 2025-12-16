@@ -73,6 +73,8 @@ const Contact = () => {
   ]);
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formLoadTime] = useState(() => Date.now());
+  const [honeypot, setHoneypot] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -100,6 +102,27 @@ const Contact = () => {
   const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Anti-spam: honeypot check
+    if (honeypot) {
+      console.log("Spam detected: honeypot filled");
+      toast({
+        title: s.form.toastTitle,
+        description: s.form.toastDescription,
+      });
+      return;
+    }
+
+    // Anti-spam: time-based check (min 3 seconds)
+    const timeOnPage = Date.now() - formLoadTime;
+    if (timeOnPage < 3000) {
+      console.log("Spam detected: form submitted too fast");
+      toast({
+        title: s.form.toastTitle,
+        description: s.form.toastDescription,
+      });
+      return;
+    }
   
     if (!formData.consent) {
       toast({
@@ -237,8 +260,19 @@ const Contact = () => {
                   <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{s.form.title}</h2>
 
                     <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                    {/* botcheck */}
-                    <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" />
+                    {/* Honeypot - invisible to users, bots fill it */}
+                    <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
+                      <label htmlFor="website_url">Website URL</label>
+                      <input
+                        type="text"
+                        id="website_url"
+                        name="website_url"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                   
                     {/* Name / Company */}
                     <div className="form-group">
