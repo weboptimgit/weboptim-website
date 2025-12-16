@@ -201,7 +201,7 @@ const Contact = () => {
         description={s.seo.description}
         jsonLd={[breadcrumbSchema, contactSchema]}
       />
-      <div className="min-h-screen bg-background">
+      <div id="main-content" className="min-h-screen bg-background">
         <Navbar />
 
         {/* Hero */}
@@ -241,9 +241,9 @@ const Contact = () => {
                     <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" />
                   
                     {/* Name / Company */}
-                    <div>
+                    <div className="form-group">
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        {s.form.nameLabel /* napr. "Vaše meno / Názov vašej spoločnosti" */}
+                        {s.form.nameLabel}<span className="required-indicator" aria-hidden="true">*</span>
                       </label>
                       <Input
                         id="name"
@@ -252,15 +252,21 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder={s.form.namePlaceholder}
                         required
+                        aria-required="true"
+                        aria-describedby="name-hint"
                         className="bg-background/50"
+                        autoComplete="name"
                       />
+                      <p id="name-hint" className="form-hint">
+                        {s.form.nameHint ?? "Zadajte vaše meno alebo názov firmy"}
+                      </p>
                     </div>
                   
                     {/* Email + Phone */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
+                      <div className="form-group">
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
-                          {s.form.emailLabel}
+                          {s.form.emailLabel}<span className="required-indicator" aria-hidden="true">*</span>
                         </label>
                         <Input
                           id="email"
@@ -270,19 +276,28 @@ const Contact = () => {
                           onChange={handleChange}
                           placeholder={s.form.emailPlaceholder}
                           required
+                          aria-required="true"
+                          aria-describedby="email-hint"
                           className="bg-background/50"
+                          autoComplete="email"
                         />
+                        <p id="email-hint" className="form-hint">
+                          {s.form.emailHint ?? "Váš email pre odpoveď"}
+                        </p>
                       </div>
                   
-                      <div>
+                      <div className="form-group">
                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
                           {s.form.phoneLabel ?? "Vaše telefónne číslo"}
                         </label>
                   
                         <div className="flex gap-2">
                           <div className="w-[70px] sm:w-[60px]">
-                            <Select value={formData.phoneCountry} onValueChange={(v) => setField("phoneCountry", v)}>
-                              <SelectTrigger className="bg-background/50">
+                            <Select 
+                              value={formData.phoneCountry} 
+                              onValueChange={(v) => setField("phoneCountry", v)}
+                            >
+                              <SelectTrigger className="bg-background/50" aria-label={s.form.countryLabel ?? "Krajina"}>
                                 <SelectValue />
                               </SelectTrigger>
                               <SelectContent>
@@ -311,14 +326,19 @@ const Contact = () => {
                               }
                             }}
                             placeholder={phonePlaceholder}
+                            aria-describedby="phone-hint"
                             className="bg-background/50 flex-1"
+                            autoComplete="tel"
                           />
                         </div>
+                        <p id="phone-hint" className="form-hint">
+                          {s.form.phoneHint ?? "Nepovinné, pre rýchlejšiu komunikáciu"}
+                        </p>
                       </div>
                     </div>
                   
                     {/* Website */}
-                    <div>
+                    <div className="form-group">
                       <label htmlFor="website" className="block text-sm font-medium mb-2">
                         {s.form.websiteLabel ?? "Vaša webová stránka"}
                       </label>
@@ -328,18 +348,23 @@ const Contact = () => {
                         value={formData.website}
                         onChange={handleChange}
                         placeholder={s.form.websitePlaceholder ?? "https://"}
+                        aria-describedby="website-hint"
                         className="bg-background/50"
+                        autoComplete="url"
                       />
+                      <p id="website-hint" className="form-hint">
+                        {s.form.websiteHint}
+                      </p>
                     </div>
                   
                     {/* Select */}
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
+                    <div className="form-group">
+                      <label id="topic-label" className="block text-sm font-medium mb-2">
                         {s.form.topicLabel ?? ""}
                       </label>
                   
                       <Select value={formData.topic} onValueChange={(v) => setField("topic", v)}>
-                        <SelectTrigger className="bg-background/50">
+                        <SelectTrigger className="bg-background/50" aria-labelledby="topic-label">
                           <SelectValue placeholder={s.form.topicPlaceholder ?? "– Vyberte –"} />
                         </SelectTrigger>
                         <SelectContent>
@@ -353,9 +378,9 @@ const Contact = () => {
                     </div>
                   
                     {/* Message */}
-                    <div>
+                    <div className="form-group">
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        {s.form.messageLabel}
+                        {s.form.messageLabel}<span className="required-indicator" aria-hidden="true">*</span>
                       </label>
                       <Textarea
                         id="message"
@@ -365,8 +390,13 @@ const Contact = () => {
                         placeholder={s.form.messagePlaceholder}
                         rows={5}
                         required
+                        aria-required="true"
+                        aria-describedby="message-hint"
                         className="bg-background/50 resize-none"
                       />
+                      <p id="message-hint" className="form-hint">
+                        {s.form.messageHint}
+                      </p>
                     </div>
                   
                     {/* Consent */}
@@ -375,22 +405,38 @@ const Contact = () => {
                         id="consent"
                         checked={formData.consent}
                         onCheckedChange={(v) => setField("consent", v === true)}
+                        aria-required="true"
+                        aria-describedby="consent-hint"
                       />
-                      <label htmlFor="consent" className="text-sm text-muted-foreground leading-snug cursor-pointer">
-                        {s.form.consentText ?? (
-                          <>
-                            Súhlasím s <span className="underline">spracovaním osobných údajov</span>.
-                          </>
-                        )}
-                      </label>
+                      <div>
+                        <label htmlFor="consent" className="text-sm text-muted-foreground leading-snug cursor-pointer">
+                          {s.form.consentText ?? (
+                            <>
+                              Súhlasím s <span className="underline">spracovaním osobných údajov</span>.
+                            </>
+                          )}<span className="required-indicator" aria-hidden="true">*</span>
+                        </label>
+                        <p id="consent-hint" className="sr-only">
+                          {language === "EN" ? "Required to submit the form" : language === "CZ" ? "Povinné pro odeslání formuláře" : "Povinné pre odoslanie formulára"}
+                        </p>
+                      </div>
                     </div>
                   
-                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    <Button 
+                      type="submit" 
+                      size="lg" 
+                      className="w-full" 
+                      disabled={isSubmitting}
+                      aria-busy={isSubmitting}
+                    >
                       {isSubmitting ? (
-                        s.form.submitSending
+                        <>
+                          <span className="sr-only">{s.form.submitSending}</span>
+                          <span aria-hidden="true">{s.form.submitSending}</span>
+                        </>
                       ) : (
                         <>
-                          {s.form.submitIdle} <Send className="ml-2 h-4 w-4" />
+                          {s.form.submitIdle} <Send className="ml-2 h-4 w-4" aria-hidden="true" />
                         </>
                       )}
                     </Button>

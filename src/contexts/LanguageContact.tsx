@@ -35,15 +35,20 @@ type ContactLang = {
   
     nameLabel: string;
     namePlaceholder: string;
+    nameHint: string;
   
     emailLabel: string;
     emailPlaceholder: string;
+    emailHint: string;
   
     phoneLabel: string;
     phonePlaceholder: string;
+    phoneHint: string;
+    countryLabel: string;
   
     websiteLabel: string;
     websitePlaceholder: string;
+    websiteHint: string;
   
     topicLabel: string;
     topicPlaceholder: string;
@@ -55,6 +60,7 @@ type ContactLang = {
   
     messageLabel: string;
     messagePlaceholder: string;
+    messageHint: string;
   
     consentText: string;
     consentError: string;
@@ -112,15 +118,20 @@ const translations: Record<Language, ContactLang> = {
     
       nameLabel: "Your Name / Company Name",
       namePlaceholder: "John Doe / Acme s.r.o.",
+      nameHint: "Enter your name or company name",
     
       emailLabel: "Email Address",
       emailPlaceholder: "john@example.com",
+      emailHint: "We'll reply to this email",
     
       phoneLabel: "Phone Number",
       phonePlaceholder: "+421 900 000 000",
+      phoneHint: "Optional, for faster communication",
+      countryLabel: "Country code",
     
       websiteLabel: "Your Website (Optional)",
       websitePlaceholder: "https://",
+      websiteHint: "Your current website if you have one",
     
       topicLabel: "What do you need help with?",
       topicPlaceholder: "— Select —",
@@ -132,6 +143,7 @@ const translations: Record<Language, ContactLang> = {
     
       messageLabel: "Your Message",
       messagePlaceholder: "Tell us about your project...",
+      messageHint: "Describe your project, goals, or questions",
     
       consentText: "I agree to the processing of personal data.",
       consentError: "Please agree to personal data processing to continue.",
@@ -190,15 +202,20 @@ const translations: Record<Language, ContactLang> = {
     
       nameLabel: "Vaše jméno / Název společnosti",
       namePlaceholder: "Jan Novák / Firma s.r.o.",
+      nameHint: "Zadejte své jméno nebo název firmy",
     
       emailLabel: "E-mail",
       emailPlaceholder: "jan@firma.cz",
+      emailHint: "Na tento e-mail vám odpovíme",
     
       phoneLabel: "Telefonní číslo",
       phonePlaceholder: "+420 777 000 000",
+      phoneHint: "Nepovinné, pro rychlejší komunikaci",
+      countryLabel: "Předvolba",
     
       websiteLabel: "Vaše webová stránka (nepovinné)",
       websitePlaceholder: "https://",
+      websiteHint: "Váš aktuální web, pokud máte",
     
       topicLabel: "S čím potřebujete pomoct?",
       topicPlaceholder: "— Vyberte —",
@@ -210,6 +227,7 @@ const translations: Record<Language, ContactLang> = {
     
       messageLabel: "Zpráva",
       messagePlaceholder: "Napište nám, co potřebujete…",
+      messageHint: "Popište svůj projekt, cíle nebo otázky",
     
       consentText: "Souhlasím se zpracováním osobních údajů.",
       consentError: "Pro pokračování prosím potvrďte souhlas se zpracováním osobních údajů.",
@@ -268,15 +286,20 @@ const translations: Record<Language, ContactLang> = {
     
       nameLabel: "Vaše meno / Názov spoločnosti",
       namePlaceholder: "Ján Novák / Firma s.r.o.",
+      nameHint: "Zadajte svoje meno alebo názov firmy",
     
       emailLabel: "E-mail",
       emailPlaceholder: "jan@firma.sk",
+      emailHint: "Na tento e-mail vám odpovieme",
     
       phoneLabel: "Telefónne číslo",
       phonePlaceholder: "+421 900 000 000",
+      phoneHint: "Nepovinné, pre rýchlejšiu komunikáciu",
+      countryLabel: "Predvoľba",
     
       websiteLabel: "Vaša webová stránka (nepovinné)",
       websitePlaceholder: "https://",
+      websiteHint: "Váš aktuálny web, ak máte",
     
       topicLabel: "S čím potrebujete pomôcť?",
       topicPlaceholder: "— Vyberte —",
@@ -288,6 +311,7 @@ const translations: Record<Language, ContactLang> = {
     
       messageLabel: "Správa",
       messagePlaceholder: "Napíšte nám, čo potrebujete…",
+      messageHint: "Opíšte váš projekt, ciele alebo otázky",
     
       consentText: "Súhlasím so spracovaním osobných údajov.",
       consentError: "Pre pokračovanie prosím potvrďte súhlas so spracovaním osobných údajov.",

@@ -11,6 +11,7 @@ import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import SkipLink from "./components/SkipLink";
 
 // Lazy load non-critical routes for better initial load
 const BuildingWebsite = lazy(() => import("./pages/BuildingWebsite"));
@@ -96,6 +97,7 @@ function AppShell() {
         <Sonner />
 
         <BrowserRouter>
+          <SkipLink />
           <ScrollToTop />
 
           <Suspense fallback={<PageLoader />}>

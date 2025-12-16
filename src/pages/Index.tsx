@@ -39,7 +39,7 @@ const Index = () => {
   return (
     <>
       <SEO titleKey="home" jsonLd={jsonLd} />
-      <main className="min-h-screen bg-background overflow-x-hidden relative">
+      <main id="main-content" className="min-h-screen bg-background overflow-x-hidden relative">
         {/* Lazy load background for better initial paint */}
         <Suspense fallback={null}>
           <AmbientBackground />
