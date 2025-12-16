@@ -146,31 +146,38 @@ const AboutInner = () => {
 
         {/* Hero Section */}
         <section className="pt-52 pb-24 px-4 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute top-1/4 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+        
           <div className="container mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-center max-w-4xl mx-auto"
+              style={{ willChange: "transform, opacity" }}
             >
               <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.2, duration: 0.45, ease: "easeOut" }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary font-medium text-sm mb-6"
+                style={{ willChange: "transform, opacity" }}
               >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 {ta("about.hero.badge")}
               </motion.span>
-
+        
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6">
-                {t("about.title.before")} <span className="text-gradient">{t("about.title.highlight")}</span>
+                {t("about.title.before")}{" "}
+                <span className="text-gradient">{t("about.title.highlight")}</span>
               </h1>
-
+        
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
                 {ta("about.hero.subtitle")}
               </p>
-
+        
               {/* Animated Stats Row */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mt-12">
                 {stats.map((stat, index) => (
@@ -186,7 +193,6 @@ const AboutInner = () => {
                     }}
                     style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
                   >
-                    {/* glass je obyčajný div */}
                     <div className="glass rounded-2xl p-4 md:p-6 text-center hover:border-primary/30 transition-all duration-300 overflow-hidden">
                       <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
                         {stat.value}
@@ -198,10 +204,8 @@ const AboutInner = () => {
                   </motion.div>
                 ))}
               </div>
-
-          {/* Decorative elements */}
-          <div className="absolute top-1/4 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" />
+            </motion.div>
+          </div>
         </section>
 
         {/* Story Section with Visual */}
