@@ -45,7 +45,7 @@ const clientsRow2: Client[] = [
   { name: "Škoda", image: "/img/skoda_logo-260x300.png", url: "https://www.skoda-auto.sk/" },
   { name: "Sunsystem", image: "/img/sunsystem-logo-300x31.png", url: "https://www.sunsystem.eu/" },
   { name: "Technorol", image: "/img/technorol_logo.svg", url: "https://www.technorol.sk/" },
-  { name: "Tom’s Food", image: "/img/tomsfood-logo.webp"},
+  { name: "Tom’s Food", image: "/img/tomsfood-logo-w.webp"},
   { name: "Uzdrav Telo", image: "/img/uzdravtelo-sk-logo_gradient.png", url: "https://www.uzdravtelo.sk/" },
   { name: "Yogatree", image: "/img/yogatre2-300x243.png", url: "https://yogatree.cz/" },
   { name: "YourKush", image: "/img/yourkush-logo.png", url: "https://www.yourkush.cz/" },
