@@ -14,6 +14,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { servicePath, buildPath } from "@/config/domains";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Memoized service card for better performance
 const ServiceCard = memo(({ service, index }: { service: any; index: number }) => {
@@ -72,6 +78,7 @@ ServiceCard.displayName = "ServiceCard";
 
 const Services = () => {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
 
   const services = [
     {
@@ -157,12 +164,31 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid - Blog-style motion wrapper per card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
-          ))}
-        </div>
+        {/* Mobile Carousel */}
+        {isMobile ? (
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2">
+              {services.map((service, index) => (
+                <CarouselItem key={index} className="pl-2 basis-[85%]">
+                  <ServiceCard service={service} index={0} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        ) : (
+          /* Desktop Grid */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <ServiceCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        )}
 
         {/* CTA - Blog-style motion */}
         <motion.div
