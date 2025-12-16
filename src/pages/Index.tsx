@@ -86,7 +86,7 @@ const Index = () => {
               subtitle={t.subtitle}
               cta={t.cta}
               href={configuratorUrl}
-              showAfterPercent={0.35}
+              showAfterPx={100}
               reappearAfterHours={24}
               offerText={t.offerText}
             />
