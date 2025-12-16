@@ -175,23 +175,38 @@ const AboutInner = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
                 className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mt-12"
+                style={{
+                  willChange: "transform, opacity",
+                  transform: "translate3d(0,0,0)",
+                  backfaceVisibility: "hidden",
+                }}
               >
                 {stats.map((stat, index) => (
                   <motion.div
                     key={stat.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    className="glass rounded-2xl p-4 md:p-6 text-center hover:border-primary/30 transition-all duration-300"
+                    transition={{ delay: 0.5 + index * 0.1, duration: 0.5, ease: "easeOut" }}
+                    style={{
+                      willChange: "transform, opacity",
+                      transform: "translate3d(0,0,0)",
+                      backfaceVisibility: "hidden",
+                    }}
                   >
-                    <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">{stat.value}</div>
-                    <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+                    {/*  glass je už obyčajný div */}
+                    <div className="glass rounded-2xl p-4 md:p-6 text-center hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                      <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs md:text-sm text-muted-foreground">
+                        {stat.label}
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
-            </motion.div>
           </div>
 
           {/* Decorative elements */}
