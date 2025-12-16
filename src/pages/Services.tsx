@@ -158,7 +158,7 @@ const WebDevCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="lg:col-span-2 group"
     >
-      <div className="relative glass rounded-3xl p-8 lg:p-10 overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500">
+      <div className="relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
@@ -176,14 +176,14 @@ const WebDevCard = ({
         <div className="relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-start gap-8">
             <div className="flex-1">
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
                 <motion.div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
                   style={{ background: "linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))" }}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <service.icon className="w-8 h-8 text-white" />
+                  <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
 
                 <div>
@@ -193,7 +193,7 @@ const WebDevCard = ({
                       {s.services.webDev.badge ?? "Most Popular"}
                     </span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-foreground">
                     {s.services.webDev.title}
                   </h3>
                 </div>
@@ -203,7 +203,7 @@ const WebDevCard = ({
                 <p className="text-lg text-primary font-medium mb-3">{s.services.webDev.subtitle}</p>
               )}
 
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+              <p className="text-muted-foreground mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                 {s.services.webDev.description}
               </p>
 
@@ -232,7 +232,7 @@ const WebDevCard = ({
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-3 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                 {s.services.webDev.features.map((feature, i) => (
                   <motion.div
                     key={i}
@@ -301,10 +301,10 @@ const ServiceCard = ({
     transition={{ duration: 0.5, delay: index * 0.1 }}
     className="group"
   >
-    <div className="glass rounded-2xl p-8 h-full hover:border-primary/40 transition-all duration-300">
-      <div className="flex items-start gap-6">
+    <div className="glass rounded-2xl p-6 sm:p-8 h-full hover:border-primary/40 transition-all duration-300">
+      <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
         <div
-          className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
           style={{
             background:
               service.color === "from-purple-500 to-pink-500"
@@ -320,16 +320,16 @@ const ServiceCard = ({
                         : "linear-gradient(135deg, hsl(193 88% 61%), hsl(210 60% 55%))",
           }}
         >
-          <service.icon className="w-8 h-8 text-white" />
+          <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
         </div>
 
         <div className="flex-1">
           <div className="flex items-start justify-between mb-3">
-            <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
               {title}
             </h3>
             {service.href && (
-              <Link to={service.href} className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Link to={service.href} className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
                   <ArrowUpRight className="w-5 h-5" />
                 </div>
@@ -337,9 +337,9 @@ const ServiceCard = ({
             )}
           </div>
 
-          <p className="text-muted-foreground mb-6">{description}</p>
+          <p className="text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base">{description}</p>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {features.map((feature, i) => (
               <div key={i} className="flex items-center gap-2 text-sm">
                 <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
@@ -462,7 +462,7 @@ const Services = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {s.process.steps.map((item, index) => (
                 <motion.div
                   key={index}
