@@ -156,7 +156,7 @@ const WebDevCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="lg:col-span-2 group"
+      className="lg:col-span-2 group w-full"
     >
       <div className="relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -393,8 +393,8 @@ const Services = () => {
         <Navbar />
 
         {/* Hero Section */}
-        <section className="pt-52 pb-16 relative">
-          <div className="container mx-auto px-6">
+        <section className="pt-36 sm:pt-52 pb-12 sm:pb-16 relative">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -419,9 +419,9 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-8">
+        <section className="py-8 sm:py-16">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
               <WebDevCard service={webDevService} index={0} s={s} lang={language} />
 
               {otherServices.map((service, index) => {
@@ -443,15 +443,15 @@ const Services = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-24 relative">
+        <section className="py-12 sm:py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              className="text-center mb-8 sm:mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {processTitle.before}{" "}
@@ -470,15 +470,15 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass rounded-2xl p-6 text-center relative group hover:border-primary/40 transition-all"
+                  className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center relative group hover:border-primary/40 transition-all"
                 >
-                  <div className="text-5xl font-display font-bold text-primary/20 group-hover:text-primary/40 transition-colors mb-4">
+                  <div className="text-3xl sm:text-5xl font-display font-bold text-primary/20 group-hover:text-primary/40 transition-colors mb-2 sm:mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-lg font-display font-bold text-foreground mb-2">
+                  <h3 className="text-sm sm:text-lg font-display font-bold text-foreground mb-1 sm:mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -486,14 +486,14 @@ const Services = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24">
-          <div className="container mx-auto px-6">
+        <section className="py-12 sm:py-24">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="glass rounded-3xl p-12 text-center max-w-3xl mx-auto"
+              className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-12 text-center max-w-3xl mx-auto"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 {s.cta.title}
