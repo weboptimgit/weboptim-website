@@ -377,12 +377,6 @@ select:focus-visible,
   border-radius: var(--radius);
 }
 
-/* Focus within for form groups */
-.form-group:focus-within {
-  outline: 1px dashed hsl(var(--primary) / 0.5);
-  outline-offset: 4px;
-  border-radius: var(--radius);
-}
 
 /* Screen reader only utility */
 .sr-only {
