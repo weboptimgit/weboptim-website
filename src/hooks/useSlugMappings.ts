@@ -2,6 +2,22 @@ import { useLocation } from "react-router-dom";
 import { Language } from "@/contexts/LanguageContext";
 import { blogPostsData, getTranslatedCategorySlug, getBaseCategorySlug } from "@/data/blog-posts";
 import { staticPageSlugs, getBaseRouteFromSlug } from "@/config/domains";
+import { glossaryTermsData } from "@/data/glossary-terms";
+
+// Find glossary term by any language slug
+const findGlossaryTermBySlug = (urlSlug: string) => {
+  const normalizedSlug = urlSlug.toLowerCase();
+  for (const [key, term] of Object.entries(glossaryTermsData)) {
+    if (
+      term.slugs.EN.toLowerCase() === normalizedSlug ||
+      term.slugs.CZ.toLowerCase() === normalizedSlug ||
+      term.slugs.SK.toLowerCase() === normalizedSlug
+    ) {
+      return term;
+    }
+  }
+  return null;
+};
 
 // Hook to get slug mappings for the current page
 export const useSlugMappings = (): Record<Language, string> | undefined => {
@@ -66,6 +82,17 @@ export const useSlugMappings = (): Record<Language, string> | undefined => {
   const glossaryBaseRoute = getBaseRouteFromSlug(firstSegment);
   if (glossaryBaseRoute === "glossary" && secondSegment) {
     const termSlug = secondSegment;
+    const glossaryTerm = findGlossaryTermBySlug(termSlug);
+    
+    if (glossaryTerm) {
+      return {
+        EN: `${staticPageSlugs.glossary.EN}/${glossaryTerm.slugs.EN}`,
+        CZ: `${staticPageSlugs.glossary.CZ}/${glossaryTerm.slugs.CZ}`,
+        SK: `${staticPageSlugs.glossary.SK}/${glossaryTerm.slugs.SK}`,
+      };
+    }
+    
+    // Fallback if term not found - use same slug for all languages
     return {
       EN: `${staticPageSlugs.glossary.EN}/${termSlug}`,
       CZ: `${staticPageSlugs.glossary.CZ}/${termSlug}`,
