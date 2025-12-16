@@ -80,8 +80,6 @@ const Contact = () => {
     phone: "",
     website: "",
     topic: "",
-    budget: "",
-    timeline: "",
     message: "",
     consent: false,
   });
@@ -127,8 +125,6 @@ const Contact = () => {
           phone: `${formData.phoneCountry} ${formData.phone}`.trim(),
           website: formData.website,
           topic: formData.topic,
-          budget: formData.budget,
-          timeline: formData.timeline,
           message: formData.message,
           language,
           consent: formData.consent,
@@ -145,7 +141,7 @@ const Contact = () => {
         title: s.form.toastTitle,
         description: s.form.toastDescription,
       });
-
+  
       setFormData({
         name: "",
         email: "",
@@ -153,8 +149,6 @@ const Contact = () => {
         phone: "",
         website: "",
         topic: "",
-        budget: "",
-        timeline: "",
         message: "",
         consent: false,
       });
@@ -231,45 +225,45 @@ const Contact = () => {
 
         {/* Contact */}
         <section className="py-12 sm:py-16 px-4">
-          <div className="container mx-auto max-w-7xl">
-            <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-              {/* Form - wider */}
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+              {/* Form */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="lg:col-span-3"
               >
-                <div className="glass p-5 sm:p-8 md:p-10 rounded-2xl">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">{s.form.title}</h2>
+                <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl">
+                  <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{s.form.title}</h2>
 
-                    <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     {/* botcheck */}
                     <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" />
                   
-                    {/* Name / Company + Email */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                      <div className="form-group">
-                        <label htmlFor="name" className="block text-sm font-medium mb-2">
-                          {s.form.nameLabel}<span className="required-indicator" aria-hidden="true">*</span>
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder={s.form.namePlaceholder}
-                          required
-                          aria-required="true"
-                          aria-describedby="name-hint"
-                          className="bg-background/50 h-11"
-                          autoComplete="name"
-                        />
-                        <p id="name-hint" className="form-hint">
-                          {s.form.nameHint ?? "Zadajte vaše meno alebo názov firmy"}
-                        </p>
-                      </div>
-                      
+                    {/* Name / Company */}
+                    <div className="form-group">
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                        {s.form.nameLabel}<span className="required-indicator" aria-hidden="true">*</span>
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder={s.form.namePlaceholder}
+                        required
+                        aria-required="true"
+                        aria-describedby="name-hint"
+                        className="bg-background/50"
+                        autoComplete="name"
+                      />
+                      <p id="name-hint" className="form-hint">
+                        {s.form.nameHint ?? "Zadajte vaše meno alebo názov firmy"}
+                      </p>
+                    </div>
+                  
+                    {/* Email + Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
                           {s.form.emailLabel}<span className="required-indicator" aria-hidden="true">*</span>
@@ -284,29 +278,26 @@ const Contact = () => {
                           required
                           aria-required="true"
                           aria-describedby="email-hint"
-                          className="bg-background/50 h-11"
+                          className="bg-background/50"
                           autoComplete="email"
                         />
                         <p id="email-hint" className="form-hint">
                           {s.form.emailHint ?? "Váš email pre odpoveď"}
                         </p>
                       </div>
-                    </div>
                   
-                    {/* Phone + Website */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                       <div className="form-group">
                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
                           {s.form.phoneLabel ?? "Vaše telefónne číslo"}
                         </label>
                   
                         <div className="flex gap-2">
-                          <div className="w-[80px]">
+                          <div className="w-[70px] sm:w-[60px]">
                             <Select 
                               value={formData.phoneCountry} 
                               onValueChange={(v) => setField("phoneCountry", v)}
                             >
-                              <SelectTrigger className="bg-background/50 h-11" aria-label={s.form.countryLabel ?? "Krajina"}>
+                              <SelectTrigger className="bg-background/50" aria-label={s.form.countryLabel ?? "Krajina"}>
                                 <SelectValue />
                               </SelectTrigger>
                               <SelectContent>
@@ -336,7 +327,7 @@ const Contact = () => {
                             }}
                             placeholder={phonePlaceholder}
                             aria-describedby="phone-hint"
-                            className="bg-background/50 h-11 flex-1"
+                            className="bg-background/50 flex-1"
                             autoComplete="tel"
                           />
                         </div>
@@ -344,84 +335,44 @@ const Contact = () => {
                           {s.form.phoneHint ?? "Nepovinné, pre rýchlejšiu komunikáciu"}
                         </p>
                       </div>
-                      
-                      <div className="form-group">
-                        <label htmlFor="website" className="block text-sm font-medium mb-2">
-                          {s.form.websiteLabel ?? "Vaša webová stránka"}
-                        </label>
-                        <Input
-                          id="website"
-                          name="website"
-                          value={formData.website}
-                          onChange={handleChange}
-                          placeholder={s.form.websitePlaceholder ?? "https://"}
-                          aria-describedby="website-hint"
-                          className="bg-background/50 h-11"
-                          autoComplete="url"
-                        />
-                        <p id="website-hint" className="form-hint">
-                          {s.form.websiteHint}
-                        </p>
-                      </div>
                     </div>
                   
-                    {/* Topic + Budget */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                      <div className="form-group">
-                        <label id="topic-label" className="block text-sm font-medium mb-2">
-                          {s.form.topicLabel ?? "S čím potrebujete pomôcť?"}
-                        </label>
-                        <Select value={formData.topic} onValueChange={(v) => setField("topic", v)}>
-                          <SelectTrigger className="bg-background/50 h-11" aria-labelledby="topic-label">
-                            <SelectValue placeholder={s.form.topicPlaceholder ?? "– Vyberte –"} />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="web">{s.form.topicWeb ?? "Web stránka"}</SelectItem>
-                            <SelectItem value="eshop">{s.form.topicEshop ?? "E-shop"}</SelectItem>
-                            <SelectItem value="seo">{s.form.topicSeo ?? "SEO"}</SelectItem>
-                            <SelectItem value="ppc">{s.form.topicPpc ?? "PPC"}</SelectItem>
-                            <SelectItem value="graphic">{s.form.topicGraphic ?? "Grafika"}</SelectItem>
-                            <SelectItem value="consulting">{s.form.topicConsulting ?? "Konzultácia"}</SelectItem>
-                            <SelectItem value="other">{s.form.topicOther ?? "Iné"}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      
-                      <div className="form-group">
-                        <label id="budget-label" className="block text-sm font-medium mb-2">
-                          {s.form.budgetLabel ?? "Orientačný rozpočet"}
-                        </label>
-                        <Select value={formData.budget} onValueChange={(v) => setField("budget", v)}>
-                          <SelectTrigger className="bg-background/50 h-11" aria-labelledby="budget-label">
-                            <SelectValue placeholder={s.form.budgetPlaceholder ?? "– Vyberte –"} />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="under-500">{s.form.budgetUnder500 ?? "Do 500 €"}</SelectItem>
-                            <SelectItem value="500-1500">{s.form.budget500to1500 ?? "500 – 1 500 €"}</SelectItem>
-                            <SelectItem value="1500-3000">{s.form.budget1500to3000 ?? "1 500 – 3 000 €"}</SelectItem>
-                            <SelectItem value="3000-5000">{s.form.budget3000to5000 ?? "3 000 – 5 000 €"}</SelectItem>
-                            <SelectItem value="over-5000">{s.form.budgetOver5000 ?? "Viac ako 5 000 €"}</SelectItem>
-                            <SelectItem value="not-sure">{s.form.budgetNotSure ?? "Neviem"}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  
-                    {/* Timeline */}
+                    {/* Website */}
                     <div className="form-group">
-                      <label id="timeline-label" className="block text-sm font-medium mb-2">
-                        {s.form.timelineLabel ?? "Kedy potrebujete projekt dokončiť?"}
+                      <label htmlFor="website" className="block text-sm font-medium mb-2">
+                        {s.form.websiteLabel ?? "Vaša webová stránka"}
                       </label>
-                      <Select value={formData.timeline} onValueChange={(v) => setField("timeline", v)}>
-                        <SelectTrigger className="bg-background/50 h-11" aria-labelledby="timeline-label">
-                          <SelectValue placeholder={s.form.timelinePlaceholder ?? "– Vyberte –"} />
+                      <Input
+                        id="website"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        placeholder={s.form.websitePlaceholder ?? "https://"}
+                        aria-describedby="website-hint"
+                        className="bg-background/50"
+                        autoComplete="url"
+                      />
+                      <p id="website-hint" className="form-hint">
+                        {s.form.websiteHint}
+                      </p>
+                    </div>
+                  
+                    {/* Select */}
+                    <div className="form-group">
+                      <label id="topic-label" className="block text-sm font-medium mb-2">
+                        {s.form.topicLabel ?? ""}
+                      </label>
+                  
+                      <Select value={formData.topic} onValueChange={(v) => setField("topic", v)}>
+                        <SelectTrigger className="bg-background/50" aria-labelledby="topic-label">
+                          <SelectValue placeholder={s.form.topicPlaceholder ?? "– Vyberte –"} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="asap">{s.form.timelineAsap ?? "Čo najskôr"}</SelectItem>
-                          <SelectItem value="1-month">{s.form.timeline1Month ?? "Do 1 mesiaca"}</SelectItem>
-                          <SelectItem value="1-3-months">{s.form.timeline1to3Months ?? "1 – 3 mesiace"}</SelectItem>
-                          <SelectItem value="3-6-months">{s.form.timeline3to6Months ?? "3 – 6 mesiacov"}</SelectItem>
-                          <SelectItem value="flexible">{s.form.timelineFlexible ?? "Flexibilne"}</SelectItem>
+                          <SelectItem value="web">{s.form.topicWeb ?? "Web stránka"}</SelectItem>
+                          <SelectItem value="seo">{s.form.topicSeo ?? "SEO"}</SelectItem>
+                          <SelectItem value="ppc">{s.form.topicPpc ?? "PPC"}</SelectItem>
+                          <SelectItem value="consulting">{s.form.topicConsulting ?? "Konzultácia"}</SelectItem>
+                          <SelectItem value="other">{s.form.topicOther ?? "Iné"}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -437,7 +388,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder={s.form.messagePlaceholder}
-                        rows={6}
+                        rows={5}
                         required
                         aria-required="true"
                         aria-describedby="message-hint"
@@ -527,7 +478,7 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              {/* Sidebar Info */}
+              {/* Info */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
