@@ -339,7 +339,17 @@ const BlogPost = () => {
                 variant="outline"
                 size="sm"
                 className="rounded-full border-border/50 hover:border-primary hover:text-primary"
-                onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
+                onClick={() => {
+                  const url = window.location.href;
+                  const title = post.title;
+                  if (navigator.share) {
+                    navigator.share({ title, url }).catch(() => {});
+                  } else {
+                    navigator.clipboard.writeText(url).then(() => {
+                      alert(language === 'CZ' ? 'Odkaz zkopírován!' : language === 'SK' ? 'Odkaz skopírovaný!' : 'Link copied!');
+                    }).catch(() => {});
+                  }
+                }}
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 {t("blogPost.share.button")}
@@ -351,27 +361,31 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-10 p-6 rounded-2xl glass border border-border/50"
+                className="mb-10 rounded-2xl overflow-hidden border border-border/30 bg-gradient-to-br from-muted/30 via-background to-muted/20"
               >
-                <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  {t("blogPost.toc.title")}
-                </h3>
-            
-                <ul className="space-y-2 text-sm">
-                  {toc.map((item) => (
-                    <li
-                      key={item.id}
-                      className={`pl-${(item.level - 2) * 4}`}
-                    >
-                      <a
-                        href={`#${item.id}`}
-                        className="text-muted-foreground hover:text-primary transition-colors block"
-                      >
-                        {item.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="px-5 py-3 border-b border-border/30 bg-muted/40">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-primary" />
+                    {t("blogPost.toc.title")}
+                  </h3>
+                </div>
+                <nav className="p-4">
+                  <ol className="space-y-1 text-sm">
+                    {toc.filter(item => item.level === 2).map((item, index) => (
+                      <li key={item.id}>
+                        <a
+                          href={`#${item.id}`}
+                          className="group flex items-center gap-3 py-1.5 px-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all"
+                        >
+                          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary text-xs font-medium flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                            {index + 1}
+                          </span>
+                          <span className="line-clamp-1">{item.text}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
               </motion.aside>
             )}
 
