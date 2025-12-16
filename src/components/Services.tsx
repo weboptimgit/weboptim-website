@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Code2,
@@ -18,6 +18,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -79,6 +80,20 @@ ServiceCard.displayName = "ServiceCard";
 const Services = () => {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const services = [
     {
@@ -166,21 +181,39 @@ const Services = () => {
 
         {/* Mobile Carousel */}
         {isMobile ? (
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2">
-              {services.map((service, index) => (
-                <CarouselItem key={index} className="pl-2 basis-[85%]">
-                  <ServiceCard service={service} index={0} />
-                </CarouselItem>
+          <div className="space-y-4">
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2">
+                {services.map((service, index) => (
+                  <CarouselItem key={index} className="pl-2 basis-[85%]">
+                    <ServiceCard service={service} index={0} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-2">
+              {Array.from({ length: count }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => api?.scrollTo(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === current 
+                      ? "bg-primary w-6" 
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
               ))}
-            </CarouselContent>
-          </Carousel>
+            </div>
+          </div>
         ) : (
           /* Desktop Grid */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
