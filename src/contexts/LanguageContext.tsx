@@ -105,6 +105,7 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.title.before": "What Our",
     "testimonials.title.highlight": "Clients Say",
     "testimonials.subtitle": "Don't just take our word for it. Here's what our clients have to say about working with us.",
+    "testimonials.googleLink": "View more reviews on Google",
 
     // Blog section
     "blogSection.title.before": "Latest from Our",
@@ -323,6 +324,7 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.title.before": "Co říkají",
     "testimonials.title.highlight": "klienti",
     "testimonials.subtitle": "Neberte to jen od nás. Podívejte se, co říkají naši klienti o spolupráci s námi.",
+    "testimonials.googleLink": "Zobrazit další recenze na Google",
 
     // Blog section
     "blogSection.title.before": "To nejnovější z našeho",
@@ -541,6 +543,7 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.title.before": "Čo hovoria",
     "testimonials.title.highlight": "klienti",
     "testimonials.subtitle": "Neberte to len od nás. Pozrite sa, čo hovoria naši klienti o spolupráci s nami.",
+    "testimonials.googleLink": "Zobraziť ďalšie recenzie na Google",
 
     // Blog section
     "blogSection.title.before": "To najnovšie z nášho",
