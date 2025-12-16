@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { blogPostsData } from "../src/data/blog-posts";
+import { glossaryTermsData } from "../src/data/glossary-terms";
+import { caseStudiesData } from "../src/data/case-studies";
 import { staticPageSlugs, serviceDetailSlugs } from "../src/config/domains";
 
 const domains = {
@@ -90,6 +92,8 @@ const staticPages: Record<string, Record<Lang, string> | undefined> = {
   blog: staticPageSlugs.blog,
   faq: staticPageSlugs.faq,
   glossary: staticPageSlugs.glossary,
+  configurator: staticPageSlugs.configurator,
+  privacy: staticPageSlugs.privacy,
 };
 
 const pagesEntries = Object.entries(staticPages)
@@ -152,6 +156,52 @@ const servicesEntries =
     : (console.log("⚠️ staticPageSlugs.services is missing"), []);
 
 /* --------------------------
+   4) GLOSSARY TERMS
+--------------------------- */
+
+const glossaryEntries =
+  staticPageSlugs.glossary?.EN && staticPageSlugs.glossary?.CZ && staticPageSlugs.glossary?.SK
+    ? Object.values(glossaryTermsData)
+        .map((term) => {
+          const enSlug = term?.slugs?.EN;
+          const czSlug = term?.slugs?.CZ;
+          const skSlug = term?.slugs?.SK;
+
+          if (!enSlug || !czSlug || !skSlug) return null;
+
+          return urlEntry({
+            EN: joinPath(staticPageSlugs.glossary.EN, enSlug),
+            CZ: joinPath(staticPageSlugs.glossary.CZ, czSlug),
+            SK: joinPath(staticPageSlugs.glossary.SK, skSlug),
+          });
+        })
+        .filter(Boolean) as string[]
+    : (console.log("⚠️ staticPageSlugs.glossary is missing"), []);
+
+/* --------------------------
+   5) CASE STUDIES (WORK/PORTFOLIO)
+--------------------------- */
+
+const caseStudiesEntries =
+  staticPageSlugs.work?.EN && staticPageSlugs.work?.CZ && staticPageSlugs.work?.SK
+    ? Object.values(caseStudiesData)
+        .map((study) => {
+          const enSlug = study?.translations?.EN?.slug;
+          const czSlug = study?.translations?.CZ?.slug || study?.translations?.EN?.slug;
+          const skSlug = study?.translations?.SK?.slug || study?.translations?.EN?.slug;
+
+          if (!enSlug) return null;
+
+          return urlEntry({
+            EN: joinPath(staticPageSlugs.work.EN, enSlug),
+            CZ: joinPath(staticPageSlugs.work.CZ, czSlug),
+            SK: joinPath(staticPageSlugs.work.SK, skSlug),
+          });
+        })
+        .filter(Boolean) as string[]
+    : (console.log("⚠️ staticPageSlugs.work is missing"), []);
+
+/* --------------------------
    WRITE FILES
 --------------------------- */
 
@@ -161,11 +211,15 @@ fs.mkdirSync(outDir, { recursive: true });
 const pagesPath = path.join(outDir, "sitemap-pages.xml");
 const blogPath = path.join(outDir, "sitemap-blog.xml");
 const servicesPath = path.join(outDir, "sitemap-services.xml");
+const glossaryPath = path.join(outDir, "sitemap-glossary.xml");
+const caseStudiesPath = path.join(outDir, "sitemap-case-studies.xml");
 const indexPath = path.join(outDir, "sitemap.xml");
 
 fs.writeFileSync(pagesPath, wrapUrlset(pagesEntries), "utf8");
 fs.writeFileSync(blogPath, wrapUrlset(blogEntries), "utf8");
 fs.writeFileSync(servicesPath, wrapUrlset(servicesEntries), "utf8");
+fs.writeFileSync(glossaryPath, wrapUrlset(glossaryEntries), "utf8");
+fs.writeFileSync(caseStudiesPath, wrapUrlset(caseStudiesEntries), "utf8");
 
 // sitemap index
 fs.writeFileSync(
@@ -174,6 +228,16 @@ fs.writeFileSync(
     { loc: `${domains.EN}/sitemap-pages.xml`, lastmod: today },
     { loc: `${domains.EN}/sitemap-blog.xml`, lastmod: today },
     { loc: `${domains.EN}/sitemap-services.xml`, lastmod: today },
+    { loc: `${domains.EN}/sitemap-glossary.xml`, lastmod: today },
+    { loc: `${domains.EN}/sitemap-case-studies.xml`, lastmod: today },
   ]),
   "utf8"
 );
+
+console.log(`✅ Sitemaps generated:`);
+console.log(`   - sitemap-pages.xml (${pagesEntries.length} URLs)`);
+console.log(`   - sitemap-blog.xml (${blogEntries.length} URLs)`);
+console.log(`   - sitemap-services.xml (${servicesEntries.length} URLs)`);
+console.log(`   - sitemap-glossary.xml (${glossaryEntries.length} URLs)`);
+console.log(`   - sitemap-case-studies.xml (${caseStudiesEntries.length} URLs)`);
+console.log(`   - sitemap.xml (index)`);
