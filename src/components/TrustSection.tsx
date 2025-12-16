@@ -6,39 +6,71 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { buildPath } from "@/config/domains";
 
-const clientsRow1 = [
-  { name: "TechCorp", logo: "TechCorp" },
-  { name: "InnovateLab", logo: "InnovateLab" },
-  { name: "GrowthHub", logo: "GrowthHub" },
-  { name: "NextGen", logo: "NextGen" },
-  { name: "BlueWave", logo: "BlueWave" },
-  { name: "SkyLimit", logo: "SkyLimit" },
-  { name: "DataFlow", logo: "DataFlow" },
-  { name: "CloudNine", logo: "CloudNine" },
-  { name: "PixelPro", logo: "PixelPro" },
-  { name: "VisionX", logo: "VisionX" },
+interface Client {
+  name: string;
+  text?: string;
+  image?: string;
+  url?: string;
+}
+
+const clientsRow1: Client[] = [
+  { name: "TechCorp", text: "TechCorp" },
+  { name: "InnovateLab", text: "InnovateLab" },
+  { name: "GrowthHub", text: "GrowthHub" },
+  { name: "NextGen", text: "NextGen" },
+  { name: "BlueWave", text: "BlueWave" },
+  { name: "SkyLimit", text: "SkyLimit" },
+  { name: "DataFlow", text: "DataFlow" },
+  { name: "CloudNine", text: "CloudNine" },
+  { name: "PixelPro", text: "PixelPro" },
+  { name: "VisionX", text: "VisionX" },
 ];
 
-const clientsRow2 = [
-  { name: "Quantum", logo: "Quantum" },
-  { name: "Apex", logo: "Apex" },
-  { name: "Zenith", logo: "Zenith" },
-  { name: "Elevate", logo: "Elevate" },
-  { name: "Fusion", logo: "Fusion" },
-  { name: "Spectrum", logo: "Spectrum" },
-  { name: "Catalyst", logo: "Catalyst" },
-  { name: "Pinnacle", logo: "Pinnacle" },
-  { name: "Horizon", logo: "Horizon" },
-  { name: "Vertex", logo: "Vertex" },
+const clientsRow2: Client[] = [
+  { name: "Quantum", text: "Quantum" },
+  { name: "Apex", text: "Apex" },
+  { name: "Zenith", text: "Zenith" },
+  { name: "Elevate", text: "Elevate" },
+  { name: "Fusion", text: "Fusion" },
+  { name: "Spectrum", text: "Spectrum" },
+  { name: "Catalyst", text: "Catalyst" },
+  { name: "Pinnacle", text: "Pinnacle" },
+  { name: "Horizon", text: "Horizon" },
+  { name: "Vertex", text: "Vertex" },
 ];
 
-const ClientCard = memo(({ client }: { client: { name: string; logo: string } }) => (
-  <div className="flex-shrink-0 mx-3 glass rounded-xl px-8 py-6 flex items-center justify-center min-w-[180px] hover:border-primary/30 transition-all duration-300 group">
-    <span className="text-lg font-display font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
-      {client.logo}
-    </span>
-  </div>
-));
+const ClientCard = memo(({ client }: { client: Client }) => {
+  const content = (
+    <div className="flex-shrink-0 mx-3 glass rounded-xl px-8 py-6 flex items-center justify-center min-w-[180px] h-[80px] hover:border-primary/30 transition-all duration-300 group">
+      {client.image ? (
+        <img 
+          src={client.image} 
+          alt={client.name} 
+          className="max-h-[48px] max-w-[140px] object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+        />
+      ) : client.text ? (
+        <span className="text-lg font-display font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
+          {client.text}
+        </span>
+      ) : null}
+    </div>
+  );
+
+  if (client.url) {
+    return (
+      <a 
+        href={client.url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="cursor-pointer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return content;
+});
 
 ClientCard.displayName = "ClientCard";
 
