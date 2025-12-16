@@ -26,7 +26,7 @@ const clientsRow1: Client[] = [
   { name: "Empik Foto", image: "/img/empikfoto_logo_-300x73.png", url: "https://www.empikfoto.sk/" },
   { name: "Europeum", image: "/img/EUROPEUM-white-AI-copy.svg", url: "https://europeum.org/" },
   { name: "Globus", image: "/img/Globus_logo_logotype.png", url: "https://www.globus.cz/" },
-  { name: "Helmisiivous", image: "/img/helmisivus-logo-300x165.png", url: "https://helmisiivous.fi/" },
+  { name: "Helmisiivous", image: "/img/helmisiivous-logo-300x165.png", url: "https://helmisiivous.fi/" },
   { name: "Jansen Display", image: "/img/jansendisplay_logo.png", url: "https://www.jansen-display.sk/" },
   { name: "Kimbau", image: "/img/kimbau_logo.png", url: "https://www.kimbau.cz/" },
   { name: "Lindström", image: "/img/Lindstrom_logo_RGB-300x61.png", url: "https://www.lindstromgroup.com/sk/" },
