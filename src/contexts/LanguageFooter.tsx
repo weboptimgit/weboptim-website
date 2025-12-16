@@ -21,6 +21,7 @@ type FooterLang = {
   };
   brand: {
     description: string;
+    excellentReviews: string;
   };
   bottom: {
     copyright: string;
@@ -62,6 +63,7 @@ const translations: Record<string, FooterLang> = {
     brand: {
       description:
         "Crafting exceptional digital experiences that help businesses grow and succeed in the modern world.",
+      excellentReviews: "Excellent Reviews",
     },
     bottom: {
       copyright: "© 2025 WebOptim. All rights reserved.",
@@ -101,6 +103,7 @@ const translations: Record<string, FooterLang> = {
     brand: {
       description:
         "Tvoríme výnimočné digitálne zážitky, ktoré pomáhajú firmám rásť a uspieť v modernom svete.",
+      excellentReviews: "Výborné hodnotenie",
     },
     bottom: {
       copyright: "© 2025 WebOptim. Všetky práva vyhradené.",
@@ -140,6 +143,7 @@ const translations: Record<string, FooterLang> = {
     brand: {
       description:
         "Tvoříme výjimečné digitální zážitky, které pomáhají firmám růst a uspět v moderním světě.",
+      excellentReviews: "Výborné hodnocení",
     },
     bottom: {
       copyright: "© 2025 WebOptim. Všechna práva vyhrazena.",
