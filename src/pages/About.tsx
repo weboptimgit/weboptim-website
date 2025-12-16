@@ -172,30 +172,21 @@ const AboutInner = () => {
               </p>
 
               {/* Animated Stats Row */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mt-12"
-                style={{
-                  willChange: "transform, opacity",
-                  transform: "translate3d(0,0,0)",
-                  backfaceVisibility: "hidden",
-                }}
-              >
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mt-12">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={stat.label}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1, duration: 0.5, ease: "easeOut" }}
-                    style={{
-                      willChange: "transform, opacity",
-                      transform: "translate3d(0,0,0)",
-                      backfaceVisibility: "hidden",
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.15 + index * 0.08,
+                      ease: "easeOut",
                     }}
+                    style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
                   >
-                    {/*  glass je už obyčajný div */}
+                    {/* glass je obyčajný div */}
                     <div className="glass rounded-2xl p-4 md:p-6 text-center hover:border-primary/30 transition-all duration-300 overflow-hidden">
                       <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
                         {stat.value}
@@ -206,7 +197,7 @@ const AboutInner = () => {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
           </div>
 
           {/* Decorative elements */}
