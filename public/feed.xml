@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>WebOptim Blog</title>
+    <link>https://test.weboptim.eu</link>
+    <description>Latest articles about web development, SEO, e-commerce, and digital marketing</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Dec 2024 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://test.weboptim.eu/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://test.weboptim.eu/favicon.svg</url>
+      <title>WebOptim Blog</title>
+      <link>https://test.weboptim.eu</link>
+    </image>
+    <item>
+      <title>Why Structured Data Is Essential for Your SEO</title>
+      <link>https://test.weboptim.eu/blog/why-structured-data-is-essential-for-your-seo</link>
+      <guid isPermaLink="true">https://test.weboptim.eu/blog/why-structured-data-is-essential-for-your-seo</guid>
+      <description>Structured data isn't just a "nice to have" - it's metadata that tells search engines exactly what's on your page. With structured data, Google can show rich results that significantly increase visibility and clicks.</description>
+      <pubDate>Thu, 12 Dec 2024 00:00:00 GMT</pubDate>
+      <author>info@weboptim.eu (Peter Gáborík)</author>
+      <category>Webs and eshops</category>
+    </item>
+    <item>
+      <title>Star Reviews, Star Sales: The Power of Customer Feedback in E-Commerce</title>
+      <link>https://test.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce</link>
+      <guid isPermaLink="true">https://test.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce</guid>
+      <description>In a digital world full of possibilities, where physical contact with products or sellers is missing, reviews replace personal experience and become a bridge of trust between brands and consumers.</description>
+      <pubDate>Fri, 23 May 2025 00:00:00 GMT</pubDate>
+      <author>info@weboptim.eu (Peter Gáborík)</author>
+      <category>Online marketing</category>
+    </item>
+  </channel>
+</rss>

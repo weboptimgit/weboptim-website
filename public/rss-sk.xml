@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>WebOptim Blog</title>
+    <link>https://test.weboptim.sk</link>
+    <description>Najnovšie články o tvorbe webov, SEO, e-commerce a digitálnom marketingu</description>
+    <language>sk</language>
+    <lastBuildDate>Mon, 16 Dec 2024 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://test.weboptim.sk/rss-sk.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://test.weboptim.sk/favicon.svg</url>
+      <title>WebOptim Blog</title>
+      <link>https://test.weboptim.sk</link>
+    </image>
+    <item>
+      <title>Prečo sú štrukturované dáta zásadné pre SEO</title>
+      <link>https://test.weboptim.sk/blog/preco-su-strukturovane-data-zasadne-pre-seo</link>
+      <guid isPermaLink="true">https://test.weboptim.sk/blog/preco-su-strukturovane-data-zasadne-pre-seo</guid>
+      <description>Štruktúrované dáta nie sú len „príjemná vec" – sú to metadáta, ktoré vyhľadávačom hovoria presne, čo sa na vašej stránke nachádza.</description>
+      <pubDate>Thu, 12 Dec 2024 00:00:00 GMT</pubDate>
+      <author>info@weboptim.eu (Peter Gáborík)</author>
+      <category>Weby a eshopy</category>
+    </item>
+    <item>
+      <title>Hviezdne recenzie, hviezdne tržby: Sila zákazníckych recenzií v e-shope</title>
+      <link>https://test.weboptim.sk/blog/hviezdne-recenzie-hviezdne-trzby-sila-zakaznickych-recenzii-v-eshope</link>
+      <guid isPermaLink="true">https://test.weboptim.sk/blog/hviezdne-recenzie-hviezdne-trzby-sila-zakaznickych-recenzii-v-eshope</guid>
+      <description>V digitálnom svete plnom možností, kde chýba fyzický kontakt s produktom či predajcom, recenzie nahrádzajú osobnú skúsenosť a stávajú sa mostom dôvery medzi značkou a spotrebiteľom.</description>
+      <pubDate>Fri, 23 May 2025 00:00:00 GMT</pubDate>
+      <author>info@weboptim.eu (Peter Gáborík)</author>
+      <category>Online marketing</category>
+    </item>
+  </channel>
+</rss>
