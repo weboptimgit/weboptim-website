@@ -14,7 +14,7 @@ interface Client {
 }
 
 const clientsRow1: Client[] = [
-  { name: "Poslední věta", image: "/img/logo_posledni-veta_blue-300x37.png", url: "https://posledniveta.cz/" },
+  { name: "Poslední věta", image: "/img/Logo_posledni-veta1_blue-300x37.png", url: "https://posledniveta.cz/" },
   { name: "Biodent", image: "/img/logo-biodent-copy-300x246.png", url: "https://www.biodent.sk/" },
   { name: "Anatte", image: "/img/ANATTE-logo.svg", url: "https://www.anatte.sk/" },
   { name: "Club420", image: "/img/c420-logo.png" },
