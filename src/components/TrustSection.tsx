@@ -19,11 +19,11 @@ const clientsRow1: Client[] = [
   { name: "Anatte", image: "/img/ANATTE-logo.svg", url: "https://www.anatte.sk/" },
   { name: "Club420", image: "/img/c420-logo.png" },
   { name: "Casa Fortuna", image: "/img/casa-fortuna-logo.png", url: "https://casa-fortuna.ch/" },
-  { name: "DataFeeder", image: "/img/DataFeeder_logo-w-300x77.png", url: "https://www.datafeeder.cz/" },
+  { name: "DataFeeder", image: "/img/DataFeeder_logo_w-300x77.png", url: "https://www.datafeeder.cz/" },
   { name: "Donotage", image: "/img/dna_high_black_SK-300x220.png", url: "https://www.donotage.sk/" },
   { name: "DuoStory.cz", image: "/img/duostorylogo-gradient-cele-300x54.png", url: "https://duostory.cz/" },
   { name: "Elmina", image: "/img/elmina-sk.png", url: "https://www.elmina.sk/" },
-  { name: "Empik Foto", image: "/img/empikfoto_logo-300x73.png", url: "https://www.empikfoto.sk/" },
+  { name: "Empik Foto", image: "/img/empikfoto_logo_-300x73.png", url: "https://www.empikfoto.sk/" },
   { name: "Europeum", image: "/img/EUROPEUM-white-AI-copy.svg", url: "https://europeum.org/" },
   { name: "Globus", image: "/img/Globus_logo_logotype.png", url: "https://www.globus.cz/" },
   { name: "Helmisiivous", image: "/img/helmisivus-logo-300x165.png", url: "https://helmisiivous.fi/" },
@@ -36,7 +36,7 @@ const clientsRow1: Client[] = [
 
 const clientsRow2: Client[] = [
   { name: "HorvathCannabis", image: "/img/logos1-9-t-300x193.png", url: "https://www.horvathcannabis.sk/" },
-  { name: "Materasso", image: "/img/materasso_logo-300x111.png", url: "https://materasso.cz/" },
+  { name: "Materasso", image: "/img/materasso_logo_-300x111", url: "https://materasso.cz/" },
   { name: "Modaco", image: "/img/modaco-logo.png", url: "https://www.modaco.cz/" },
   { name: "Odopro", image: "/img/odopro_logo_color-1-300x76.png", url: "https://www.odopro.cz/" },
   { name: "Odpružení.cz", image: "/img/odpruzeni_logo-300x37.png", url: "https://www.odpruzeni.cz/" },
