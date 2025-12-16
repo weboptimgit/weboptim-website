@@ -70,6 +70,7 @@ const BlogPost = () => {
   : [];
   const [readingProgress, setReadingProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
   const articleRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
@@ -88,6 +89,31 @@ const BlogPost = () => {
     window.addEventListener("scroll", updateProgress);
     return () => window.removeEventListener("scroll", updateProgress);
   }, []);
+
+  // Track active section for TOC highlighting
+  useEffect(() => {
+    if (toc.length === 0) return;
+
+    const headingIds = toc.filter(item => item.level === 2).map(item => item.id);
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-100px 0px -70% 0px", threshold: 0 }
+    );
+
+    headingIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [toc]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -774,7 +800,7 @@ const BlogPost = () => {
 
             {/* Sticky TOC Sidebar - Right */}
             {toc.length > 0 && (
-              <aside className="hidden lg:block w-72 flex-shrink-0">
+              <aside className="hidden lg:block w-80 flex-shrink-0">
                 <div className="sticky top-24">
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
@@ -789,20 +815,31 @@ const BlogPost = () => {
                       </h3>
                     </div>
                     <nav className="p-4">
-                      <ol className="space-y-1 text-sm">
-                        {toc.filter(item => item.level === 2).map((item, index) => (
-                          <li key={item.id}>
-                            <a
-                              href={`#${item.id}`}
-                              className="group flex items-center gap-3 py-1.5 px-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all"
-                            >
-                              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary text-xs font-medium flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                {index + 1}
-                              </span>
-                              <span className="line-clamp-2">{item.text}</span>
-                            </a>
-                          </li>
-                        ))}
+                      <ol className="space-y-1.5 text-sm">
+                        {toc.filter(item => item.level === 2).map((item, index) => {
+                          const isActive = activeSection === item.id;
+                          return (
+                            <li key={item.id}>
+                              <a
+                                href={`#${item.id}`}
+                                className={`group flex items-center gap-3 py-2 px-3 rounded-lg transition-all duration-200 ${
+                                  isActive 
+                                    ? "bg-primary/10 text-primary border-l-2 border-primary" 
+                                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                }`}
+                              >
+                                <span className={`flex-shrink-0 w-6 h-6 rounded-full text-xs font-semibold flex items-center justify-center transition-colors ${
+                                  isActive
+                                    ? "bg-primary text-primary-foreground"
+                                    : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                                }`}>
+                                  {index + 1}
+                                </span>
+                                <span className={`line-clamp-2 ${isActive ? "font-medium" : ""}`}>{item.text}</span>
+                              </a>
+                            </li>
+                          );
+                        })}
                       </ol>
                     </nav>
                   </motion.div>
