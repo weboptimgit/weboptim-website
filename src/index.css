@@ -124,13 +124,6 @@
     box-shadow: var(--shadow-glow-purple);
   }
 
-  .bg-gradient-purple {
-    background-image: var(--gradient-purple);
-  }
-
-  .bg-gradient-mixed {
-    background-image: var(--gradient-mixed);
-  }
 
   .glass {
     @apply bg-card/50 backdrop-blur-xl border border-border/50;
