@@ -28,6 +28,228 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  cta: {
+  slugs: { EN: "cta", CZ: "cta", SK: "cta" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "UX", "Landing Page", "Button"],
+  resources: [
+    { title: "Optimizely: Call to Action", url: "https://www.optimizely.com/optimization-glossary/call-to-action/" }
+  ],
+  content: {
+    SK: {
+      term: "CTA",
+      shortDefinition: "Výzva k akcii",
+      fullDefinition:
+        "CTA je prvok na webe alebo v reklame, ktorý vyzýva používateľa k vykonaniu konkrétnej akcie. Môže ísť o tlačidlo, text alebo grafický prvok s jasným posolstvom. Typickými CTA sú výzvy ako „Objednať teraz“, „Získať ponuku“ alebo „Kontaktujte nás“. CTA pomáha návštevníkovi pochopiť, čo má urobiť ďalej. Bez CTA je web často nejasný a má nižšiu konverziu.",
+      examples: [
+        "Tlačidlo „Nájsť poskytovateľa“ na domovskej stránke.",
+        "Výzva „Pridať svoju službu“ pre poskytovateľov.",
+        "CTA v e-maili „Získať zľavu“.",
+        "Bannery s výzvou na rezerváciu služby.",
+        "Sticky CTA tlačidlo na mobile."
+      ],
+      whyItMatters:
+        "CTA priamo ovplyvňuje mieru konverzií, pretože navádza používateľa k želanej akcii. Jasná výzva znižuje váhanie a zlepšuje používateľský zážitok. Dobre navrhnuté CTA zvyšuje počet objednávok, dopytov alebo registrácií. Pomáha tiež usmerniť návštevníkov po stránke a viesť ich konverznou cestou. Bez CTA môže byť aj kvalitný obsah marketingovo neefektívny."
+    },
+    EN: {
+      term: "CTA",
+      shortDefinition: "Call to action",
+      fullDefinition:
+        "A CTA is an element on a website or in an advertisement that encourages users to perform a specific action. It can be a button, text, or visual element with a clear message. Typical CTAs include phrases like “Order now,” “Get a quote,” or “Contact us.” A CTA helps visitors understand what to do next. Without CTAs, websites are often unclear and convert poorly.",
+      examples: [
+        "“Find a provider” button on the homepage.",
+        "“Add your service” call for providers.",
+        "CTA in an email such as “Get a discount.”",
+        "Banners prompting service booking.",
+        "Sticky CTA button on mobile."
+      ],
+      whyItMatters:
+        "CTAs directly influence conversion rates by guiding users toward the desired action. Clear CTAs reduce hesitation and improve user experience. Well-designed CTAs increase orders, inquiries, and sign-ups. They guide visitors along the conversion path. Without CTAs, even great content can be marketing-ineffective."
+    },
+    CZ: {
+      term: "CTA",
+      shortDefinition: "Výzva k akci",
+      fullDefinition:
+        "CTA je prvek na webu nebo v reklamě, který vyzývá uživatele k provedení konkrétní akce. Může jít o tlačítko, text nebo grafický prvek s jasným sdělením. Typické CTA jsou například „Objednat nyní“, „Získat nabídku“ nebo „Kontaktujte nás“. CTA pomáhá návštěvníkovi pochopit, co má udělat dál. Bez CTA je web často nejasný a má nižší konverzi.",
+      examples: [
+        "Tlačítko „Najít poskytovatele“ na hlavní stránce.",
+        "Výzva „Přidat svou službu“ pro poskytovatele.",
+        "CTA v e-mailu „Získat slevu“.",
+        "Bannery s výzvou k rezervaci služby.",
+        "Sticky CTA tlačítko na mobilu."
+      ],
+      whyItMatters:
+        "CTA přímo ovlivňuje konverzní poměr, protože navádí uživatele k požadované akci. Jasná výzva snižuje váhání a zlepšuje uživatelský zážitek. Dobře navržené CTA zvyšuje počet objednávek, poptávek nebo registrací. Bez CTA může být i kvalitní obsah marketingově neefektivní."
+    }
+  }
+},
+
+conversion: {
+  slugs: { EN: "conversion", CZ: "konverze", SK: "konverzia" },
+  category: "Marketing",
+  relatedTerms: ["CTA", "Conversion Rate", "Lead", "Analytics"],
+  resources: [
+    { title: "Hotjar: What is Conversion?", url: "https://www.hotjar.com/conversion-rate-optimization/" }
+  ],
+  content: {
+    SK: {
+      term: "Konverzia",
+      shortDefinition: "Splnenie marketingového cieľa",
+      fullDefinition:
+        "Konverzia nastáva vtedy, keď návštevník vykoná požadovanú akciu na webe. Môže to byť nákup, vyplnenie formulára, registrácia, rezervácia alebo telefonát. Každý web má definované vlastné konverzné ciele podľa svojho účelu. Konverzia je základnou metrikou úspešnosti marketingu. Bez merania konverzií nie je možné vyhodnocovať efektivitu kampaní.",
+      examples: [
+        "Odoslaný dopyt cez kontaktný formulár.",
+        "Dokončená rezervácia služby.",
+        "Nákup v e-shope.",
+        "Kliknutie na telefónne číslo na mobile.",
+        "Registrácia do newslettera."
+      ],
+      whyItMatters:
+        "Konverzie ukazujú, či marketing prináša reálnu hodnotu, nie len návštevnosť. Pomáhajú identifikovať, ktoré kanály a kampane fungujú najlepšie. Optimalizácia konverzií zvyšuje zisk bez nutnosti zvyšovať rozpočet. Umožňuje robiť rozhodnutia na základe dát, nie pocitov. Pre firmy sú konverzie priamym mostom medzi marketingom a tržbami."
+    },
+    EN: {
+      term: "Conversion",
+      shortDefinition: "Completion of a marketing goal",
+      fullDefinition:
+        "A conversion occurs when a visitor completes a desired action on a website. This can include a purchase, form submission, registration, booking, or phone call. Each website defines its own conversion goals based on its purpose. Conversions are the core metric of marketing success. Without tracking conversions, campaign effectiveness cannot be evaluated.",
+      examples: [
+        "Submitted contact form.",
+        "Completed service booking.",
+        "E-commerce purchase.",
+        "Click on a phone number.",
+        "Newsletter sign-up."
+      ],
+      whyItMatters:
+        "Conversions show whether marketing delivers real value, not just traffic. They help identify the best-performing channels and campaigns. Conversion optimization increases revenue without increasing ad spend. Decisions are based on data rather than assumptions. For businesses, conversions connect marketing directly to revenue."
+    },
+    CZ: {
+      term: "Konverze",
+      shortDefinition: "Splnění marketingového cíle",
+      fullDefinition:
+        "Ke konverzi dochází ve chvíli, kdy návštěvník provede požadovanou akci na webu. Může jít o nákup, odeslání formuláře, registraci, rezervaci nebo telefonát. Každý web má definované vlastní konverzní cíle. Konverze je základní metrikou úspěšnosti marketingu. Bez měření konverzí nelze vyhodnocovat efektivitu kampaní.",
+      examples: [
+        "Odeslaný poptávkový formulář.",
+        "Dokončená rezervace služby.",
+        "Nákup v e-shopu.",
+        "Kliknutí na telefonní číslo.",
+        "Registrace k newsletteru."
+      ],
+      whyItMatters:
+        "Konverze ukazují, zda marketing přináší skutečnou hodnotu. Pomáhají identifikovat nejvýkonnější kanály a kampaně. Optimalizace konverzí zvyšuje zisk bez navyšování rozpočtu. Firmám umožňují rozhodovat se na základě dat."
+    }
+  }
+},
+
+conversionRate: {
+  slugs: { EN: "conversion-rate", CZ: "konverzni-pomer", SK: "konverzny-pomer" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "CRO", "Analytics", "CTA"],
+  resources: [
+    { title: "Optimizely: Conversion Rate", url: "https://www.optimizely.com/optimization-glossary/conversion-rate/" }
+  ],
+  content: {
+    SK: {
+      term: "Konverzný pomer",
+      shortDefinition: "Pomer návštevníkov, ktorí vykonali akciu",
+      fullDefinition:
+        "Konverzný pomer vyjadruje percento návštevníkov webu, ktorí vykonali požadovanú akciu, napríklad nákup alebo odoslanie formulára. Vypočíta sa ako podiel konverzií a celkovej návštevnosti. Tento ukazovateľ pomáha pochopiť, ako efektívne web alebo kampaň premieňa návštevníkov na zákazníkov. Konverzný pomer sa môže líšiť podľa typu stránky, zdroja návštevnosti či zariadenia. Ide o jednu z najdôležitejších metrík v online marketingu.",
+      examples: [
+        "100 návštev webu a 5 dopytov = 5 % konverzný pomer.",
+        "Optimalizácia formulára zvýši konverzie bez zvýšenia návštevnosti.",
+        "Mobilná verzia má nižší konverzný pomer než desktop.",
+        "A/B testovanie CTA tlačidiel.",
+        "Porovnávanie výkonu rôznych landing pages."
+      ],
+      whyItMatters:
+        "Vyšší konverzný pomer znamená, že z rovnakej návštevnosti získava firma viac zákazníkov alebo dopytov. Umožňuje optimalizovať web bez nutnosti zvyšovať rozpočet na reklamu. Pomáha identifikovať slabé miesta v používateľskej ceste. Marketingové rozhodnutia sú založené na dátach. Pre firmy ide o kľúčový ukazovateľ efektivity."
+    },
+    EN: {
+      term: "Conversion Rate",
+      shortDefinition: "Percentage of visitors who convert",
+      fullDefinition:
+        "Conversion rate represents the percentage of website visitors who complete a desired action, such as a purchase or form submission. It is calculated as conversions divided by total traffic. This metric shows how effectively a website or campaign turns visitors into customers. Conversion rates vary by page type, traffic source, and device. It is one of the most important metrics in online marketing.",
+      examples: [
+        "100 visits and 5 leads = 5% conversion rate.",
+        "Form optimization increases conversions without more traffic.",
+        "Lower conversion rate on mobile than desktop.",
+        "A/B testing CTA buttons.",
+        "Comparing landing page performance."
+      ],
+      whyItMatters:
+        "Higher conversion rates mean more customers from the same traffic. It allows optimization without increasing ad spend. It highlights weaknesses in the user journey and supports data-driven decisions."
+    },
+    CZ: {
+      term: "Konverzní poměr",
+      shortDefinition: "Podíl návštěvníků, kteří provedli akci",
+      fullDefinition:
+        "Konverzní poměr vyjadřuje procento návštěvníků webu, kteří provedli požadovanou akci, například nákup nebo odeslání formuláře. Vypočítá se jako podíl konverzí a celkové návštěvnosti. Ukazuje, jak efektivně web nebo kampaň proměňuje návštěvníky v zákazníky.",
+      examples: [
+        "100 návštěv a 5 poptávek = 5 %.",
+        "Optimalizace formuláře bez zvýšení návštěvnosti.",
+        "Nižší konverze na mobilu.",
+        "A/B testování CTA.",
+        "Porovnání landing pages."
+      ],
+      whyItMatters:
+        "Vyšší konverzní poměr znamená více výsledků ze stejné návštěvnosti. Pomáhá optimalizovat marketing bez zvyšování rozpočtu."
+    }
+  }
+},
+
+branding: {
+  slugs: { EN: "branding", CZ: "branding", SK: "branding" },
+  category: "Marketing",
+  relatedTerms: ["Brand Identity", "Trust", "Copywriting", "Design"],
+  resources: [
+    { title: "Investopedia: Branding", url: "https://www.investopedia.com/terms/b/branding.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Branding",
+      shortDefinition: "Budovanie značky",
+      fullDefinition:
+        "Branding je proces budovania značky, jej identity, imidžu a vnímania verejnosťou. Zahŕňa vizuálne prvky, ako logo, farby a typografiu, ale aj tón komunikácie, hodnoty a spôsob vystupovania. Branding určuje, ako si ľudia značku pamätajú a ako sa pri nej cítia. Nejde len o dizajn, ale o celkový zážitok zo značky. Silný branding vytvára emocionálne spojenie medzi značkou a zákazníkom.",
+      examples: [
+        "Konzistentné farby a fonty na webe a sociálnych sieťach.",
+        "Jednotný tón komunikácie v reklamách a e-mailoch.",
+        "Zapamätateľný názov a logo projektu.",
+        "Brand voice prispôsobený cieľovej skupine.",
+        "Dôraz na dôveru a profesionalitu v komunikácii."
+      ],
+      whyItMatters:
+        "Dobrý branding zvyšuje dôveru a odlišuje značku od konkurencie. Pomáha zákazníkom rýchlejšie sa rozhodnúť. Konzistentná značka pôsobí profesionálne a zapamätateľne. Branding zvyšuje hodnotu firmy aj jej služieb. Pre dlhodobý rast je značka rovnako dôležitá ako samotný produkt."
+    },
+    EN: {
+      term: "Branding",
+      shortDefinition: "Building a brand",
+      fullDefinition:
+        "Branding is the process of building a brand’s identity, image, and public perception. It includes visual elements such as logo, colors, and typography, as well as tone of voice, values, and communication style. Branding defines how people remember a brand and how they feel about it. It is not just design, but the overall brand experience. Strong branding creates an emotional connection with customers.",
+      examples: [
+        "Consistent colors and fonts across channels.",
+        "Unified tone of communication.",
+        "Memorable brand name and logo.",
+        "Brand voice tailored to the audience.",
+        "Focus on trust and professionalism."
+      ],
+      whyItMatters:
+        "Good branding builds trust and differentiates a brand from competitors. It helps customers decide faster and increases perceived value. Strong brands support long-term growth."
+    },
+    CZ: {
+      term: "Branding",
+      shortDefinition: "Budování značky",
+      fullDefinition:
+        "Branding je proces budování identity značky, jejího obrazu a vnímání veřejností. Zahrnuje vizuální prvky, tón komunikace, hodnoty a způsob vystupování. Nejde pouze o design, ale o celkový zážitek ze značky.",
+      examples: [
+        "Konzistentní vizuální styl.",
+        "Jednotná komunikace značky.",
+        "Zapamatovatelné logo.",
+        "Přizpůsobení brand voice cílové skupině."
+      ],
+      whyItMatters:
+        "Branding zvyšuje důvěru, odlišuje značku od konkurence a podporuje dlouhodobý růst."
+    }
+  }
+},
   seo: {
   slugs: { EN: "seo", CZ: "seo", SK: "seo" },
   category: "Marketing",
