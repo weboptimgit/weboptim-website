@@ -106,6 +106,15 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.title.highlight": "Clients Say",
     "testimonials.subtitle": "Don't just take our word for it. Here's what our clients have to say about working with us.",
     "testimonials.googleLink": "View more reviews on Google",
+    "testimonials.1.name": "Sarah Mitchell",
+    "testimonials.1.role": "CEO, TechStart Inc.",
+    "testimonials.1.quote": "Working with this team transformed our online presence completely. Our conversion rates increased by 200% within the first quarter.",
+    "testimonials.2.name": "David Chen",
+    "testimonials.2.role": "Founder, GreenLeaf Solutions",
+    "testimonials.2.quote": "The e-commerce platform they built for us is incredibly intuitive. Sales have doubled since launch. Highly recommend!",
+    "testimonials.3.name": "Emma Rodriguez",
+    "testimonials.3.role": "Marketing Director, Bloom Agency",
+    "testimonials.3.quote": "Exceptional design and flawless execution. They understood our vision perfectly and delivered beyond expectations.",
 
     // Blog section
     "blogSection.title.before": "Latest from Our",
@@ -326,6 +335,15 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.title.highlight": "klienti",
     "testimonials.subtitle": "Neberte to jen od nás. Podívejte se, co říkají naši klienti o spolupráci s námi.",
     "testimonials.googleLink": "Zobrazit další recenze na Google",
+    "testimonials.1.name": "Sarah Mitchell",
+    "testimonials.1.role": "CEO, TechStart Inc.",
+    "testimonials.1.quote": "Spolupráce s tímto týmem kompletně změnila naši online prezentaci. Naše konverzní poměry vzrostly o 200 % během prvního čtvrtletí.",
+    "testimonials.2.name": "David Chen",
+    "testimonials.2.role": "Zakladatel, GreenLeaf Solutions",
+    "testimonials.2.quote": "E-shopová platforma, kterou nám vytvořili, je neuvěřitelně intuitivní. Prodeje se od spuštění zdvojnásobily. Vřele doporučuji!",
+    "testimonials.3.name": "Emma Rodriguez",
+    "testimonials.3.role": "Marketingová ředitelka, Bloom Agency",
+    "testimonials.3.quote": "Výjimečný design a bezchybná realizace. Pochopili naši vizi dokonale a předčili naše očekávání.",
 
     // Blog section
     "blogSection.title.before": "To nejnovější z našeho",
@@ -546,6 +564,15 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.title.highlight": "klienti",
     "testimonials.subtitle": "Neberte to len od nás. Pozrite sa, čo hovoria naši klienti o spolupráci s nami.",
     "testimonials.googleLink": "Zobraziť ďalšie recenzie na Google",
+    "testimonials.1.name": "Sarah Mitchell",
+    "testimonials.1.role": "CEO, TechStart Inc.",
+    "testimonials.1.quote": "Spolupráca s týmto tímom úplne zmenila našu online prezentáciu. Naše konverzné pomery vzrástli o 200 % počas prvého štvrťroka.",
+    "testimonials.2.name": "David Chen",
+    "testimonials.2.role": "Zakladateľ, GreenLeaf Solutions",
+    "testimonials.2.quote": "E-shopová platforma, ktorú nám vytvorili, je neuveriteľne intuitívna. Predaje sa od spustenia zdvojnásobili. Vrelo odporúčam!",
+    "testimonials.3.name": "Emma Rodriguez",
+    "testimonials.3.role": "Marketingová riaditeľka, Bloom Agency",
+    "testimonials.3.quote": "Výnimočný dizajn a bezchybná realizácia. Pochopili našu víziu dokonale a prekonali naše očakávania.",
 
     // Blog section
     "blogSection.title.before": "To najnovšie z nášho",
