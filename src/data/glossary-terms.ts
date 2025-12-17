@@ -28,6 +28,268 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  lead: {
+  slugs: { EN: "lead", CZ: "lead", SK: "lead" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "Funnel", "CRM", "Newsletter"],
+  resources: [
+    { title: "HubSpot: What is a Lead?", url: "https://blog.hubspot.com/marketing/what-is-a-lead" }
+  ],
+  content: {
+    SK: {
+      term: "Lead",
+      shortDefinition: "Potenciálny zákazník",
+      fullDefinition:
+        "Lead je osoba, ktorá prejavila záujem o produkt alebo službu, ale ešte sa nestala zákazníkom. Zvyčajne ide o používateľa, ktorý zanechal kontakt, napríklad e-mail alebo telefón. Lead vzniká prostredníctvom formulárov, registrácií, stiahnutia obsahu alebo rezervácií. V marketingu sa leady ďalej triedia podľa kvality a pripravenosti na nákup. Sú základom pre obchodné a predajné procesy.",
+      examples: [
+        "Odoslaný dopyt cez formulár.",
+        "Registrácia poskytovateľa do platformy.",
+        "Prihlásenie sa do newslettera.",
+        "Rezervácia služby bez okamžitej platby.",
+        "Stiahnutie e-booku výmenou za e-mail."
+      ],
+      whyItMatters:
+        "Leady predstavujú budúcich zákazníkov a potenciálny príjem firmy. Umožňujú systematickú prácu s kontaktmi a budovanie vzťahu. Vďaka leadom je možné cieliť marketingové kampane presnejšie. Kvalitné leady zvyšujú efektivitu predaja a skracujú rozhodovací proces. Bez leadov by marketing nemal na koho nadväzovať."
+    },
+    EN: {
+      term: "Lead",
+      shortDefinition: "Potential customer",
+      fullDefinition:
+        "A lead is a person who has shown interest in a product or service but has not yet become a customer. This usually involves leaving contact details such as an email or phone number. Leads are generated through forms, registrations, content downloads, or bookings. In marketing, leads are further qualified based on readiness to buy. They are the foundation of sales and business growth.",
+      examples: [
+        "Submitted inquiry form.",
+        "Service provider registration.",
+        "Newsletter sign-up.",
+        "Service booking without payment.",
+        "E-book download in exchange for email."
+      ],
+      whyItMatters:
+        "Leads represent future customers and revenue potential. They enable systematic relationship building and targeted marketing. High-quality leads improve sales efficiency and shorten decision cycles."
+    },
+    CZ: {
+      term: "Lead",
+      shortDefinition: "Potenciální zákazník",
+      fullDefinition:
+        "Lead je osoba, která projevila zájem o produkt nebo službu, ale ještě se nestala zákazníkem. Obvykle zanechá kontakt, například e-mail nebo telefon. Leady vznikají prostřednictvím formulářů, registrací nebo stažení obsahu. Jsou základem obchodních procesů.",
+      examples: [
+        "Odeslaný poptávkový formulář.",
+        "Registrace do systému.",
+        "Přihlášení k newsletteru.",
+        "Rezervace služby."
+      ],
+      whyItMatters:
+        "Leady jsou základem budoucího prodeje a umožňují cílený marketing."
+    }
+  }
+},
+
+contentMarketing: {
+  slugs: { EN: "content-marketing", CZ: "content-marketing", SK: "content-marketing" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "Branding", "Copywriting", "Organic Traffic"],
+  resources: [
+    { title: "Content Marketing Institute", url: "https://contentmarketinginstitute.com/" }
+  ],
+  content: {
+    SK: {
+      term: "Content marketing",
+      shortDefinition: "Marketing založený na obsahu",
+      fullDefinition:
+        "Content marketing je stratégia založená na tvorbe hodnotného a relevantného obsahu pre cieľovú skupinu. Nejde o priamy predaj, ale o vzdelávanie, pomoc a budovanie dôvery. Obsah môže mať formu článkov, videí, návodov, blogov či sociálnych príspevkov. Content marketing odpovedá na otázky používateľov a rieši ich problémy. Je dlhodobým pilierom SEO a brandingu.",
+      examples: [
+        "Blogové články zamerané na riešenie problémov zákazníkov.",
+        "Návody „ako na to“ pre mobilné služby.",
+        "Edukačné videá a reels.",
+        "Prípadové štúdie a recenzie.",
+        "Obsah optimalizovaný pre SEO."
+      ],
+      whyItMatters:
+        "Kvalitný obsah priťahuje návštevníkov bez platených reklám. Pomáha budovať autoritu značky a dôveru. Podporuje SEO a dlhodobý rast. Ide o udržateľnú marketingovú stratégiu s vysokou návratnosťou."
+    },
+    EN: {
+      term: "Content marketing",
+      shortDefinition: "Marketing based on content",
+      fullDefinition:
+        "Content marketing is a strategy focused on creating valuable and relevant content for a target audience. It is not about direct selling, but about education, assistance, and trust-building. Content can include articles, videos, guides, blogs, and social posts. It answers user questions and solves problems. Content marketing is a long-term pillar of SEO and branding.",
+      examples: [
+        "Problem-solving blog articles.",
+        "How-to guides.",
+        "Educational videos.",
+        "Case studies and reviews.",
+        "SEO-optimized content."
+      ],
+      whyItMatters:
+        "High-quality content attracts organic traffic and builds authority. It supports SEO, trust, and sustainable growth."
+    },
+    CZ: {
+      term: "Content marketing",
+      shortDefinition: "Marketing založený na obsahu",
+      fullDefinition:
+        "Content marketing je strategie založená na tvorbě hodnotného obsahu pro cílovou skupinu. Nejde o přímý prodej, ale o budování důvěry a autority.",
+      examples: [
+        "Blogové články.",
+        "Návody a videa.",
+        "Případové studie."
+      ],
+      whyItMatters:
+        "Obsah přitahuje návštěvníky, podporuje SEO a dlouhodobý růst."
+    }
+  }
+},
+
+copywriting: {
+  slugs: { EN: "copywriting", CZ: "copywriting", SK: "copywriting" },
+  category: "Marketing",
+  relatedTerms: ["CTA", "Conversion", "Brand Voice", "Landing Page"],
+  resources: [
+    { title: "Copyblogger", url: "https://copyblogger.com/" }
+  ],
+  content: {
+    SK: {
+      term: "Copywriting",
+      shortDefinition: "Písanie presvedčivých textov",
+      fullDefinition:
+        "Copywriting je tvorba textov, ktorých cieľom je presvedčiť čitateľa k akcii. Nejde len o gramatiku, ale o psychológiu, emócie a štruktúru textu. Copywriter pracuje s nadpismi, benefitmi, výzvami k akcii a argumentmi. Texty musia byť zrozumiteľné, jasné a prispôsobené cieľovej skupine. Copywriting sa používa na weboch, v reklamách, e-mailoch aj na sociálnych sieťach.",
+      examples: [
+        "Texty na landing page zamerané na benefity.",
+        "Reklamné slogany a claimy.",
+        "E-mailové kampane s výzvou k akcii.",
+        "Popisy služieb a produktov.",
+        "CTA texty ako „Objednať teraz“."
+      ],
+      whyItMatters:
+        "Aj najkrajší web bez kvalitného textu nebude predávať. Copywriting zvyšuje konverzie, buduje dôveru a odstraňuje bariéry pri rozhodovaní."
+    },
+    EN: {
+      term: "Copywriting",
+      shortDefinition: "Persuasive writing",
+      fullDefinition:
+        "Copywriting is the creation of text designed to persuade readers to take action. It combines psychology, structure, and emotional triggers. It is used across websites, ads, emails, and social media.",
+      examples: [
+        "Landing page copy.",
+        "Ad slogans.",
+        "Email campaigns.",
+        "Product descriptions."
+      ],
+      whyItMatters:
+        "Strong copy increases conversions and builds trust."
+    },
+    CZ: {
+      term: "Copywriting",
+      shortDefinition: "Psaní přesvědčivých textů",
+      fullDefinition:
+        "Copywriting je tvorba textů zaměřených na přesvědčení uživatele k akci.",
+      examples: [
+        "Texty na webu.",
+        "Reklamní slogany.",
+        "E-mailové kampaně."
+      ],
+      whyItMatters:
+        "Dobrý copywriting zvyšuje konverze a důvěru."
+    }
+  }
+},
+
+retargeting: {
+  slugs: { EN: "retargeting", CZ: "retargeting", SK: "retargeting" },
+  category: "Marketing",
+  relatedTerms: ["PPC", "Remarketing", "Conversion", "Ads"],
+  resources: [
+    { title: "Google Ads: Remarketing", url: "https://support.google.com/google-ads/answer/2453998" }
+  ],
+  content: {
+    SK: {
+      term: "Retargeting",
+      shortDefinition: "Opätovné oslovovanie návštevníkov",
+      fullDefinition:
+        "Retargeting je marketingová stratégia, pri ktorej sa reklamy zobrazujú ľuďom, ktorí už predtým navštívili web alebo interagovali so značkou. Funguje na základe cookies alebo identifikátorov používateľov. Pripomína značku tým, ktorí ešte nekonvertovali. Ide o personalizovanejšiu formu reklamy.",
+      examples: [
+        "Reklama na službu, ktorú si používateľ pozeral.",
+        "Banner po opustení e-shopu.",
+        "Facebook reklama pre návštevníkov webu.",
+        "E-mail po nedokončenej rezervácii."
+      ],
+      whyItMatters:
+        "Väčšina používateľov nekonvertuje hneď. Retargeting ich pomáha získať späť a zvyšuje návratnosť marketingu."
+    },
+    EN: {
+      term: "Retargeting",
+      shortDefinition: "Re-engaging visitors",
+      fullDefinition:
+        "Retargeting displays ads to users who have already interacted with a brand or website. It reminds users and increases conversion likelihood.",
+      examples: [
+        "Viewed product ads.",
+        "Cart abandonment banners.",
+        "Social media retargeting."
+      ],
+      whyItMatters:
+        "Retargeting improves conversion rates and ROI."
+    },
+    CZ: {
+      term: "Retargeting",
+      shortDefinition: "Opětovné oslovení návštěvníků",
+      fullDefinition:
+        "Retargeting cílí reklamy na uživatele, kteří již web navštívili.",
+      examples: [
+        "Reklama po opuštění webu.",
+        "Připomínkový e-mail."
+      ],
+      whyItMatters:
+        "Zvyšuje pravděpodobnost konverze."
+    }
+  }
+},
+
+marketingAutomation: {
+  slugs: { EN: "marketing-automation", CZ: "marketingova-automatizace", SK: "marketingova-automatizacia" },
+  category: "Marketing",
+  relatedTerms: ["CRM", "Lead Nurturing", "Email Marketing", "Funnel"],
+  resources: [
+    { title: "HubSpot: Marketing Automation", url: "https://www.hubspot.com/marketing-automation" }
+  ],
+  content: {
+    SK: {
+      term: "Marketingová automatizácia",
+      shortDefinition: "Automatizované marketingové procesy",
+      fullDefinition:
+        "Marketingová automatizácia je využívanie nástrojov a softvéru na automatické vykonávanie marketingových úloh. Zahŕňa automatické e-maily, segmentáciu kontaktov, lead nurturing a spúšťanie kampaní podľa správania používateľov. Umožňuje personalizovanú komunikáciu bez manuálneho zásahu. Je bežnou súčasťou moderného digitálneho marketingu.",
+      examples: [
+        "Automatické uvítacie e-maily.",
+        "Séria e-mailov po stiahnutí e-booku.",
+        "Automatické pripomenutie rezervácie.",
+        "Segmentácia kontaktov.",
+        "Prepojenie s CRM."
+      ],
+      whyItMatters:
+        "Šetrí čas, zvyšuje efektivitu a umožňuje škálovať marketing bez zvyšovania nákladov."
+    },
+    EN: {
+      term: "Marketing Automation",
+      shortDefinition: "Automated marketing processes",
+      fullDefinition:
+        "Marketing automation uses software to automate marketing tasks such as emails, segmentation, and lead nurturing.",
+      examples: [
+        "Welcome emails.",
+        "Drip campaigns.",
+        "CRM integration."
+      ],
+      whyItMatters:
+        "It increases efficiency and scalability."
+    },
+    CZ: {
+      term: "Marketingová automatizace",
+      shortDefinition: "Automatizované marketingové procesy",
+      fullDefinition:
+        "Marketingová automatizace využívá nástroje k automatickému řízení marketingu.",
+      examples: [
+        "Automatické e-maily.",
+        "Segmentace kontaktů."
+      ],
+      whyItMatters:
+        "Zvyšuje efektivitu marketingu."
+    }
+  }
+},
   cta: {
   slugs: { EN: "cta", CZ: "cta", SK: "cta" },
   category: "Marketing",
