@@ -15,10 +15,13 @@ Allow: /
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.weboptim.eu/sitemap.xml
-Sitemap: https://www.weboptim.cz/sitemap.xml
-Sitemap: https://www.weboptim.sk/sitemap.xml
+# Sitemaps (each domain has its own sitemap)
+# EN (.eu)
+Sitemap: https://www.weboptim.eu/sitemap-eu.xml
+# CZ (.cz)
+Sitemap: https://www.weboptim.cz/sitemap-cz.xml
+# SK (.sk)
+Sitemap: https://www.weboptim.sk/sitemap-sk.xml
 
 # RSS Feeds
 # EN: https://www.weboptim.eu/rss.xml
