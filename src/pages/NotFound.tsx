@@ -6,9 +6,33 @@ import { Home } from "lucide-react";
 import AnimatedMascot from "@/components/AnimatedMascot";
 import mascotSleeping from "@/assets/mascot-sleeping-transparent.png";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const translations = {
+  EN: {
+    title: "Page not found",
+    description: "Our mascot fell asleep looking for this page. Let's get you back home!",
+    button: "Return to Home",
+    mascotAlt: "Sleeping mascot"
+  },
+  CZ: {
+    title: "Stránka nenalezena",
+    description: "Náš maskot usnul při hledání této stránky. Vraťme vás domů!",
+    button: "Zpět na úvod",
+    mascotAlt: "Spící maskot"
+  },
+  SK: {
+    title: "Stránka nenájdená",
+    description: "Náš maskot zaspal pri hľadaní tejto stránky. Vráťme vás domov!",
+    button: "Späť na úvod",
+    mascotAlt: "Spiaci maskot"
+  }
+};
 
 const NotFound = () => {
   const location = useLocation();
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -18,77 +42,76 @@ const NotFound = () => {
     <>
       <SEO titleKey="notFound" noindex />
       <div className="flex min-h-screen items-center justify-center bg-background relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]"
-        />
-        <motion.div
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue/20 blur-[120px]"
-        />
-      </div>
-
-      <div className="text-center relative z-10">
-        {/* Animated sleeping mascot */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
-        >
-          <AnimatedMascot 
-            src={mascotSleeping} 
-            alt="Sleeping mascot" 
-            size="md"
-            className="mx-auto"
+        {/* Background effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]"
           />
-        </motion.div>
+          <motion.div
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.25, 0.15] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue/20 blur-[120px]"
+          />
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-4 text-8xl font-display font-bold text-gradient"
-        >
-          404
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-2 text-2xl font-display font-semibold text-foreground"
-        >
-          Oops! Page not found
-        </motion.p>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-8 text-muted-foreground max-w-md mx-auto"
-        >
-          Our mascot fell asleep looking for this page. Let's get you back home!
-        </motion.p>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <Link to="/">
-            <Button variant="hero" size="lg" className="gap-2">
-              <Home className="w-4 h-4" />
-              Return to Home
-            </Button>
-          </Link>
-        </motion.div>
+        <div className="text-center relative z-10 flex flex-col items-center">
+          {/* Animated sleeping mascot */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8 flex justify-center"
+          >
+            <AnimatedMascot 
+              src={mascotSleeping} 
+              alt={t.mascotAlt}
+              size="md"
+            />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-4 text-8xl font-display font-bold text-gradient"
+          >
+            404
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-2 text-2xl font-display font-semibold text-foreground"
+          >
+            {t.title}
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-8 text-muted-foreground max-w-md mx-auto"
+          >
+            {t.description}
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Link to="/">
+              <Button variant="hero" size="lg" className="gap-2">
+                <Home className="w-4 h-4" />
+                {t.button}
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
       </div>
-    </div>
     </>
   );
 };
