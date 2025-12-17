@@ -32,6 +32,7 @@ import { useBuildingWebsiteLang } from "@/contexts/LanguageBuildingWebsite";
 import { buildPath } from "@/config/domains";
 import { domainConfig } from "@/config/domains";
 import ConfiguratorCtaBox from "@/components/ConfiguratorCtaBox";
+import { configuratorCtaText } from "@/data/configuratorCta";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -679,6 +680,26 @@ const BuildingWebsite = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Configurator CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 max-w-3xl mx-auto"
+            >
+              <ConfiguratorCtaBox
+                title={configuratorCtaText[language].title}
+                subtitle={configuratorCtaText[language].subtitle}
+                badge={configuratorCtaText[language].badge}
+                cta={configuratorCtaText[language].cta}
+                href={buildPath(language, "configurator")}
+              />
+              <p
+                className="text-center text-sm text-muted-foreground mt-4"
+                dangerouslySetInnerHTML={{ __html: configuratorCtaText[language].offerText }}
+              />
+            </motion.div>
           </div>
         </section>
 
