@@ -28,6 +28,205 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  metaDescription: {
+  slugs: { EN: "meta-description", CZ: "meta-description", SK: "meta-description" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "SERP", "CTR", "Copywriting"],
+  resources: [
+    { title: "Google: Snippets & Meta Descriptions", url: "https://developers.google.com/search/docs/appearance/snippet" },
+    { title: "Moz: Meta Description", url: "https://moz.com/learn/seo/meta-description" }
+  ],
+  content: {
+    SK: {
+      term: "Meta description",
+      shortDefinition: "Popis stránky vo výsledkoch vyhľadávania",
+      fullDefinition:
+        "Meta description je krátky text, ktorý sa zobrazuje pod názvom stránky vo výsledkoch vyhľadávania. Slúži ako stručné zhrnutie obsahu stránky pre používateľa. Hoci priamo neovplyvňuje pozíciu vo vyhľadávači, výrazne ovplyvňuje mieru preklikov. Dobre napísaný meta popis motivuje používateľa kliknúť práve na daný výsledok. Ide o dôležitý prvok SEO a copywritingu.",
+      examples: [
+        "Krátky popis služby v Google výsledkoch.",
+        "Použitie výzvy k akcii v meta popise.",
+        "Zahrnutie hlavného kľúčového slova.",
+        "Testovanie rôznych verzií meta popisov.",
+        "Zvýšenie CTR bez zmeny pozície."
+      ],
+      whyItMatters:
+        "Meta description funguje ako reklama na stránku priamo v Google. Zvyšuje mieru preklikov (CTR) bez nutnosti zmeny pozície vo vyhľadávaní. Pomáha používateľovi rýchlo pochopiť, čo na stránke nájde. Zvyšuje konkurencieschopnosť výsledku medzi ostatnými odkazmi. Pre firmy je to jednoduchý spôsob, ako získať viac návštevnosti."
+    },
+    EN: {
+      term: "Meta Description",
+      shortDefinition: "Page description in search results",
+      fullDefinition:
+        "A meta description is a short text shown below the page title in search results. It summarizes the page content for users. While it does not directly affect rankings, it strongly influences click-through rate. A well-written description encourages users to click. It is an important SEO and copywriting element.",
+      examples: [
+        "Service description in Google results.",
+        "CTA usage in descriptions.",
+        "Keyword inclusion.",
+        "Description testing.",
+        "CTR improvement."
+      ],
+      whyItMatters:
+        "Meta descriptions act as ads in search results and improve CTR."
+    },
+    CZ: {
+      term: "Meta description",
+      shortDefinition: "Popis stránky ve výsledcích vyhledávání",
+      fullDefinition:
+        "Meta description je krátký text zobrazovaný ve výsledcích vyhledávání.",
+      examples: [
+        "Popis služby v Google."
+      ],
+      whyItMatters:
+        "Zvyšuje míru prokliku."
+    }
+  }
+},
+
+keywords: {
+  slugs: { EN: "keywords", CZ: "klicova-slova", SK: "klucove-slova" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "Content Marketing", "Organic Traffic", "SERP"],
+  resources: [
+    { title: "Ahrefs: Keywords", url: "https://ahrefs.com/keywords-explorer" }
+  ],
+  content: {
+    SK: {
+      term: "Kľúčové slová",
+      shortDefinition: "Výrazy, ktoré ľudia zadávajú do vyhľadávača",
+      fullDefinition:
+        "Kľúčové slová sú slová alebo frázy, ktoré používatelia zadávajú do vyhľadávačov pri hľadaní informácií, produktov alebo služieb. Predstavujú spojenie medzi tým, čo ľudia hľadajú, a obsahom, ktorý im ponúka web. Správny výber kľúčových slov je základom SEO a obsahovej stratégie. Kľúčové slová môžu byť krátke, dlhé alebo veľmi špecifické. Ich analýza pomáha pochopiť potreby cieľovej skupiny.",
+      examples: [
+        "„mobilná masáž Bratislava“",
+        "„autodetailing u zákazníka“",
+        "„mobilný pneuservis“",
+        "Analýza kľúčových slov v SEO nástrojoch.",
+        "Optimalizácia článkov podľa dopytov."
+      ],
+      whyItMatters:
+        "Správne zvolené kľúčové slová zvyšujú šancu osloviť relevantných návštevníkov. Pomáhajú tvoriť obsah, ktorý odpovedá na reálne otázky. Zvyšujú organickú návštevnosť a presnosť marketingu."
+    },
+    EN: {
+      term: "Keywords",
+      shortDefinition: "Search terms users type",
+      fullDefinition:
+        "Keywords are words and phrases users enter into search engines to find information or services.",
+      examples: [
+        "Local service queries.",
+        "SEO keyword research."
+      ],
+      whyItMatters:
+        "They connect user intent with content."
+    },
+    CZ: {
+      term: "Klíčová slova",
+      shortDefinition: "Výrazy ve vyhledávání",
+      fullDefinition:
+        "Klíčová slova spojují vyhledávání uživatelů s obsahem webu.",
+      examples: [
+        "Lokální dotazy."
+      ],
+      whyItMatters:
+        "Zvyšují relevantnost návštěvnosti."
+    }
+  }
+},
+
+backlink: {
+  slugs: { EN: "backlink", CZ: "zpetny-odkaz", SK: "spatny-odkaz" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "Domain Authority", "Link Building", "SERP"],
+  resources: [
+    { title: "Moz: Backlinks", url: "https://moz.com/learn/seo/backlinks" }
+  ],
+  content: {
+    SK: {
+      term: "Backlink",
+      shortDefinition: "Spätný odkaz",
+      fullDefinition:
+        "Backlink je odkaz z inej webovej stránky, ktorý smeruje na váš web. Pre vyhľadávače predstavuje signál dôveryhodnosti a autority. Čím kvalitnejší a relevantnejší web na vás odkazuje, tým má backlink väčšiu hodnotu. Backlinky sú jedným z najdôležitejších faktorov SEO. Ich budovanie je dlhodobý a strategický proces.",
+      examples: [
+        "Odkaz z odborného blogu.",
+        "Zmienka v médiách.",
+        "Partneri odkazujú na váš web.",
+        "Lokálne katalógy.",
+        "Guest blogging."
+      ],
+      whyItMatters:
+        "Backlinky zvyšujú autoritu webu, zlepšujú pozície a prinášajú návštevnosť. Bez nich je ťažké konkurovať v silných odvetviach."
+    },
+    EN: {
+      term: "Backlink",
+      shortDefinition: "Inbound link",
+      fullDefinition:
+        "A backlink is a link from another website pointing to yours.",
+      examples: [
+        "Media mentions.",
+        "Partner links."
+      ],
+      whyItMatters:
+        "Backlinks improve authority and rankings."
+    },
+    CZ: {
+      term: "Zpětný odkaz",
+      shortDefinition: "Odkaz z jiného webu",
+      fullDefinition:
+        "Zpětný odkaz vede z cizí stránky na váš web.",
+      examples: [
+        "Odkazy z blogů."
+      ],
+      whyItMatters:
+        "Zvyšuje autoritu webu."
+    }
+  }
+},
+
+newsletter: {
+  slugs: { EN: "newsletter", CZ: "newsletter", SK: "newsletter" },
+  category: "Marketing",
+  relatedTerms: ["Email Marketing", "Lead Nurturing", "Automation", "CRM"],
+  resources: [
+    { title: "Mailchimp: Email Marketing Guide", url: "https://mailchimp.com/resources/email-marketing-guide/" }
+  ],
+  content: {
+    SK: {
+      term: "Newsletter",
+      shortDefinition: "Pravidelná e-mailová komunikácia",
+      fullDefinition:
+        "Newsletter je forma e-mailovej komunikácie, ktorou firma pravidelne oslovuje svojich kontaktov. Obsahuje novinky, tipy, akcie alebo hodnotný obsah. Newsletter sa posiela len ľuďom, ktorí s tým súhlasili. Ide o jeden z najefektívnejších kanálov digitálneho marketingu. Umožňuje priamu a personalizovanú komunikáciu.",
+      examples: [
+        "Týždenný prehľad noviniek.",
+        "Akčné ponuky pre registrovaných.",
+        "Edukačný obsah pre zákazníkov.",
+        "Automatické e-maily po registrácii.",
+        "Personalizované kampane."
+      ],
+      whyItMatters:
+        "Newsletter udržiava kontakt so zákazníkmi, buduje vzťahy a podporuje opakované nákupy. Má vysokú návratnosť a plnú kontrolu nad publikom."
+    },
+    EN: {
+      term: "Newsletter",
+      shortDefinition: "Regular email communication",
+      fullDefinition:
+        "A newsletter is a recurring email sent to subscribers containing updates, offers, or content.",
+      examples: [
+        "Weekly updates.",
+        "Promotional emails."
+      ],
+      whyItMatters:
+        "It builds long-term customer relationships."
+    },
+    CZ: {
+      term: "Newsletter",
+      shortDefinition: "Pravidelná e-mailová komunikace",
+      fullDefinition:
+        "Newsletter slouží k udržování kontaktu se zákazníky.",
+      examples: [
+        "Akční e-maily."
+      ],
+      whyItMatters:
+        "Podporuje loajalitu."
+    }
+  }
+},
   abTesting: {
   slugs: { EN: "ab-testing", CZ: "ab-testovani", SK: "ab-testovanie" },
   category: "Marketing",
