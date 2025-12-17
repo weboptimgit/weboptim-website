@@ -38,6 +38,8 @@ RewriteRule ^cz/sluzby/seo/$ https://www.weboptim.cz/sluzby/seo [R=301,L]
 RewriteRule ^cz/sluzby/tvorba-eshopu/$ https://www.weboptim.cz/sluzby/tvorba-eshopu [R=301,L]
 RewriteRule ^cz/sluzby/tvorba-webstranek/$ https://www.weboptim.cz/sluzby/tvorba-webstranek [R=301,L]
 RewriteRule ^cz/services/ecommerce-website/$ https://www.weboptim.cz/sluzby/tvorba-eshopu [R=301,L]
+RewriteRule ^cz/services/building-a-website/$ https://www.weboptim.cz/sluzby/tvorba-webstranek [R=301,L]
+RewriteRule ^cz/services/digitalization-and-automation/$ https://www.weboptim.cz/sluzby/digitalizace-a-automatizace-procesu [R=301,L]
 
 RewriteRule ^services/$ https://www.weboptim.eu/services [R=301,L]
 RewriteRule ^services/building-a-website/$ https://www.weboptim.eu/services/building-website [R=301,L]
@@ -63,9 +65,10 @@ RewriteRule ^sk/sluzby/tvorba-eshopu/$ https://www.weboptim.sk/sluzby/tvorba-esh
 RewriteRule ^sk/sluzby/tvorba-webstranok/$ https://www.weboptim.sk/sluzby/tvorba-webstranok [R=301,L]
 RewriteRule ^sk/services/ppc/$ https://www.weboptim.sk/sluzby/ppc [R=301,L]
 
-RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce/$ https://www.weboptim.eu/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
-RewriteRule ^the-best-e-commerce-solution-for-your-business-how-to-choose-the-right-one/$ https://www.weboptim.eu/the-best-e-commerce-solution-for-your-business-how-to-choose-the-right-one [R=301,L]
-RewriteRule ^why-structured-data-is-essential-for-your-seo/$ https://www.weboptim.eu/why-structured-data-is-essential-for-your-seo [R=301,L]
+RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce/$ https://www.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
+RewriteRule ^the-best-e-commerce-solution-for-your-business-how-to-choose-the-right-one/$ https://www.weboptim.eu/blog/the-best-e-commerce-solution-for-your-business-how-to-choose-the-right-one [R=301,L]
+RewriteRule ^why-structured-data-is-essential-for-your-seo/$ https://www.weboptim.eu/blog/why-structured-data-is-essential-for-your-seo [R=301,L]
+RewriteRule ^50-seo-prompts-for-chatgpt-by-openai/$ https://www.weboptim.eu/blog/50-seo-prompts-for-chatgpt-by-openai [R=301,L]
 
 # Existing files/directories - don't rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
