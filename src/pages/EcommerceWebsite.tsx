@@ -336,7 +336,7 @@ const AnimatedCart = ({ e }: { e: ReturnType<typeof useEcomLang> }) => {
                   }}
                 >
                   <div
-                    className={`group relative p-4 rounded-2xl border transition-all duration-500 min-w-[140px] cursor-pointer overflow-hidden ${
+                    className={`group relative p-4 rounded-2xl border transition-all duration-500 min-w-[140px] cursor-pointer ${
                       platform.highlight
                         ? "bg-gradient-to-br from-secondary/10 to-primary/10 border-primary/30"
                         : "bg-card/50 border-border/50 hover:border-primary/30"
