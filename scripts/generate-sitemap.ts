@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { blogPostsData } from "../src/data/blog-posts";
+import { blogPostsData, categorySlugTranslations } from "../src/data/blog-posts";
 import { glossaryTermsData } from "../src/data/glossary-terms";
 import { caseStudiesData } from "../src/data/case-studies";
 import { staticPageSlugs, serviceDetailSlugs } from "../src/config/domains";
@@ -130,6 +130,32 @@ const blogEntries =
     : (console.log("⚠️ staticPageSlugs.blog is missing"), []);
 
 /* --------------------------
+   2b) BLOG CATEGORIES
+--------------------------- */
+
+// Get unique base category slugs (only the primary keys, not the reverse mappings)
+const baseCategorySlugs = ["online-marketing", "webs-and-e-shops", "ai-artificial-intelligence"];
+
+const blogCategoryEntries =
+  staticPageSlugs.blog?.EN && staticPageSlugs.blog?.CZ && staticPageSlugs.blog?.SK
+    ? baseCategorySlugs
+        .map((baseSlug) => {
+          const mapping = categorySlugTranslations[baseSlug];
+          if (!mapping?.EN || !mapping?.CZ || !mapping?.SK) {
+            console.log(`⚠️ Missing categorySlugTranslations for: ${baseSlug}`);
+            return null;
+          }
+
+          return urlEntry({
+            EN: joinPath(staticPageSlugs.blog.EN, mapping.EN),
+            CZ: joinPath(staticPageSlugs.blog.CZ, mapping.CZ),
+            SK: joinPath(staticPageSlugs.blog.SK, mapping.SK),
+          });
+        })
+        .filter(Boolean) as string[]
+    : (console.log("⚠️ staticPageSlugs.blog is missing for categories"), []);
+
+/* --------------------------
    3) SERVICES (detail pages)
 --------------------------- */
 
@@ -216,7 +242,7 @@ const caseStudiesPath = path.join(outDir, "sitemap-case-studies.xml");
 const indexPath = path.join(outDir, "sitemap.xml");
 
 fs.writeFileSync(pagesPath, wrapUrlset(pagesEntries), "utf8");
-fs.writeFileSync(blogPath, wrapUrlset(blogEntries), "utf8");
+fs.writeFileSync(blogPath, wrapUrlset([...blogCategoryEntries, ...blogEntries]), "utf8");
 fs.writeFileSync(servicesPath, wrapUrlset(servicesEntries), "utf8");
 fs.writeFileSync(glossaryPath, wrapUrlset(glossaryEntries), "utf8");
 fs.writeFileSync(caseStudiesPath, wrapUrlset(caseStudiesEntries), "utf8");
@@ -236,7 +262,7 @@ fs.writeFileSync(
 
 console.log(`✅ Sitemaps generated:`);
 console.log(`   - sitemap-pages.xml (${pagesEntries.length} URLs)`);
-console.log(`   - sitemap-blog.xml (${blogEntries.length} URLs)`);
+console.log(`   - sitemap-blog.xml (${blogCategoryEntries.length} categories + ${blogEntries.length} posts)`);
 console.log(`   - sitemap-services.xml (${servicesEntries.length} URLs)`);
 console.log(`   - sitemap-glossary.xml (${glossaryEntries.length} URLs)`);
 console.log(`   - sitemap-case-studies.xml (${caseStudiesEntries.length} URLs)`);
