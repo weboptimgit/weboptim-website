@@ -55,16 +55,16 @@ const clientsRow2: Client[] = [
 
 const ClientCard = memo(({ client }: { client: Client }) => {
   const content = (
-    <div className="flex-shrink-0 mx-1.5 md:mx-3 glass rounded-xl px-4 md:px-8 py-4 md:py-6 flex items-center justify-center min-w-[140px] md:min-w-[180px] h-[60px] md:h-[80px] hover:border-primary/30 transition-all duration-300 group">
+    <div className="flex-shrink-0 mx-1 sm:mx-1.5 md:mx-3 glass rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-8 py-3 sm:py-4 md:py-6 flex items-center justify-center min-w-[100px] sm:min-w-[120px] md:min-w-[180px] h-[50px] sm:h-[60px] md:h-[80px] hover:border-primary/30 transition-all duration-300 group">
       {client.image ? (
         <img 
           src={client.image} 
           alt={client.name} 
-          className="max-h-[36px] md:max-h-[48px] max-w-[100px] md:max-w-[140px] object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
+          className="max-h-[28px] sm:max-h-[36px] md:max-h-[48px] max-w-[70px] sm:max-w-[100px] md:max-w-[140px] object-contain opacity-70 group-hover:opacity-100 transition-all duration-300"
           style={{ filter: 'brightness(0) invert(1)' }}
         />
       ) : client.text ? (
-        <span className="text-sm md:text-lg font-display font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
+        <span className="text-xs sm:text-sm md:text-lg font-display font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
           {client.text}
         </span>
       ) : null}
