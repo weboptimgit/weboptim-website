@@ -28,21 +28,12 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
- seo: {
+seo: {
   slugs: { EN: "seo", CZ: "seo", SK: "seo" },
   category: "Marketing",
-  relatedTerms: [
-    "Keywords",
-    "SERP",
-    "Meta Description",
-    "Backlinks",
-    "Organic Traffic",
-    "On-page SEO",
-    "Off-page SEO"
-  ],
+  relatedTerms: ["Keywords", "SERP", "Meta Description", "Backlinks", "Organic Traffic"],
   resources: [
-    { title: "Google Search Central – SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },
-    { title: "Moz – Beginner's Guide to SEO", url: "https://moz.com/beginners-guide-to-seo" }
+    { title: "Google SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
   ],
   content: {
     SK: {
@@ -60,7 +51,6 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
         "Úprava titulkov a meta popisov stránok."
       ]
     },
-
     CZ: {
       term: "SEO (Search Engine Optimization)",
       shortDefinition: "Optimalizace pro vyhledávače",
@@ -76,20 +66,74 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
         "Úprava titulků a meta popisů stránek."
       ]
     },
-
     EN: {
       term: "SEO (Search Engine Optimization)",
       shortDefinition: "Search engine optimization",
       fullDefinition:
         "SEO is a set of techniques and strategies aimed at improving the visibility of a website in search engines such as Google. It includes content optimization, technical website configuration, and acquiring external links. The goal of SEO is to ensure that a website appears as high as possible in search results for relevant queries. It is a long-term process that requires systematic work and data analysis. SEO does not mean paid advertising, but organic (unpaid) traffic.",
       whyItMatters:
-        "Most people click only on the first results in search engines, which is why a high ranking is crucial for website traffic. Quality SEO provides a stable and long-term source of visitors without the need to constantly pay for advertising. It helps reach people exactly at the moment when they are actively searching for a solution to their problem. SEO increases brand credibility because websites in top positions appear more professional. In the long run, SEO offers a very high return on investment.",
+        "Most people click only on the first search results, which is why high rankings are crucial for website traffic. Quality SEO provides a stable and long-term source of visitors without the need to constantly pay for advertising. It helps reach people exactly when they are actively searching for a solution to their problem. SEO increases brand credibility because websites in top positions appear more professional. In the long term, SEO offers a very high return on investment.",
       examples: [
         "Optimizing an article for the keyword “mobile car service Bratislava”.",
-        "Technically speeding up a website for better Google evaluation.",
+        "Improving website speed for better Google evaluation.",
         "Writing blog posts that answer customer questions.",
         "Acquiring backlinks from relevant websites.",
         "Optimizing page titles and meta descriptions."
+      ]
+    }
+  }
+},
+ppc: {
+  slugs: { EN: "ppc", CZ: "ppc", SK: "ppc" },
+  category: "Marketing",
+  relatedTerms: ["Google Ads", "Meta Ads", "CPC", "CTR", "Conversion"],
+  resources: [
+    { title: "Google Ads Help", url: "https://support.google.com/google-ads" }
+  ],
+  content: {
+    SK: {
+      term: "PPC reklama (Pay-Per-Click)",
+      shortDefinition: "Platená reklama za preklik",
+      fullDefinition:
+        "PPC reklama je forma online reklamy, pri ktorej inzerent platí len vtedy, keď používateľ klikne na reklamu. Najznámejšie PPC platformy sú Google Ads a Meta Ads (Facebook, Instagram). Reklamy sa zobrazujú vo vyhľadávačoch, na sociálnych sieťach alebo partnerských weboch. PPC umožňuje veľmi presné cielenie podľa záujmov, lokality, správania či demografie. Ide o rýchly spôsob, ako okamžite priviesť návštevnosť na web.",
+      whyItMatters:
+        "PPC reklama umožňuje okamžité výsledky, čo je ideálne pri nových projektoch alebo kampaniach. Poskytuje plnú kontrolu nad rozpočtom, cieľovou skupinou aj obsahom reklamy. Správne nastavené PPC kampane dokážu generovať predaje, dopyty alebo registrácie veľmi efektívne. Zároveň poskytujú presné dáta o výkonnosti, ktoré pomáhajú optimalizovať marketingové rozhodnutia. PPC je silným doplnkom SEO, najmä pri konkurenčných kľúčových slovách.",
+      examples: [
+        "Google reklama na výraz „mobilná masáž Košice“.",
+        "Facebook reklama cielená na lokálnych podnikateľov.",
+        "Remarketingová kampaň na návštevníkov webu.",
+        "Propagácia novej služby cez Instagram Ads.",
+        "Testovanie rôznych reklamných textov a vizuálov."
+      ]
+    },
+    CZ: {
+      term: "PPC reklama (Pay-Per-Click)",
+      shortDefinition: "Placená reklama za proklik",
+      fullDefinition:
+        "PPC reklama je forma online reklamy, při které inzerent platí pouze tehdy, když uživatel klikne na reklamu. Nejznámější PPC platformy jsou Google Ads a Meta Ads (Facebook, Instagram). Reklamy se zobrazují ve vyhledávačích, na sociálních sítích nebo partnerských webech. PPC umožňuje velmi přesné cílení podle zájmů, lokality, chování nebo demografie. Jedná se o rychlý způsob, jak okamžitě přivést návštěvnost na web.",
+      whyItMatters:
+        "PPC reklama umožňuje okamžité výsledky, což je ideální pro nové projekty nebo kampaně. Poskytuje plnou kontrolu nad rozpočtem, cílovou skupinou i obsahem reklamy. Správně nastavené PPC kampaně dokážou efektivně generovat prodeje, poptávky nebo registrace. Zároveň poskytují přesná data o výkonnosti, která pomáhají optimalizovat marketingová rozhodnutí. PPC je silným doplňkem SEO, zejména u konkurenčních klíčových slov.",
+      examples: [
+        "Google reklama na výraz „mobilní masáž Košice“.",
+        "Facebook reklama cílená na lokální podnikatele.",
+        "Remarketingová kampaň na návštěvníky webu.",
+        "Propagace nové služby přes Instagram Ads.",
+        "Testování různých reklamních textů a vizuálů."
+      ]
+    },
+    EN: {
+      term: "PPC Advertising (Pay-Per-Click)",
+      shortDefinition: "Paid advertising per click",
+      fullDefinition:
+        "PPC advertising is an online advertising model where advertisers pay only when a user clicks on an ad. The most well-known platforms are Google Ads and Meta Ads (Facebook, Instagram). Ads appear in search engines, on social networks, or partner websites. PPC allows very precise targeting based on interests, location, behavior, or demographics. It is a fast way to immediately drive traffic to a website.",
+      whyItMatters:
+        "PPC advertising delivers immediate results, making it ideal for new projects or campaigns. It provides full control over budget, audience, and ad content. Well-optimized PPC campaigns can effectively generate sales, inquiries, or registrations. It also provides accurate performance data that helps optimize marketing decisions. PPC is a strong complement to SEO, especially for competitive keywords.",
+      examples: [
+        "Google ad for the keyword “mobile massage Košice”.",
+        "Facebook ads targeting local businesses.",
+        "Remarketing campaigns for website visitors.",
+        "Promoting a new service via Instagram Ads.",
+        "Testing different ad creatives and copy."
       ]
     }
   }
