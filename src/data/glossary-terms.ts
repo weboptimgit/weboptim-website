@@ -28,6 +28,171 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+cta: {
+  slugs: { EN: "cta", CZ: "cta", SK: "cta" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "Landing Page", "UX", "Copywriting"],
+  resources: [
+    { title: "What Is a Call to Action?", url: "https://www.optimizely.com/optimization-glossary/call-to-action/" }
+  ],
+  content: {
+    SK: {
+      term: "CTA (Call to Action)",
+      shortDefinition: "Výzva k akcii",
+      fullDefinition:
+        "CTA je prvok na webe alebo v reklame, ktorý vyzýva používateľa k vykonaniu konkrétnej akcie. Môže ísť o tlačidlo, text alebo grafický prvok s jasným posolstvom. Typickými CTA sú výzvy ako „Objednať teraz“, „Získať ponuku“ alebo „Kontaktujte nás“. CTA pomáha návštevníkovi pochopiť, čo má urobiť ďalej. Bez CTA je web často nejasný a má nižšiu konverziu.",
+      whyItMatters:
+        "CTA priamo ovplyvňuje mieru konverzií, pretože navádza používateľa k želanej akcii. Jasná výzva znižuje váhanie a zlepšuje používateľský zážitok. Dobre navrhnuté CTA zvyšuje počet objednávok, dopytov alebo registrácií. Pomáha tiež usmerniť návštevníkov po stránke a viesť ich konverznou cestou. Bez CTA môže byť aj kvalitný obsah marketingovo neefektívny.",
+      examples: [
+        "Tlačidlo „Nájsť poskytovateľa“ na domovskej stránke.",
+        "Výzva „Pridať svoju službu“ pre poskytovateľov.",
+        "CTA v e-maili „Získať zľavu“.",
+        "Bannery s výzvou na rezerváciu služby.",
+        "Sticky CTA tlačidlo na mobile."
+      ]
+    },
+    CZ: {
+      term: "CTA (Call to Action)",
+      shortDefinition: "Výzva k akci",
+      fullDefinition:
+        "CTA je prvek na webu nebo v reklamě, který vyzývá uživatele k provedení konkrétní akce. Může jít o tlačítko, text nebo grafický prvek s jasným sdělením. Typickými CTA jsou výzvy jako „Objednat nyní“, „Získat nabídku“ nebo „Kontaktujte nás“. CTA pomáhá návštěvníkovi pochopit, co má udělat dál. Bez CTA je web často nejasný a má nižší konverzi.",
+      whyItMatters:
+        "CTA přímo ovlivňuje míru konverzí, protože navádí uživatele k požadované akci. Jasná výzva snižuje váhání a zlepšuje uživatelský zážitek. Dobře navržené CTA zvyšuje počet objednávek, poptávek nebo registrací. Pomáhá také směrovat návštěvníky po webu a vést je konverzní cestou. Bez CTA může být i kvalitní obsah marketingově neefektivní.",
+      examples: [
+        "Tlačítko „Najít poskytovatele“ na domovské stránce.",
+        "Výzva „Přidat svou službu“ pro poskytovatele.",
+        "CTA v e-mailu „Získat slevu“.",
+        "Bannery s výzvou k rezervaci služby.",
+        "Sticky CTA tlačítko na mobilu."
+      ]
+    },
+    EN: {
+      term: "CTA (Call to Action)",
+      shortDefinition: "Action prompt",
+      fullDefinition:
+        "A CTA is an element on a website or in an advertisement that encourages users to take a specific action. It can be a button, text, or graphical element with a clear message. Typical CTAs include phrases like “Order now,” “Get a quote,” or “Contact us.” A CTA helps visitors understand what to do next. Without a CTA, a website is often unclear and achieves lower conversion rates.",
+      whyItMatters:
+        "CTAs directly influence conversion rates by guiding users toward the desired action. Clear calls to action reduce hesitation and improve the user experience. Well-designed CTAs increase the number of orders, inquiries, or registrations. They also help guide visitors through the site along the conversion path. Without CTAs, even high-quality content can be marketing-ineffective.",
+      examples: [
+        "A “Find a provider” button on the homepage.",
+        "A “Add your service” CTA for providers.",
+        "An email CTA saying “Get a discount”.",
+        "Banners encouraging service reservations.",
+        "Sticky CTA buttons on mobile devices."
+      ]
+    }
+  }
+},
+conversion: {
+  slugs: { EN: "conversion", CZ: "konverze", SK: "konverzia" },
+  category: "Marketing",
+  relatedTerms: ["CTA", "Conversion Rate", "Landing Page", "PPC"],
+  resources: [
+    { title: "What Is Conversion?", url: "https://www.wordstream.com/conversion" }
+  ],
+  content: {
+    SK: {
+      term: "Konverzia",
+      shortDefinition: "Splnenie marketingového cieľa",
+      fullDefinition:
+        "Konverzia nastáva vtedy, keď návštevník vykoná požadovanú akciu na webe. Môže to byť nákup, vyplnenie formulára, registrácia, rezervácia alebo telefonát. Každý web má definované vlastné konverzné ciele podľa svojho účelu. Konverzia je základnou metrikou úspešnosti marketingu. Bez merania konverzií nie je možné vyhodnocovať efektivitu kampaní.",
+      whyItMatters:
+        "Konverzie ukazujú, či marketing prináša reálnu hodnotu, nie len návštevnosť. Pomáhajú identifikovať, ktoré kanály a kampane fungujú najlepšie. Optimalizácia konverzií zvyšuje zisk bez nutnosti zvyšovať rozpočet. Umožňuje robiť rozhodnutia na základe dát, nie pocitov. Pre firmy sú konverzie priamym mostom medzi marketingom a tržbami.",
+      examples: [
+        "Odoslaný dopyt cez kontaktný formulár.",
+        "Dokončená rezervácia služby.",
+        "Nákup v e-shope.",
+        "Kliknutie na telefónne číslo na mobile.",
+        "Registrácia do newslettera."
+      ]
+    },
+    CZ: {
+      term: "Konverze",
+      shortDefinition: "Splnění marketingového cíle",
+      fullDefinition:
+        "Konverze nastává tehdy, když návštěvník provede požadovanou akci na webu. Může se jednat o nákup, vyplnění formuláře, registraci, rezervaci nebo telefonát. Každý web má definované vlastní konverzní cíle podle svého účelu. Konverze je základní metrikou úspěšnosti marketingu. Bez měření konverzí není možné vyhodnocovat efektivitu kampaní.",
+      whyItMatters:
+        "Konverze ukazují, zda marketing přináší skutečnou hodnotu, nejen návštěvnost. Pomáhají identifikovat, které kanály a kampaně fungují nejlépe. Optimalizace konverzí zvyšuje zisk bez nutnosti zvyšovat rozpočet. Umožňuje dělat rozhodnutí na základě dat, nikoli pocitů. Pro firmy jsou konverze přímým mostem mezi marketingem a tržbami.",
+      examples: [
+        "Odeslaná poptávka přes kontaktní formulář.",
+        "Dokončená rezervace služby.",
+        "Nákup v e-shopu.",
+        "Kliknutí na telefonní číslo na mobilu.",
+        "Registrace k newsletteru."
+      ]
+    },
+    EN: {
+      term: "Conversion",
+      shortDefinition: "Completion of a marketing goal",
+      fullDefinition:
+        "A conversion occurs when a visitor completes a desired action on a website. This can include a purchase, form submission, registration, reservation, or phone call. Each website defines its own conversion goals based on its purpose. Conversion is a fundamental metric of marketing success. Without tracking conversions, it is impossible to evaluate campaign effectiveness.",
+      whyItMatters:
+        "Conversions show whether marketing delivers real value, not just traffic. They help identify which channels and campaigns perform best. Conversion optimization increases profit without increasing advertising spend. It enables data-driven decision-making rather than relying on assumptions. For businesses, conversions are the direct link between marketing and revenue.",
+      examples: [
+        "Submitting an inquiry via a contact form.",
+        "Completing a service reservation.",
+        "Making a purchase in an online store.",
+        "Clicking a phone number on mobile.",
+        "Signing up for a newsletter."
+      ]
+    }
+  }
+},
+conversionRate: {
+  slugs: { EN: "conversion-rate", CZ: "konverzni-pomer", SK: "konverzny-pomer" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "CTA", "A/B Testing", "UX"],
+  resources: [
+    { title: "Conversion Rate Optimization Guide", url: "https://www.crazyegg.com/blog/conversion-rate-optimization/" }
+  ],
+  content: {
+    SK: {
+      term: "Konverzný pomer (Conversion Rate)",
+      shortDefinition: "Pomer návštevníkov, ktorí vykonali akciu",
+      fullDefinition:
+        "Konverzný pomer vyjadruje percento návštevníkov webu, ktorí vykonali požadovanú akciu, napríklad nákup alebo odoslanie formulára. Vypočíta sa ako podiel konverzií a celkovej návštevnosti. Tento ukazovateľ pomáha pochopiť, ako efektívne web alebo kampaň premieňa návštevníkov na zákazníkov. Konverzný pomer sa môže líšiť podľa typu stránky, zdroja návštevnosti či zariadenia. Ide o jednu z najdôležitejších metrík v online marketingu.",
+      whyItMatters:
+        "Vyšší konverzný pomer znamená, že z rovnakej návštevnosti získava firma viac zákazníkov alebo dopytov. Umožňuje optimalizovať web bez nutnosti zvyšovať rozpočet na reklamu. Pomáha identifikovať slabé miesta v používateľskej ceste, napríklad neprehľadné formuláre alebo zlé CTA. Vďaka sledovaniu konverzného pomeru sa marketingové rozhodnutia opierajú o dáta, nie odhady. Pre firmy je to priamy ukazovateľ efektivity webu a kampaní.",
+      examples: [
+        "100 návštev webu a 5 dopytov = 5 % konverzný pomer.",
+        "Optimalizácia formulára zvýši konverzie bez zvýšenia návštevnosti.",
+        "Mobilná verzia má nižší konverzný pomer než desktop.",
+        "A/B testovanie CTA tlačidiel.",
+        "Porovnávanie výkonu rôznych landing pages."
+      ]
+    },
+    CZ: {
+      term: "Konverzní poměr (Conversion Rate)",
+      shortDefinition: "Poměr návštěvníků, kteří provedli akci",
+      fullDefinition:
+        "Konverzní poměr vyjadřuje procento návštěvníků webu, kteří provedli požadovanou akci, například nákup nebo odeslání formuláře. Vypočítává se jako podíl konverzí a celkové návštěvnosti. Tento ukazatel pomáhá pochopit, jak efektivně web nebo kampaň převádí návštěvníky na zákazníky. Konverzní poměr se může lišit podle typu stránky, zdroje návštěvnosti nebo zařízení. Jedná se o jednu z nejdůležitějších metrik v online marketingu.",
+      whyItMatters:
+        "Vyšší konverzní poměr znamená, že ze stejné návštěvnosti získá firma více zákazníků nebo poptávek. Umožňuje optimalizovat web bez nutnosti zvyšovat rozpočet na reklamu. Pomáhá identifikovat slabá místa v uživatelské cestě, například nepřehledné formuláře nebo špatná CTA. Díky sledování konverzního poměru se marketingová rozhodnutí opírají o data, nikoli odhady. Pro firmy je to přímý ukazatel efektivity webu a kampaní.",
+      examples: [
+        "100 návštěv webu a 5 poptávek = 5% konverzní poměr.",
+        "Optimalizace formuláře zvýší konverze bez zvýšení návštěvnosti.",
+        "Mobilní verze má nižší konverzní poměr než desktop.",
+        "A/B testování CTA tlačítek.",
+        "Porovnávání výkonu různých landing pages."
+      ]
+    },
+    EN: {
+      term: "Conversion Rate",
+      shortDefinition: "Percentage of visitors who take action",
+      fullDefinition:
+        "Conversion rate represents the percentage of website visitors who complete a desired action, such as making a purchase or submitting a form. It is calculated as the ratio of conversions to total traffic. This metric helps measure how effectively a website or campaign turns visitors into customers. Conversion rates can vary by page type, traffic source, or device. It is one of the most important metrics in online marketing.",
+      whyItMatters:
+        "A higher conversion rate means more customers or leads from the same amount of traffic. It allows website optimization without increasing advertising budgets. It helps identify weak points in the user journey, such as unclear forms or ineffective CTAs. Tracking conversion rate enables data-driven marketing decisions. For businesses, it is a direct indicator of website and campaign performance.",
+      examples: [
+        "100 website visits and 5 leads = 5% conversion rate.",
+        "Form optimization increases conversions without more traffic.",
+        "Mobile version has a lower conversion rate than desktop.",
+        "A/B testing CTA buttons.",
+        "Comparing performance of different landing pages."
+      ]
+    }
+  }
+},
 seo: {
   slugs: { EN: "seo", CZ: "seo", SK: "seo" },
   category: "Marketing",
