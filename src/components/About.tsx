@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Zap, Users, Clock, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -38,13 +37,7 @@ const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text column */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.35 }}
-            style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
-          >
+          <div className="animate-fade-in-left">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
               {t("about.badge")}
             </span>
@@ -65,36 +58,20 @@ const About = () => {
             <Link to={buildPath(language, "about")}>
               <Button size="lg">{t("about.cta")}</Button>
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Features grid wrapper */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="grid grid-cols-2 gap-4"
-            style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
-          >
+          {/* Features grid */}
+          <div className="animate-fade-in-right delay-100 grid grid-cols-2 gap-4">
             {features.map((feature, index) => {
               const Icon = feature.icon;
 
               return (
-                // ✅ motion wrapper WITHOUT glass
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
-                    delay: 0.12 + index * 0.08,
-                  }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${0.12 + index * 0.08}s` }}
                 >
-                  {/* ✅ glass is STATIC div (prevents flicker) */}
-                  <div className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                  <div className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden h-full">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
@@ -107,10 +84,10 @@ const About = () => {
                       {feature.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

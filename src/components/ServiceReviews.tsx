@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { SnapCarousel } from "@/components/ui/snap-carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -142,19 +141,13 @@ const ServiceReviews = ({
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="animate-fade-in-up text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
             <span className="text-foreground">{title} </span>
             <span className="text-gradient">{titleHighlight}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
-        </motion.div>
+        </div>
 
         {/* Mobile Carousel */}
         {isMobile ? (
@@ -173,15 +166,13 @@ const ServiceReviews = ({
           /* Desktop Grid */
           <div className="grid md:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-                viewport={{ once: true }}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <ReviewCard review={review} />
-              </motion.div>
+              </div>
             ))}
           </div>
         )}

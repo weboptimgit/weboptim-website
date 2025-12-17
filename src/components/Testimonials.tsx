@@ -1,5 +1,4 @@
 import { memo, useMemo } from "react";
-import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServiceReviews from "@/components/ServiceReviews";
 
@@ -42,13 +41,7 @@ const Testimonials = memo(() => {
       
       {/* Google Reviews Link */}
       <div className="container mx-auto px-6 -mt-16 mb-16 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
+        <div className="animate-fade-in-up delay-300 text-center">
           <a
             href="https://search.google.com/local/reviews?placeid=ChIJzcbs0zaVC0cRcanhELRst6E"
             target="_blank"
@@ -63,7 +56,7 @@ const Testimonials = memo(() => {
             </svg>
             {t("testimonials.googleLink")}
           </a>
-        </motion.div>
+        </div>
       </div>
     </>
   );
