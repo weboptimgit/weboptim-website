@@ -52,7 +52,6 @@ const Navbar = () => {
     { name: t("nav.work"), href: sp("work") },
     { name: t("nav.about"), href: sp("about") },
     { name: t("nav.blog"), href: sp("blog") },
-    { name: t("nav.faq"), href: sp("faq") },
     { name: t("nav.glossary"), href: sp("glossary") },
     { name: t("nav.contact"), href: sp("contact") },
   ];
