@@ -1,40 +1,34 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServiceReviews from "@/components/ServiceReviews";
 
-const testimonials = [
-  {
-    name: "Sarah Mitchell",
-    role: "CEO, TechStart Inc.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face&q=60",
-    quote:
-      "Working with this team transformed our online presence completely. Our conversion rates increased by 200% within the first quarter.",
-    rating: 5,
-  },
-  {
-    name: "David Chen",
-    role: "Founder, GreenLeaf Solutions",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face&q=60",
-    quote:
-      "The e-commerce platform they built for us is incredibly intuitive. Sales have doubled since launch. Highly recommend!",
-    rating: 5,
-  },
-  {
-    name: "Emma Rodriguez",
-    role: "Marketing Director, Bloom Agency",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face&q=60",
-    quote:
-      "Exceptional design and flawless execution. They understood our vision perfectly and delivered beyond expectations.",
-    rating: 5,
-  },
-];
-
 const Testimonials = memo(() => {
   const { t } = useLanguage();
+
+  const testimonials = useMemo(() => [
+    {
+      name: t("testimonials.1.name"),
+      role: t("testimonials.1.role"),
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face&q=60",
+      quote: t("testimonials.1.quote"),
+      rating: 5,
+    },
+    {
+      name: t("testimonials.2.name"),
+      role: t("testimonials.2.role"),
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face&q=60",
+      quote: t("testimonials.2.quote"),
+      rating: 5,
+    },
+    {
+      name: t("testimonials.3.name"),
+      role: t("testimonials.3.role"),
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face&q=60",
+      quote: t("testimonials.3.quote"),
+      rating: 5,
+    },
+  ], [t]);
 
   return (
     <>
