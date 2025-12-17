@@ -67,7 +67,7 @@ export const blogPostsData: BlogPostData[] = [
           title: "Why Structured Data Is Essential for Your SEO",
           excerpt:
             "Structured data isn’t just a “nice to have” - it’s metadata that tells search engines (and other services) exactly what’s on your page. With structured data, Google and other engines can show rich results - enhanced search results (stars, images, price, FAQ, events, etc.) that significantly increase visibility and the likelihood of clicks. Implementation usually doesn’t require major design or content changes - just the right code.",
-          category: "Webs and eshops",
+          category: "Webs and e-shops",
           tags: ["WordPress", "Rank Math", "SEO", "schema markup WordPress", "google search"],
           date: "Dec 12, 2025",
           readTime: "5 min read",
@@ -130,7 +130,7 @@ export const blogPostsData: BlogPostData[] = [
           title: "Proč jsou strukturovaná data nezbytná pro vaše SEO",
           excerpt:
             'Strukturovaná data nejsou jen "nice to have" - jsou to metadata, která říkají vyhledávačům (a dalším službám) přesně, co je na vaší stránce.',
-          category: "Weby a eshopy",
+          category: "Weby a e-shopy",
           tags: ["WordPress", "Rank Math", "SEO", "schema markup WordPress", "google search"],
           date: "12. prosince 2025",
           readTime: "5 min čtení",
@@ -203,7 +203,7 @@ export const blogPostsData: BlogPostData[] = [
           title: "Prečo sú štrukturované dáta zásadné pre SEO",
           excerpt:
             "Štruktúrované dáta nie sú len „príjemná vec“ – sú to metadáta, ktoré vyhľadávačom (a iným službám) hovoria presne, čo sa na vašej stránke nachádza. Vďaka štruktúrovaným dátam môže Google a ďalšie vyhľadávače zobrazovať bohaté výsledky – vylepšené výsledky vyhľadávania (hviezdičky, obrázky, cena, najčastejšie otázky, udalosti atď.), ktoré výrazne zvyšujú viditeľnosť a pravdepodobnosť kliknutí. Implementácia zvyčajne nevyžaduje zásadné zmeny dizajnu ani obsahu – stačí správny kód",
-          category: "Weby a eshopy",
+          category: "Weby a e-shopy",
           tags: ["WordPress", "Rank Math", "SEO", "schema markup WordPress", "google search"],
           date: "12. decembra 2023",
           readTime: "5 min čítania",
@@ -451,7 +451,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "The Best E-commerce Solution for Your Business: How to Choose the Right One?",
         excerpt:
           "Choosing the right e-commerce solution is a crucial decision that affects your business growth, scalability, and long-term success. In this guide, we compare the most popular e-shop solutions and help you decide which one fits your needs best.",
-        category: "Webs and eshops",
+        category: "Webs and e-shops",
         tags: [
           "E-commerce",
           "Online store",
@@ -607,7 +607,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Nejlepší e-shopové řešení pro váš byznys: Jak si vybrat to pravé?",
         excerpt:
           "Výběr správného e-shopového řešení je klíčové rozhodnutí, které ovlivní růst vašeho podnikání, jeho škálovatelnost i dlouhodobý úspěch. V tomto článku porovnáváme nejpoužívanější e-shopová řešení a pomůžeme vám vybrat to nejvhodnější.",
-        category: "Weby a eshopy",
+        category: "Weby a e-shopy",
         tags: [
           "E-shop",
           "Online obchod",
@@ -763,7 +763,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Najlepšie e-shopové riešenie pre váš biznis: Ako si vybrať to správne?",
         excerpt:
           "Výber správneho e-shopového riešenia je kľúčové rozhodnutie, ktoré ovplyvní rast vášho podnikania, jeho škálovateľnosť aj dlhodobý úspech. V tomto článku porovnávame najpoužívanejšie e-shopové riešenia a pomôžeme vám vybrať to najvhodnejšie.",
-        category: "Weby a eshopy",
+        category: "Weby a e-shopy",
         tags: [
           "E-shop",
           "Online obchod",
@@ -926,7 +926,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Why do we use Oxygen Builder when creating websites in WordPress?",
         excerpt:
           "Oxygen Builder stands out as one of the most powerful tools for building fast, scalable, and fully customizable WordPress websites.",
-        category: "Webs and eshops",
+        category: "Webs and e-shops",
         tags: ["WordPress", "Oxygen Builder", "Performance", "SEO", "Web Development"],
         date: "May 1, 2025",
         readTime: "6 min read",
@@ -996,7 +996,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Proč při tvorbě webových stránek ve WordPress používáme Oxygen Builder?",
         excerpt:
           "Oxygen Builder patří mezi nejvýkonnější nástroje pro tvorbu rychlých, škálovatelných a plně přizpůsobitelných WordPress webů.",
-        category: "Weby a eshopy",
+        category: "Weby a e-shopy",
         tags: ["WordPress", "Oxygen Builder", "Výkon", "SEO", "Tvorba webů"],
         date: "1. května 2025",
         readTime: "6 min čtení",
@@ -1066,7 +1066,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "Prečo pri vytváraní webových stránok vo WordPress používame Oxygen Builder?",
         excerpt:
           "Oxygen Builder patrí medzi najvýkonnejšie nástroje na tvorbu rýchlych, škálovateľných a plne prispôsobiteľných WordPress webov.",
-        category: "Weby a eshopy",
+        category: "Weby a e-shopy",
         tags: ["WordPress", "Oxygen Builder", "Výkon", "SEO", "Tvorba webov"],
         date: "1. mája 2025",
         readTime: "6 min čítania",
@@ -1143,7 +1143,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "7 Reasons Why You Should Choose a WordPress-Based Website",
         excerpt:
           "WordPress is an ideal tool for businesses and companies to showcase their products and services and attract new customers.",
-        category: "Webs and eshops",
+        category: "Webs and e-shops",
         tags: ["WordPress", "CMS", "Web Design", "SEO", "WooCommerce"],
         date: "Oct 21, 2023",
         readTime: "7 min read",
@@ -1204,7 +1204,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "7 důvodů, proč zvolit web postavený na WordPress",
         excerpt:
           "WordPress je ideální nástroj pro firmy a společnosti k prezentaci jejich produktů a služeb a získání nových zákazníků.",
-        category: "Weby a eshopy",
+        category: "Weby a e-shopy",
         tags: ["WordPress", "CMS", "Webový design", "SEO", "WooCommerce"],
         date: "21. října 2023",
         readTime: "7 min čtení",
@@ -1265,7 +1265,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "7 dôvodov, prečo zvoliť web postavený na WordPress",
         excerpt:
           "WordPress je ideálny nástroj pre firmy a spoločnosti na prezentáciu ich produktov a služieb a získanie nových zákazníkov.",
-        category: "Weby a eshopy",
+        category: "Weby a e-shopy",
         tags: ["WordPress", "CMS", "Webový dizajn", "SEO", "WooCommerce"],
         date: "21. októbra 2023",
         readTime: "7 min čítania",
@@ -1398,7 +1398,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "50+ SEO příkazů pro ChatGPT od OpenAI",
         excerpt:
           "Chcete využít plný potenciál ChatGPT pro SEO? Pak jsme právě pro vás připravili tento článek o velmi užitečném nástroji pro SEO konzultanty. Prompts jsou krátké textové instrukce, které mohou pomoci ChatGPT generovat relevantní a kvalitní odpovědi na dotazy a požadavky uživatelů.",
-        category: "(UI) Umělá inteligence",
+        category: "(AI) Umělá inteligence",
         tags: ["ChatGPT", "SEO", "Trendy", "OpenAI", "Příkazy"],
         date: "15. Květen 2023",
         readTime: "5 min čtení",
@@ -1463,7 +1463,7 @@ export const blogPostsData: BlogPostData[] = [
         title: "50+ SEO príkazov pre ChatGPT od OpenAI",
         excerpt:
           "Chcete naplno využiť potenciál ChatGPT pre SEO? Potom sme práve pre vás pripravili tento článok o veľmi užitočnom nástroji pre SEO konzultantov. Prompts sú krátke textové inštrukcie, ktoré môžu pomôcť ChatGPT generovať relevantné a kvalitné odpovede na otázky a požiadavky používateľov.",
-        category: "(UI) Umelá inteligencia",
+        category: "(AI) Umelá inteligencia",
         tags: ["ChatGPT", "SEO", "Trendy", "OpenAI", "Príkazy"],
         date: "15. máj 2023",
         readTime: "5 min čítania",
@@ -1610,11 +1610,11 @@ export const getCategorySlug = (category: string): string => {
 // Category slug translations for each language
 export const categorySlugTranslations: Record<string, Record<Language, string>> = {
   "online-marketing": { EN: "online-marketing", CZ: "online-marketing", SK: "online-marketing" },
-  "webs-and-eshops": { EN: "webs-and-eshops", CZ: "weby-a-eshopy", SK: "weby-a-eshopy" },
-  "ai-artificial-intelligence": { EN: "ai-artificial-intelligence", CZ: "ui-umela-inteligence", SK: "ui-umela-inteligencia" },
-  "weby-a-eshopy": { EN: "webs-and-eshops", CZ: "weby-a-eshopy", SK: "weby-a-eshopy" },
-  "ui-umela-inteligence": { EN: "ai-artificial-intelligence", CZ: "ui-umela-inteligence", SK: "ui-umela-inteligencia" },
-  "ui-umela-inteligencia": { EN: "ai-artificial-intelligence", CZ: "ui-umela-inteligence", SK: "ui-umela-inteligencia" },
+  "webs-and-e-shops": { EN: "webs-and-e-shops", CZ: "weby-a-e-shopy", SK: "weby-a-e-shopy" },
+  "ai-artificial-intelligence": { EN: "ai-artificial-intelligence", CZ: "ai-umela-inteligence", SK: "ai-umela-inteligencia" },
+  "weby-a-e-shopy": { EN: "webs-and-e-shops", CZ: "weby-a-e-shopy", SK: "weby-a-e-shopy" },
+  "ai-umela-inteligence": { EN: "ai-artificial-intelligence", CZ: "ai-umela-inteligence", SK: "ai-umela-inteligencia" },
+  "ai-umela-inteligencia": { EN: "ai-artificial-intelligence", CZ: "ai-umela-inteligence", SK: "ai-umela-inteligencia" },
 };
 
 // Get translated category slug for target language
