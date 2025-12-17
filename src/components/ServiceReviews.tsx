@@ -80,7 +80,7 @@ const ReviewCard = memo(({ review }: { review: Review }) => (
       />
       <div>
         <h4 className="font-semibold text-foreground">{review.name}</h4>
-        <p className="text-sm text-muted-foreground">{review.role}</p>
+        {review.role && <p className="text-sm text-muted-foreground">{review.role}</p>}
       </div>
     </div>
 
