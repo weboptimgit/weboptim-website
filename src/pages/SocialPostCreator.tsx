@@ -14,26 +14,30 @@ const SocialPostCreator = () => {
             className="relative overflow-hidden rounded-3xl shadow-2xl"
             style={{ width: '1080px', height: '1080px' }}
           >
-            {/* Post Canvas - Dark background */}
+            {/* Post Canvas - Dark background like hero */}
             <div 
               id="social-post"
               className="w-full h-full flex flex-col items-center justify-center p-16 relative"
               style={{
-                background: 'linear-gradient(145deg, #0a0a0f 0%, #0d0d14 40%, #12101a 100%)'
+                background: 'linear-gradient(180deg, #09090b 0%, #0c0c10 50%, #09090b 100%)'
               }}
             >
-              {/* Colored gradient blurs */}
+              {/* Gradient orbs like hero section */}
               <div 
-                className="absolute -top-20 -left-20 w-[600px] h-[600px] rounded-full blur-[150px] opacity-50"
-                style={{ background: '#42c8f2' }}
+                className="absolute -top-[150px] -left-[150px] w-[600px] h-[600px] rounded-full blur-[100px]"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgba(66, 200, 242, 0.3), rgba(59, 130, 246, 0.2))'
+                }}
               />
               <div 
-                className="absolute -bottom-20 -right-20 w-[700px] h-[700px] rounded-full blur-[180px] opacity-40"
-                style={{ background: '#7b5fc7' }}
+                className="absolute -bottom-[150px] -right-[150px] w-[700px] h-[700px] rounded-full blur-[120px]"
+                style={{ 
+                  background: 'linear-gradient(to top left, rgba(59, 130, 246, 0.3), rgba(66, 200, 242, 0.15))'
+                }}
               />
               <div 
-                className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full blur-[100px] opacity-30"
-                style={{ background: '#a855f7' }}
+                className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px] opacity-60"
+                style={{ background: 'rgba(147, 51, 234, 0.15)' }}
               />
 
               {/* Floating icons */}
