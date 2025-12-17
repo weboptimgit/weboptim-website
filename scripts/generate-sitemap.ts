@@ -169,11 +169,11 @@ const blogAuthorEntries =
           const authorSlug = getAuthorSlug(author);
           if (!authorSlug) return null;
 
-          // Author pages use same slug across all languages (author/slug format)
+          // Author pages: EN uses "author", CZ/SK use "autor"
           return urlEntry({
             EN: joinPath(staticPageSlugs.blog.EN, `author/${authorSlug}`),
-            CZ: joinPath(staticPageSlugs.blog.CZ, `author/${authorSlug}`),
-            SK: joinPath(staticPageSlugs.blog.SK, `author/${authorSlug}`),
+            CZ: joinPath(staticPageSlugs.blog.CZ, `autor/${authorSlug}`),
+            SK: joinPath(staticPageSlugs.blog.SK, `autor/${authorSlug}`),
           });
         })
         .filter(Boolean) as string[]
