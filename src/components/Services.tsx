@@ -186,10 +186,7 @@ const Services = () => {
               setApi={setApi}
               opts={{
                 align: "start",
-                loop: true,
-                dragFree: true,
                 containScroll: "trimSnaps",
-                duration: 20,
               }}
               className="w-full"
             >
