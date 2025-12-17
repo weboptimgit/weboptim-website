@@ -52,6 +52,7 @@ import { getConsent } from "@/lib/cookie-consent";
 import { loadGTM } from "@/lib/loadGTM";
 
 const WebsiteConfigurator = lazy(() => import("./pages/WebsiteConfigurator"));
+const SocialPostCreator = lazy(() => import("./pages/SocialPostCreator"));
 
 const queryClient = new QueryClient();
 
@@ -323,6 +324,9 @@ function AppShell() {
               {/* Price Calculator */}
               <Route path="/calculator" element={<PriceCalculator />} />
               <Route path="/kalkulacka" element={<PriceCalculator />} />
+
+              {/* Social Post Creator - Internal tool */}
+              <Route path="/social-creator" element={<SocialPostCreator />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
