@@ -67,7 +67,7 @@ const AboutInner = () => {
       key: "monika",
       name: "Monika Balogová",
       role: ta("about.team.monika.role"),
-      image: "/img/weboptim-milan.jpeg",
+      image: "/img/weboptim-monika.jpeg",
       bio: ta("about.team.monika.bio"),
       linkedin: "https://www.linkedin.com/in/monika-balogov%C3%A1-b9578bb4/",
       email: "info@weboptim.eu",
