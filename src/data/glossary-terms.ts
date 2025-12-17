@@ -31,51 +31,56 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
   seo: {
   slugs: { EN: "seo", CZ: "seo", SK: "seo" },
   category: "Marketing",
-  relatedTerms: ["SERP", "Organic Traffic", "Keywords", "On-page SEO", "Technical SEO"],
+  relatedTerms: ["Keywords", "SERP", "Organic Traffic", "Backlink", "On-page SEO"],
   resources: [
     { title: "Google SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },
     { title: "Moz Beginner's Guide to SEO", url: "https://moz.com/beginners-guide-to-seo" }
   ],
   content: {
+    SK: {
+      term: "SEO",
+      shortDefinition: "Optimalizácia pre vyhľadávače",
+      fullDefinition:
+        "SEO je súbor techník a stratégií, ktorých cieľom je zlepšiť viditeľnosť webovej stránky vo vyhľadávačoch ako Google. Zahŕňa úpravy obsahu, technického nastavenia webu aj získavanie externých odkazov. Cieľom SEO je, aby sa web zobrazoval čo najvyššie vo výsledkoch vyhľadávania na relevantné dopyty. Ide o dlhodobý proces, ktorý si vyžaduje systematickú prácu a analýzu dát. SEO neznamená platenú reklamu, ale organickú (neplatenú) návštevnosť.",
+      examples: [
+        "Optimalizácia článku na kľúčové slovo „mobilný autoservis Bratislava“.",
+        "Technické zrýchlenie webu pre lepšie hodnotenie Googlom.",
+        "Písanie blogov, ktoré odpovedajú na otázky zákazníkov.",
+        "Získavanie spätných odkazov z relevantných webov.",
+        "Úprava titulkov a meta popisov stránok."
+      ],
+      whyItMatters:
+        "Väčšina ľudí kliká len na prvé výsledky vo vyhľadávaní, preto je vysoká pozícia kľúčová pre návštevnosť webu. Kvalitné SEO prináša stabilný a dlhodobý zdroj návštevníkov bez nutnosti neustále platiť za reklamu. Pomáha osloviť ľudí presne v momente, keď aktívne hľadajú riešenie svojho problému. SEO zvyšuje dôveryhodnosť značky, pretože weby na popredných pozíciách pôsobia profesionálnejšie. Z dlhodobého hľadiska má SEO veľmi vysokú návratnosť investície."
+    },
     EN: {
       term: "SEO",
       shortDefinition: "Search engine optimization",
       fullDefinition:
-        "SEO is a set of techniques and strategies aimed at improving a website’s visibility in search engines like Google. It includes content optimization, technical setup, and link building to achieve higher organic rankings.",
+        "SEO is a set of techniques and strategies aimed at improving a website’s visibility in search engines such as Google. It includes content optimization, technical website improvements, and acquiring external backlinks. The goal of SEO is to rank as high as possible in search results for relevant queries. It is a long-term process that requires consistent work and data analysis. SEO does not mean paid advertising, but organic (unpaid) traffic.",
       examples: [
-        "Optimizing a blog post for a specific keyword.",
-        "Improving website loading speed.",
-        "Creating SEO-focused articles.",
-        "Building backlinks from relevant websites."
+        "Optimizing an article for the keyword “mobile car service Bratislava”.",
+        "Improving website speed for better Google rankings.",
+        "Writing blog posts that answer customer questions.",
+        "Building backlinks from relevant websites.",
+        "Optimizing page titles and meta descriptions."
       ],
       whyItMatters:
-        "SEO brings long-term organic traffic, increases brand credibility, and delivers high return on investment without ongoing ad spend."
+        "Most users click only on the top search results, which makes high rankings crucial for website traffic. Quality SEO provides a stable and long-term source of visitors without constant ad spend. It helps reach users exactly when they are actively searching for a solution. SEO also increases brand credibility, as top-ranking websites appear more professional. In the long run, SEO offers a very high return on investment."
     },
     CZ: {
       term: "SEO",
       shortDefinition: "Optimalizace pro vyhledávače",
       fullDefinition:
-        "SEO je soubor technik a strategií, jejichž cílem je zlepšit viditelnost webu ve vyhledávačích, jako je Google. Zaměřuje se na obsah, technické nastavení a zpětné odkazy.",
+        "SEO je soubor technik a strategií, jejichž cílem je zlepšit viditelnost webové stránky ve vyhledávačích, jako je Google. Zahrnuje úpravy obsahu, technického nastavení webu i získávání externích odkazů. Cílem SEO je dosáhnout co nejvyšších pozic ve výsledcích vyhledávání pro relevantní dotazy. Jedná se o dlouhodobý proces vyžadující systematickou práci a analýzu dat. SEO neznamená placenou reklamu, ale organickou (neplacenou) návštěvnost.",
       examples: [
-        "Optimalizace článku na klíčové slovo.",
-        "Zrychlení načítání webu.",
-        "Budování zpětných odkazů."
+        "Optimalizace článku na klíčové slovo „mobilní autoservis Bratislava“.",
+        "Zrychlení webu pro lepší hodnocení Googlem.",
+        "Tvorba blogů odpovídajících na otázky zákazníků.",
+        "Získávání zpětných odkazů z relevantních webů.",
+        "Úprava titulků a meta popisů stránek."
       ],
       whyItMatters:
-        "SEO přináší stabilní návštěvnost, zvyšuje důvěryhodnost značky a dlouhodobě snižuje náklady na marketing."
-    },
-    SK: {
-      term: "SEO",
-      shortDefinition: "Optimalizácia pre vyhľadávače",
-      fullDefinition:
-        "SEO je súbor techník a stratégií, ktorých cieľom je zlepšiť viditeľnosť webovej stránky vo vyhľadávačoch ako Google. Zameriava sa na obsah, technické nastavenie a spätné odkazy.",
-      examples: [
-        "Optimalizácia článku na kľúčové slovo.",
-        "Zrýchlenie webu.",
-        "Získavanie spätných odkazov."
-      ],
-      whyItMatters:
-        "SEO prináša dlhodobú návštevnosť, zvyšuje dôveryhodnosť a má vysokú návratnosť investície."
+        "Většina uživatelů kliká pouze na první výsledky vyhledávání, proto jsou vysoké pozice klíčové pro návštěvnost webu. Kvalitní SEO přináší stabilní a dlouhodobý zdroj návštěvníků bez nutnosti neustále platit za reklamu. Pomáhá oslovit lidi ve chvíli, kdy aktivně hledají řešení svého problému. SEO zvyšuje důvěryhodnost značky, protože weby na předních pozicích působí profesionálněji. Z dlouhodobého hlediska má SEO velmi vysokou návratnost investice."
     }
   }
 },
@@ -83,187 +88,55 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
 ppc: {
   slugs: { EN: "ppc", CZ: "ppc-reklama", SK: "ppc-reklama" },
   category: "Marketing",
-  relatedTerms: ["Google Ads", "Meta Ads", "Campaign", "CTR", "Conversion"],
+  relatedTerms: ["Google Ads", "Meta Ads", "CPC", "Campaign", "Conversion"],
   resources: [
     { title: "Google Ads Help", url: "https://support.google.com/google-ads" }
   ],
   content: {
-    EN: {
-      term: "PPC Advertising",
-      shortDefinition: "Pay-per-click advertising",
+    SK: {
+      term: "PPC reklama",
+      shortDefinition: "Platená reklama za preklik",
       fullDefinition:
-        "PPC is an online advertising model where advertisers pay only when a user clicks on their ad. It enables precise targeting and immediate traffic.",
+        "PPC reklama je forma online reklamy, pri ktorej inzerent platí len vtedy, keď používateľ klikne na reklamu. Najznámejšie PPC platformy sú Google Ads a Meta Ads (Facebook, Instagram). Reklamy sa zobrazujú vo vyhľadávačoch, na sociálnych sieťach alebo partnerských weboch. PPC umožňuje veľmi presné cielenie podľa záujmov, lokality, správania či demografie. Ide o rýchly spôsob, ako okamžite priviesť návštevnosť na web.",
       examples: [
-        "Google Ads search campaign.",
-        "Facebook Ads promotion.",
-        "Remarketing campaigns."
+        "Google reklama na výraz „mobilná masáž Košice“.",
+        "Facebook reklama cielená na lokálnych podnikateľov.",
+        "Remarketingová kampaň na návštevníkov webu.",
+        "Propagácia novej služby cez Instagram Ads.",
+        "Testovanie rôznych reklamných textov a vizuálov."
       ],
       whyItMatters:
-        "PPC delivers immediate results and full control over budget and targeting."
+        "PPC reklama umožňuje okamžité výsledky, čo je ideálne pri nových projektoch alebo kampaniach. Poskytuje plnú kontrolu nad rozpočtom, cieľovou skupinou aj obsahom reklamy. Správne nastavené PPC kampane dokážu generovať predaje, dopyty alebo registrácie veľmi efektívne. Zároveň poskytujú presné dáta o výkonnosti, ktoré pomáhajú optimalizovať marketingové rozhodnutia. PPC je silným doplnkom SEO, najmä pri konkurenčných kľúčových slovách."
+    },
+    EN: {
+      term: "PPC Advertising",
+      shortDefinition: "Paid advertising per click",
+      fullDefinition:
+        "PPC advertising is a form of online advertising where advertisers pay only when a user clicks on an ad. The most popular PPC platforms are Google Ads and Meta Ads (Facebook, Instagram). Ads appear in search engines, social networks, or partner websites. PPC allows very precise targeting based on interests, location, behavior, and demographics. It is a fast way to bring immediate traffic to a website.",
+      examples: [
+        "Google ads targeting “mobile massage Košice”.",
+        "Facebook ads targeting local business owners.",
+        "Remarketing campaigns for website visitors.",
+        "Promoting a new service via Instagram Ads.",
+        "Testing different ad copy and visuals."
+      ],
+      whyItMatters:
+        "PPC delivers immediate results, making it ideal for new projects or campaigns. It provides full control over budget, targeting, and messaging. Well-optimized PPC campaigns can efficiently generate sales, inquiries, or sign-ups. PPC also provides detailed performance data to support data-driven decisions. It strongly complements SEO, especially for competitive keywords."
     },
     CZ: {
       term: "PPC reklama",
       shortDefinition: "Placená reklama za proklik",
       fullDefinition:
-        "PPC reklama je forma online reklamy, kde inzerent platí pouze za kliknutí uživatele.",
+        "PPC reklama je forma online reklamy, při které inzerent platí pouze tehdy, když uživatel klikne na reklamu. Nejznámější PPC platformy jsou Google Ads a Meta Ads (Facebook, Instagram). Reklamy se zobrazují ve vyhledávačích, na sociálních sítích nebo partnerských webech. PPC umožňuje velmi přesné cílení podle zájmů, lokality, chování a demografie. Jde o rychlý způsob, jak okamžitě přivést návštěvnost na web.",
       examples: [
-        "Google Ads kampaně.",
-        "Reklamy na Facebooku."
+        "Google reklama na výraz „mobilní masáž Košice“.",
+        "Facebook reklama cílená na lokální podnikatele.",
+        "Remarketingová kampaň na návštěvníky webu.",
+        "Propagace nové služby přes Instagram Ads.",
+        "Testování různých reklamních textů a vizuálů."
       ],
       whyItMatters:
-        "Umožňuje okamžité výsledky a přesné cílení."
-    },
-    SK: {
-      term: "PPC reklama",
-      shortDefinition: "Platená reklama za preklik",
-      fullDefinition:
-        "PPC reklama je forma online reklamy, pri ktorej inzerent platí len za kliknutie používateľa.",
-      examples: [
-        "Google Ads kampane.",
-        "Facebook a Instagram reklamy."
-      ],
-      whyItMatters:
-        "Prináša okamžitú návštevnosť a rýchle výsledky."
-    }
-  }
-},
-
-cta: {
-  slugs: { EN: "cta", CZ: "cta", SK: "cta" },
-  category: "Marketing",
-  relatedTerms: ["Conversion", "UX", "Landing Page", "Button"],
-  resources: [
-    { title: "What is a CTA?", url: "https://www.optimizely.com/optimization-glossary/call-to-action/" }
-  ],
-  content: {
-    EN: {
-      term: "CTA",
-      shortDefinition: "Call to action",
-      fullDefinition:
-        "A CTA is a prompt that encourages users to take a specific action such as signing up, buying, or contacting.",
-      examples: [
-        "Buy now button.",
-        "Get a quote CTA.",
-        "Sign up form."
-      ],
-      whyItMatters:
-        "CTA directly influences conversions and guides users toward goals."
-    },
-    CZ: {
-      term: "CTA",
-      shortDefinition: "Výzva k akci",
-      fullDefinition:
-        "CTA je prvek, který vyzývá uživatele k provedení konkrétní akce.",
-      examples: [
-        "Tlačítko Objednat.",
-        "Výzva Kontaktujte nás."
-      ],
-      whyItMatters:
-        "Zvyšuje konverze a snižuje váhání uživatelů."
-    },
-    SK: {
-      term: "CTA",
-      shortDefinition: "Výzva k akcii",
-      fullDefinition:
-        "CTA je prvok, ktorý vyzýva používateľa k vykonaniu konkrétnej akcie.",
-      examples: [
-        "Tlačidlo Objednať.",
-        "Výzva Kontaktujte nás."
-      ],
-      whyItMatters:
-        "CTA priamo ovplyvňuje konverzie a úspech webu."
-    }
-  }
-},
-
-conversion: {
-  slugs: { EN: "conversion", CZ: "konverze", SK: "konverzia" },
-  category: "Marketing",
-  relatedTerms: ["CTA", "Conversion Rate", "Lead", "Analytics"],
-  resources: [
-    { title: "What is Conversion?", url: "https://www.hotjar.com/conversion-rate-optimization/" }
-  ],
-  content: {
-    EN: {
-      term: "Conversion",
-      shortDefinition: "Completed marketing goal",
-      fullDefinition:
-        "A conversion happens when a user completes a desired action on a website.",
-      examples: [
-        "Form submission.",
-        "Completed purchase."
-      ],
-      whyItMatters:
-        "Conversions measure real business value."
-    },
-    CZ: {
-      term: "Konverze",
-      shortDefinition: "Splnění cíle",
-      fullDefinition:
-        "Konverze nastává, když uživatel provede požadovanou akci.",
-      examples: [
-        "Odeslání formuláře.",
-        "Nákup."
-      ],
-      whyItMatters:
-        "Ukazuje efektivitu marketingu."
-    },
-    SK: {
-      term: "Konverzia",
-      shortDefinition: "Splnenie cieľa",
-      fullDefinition:
-        "Konverzia nastáva vtedy, keď používateľ vykoná požadovanú akciu.",
-      examples: [
-        "Odoslaný formulár.",
-        "Nákup."
-      ],
-      whyItMatters:
-        "Konverzie sú prepojením marketingu a tržieb."
-    }
-  }
-},
-
-branding: {
-  slugs: { EN: "branding", CZ: "branding", SK: "branding" },
-  category: "Marketing",
-  relatedTerms: ["Brand Identity", "Logo", "Copywriting", "Trust"],
-  resources: [
-    { title: "What is Branding?", url: "https://www.investopedia.com/terms/b/branding.asp" }
-  ],
-  content: {
-    EN: {
-      term: "Branding",
-      shortDefinition: "Brand building",
-      fullDefinition:
-        "Branding is the process of creating a unique identity and perception of a brand.",
-      examples: [
-        "Consistent colors and typography.",
-        "Brand voice."
-      ],
-      whyItMatters:
-        "Strong branding builds trust and recognition."
-    },
-    CZ: {
-      term: "Branding",
-      shortDefinition: "Budování značky",
-      fullDefinition:
-        "Branding je proces vytváření identity a vnímání značky.",
-      examples: [
-        "Konzistentní vizuální styl."
-      ],
-      whyItMatters:
-        "Pomáhá odlišit se od konkurence."
-    },
-    SK: {
-      term: "Branding",
-      shortDefinition: "Budovanie značky",
-      fullDefinition:
-        "Branding je proces budovania identity, imidžu a vnímania značky.",
-      examples: [
-        "Konzistentné farby a komunikácia."
-      ],
-      whyItMatters:
-        "Zvyšuje dôveru a hodnotu značky."
+        "PPC reklama přináší okamžité výsledky, což je ideální pro nové projekty nebo kampaně. Poskytuje plnou kontrolu nad rozpočtem, cílovou skupinou i obsahem reklamy. Správně nastavené kampaně dokážou efektivně generovat prodeje či poptávky. Zároveň poskytují přesná data o výkonu kampaní. PPC je silným doplňkem SEO zejména u konkurenčních klíčových slov."
     }
   }
 },
