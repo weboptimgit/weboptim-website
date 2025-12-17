@@ -94,6 +94,34 @@
       }
     }
     </script>
+    
+    <!-- Critical inline CSS for faster FCP -->
+    <style>
+      :root {
+        --background: 222 47% 5%;
+        --foreground: 210 40% 98%;
+        --primary: 187 82% 60%;
+      }
+      html { scroll-behavior: smooth; }
+      body { 
+        margin: 0; 
+        background: hsl(222 47% 5%); 
+        color: hsl(210 40% 98%);
+        font-family: 'Outfit', system-ui, sans-serif;
+      }
+      #root { min-height: 100vh; }
+      /* Skeleton loader for initial paint */
+      .initial-loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: hsl(222 47% 5%);
+      }
+    </style>
+    
+    <!-- Modulepreload for critical JS -->
+    <link rel="modulepreload" href="/src/main.tsx" />
   </head>
 
   <body>
