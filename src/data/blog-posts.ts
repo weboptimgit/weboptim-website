@@ -48,8 +48,8 @@ export interface BlogPost {
 // Translated categories for filtering
 export const categoriesTranslations = {
   EN: ["All", "Online marketing", "Webs and eshops", "(AI) Artificial Intelligence"],
-  CZ: ["Vše", "Online marketing", "Weby a eshopy", "(UI) Umělá inteligence"],
-  SK: ["Všetko", "Online marketing", "Weby a eshopy", "(UI) Umelá inteligencia"],
+  CZ: ["Vše", "Online marketing", "Weby a eshopy", "(AI) Umělá inteligence"],
+  SK: ["Všetko", "Online marketing", "Weby a eshopy", "(AI) Umelá inteligencia"],
 };
 
 // ========================================
