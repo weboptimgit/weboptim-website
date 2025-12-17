@@ -28,6 +28,245 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  seo: {
+  slugs: { EN: "seo", CZ: "seo", SK: "seo" },
+  category: "Marketing",
+  relatedTerms: ["SERP", "Organic Traffic", "Keywords", "On-page SEO", "Technical SEO"],
+  resources: [
+    { title: "Google SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },
+    { title: "Moz Beginner's Guide to SEO", url: "https://moz.com/beginners-guide-to-seo" }
+  ],
+  content: {
+    EN: {
+      term: "SEO",
+      shortDefinition: "Search engine optimization",
+      fullDefinition:
+        "SEO is a set of techniques and strategies aimed at improving a website’s visibility in search engines like Google. It includes content optimization, technical setup, and link building to achieve higher organic rankings.",
+      examples: [
+        "Optimizing a blog post for a specific keyword.",
+        "Improving website loading speed.",
+        "Creating SEO-focused articles.",
+        "Building backlinks from relevant websites."
+      ],
+      whyItMatters:
+        "SEO brings long-term organic traffic, increases brand credibility, and delivers high return on investment without ongoing ad spend."
+    },
+    CZ: {
+      term: "SEO",
+      shortDefinition: "Optimalizace pro vyhledávače",
+      fullDefinition:
+        "SEO je soubor technik a strategií, jejichž cílem je zlepšit viditelnost webu ve vyhledávačích, jako je Google. Zaměřuje se na obsah, technické nastavení a zpětné odkazy.",
+      examples: [
+        "Optimalizace článku na klíčové slovo.",
+        "Zrychlení načítání webu.",
+        "Budování zpětných odkazů."
+      ],
+      whyItMatters:
+        "SEO přináší stabilní návštěvnost, zvyšuje důvěryhodnost značky a dlouhodobě snižuje náklady na marketing."
+    },
+    SK: {
+      term: "SEO",
+      shortDefinition: "Optimalizácia pre vyhľadávače",
+      fullDefinition:
+        "SEO je súbor techník a stratégií, ktorých cieľom je zlepšiť viditeľnosť webovej stránky vo vyhľadávačoch ako Google. Zameriava sa na obsah, technické nastavenie a spätné odkazy.",
+      examples: [
+        "Optimalizácia článku na kľúčové slovo.",
+        "Zrýchlenie webu.",
+        "Získavanie spätných odkazov."
+      ],
+      whyItMatters:
+        "SEO prináša dlhodobú návštevnosť, zvyšuje dôveryhodnosť a má vysokú návratnosť investície."
+    }
+  }
+},
+
+ppc: {
+  slugs: { EN: "ppc", CZ: "ppc-reklama", SK: "ppc-reklama" },
+  category: "Marketing",
+  relatedTerms: ["Google Ads", "Meta Ads", "Campaign", "CTR", "Conversion"],
+  resources: [
+    { title: "Google Ads Help", url: "https://support.google.com/google-ads" }
+  ],
+  content: {
+    EN: {
+      term: "PPC Advertising",
+      shortDefinition: "Pay-per-click advertising",
+      fullDefinition:
+        "PPC is an online advertising model where advertisers pay only when a user clicks on their ad. It enables precise targeting and immediate traffic.",
+      examples: [
+        "Google Ads search campaign.",
+        "Facebook Ads promotion.",
+        "Remarketing campaigns."
+      ],
+      whyItMatters:
+        "PPC delivers immediate results and full control over budget and targeting."
+    },
+    CZ: {
+      term: "PPC reklama",
+      shortDefinition: "Placená reklama za proklik",
+      fullDefinition:
+        "PPC reklama je forma online reklamy, kde inzerent platí pouze za kliknutí uživatele.",
+      examples: [
+        "Google Ads kampaně.",
+        "Reklamy na Facebooku."
+      ],
+      whyItMatters:
+        "Umožňuje okamžité výsledky a přesné cílení."
+    },
+    SK: {
+      term: "PPC reklama",
+      shortDefinition: "Platená reklama za preklik",
+      fullDefinition:
+        "PPC reklama je forma online reklamy, pri ktorej inzerent platí len za kliknutie používateľa.",
+      examples: [
+        "Google Ads kampane.",
+        "Facebook a Instagram reklamy."
+      ],
+      whyItMatters:
+        "Prináša okamžitú návštevnosť a rýchle výsledky."
+    }
+  }
+},
+
+cta: {
+  slugs: { EN: "cta", CZ: "cta", SK: "cta" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "UX", "Landing Page", "Button"],
+  resources: [
+    { title: "What is a CTA?", url: "https://www.optimizely.com/optimization-glossary/call-to-action/" }
+  ],
+  content: {
+    EN: {
+      term: "CTA",
+      shortDefinition: "Call to action",
+      fullDefinition:
+        "A CTA is a prompt that encourages users to take a specific action such as signing up, buying, or contacting.",
+      examples: [
+        "Buy now button.",
+        "Get a quote CTA.",
+        "Sign up form."
+      ],
+      whyItMatters:
+        "CTA directly influences conversions and guides users toward goals."
+    },
+    CZ: {
+      term: "CTA",
+      shortDefinition: "Výzva k akci",
+      fullDefinition:
+        "CTA je prvek, který vyzývá uživatele k provedení konkrétní akce.",
+      examples: [
+        "Tlačítko Objednat.",
+        "Výzva Kontaktujte nás."
+      ],
+      whyItMatters:
+        "Zvyšuje konverze a snižuje váhání uživatelů."
+    },
+    SK: {
+      term: "CTA",
+      shortDefinition: "Výzva k akcii",
+      fullDefinition:
+        "CTA je prvok, ktorý vyzýva používateľa k vykonaniu konkrétnej akcie.",
+      examples: [
+        "Tlačidlo Objednať.",
+        "Výzva Kontaktujte nás."
+      ],
+      whyItMatters:
+        "CTA priamo ovplyvňuje konverzie a úspech webu."
+    }
+  }
+},
+
+conversion: {
+  slugs: { EN: "conversion", CZ: "konverze", SK: "konverzia" },
+  category: "Marketing",
+  relatedTerms: ["CTA", "Conversion Rate", "Lead", "Analytics"],
+  resources: [
+    { title: "What is Conversion?", url: "https://www.hotjar.com/conversion-rate-optimization/" }
+  ],
+  content: {
+    EN: {
+      term: "Conversion",
+      shortDefinition: "Completed marketing goal",
+      fullDefinition:
+        "A conversion happens when a user completes a desired action on a website.",
+      examples: [
+        "Form submission.",
+        "Completed purchase."
+      ],
+      whyItMatters:
+        "Conversions measure real business value."
+    },
+    CZ: {
+      term: "Konverze",
+      shortDefinition: "Splnění cíle",
+      fullDefinition:
+        "Konverze nastává, když uživatel provede požadovanou akci.",
+      examples: [
+        "Odeslání formuláře.",
+        "Nákup."
+      ],
+      whyItMatters:
+        "Ukazuje efektivitu marketingu."
+    },
+    SK: {
+      term: "Konverzia",
+      shortDefinition: "Splnenie cieľa",
+      fullDefinition:
+        "Konverzia nastáva vtedy, keď používateľ vykoná požadovanú akciu.",
+      examples: [
+        "Odoslaný formulár.",
+        "Nákup."
+      ],
+      whyItMatters:
+        "Konverzie sú prepojením marketingu a tržieb."
+    }
+  }
+},
+
+branding: {
+  slugs: { EN: "branding", CZ: "branding", SK: "branding" },
+  category: "Marketing",
+  relatedTerms: ["Brand Identity", "Logo", "Copywriting", "Trust"],
+  resources: [
+    { title: "What is Branding?", url: "https://www.investopedia.com/terms/b/branding.asp" }
+  ],
+  content: {
+    EN: {
+      term: "Branding",
+      shortDefinition: "Brand building",
+      fullDefinition:
+        "Branding is the process of creating a unique identity and perception of a brand.",
+      examples: [
+        "Consistent colors and typography.",
+        "Brand voice."
+      ],
+      whyItMatters:
+        "Strong branding builds trust and recognition."
+    },
+    CZ: {
+      term: "Branding",
+      shortDefinition: "Budování značky",
+      fullDefinition:
+        "Branding je proces vytváření identity a vnímání značky.",
+      examples: [
+        "Konzistentní vizuální styl."
+      ],
+      whyItMatters:
+        "Pomáhá odlišit se od konkurence."
+    },
+    SK: {
+      term: "Branding",
+      shortDefinition: "Budovanie značky",
+      fullDefinition:
+        "Branding je proces budovania identity, imidžu a vnímania značky.",
+      examples: [
+        "Konzistentné farby a komunikácia."
+      ],
+      whyItMatters:
+        "Zvyšuje dôveru a hodnotu značky."
+    }
+  }
+},
  frontend: {
   slugs: { EN: "frontend", CZ: "frontend", SK: "frontend" },
   category: "Development",
