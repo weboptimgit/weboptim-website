@@ -28,6 +28,155 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  abTesting: {
+  slugs: { EN: "ab-testing", CZ: "ab-testovani", SK: "ab-testovanie" },
+  category: "Marketing",
+  relatedTerms: ["Conversion Rate", "CTA", "Landing Page", "Analytics"],
+  resources: [
+    { title: "Google Optimize – A/B Testing Guide", url: "https://support.google.com/optimize" },
+    { title: "VWO: A/B Testing", url: "https://vwo.com/ab-testing/" }
+  ],
+  content: {
+    SK: {
+      term: "A/B testovanie",
+      shortDefinition: "Porovnávanie dvoch verzií",
+      fullDefinition:
+        "A/B testovanie je metóda porovnávania dvoch verzií stránky, reklamy alebo konkrétneho prvku s cieľom zistiť, ktorá verzia dosahuje lepšie výsledky. Používateľom sa náhodne zobrazujú rôzne varianty a sleduje sa ich správanie. Testovať sa môžu nadpisy, CTA tlačidlá, obrázky, farby či rozloženie stránky. A/B testovanie je založené na dátach, nie na domnienkach. Ide o systematický spôsob optimalizácie marketingu.",
+      examples: [
+        "Testovanie dvoch nadpisov na landing page.",
+        "Porovnanie rôznych farieb CTA tlačidla.",
+        "Testovanie dĺžky formulára.",
+        "Rôzne obrázky v reklame.",
+        "Testovanie textu e-mailových kampaní."
+      ],
+      whyItMatters:
+        "Pomáha robiť rozhodnutia na základe reálnych výsledkov a nie pocitov. Zvyšuje konverzný pomer bez nutnosti zvyšovať návštevnosť. Odhaľuje, čo používateľom najviac vyhovuje. Minimalizuje riziko zlých marketingových rozhodnutí. Pre firmy znamená neustále zlepšovanie výkonu webu a kampaní."
+    },
+    EN: {
+      term: "A/B Testing",
+      shortDefinition: "Comparing two variants",
+      fullDefinition:
+        "A/B testing compares two versions of a page, ad, or element to determine which performs better. Users are randomly shown variants and behavior is measured. It is data-driven optimization.",
+      examples: [
+        "Headline testing.",
+        "CTA color comparison.",
+        "Form length testing."
+      ],
+      whyItMatters:
+        "It improves conversion rates based on real data."
+    },
+    CZ: {
+      term: "A/B testování",
+      shortDefinition: "Porovnání dvou verzí",
+      fullDefinition:
+        "A/B testování porovnává dvě varianty prvku nebo stránky za účelem optimalizace výkonu.",
+      examples: [
+        "Test nadpisů.",
+        "Test CTA."
+      ],
+      whyItMatters:
+        "Zvyšuje konverze na základě dat."
+    }
+  }
+},
+
+organicTraffic: {
+  slugs: { EN: "organic-traffic", CZ: "organicka-navstevnost", SK: "organicka-navstevnost" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "Keywords", "SERP", "Content Marketing"],
+  resources: [
+    { title: "Ahrefs: Organic Traffic", url: "https://ahrefs.com/blog/organic-traffic/" }
+  ],
+  content: {
+    SK: {
+      term: "Organická návštevnosť",
+      shortDefinition: "Neplatení návštevníci z vyhľadávania",
+      fullDefinition:
+        "Organická návštevnosť označuje návštevníkov, ktorí prídu na web bez platených reklám, najčastejšie z vyhľadávačov. Vzniká vďaka SEO, kvalitnému obsahu a dobrej štruktúre webu. Ide o prirodzený spôsob, akým používatelia nachádzajú weby. Organická návštevnosť má dlhodobý charakter a stabilný rast. Je považovaná za jednu z najkvalitnejších foriem návštevnosti.",
+      examples: [
+        "Návštevník príde cez Google výsledky.",
+        "Článok optimalizovaný na konkrétne kľúčové slovo.",
+        "Dlhodobý rast návštevnosti blogu.",
+        "Zobrazenie webu na prvej strane Googlu.",
+        "Príchod zákazníkov cez odpovede na otázky."
+      ],
+      whyItMatters:
+        "Organická návštevnosť nevyžaduje neustále investície do reklamy. Prináša používateľov s reálnym záujmom o tému alebo službu. Zvyšuje dôveryhodnosť webu a značky. Je základom dlhodobej online stratégie. Pre firmy znamená udržateľný rast bez závislosti od platených kampaní."
+    },
+    EN: {
+      term: "Organic Traffic",
+      shortDefinition: "Unpaid search visitors",
+      fullDefinition:
+        "Organic traffic comes from unpaid search results and is driven by SEO and quality content.",
+      examples: [
+        "Google search visits.",
+        "SEO-optimized articles."
+      ],
+      whyItMatters:
+        "It provides sustainable, high-quality traffic."
+    },
+    CZ: {
+      term: "Organická návštěvnost",
+      shortDefinition: "Neplacení návštěvníci",
+      fullDefinition:
+        "Organická návštěvnost pochází z neplacených výsledků vyhledávání.",
+      examples: [
+        "Návštěvy z Google."
+      ],
+      whyItMatters:
+        "Je základem dlouhodobého růstu."
+    }
+  }
+},
+
+serp: {
+  slugs: { EN: "serp", CZ: "serp", SK: "serp" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "Meta Description", "CTR", "PPC"],
+  resources: [
+    { title: "Google: About SERP", url: "https://www.google.com/search/howsearchworks/" }
+  ],
+  content: {
+    SK: {
+      term: "SERP",
+      shortDefinition: "Stránka výsledkov vyhľadávania",
+      fullDefinition:
+        "SERP (Search Engine Results Page) je stránka, ktorú používateľ vidí po zadaní dopytu do vyhľadávača. Obsahuje organické výsledky, platené reklamy, mapy, obrázky a ďalšie prvky. Každý prvok v SERPe má iný spôsob zobrazenia a iný vplyv na mieru preklikov. SERP sa neustále mení na základe algoritmov vyhľadávača. Je kľúčovým miestom pre online viditeľnosť značiek.",
+      examples: [
+        "Zobrazenie webu na prvej strane Google.",
+        "Rich snippets s hodnoteniami.",
+        "Lokálne výsledky v Google Mapách.",
+        "Featured snippets (odpovede na otázky).",
+        "PPC reklamy nad organickými výsledkami."
+      ],
+      whyItMatters:
+        "Pozícia v SERPe priamo ovplyvňuje množstvo návštevnosti. Prvé výsledky získavajú najviac kliknutí. Optimalizácia pre SERP zvyšuje šancu, že si používateľ vyberie práve daný web. Pomáha pochopiť správanie používateľov vo vyhľadávaní. Pre firmy je SERP hlavným bojiskom online konkurencie."
+    },
+    EN: {
+      term: "SERP",
+      shortDefinition: "Search results page",
+      fullDefinition:
+        "SERP is the page shown after a search query, containing organic results, ads, and rich features.",
+      examples: [
+        "First-page rankings.",
+        "Featured snippets."
+      ],
+      whyItMatters:
+        "Visibility in SERP drives traffic."
+    },
+    CZ: {
+      term: "SERP",
+      shortDefinition: "Stránka výsledků vyhledávání",
+      fullDefinition:
+        "SERP je stránka výsledků vyhledávání zobrazovaná po zadání dotazu.",
+      examples: [
+        "První stránka Google."
+      ],
+      whyItMatters:
+        "Ovlivňuje návštěvnost a viditelnost."
+    }
+  }
+},
   lead: {
   slugs: { EN: "lead", CZ: "lead", SK: "lead" },
   category: "Marketing",
