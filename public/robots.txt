@@ -16,11 +16,11 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://test.weboptim.eu/sitemap.xml
-Sitemap: https://test.weboptim.cz/sitemap.xml
-Sitemap: https://test.weboptim.sk/sitemap.xml
+Sitemap: https://www.weboptim.eu/sitemap.xml
+Sitemap: https://www.weboptim.cz/sitemap.xml
+Sitemap: https://www.weboptim.sk/sitemap.xml
 
 # RSS Feeds
-# EN: https://test.weboptim.eu/rss.xml
-# CZ: https://test.weboptim.cz/rss-cz.xml
-# SK: https://test.weboptim.sk/rss-sk.xml
+# EN: https://www.weboptim.eu/rss.xml
+# CZ: https://www.weboptim.cz/rss-cz.xml
+# SK: https://www.weboptim.sk/rss-sk.xml

@@ -2,25 +2,20 @@ import { Language } from "@/contexts/LanguageContext";
 
 // Domain configuration for multi-language support
 export const domainConfig: Record<Language, string> = {
-  EN: "https://test.weboptim.eu",
-  CZ: "https://test.weboptim.cz",
-  SK: "https://test.weboptim.sk",
+  EN: "https://www.weboptim.eu",
+  CZ: "https://www.weboptim.cz",
+  SK: "https://www.weboptim.sk",
 };
 
 // Reverse mapping: domain -> language
 export const domainToLanguage: Record<string, Language> = {
-  // TEST / STAGING
-  "test.weboptim.eu": "EN",
-  "test.weboptim.cz": "CZ",
-  "test.weboptim.sk": "SK",
-
-  // PRODUCTION (neskôr)
-  "weboptim.eu": "EN",
+  // PRODUCTION
   "www.weboptim.eu": "EN",
-  "weboptim.cz": "CZ",
+  "weboptim.eu": "EN",
   "www.weboptim.cz": "CZ",
-  "weboptim.sk": "SK",
+  "weboptim.cz": "CZ",
   "www.weboptim.sk": "SK",
+  "weboptim.sk": "SK",
 
   // Local dev
   localhost: "EN",

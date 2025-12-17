@@ -1,13 +1,17 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   Options -MultiViews
-
-  # TEST (docasne)
-  RewriteRule ^__htaccess_test__$ index.html [L,R=302]
-
   RewriteBase /
 
-  # existujuce subory/adresare nechaj
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect non-www to www
+  RewriteCond %{HTTP_HOST} ^weboptim\.(eu|cz|sk)$ [NC]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Existing files/directories - don't rewrite
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
