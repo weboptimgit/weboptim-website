@@ -433,3 +433,9 @@ select:focus-visible,
 .required-indicator {
   @apply text-destructive ml-0.5;
 }
+
+/* Content visibility optimization for below-the-fold sections */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}

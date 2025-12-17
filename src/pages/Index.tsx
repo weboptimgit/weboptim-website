@@ -50,34 +50,48 @@ const Index = () => {
           <Navbar />
           <Hero />
           
-          {/* Below-the-fold content - lazy loaded */}
-          <Suspense fallback={<SectionLoader />}>
-            <Services />
-          </Suspense>
+          {/* Below-the-fold content - lazy loaded with content-visibility optimization */}
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <Services />
+            </Suspense>
+          </div>
           
-          <Suspense fallback={<SectionLoader />}>
-            <Portfolio />
-          </Suspense>
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <Portfolio />
+            </Suspense>
+          </div>
           
-          <Suspense fallback={<SectionLoader />}>
-            <Testimonials />
-          </Suspense>
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <Testimonials />
+            </Suspense>
+          </div>
           
-          <Suspense fallback={<SectionLoader />}>
-            <TrustSection />
-          </Suspense>
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <TrustSection />
+            </Suspense>
+          </div>
           
-          <Suspense fallback={<SectionLoader />}>
-            <About />
-          </Suspense>
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <About />
+            </Suspense>
+          </div>
           
-          <Suspense fallback={<SectionLoader />}>
-            <BlogSection />
-          </Suspense>
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <BlogSection />
+            </Suspense>
+          </div>
           
-          <Suspense fallback={<SectionLoader />}>
-            <CTA />
-          </Suspense>
+          <div className="content-auto">
+            <Suspense fallback={<SectionLoader />}>
+              <CTA />
+            </Suspense>
+          </div>
           
           {t && (
             <ConfiguratorPopup
