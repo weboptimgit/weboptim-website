@@ -187,10 +187,13 @@ const Services = () => {
               opts={{
                 align: "start",
                 loop: true,
+                dragFree: true,
+                containScroll: "trimSnaps",
+                duration: 20,
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-2">
+              <CarouselContent className="-ml-2" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
                 {services.map((service, index) => (
                   <CarouselItem key={index} className="pl-2 basis-[85%]">
                     <ServiceCard service={service} index={0} />

@@ -183,10 +183,13 @@ const ServiceReviews = ({
               opts={{
                 align: "start",
                 loop: true,
+                dragFree: true,
+                containScroll: "trimSnaps",
+                duration: 20,
               }}
               className="w-full overflow-visible"
             >
-              <CarouselContent className="-ml-2 pt-6 pl-4">
+              <CarouselContent className="-ml-2 pt-6 pl-4" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
                 {reviews.map((review, index) => (
                   <CarouselItem key={index} className="pl-2 basis-[85%]">
                     <ReviewCard review={review} />
