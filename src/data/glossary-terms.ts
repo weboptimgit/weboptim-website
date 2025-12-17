@@ -28,6 +28,173 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  branding: {
+  slugs: { EN: "branding", CZ: "branding", SK: "branding" },
+  category: "Marketing",
+  relatedTerms: ["Brand", "Brand Identity", "Copywriting", "UX"],
+  resources: [
+    { title: "What Is Branding?", url: "https://www.investopedia.com/terms/b/branding.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Branding",
+      shortDefinition: "Budovanie značky",
+      fullDefinition:
+        "Branding je proces budovania značky, jej identity, imidžu a vnímania verejnosťou. Zahŕňa vizuálne prvky, ako logo, farby a typografiu, ale aj tón komunikácie, hodnoty a spôsob vystupovania. Branding určuje, ako si ľudia značku pamätajú a ako sa pri nej cítia. Nejde len o dizajn, ale o celkový zážitok zo značky. Silný branding vytvára emocionálne spojenie medzi značkou a zákazníkom.",
+      whyItMatters:
+        "Dobrý branding zvyšuje dôveru a odlišuje značku od konkurencie. Pomáha zákazníkom rýchlejšie sa rozhodnúť, pretože vedia, čo môžu očakávať. Konzistentná značka pôsobí profesionálne a zapamätateľne. Branding zvyšuje hodnotu firmy aj jej služieb, často umožňuje vyššie ceny. Pre dlhodobý rast je značka rovnako dôležitá ako samotný produkt.",
+      examples: [
+        "Konzistentné farby a fonty na webe a sociálnych sieťach.",
+        "Jednotný tón komunikácie v reklamách a e-mailoch.",
+        "Zapamätateľný názov a logo projektu.",
+        "Brand voice prispôsobený cieľovej skupine.",
+        "Dôraz na dôveru a profesionalitu v komunikácii."
+      ]
+    },
+    CZ: {
+      term: "Branding",
+      shortDefinition: "Budování značky",
+      fullDefinition:
+        "Branding je proces budování značky, její identity, image a způsobu, jak ji vnímá veřejnost. Zahrnuje vizuální prvky, jako logo, barvy a typografii, ale také tón komunikace, hodnoty a vystupování. Branding určuje, jak si lidé značku pamatují a jaké v nich vyvolává emoce. Nejde pouze o design, ale o celkový zážitek ze značky. Silný branding vytváří emocionální spojení mezi značkou a zákazníkem.",
+      whyItMatters:
+        "Dobrý branding zvyšuje důvěru a odlišuje značku od konkurence. Pomáhá zákazníkům rychleji se rozhodnout, protože vědí, co mohou očekávat. Konzistentní značka působí profesionálně a zapamatovatelně. Branding zvyšuje hodnotu firmy i jejích služeb a často umožňuje vyšší ceny. Pro dlouhodobý růst je značka stejně důležitá jako samotný produkt.",
+      examples: [
+        "Konzistentní barvy a fonty na webu a sociálních sítích.",
+        "Jednotný tón komunikace v reklamách a e-mailech.",
+        "Zapamatovatelný název a logo projektu.",
+        "Brand voice přizpůsobený cílové skupině.",
+        "Důraz na důvěru a profesionalitu v komunikaci."
+      ]
+    },
+    EN: {
+      term: "Branding",
+      shortDefinition: "Building a brand",
+      fullDefinition:
+        "Branding is the process of building a brand’s identity, image, and public perception. It includes visual elements such as logos, colors, and typography, as well as tone of voice, values, and overall communication style. Branding defines how people remember the brand and how it makes them feel. It goes beyond design and represents the complete brand experience. Strong branding creates an emotional connection between the brand and its customers.",
+      whyItMatters:
+        "Good branding builds trust and differentiates a brand from competitors. It helps customers make faster decisions because they know what to expect. A consistent brand appears professional and memorable. Branding increases the perceived value of a company and its services, often allowing higher pricing. For long-term growth, a strong brand is as important as the product itself.",
+      examples: [
+        "Consistent colors and fonts across website and social media.",
+        "Unified tone of communication in ads and emails.",
+        "Memorable brand name and logo.",
+        "Brand voice tailored to the target audience.",
+        "Emphasis on trust and professionalism."
+      ]
+    }
+  }
+},
+
+lead: {
+  slugs: { EN: "lead", CZ: "lead", SK: "lead" },
+  category: "Marketing",
+  relatedTerms: ["Conversion", "Funnel", "CRM", "Marketing Automation"],
+  resources: [
+    { title: "What Is a Lead?", url: "https://www.hubspot.com/marketing-statistics" }
+  ],
+  content: {
+    SK: {
+      term: "Lead",
+      shortDefinition: "Potenciálny zákazník",
+      fullDefinition:
+        "Lead je osoba, ktorá prejavila záujem o produkt alebo službu, ale ešte sa nestala zákazníkom. Zvyčajne ide o používateľa, ktorý zanechal kontakt, napríklad e-mail alebo telefón. Lead vzniká prostredníctvom formulárov, registrácií, stiahnutia obsahu alebo rezervácií. V marketingu sa leady ďalej triedia podľa kvality a pripravenosti na nákup. Sú základom pre obchodné a predajné procesy.",
+      whyItMatters:
+        "Leady predstavujú budúcich zákazníkov a potenciálny príjem firmy. Umožňujú systematickú prácu s kontaktmi a budovanie vzťahu. Vďaka leadom je možné cieliť marketingové kampane presnejšie. Kvalitné leady zvyšujú efektivitu predaja a skracujú rozhodovací proces. Bez leadov by marketing nemal na koho nadväzovať.",
+      examples: [
+        "Odoslaný dopyt cez formulár.",
+        "Registrácia poskytovateľa do platformy.",
+        "Prihlásenie sa do newslettera.",
+        "Rezervácia služby bez okamžitej platby.",
+        "Stiahnutie e-booku výmenou za e-mail."
+      ]
+    },
+    CZ: {
+      term: "Lead",
+      shortDefinition: "Potenciální zákazník",
+      fullDefinition:
+        "Lead je osoba, která projevila zájem o produkt nebo službu, ale ještě se nestala zákazníkem. Obvykle jde o uživatele, který zanechal kontakt, například e-mail nebo telefon. Lead vzniká prostřednictvím formulářů, registrací, stažení obsahu nebo rezervací. V marketingu se leady dále třídí podle kvality a připravenosti k nákupu. Jsou základem obchodních a prodejních procesů.",
+      whyItMatters:
+        "Leady představují budoucí zákazníky a potenciální příjem firmy. Umožňují systematickou práci s kontakty a budování vztahu. Díky leadům lze marketingové kampaně cílit přesněji. Kvalitní leady zvyšují efektivitu prodeje a zkracují rozhodovací proces. Bez leadů by marketing neměl na koho navazovat.",
+      examples: [
+        "Odeslaná poptávka přes formulář.",
+        "Registrace poskytovatele do platformy.",
+        "Přihlášení k newsletteru.",
+        "Rezervace služby bez okamžité platby.",
+        "Stažení e-booku výměnou za e-mail."
+      ]
+    },
+    EN: {
+      term: "Lead",
+      shortDefinition: "Potential customer",
+      fullDefinition:
+        "A lead is a person who has shown interest in a product or service but has not yet become a customer. This usually involves leaving contact information such as an email address or phone number. Leads are generated through forms, registrations, content downloads, or reservations. In marketing, leads are further categorized based on quality and readiness to buy. They are the foundation of sales and business development processes.",
+      whyItMatters:
+        "Leads represent future customers and potential revenue. They enable systematic relationship-building and contact management. Leads allow for more precise targeting of marketing campaigns. High-quality leads increase sales efficiency and shorten the decision-making process. Without leads, marketing has no one to convert.",
+      examples: [
+        "Submitting an inquiry through a form.",
+        "Registering as a service provider.",
+        "Signing up for a newsletter.",
+        "Booking a service without immediate payment.",
+        "Downloading an e-book in exchange for an email."
+      ]
+    }
+  }
+},
+
+contentMarketing: {
+  slugs: { EN: "content-marketing", CZ: "content-marketing", SK: "content-marketing" },
+  category: "Marketing",
+  relatedTerms: ["SEO", "Branding", "Copywriting", "Organic Traffic"],
+  resources: [
+    { title: "What Is Content Marketing?", url: "https://contentmarketinginstitute.com/what-is-content-marketing/" }
+  ],
+  content: {
+    SK: {
+      term: "Content marketing",
+      shortDefinition: "Marketing založený na obsahu",
+      fullDefinition:
+        "Content marketing je stratégia založená na tvorbe hodnotného a relevantného obsahu pre cieľovú skupinu. Nejde o priamy predaj, ale o vzdelávanie, pomoc a budovanie dôvery. Obsah môže mať formu článkov, videí, návodov, blogov či sociálnych príspevkov. Content marketing odpovedá na otázky používateľov a rieši ich problémy. Je dlhodobým pilierom SEO a brandingu.",
+      whyItMatters:
+        "Kvalitný obsah priťahuje návštevníkov organicky bez nutnosti platených reklám. Pomáha budovať autoritu značky a odborné postavenie na trhu. Content marketing zvyšuje dôveru, pretože zákazník má pocit, že značka mu pomáha. Podporuje SEO, keďže vyhľadávače uprednostňujú hodnotný obsah. Z dlhodobého hľadiska ide o veľmi udržateľnú marketingovú stratégiu.",
+      examples: [
+        "Blogové články zamerané na riešenie problémov zákazníkov.",
+        "Návody „ako na to“ pre mobilné služby.",
+        "Edukačné videá a reels.",
+        "Prípadové štúdie a recenzie.",
+        "Obsah optimalizovaný pre SEO."
+      ]
+    },
+    CZ: {
+      term: "Content marketing",
+      shortDefinition: "Marketing založený na obsahu",
+      fullDefinition:
+        "Content marketing je strategie založená na tvorbě hodnotného a relevantního obsahu pro cílovou skupinu. Nejde o přímý prodej, ale o vzdělávání, pomoc a budování důvěry. Obsah může mít podobu článků, videí, návodů, blogů nebo příspěvků na sociálních sítích. Content marketing odpovídá na otázky uživatelů a řeší jejich problémy. Je dlouhodobým pilířem SEO a brandingu.",
+      whyItMatters:
+        "Kvalitní obsah přitahuje návštěvníky organicky bez nutnosti placené reklamy. Pomáhá budovat autoritu značky a odborné postavení na trhu. Content marketing zvyšuje důvěru, protože zákazník má pocit, že mu značka pomáhá. Podporuje SEO, protože vyhledávače upřednostňují hodnotný obsah. Z dlouhodobého hlediska jde o velmi udržitelnou marketingovou strategii.",
+      examples: [
+        "Blogové články zaměřené na řešení problémů zákazníků.",
+        "Návody „jak na to“ pro mobilní služby.",
+        "Edukační videa a reels.",
+        "Případové studie a recenze.",
+        "SEO optimalizovaný obsah."
+      ]
+    },
+    EN: {
+      term: "Content Marketing",
+      shortDefinition: "Marketing based on valuable content",
+      fullDefinition:
+        "Content marketing is a strategy focused on creating valuable and relevant content for a target audience. It is not about direct selling, but about educating, helping, and building trust. Content can take the form of articles, videos, guides, blogs, or social media posts. Content marketing answers user questions and solves their problems. It is a long-term pillar of SEO and branding.",
+      whyItMatters:
+        "High-quality content attracts visitors organically without paid advertising. It helps build brand authority and expert positioning. Content marketing increases trust because customers feel the brand is helping them. It supports SEO since search engines prioritize valuable content. In the long term, it is a highly sustainable marketing strategy.",
+      examples: [
+        "Blog articles solving customer problems.",
+        "How-to guides for mobile services.",
+        "Educational videos and reels.",
+        "Case studies and reviews.",
+        "SEO-optimized content."
+      ]
+    }
+  }
+},
 cta: {
   slugs: { EN: "cta", CZ: "cta", SK: "cta" },
   category: "Marketing",
