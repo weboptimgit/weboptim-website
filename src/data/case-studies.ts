@@ -319,8 +319,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
   
         testimonial: {
-          quote:
-            "The cooperation with Mr. Gáborík and his team on the new website of our institution worked great, we clarified everything, set it up and the final price corresponded to the agreed one. After experience with the creation of various other websites, this is really not a given and I appreciate it very much.",
+          quote: "",
           author: "Martin Vokálek",
           role: "Executive Director",
           avatar: "/img/europeum-quote.png",
@@ -387,8 +386,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
   
         testimonial: {
-          quote:
-            "Spolupráce s panem Gáboríkem a jeho týmem na novém webu naší instituce fungovala skvěle, vše jsme si vyjasnili, nastavili a finální cenu odpovídali té dohodnuté. Po zkušenostech s tvorbou různých webů toto opravdu není samozřejmost a moc si toho vážím.",
+          quote: "",
           author: "Martin Vokálek",
           role: "Výkonný ředitel",
           avatar: "/img/europeum-quote.png",
@@ -455,8 +453,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
   
         testimonial: {
-          quote:
-            "Spolupráca s pánom Gáboríkom a jeho tímom na novom webe našej inštitúcie fungovala skvele, všetko sme si vyjasnili, nastavili a finálna cena zodpovedala tej dohodnutej. Po skúsenostiach s tvorbou rôznych iných webov toto naozaj nie je samozrejmosť a veľmi si to vážim.",
+          quote: "",
           author: "Martin Vokálek",
           role: "Výkonný riaditeľ",
           avatar: "/img/europeum-quote.png",
@@ -527,10 +524,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
 
         testimonial: {
           quote:
-            "The platform handles a large amount of content without losing clarity. Filtering, events, and publications work reliably and are easy to manage for our editorial team.",
-          author: "EUROPEUM",
-          role: "Institute Team",
-          avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+            "The cooperation with Mr. Gáborík and his team on the new website of our institution worked great, we clarified everything, set it up and the final price corresponded to the agreed one. After experience with the creation of various other websites, this is really not a given and I appreciate it very much.",
+          author: "Martin Vokálek",
+          role: "Executive Director",
+          avatar: "/img/europeum-quote.png",
         },
 
         gallery: [],
@@ -593,10 +590,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       
         testimonial: {
           quote:
-            "Platforma zvláda veľké množstvo obsahu bez straty prehľadnosti. Filtrovanie, eventy aj publikácie fungujú spoľahlivo a sú jednoduché na správu pre náš redakčný tím.",
-          author: "EUROPEUM",
-          role: "Tím inštitútu",
-          avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+            "Spolupráca s pánom Gáboríkom a jeho tímom na novom webe našej inštitúcie fungovala skvele, všetko sme si vyjasnili, nastavili a finálna cena zodpovedala tej dohodnutej. Po skúsenostiach s tvorbou rôznych iných webov toto naozaj nie je samozrejmosť a veľmi si to vážim.",
+          author: "Martin Vokálek",
+          role: "Výkonný riaditeľ",
+          avatar: "/img/europeum-quote.png",
         },
       
         gallery: [],
@@ -659,10 +656,10 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
       
         testimonial: {
           quote:
-            "Platforma zvládá velké množství obsahu bez ztráty přehlednosti. Filtrování, eventy i publikace fungují spolehlivě a jsou snadno spravovatelné pro náš redakční tým.",
-          author: "EUROPEUM",
-          role: "Tým institutu",
-          avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+            "Spolupráce s panem Gáboríkem a jeho týmem na novém webu naší instituce fungovala skvěle, vše jsme si vyjasnili, nastavili a finální cenu odpovídali té dohodnuté. Po zkušenostech s tvorbou různých webů toto opravdu není samozřejmost a moc si toho vážím.",
+          author: "Martin Vokálek",
+          role: "Výkonný ředitel",
+          avatar: "/img/europeum-quote.png",
         },
       
         gallery: [],
@@ -729,8 +726,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
 
         testimonial: {
-          quote:
-            "We finally have a system we can trust — registrations, availability, emails, and admin management are all automated and consistent for every event.",
+          quote: "",
           author: "Duo Story Team",
           role: "Operations",
           avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
@@ -799,8 +795,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Konečne máme systém, na ktorý sa môžeme spoľahnúť — registrácie, dostupnosť, e-maily aj administrácia sú plne automatizované a konzistentné pre každý event.",
+          quote: "",
           author: "Tím Duo Story",
           role: "Prevádzka",
           avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
@@ -869,8 +864,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Konečně máme systém, kterému můžeme důvěřovat — registrace, dostupnost, e-maily i administrace jsou plně automatizované a konzistentní pro každý event.",
+          quote: "",
           author: "Tým Duo Story",
           role: "Provoz",
           avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
@@ -944,8 +938,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
 
         testimonial: {
-          quote:
-            "The website is clear, easy to use, and brings us direct inquiries without unnecessary complexity. Everything important is easy to update and works reliably.",
+          quote: "",
           author: "Penzion Sněžná",
           role: "Owner",
           avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -1010,8 +1003,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Web je prehľadný, jednoducho sa používa a prináša nám priame dopyty bez zbytočnej zložitosti. Všetko dôležité sa dá ľahko upravovať a spoľahlivo funguje.",
+          quote: "",
           author: "Penzión Sněžná",
           role: "Majiteľ",
           avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -1076,8 +1068,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Web je přehledný, snadno se používá a přináší nám přímé poptávky bez zbytečné složitosti. Vše důležité lze jednoduše upravovat a spolehlivě funguje.",
+          quote: "",
           author: "Penzion Sněžná",
           role: "Majitel",
           avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -1147,8 +1138,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
 
         testimonial: {
-          quote:
-            "The new website finally reflects what we deliver in real life — clarity, professionalism and trust. Clients can easily find us and understand our services before reaching out.",
+          quote: "",
           author: "Ing. Bohumil Nesvačil",
           role: "Managing Director, Kimbau",
           avatar: "https://images.unsplash.com/photo-1506794778202-47a8e62ef2e4?w=100&h=100&fit=crop",
@@ -1213,8 +1203,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Nová webová stránka konečne vystihuje to, čo dodávame aj v realite — prehľadnosť, profesionalitu a dôveru. Klienti nás ľahko nájdu a ešte pred kontaktom pochopia naše služby.",
+          quote: "",
           author: "Ing. Bohumil Nesvačil",
           role: "Konateľ, Kimbau",
           avatar: "https://images.unsplash.com/photo-1506794778202-47a8e62ef2e4?w=100&h=100&fit=crop",
@@ -1279,8 +1268,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Nový web konečně odráží to, co dodáváme i v praxi — přehlednost, profesionalitu a důvěru. Klienti nás snadno najdou a ještě před kontaktováním pochopí naše služby.",
+          quote: "",
           author: "Ing. Bohumil Nesvačil",
           role: "Jednatel, Kimbau",
           avatar: "https://images.unsplash.com/photo-1506794778202-47a8e62ef2e4?w=100&h=100&fit=crop",
@@ -1348,8 +1336,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
 
         testimonial: {
-          quote:
-            "The website finally reflects my approach to health and coaching. Clients understand the process, trust the system, and can easily book, pay, or purchase vouchers online.",
+          quote: "",
           author: "Ing. Romana Nemcová",
           role: "Nutrition Consultant & Life Coach",
           avatar: "/img/romana_nemcova_portret-1.jpeg",
@@ -1414,8 +1401,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Webová stránka konečne odráža môj prístup k zdraviu a koučingu. Klienti rozumejú procesu, dôverujú systému a môžu si jednoducho rezervovať termín, zaplatiť alebo zakúpiť poukážky online.",
+          quote: "",
           author: "Ing. Romana Nemcová",
           role: "Výživová poradkyňa & life koučka",
           avatar: "/img/romana_nemcova_portret-1.jpeg",
@@ -1480,8 +1466,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
       
         testimonial: {
-          quote:
-            "Webové stránky konečně odrážejí můj přístup ke zdraví a koučinku. Klienti rozumí procesu, důvěřují systému a mohou si snadno rezervovat termín, zaplatit nebo zakoupit poukazy online.",
+          quote: "",
           author: "Ing. Romana Nemcová",
           role: "Výživová poradkyně & life koučka",
           avatar: "/img/romana_nemcova_portret-1.jpeg",
