@@ -1,34 +1,16 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SnapCarousel } from "@/components/ui/snap-carousel";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import { getLatestBlogPosts } from "@/data/blog-posts";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const BlogSection = () => {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
 
   const latestPosts = getLatestBlogPosts(language, 3);
   const blogBase = buildPath(language, "blog"); // napr. "/blog"
@@ -57,75 +39,52 @@ const BlogSection = () => {
 
         {/* Mobile Carousel */}
         {isMobile ? (
-          <div className="space-y-4 mb-12">
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: "start",
-                containScroll: "trimSnaps",
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
-                {latestPosts.map((post) => (
-                  <CarouselItem key={post.slug} className="pl-2 basis-[85%]">
-                    <Link
-                      to={`${blogBase}/${post.slug}`}
-                      className="block glass rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-300 h-full"
-                    >
-                      <div className="relative h-48 overflow-hidden">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/90 text-primary-foreground">
-                            {post.category}
-                          </span>
-                        </div>
+          <div className="mb-12">
+            <SnapCarousel ariaLabel={t("blogSection.title.highlight")} itemClassName="basis-[85%]">
+              {latestPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  to={`${blogBase}/${post.slug}`}
+                  className="block glass rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-300 h-full"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/90 text-primary-foreground">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        <span>{post.date}</span>
                       </div>
-
-                      <div className="p-6">
-                        <h3 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
-
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                          {post.excerpt}
-                        </p>
-
-                        <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
-                            <span>{post.date}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            <span>{post.readTime}</span>
-                          </div>
-                        </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        <span>{post.readTime}</span>
                       </div>
-                    </Link>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2">
-              {Array.from({ length: count }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === current 
-                      ? "bg-primary w-6" 
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+                    </div>
+                  </div>
+                </Link>
               ))}
-            </div>
+            </SnapCarousel>
           </div>
         ) : (
           /* Desktop Grid */
@@ -147,6 +106,8 @@ const BlogSection = () => {
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/90 text-primary-foreground">

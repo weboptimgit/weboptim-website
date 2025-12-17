@@ -1,12 +1,7 @@
-import { memo, useState, useEffect } from "react";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+import { SnapCarousel } from "@/components/ui/snap-carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Review {
@@ -70,9 +65,7 @@ const ReviewCard = memo(({ review }: { review: Review }) => (
     </div>
 
     {/* Quote */}
-    <p className="text-muted-foreground mb-6 leading-relaxed">
-      "{review.quote}"
-    </p>
+    <p className="text-muted-foreground mb-6 leading-relaxed">"{review.quote}"</p>
 
     {/* Author */}
     <div className="flex items-center gap-4">
@@ -106,18 +99,6 @@ const ServiceReviews = ({
   showSchema = true,
 }: ServiceReviewsProps) => {
   const isMobile = useIsMobile();
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
 
   // JSON-LD schema for reviews
   const reviewSchema = {
@@ -177,38 +158,16 @@ const ServiceReviews = ({
 
         {/* Mobile Carousel */}
         {isMobile ? (
-          <div className="space-y-4">
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: "start",
-                containScroll: "trimSnaps",
-              }}
-              className="w-full overflow-visible"
+          <div className="mb-12">
+            <SnapCarousel
+              ariaLabel={`${title} ${titleHighlight}`}
+              itemClassName="basis-[85%]"
+              scrollerClassName="pt-6 pl-4"
             >
-              <CarouselContent className="-ml-2 pt-6 pl-4" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
-                {reviews.map((review, index) => (
-                  <CarouselItem key={index} className="pl-2 basis-[85%]">
-                    <ReviewCard review={review} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2">
-              {Array.from({ length: count }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === current
-                      ? "bg-primary w-6"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+              {reviews.map((review, index) => (
+                <ReviewCard key={index} review={review} />
               ))}
-            </div>
+            </SnapCarousel>
           </div>
         ) : (
           /* Desktop Grid */

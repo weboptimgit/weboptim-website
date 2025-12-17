@@ -1,35 +1,17 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SnapCarousel } from "@/components/ui/snap-carousel";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { buildPath } from "@/config/domains";
 import { getCaseStudiesList } from "@/data/case-studies";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // NOTE: projects are language-aware (like blog)
 const Portfolio = () => {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
 
   // Build projects list from translations (EN fallback handled inside helper)
   const projects = getCaseStudiesList(language);
@@ -77,103 +59,79 @@ const Portfolio = () => {
 
         {/* Mobile Carousel */}
         {isMobile ? (
-          <div className="space-y-4">
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: "start",
-                containScroll: "trimSnaps",
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
-                {projects6.map((project) => {
-                  const tags = project.tags ?? [];
-                  const image = project.image ?? "";
-                  const title = project.title ?? "";
-                  const category = project.category ?? "";
-                  const description = project.description ?? "";
-                  const statValue = project.statValue ?? "";
-                  const statLabel = project.statLabel ?? "";
+          <div className="mb-12">
+            <SnapCarousel ariaLabel={t("portfolio.title")} itemClassName="basis-[85%]">
+              {projects6.map((project) => {
+                const tags = project.tags ?? [];
+                const image = project.image ?? "";
+                const title = project.title ?? "";
+                const category = project.category ?? "";
+                const description = project.description ?? "";
+                const statValue = project.statValue ?? "";
+                const statLabel = project.statLabel ?? "";
 
-                  return (
-                    <CarouselItem key={project.slug} className="pl-2 basis-[85%]">
-                      <Link
-                        to={buildPath(language, "work", project.slug)}
-                        className="block group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
-                      >
-                        {/* Image Container */}
-                        <div className="relative aspect-[16/10] overflow-hidden">
-                          <img
-                            src={image}
-                            alt={title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            loading="lazy"
-                          />
+                return (
+                  <Link
+                    key={project.slug}
+                    to={buildPath(language, "work", project.slug)}
+                    className="block group relative glass rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500 h-full"
+                  >
+                    {/* Image Container */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                        decoding="async"
+                      />
 
-                          {/* Gradient overlays */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-primary/20 to-transparent" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                      {/* Gradient overlays */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-primary/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
 
-                          {/* Stats Badge */}
-                          <div className="absolute top-4 right-4 glass rounded-xl px-4 py-2">
-                            <div className="text-lg font-display font-bold text-primary">
-                              {statValue}
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                              {statLabel}
-                            </div>
-                          </div>
+                      {/* Stats Badge */}
+                      <div className="absolute top-4 right-4 glass rounded-xl px-4 py-2">
+                        <div className="text-lg font-display font-bold text-primary">
+                          {statValue}
                         </div>
+                        <div className="text-xs text-muted-foreground">
+                          {statLabel}
+                        </div>
+                      </div>
+                    </div>
 
-                        {/* Content */}
-                        <div className="p-6 -mt-16 relative z-10">
-                          {/* Tags */}
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {tags.map((tag, tagIndex) => (
-                              <span
-                                key={tagIndex}
-                                className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-
-                          {/* Category & Title */}
-                          <span className="text-secondary text-sm font-medium mb-2 block uppercase tracking-wider">
-                            {category}
+                    {/* Content */}
+                    <div className="p-6 -mt-16 relative z-10">
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
+                          >
+                            {tag}
                           </span>
+                        ))}
+                      </div>
 
-                          <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                            {title}
-                          </h3>
+                      {/* Category & Title */}
+                      <span className="text-secondary text-sm font-medium mb-2 block uppercase tracking-wider">
+                        {category}
+                      </span>
 
-                          <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                            {description}
-                          </p>
-                        </div>
-                      </Link>
-                    </CarouselItem>
-                  );
-                })}
-              </CarouselContent>
-            </Carousel>
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2">
-              {Array.from({ length: count }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === current 
-                      ? "bg-primary w-6" 
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+                      <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                        {title}
+                      </h3>
+
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                        {description}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </SnapCarousel>
           </div>
         ) : (
           /* Desktop Grid */
