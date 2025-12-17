@@ -70,11 +70,11 @@ RewriteRule ^the-best-e-commerce-solution-for-your-business-how-to-choose-the-ri
 RewriteRule ^why-structured-data-is-essential-for-your-seo/$ https://www.weboptim.eu/blog/why-structured-data-is-essential-for-your-seo [R=301,L]
 RewriteRule ^50-seo-prompts-for-chatgpt-by-openai/$ https://www.weboptim.eu/blog/50-seo-prompts-for-chatgpt-by-openai [R=301,L]
 
-RewriteRule ^/blog/ai-artificial-intelligence/50-seo-prompts-for-chatgpt-by-openai/$ https://www.weboptim.eu/blog/50-seo-prompts-for-chatgpt-by-openai [R=301,L]
-RewriteRule ^/why-do-we-use-oxygen-builder-when-creating-websites-in-wordpress/$ https://www.weboptim.eu/blog/why-do-we-use-oxygen-builder-when-creating-websites-in-wordpress [R=301,L]
+RewriteRule ^blog/ai-artificial-intelligence/50-seo-prompts-for-chatgpt-by-openai/$ https://www.weboptim.eu/blog/50-seo-prompts-for-chatgpt-by-openai [R=301,L]
+RewriteRule ^why-do-we-use-oxygen-builder-when-creating-websites-in-wordpress/$ https://www.weboptim.eu/blog/why-do-we-use-oxygen-builder-when-creating-websites-in-wordpress [R=301,L]
 RewriteRule ^sk/preco-pri-vytvarani-webovych-stranok-vo-wordpress-pouzivame-oxygen-builder/$ https://www.weboptim.sk/blog/preco-pri-vytvarani-webovych-stranok-vo-wordpress-pouzivame-oxygen-builder [R=301,L]
-RewriteRule ^/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce$ https://www.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
-RewriteRule ^/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce/$ https://www.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
+RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce$ https://www.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
+RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce/$ https://www.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
 
 # Existing files/directories - don't rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
