@@ -16,7 +16,7 @@ RewriteRule ^ https://www.weboptim.%1%{REQUEST_URI} [R=301,L]
 # (place them HERE)
 # -------------------------
 
-RewriteRule ^about-us/$ https://www.weboptim.eu/about-us [R=301,L]
+RewriteRule ^about-us/$ https://www.weboptim.eu/about [R=301,L]
 RewriteRule ^blog/ai-artificial-intelligence/$ https://www.weboptim.eu/blog/ai-artificial-intelligence [R=301,L]
 RewriteRule ^blog/online-marketing/$ https://www.weboptim.eu/blog/online-marketing [R=301,L]
 RewriteRule ^blog/webs-and-eshops/$ https://www.weboptim.eu/blog/webs-and-eshops [R=301,L]
@@ -37,9 +37,10 @@ RewriteRule ^cz/sluzby/ppc/$ https://www.weboptim.cz/sluzby/ppc [R=301,L]
 RewriteRule ^cz/sluzby/seo/$ https://www.weboptim.cz/sluzby/seo [R=301,L]
 RewriteRule ^cz/sluzby/tvorba-eshopu/$ https://www.weboptim.cz/sluzby/tvorba-eshopu [R=301,L]
 RewriteRule ^cz/sluzby/tvorba-webstranek/$ https://www.weboptim.cz/sluzby/tvorba-webstranek [R=301,L]
+RewriteRule ^cz/services/ecommerce-website/$ https://www.weboptim.cz/sluzby/tvorba-eshopu [R=301,L]
 
 RewriteRule ^services/$ https://www.weboptim.eu/services [R=301,L]
-RewriteRule ^services/building-a-website/$ https://www.weboptim.eu/services/building-a-website [R=301,L]
+RewriteRule ^services/building-a-website/$ https://www.weboptim.eu/services/building-website [R=301,L]
 RewriteRule ^services/digitalization-and-automation/$ https://www.weboptim.eu/services/digitalization-and-automation [R=301,L]
 RewriteRule ^services/ecommerce-website/$ https://www.weboptim.eu/services/ecommerce-website [R=301,L]
 RewriteRule ^services/ppc/$ https://www.weboptim.eu/services/ppc [R=301,L]
@@ -60,6 +61,7 @@ RewriteRule ^sk/sluzby/ppc/$ https://www.weboptim.sk/sluzby/ppc [R=301,L]
 RewriteRule ^sk/sluzby/seo/$ https://www.weboptim.sk/sluzby/seo [R=301,L]
 RewriteRule ^sk/sluzby/tvorba-eshopu/$ https://www.weboptim.sk/sluzby/tvorba-eshopu [R=301,L]
 RewriteRule ^sk/sluzby/tvorba-webstranok/$ https://www.weboptim.sk/sluzby/tvorba-webstranok [R=301,L]
+RewriteRule ^sk/services/ppc/$ https://www.weboptim.sk/sluzby/ppc [R=301,L]
 
 RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce/$ https://www.weboptim.eu/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
 RewriteRule ^the-best-e-commerce-solution-for-your-business-how-to-choose-the-right-one/$ https://www.weboptim.eu/the-best-e-commerce-solution-for-your-business-how-to-choose-the-right-one [R=301,L]
