@@ -80,6 +80,7 @@ RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce
 RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce/$ https://www.weboptim.eu/blog/star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce [R=301,L]
 
 RewriteRule ^services/building-a-website/$ https://www.weboptim.eu/services/building-website [R=301,L]
+RewriteRule ^services/building-a-website$ https://www.weboptim.eu/services/building-website [R=301,L]
 
 # Existing files/directories - don't rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
