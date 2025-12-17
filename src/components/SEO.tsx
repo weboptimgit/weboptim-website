@@ -511,18 +511,10 @@ const SEO = ({ titleKey, descriptionKey, title, description, image, article = fa
     // Basic meta
     setMeta("description", finalDescription);
 
-    document.querySelectorAll('meta[name="robots"]').forEach(m => m.remove());
-    document.querySelectorAll('meta[name="googlebot"]').forEach(m => m.remove());
-
-    const robots = document.createElement("meta");
-    robots.name = "robots";
-    robots.content = "noindex, nofollow";
-    document.head.appendChild(robots);
-
-    const googlebot = document.createElement("meta");
-    googlebot.name = "googlebot";
-    googlebot.content = "noindex, nofollow";
-    document.head.appendChild(googlebot);
+    // Robots meta - respect noindex prop
+    const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
+    setMeta("robots", robotsContent);
+    setMeta("googlebot", robotsContent);
 
     // Open Graph
     setMeta("og:title", finalTitle, true);
