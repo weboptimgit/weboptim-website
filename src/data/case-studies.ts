@@ -115,7 +115,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
 
         testimonial: {
           quote:
-            "Mobilno now feels like a real product. The platform is structured, fast, and ready to scale — providers can onboard easily and customers find what they need without friction.",
+            "",
           author: "Peter Gáborík",
           role: "Founder, Mobilno",
           avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
@@ -182,8 +182,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
 
         testimonial: {
-          quote:
-            "Mobilno teď působí jako skutečný produkt. Platforma je strukturovaná, rychlá a připravená škálovat — poskytovatelé se jednoduše onboardují a zákazníci najdou, co potřebují, bez zbytečného tření.",
+          quote: "",
           author: "Peter Gáborík",
           role: "Founder, Mobilno",
           avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
@@ -250,8 +249,7 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         ],
 
         testimonial: {
-          quote:
-            "Mobilno teraz pôsobí ako reálny produkt. Platforma je štruktúrovaná, rýchla a pripravená škálovať — poskytovatelia sa jednoducho onboardujú a zákazníci nájdu, čo potrebujú, bez zbytočného trenia.",
+          quote: "",
           author: "Peter Gáborík",
           role: "Founder, Mobilno",
           avatar: "https://www.weboptim.eu/wp-content/uploads/2022/06/IMG_0631.jpg",
