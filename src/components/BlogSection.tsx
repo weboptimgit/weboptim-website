@@ -63,10 +63,13 @@ const BlogSection = () => {
               opts={{
                 align: "start",
                 loop: true,
+                dragFree: true,
+                containScroll: "trimSnaps",
+                duration: 20,
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-2">
+              <CarouselContent className="-ml-2" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
                 {latestPosts.map((post) => (
                   <CarouselItem key={post.slug} className="pl-2 basis-[85%]">
                     <Link

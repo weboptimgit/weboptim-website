@@ -83,10 +83,13 @@ const Portfolio = () => {
               opts={{
                 align: "start",
                 loop: true,
+                dragFree: true,
+                containScroll: "trimSnaps",
+                duration: 20,
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-2">
+              <CarouselContent className="-ml-2" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
                 {projects6.map((project) => {
                   const tags = project.tags ?? [];
                   const image = project.image ?? "";
