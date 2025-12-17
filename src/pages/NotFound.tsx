@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import AnimatedMascot from "@/components/AnimatedMascot";
-import mascotSleeping from "@/assets/mascot-sleeping.png";
+import mascotSleeping from "@/assets/mascot-sleeping-transparent.png";
 import SEO from "@/components/SEO";
 
 const NotFound = () => {
