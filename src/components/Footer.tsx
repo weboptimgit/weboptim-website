@@ -30,6 +30,7 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
                   aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-300"
                 >
