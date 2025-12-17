@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,13 +16,7 @@ const CTA = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="glass-strong rounded-3xl p-12 md:p-16 text-center max-w-4xl mx-auto"
-        >
+        <div className="animate-fade-in-up glass-strong rounded-3xl p-12 md:p-16 text-center max-w-4xl mx-auto">
           {/* Icon */}
           <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-8 shadow-[0_0_40px_hsl(var(--cyan)/0.3)]">
             <Mail className="w-8 h-8 text-primary-foreground" />
@@ -63,8 +56,7 @@ const CTA = () => {
               {email}
             </a>
           </p>
-
-        </motion.div>
+        </div>
       </div>
     </section>
   );
