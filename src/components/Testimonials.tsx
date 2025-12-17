@@ -147,9 +147,9 @@ const Testimonials = () => {
                 align: "start",
                 loop: true,
               }}
-              className="w-full"
+              className="w-full overflow-visible"
             >
-              <CarouselContent className="-ml-2">
+              <CarouselContent className="-ml-2 pt-6 pl-4">
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem key={index} className="pl-2 basis-[85%]">
                     <div className="glass rounded-2xl p-8 relative group hover:border-primary/30 transition-all duration-300 h-full">
