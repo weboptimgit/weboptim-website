@@ -32,17 +32,18 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-24 relative overflow-hidden">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text column (same pattern as Blog/Portfolio fixed) */}
+          {/* Text column */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.35 }}
+            style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
           >
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
               {t("about.badge")}
@@ -71,31 +72,44 @@ const About = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             className="grid grid-cols-2 gap-4"
+            style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
           >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </div>
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
 
-                <h3 className="font-display font-semibold text-foreground mb-2">
-                  {feature.title}
-                </h3>
+              return (
+                // ✅ motion wrapper WITHOUT glass
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: 0.12 + index * 0.08,
+                  }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  style={{ willChange: "transform, opacity", transform: "translate3d(0,0,0)" }}
+                >
+                  {/* ✅ glass is STATIC div (prevents flicker) */}
+                  <div className="glass rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
 
-                <p className="text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
+                    <h3 className="font-display font-semibold text-foreground mb-2">
+                      {feature.title}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
