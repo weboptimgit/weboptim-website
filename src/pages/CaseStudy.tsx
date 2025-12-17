@@ -446,36 +446,38 @@ const CaseStudy = () => {
         )}
 
         {/* Testimonial Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <div className="glass rounded-3xl p-8 md:p-12 relative">
-                <div className="text-6xl text-primary/20 font-serif absolute top-6 left-8">"</div>
-                <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 relative z-10">
-                  {study.testimonial.quote}
-                </blockquote>
+        {study.testimonial.quote && study.testimonial.quote.trim() !== "" && (
+          <section className="py-16">
+            <div className="container mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="max-w-4xl mx-auto text-center"
+              >
+                <div className="glass rounded-3xl p-8 md:p-12 relative">
+                  <div className="text-6xl text-primary/20 font-serif absolute top-6 left-8">"</div>
+                  <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 relative z-10">
+                    {study.testimonial.quote}
+                  </blockquote>
 
-                <div className="flex items-center justify-center gap-4">
-                  <img
-                    src={study.testimonial.avatar}
-                    alt={study.testimonial.author}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
-                  <div className="text-left">
-                    <div className="font-display font-bold text-foreground">{study.testimonial.author}</div>
-                    <div className="text-muted-foreground">{study.testimonial.role}</div>
+                  <div className="flex items-center justify-center gap-4">
+                    <img
+                      src={study.testimonial.avatar}
+                      alt={study.testimonial.author}
+                      className="w-14 h-14 rounded-full object-cover"
+                    />
+                    <div className="text-left">
+                      <div className="font-display font-bold text-foreground">{study.testimonial.author}</div>
+                      <div className="text-muted-foreground">{study.testimonial.role}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+              </motion.div>
+            </div>
+          </section>
+        )}
 
         {/* CTA Section */}
         <section className="py-16">
