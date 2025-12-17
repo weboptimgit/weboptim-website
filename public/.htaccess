@@ -41,6 +41,8 @@ RewriteRule ^cz/sluzby/tvorba-webstranek/$ https://www.weboptim.cz/sluzby/tvorba
 RewriteRule ^cz/services/ecommerce-website/$ https://www.weboptim.cz/sluzby/tvorba-eshopu [R=301,L]
 RewriteRule ^cz/services/building-a-website/$ https://www.weboptim.cz/sluzby/tvorba-webstranek [R=301,L]
 RewriteRule ^cz/services/digitalization-and-automation/$ https://www.weboptim.cz/sluzby/digitalizace-a-automatizace-procesu [R=301,L]
+RewriteRule ^nejlepsi-eshopove-reseni-pro-vas-byznys-jak-si-vybrat-to-prave$ https://www.weboptim.cz/blog/nejlepsi-eshopove-reseni-pro-vas-byznys-jak-si-vybrat-to-prave [R=301,L]
+
 
 RewriteRule ^services/$ https://www.weboptim.eu/services [R=301,L]
 RewriteRule ^services/building-a-website/$ https://www.weboptim.eu/services/building-website [R=301,L]
