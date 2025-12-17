@@ -7,9 +7,9 @@ import { caseStudiesData } from "../src/data/case-studies";
 import { staticPageSlugs, serviceDetailSlugs } from "../src/config/domains";
 
 const domains = {
-  EN: "https://test.weboptim.eu",
-  CZ: "https://test.weboptim.cz",
-  SK: "https://test.weboptim.sk",
+  EN: "https://www.weboptim.eu",
+  CZ: "https://www.weboptim.cz",
+  SK: "https://www.weboptim.sk",
 } as const;
 
 type Lang = keyof typeof domains;
