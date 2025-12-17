@@ -1,13 +1,12 @@
-import { Github, Twitter, Linkedin, Instagram, Star } from "lucide-react";
+import { Github, Twitter, Linkedin, Instagram, Star, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoWeboptim from "@/assets/logo-weboptim.svg";
 import { useFooterLang } from "@/contexts/LanguageFooter";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/weboptim/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/weboptim.eu/", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/weboptim.eu/", label: "Facebook" },
 ];
 
 const Footer = () => {
