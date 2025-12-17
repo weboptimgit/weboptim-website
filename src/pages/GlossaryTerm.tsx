@@ -71,7 +71,7 @@ const GlossaryTerm = () => {
   return (
     <>
       <SEO
-        title={`${content.term} - Definition | WebOptim Glossary`}
+        title={`${content.term} - ${t.definition} | WebOptim ${t.glossary}`}
         description={content.shortDefinition}
         jsonLd={jsonLd}
       />

@@ -21,6 +21,7 @@ export const glossaryTranslations = {
     },
     // GlossaryTerm page
     glossary: "Glossary",
+    definition: "Definition",
     backToGlossary: "Back to Glossary",
     whatIs: "What is",
     whyItMatters: "Why It Matters",
@@ -53,6 +54,7 @@ export const glossaryTranslations = {
     },
     // GlossaryTerm page
     glossary: "Slovník",
+    definition: "Definice",
     backToGlossary: "Zpět na slovník",
     whatIs: "Co je",
     whyItMatters: "Proč na tom záleží",
@@ -85,6 +87,7 @@ export const glossaryTranslations = {
     },
     // GlossaryTerm page
     glossary: "Slovník",
+    definition: "Definícia",
     backToGlossary: "Späť na slovník",
     whatIs: "Čo je",
     whyItMatters: "Prečo na tom záleží",
