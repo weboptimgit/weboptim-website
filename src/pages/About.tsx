@@ -76,7 +76,7 @@ const AboutInner = () => {
       key: "martin",
       name: "Martin Varga",
       role: ta("about.team.martin.role"),
-      image: "/img/weboptim-martin.jpeg",
+      image: "/img/weboptim-martin-2.jpeg",
       bio: ta("about.team.martin.bio"),
       linkedin: "#",
       email: "varga@weboptim.eu",
