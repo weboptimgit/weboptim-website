@@ -711,7 +711,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    return translations[language][key] ?? key;
   };
 
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
