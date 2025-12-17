@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { blogPostsData, categorySlugTranslations } from "../src/data/blog-posts";
+import { blogPostsData, categorySlugTranslations, getAuthorSlug } from "../src/data/blog-posts";
 import { glossaryTermsData } from "../src/data/glossary-terms";
 import { caseStudiesData } from "../src/data/case-studies";
 import { staticPageSlugs, serviceDetailSlugs } from "../src/config/domains";
@@ -156,8 +156,29 @@ const blogCategoryEntries =
     : (console.log("⚠️ staticPageSlugs.blog is missing for categories"), []);
 
 /* --------------------------
-   3) SERVICES (detail pages)
+   2c) BLOG AUTHORS
 --------------------------- */
+
+// Get unique authors from blog posts
+const uniqueAuthors = [...new Set(blogPostsData.map((post) => post.author))];
+
+const blogAuthorEntries =
+  staticPageSlugs.blog?.EN && staticPageSlugs.blog?.CZ && staticPageSlugs.blog?.SK
+    ? uniqueAuthors
+        .map((author) => {
+          const authorSlug = getAuthorSlug(author);
+          if (!authorSlug) return null;
+
+          // Author pages use same slug across all languages (author/slug format)
+          return urlEntry({
+            EN: joinPath(staticPageSlugs.blog.EN, `author/${authorSlug}`),
+            CZ: joinPath(staticPageSlugs.blog.CZ, `author/${authorSlug}`),
+            SK: joinPath(staticPageSlugs.blog.SK, `author/${authorSlug}`),
+          });
+        })
+        .filter(Boolean) as string[]
+    : (console.log("⚠️ staticPageSlugs.blog is missing for authors"), []);
+
 
 const servicesEntries =
   staticPageSlugs.services?.EN && staticPageSlugs.services?.CZ && staticPageSlugs.services?.SK
@@ -242,7 +263,7 @@ const caseStudiesPath = path.join(outDir, "sitemap-case-studies.xml");
 const indexPath = path.join(outDir, "sitemap.xml");
 
 fs.writeFileSync(pagesPath, wrapUrlset(pagesEntries), "utf8");
-fs.writeFileSync(blogPath, wrapUrlset([...blogCategoryEntries, ...blogEntries]), "utf8");
+fs.writeFileSync(blogPath, wrapUrlset([...blogCategoryEntries, ...blogAuthorEntries, ...blogEntries]), "utf8");
 fs.writeFileSync(servicesPath, wrapUrlset(servicesEntries), "utf8");
 fs.writeFileSync(glossaryPath, wrapUrlset(glossaryEntries), "utf8");
 fs.writeFileSync(caseStudiesPath, wrapUrlset(caseStudiesEntries), "utf8");
@@ -262,7 +283,7 @@ fs.writeFileSync(
 
 console.log(`✅ Sitemaps generated:`);
 console.log(`   - sitemap-pages.xml (${pagesEntries.length} URLs)`);
-console.log(`   - sitemap-blog.xml (${blogCategoryEntries.length} categories + ${blogEntries.length} posts)`);
+console.log(`   - sitemap-blog.xml (${blogCategoryEntries.length} categories + ${blogAuthorEntries.length} authors + ${blogEntries.length} posts)`);
 console.log(`   - sitemap-services.xml (${servicesEntries.length} URLs)`);
 console.log(`   - sitemap-glossary.xml (${glossaryEntries.length} URLs)`);
 console.log(`   - sitemap-case-studies.xml (${caseStudiesEntries.length} URLs)`);
