@@ -1,3 +1,5 @@
+import { Rocket, Sparkles, Zap, Globe } from "lucide-react";
+
 const SocialPostCreator = () => {
   return (
     <div className="min-h-screen bg-background py-12 px-4">
@@ -17,50 +19,74 @@ const SocialPostCreator = () => {
               id="social-post"
               className="w-full h-full flex flex-col items-center justify-center p-16 relative"
               style={{
-                background: 'linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%)'
+                background: 'linear-gradient(145deg, #0a0a0f 0%, #0d0d14 40%, #12101a 100%)'
               }}
             >
               {/* Colored gradient blurs */}
               <div 
-                className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-40"
+                className="absolute -top-20 -left-20 w-[600px] h-[600px] rounded-full blur-[150px] opacity-50"
                 style={{ background: '#42c8f2' }}
               />
               <div 
-                className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[150px] opacity-30"
-                style={{ background: '#7287c3' }}
+                className="absolute -bottom-20 -right-20 w-[700px] h-[700px] rounded-full blur-[180px] opacity-40"
+                style={{ background: '#7b5fc7' }}
               />
               <div 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[100px] opacity-20"
-                style={{ background: '#42c8f2' }}
+                className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full blur-[100px] opacity-30"
+                style={{ background: '#a855f7' }}
               />
 
-              {/* Glass Card */}
-              <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-16 max-w-3xl shadow-2xl">
+              {/* Floating icons */}
+              <div className="absolute top-24 left-24 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                <Rocket className="w-10 h-10 text-[#42c8f2]" />
+              </div>
+              <div className="absolute top-32 right-32 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                <Sparkles className="w-10 h-10 text-[#a855f7]" />
+              </div>
+              <div className="absolute bottom-40 left-32 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                <Zap className="w-10 h-10 text-[#7b5fc7]" />
+              </div>
+              <div className="absolute bottom-32 right-24 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                <Globe className="w-10 h-10 text-[#42c8f2]" />
+              </div>
+
+              {/* Main Content */}
+              <div className="relative z-10 text-center max-w-3xl">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-3 rounded-full mb-10">
+                  <Sparkles className="w-5 h-5 text-[#a855f7]" />
+                  <span className="text-white/80 font-medium">Novinka 2025</span>
+                </div>
+
                 {/* Logo */}
                 <div className="flex justify-center mb-10">
                   <img 
                     src="/img/weboptim-profile-pic.png" 
                     alt="WebOptim Logo" 
-                    className="w-32 h-32 rounded-full shadow-xl ring-4 ring-white/20"
+                    className="w-28 h-28 rounded-full shadow-xl ring-4 ring-white/10"
                   />
                 </div>
                 
                 {/* Heading */}
                 <h2 
-                  className="text-5xl font-display font-bold text-center mb-6 leading-tight"
+                  className="text-6xl font-display font-bold text-center mb-8 leading-tight"
                   style={{
-                    background: 'linear-gradient(135deg, #42c8f2 0%, #7287c3 100%)',
+                    background: 'linear-gradient(135deg, #42c8f2 0%, #a855f7 50%, #7b5fc7 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text'
                   }}
                 >
-                  Váš web môže byť<br />rýchlejší a krajší
+                  Máme nový web!
                 </h2>
                 
                 {/* Subtext */}
-                <p className="text-xl text-white/70 text-center leading-relaxed">
-                  Profesionálny web development, SEO optimalizácia a digitálny marketing pre váš biznis.
+                <p className="text-2xl text-white/70 text-center leading-relaxed mb-4">
+                  Nový kabát, rýchlejší načítanie<br />a moderný dizajn pre lepší zážitok.
+                </p>
+
+                <p className="text-lg text-white/50 text-center">
+                  🚀 Rýchlosť • ✨ Dizajn • 💡 UX
                 </p>
               </div>
               
@@ -71,7 +97,12 @@ const SocialPostCreator = () => {
                 >
                   <span 
                     className="text-xl font-semibold"
-                    style={{ color: '#42c8f2' }}
+                    style={{ 
+                      background: 'linear-gradient(90deg, #42c8f2, #a855f7)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
                   >
                     weboptim.eu
                   </span>
