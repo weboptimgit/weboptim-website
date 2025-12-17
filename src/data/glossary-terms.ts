@@ -28,6 +28,197 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  funnel: {
+  slugs: { EN: "marketing-funnel", CZ: "marketingovy-trychtyr", SK: "marketingovy-lievik" },
+  category: "Marketing",
+  relatedTerms: ["Lead", "Conversion", "CTA", "Retargeting"],
+  resources: [
+    { title: "HubSpot: Marketing Funnel", url: "https://blog.hubspot.com/marketing/marketing-funnel" }
+  ],
+  content: {
+    SK: {
+      term: "Marketingový lievik (Funnel)",
+      shortDefinition: "Cesta zákazníka k nákupu",
+      fullDefinition:
+        "Marketingový lievik opisuje jednotlivé fázy, ktorými prechádza zákazník od prvého kontaktu so značkou až po uskutočnenie nákupu. Zahŕňa fázy ako povedomie, záujem, zvažovanie, rozhodovanie a konverzia. Každá fáza vyžaduje iný typ obsahu a komunikácie. Funnel pomáha pochopiť správanie zákazníkov a optimalizovať marketingové aktivity. Je dôležitým nástrojom strategického marketingu.",
+      examples: [
+        "Blogový článok → formulár → predaj.",
+        "Reklama → landing page → dopyt.",
+        "Newsletter → zľava → nákup.",
+        "Remarketing pre nerozhodnutých.",
+        "Obsah prispôsobený rôznym fázam lievika."
+      ],
+      whyItMatters:
+        "Marketingový lievik umožňuje cielene komunikovať v každej fáze rozhodovania. Pomáha zvyšovať konverzie a znižovať straty potenciálnych zákazníkov. Umožňuje lepšie plánovanie obsahu, reklám a kampaní. Pre firmy predstavuje systematický prístup k rastu."
+    },
+    EN: {
+      term: "Marketing Funnel",
+      shortDefinition: "Customer journey to purchase",
+      fullDefinition:
+        "A marketing funnel describes the stages a customer goes through from first awareness to conversion. Each stage requires different messaging and content.",
+      examples: [
+        "Ad → landing page → conversion."
+      ],
+      whyItMatters:
+        "Funnels help optimize marketing and increase conversions."
+    },
+    CZ: {
+      term: "Marketingový trychtýř",
+      shortDefinition: "Cesta zákazníka k nákupu",
+      fullDefinition:
+        "Marketingový trychtýř popisuje jednotlivé fáze rozhodování zákazníka.",
+      examples: [
+        "Obsah → formulář → nákup."
+      ],
+      whyItMatters:
+        "Umožňuje cílenou komunikaci."
+    }
+  }
+},
+
+adMetrics: {
+  slugs: { EN: "cpc-cpm-ctr", CZ: "cpc-cpm-ctr", SK: "cpc-cpm-ctr" },
+  category: "Marketing",
+  relatedTerms: ["PPC", "Ads", "Conversion", "Analytics"],
+  resources: [
+    { title: "Google Ads Metrics Explained", url: "https://support.google.com/google-ads/answer/6320" }
+  ],
+  content: {
+    SK: {
+      term: "CPC / CPM / CTR",
+      shortDefinition: "Základné metriky online reklamy",
+      fullDefinition:
+        "CPC (Cost Per Click) znamená cenu za jeden klik na reklamu, CPM (Cost Per Mille) cenu za tisíc zobrazení reklamy a CTR (Click Through Rate) mieru preklikov. Tieto metriky sa používajú na vyhodnocovanie výkonnosti online reklamných kampaní. Každá z nich sleduje iný aspekt reklamy – cenu, dosah alebo záujem používateľov. Spoločne poskytujú komplexný pohľad na efektivitu reklamy.",
+      examples: [
+        "Sledovanie ceny za klik v Google Ads.",
+        "Porovnanie CTR rôznych reklám.",
+        "Optimalizácia bannerových kampaní.",
+        "Testovanie reklamných textov.",
+        "Vyhodnotenie návratnosti investícií."
+      ],
+      whyItMatters:
+        "Tieto metriky umožňujú optimalizovať rozpočet a výkon kampaní. Pomáhajú identifikovať slabé miesta reklám a robiť rozhodnutia na základe dát. Pre firmy znamenajú lepšiu kontrolu nákladov a vyššiu efektivitu marketingu."
+    },
+    EN: {
+      term: "CPC / CPM / CTR",
+      shortDefinition: "Core ad performance metrics",
+      fullDefinition:
+        "CPC, CPM, and CTR are key advertising metrics used to evaluate ad performance.",
+      examples: [
+        "Ad cost tracking."
+      ],
+      whyItMatters:
+        "They guide budget and optimization decisions."
+    },
+    CZ: {
+      term: "CPC / CPM / CTR",
+      shortDefinition: "Základní metriky reklamy",
+      fullDefinition:
+        "Metriky používané k hodnocení výkonu online reklamy.",
+      examples: [
+        "Vyhodnocení kampaní."
+      ],
+      whyItMatters:
+        "Pomáhají optimalizovat náklady."
+    }
+  }
+},
+
+socialProof: {
+  slugs: { EN: "social-proof", CZ: "socialni-dukaz", SK: "socialny-dokaz" },
+  category: "Marketing",
+  relatedTerms: ["Branding", "Conversion", "Reviews", "Trust"],
+  resources: [
+    { title: "Cialdini: Social Proof", url: "https://www.influenceatwork.com/what-is-social-proof/" }
+  ],
+  content: {
+    SK: {
+      term: "Sociálny dôkaz",
+      shortDefinition: "Dôkaz dôveryhodnosti",
+      fullDefinition:
+        "Sociálny dôkaz je psychologický princíp, pri ktorom sa ľudia rozhodujú na základe správania iných. V marketingu ide o recenzie, hodnotenia, referencie, prípadové štúdie alebo počty zákazníkov. Ukazuje, že produkt alebo služba sú overené a používané. Znižuje obavy nových zákazníkov a zvyšuje dôveru.",
+      examples: [
+        "Hodnotenia používateľov.",
+        "Recenzie zákazníkov.",
+        "Počty objednávok.",
+        "Logá partnerov.",
+        "Prípadové štúdie."
+      ],
+      whyItMatters:
+        "Sociálny dôkaz výrazne zvyšuje dôveru a konverzie. Pomáha prekonať váhanie pred nákupom a posilňuje reputáciu značky. Ide o jeden z najsilnejších presviedčacích nástrojov v marketingu."
+    },
+    EN: {
+      term: "Social Proof",
+      shortDefinition: "Trust validation",
+      fullDefinition:
+        "Social proof is a psychological principle where people follow the actions of others.",
+      examples: [
+        "Customer reviews."
+      ],
+      whyItMatters:
+        "It increases trust and conversions."
+    },
+    CZ: {
+      term: "Sociální důkaz",
+      shortDefinition: "Důkaz důvěryhodnosti",
+      fullDefinition:
+        "Sociální důkaz ovlivňuje rozhodování zákazníků.",
+      examples: [
+        "Recenze."
+      ],
+      whyItMatters:
+        "Zvyšuje důvěru."
+    }
+  }
+},
+
+influencerMarketing: {
+  slugs: { EN: "influencer-marketing", CZ: "influencer-marketing", SK: "influencer-marketing" },
+  category: "Marketing",
+  relatedTerms: ["Branding", "Social Media", "Reach", "Engagement"],
+  resources: [
+    { title: "HubSpot: Influencer Marketing", url: "https://blog.hubspot.com/marketing/influencer-marketing" }
+  ],
+  content: {
+    SK: {
+      term: "Influencer marketing",
+      shortDefinition: "Marketing cez osobnosti",
+      fullDefinition:
+        "Influencer marketing je forma marketingu založená na spolupráci so známymi osobnosťami alebo tvorcami obsahu, ktorí majú vybudované publikum a dôveru. Značka využíva ich dosah na propagáciu produktov alebo služieb. Ide o autentickejšiu formu reklamy, najmä na sociálnych sieťach. Influencer marketing kombinuje dosah, dôveru a osobnú skúsenosť.",
+      examples: [
+        "Spolupráca s lokálnym influencerom.",
+        "Recenzné videá.",
+        "Sponzorované príspevky.",
+        "Dlhodobé ambasádorstvo.",
+        "Propagácia služieb cez sociálne siete."
+      ],
+      whyItMatters:
+        "Influencer marketing umožňuje osloviť cieľové publikum prirodzeným spôsobom. Zvyšuje dôveru v značku, angažovanosť a povedomie. Pre firmy predstavuje efektívny doplnok marketingového mixu."
+    },
+    EN: {
+      term: "Influencer Marketing",
+      shortDefinition: "Marketing through creators",
+      fullDefinition:
+        "Influencer marketing leverages creators with established audiences to promote brands.",
+      examples: [
+        "Sponsored posts."
+      ],
+      whyItMatters:
+        "It builds trust and reach."
+    },
+    CZ: {
+      term: "Influencer marketing",
+      shortDefinition: "Marketing přes influencery",
+      fullDefinition:
+        "Marketing založený na spolupráci s tvůrci obsahu.",
+      examples: [
+        "Sponzorované příspěvky."
+      ],
+      whyItMatters:
+        "Zvyšuje dosah a důvěru."
+    }
+  }
+},
   metaDescription: {
   slugs: { EN: "meta-description", CZ: "meta-description", SK: "meta-description" },
   category: "Marketing",
