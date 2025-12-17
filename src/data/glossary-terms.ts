@@ -28,6 +28,173 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  copywriting: {
+  slugs: { EN: "copywriting", CZ: "copywriting", SK: "copywriting" },
+  category: "Marketing",
+  relatedTerms: ["CTA", "Branding", "Conversion", "Content Marketing"],
+  resources: [
+    { title: "What Is Copywriting?", url: "https://copyblogger.com/what-is-copywriting/" }
+  ],
+  content: {
+    SK: {
+      term: "Copywriting",
+      shortDefinition: "Písanie presvedčivých textov",
+      fullDefinition:
+        "Copywriting je tvorba textov, ktorých cieľom je presvedčiť čitateľa k akcii. Nejde len o gramatiku, ale o psychológiu, emócie a štruktúru textu. Copywriter pracuje s nadpismi, benefitmi, výzvami k akcii a argumentmi. Texty musia byť zrozumiteľné, jasné a prispôsobené cieľovej skupine. Copywriting sa používa na weboch, v reklamách, e-mailoch aj na sociálnych sieťach.",
+      whyItMatters:
+        "Aj najkrajší web bez kvalitného textu nebude predávať. Dobrý copywriting zvyšuje konverzie a pomáha používateľovi rýchlo pochopiť hodnotu ponuky. Vytvára dôveru, odstraňuje obavy a odpovedá na otázky zákazníkov. Správne zvolené slová môžu výrazne ovplyvniť rozhodnutie o kúpe. Copywriting je preto jedným z najsilnejších nástrojov online marketingu.",
+      examples: [
+        "Texty na landing page zamerané na benefity.",
+        "Reklamné slogany a claimy.",
+        "E-mailové kampane s výzvou k akcii.",
+        "Popisy služieb a produktov.",
+        "CTA texty ako „Objednať teraz“."
+      ]
+    },
+    CZ: {
+      term: "Copywriting",
+      shortDefinition: "Psaní přesvědčivých textů",
+      fullDefinition:
+        "Copywriting je tvorba textů, jejichž cílem je přesvědčit čtenáře k akci. Nejde pouze o gramatiku, ale o psychologii, emoce a strukturu textu. Copywriter pracuje s nadpisy, benefity, výzvami k akci a argumenty. Texty musí být srozumitelné, jasné a přizpůsobené cílové skupině. Copywriting se používá na webech, v reklamách, e-mailech i na sociálních sítích.",
+      whyItMatters:
+        "Ani ten nejhezčí web bez kvalitního textu nebude prodávat. Dobrý copywriting zvyšuje konverze a pomáhá uživateli rychle pochopit hodnotu nabídky. Buduje důvěru, odstraňuje obavy a odpovídá na otázky zákazníků. Správně zvolená slova mohou výrazně ovlivnit rozhodnutí o nákupu. Copywriting je proto jedním z nejsilnějších nástrojů online marketingu.",
+      examples: [
+        "Texty na landing page zaměřené na benefity.",
+        "Reklamní slogany a claimy.",
+        "E-mailové kampaně s výzvou k akci.",
+        "Popisy služeb a produktů.",
+        "CTA texty jako „Objednat nyní“."
+      ]
+    },
+    EN: {
+      term: "Copywriting",
+      shortDefinition: "Persuasive writing",
+      fullDefinition:
+        "Copywriting is the creation of texts designed to persuade the reader to take action. It is not just about grammar, but about psychology, emotions, and text structure. A copywriter works with headlines, benefits, calls to action, and arguments. Texts must be clear, understandable, and tailored to the target audience. Copywriting is used on websites, in ads, emails, and on social media.",
+      whyItMatters:
+        "Even the most beautiful website will not sell without strong copy. Good copywriting increases conversions and helps users quickly understand the value of an offer. It builds trust, removes objections, and answers customer questions. The right choice of words can significantly influence purchasing decisions. Copywriting is therefore one of the most powerful tools in online marketing.",
+      examples: [
+        "Landing page texts focused on benefits.",
+        "Advertising slogans and taglines.",
+        "Email campaigns with a call to action.",
+        "Service and product descriptions.",
+        "CTA texts like “Order now”."
+      ]
+    }
+  }
+},
+
+retargeting: {
+  slugs: { EN: "retargeting", CZ: "retargeting", SK: "retargeting" },
+  category: "Marketing",
+  relatedTerms: ["PPC", "Conversion", "Funnel", "Remarketing"],
+  resources: [
+    { title: "What Is Retargeting?", url: "https://www.wordstream.com/retargeting" }
+  ],
+  content: {
+    SK: {
+      term: "Retargeting",
+      shortDefinition: "Opätovné oslovovanie návštevníkov",
+      fullDefinition:
+        "Retargeting je marketingová stratégia, pri ktorej sa reklamy zobrazujú ľuďom, ktorí už predtým navštívili web alebo interagovali so značkou. Funguje na základe cookies alebo používateľských identifikátorov, ktoré umožňujú sledovať správanie návštevníkov. Retargeting pripomína značku tým, ktorí prejavili záujem, ale ešte nevykonali požadovanú akciu. Tento typ reklamy je personalizovanejší než bežné kampane. Často sa využíva v kombinácii s PPC reklamou a sociálnymi sieťami.",
+      whyItMatters:
+        "Väčšina návštevníkov nekonvertuje pri prvej návšteve webu, a práve retargeting pomáha ich získať späť. Zvyšuje pravdepodobnosť konverzie, pretože oslovuje už „zahriate“ publikum. Pomáha udržať značku v povedomí používateľa počas rozhodovacieho procesu. Retargeting kampane sú často nákladovo efektívnejšie než kampane na úplne nové publikum. Pre firmy predstavuje silný nástroj na zvýšenie návratnosti investícií do marketingu.",
+      examples: [
+        "Reklama na službu, ktorú si používateľ prezeral, ale neobjednal.",
+        "Zobrazenie bannera po opustení e-shopu bez nákupu.",
+        "Retargetingová reklama na Facebooku pre návštevníkov webu.",
+        "Pripomienkový e-mail po nedokončenej rezervácii.",
+        "Dynamické reklamy zobrazujúce konkrétne produkty."
+      ]
+    },
+    CZ: {
+      term: "Retargeting",
+      shortDefinition: "Opětovné oslovování návštěvníků",
+      fullDefinition:
+        "Retargeting je marketingová strategie, při které se reklamy zobrazují lidem, kteří již dříve navštívili web nebo interagovali se značkou. Funguje na základě cookies nebo uživatelských identifikátorů, které umožňují sledovat chování návštěvníků. Retargeting připomíná značku těm, kteří projevili zájem, ale ještě nevykonali požadovanou akci. Tento typ reklamy je personalizovanější než běžné kampaně. Často se využívá v kombinaci s PPC reklamou a sociálními sítěmi.",
+      whyItMatters:
+        "Většina návštěvníků nekonvertuje při první návštěvě webu a právě retargeting pomáhá je získat zpět. Zvyšuje pravděpodobnost konverze, protože oslovuje již „zahřáté“ publikum. Pomáhá udržet značku v povědomí uživatele během rozhodovacího procesu. Retargetingové kampaně jsou často nákladově efektivnější než kampaně na zcela nové publikum. Pro firmy představuje silný nástroj ke zvýšení návratnosti investic do marketingu.",
+      examples: [
+        "Reklama na službu, kterou si uživatel prohlížel, ale neobjednal.",
+        "Zobrazení banneru po opuštění e-shopu bez nákupu.",
+        "Retargetingová reklama na Facebooku pro návštěvníky webu.",
+        "Připomínkový e-mail po nedokončené rezervaci.",
+        "Dynamické reklamy zobrazující konkrétní produkty."
+      ]
+    },
+    EN: {
+      term: "Retargeting",
+      shortDefinition: "Re-engaging previous visitors",
+      fullDefinition:
+        "Retargeting is a marketing strategy in which ads are shown to people who have previously visited a website or interacted with a brand. It works using cookies or user identifiers that track visitor behavior. Retargeting reminds the brand to users who showed interest but did not complete a desired action. This type of advertising is more personalized than standard campaigns. It is often used in combination with PPC advertising and social media.",
+      whyItMatters:
+        "Most visitors do not convert on their first visit, and retargeting helps bring them back. It increases conversion likelihood by targeting already “warm” audiences. It keeps the brand top of mind during the decision-making process. Retargeting campaigns are often more cost-effective than campaigns targeting completely new audiences. For businesses, it is a powerful tool to increase marketing ROI.",
+      examples: [
+        "Ads for a service a user viewed but did not purchase.",
+        "Displaying banners after leaving an e-shop without buying.",
+        "Facebook retargeting ads for website visitors.",
+        "Reminder emails after an incomplete booking.",
+        "Dynamic ads showing specific products."
+      ]
+    }
+  }
+},
+
+marketingAutomation: {
+  slugs: { EN: "marketing-automation", CZ: "marketingova-automatizace", SK: "marketingova-automatizacia" },
+  category: "Marketing",
+  relatedTerms: ["Leads", "CRM", "Email Marketing", "Funnel"],
+  resources: [
+    { title: "What Is Marketing Automation?", url: "https://www.salesforce.com/marketing/marketing-automation/" }
+  ],
+  content: {
+    SK: {
+      term: "Marketingová automatizácia",
+      shortDefinition: "Automatizované marketingové procesy",
+      fullDefinition:
+        "Marketingová automatizácia je využívanie nástrojov a softvéru na automatické vykonávanie marketingových úloh. Zahŕňa automatické e-maily, segmentáciu kontaktov, lead nurturing a spúšťanie kampaní na základe správania používateľov. Automatizácia umožňuje personalizovať komunikáciu bez manuálneho zásahu. Používa sa najmä pri práci s leadmi a zákazníkmi v rôznych fázach nákupného procesu. Je bežnou súčasťou moderného digitálneho marketingu.",
+      whyItMatters:
+        "Marketingová automatizácia šetrí čas a znižuje manuálnu prácu marketingových tímov. Zvyšuje efektivitu kampaní tým, že správu posiela správnemu človeku v správnom čase. Pomáha budovať dlhodobý vzťah so zákazníkmi prostredníctvom konzistentnej komunikácie. Zvyšuje kvalitu leadov a podporuje predajný proces. Firmám umožňuje škálovať marketing bez dramatického zvyšovania nákladov.",
+      examples: [
+        "Automatické uvítacie e-maily po registrácii.",
+        "Séria e-mailov po stiahnutí e-booku.",
+        "Automatické pripomenutie rezervácie služby.",
+        "Segmentácia kontaktov podľa správania.",
+        "Prepojenie marketingu s CRM systémom."
+      ]
+    },
+    CZ: {
+      term: "Marketingová automatizace",
+      shortDefinition: "Automatizované marketingové procesy",
+      fullDefinition:
+        "Marketingová automatizace je využívání nástrojů a softwaru pro automatické provádění marketingových úkolů. Zahrnuje automatické e-maily, segmentaci kontaktů, lead nurturing a spouštění kampaní na základě chování uživatelů. Automatizace umožňuje personalizovat komunikaci bez manuálního zásahu. Používá se zejména při práci s leady a zákazníky v různých fázích nákupního procesu. Je běžnou součástí moderního digitálního marketingu.",
+      whyItMatters:
+        "Marketingová automatizace šetří čas a snižuje manuální práci marketingových týmů. Zvyšuje efektivitu kampaní tím, že doručuje správnou zprávu správnému člověku ve správný čas. Pomáhá budovat dlouhodobé vztahy se zákazníky prostřednictvím konzistentní komunikace. Zvyšuje kvalitu leadů a podporuje prodejní proces. Firmám umožňuje škálovat marketing bez dramatického zvyšování nákladů.",
+      examples: [
+        "Automatické uvítací e-maily po registraci.",
+        "Série e-mailů po stažení e-booku.",
+        "Automatické připomenutí rezervace služby.",
+        "Segmentace kontaktů podle chování.",
+        "Propojení marketingu s CRM systémem."
+      ]
+    },
+    EN: {
+      term: "Marketing Automation",
+      shortDefinition: "Automated marketing processes",
+      fullDefinition:
+        "Marketing automation is the use of tools and software to automatically execute marketing tasks. It includes automated emails, contact segmentation, lead nurturing, and campaign triggers based on user behavior. Automation enables personalized communication without manual intervention. It is mainly used when working with leads and customers at different stages of the buying process. It is a standard component of modern digital marketing.",
+      whyItMatters:
+        "Marketing automation saves time and reduces manual workload for marketing teams. It increases campaign efficiency by delivering the right message to the right person at the right time. It helps build long-term customer relationships through consistent communication. It improves lead quality and supports the sales process. For companies, it enables marketing scalability without dramatically increasing costs.",
+      examples: [
+        "Automated welcome emails after registration.",
+        "Email sequences after downloading an e-book.",
+        "Automatic service booking reminders.",
+        "Behavior-based contact segmentation.",
+        "Integration of marketing tools with CRM systems."
+      ]
+    }
+  }
+},
   branding: {
   slugs: { EN: "branding", CZ: "branding", SK: "branding" },
   category: "Marketing",
