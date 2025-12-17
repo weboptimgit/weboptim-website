@@ -326,7 +326,7 @@ export const blogPostsData: BlogPostData[] = [
           ],
         },
         CZ: {
-          slug: "hvezdne-recenze-hveznde-trzby-sila-zakaznickych-ohlasu-v-ecommerce",
+          slug: "hvezdne-recenze-hvezdne-trzby-sila-zakaznickych-ohlasu-v-ecommerce",
           title: "Hvězdné recenze, hvězdné tržby: Síla zákaznických recenzí v e-shopu",
           excerpt:
             "V digitálním světě plném možností, kde chybí fyzický kontakt s produktem či prodejcem, recenze nahrazují osobní zkušenost a stávají se mostem důvěry mezi značkou a spotřebitelem. Proč jsou recenze v online prostředí tak důležité, jaké výzvy přinášejí a jak je efektivně využít pro růst podnikání?",
