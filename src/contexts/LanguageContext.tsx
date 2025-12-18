@@ -108,11 +108,10 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.googleLink": "View more reviews on Google",
     "testimonials.1.name": "Martin Vokálek",
     "testimonials.1.role": "",
-    "testimonials.1.quote": "The collaboration with Mr. Gáborík and his team on the new website of our institution worked great, we clarified everything, set it up, and the final price corresponded to the agreed one. After experience with the creation of various other websites, this is really not a given and I appreciate it very much.",    "testimonials.2.role": "",
+    "testimonials.1.quote": "The collaboration with Mr. Gáborík and his team on the new website of our institution worked great, we clarified everything, set it up, and the final price corresponded to the agreed one. After experience with the creation of various other websites, this is really not a given and I appreciate it very much.",
     "testimonials.2.name": "Jitka Jakimeczková",
     "testimonials.2.role": "",
-    "testimonials.2.quote": 
-      "Working with Weboptim was one of the best experiences I've had. Great communication from the beginning, understanding of my vision, and willingness to fine-tune every detail exactly according to my ideas. Not only did they do everything quickly, but also with complete precision and a sense of aesthetics. Thank you very much for your patience, ideas, and for that.",    "testimonials.3.role": "",
+    "testimonials.2.quote": "Working with Weboptim was one of the best experiences I've had. Great communication from the beginning, understanding of my vision, and willingness to fine-tune every detail exactly according to my ideas. Not only did they do everything quickly, but also with complete precision and a sense of aesthetics. Thank you very much for your patience, ideas, and for that.",
     "testimonials.3.name": "Anna Šidlovská",
     "testimonials.3.role": "",
     "testimonials.3.quote": "We are very satisfied with the cooperation. Thank you for the fast and professional approach. Also for your patience with female indecision :) We highly recommend. Anatte :)",

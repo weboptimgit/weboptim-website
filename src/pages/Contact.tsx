@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Building2, Star } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Building2, Star, CheckCircle2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
@@ -9,6 +9,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -86,6 +93,8 @@ const Contact = () => {
     consent: false,
   });
 
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+
   const phonePlaceholder =
     phonePlaceholderByCountry[defaultPhoneCountry] ??
     "+421 900 000 000";
@@ -160,10 +169,8 @@ const Contact = () => {
   
       if (!response.ok) throw new Error("Make webhook failed");
   
-      toast({
-        title: s.form.toastTitle,
-        description: s.form.toastDescription,
-      });
+      // Show success dialog instead of toast
+      setShowSuccessDialog(true);
   
       setFormData({
         name: "",
@@ -217,8 +224,48 @@ const Contact = () => {
     },
   ];
 
+  const successDialogTexts = {
+    EN: {
+      title: "Message Sent Successfully!",
+      description: "Thank you for reaching out. We will get back to you as soon as possible.",
+      button: "Close",
+    },
+    CZ: {
+      title: "Zpráva byla úspěšně odeslána!",
+      description: "Děkujeme za vaši zprávu. Ozveme se vám co nejdříve.",
+      button: "Zavřít",
+    },
+    SK: {
+      title: "Správa bola úspešne odoslaná!",
+      description: "Ďakujeme za vašu správu. Ozveme sa vám čo najskôr.",
+      button: "Zavrieť",
+    },
+  };
+
+  const successText = successDialogTexts[language as keyof typeof successDialogTexts] || successDialogTexts.EN;
+
   return (
     <>
+      {/* Success Dialog */}
+      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader className="text-center sm:text-center">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <CheckCircle2 className="h-10 w-10 text-primary" />
+            </div>
+            <DialogTitle className="text-xl sm:text-2xl">{successText.title}</DialogTitle>
+            <DialogDescription className="text-base">
+              {successText.description}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4 flex justify-center">
+            <Button onClick={() => setShowSuccessDialog(false)} className="min-w-32">
+              {successText.button}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       <SEO
         title={s.seo.title}
         description={s.seo.description}
