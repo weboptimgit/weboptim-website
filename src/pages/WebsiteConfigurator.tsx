@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Check,
+  CheckCircle2,
   ArrowRight,
   ArrowLeft,
   Sparkles,
@@ -27,6 +28,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/use-toast";
 
 import {
@@ -194,6 +196,7 @@ const WebsiteConfigurator = () => {
   // steps
   const [step, setStep] = useState<StepId>(1);
   const [submitting, setSubmitting] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
   // config state (reuse your calculator structure)
   const [designType, setDesignType] = useState("");
@@ -385,8 +388,8 @@ const WebsiteConfigurator = () => {
 
       if (!res.ok) throw new Error("Bad response");
 
-      toast({ title: t.sent });
-      // reset (nechávam basics, môžeš aj full reset)
+      setShowSuccessDialog(true);
+      // reset form
       setStep(1);
       setName("");
       setEmail("");
@@ -474,15 +477,18 @@ const WebsiteConfigurator = () => {
                     </div>
                     <RadioGroup value={designType} onValueChange={setDesignType} className="space-y-2">
                       {designTypes.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-3 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`design-${option.id}`}
+                          className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            designType === option.id
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <RadioGroupItem value={option.id} id={`design-${option.id}`} />
-                          <Label htmlFor={`design-${option.id}`} className="cursor-pointer">
-                            {getLabel(language, option)}
-                          </Label>
-                        </div>
+                          <span>{getLabel(language, option)}</span>
+                        </label>
                       ))}
                     </RadioGroup>
                   </div>
@@ -495,15 +501,18 @@ const WebsiteConfigurator = () => {
                     </div>
                     <RadioGroup value={pageCount} onValueChange={setPageCount} className="grid sm:grid-cols-2 gap-2">
                       {pageCountOptions.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-3 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`pages-${option.id}`}
+                          className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            pageCount === option.id
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <RadioGroupItem value={option.id} id={`pages-${option.id}`} />
-                          <Label htmlFor={`pages-${option.id}`} className="cursor-pointer">
-                            {getLabel(language, option)}
-                          </Label>
-                        </div>
+                          <span>{getLabel(language, option)}</span>
+                        </label>
                       ))}
                     </RadioGroup>
                   </div>
@@ -555,19 +564,22 @@ const WebsiteConfigurator = () => {
                           <AccordionContent className="px-4 pb-4">
                             <div className="space-y-2">
                               {category.options.map((option) => (
-                                <div
+                                <label
                                   key={option.id}
-                                  className="flex items-center gap-3 p-2 rounded hover:bg-muted/30 transition-colors"
+                                  htmlFor={`func-${option.id}`}
+                                  className={`flex items-center gap-3 p-2 rounded cursor-pointer transition-colors ${
+                                    selectedFunctionalities.includes(option.id)
+                                      ? "bg-primary/10"
+                                      : "hover:bg-muted/30"
+                                  }`}
                                 >
                                   <Checkbox
                                     id={`func-${option.id}`}
                                     checked={selectedFunctionalities.includes(option.id)}
                                     onCheckedChange={() => setSelectedFunctionalities((a) => toggleArrayItem(a, option.id))}
                                   />
-                                  <Label htmlFor={`func-${option.id}`} className="cursor-pointer text-sm">
-                                    {getLabel(language, option)}
-                                  </Label>
-                                </div>
+                                  <span className="text-sm">{getLabel(language, option)}</span>
+                                </label>
                               ))}
                             </div>
                           </AccordionContent>
@@ -584,19 +596,22 @@ const WebsiteConfigurator = () => {
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {languageOptions.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-2 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`lang-${option.id}`}
+                          className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            selectedLanguages.includes(option.id)
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <Checkbox
                             id={`lang-${option.id}`}
                             checked={selectedLanguages.includes(option.id)}
                             onCheckedChange={() => setSelectedLanguages((a) => toggleArrayItem(a, option.id))}
                           />
-                          <Label htmlFor={`lang-${option.id}`} className="cursor-pointer text-sm">
-                            {option.label}
-                          </Label>
-                        </div>
+                          <span className="text-sm">{option.label}</span>
+                        </label>
                       ))}
                     </div>
                     <p className="text-xs text-muted-foreground mt-2">
@@ -610,15 +625,18 @@ const WebsiteConfigurator = () => {
                     <h3 className="text-base font-semibold mb-3">{t.maintenance}</h3>
                     <RadioGroup value={maintenance} onValueChange={setMaintenance} className="space-y-2">
                       {maintenanceOptions.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-3 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`maint-${option.id}`}
+                          className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            maintenance === option.id
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <RadioGroupItem value={option.id} id={`maint-${option.id}`} />
-                          <Label htmlFor={`maint-${option.id}`} className="cursor-pointer">
-                            {getLabel(language, option)}
-                          </Label>
-                        </div>
+                          <span>{getLabel(language, option)}</span>
+                        </label>
                       ))}
                     </RadioGroup>
                   </div>
@@ -628,19 +646,22 @@ const WebsiteConfigurator = () => {
                     <h3 className="text-base font-semibold mb-3">{t.marketingOneTime}</h3>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {marketingOneTimeOptions.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-2 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`mkt1-${option.id}`}
+                          className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            selectedMarketingOneTime.includes(option.id)
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <Checkbox
                             id={`mkt1-${option.id}`}
                             checked={selectedMarketingOneTime.includes(option.id)}
                             onCheckedChange={() => setSelectedMarketingOneTime((a) => toggleArrayItem(a, option.id))}
                           />
-                          <Label htmlFor={`mkt1-${option.id}`} className="cursor-pointer text-sm">
-                            {getLabel(language, option)}
-                          </Label>
-                        </div>
+                          <span className="text-sm">{getLabel(language, option)}</span>
+                        </label>
                       ))}
                     </div>
                   </div>
@@ -650,19 +671,22 @@ const WebsiteConfigurator = () => {
                     <h3 className="text-base font-semibold mb-3">{t.marketingMonthly}</h3>
                     <div className="space-y-2">
                       {marketingMonthlyOptions.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-2 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`mkt2-${option.id}`}
+                          className={`flex items-center gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            selectedMarketingMonthly.includes(option.id)
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <Checkbox
                             id={`mkt2-${option.id}`}
                             checked={selectedMarketingMonthly.includes(option.id)}
                             onCheckedChange={() => setSelectedMarketingMonthly((a) => toggleArrayItem(a, option.id))}
                           />
-                          <Label htmlFor={`mkt2-${option.id}`} className="cursor-pointer text-sm">
-                            {getLabel(language, option)}
-                          </Label>
-                        </div>
+                          <span className="text-sm">{getLabel(language, option)}</span>
+                        </label>
                       ))}
                     </div>
                   </div>
@@ -688,15 +712,18 @@ const WebsiteConfigurator = () => {
                     <h3 className="text-base font-semibold mb-3">{t.hosting}</h3>
                     <RadioGroup value={hosting} onValueChange={setHosting} className="space-y-2">
                       {hostingOptions.map((option) => (
-                        <div
+                        <label
                           key={option.id}
-                          className="flex items-center gap-3 p-3 rounded-lg border border-border/50 hover:bg-muted/30 transition-colors"
+                          htmlFor={`host-${option.id}`}
+                          className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                            hosting === option.id
+                              ? "border-primary/50 bg-primary/10"
+                              : "border-border/50 hover:bg-muted/30"
+                          }`}
                         >
                           <RadioGroupItem value={option.id} id={`host-${option.id}`} />
-                          <Label htmlFor={`host-${option.id}`} className="cursor-pointer">
-                            {getLabel(language, option)}
-                          </Label>
-                        </div>
+                          <span>{getLabel(language, option)}</span>
+                        </label>
                       ))}
                     </RadioGroup>
                   </div>
@@ -883,6 +910,36 @@ const WebsiteConfigurator = () => {
         </main>
 
         <Footer />
+
+        {/* Success Dialog */}
+        <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                <CheckCircle2 className="h-10 w-10 text-green-600" />
+              </div>
+              <DialogTitle className="text-center text-xl">
+                {language === "EN"
+                  ? "Configuration sent!"
+                  : language === "CZ"
+                    ? "Konfigurace odeslána!"
+                    : "Konfigurácia odoslaná!"}
+              </DialogTitle>
+              <DialogDescription className="text-center">
+                {language === "EN"
+                  ? "Thank you for your request. We will review your configuration and get back to you with a tailored proposal soon."
+                  : language === "CZ"
+                    ? "Děkujeme za váš zájem. Vaši konfiguraci vyhodnotíme a brzy se vám ozveme s nabídkou na míru."
+                    : "Ďakujeme za váš záujem. Vašu konfiguráciu vyhodnotíme a čoskoro sa vám ozveme s ponukou na mieru."}
+              </DialogDescription>
+            </DialogHeader>
+            <div className="flex justify-center mt-4">
+              <Button onClick={() => setShowSuccessDialog(false)}>
+                {language === "EN" ? "Close" : language === "CZ" ? "Zavřít" : "Zavrieť"}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </>
   );
