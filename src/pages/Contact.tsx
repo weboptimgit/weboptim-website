@@ -296,12 +296,13 @@ const Contact = () => {
         {/* Contact */}
         <section className="py-12 sm:py-16 px-4">
           <div className="container mx-auto max-w-6xl">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-              {/* Form */}
+            <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+              {/* Form - takes 3 of 5 columns */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                className="lg:col-span-3"
               >
                 <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl">
                   <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{s.form.title}</h2>
@@ -559,12 +560,12 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              {/* Info */}
+              {/* Info - takes 2 of 5 columns */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="space-y-8"
+                className="lg:col-span-2 space-y-8"
               >
                 <div>
                   <h2 className="text-2xl font-bold mb-4">{s.sidebar.title}</h2>
