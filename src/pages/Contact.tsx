@@ -2,20 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Building2, Star, CheckCircle2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,7 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO, { getContactPageSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { domainConfig } from "@/config/domains";
-import { buildPath } from "@/config/domains"; 
+import { buildPath } from "@/config/domains";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useContactLang } from "@/contexts/LanguageContact";
 
@@ -48,12 +36,12 @@ const Contact = () => {
   const getDefaultPhoneCountry = () => {
     if (typeof window === "undefined") return "SK";
     const host = window.location.hostname.toLowerCase();
-  
+
     if (host.endsWith(".cz")) return "CZ";
     if (host.endsWith(".sk")) return "SK";
     return "SK";
   };
-  
+
   const defaultPhoneCountry = getDefaultPhoneCountry();
 
   const phonePlaceholderByCountry: Record<string, string> = {
@@ -64,7 +52,7 @@ const Contact = () => {
     PL: "+48 600 000 000",
     HU: "+36 30 000 0000",
   };
-  
+
   const contactSchema = getContactPageSchema({
     language,
     canonicalUrl,
@@ -73,12 +61,12 @@ const Contact = () => {
     contactType: s.schema.contactType,
     availableLanguage: s.schema.availableLanguage,
   });
-  
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: s.breadcrumb?.home ?? "Home", url: `${base}/` },
     { name: s.breadcrumb?.contact ?? s.seo.title ?? "Contact", url: canonicalUrl },
   ]);
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formLoadTime] = useState(() => Date.now());
   const [honeypot, setHoneypot] = useState("");
@@ -95,9 +83,7 @@ const Contact = () => {
 
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
-  const phonePlaceholder =
-    phonePlaceholderByCountry[defaultPhoneCountry] ??
-    "+421 900 000 000";
+  const phonePlaceholder = phonePlaceholderByCountry[defaultPhoneCountry] ?? "+421 900 000 000";
 
   const phonePrefixByCountry: Record<string, string> = {
     SK: "+421 ",
@@ -108,7 +94,7 @@ const Contact = () => {
     HU: "+36 ",
   };
 
-  const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";  
+  const WEB3FORMS_KEY = "7c718bbf-ee12-42ae-b1b8-7377e0dd088d";
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -132,7 +118,7 @@ const Contact = () => {
       });
       return;
     }
-  
+
     if (!formData.consent) {
       toast({
         title: "Error",
@@ -141,9 +127,9 @@ const Contact = () => {
       });
       return;
     }
-  
+
     setIsSubmitting(true);
-  
+
     try {
       const response = await fetch(MAKE_WEBHOOK_URL, {
         method: "POST",
@@ -166,12 +152,12 @@ const Contact = () => {
           path: typeof window !== "undefined" ? window.location.pathname : "",
         }),
       });
-  
+
       if (!response.ok) throw new Error("Make webhook failed");
-  
+
       // Show success dialog instead of toast
       setShowSuccessDialog(true);
-  
+
       setFormData({
         name: "",
         email: "",
@@ -192,17 +178,17 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   // helper pre Select / Checkbox / custom set value
   const setField = <K extends keyof typeof formData>(key: K, value: (typeof formData)[K]) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
-  
+
   const contactInfo = [
     {
       icon: Mail,
@@ -254,9 +240,7 @@ const Contact = () => {
               <CheckCircle2 className="h-10 w-10 text-primary" />
             </div>
             <DialogTitle className="text-xl sm:text-2xl">{successText.title}</DialogTitle>
-            <DialogDescription className="text-base">
-              {successText.description}
-            </DialogDescription>
+            <DialogDescription className="text-base">{successText.description}</DialogDescription>
           </DialogHeader>
           <div className="mt-4 flex justify-center">
             <Button onClick={() => setShowSuccessDialog(false)} className="min-w-32">
@@ -266,11 +250,7 @@ const Contact = () => {
         </DialogContent>
       </Dialog>
 
-      <SEO
-        title={s.seo.title}
-        description={s.seo.description}
-        jsonLd={[breadcrumbSchema, contactSchema]}
-      />
+      <SEO title={s.seo.title} description={s.seo.description} jsonLd={[breadcrumbSchema, contactSchema]} />
       <div id="main-content" className="min-h-screen bg-background">
         <Navbar />
 
@@ -307,7 +287,7 @@ const Contact = () => {
                 <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl">
                   <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{s.form.title}</h2>
 
-                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     {/* Honeypot - invisible to users, bots fill it */}
                     <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
                       <label htmlFor="website_url">Website URL</label>
@@ -321,11 +301,14 @@ const Contact = () => {
                         autoComplete="off"
                       />
                     </div>
-                  
+
                     {/* Name / Company */}
                     <div className="form-group">
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        {s.form.nameLabel}<span className="required-indicator" aria-hidden="true">*</span>
+                        {s.form.nameLabel}
+                        <span className="required-indicator" aria-hidden="true">
+                          *
+                        </span>
                       </label>
                       <Input
                         id="name"
@@ -343,12 +326,15 @@ const Contact = () => {
                         {s.form.nameHint ?? "Zadajte vaše meno alebo názov firmy"}
                       </p>
                     </div>
-                  
+
                     {/* Email + Phone */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
-                          {s.form.emailLabel}<span className="required-indicator" aria-hidden="true">*</span>
+                          {s.form.emailLabel}
+                          <span className="required-indicator" aria-hidden="true">
+                            *
+                          </span>
                         </label>
                         <Input
                           id="email"
@@ -367,18 +353,15 @@ const Contact = () => {
                           {s.form.emailHint ?? "Váš email pre odpoveď"}
                         </p>
                       </div>
-                  
+
                       <div className="form-group">
                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
                           {s.form.phoneLabel ?? "Vaše telefónne číslo"}
                         </label>
-                  
+
                         <div className="flex gap-2">
                           <div className="w-[70px] sm:w-[60px]">
-                            <Select 
-                              value={formData.phoneCountry} 
-                              onValueChange={(v) => setField("phoneCountry", v)}
-                            >
+                            <Select value={formData.phoneCountry} onValueChange={(v) => setField("phoneCountry", v)}>
                               <SelectTrigger className="bg-background/50" aria-label={s.form.countryLabel ?? "Krajina"}>
                                 <SelectValue />
                               </SelectTrigger>
@@ -392,7 +375,7 @@ const Contact = () => {
                               </SelectContent>
                             </Select>
                           </div>
-              
+
                           <Input
                             id="phone"
                             name="phone"
@@ -401,10 +384,7 @@ const Contact = () => {
                             onChange={handleChange}
                             onFocus={() => {
                               if (!formData.phone) {
-                                setField(
-                                  "phone",
-                                  phonePrefixByCountry[formData.phoneCountry] ?? "+421 "
-                                );
+                                setField("phone", phonePrefixByCountry[formData.phoneCountry] ?? "+421 ");
                               }
                             }}
                             placeholder={phonePlaceholder}
@@ -418,7 +398,7 @@ const Contact = () => {
                         </p>
                       </div>
                     </div>
-                  
+
                     {/* Website */}
                     <div className="form-group">
                       <label htmlFor="website" className="block text-sm font-medium mb-2">
@@ -438,13 +418,13 @@ const Contact = () => {
                         {s.form.websiteHint}
                       </p>
                     </div>
-                  
+
                     {/* Select */}
                     <div className="form-group">
                       <label id="topic-label" className="block text-sm font-medium mb-2">
                         {s.form.topicLabel ?? ""}
                       </label>
-                  
+
                       <Select value={formData.topic} onValueChange={(v) => setField("topic", v)}>
                         <SelectTrigger className="bg-background/50" aria-labelledby="topic-label">
                           <SelectValue placeholder={s.form.topicPlaceholder ?? "– Vyberte –"} />
@@ -458,11 +438,14 @@ const Contact = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                  
+
                     {/* Message */}
                     <div className="form-group">
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        {s.form.messageLabel}<span className="required-indicator" aria-hidden="true">*</span>
+                        {s.form.messageLabel}
+                        <span className="required-indicator" aria-hidden="true">
+                          *
+                        </span>
                       </label>
                       <Textarea
                         id="message"
@@ -480,7 +463,7 @@ const Contact = () => {
                         {s.form.messageHint}
                       </p>
                     </div>
-                  
+
                     {/* Consent */}
                     <div className="flex items-start gap-3">
                       <Checkbox
@@ -494,27 +477,45 @@ const Contact = () => {
                       <div>
                         <label htmlFor="consent" className="text-sm text-muted-foreground leading-snug cursor-pointer">
                           {language === "EN" ? (
-                            <>I agree with the processing of personal data for contact purposes according to the <a href="/privacy-policy" className="text-primary hover:underline">privacy policy</a>.</>
+                            <>
+                              I agree with{" "}
+                              <a href="/privacy-policy" className="text-primary hover:underline">
+                                the processing of personal data
+                              </a>
+                              .
+                            </>
                           ) : language === "CZ" ? (
-                            <>Souhlasím se zpracováním osobních údajů za účelem kontaktování dle <a href="/ochrana-osobnich-udaju" className="text-primary hover:underline">zásad ochrany osobních údajů</a>.</>
+                            <>
+                              Souhlasím se{" "}
+                              <a href="/ochrana-osobnich-udaju" className="text-primary hover:underline">
+                                zpracováním osobních údajů
+                              </a>
+                              .
+                            </>
                           ) : (
-                            <>Súhlasím so spracovaním osobných údajov za účelom kontaktovania podľa <a href="/ochrana-osobnych-udajov" className="text-primary hover:underline">zásad ochrany osobných údajov</a>.</>
+                            <>
+                              Súhlasím so{" "}
+                              <a href="/ochrana-osobnych-udajov" className="text-primary hover:underline">
+                                spracovaním osobných údajov
+                              </a>
+                              .
+                            </>
                           )}
-                          <span className="required-indicator" aria-hidden="true">*</span>
+                          <span className="required-indicator" aria-hidden="true">
+                            *
+                          </span>
                         </label>
                         <p id="consent-hint" className="sr-only">
-                          {language === "EN" ? "Required to submit the form" : language === "CZ" ? "Povinné pro odeslání formuláře" : "Povinné pre odoslanie formulára"}
+                          {language === "EN"
+                            ? "Required to submit the form"
+                            : language === "CZ"
+                              ? "Povinné pro odeslání formuláře"
+                              : "Povinné pre odoslanie formulára"}
                         </p>
                       </div>
                     </div>
-                  
-                    <Button 
-                      type="submit" 
-                      size="lg" 
-                      className="w-full" 
-                      disabled={isSubmitting}
-                      aria-busy={isSubmitting}
-                    >
+
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting} aria-busy={isSubmitting}>
                       {isSubmitting ? (
                         <>
                           <span className="sr-only">{s.form.submitSending}</span>
