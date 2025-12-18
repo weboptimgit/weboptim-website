@@ -132,7 +132,7 @@ const copy = {
     summary: "Vaše konfigurace",
     hintText: "Pro pokračování prosím vyberte typ webu a počet stránek.",
     consentText: "Vyplňte prosím povinná kontaktní pole a souhlas.",
-    selected: "vybráno",
+    selected: "vybraté",
   },
   SK: {
     title: "Konfigurátor webu",
@@ -637,10 +637,6 @@ const WebsiteConfigurator = () => {
                         </label>
                       ))}
                     </div>
-                    <p className="text-xs text-muted-foreground mt-2">
-                      <Info className="w-3 h-3 inline mr-1" />
-                      (Internal pricing will be calculated automatically)
-                    </p>
                   </div>
 
                   {/* Maintenance */}
@@ -711,22 +707,6 @@ const WebsiteConfigurator = () => {
                           <span className="text-sm">{getLabel(language, option)}</span>
                         </label>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* Articles */}
-                  <div className="mb-8">
-                    <h3 className="text-base font-semibold mb-3">{t.articles}</h3>
-                    <div className="flex items-center gap-4">
-                      <Input
-                        type="number"
-                        min={0}
-                        max={100}
-                        value={articleCount}
-                        onChange={(e) => setArticleCount(Math.max(0, parseInt(e.target.value) || 0))}
-                        className="w-32"
-                      />
-                      <span className="text-sm text-muted-foreground">× {ARTICLE_PRICE} (internal)</span>
                     </div>
                   </div>
 
