@@ -489,14 +489,18 @@ const Contact = () => {
                         onCheckedChange={(v) => setField("consent", v === true)}
                         aria-required="true"
                         aria-describedby="consent-hint"
+                        className="mt-0.5"
                       />
                       <div>
                         <label htmlFor="consent" className="text-sm text-muted-foreground leading-snug cursor-pointer">
-                          {s.form.consentText ?? (
-                            <>
-                              Súhlasím s <span className="underline">spracovaním osobných údajov</span>.
-                            </>
-                          )}<span className="required-indicator" aria-hidden="true">*</span>
+                          {language === "EN" ? (
+                            <>I agree with the processing of personal data for contact purposes according to the <a href="/privacy-policy" className="text-primary hover:underline">privacy policy</a>.</>
+                          ) : language === "CZ" ? (
+                            <>Souhlasím se zpracováním osobních údajů za účelem kontaktování dle <a href="/ochrana-osobnich-udaju" className="text-primary hover:underline">zásad ochrany osobních údajů</a>.</>
+                          ) : (
+                            <>Súhlasím so spracovaním osobných údajov za účelom kontaktovania podľa <a href="/ochrana-osobnych-udajov" className="text-primary hover:underline">zásad ochrany osobných údajov</a>.</>
+                          )}
+                          <span className="required-indicator" aria-hidden="true">*</span>
                         </label>
                         <p id="consent-hint" className="sr-only">
                           {language === "EN" ? "Required to submit the form" : language === "CZ" ? "Povinné pro odeslání formuláře" : "Povinné pre odoslanie formulára"}

@@ -784,10 +784,17 @@ const WebsiteConfigurator = () => {
                   </div>
 
                   <div className="mt-5 flex items-start gap-3 p-4 rounded-xl border border-border/60 bg-muted/20">
-                    <Checkbox id="gdpr" checked={gdpr} onCheckedChange={(v) => setGdpr(!!v)} />
-                    <Label htmlFor="gdpr" className="cursor-pointer text-sm leading-relaxed">
-                      {t.gdpr} *
-                    </Label>
+                    <Checkbox id="gdpr" checked={gdpr} onCheckedChange={(v) => setGdpr(!!v)} className="mt-0.5" />
+                    <label htmlFor="gdpr" className="cursor-pointer text-sm leading-relaxed">
+                      {language === "EN" ? (
+                        <>I agree with the processing of personal data for contact purposes according to the <a href="/privacy-policy" className="text-primary hover:underline">privacy policy</a>.</>
+                      ) : language === "CZ" ? (
+                        <>Souhlasím se zpracováním osobních údajů za účelem kontaktování dle <a href="/ochrana-osobnich-udaju" className="text-primary hover:underline">zásad ochrany osobních údajů</a>.</>
+                      ) : (
+                        <>Súhlasím so spracovaním osobných údajov za účelom kontaktovania podľa <a href="/ochrana-osobnych-udajov" className="text-primary hover:underline">zásad ochrany osobných údajov</a>.</>
+                      )}
+                      <span className="text-destructive ml-1">*</span>
+                    </label>
                   </div>
                 </motion.div>
               )}
