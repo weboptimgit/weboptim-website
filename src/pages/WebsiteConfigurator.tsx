@@ -93,6 +93,7 @@ const copy = {
     website: "Current website (optional)",
     gdpr: "I agree with personal data processing for contact purposes",
     summary: "Your configuration",
+    selected: "selected",
   },
   CZ: {
     title: "Konfigurátor webu",
@@ -131,6 +132,7 @@ const copy = {
     summary: "Vaše konfigurace",
     hintText: "Pro pokračování prosím vyberte typ webu a počet stránek.",
     consentText: "Vyplňte prosím povinná kontaktní pole a souhlas.",
+    selected: "vybraté",
   },
   SK: {
     title: "Konfigurátor webu",
@@ -169,6 +171,7 @@ const copy = {
     summary: "Tvoja konfigurácia",
     hintText: "Pre pokračovanie vyberte typ webovej stránky a počet stránok.",
     consentText: "Vyplňte, prosím, požadované kontaktné polia a súhlas.",
+    selected: "vybraté",
   },
 } as const;
 
@@ -351,7 +354,9 @@ const WebsiteConfigurator = () => {
         designType: designOption
           ? { id: designOption.id, label: getLabel(language, designOption), price: designOption.price }
           : null,
-        pageCount: pageOption ? { id: pageOption.id, label: getLabel(language, pageOption), price: pageOption.price } : null,
+        pageCount: pageOption
+          ? { id: pageOption.id, label: getLabel(language, pageOption), price: pageOption.price }
+          : null,
         functionalities: funcLabels,
         languages: langLabels,
         maintenance: maint
@@ -360,9 +365,7 @@ const WebsiteConfigurator = () => {
         marketingOneTime: mkt1,
         marketingMonthly: mkt2,
         articles: { count: articleCount, unitPrice: ARTICLE_PRICE, total: articleCount * ARTICLE_PRICE },
-        hosting: host
-          ? { id: host.id, label: getLabel(language, host), monthlyPrice: host.monthlyPrice ?? 0 }
-          : null,
+        hosting: host ? { id: host.id, label: getLabel(language, host), monthlyPrice: host.monthlyPrice ?? 0 } : null,
       },
       totals: {
         oneTime: calculations.oneTimeTotal,
@@ -405,7 +408,17 @@ const WebsiteConfigurator = () => {
     }
   };
 
-  const StepPill = ({ index, title, active, done }: { index: number; title: string; active: boolean; done: boolean }) => (
+  const StepPill = ({
+    index,
+    title,
+    active,
+    done,
+  }: {
+    index: number;
+    title: string;
+    active: boolean;
+    done: boolean;
+  }) => (
     <div
       className={[
         "flex items-center gap-2 px-3 py-2 rounded-full border text-sm",
@@ -462,7 +475,11 @@ const WebsiteConfigurator = () => {
             <div className="max-w-4xl mx-auto space-y-6">
               {/* STEP 1: Basics */}
               {step === 1 && (
-                <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="glass rounded-2xl p-6"
+                >
                   <div className="flex items-center justify-between mb-2">
                     <h2 className="text-xl font-semibold">{stepsLabel[0]}</h2>
                     <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded">{t.required}</span>
@@ -521,7 +538,11 @@ const WebsiteConfigurator = () => {
 
               {/* STEP 2: Features (optional) */}
               {step === 2 && (
-                <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="glass rounded-2xl p-6"
+                >
                   <div className="flex items-center justify-between mb-2">
                     <h2 className="text-xl font-semibold">{stepsLabel[1]}</h2>
                     <span className="text-xs text-muted-foreground bg-muted/30 px-2 py-1 rounded">{t.optional}</span>
@@ -532,7 +553,9 @@ const WebsiteConfigurator = () => {
                   <div className="mb-8">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-base font-semibold">{t.functionalities}</h3>
-                      <span className="text-sm text-muted-foreground">{selectedFunctionalities.length} selected</span>
+                      <span className="text-sm text-muted-foreground">
+                        {selectedFunctionalities.length} {t.selected}
+                      </span>
                     </div>
 
                     <div className="relative mb-4">
@@ -568,15 +591,15 @@ const WebsiteConfigurator = () => {
                                   key={option.id}
                                   htmlFor={`func-${option.id}`}
                                   className={`flex items-center gap-3 p-2 rounded cursor-pointer transition-colors ${
-                                    selectedFunctionalities.includes(option.id)
-                                      ? "bg-primary/10"
-                                      : "hover:bg-muted/30"
+                                    selectedFunctionalities.includes(option.id) ? "bg-primary/10" : "hover:bg-muted/30"
                                   }`}
                                 >
                                   <Checkbox
                                     id={`func-${option.id}`}
                                     checked={selectedFunctionalities.includes(option.id)}
-                                    onCheckedChange={() => setSelectedFunctionalities((a) => toggleArrayItem(a, option.id))}
+                                    onCheckedChange={() =>
+                                      setSelectedFunctionalities((a) => toggleArrayItem(a, option.id))
+                                    }
                                   />
                                   <span className="text-sm">{getLabel(language, option)}</span>
                                 </label>
@@ -732,7 +755,11 @@ const WebsiteConfigurator = () => {
 
               {/* STEP 3: Contact */}
               {step === 3 && (
-                <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="glass rounded-2xl p-6"
+                >
                   <div className="flex items-center justify-between mb-2">
                     <h2 className="text-xl font-semibold">{stepsLabel[2]}</h2>
                     <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded">{t.required}</span>
@@ -787,11 +814,29 @@ const WebsiteConfigurator = () => {
                     <Checkbox id="gdpr" checked={gdpr} onCheckedChange={(v) => setGdpr(!!v)} className="mt-0.5" />
                     <label htmlFor="gdpr" className="cursor-pointer text-sm leading-relaxed">
                       {language === "EN" ? (
-                        <>I agree with the processing of personal data for contact purposes according to the <a href="/privacy-policy" className="text-primary hover:underline">privacy policy</a>.</>
+                        <>
+                          I agree with the processing of personal data for contact purposes according to the{" "}
+                          <a href="/privacy-policy" className="text-primary hover:underline">
+                            privacy policy
+                          </a>
+                          .
+                        </>
                       ) : language === "CZ" ? (
-                        <>Souhlasím se zpracováním osobních údajů za účelem kontaktování dle <a href="/ochrana-osobnich-udaju" className="text-primary hover:underline">zásad ochrany osobních údajů</a>.</>
+                        <>
+                          Souhlasím se zpracováním osobních údajů za účelem kontaktování dle{" "}
+                          <a href="/ochrana-osobnich-udaju" className="text-primary hover:underline">
+                            zásad ochrany osobních údajů
+                          </a>
+                          .
+                        </>
                       ) : (
-                        <>Súhlasím so spracovaním osobných údajov za účelom kontaktovania podľa <a href="/ochrana-osobnych-udajov" className="text-primary hover:underline">zásad ochrany osobných údajov</a>.</>
+                        <>
+                          Súhlasím so spracovaním osobných údajov za účelom kontaktovania podľa{" "}
+                          <a href="/ochrana-osobnych-udajov" className="text-primary hover:underline">
+                            zásad ochrany osobných údajov
+                          </a>
+                          .
+                        </>
                       )}
                       <span className="text-destructive ml-1">*</span>
                     </label>
@@ -801,7 +846,11 @@ const WebsiteConfigurator = () => {
 
               {/* STEP 4: Review */}
               {step === 4 && (
-                <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="glass rounded-2xl p-6"
+                >
                   <div className="flex items-center justify-between mb-2">
                     <h2 className="text-xl font-semibold">{stepsLabel[3]}</h2>
                     <span className="text-xs text-muted-foreground bg-muted/30 px-2 py-1 rounded">{t.reviewHint}</span>
@@ -844,7 +893,8 @@ const WebsiteConfigurator = () => {
 
                       <p className="text-xs text-muted-foreground mt-3">
                         <Info className="w-3 h-3 inline mr-1" />
-                        Prices are calculated internally and will be included in the message we receive (not shown to you).
+                        Prices are calculated internally and will be included in the message we receive (not shown to
+                        you).
                       </p>
                     </div>
 
@@ -881,7 +931,7 @@ const WebsiteConfigurator = () => {
 
                   {step < 4 && (
                     <Button
-                      onClick={() => setStep((s) => ((s + 1) as StepId))}
+                      onClick={() => setStep((s) => (s + 1) as StepId)}
                       disabled={!canGoNext || submitting}
                       className="w-full sm:w-auto"
                     >
