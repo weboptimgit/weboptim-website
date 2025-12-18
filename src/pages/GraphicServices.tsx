@@ -340,6 +340,15 @@ const GraphicServices = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Pricing disclaimer */}
+          <p className="text-center text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
+            {language === "EN"
+              ? "Prices are indicative only and depend on the project scope and complexity. Everything will be discussed individually."
+              : language === "CZ"
+                ? "Ceny jsou pouze orientační a závisí na rozsahu a složitosti projektu. Vše se přediskutuje individuálně."
+                : "Ceny sú len orientačné a závisia od rozsahu a zložitosti projektu. Všetko sa prediskutuje individuálne."}
+          </p>
         </div>
       </section>
 
