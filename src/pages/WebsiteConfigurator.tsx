@@ -132,7 +132,7 @@ const copy = {
     summary: "Vaše konfigurace",
     hintText: "Pro pokračování prosím vyberte typ webu a počet stránek.",
     consentText: "Vyplňte prosím povinná kontaktní pole a souhlas.",
-    selected: "vybraté",
+    selected: "vybráno",
   },
   SK: {
     title: "Konfigurátor webu",
