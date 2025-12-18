@@ -472,7 +472,7 @@ const Contact = () => {
                         onCheckedChange={(v) => setField("consent", v === true)}
                         aria-required="true"
                         aria-describedby="consent-hint"
-                        className="mt-0.5"
+                        className="mt-1"
                       />
                       <div>
                         <label htmlFor="consent" className="text-sm text-muted-foreground leading-snug cursor-pointer">
