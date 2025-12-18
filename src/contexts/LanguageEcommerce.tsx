@@ -86,8 +86,7 @@ const translations: Record<Language, EcommerceLang> = {
       badge: "E-Commerce Solutions",
       title1: "Build Your",
       title2: "Online Store",
-      subtitle:
-        "Powerful online stores with seamless checkout experiences that maximize conversions and sales.",
+      subtitle: "Powerful online stores with seamless checkout experiences that maximize conversions and sales.",
       ctaPrimary: "Start Selling Online",
       ctaSecondary: "View E-Shop Projects",
     },
@@ -124,8 +123,7 @@ const translations: Record<Language, EcommerceLang> = {
     },
     features: {
       title: "Everything Your Store Needs",
-      subtitle:
-        "Complete e-commerce solutions with all the features to run a successful online business",
+      subtitle: "Complete e-commerce solutions with all the features to run a successful online business",
       items: [
         { title: "Product Catalog", description: "Unlimited products with variants, categories & smart filters" },
         { title: "Payment Gateways", description: "Cards, PayPal, Apple Pay, Google Pay & local methods" },
@@ -139,11 +137,31 @@ const translations: Record<Language, EcommerceLang> = {
       title: "From Idea to Sales",
       subtitle: "Our proven process gets your online store up and running fast",
       steps: [
-        { step: "01", title: "Discovery", description: "Understanding your products, market & goals", duration: "1-2 days" },
-        { step: "02", title: "Platform Selection", description: "Choosing the perfect e-commerce solution", duration: "1 day" },
-        { step: "03", title: "Design & UX", description: "Creating a conversion-focused storefront", duration: "1-2 weeks" },
+        {
+          step: "01",
+          title: "Discovery",
+          description: "Understanding your products, market & goals",
+          duration: "1-2 days",
+        },
+        {
+          step: "02",
+          title: "Platform Selection",
+          description: "Choosing the perfect e-commerce solution",
+          duration: "1 day",
+        },
+        {
+          step: "03",
+          title: "Design & UX",
+          description: "Creating a conversion-focused storefront",
+          duration: "1-2 weeks",
+        },
         { step: "04", title: "Development", description: "Building your custom online store", duration: "2-4 weeks" },
-        { step: "05", title: "Product Setup", description: "Importing catalog & configuring inventory", duration: "3-5 days" },
+        {
+          step: "05",
+          title: "Product Setup",
+          description: "Importing catalog & configuring inventory",
+          duration: "3-5 days",
+        },
         { step: "06", title: "Launch", description: "Going live with ongoing support", duration: "Ongoing" },
       ],
     },
@@ -156,21 +174,35 @@ const translations: Record<Language, EcommerceLang> = {
         {
           name: "Starter Shop",
           description: "Perfect for new businesses",
-          price: "From €2,000",
+          price: "From 1 490€",
           features: ["Up to 100 products", "Basic design", "Payment setup", "Shipping config", "1 month support"],
         },
         {
           name: "Growth Shop",
           description: "For scaling businesses",
-          price: "From €5,000",
+          price: "From 2 490€",
           popular: true,
-          features: ["Unlimited products", "Custom design", "Multi-payment", "Marketing tools", "Analytics", "3 months support"],
+          features: [
+            "Unlimited products",
+            "Custom design",
+            "Multi-payment",
+            "Marketing tools",
+            "Analytics",
+            "3 months support",
+          ],
         },
         {
           name: "Enterprise",
           description: "Full-scale solution",
           price: "Custom",
-          features: ["Custom features", "API integrations", "Multi-currency", "Priority support", "Performance SLA", "Dedicated team"],
+          features: [
+            "Custom features",
+            "API integrations",
+            "Multi-currency",
+            "Priority support",
+            "Performance SLA",
+            "Dedicated team",
+          ],
         },
       ],
     },
@@ -229,8 +261,7 @@ const translations: Record<Language, EcommerceLang> = {
       badge: "E-Commerce řešení",
       title1: "Vytvořte svůj",
       title2: "E-shop",
-      subtitle:
-        "Výkonné e-shopy s plynulým nákupním procesem, které maximalizují konverze a prodeje.",
+      subtitle: "Výkonné e-shopy s plynulým nákupním procesem, které maximalizují konverze a prodeje.",
       ctaPrimary: "Začít prodávat online",
       ctaSecondary: "Projekty e-shopů",
     },
@@ -283,9 +314,19 @@ const translations: Record<Language, EcommerceLang> = {
       steps: [
         { step: "01", title: "Analýza", description: "Poznáme produkty, trh a cíle", duration: "1–2 dny" },
         { step: "02", title: "Volba platformy", description: "Vybereme ideální e-commerce řešení", duration: "1 den" },
-        { step: "03", title: "Design & UX", description: "Návrh storefrontu zaměřeného na konverze", duration: "1–2 týdny" },
+        {
+          step: "03",
+          title: "Design & UX",
+          description: "Návrh storefrontu zaměřeného na konverze",
+          duration: "1–2 týdny",
+        },
         { step: "04", title: "Vývoj", description: "Vývoj a implementace e-shopu", duration: "2–4 týdny" },
-        { step: "05", title: "Nastavení produktů", description: "Import katalogu a nastavení skladu", duration: "3–5 dnů" },
+        {
+          step: "05",
+          title: "Nastavení produktů",
+          description: "Import katalogu a nastavení skladu",
+          duration: "3–5 dnů",
+        },
         { step: "06", title: "Spuštění", description: "Spuštění + průběžná podpora", duration: "Dlouhodobě" },
       ],
     },
@@ -298,21 +339,35 @@ const translations: Record<Language, EcommerceLang> = {
         {
           name: "Starter Shop",
           description: "Ideální pro začátek",
-          price: "Od 2 000 €",
+          price: "Od 35 000 Kč",
           features: ["Do 100 produktů", "Základní design", "Nastavení plateb", "Nastavení dopravy", "1 měsíc podpory"],
         },
         {
           name: "Growth Shop",
           description: "Pro růstové firmy",
-          price: "Od 5 000 €",
+          price: "Od 59 000 Kč",
           popular: true,
-          features: ["Neomezeně produktů", "Design na míru", "Více platebních metod", "Marketingové nástroje", "Analytika", "3 měsíce podpory"],
+          features: [
+            "Neomezeně produktů",
+            "Design na míru",
+            "Více platebních metod",
+            "Marketingové nástroje",
+            "Analytika",
+            "3 měsíce podpory",
+          ],
         },
         {
           name: "Enterprise",
           description: "Komplexní řešení",
           price: "Na míru",
-          features: ["Funkce na míru", "API integrace", "Více měn", "Prioritní podpora", "Performance SLA", "Dedikovaný tým"],
+          features: [
+            "Funkce na míru",
+            "API integrace",
+            "Více měn",
+            "Prioritní podpora",
+            "Performance SLA",
+            "Dedikovaný tým",
+          ],
         },
       ],
     },
@@ -337,13 +392,11 @@ const translations: Record<Language, EcommerceLang> = {
         },
         {
           question: "Integrujete platební brány?",
-          answer:
-            "Ano – Stripe, PayPal, GoPay, Comgate i bankovní převody. Nastavíme i fakturaci.",
+          answer: "Ano – Stripe, PayPal, GoPay, Comgate i bankovní převody. Nastavíme i fakturaci.",
         },
         {
           question: "Jak řešíte dopravu a dopravce?",
-          answer:
-            "Integrujeme dopravce jako Zásilkovna, PPL, DPD, Česká pošta a další včetně trackingu a cen dopravy.",
+          answer: "Integrujeme dopravce jako Zásilkovna, PPL, DPD, Česká pošta a další včetně trackingu a cen dopravy.",
         },
         {
           question: "Co sklad a napojení na systémy?",
@@ -371,8 +424,7 @@ const translations: Record<Language, EcommerceLang> = {
       badge: "E-Commerce riešenia",
       title1: "Vytvorte si",
       title2: "E-shop",
-      subtitle:
-        "Výkonné WooCommerce e-shopy s plynulým nákupným procesom, ktoré maximalizujú konverzie a predaje.",
+      subtitle: "Výkonné WooCommerce e-shopy s plynulým nákupným procesom, ktoré maximalizujú konverzie a predaje.",
       ctaPrimary: "Začať predávať online",
       ctaSecondary: "Pozrieť e-shop projekty",
     },
@@ -425,9 +477,19 @@ const translations: Record<Language, EcommerceLang> = {
       steps: [
         { step: "01", title: "Analýza", description: "Pochopenie produktov, trhu a cieľov", duration: "1–2 dni" },
         { step: "02", title: "Výber platformy", description: "Zvolíme ideálne e-commerce riešenie", duration: "1 deň" },
-        { step: "03", title: "Dizajn & UX", description: "Návrh storefrontu zameraného na konverzie", duration: "1–2 týždne" },
+        {
+          step: "03",
+          title: "Dizajn & UX",
+          description: "Návrh storefrontu zameraného na konverzie",
+          duration: "1–2 týždne",
+        },
         { step: "04", title: "Vývoj", description: "Vývoj a implementácia e-shopu", duration: "2–4 týždne" },
-        { step: "05", title: "Nastavenie produktov", description: "Import katalógu a nastavenie skladu", duration: "3–5 dní" },
+        {
+          step: "05",
+          title: "Nastavenie produktov",
+          description: "Import katalógu a nastavenie skladu",
+          duration: "3–5 dní",
+        },
         { step: "06", title: "Spustenie", description: "Spustenie + priebežná podpora", duration: "Dlhodobo" },
       ],
     },
@@ -440,21 +502,41 @@ const translations: Record<Language, EcommerceLang> = {
         {
           name: "Starter Shop",
           description: "Ideálne na štart",
-          price: "Od 2 000 €",
-          features: ["Do 100 produktov", "Základný dizajn", "Nastavenie platieb", "Nastavenie dopravy", "1 mesiac podpory"],
+          price: "Od 1 490 €",
+          features: [
+            "Do 100 produktov",
+            "Základný dizajn",
+            "Nastavenie platieb",
+            "Nastavenie dopravy",
+            "1 mesiac podpory",
+          ],
         },
         {
           name: "Growth Shop",
           description: "Pre rastúce firmy",
-          price: "Od 5 000 €",
+          price: "Od 2 490 €",
           popular: true,
-          features: ["Neobmedzene produktov", "Dizajn na mieru", "Viac platobných metód", "Marketingové nástroje", "Analytika", "3 mesiace podpory"],
+          features: [
+            "Neobmedzene produktov",
+            "Dizajn na mieru",
+            "Viac platobných metód",
+            "Marketingové nástroje",
+            "Analytika",
+            "3 mesiace podpory",
+          ],
         },
         {
           name: "Enterprise",
           description: "Komplexné riešenie",
           price: "Na mieru",
-          features: ["Funkcie na mieru", "API integrácie", "Multi-currency", "Prioritná podpora", "Performance SLA", "Dedikovaný tím"],
+          features: [
+            "Funkcie na mieru",
+            "API integrácie",
+            "Multi-currency",
+            "Prioritná podpora",
+            "Performance SLA",
+            "Dedikovaný tím",
+          ],
         },
       ],
     },
@@ -479,8 +561,7 @@ const translations: Record<Language, EcommerceLang> = {
         },
         {
           question: "Integrujete platobné brány?",
-          answer:
-            "Áno – Stripe, PayPal, GoPay, Comgate aj bankové prevody. Nastavíme aj fakturáciu.",
+          answer: "Áno – Stripe, PayPal, GoPay, Comgate aj bankové prevody. Nastavíme aj fakturáciu.",
         },
         {
           question: "Ako riešite dopravu a dopravcov?",
@@ -509,9 +590,7 @@ const EcommerceLanguageContext = createContext<EcommerceLang | null>(null);
 export const EcommerceLanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const { language } = useLanguage();
   return (
-    <EcommerceLanguageContext.Provider value={translations[language]}>
-      {children}
-    </EcommerceLanguageContext.Provider>
+    <EcommerceLanguageContext.Provider value={translations[language]}>{children}</EcommerceLanguageContext.Provider>
   );
 };
 
