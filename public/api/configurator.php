@@ -20,11 +20,11 @@ if (!is_array($data)) {
   exit;
 }
 
-// Load secrets from shared file (recommended)
-$secretsPath = __DIR__ . '/../../shared/make-secrets.php';
-if (!file_exists($secretsPath)) {
+// načítaj secrets zo /web/shared (relative path z dist/api/)
+$sharedSecretsPath = realpath(__DIR__ . "/../../../shared/make-secrets.php");
+if (!$sharedSecretsPath || !file_exists($sharedSecretsPath)) {
   http_response_code(500);
-  echo json_encode(['ok' => false, 'error' => 'Missing secrets file']);
+  echo json_encode(["error" => "Missing shared secrets file"]);
   exit;
 }
 
