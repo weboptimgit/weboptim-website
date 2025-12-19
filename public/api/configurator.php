@@ -21,8 +21,8 @@ if (!is_array($data)) {
 }
 
 // načítaj secrets zo /web/shared (relative path z dist/api/)
-$sharedSecretsPath = realpath(__DIR__ . "/../../../shared/make-secrets.php");
-if (!$sharedSecretsPath || !file_exists($sharedSecretsPath)) {
+$secretsPath = realpath(__DIR__ . "/../../../shared/make-secrets.php");
+if (!$secretsPath || !file_exists($secretsPath)) {
   http_response_code(500);
   echo json_encode(["error" => "Missing shared secrets file"]);
   exit;
