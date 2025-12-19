@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Check,
@@ -200,6 +200,11 @@ const WebsiteConfigurator = () => {
   const [step, setStep] = useState<StepId>(1);
   const [submitting, setSubmitting] = useState(false);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [step]);
 
   // config state (reuse your calculator structure)
   const [designType, setDesignType] = useState("");
