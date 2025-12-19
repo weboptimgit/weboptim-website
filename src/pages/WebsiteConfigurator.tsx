@@ -30,7 +30,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 import {
   designTypes,
@@ -382,16 +381,20 @@ const WebsiteConfigurator = () => {
     };
   };
 
+  // IMPORTANT: tu si nastavíš endpoint (nižšie vysvetlím)
+  const SUBMIT_URL = "https://hook.eu1.make.com/l27ltqsj3p4rz427srx2feoj3l3deq08";
+
   const onSubmit = async () => {
     setSubmitting(true);
     try {
       const payload = buildPayload();
 
-      const { error } = await supabase.functions.invoke('configurator-form', {
-        body: payload,
+      const res = await fetch(SUBMIT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload),
       });
 
-      if (error) throw error;
+      if (!res.ok) throw new Error("Bad response");
 
       setShowSuccessDialog(true);
       // reset form

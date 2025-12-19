@@ -15,12 +15,13 @@ import { domainConfig } from "@/config/domains";
 import { buildPath } from "@/config/domains";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useContactLang } from "@/contexts/LanguageContact";
-import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
   const { language } = useLanguage();
   const s = useContactLang();
+  const MAKE_WEBHOOK_URL = import.meta.env.VITE_MAKE_WEBHOOK_URL as string;
+  const MAKE_API_KEY = import.meta.env.VITE_MAKE_API_KEY as string;
   const emailByLang: Record<string, string> = {
     EN: "info@weboptim.eu",
     CZ: "info@weboptim.cz",
@@ -130,8 +131,13 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke('contact-form', {
-        body: {
+      const response = await fetch(MAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-make-apikey": MAKE_API_KEY,
+        },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: `${formData.phoneCountry} ${formData.phone}`.trim(),
@@ -144,10 +150,10 @@ const Contact = () => {
           createdAt: new Date().toISOString(),
           host: typeof window !== "undefined" ? window.location.hostname : "",
           path: typeof window !== "undefined" ? window.location.pathname : "",
-        },
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Make webhook failed");
 
       // Show success dialog instead of toast
       setShowSuccessDialog(true);
