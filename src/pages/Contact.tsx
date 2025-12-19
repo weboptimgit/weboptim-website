@@ -20,8 +20,6 @@ const Contact = () => {
   const { toast } = useToast();
   const { language } = useLanguage();
   const s = useContactLang();
-  const MAKE_WEBHOOK_URL = import.meta.env.VITE_MAKE_WEBHOOK_URL as string;
-  const MAKE_API_KEY = import.meta.env.VITE_MAKE_API_KEY as string;
   const emailByLang: Record<string, string> = {
     EN: "info@weboptim.eu",
     CZ: "info@weboptim.cz",
