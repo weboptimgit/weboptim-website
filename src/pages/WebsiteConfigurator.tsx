@@ -637,6 +637,10 @@ const WebsiteConfigurator = () => {
                         </label>
                       ))}
                     </div>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      <Info className="w-3 h-3 inline mr-1" />
+                      (Internal pricing will be calculated automatically)
+                    </p>
                   </div>
 
                   {/* Maintenance */}
@@ -707,6 +711,22 @@ const WebsiteConfigurator = () => {
                           <span className="text-sm">{getLabel(language, option)}</span>
                         </label>
                       ))}
+                    </div>
+                  </div>
+
+                  {/* Articles */}
+                  <div className="mb-8">
+                    <h3 className="text-base font-semibold mb-3">{t.articles}</h3>
+                    <div className="flex items-center gap-4">
+                      <Input
+                        type="number"
+                        min={0}
+                        max={100}
+                        value={articleCount}
+                        onChange={(e) => setArticleCount(Math.max(0, parseInt(e.target.value) || 0))}
+                        className="w-32"
+                      />
+                      <span className="text-sm text-muted-foreground">× {ARTICLE_PRICE} (internal)</span>
                     </div>
                   </div>
 
@@ -862,9 +882,6 @@ const WebsiteConfigurator = () => {
                         </li>
                         <li>
                           <span className="text-foreground font-medium">{t.hosting}:</span> {hosting}
-                        </li>
-                        <li>
-                          <span className="text-foreground font-medium">{t.articles}:</span> {articleCount}
                         </li>
                         <li>
                           <span className="text-foreground font-medium">{t.contact}:</span> {name} · {email}
