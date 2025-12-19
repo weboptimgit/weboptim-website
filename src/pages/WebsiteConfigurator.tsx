@@ -381,8 +381,7 @@ const WebsiteConfigurator = () => {
     };
   };
 
-  // IMPORTANT: tu si nastavíš endpoint (nižšie vysvetlím)
-  const SUBMIT_URL = "https://hook.eu1.make.com/l27ltqsj3p4rz427srx2feoj3l3deq08";
+  const SUBMIT_URL = "/api/configurator.php";
 
   const onSubmit = async () => {
     setSubmitting(true);
@@ -391,6 +390,7 @@ const WebsiteConfigurator = () => {
 
       const res = await fetch(SUBMIT_URL, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
