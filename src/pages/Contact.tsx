@@ -131,12 +131,9 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(MAKE_WEBHOOK_URL, {
+      const response = await fetch("/api/contact.php", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-make-apikey": MAKE_API_KEY,
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
