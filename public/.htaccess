@@ -36,6 +36,13 @@
 </IfModule>
 
 <IfModule mod_headers.c>
+  # CORS for API endpoints
+  <FilesMatch "^api/.*\.php$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, x-make-apikey"
+  </FilesMatch>
+  
   # Cache-Control for assets with hash in filename
   <FilesMatch "\.(css|js|woff|woff2|ttf|otf|eot)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
@@ -142,6 +149,15 @@ RewriteRule ^star-reviews-star-sales-the-power-of-customer-feedback-in-ecommerce
 
 RewriteRule ^services/building-a-website/$ https://www.weboptim.eu/services/building-website [R=301,L]
 RewriteRule ^services/building-a-website$ https://www.weboptim.eu/services/building-website [R=301,L]
+
+# -------------------------
+# API (PHP) routes - must be BEFORE existing files and SPA fallback
+# -------------------------
+# Contact endpoint
+RewriteRule ^api/contact/?$ api/contact.php [L,NC]
+
+# (optional) Configurator endpoint, ak budeš chcieť neskôr
+# RewriteRule ^api/configurator/?$ api/configurator.php [L,NC]
 
 # Existing files/directories - don't rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
