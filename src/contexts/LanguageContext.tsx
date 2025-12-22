@@ -289,7 +289,7 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.share.button": "Sdílet",    
     "blogPost.resources.title": "Zdroje",    
     "blogPost.author.writtenBy": "Autor",
-    "blogPost.author.bio": "Copywriter a specialista na digitální marketing se zaměřením na webové trendy a SEO strategie.",    
+    "blogPost.author.bio": "Zakladatel firmy WebOptim a specialista na digitální marketing se zaměřením na webové trendy a SEO strategie.",    
     "blogPost.exploreMore": "Prozkoumat další články",
     "blogPost.toc.title": "Obsah článku",
 
