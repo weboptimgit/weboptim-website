@@ -21,38 +21,39 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
     
     <!-- Static fallback meta tags for crawlers that don't execute JS -->
-    <title>WebOptim | Web Development & Digital Marketing Agency</title>
-    <meta name="description" content="Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions." />
+    <title>WebOptim | Tvorba webov, SEO & Digitálny marketing</title>
+    <meta name="description" content="Tvoríme rýchle, moderné weby a e-shopy. Pomôžeme vám s SEO, PPC reklamou a digitálnym marketingom. Získajte viac zákazníkov online." />
     <meta name="author" content="WebOptim" />
-    <meta name="keywords" content="web development, SEO, digital marketing, e-commerce, web design, WordPress, WooCommerce" />
+    <meta name="keywords" content="tvorba webov, tvorba webových stránok, SEO optimalizácia, digitálny marketing, e-shop, web design, WordPress, WooCommerce" />
     
-    <!-- Robots (will be overridden by React for specific pages) -->
-    <meta name="robots" content="noindex, nofollow" />
+    <!-- Robots - allow indexing -->
+    <meta name="robots" content="index, follow" />
     
     <!-- Open Graph fallback -->
-    <meta property="og:title" content="WebOptim | Web Development & Digital Marketing Agency" />
-    <meta property="og:description" content="Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions." />
+    <meta property="og:title" content="WebOptim | Tvorba webov, SEO & Digitálny marketing" />
+    <meta property="og:description" content="Tvoríme rýchle, moderné weby a e-shopy. Pomôžeme vám s SEO, PPC reklamou a digitálnym marketingom. Získajte viac zákazníkov online." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://test.weboptim.eu/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
+    <meta property="og:image" content="https://weboptim.sk/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
+    <meta property="og:url" content="https://weboptim.sk/" />
     <meta property="og:site_name" content="WebOptim" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="sk_SK" />
     <meta property="og:locale:alternate" content="cs_CZ" />
-    <meta property="og:locale:alternate" content="sk_SK" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter Card fallback -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WebOptim | Web Development & Digital Marketing Agency" />
-    <meta name="twitter:description" content="Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions." />
-    <meta name="twitter:image" content="https://test.weboptim.eu/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
+    <meta name="twitter:title" content="WebOptim | Tvorba webov, SEO & Digitálny marketing" />
+    <meta name="twitter:description" content="Tvoríme rýchle, moderné weby a e-shopy. Pomôžeme vám s SEO, PPC reklamou a digitálnym marketingom." />
+    <meta name="twitter:image" content="https://weboptim.sk/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png" />
     
-    <!-- Canonical (will be updated by React) -->
-    <link rel="canonical" href="https://test.weboptim.eu/" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://weboptim.sk/" />
     
     <!-- Hreflang for multi-domain language setup -->
-    <link rel="alternate" hreflang="en" href="https://test.weboptim.eu/" />
-    <link rel="alternate" hreflang="cs" href="https://test.weboptim.cz/" />
-    <link rel="alternate" hreflang="sk" href="https://test.weboptim.sk/" />
-    <link rel="alternate" hreflang="x-default" href="https://test.weboptim.eu/" />
+    <link rel="alternate" hreflang="en" href="https://weboptim.eu/" />
+    <link rel="alternate" hreflang="cs" href="https://weboptim.cz/" />
+    <link rel="alternate" hreflang="sk" href="https://weboptim.sk/" />
+    <link rel="alternate" hreflang="x-default" href="https://weboptim.sk/" />
     
     <!-- RSS Feed autodiscovery -->
     <link rel="alternate" type="application/rss+xml" title="WebOptim Blog RSS Feed" href="/rss.xml" />
@@ -66,16 +67,19 @@
       "@type": "Organization",
       "name": "WebOptim",
       "legalName": "Smart Coach s.r.o.",
-      "url": "https://test.weboptim.eu",
-      "logo": "https://test.weboptim.eu/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png",
+      "url": "https://weboptim.sk",
+      "logo": "https://weboptim.sk/lovable-uploads/2af30195-bf84-46f5-b4a1-73a8df44bebb.png",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Příčná 1892/4",
+        "streetAddress": "Príčna 1892/4",
         "addressLocality": "Praha",
         "postalCode": "110 00",
         "addressCountry": "CZ"
       },
-      "sameAs": []
+      "sameAs": [
+        "https://www.facebook.com/weboptim.sk",
+        "https://www.instagram.com/weboptim.sk"
+      ]
     }
     </script>
     
@@ -85,11 +89,11 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "WebOptim",
-      "url": "https://test.weboptim.eu",
-      "inLanguage": ["en", "cs", "sk"],
+      "url": "https://weboptim.sk",
+      "inLanguage": ["sk", "cs", "en"],
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://test.weboptim.eu/blog?q={search_term_string}",
+        "target": "https://weboptim.sk/blog?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
