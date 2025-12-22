@@ -61,7 +61,7 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.share.button": "Share",    
     "blogPost.resources.title": "Sources",
     "blogPost.author.writtenBy": "Written by",
-    "blogPost.author.bio": "Content Writer & Digital Marketing Specialist with expertise in web development trends and SEO strategies.",    
+    "blogPost.author.bio": "Founder of WebOptim and digital marketing specialist with a focus on web trends and SEO strategies.",    
     "blogPost.exploreMore": "Explore More Articles",
     "blogPost.toc.title": "Table of contents",
 
@@ -519,7 +519,7 @@ const translations: Record<Language, Record<string, string>> = {
     "blogPost.share.button": "Zdieľať",    
     "blogPost.resources.title": "Zdroje",    
     "blogPost.author.writtenBy": "Autor",
-    "blogPost.author.bio": "Copywriter a špecialista na digitálny marketing so zameraním na webové trendy a SEO stratégie.",    
+    "blogPost.author.bio": "Zakladateľ firmy WebOptim a špecialista na digitálny marketing so zameraním na webové trendy a SEO stratégie.",    
     "blogPost.exploreMore": "Pozrieť ďalšie články",
     "blogPost.toc.title": "Obsah článku",
 
