@@ -1,6 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Search, Info, ArrowRight, Sparkles, Link2, Copy, Check } from "lucide-react";
+import { Calculator, Search, Info, ArrowRight, Sparkles, Link2, Copy, Check, Download, Loader2 } from "lucide-react";
+import { pdf } from "@react-pdf/renderer";
+import { QuotePdf, type PdfData } from "@/components/calculator/QuotePdf";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import Navbar from "@/components/Navbar";
@@ -94,6 +96,7 @@ const PriceCalculator = () => {
 
   // Share UI
   const [copied, setCopied] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   // Helper to get label based on language
   const getLabel = (option: PricingOption) => {
@@ -406,6 +409,56 @@ const PriceCalculator = () => {
     articleCount,
     language,
   ]);
+
+  // PDF download
+  const downloadPdf = useCallback(async () => {
+    setPdfLoading(true);
+    try {
+      const pdfData: PdfData = {
+        title: t.title,
+        dateLabel: language === "SK" ? "Dátum" : language === "CZ" ? "Datum" : "Date",
+        selectionsLabel: t.yourSelections ?? "Vaše voľby",
+        totalsLabel: language === "SK" ? "Celkom" : language === "CZ" ? "Celkem" : "Totals",
+        oneTimeLabel: t.oneTimeFee,
+        afterDiscountLabel: t.afterDiscount,
+        monthlyLabel: t.monthlyFee,
+        disclaimer: t.disclaimer,
+        dateText: new Date().toLocaleDateString(language === "SK" ? "sk-SK" : language === "CZ" ? "cs-CZ" : "en-US"),
+        oneTime: formatPrice(calculations.oneTimeTotal).eur,
+        afterDiscount: discountPercent > 0 ? formatPrice(calculations.oneTimeAfterDiscount).eur : undefined,
+        monthly: calculations.monthlyTotal > 0 ? formatPrice(calculations.monthlyTotal).eur : undefined,
+        discountText: discountPercent > 0 ? `−${discountPercent}%` : undefined,
+        design: selectedSummary.design ? getLabel(selectedSummary.design) : undefined,
+        pages: selectedSummary.pages ? getLabel(selectedSummary.pages) : undefined,
+        languages: selectedSummary.langs.map((l) => getLabel(l)),
+        maintenance: selectedSummary.maintenanceOpt && selectedSummary.maintenanceOpt.id !== "none"
+          ? getLabel(selectedSummary.maintenanceOpt)
+          : undefined,
+        hosting: selectedSummary.hostOpt ? getLabel(selectedSummary.hostOpt) : undefined,
+        articles: articleCount > 0 ? `${articleCount}×` : undefined,
+        functionalitiesByCategory: Object.entries(selectedSummary.funcsByCategory).map(([catId, items]) => ({
+          category: getCategoryLabel(catId) || (t.other ?? "Iné"),
+          items: items.map((it) => getLabel(it)),
+        })),
+        marketingOneTime: selectedSummary.mktOne.map((m) => getLabel(m)),
+        marketingMonthly: selectedSummary.mktMonthly.map((m) => getLabel(m)),
+      };
+
+      const blob = await pdf(<QuotePdf data={pdfData} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `weboptim-cenova-ponuka-${new Date().toISOString().slice(0, 10)}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+    } finally {
+      setPdfLoading(false);
+    }
+  }, [t, language, calculations, discountPercent, selectedSummary, articleCount, getLabel, getCategoryLabel]);
 
   return (
     <>
@@ -1013,11 +1066,11 @@ const PriceCalculator = () => {
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
 
-                      {/* Share buttons */}
-                      <div className="grid grid-cols-2 gap-2">
+                      {/* Share & Download buttons */}
+                      <div className="grid grid-cols-3 gap-2">
                         <Button type="button" variant="secondary" className="w-full" onClick={copyShareLink}>
                           {copied ? <Check className="w-4 h-4 mr-2" /> : <Copy className="w-4 h-4 mr-2" />}
-                          {copied ? "Copied" : "Copy link"}
+                          {copied ? "Copied" : "Copy"}
                         </Button>
 
                         <Button
@@ -1028,6 +1081,21 @@ const PriceCalculator = () => {
                         >
                           <Link2 className="w-4 h-4 mr-2" />
                           Open
+                        </Button>
+
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="w-full"
+                          onClick={downloadPdf}
+                          disabled={pdfLoading}
+                        >
+                          {pdfLoading ? (
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          ) : (
+                            <Download className="w-4 h-4 mr-2" />
+                          )}
+                          PDF
                         </Button>
                       </div>
 
