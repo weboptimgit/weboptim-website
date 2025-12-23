@@ -3,7 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": { "dev": "vite", "sitemap": "tsx scripts/generate-sitemap.ts", "build": "npm run sitemap && vite build", "build:dev": "npm run sitemap && vite build --mode development", "lint": "eslint .", "preview": "vite preview" },
+  "scripts": {
+    "dev": "vite",
+    "build": "npx vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
