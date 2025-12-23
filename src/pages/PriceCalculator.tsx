@@ -160,6 +160,69 @@ const PriceCalculator = () => {
     }
   };
 
+  // Summary text helpers (labels)
+const getCategoryLabel = (catId: string) => {
+  const cat = functionalityCategories.find((c) => c.id === catId);
+  if (!cat) return "";
+  if (language === "CZ") return cat.labelCz || cat.label;
+  if (language === "SK") return cat.labelSk || cat.label;
+  return cat.label;
+};
+
+const selectedSummary = useMemo(() => {
+  const design = designTypes.find((d) => d.id === designType);
+  const pages = pageCountOptions.find((p) => p.id === pageCount);
+
+  const funcs = selectedFunctionalities
+    .map((id) => functionalityOptions.find((f) => f.id === id))
+    .filter(Boolean) as PricingOption[];
+
+  const funcsByCategory = funcs.reduce<Record<string, PricingOption[]>>((acc, f: any) => {
+    const key = f.category || "other";
+    acc[key] = acc[key] || [];
+    acc[key].push(f);
+    return acc;
+  }, {});
+
+  const langs = selectedLanguages
+    .map((id) => languageOptions.find((l) => l.id === id))
+    .filter(Boolean) as PricingOption[];
+
+  const maintenanceOpt = maintenanceOptions.find((m) => m.id === maintenance);
+  const hostOpt = hostingOptions.find((h) => h.id === hosting);
+
+  const mktOne = selectedMarketingOneTime
+    .map((id) => marketingOneTimeOptions.find((m) => m.id === id))
+    .filter(Boolean) as PricingOption[];
+
+  const mktMonthly = selectedMarketingMonthly
+    .map((id) => marketingMonthlyOptions.find((m) => m.id === id))
+    .filter(Boolean) as PricingOption[];
+
+  return {
+    design,
+    pages,
+    funcsByCategory,
+    langs,
+    maintenanceOpt,
+    hostOpt,
+    mktOne,
+    mktMonthly,
+    articleCount,
+  };
+}, [
+  designType,
+  pageCount,
+  selectedFunctionalities,
+  selectedLanguages,
+  maintenance,
+  hosting,
+  selectedMarketingOneTime,
+  selectedMarketingMonthly,
+  articleCount,
+  language,
+]);
+
   return (
     <>
       <SEO title={t.title} description={t.subtitle} />
@@ -606,6 +669,158 @@ const PriceCalculator = () => {
                             {t.perMonth}
                           </p>
                         )}
+                      </div>
+
+                      {/* Selections recap */}
+                      <div className="rounded-xl border border-border/50 bg-muted/20 p-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <p className="text-sm font-semibold">{t.yourSelections ?? "Your selections"}</p>
+                          <span className="text-xs text-muted-foreground">
+                            {(selectedFunctionalities.length +
+                              selectedLanguages.length +
+                              selectedMarketingOneTime.length +
+                              selectedMarketingMonthly.length +
+                              (designType ? 1 : 0) +
+                              (pageCount ? 1 : 0) +
+                              (maintenance !== "none" ? 1 : 0) +
+                              (hosting ? 1 : 0) +
+                              (articleCount > 0 ? 1 : 0)) || 0}{" "}
+                            {t.items ?? "items"}
+                          </span>
+                        </div>
+                      
+                        <div className="space-y-3 text-sm">
+                          {/* Design */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.designType}</span>
+                            <span className="text-right">
+                              {selectedSummary.design ? getLabel(selectedSummary.design as any) : <span className="opacity-60">—</span>}
+                            </span>
+                          </div>
+                      
+                          {/* Pages */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.pageCount}</span>
+                            <span className="text-right">
+                              {selectedSummary.pages ? getLabel(selectedSummary.pages as any) : <span className="opacity-60">—</span>}
+                            </span>
+                          </div>
+                      
+                          {/* Languages */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.languages}</span>
+                            <span className="text-right">
+                              {selectedSummary.langs.length > 0 ? (
+                                <span className="inline-flex flex-wrap justify-end gap-1">
+                                  {selectedSummary.langs.map((l) => (
+                                    <span key={(l as any).id} className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs">
+                                      {(l as any).label}
+                                    </span>
+                                  ))}
+                                </span>
+                              ) : (
+                                <span className="opacity-60">—</span>
+                              )}
+                            </span>
+                          </div>
+                      
+                          {/* Functionalities */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.functionalities}</span>
+                            <span className="text-right">
+                              {selectedFunctionalities.length > 0 ? (
+                                <span className="text-xs text-muted-foreground">
+                                  {selectedFunctionalities.length} {t.selected}
+                                </span>
+                              ) : (
+                                <span className="opacity-60">—</span>
+                              )}
+                            </span>
+                          </div>
+                      
+                          {selectedFunctionalities.length > 0 && (
+                            <div className="mt-2 space-y-2">
+                              {Object.entries(selectedSummary.funcsByCategory).map(([catId, items]) => (
+                                <div key={catId} className="rounded-lg bg-background/40 border border-border/40 p-3">
+                                  <p className="text-xs font-semibold mb-2">
+                                    {getCategoryLabel(catId) || (t.other ?? "Other")}
+                                  </p>
+                                  <div className="flex flex-wrap gap-1">
+                                    {items.map((it: any) => (
+                                      <span
+                                        key={it.id}
+                                        className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs"
+                                      >
+                                        {getLabel(it)}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                      
+                          {/* Maintenance */}
+                          <div className="flex items-start justify-between gap-3 pt-2 border-t border-border/40">
+                            <span className="text-muted-foreground">{t.maintenance}</span>
+                            <span className="text-right">
+                              {selectedSummary.maintenanceOpt && selectedSummary.maintenanceOpt.id !== "none" ? (
+                                getLabel(selectedSummary.maintenanceOpt as any)
+                              ) : (
+                                <span className="opacity-60">—</span>
+                              )}
+                            </span>
+                          </div>
+                      
+                          {/* Marketing */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.marketingOneTime}</span>
+                            <span className="text-right">
+                              {selectedSummary.mktOne.length > 0 ? (
+                                <span className="text-xs text-muted-foreground">{selectedSummary.mktOne.length}×</span>
+                              ) : (
+                                <span className="opacity-60">—</span>
+                              )}
+                            </span>
+                          </div>
+                      
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.marketingMonthly}</span>
+                            <span className="text-right">
+                              {selectedSummary.mktMonthly.length > 0 ? (
+                                <span className="text-xs text-muted-foreground">{selectedSummary.mktMonthly.length}×</span>
+                              ) : (
+                                <span className="opacity-60">—</span>
+                              )}
+                            </span>
+                          </div>
+                      
+                          {/* Articles */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.articles}</span>
+                            <span className="text-right">
+                              {articleCount > 0 ? `${articleCount}×` : <span className="opacity-60">—</span>}
+                            </span>
+                          </div>
+                      
+                          {/* Hosting */}
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-muted-foreground">{t.hosting}</span>
+                            <span className="text-right">
+                              {selectedSummary.hostOpt ? getLabel(selectedSummary.hostOpt as any) : <span className="opacity-60">—</span>}
+                            </span>
+                          </div>
+                      
+                          {/* Discount */}
+                          {discountPercent > 0 && (
+                            <div className="flex items-start justify-between gap-3 pt-2 border-t border-border/40">
+                              <span className="text-muted-foreground">{t.discount}</span>
+                              <span className="text-right text-green-500 font-medium">
+                                {discountPercent}% (−€{Math.round(calculations.discountAmount)})
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                       {/* CTA Button */}
