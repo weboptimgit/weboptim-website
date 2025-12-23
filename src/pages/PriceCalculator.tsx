@@ -410,7 +410,7 @@ const PriceCalculator = () => {
   return (
     <>
       <SEO title={t.title} description={t.subtitle} />
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className="min-h-screen bg-background text-foreground">
         <AmbientBackground />
         <Navbar />
 
