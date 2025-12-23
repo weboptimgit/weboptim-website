@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Search, Info, ArrowRight, Sparkles } from "lucide-react";
+import { Calculator, Search, Info, ArrowRight, Sparkles, Link2, Copy, Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import Navbar from "@/components/Navbar";
@@ -31,6 +31,45 @@ import {
   PricingOption,
 } from "@/data/calculator-config";
 
+type CalcSnapshot = {
+  designType: string;
+  pageCount: string;
+  selectedFunctionalities: string[];
+  selectedLanguages: string[];
+  maintenance: string;
+  selectedMarketingOneTime: string[];
+  selectedMarketingMonthly: string[];
+  articleCount: number;
+  hosting: string;
+  discountPercent: number;
+};
+
+// Base64URL helpers (UTF-8 safe)
+const base64UrlEncode = (obj: unknown) => {
+  const json = JSON.stringify(obj);
+  const utf8 = encodeURIComponent(json).replace(/%([0-9A-F]{2})/g, (_, p1) =>
+    String.fromCharCode(parseInt(p1, 16)),
+  );
+  const b64 = btoa(utf8);
+  return b64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+};
+
+const base64UrlDecode = <T,>(str: string): T | null => {
+  try {
+    const pad = str.length % 4 ? "=".repeat(4 - (str.length % 4)) : "";
+    const b64 = (str + pad).replace(/-/g, "+").replace(/_/g, "/");
+    const bin = atob(b64);
+    const json = decodeURIComponent(
+      Array.from(bin)
+        .map((c) => "%" + c.charCodeAt(0).toString(16).padStart(2, "0"))
+        .join(""),
+    );
+    return JSON.parse(json) as T;
+  } catch {
+    return null;
+  }
+};
+
 const PriceCalculator = () => {
   const { language } = useLanguage();
 
@@ -52,6 +91,9 @@ const PriceCalculator = () => {
   const [articleCount, setArticleCount] = useState<number>(0);
   const [hosting, setHosting] = useState<string>("have");
   const [discountPercent, setDiscountPercent] = useState<number>(0);
+
+  // Share UI
+  const [copied, setCopied] = useState(false);
 
   // Helper to get label based on language
   const getLabel = (option: PricingOption) => {
@@ -171,6 +213,124 @@ const PriceCalculator = () => {
     eur: `€${eur.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
     czk: `${Math.round(eur * EUR_TO_CZK).toLocaleString("cs-CZ")} Kč`,
   });
+
+  // Snapshot for sharing
+  const snapshot: CalcSnapshot = useMemo(
+    () => ({
+      designType,
+      pageCount,
+      selectedFunctionalities,
+      selectedLanguages,
+      maintenance,
+      selectedMarketingOneTime,
+      selectedMarketingMonthly,
+      articleCount,
+      hosting,
+      discountPercent,
+    }),
+    [
+      designType,
+      pageCount,
+      selectedFunctionalities,
+      selectedLanguages,
+      maintenance,
+      selectedMarketingOneTime,
+      selectedMarketingMonthly,
+      articleCount,
+      hosting,
+      discountPercent,
+    ],
+  );
+
+  // Load from URL once
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const c = params.get("c");
+    if (!c) return;
+
+    const data = base64UrlDecode<CalcSnapshot>(c);
+    if (!data) return;
+
+    setDesignType(data.designType || "");
+    setPageCount(data.pageCount || "");
+    setSelectedFunctionalities(Array.isArray(data.selectedFunctionalities) ? data.selectedFunctionalities : []);
+    setSelectedLanguages(Array.isArray(data.selectedLanguages) ? data.selectedLanguages : []);
+    setMaintenance(data.maintenance || "none");
+    setSelectedMarketingOneTime(Array.isArray(data.selectedMarketingOneTime) ? data.selectedMarketingOneTime : []);
+    setSelectedMarketingMonthly(Array.isArray(data.selectedMarketingMonthly) ? data.selectedMarketingMonthly : []);
+    setArticleCount(Number.isFinite(data.articleCount) ? data.articleCount : 0);
+    setHosting(data.hosting || "have");
+    setDiscountPercent(Number.isFinite(data.discountPercent) ? data.discountPercent : 0);
+  }, []);
+
+  // Update URL on changes (no reload)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    const isEmpty =
+      !designType &&
+      !pageCount &&
+      selectedFunctionalities.length === 0 &&
+      selectedLanguages.length === 0 &&
+      maintenance === "none" &&
+      selectedMarketingOneTime.length === 0 &&
+      selectedMarketingMonthly.length === 0 &&
+      articleCount === 0 &&
+      hosting === "have" &&
+      discountPercent === 0;
+
+    if (isEmpty) {
+      params.delete("c");
+    } else {
+      params.set("c", base64UrlEncode(snapshot));
+    }
+
+    const newUrl = `${window.location.pathname}${params.toString() ? "?" + params.toString() : ""}`;
+    window.history.replaceState(null, "", newUrl);
+  }, [
+    designType,
+    pageCount,
+    selectedFunctionalities,
+    selectedLanguages,
+    maintenance,
+    selectedMarketingOneTime,
+    selectedMarketingMonthly,
+    articleCount,
+    hosting,
+    discountPercent,
+    snapshot,
+  ]);
+
+  const shareUrl = useMemo(() => window.location.href, [
+    designType,
+    pageCount,
+    selectedFunctionalities,
+    selectedLanguages,
+    maintenance,
+    selectedMarketingOneTime,
+    selectedMarketingMonthly,
+    articleCount,
+    hosting,
+    discountPercent,
+  ]);
+
+  const copyShareLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1200);
+    } catch {
+      // fallback
+      const tmp = document.createElement("textarea");
+      tmp.value = shareUrl;
+      document.body.appendChild(tmp);
+      tmp.select();
+      document.execCommand("copy");
+      document.body.removeChild(tmp);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1200);
+    }
+  };
 
   // -------- Summary helpers (no any) --------
   type FuncOption = (typeof functionalityOptions)[number];
@@ -683,11 +843,7 @@ const PriceCalculator = () => {
                         <p className="text-sm text-primary mb-1">{t.preliminary}</p>
                         <div className="flex items-baseline gap-2">
                           <span className="text-3xl font-bold text-gradient">
-                            {
-                              formatPrice(
-                                discountPercent > 0 ? calculations.oneTimeAfterDiscount : calculations.oneTimeTotal,
-                              ).eur
-                            }
+                            {formatPrice(discountPercent > 0 ? calculations.oneTimeAfterDiscount : calculations.oneTimeTotal).eur}
                           </span>
                         </div>
                         {calculations.monthlyTotal > 0 && (
@@ -701,14 +857,13 @@ const PriceCalculator = () => {
                       {/* Selections recap */}
                       <div className="rounded-xl border border-border/50 bg-muted/20 p-4">
                         <div className="flex items-center justify-between mb-3">
-                          <p className="text-sm font-semibold">{t.yourSelections}</p>
+                          <p className="text-sm font-semibold">{t.yourSelections ?? "Your selections"}</p>
                           <span className="text-xs text-muted-foreground">
-                            {selectedSummary.itemsCount} {t.items}
+                            {selectedSummary.itemsCount} {t.items ?? "items"}
                           </span>
                         </div>
 
                         <div className="space-y-3 text-sm">
-                          {/* Design */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.designType}</span>
                             <span className="text-right">
@@ -716,7 +871,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Pages */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.pageCount}</span>
                             <span className="text-right">
@@ -724,7 +878,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Languages */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.languages}</span>
                             <span className="text-right">
@@ -745,7 +898,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Functionalities */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.functionalities}</span>
                             <span className="text-right">
@@ -764,7 +916,7 @@ const PriceCalculator = () => {
                               {Object.entries(selectedSummary.funcsByCategory).map(([catId, items]) => (
                                 <div key={catId} className="rounded-lg bg-background/40 border border-border/40 p-3">
                                   <p className="text-xs font-semibold mb-2">
-                                    {getCategoryLabel(catId) || t.other}
+                                    {getCategoryLabel(catId) || (t.other ?? "Other")}
                                   </p>
                                   <div className="flex flex-wrap gap-1">
                                     {items.map((it) => (
@@ -781,7 +933,6 @@ const PriceCalculator = () => {
                             </div>
                           )}
 
-                          {/* Maintenance */}
                           <div className="flex items-start justify-between gap-3 pt-2 border-t border-border/40">
                             <span className="text-muted-foreground">{t.maintenance}</span>
                             <span className="text-right">
@@ -791,7 +942,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Marketing one-time */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.marketingOneTime}</span>
                             <span className="text-right">
@@ -812,7 +962,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Marketing monthly */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.marketingMonthly}</span>
                             <span className="text-right">
@@ -833,7 +982,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Articles */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.articles}</span>
                             <span className="text-right">
@@ -841,7 +989,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Hosting */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.hosting}</span>
                             <span className="text-right">
@@ -849,7 +996,6 @@ const PriceCalculator = () => {
                             </span>
                           </div>
 
-                          {/* Discount */}
                           {discountPercent > 0 && (
                             <div className="flex items-start justify-between gap-3 pt-2 border-t border-border/40">
                               <span className="text-muted-foreground">{t.discount}</span>
@@ -861,11 +1007,29 @@ const PriceCalculator = () => {
                         </div>
                       </div>
 
-                      {/* CTA Button */}
+                      {/* CTA */}
                       <Button className="w-full group" size="lg">
                         {t.getQuote}
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
+
+                      {/* Share buttons */}
+                      <div className="grid grid-cols-2 gap-2">
+                        <Button type="button" variant="secondary" className="w-full" onClick={copyShareLink}>
+                          {copied ? <Check className="w-4 h-4 mr-2" /> : <Copy className="w-4 h-4 mr-2" />}
+                          {copied ? "Copied" : "Copy link"}
+                        </Button>
+
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="w-full"
+                          onClick={() => window.open(shareUrl, "_blank", "noopener,noreferrer")}
+                        >
+                          <Link2 className="w-4 h-4 mr-2" />
+                          Open
+                        </Button>
+                      </div>
 
                       {/* Disclaimer */}
                       <div className="flex items-start gap-2 p-3 rounded-lg bg-muted/30">
