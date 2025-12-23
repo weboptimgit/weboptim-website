@@ -1,17 +1,20 @@
-import { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Check, Search, Info, ArrowRight, Sparkles } from "lucide-react";
+import { Calculator, Search, Info, ArrowRight, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import SEO from "@/components/SEO";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
 import {
   designTypes,
   pageCountOptions,
@@ -30,7 +33,12 @@ import {
 
 const PriceCalculator = () => {
   const { language } = useLanguage();
-  const t = calculatorTranslations[language as keyof typeof calculatorTranslations] || calculatorTranslations.en;
+
+  // Make translations stable regardless of "EN/CZ/SK" vs "en/cz/sk"
+  const langKey = language === "CZ" ? "cz" : language === "SK" ? "sk" : "en";
+  const t =
+    calculatorTranslations[langKey as keyof typeof calculatorTranslations] ||
+    calculatorTranslations.en;
 
   // Form state
   const [designType, setDesignType] = useState<string>("");
@@ -50,6 +58,18 @@ const PriceCalculator = () => {
     if (language === "CZ" && option.labelCz) return option.labelCz;
     if (language === "SK" && option.labelSk) return option.labelSk;
     return option.label;
+  };
+
+  const toggleArrayItem = (
+    arr: string[],
+    setArr: React.Dispatch<React.SetStateAction<string[]>>,
+    id: string,
+  ) => {
+    if (arr.includes(id)) {
+      setArr(arr.filter((i) => i !== id));
+    } else {
+      setArr([...arr, id]);
+    }
   };
 
   // Filter functionalities based on search
@@ -152,76 +172,80 @@ const PriceCalculator = () => {
     czk: `${Math.round(eur * EUR_TO_CZK).toLocaleString("cs-CZ")} Kč`,
   });
 
-  const toggleArrayItem = (arr: string[], setArr: React.Dispatch<React.SetStateAction<string[]>>, id: string) => {
-    if (arr.includes(id)) {
-      setArr(arr.filter((i) => i !== id));
-    } else {
-      setArr([...arr, id]);
-    }
+  // -------- Summary helpers (no any) --------
+  type FuncOption = (typeof functionalityOptions)[number];
+
+  const getCategoryLabel = (catId: string) => {
+    const cat = functionalityCategories.find((c) => c.id === catId);
+    if (!cat) return "";
+    if (language === "CZ") return cat.labelCz || cat.label;
+    if (language === "SK") return cat.labelSk || cat.label;
+    return cat.label;
   };
 
-  // Summary text helpers (labels)
-const getCategoryLabel = (catId: string) => {
-  const cat = functionalityCategories.find((c) => c.id === catId);
-  if (!cat) return "";
-  if (language === "CZ") return cat.labelCz || cat.label;
-  if (language === "SK") return cat.labelSk || cat.label;
-  return cat.label;
-};
+  const selectedSummary = useMemo(() => {
+    const design = designTypes.find((d) => d.id === designType) || null;
+    const pages = pageCountOptions.find((p) => p.id === pageCount) || null;
 
-const selectedSummary = useMemo(() => {
-  const design = designTypes.find((d) => d.id === designType);
-  const pages = pageCountOptions.find((p) => p.id === pageCount);
+    const funcs: FuncOption[] = selectedFunctionalities
+      .map((id) => functionalityOptions.find((f) => f.id === id))
+      .filter((x): x is FuncOption => Boolean(x));
 
-  const funcs = selectedFunctionalities
-    .map((id) => functionalityOptions.find((f) => f.id === id))
-    .filter(Boolean) as PricingOption[];
+    const funcsByCategory = funcs.reduce<Record<string, FuncOption[]>>((acc, f) => {
+      const key = f.category ?? "other";
+      (acc[key] ||= []).push(f);
+      return acc;
+    }, {});
 
-  const funcsByCategory = funcs.reduce<Record<string, PricingOption[]>>((acc, f: any) => {
-    const key = f.category || "other";
-    acc[key] = acc[key] || [];
-    acc[key].push(f);
-    return acc;
-  }, {});
+    const langs: PricingOption[] = selectedLanguages
+      .map((id) => languageOptions.find((l) => l.id === id))
+      .filter((x): x is PricingOption => Boolean(x));
 
-  const langs = selectedLanguages
-    .map((id) => languageOptions.find((l) => l.id === id))
-    .filter(Boolean) as PricingOption[];
+    const maintenanceOpt = maintenanceOptions.find((m) => m.id === maintenance) || null;
+    const hostOpt = hostingOptions.find((h) => h.id === hosting) || null;
 
-  const maintenanceOpt = maintenanceOptions.find((m) => m.id === maintenance);
-  const hostOpt = hostingOptions.find((h) => h.id === hosting);
+    const mktOne: PricingOption[] = selectedMarketingOneTime
+      .map((id) => marketingOneTimeOptions.find((m) => m.id === id))
+      .filter((x): x is PricingOption => Boolean(x));
 
-  const mktOne = selectedMarketingOneTime
-    .map((id) => marketingOneTimeOptions.find((m) => m.id === id))
-    .filter(Boolean) as PricingOption[];
+    const mktMonthly: PricingOption[] = selectedMarketingMonthly
+      .map((id) => marketingMonthlyOptions.find((m) => m.id === id))
+      .filter((x): x is PricingOption => Boolean(x));
 
-  const mktMonthly = selectedMarketingMonthly
-    .map((id) => marketingMonthlyOptions.find((m) => m.id === id))
-    .filter(Boolean) as PricingOption[];
+    const itemsCount =
+      (designType ? 1 : 0) +
+      (pageCount ? 1 : 0) +
+      selectedFunctionalities.length +
+      selectedLanguages.length +
+      (maintenance !== "none" ? 1 : 0) +
+      selectedMarketingOneTime.length +
+      selectedMarketingMonthly.length +
+      (articleCount > 0 ? 1 : 0) +
+      (hosting ? 1 : 0);
 
-  return {
-    design,
-    pages,
-    funcsByCategory,
-    langs,
-    maintenanceOpt,
-    hostOpt,
-    mktOne,
-    mktMonthly,
+    return {
+      design,
+      pages,
+      funcsByCategory,
+      langs,
+      maintenanceOpt,
+      hostOpt,
+      mktOne,
+      mktMonthly,
+      itemsCount,
+    };
+  }, [
+    designType,
+    pageCount,
+    selectedFunctionalities,
+    selectedLanguages,
+    maintenance,
+    hosting,
+    selectedMarketingOneTime,
+    selectedMarketingMonthly,
     articleCount,
-  };
-}, [
-  designType,
-  pageCount,
-  selectedFunctionalities,
-  selectedLanguages,
-  maintenance,
-  hosting,
-  selectedMarketingOneTime,
-  selectedMarketingMonthly,
-  articleCount,
-  language,
-]);
+    language,
+  ]);
 
   return (
     <>
@@ -324,6 +348,7 @@ const selectedSummary = useMemo(() => {
                       {selectedFunctionalities.length} {t.selected}
                     </span>
                   </div>
+
                   <div className="relative mb-4">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
@@ -333,6 +358,7 @@ const selectedSummary = useMemo(() => {
                       className="pl-10"
                     />
                   </div>
+
                   <Accordion type="multiple" className="space-y-2">
                     {groupedFunctionalities.map((category) => (
                       <AccordionItem
@@ -405,6 +431,7 @@ const selectedSummary = useMemo(() => {
                       </div>
                     ))}
                   </div>
+
                   <p className="text-xs text-muted-foreground mt-3">
                     <Info className="w-3 h-3 inline mr-1" />
                     First language is free, additional languages +€100 each
@@ -674,38 +701,29 @@ const selectedSummary = useMemo(() => {
                       {/* Selections recap */}
                       <div className="rounded-xl border border-border/50 bg-muted/20 p-4">
                         <div className="flex items-center justify-between mb-3">
-                          <p className="text-sm font-semibold">{t.yourSelections ?? "Your selections"}</p>
+                          <p className="text-sm font-semibold">{t.yourSelections}</p>
                           <span className="text-xs text-muted-foreground">
-                            {(selectedFunctionalities.length +
-                              selectedLanguages.length +
-                              selectedMarketingOneTime.length +
-                              selectedMarketingMonthly.length +
-                              (designType ? 1 : 0) +
-                              (pageCount ? 1 : 0) +
-                              (maintenance !== "none" ? 1 : 0) +
-                              (hosting ? 1 : 0) +
-                              (articleCount > 0 ? 1 : 0)) || 0}{" "}
-                            {t.items ?? "items"}
+                            {selectedSummary.itemsCount} {t.items}
                           </span>
                         </div>
-                      
+
                         <div className="space-y-3 text-sm">
                           {/* Design */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.designType}</span>
                             <span className="text-right">
-                              {selectedSummary.design ? getLabel(selectedSummary.design as any) : <span className="opacity-60">—</span>}
+                              {selectedSummary.design ? getLabel(selectedSummary.design) : <span className="opacity-60">—</span>}
                             </span>
                           </div>
-                      
+
                           {/* Pages */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.pageCount}</span>
                             <span className="text-right">
-                              {selectedSummary.pages ? getLabel(selectedSummary.pages as any) : <span className="opacity-60">—</span>}
+                              {selectedSummary.pages ? getLabel(selectedSummary.pages) : <span className="opacity-60">—</span>}
                             </span>
                           </div>
-                      
+
                           {/* Languages */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.languages}</span>
@@ -713,8 +731,11 @@ const selectedSummary = useMemo(() => {
                               {selectedSummary.langs.length > 0 ? (
                                 <span className="inline-flex flex-wrap justify-end gap-1">
                                   {selectedSummary.langs.map((l) => (
-                                    <span key={(l as any).id} className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs">
-                                      {(l as any).label}
+                                    <span
+                                      key={l.id}
+                                      className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs"
+                                    >
+                                      {getLabel(l)}
                                     </span>
                                   ))}
                                 </span>
@@ -723,7 +744,7 @@ const selectedSummary = useMemo(() => {
                               )}
                             </span>
                           </div>
-                      
+
                           {/* Functionalities */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.functionalities}</span>
@@ -737,16 +758,16 @@ const selectedSummary = useMemo(() => {
                               )}
                             </span>
                           </div>
-                      
+
                           {selectedFunctionalities.length > 0 && (
                             <div className="mt-2 space-y-2">
                               {Object.entries(selectedSummary.funcsByCategory).map(([catId, items]) => (
                                 <div key={catId} className="rounded-lg bg-background/40 border border-border/40 p-3">
                                   <p className="text-xs font-semibold mb-2">
-                                    {getCategoryLabel(catId) || (t.other ?? "Other")}
+                                    {getCategoryLabel(catId) || t.other}
                                   </p>
                                   <div className="flex flex-wrap gap-1">
-                                    {items.map((it: any) => (
+                                    {items.map((it) => (
                                       <span
                                         key={it.id}
                                         className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs"
@@ -759,42 +780,59 @@ const selectedSummary = useMemo(() => {
                               ))}
                             </div>
                           )}
-                      
+
                           {/* Maintenance */}
                           <div className="flex items-start justify-between gap-3 pt-2 border-t border-border/40">
                             <span className="text-muted-foreground">{t.maintenance}</span>
                             <span className="text-right">
-                              {selectedSummary.maintenanceOpt && selectedSummary.maintenanceOpt.id !== "none" ? (
-                                getLabel(selectedSummary.maintenanceOpt as any)
-                              ) : (
-                                <span className="opacity-60">—</span>
-                              )}
+                              {selectedSummary.maintenanceOpt && selectedSummary.maintenanceOpt.id !== "none"
+                                ? getLabel(selectedSummary.maintenanceOpt)
+                                : <span className="opacity-60">—</span>}
                             </span>
                           </div>
-                      
-                          {/* Marketing */}
+
+                          {/* Marketing one-time */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.marketingOneTime}</span>
                             <span className="text-right">
                               {selectedSummary.mktOne.length > 0 ? (
-                                <span className="text-xs text-muted-foreground">{selectedSummary.mktOne.length}×</span>
+                                <span className="inline-flex flex-wrap justify-end gap-1">
+                                  {selectedSummary.mktOne.map((m) => (
+                                    <span
+                                      key={m.id}
+                                      className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs"
+                                    >
+                                      {getLabel(m)}
+                                    </span>
+                                  ))}
+                                </span>
                               ) : (
                                 <span className="opacity-60">—</span>
                               )}
                             </span>
                           </div>
-                      
+
+                          {/* Marketing monthly */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.marketingMonthly}</span>
                             <span className="text-right">
                               {selectedSummary.mktMonthly.length > 0 ? (
-                                <span className="text-xs text-muted-foreground">{selectedSummary.mktMonthly.length}×</span>
+                                <span className="inline-flex flex-wrap justify-end gap-1">
+                                  {selectedSummary.mktMonthly.map((m) => (
+                                    <span
+                                      key={m.id}
+                                      className="px-2 py-0.5 rounded-full bg-muted/40 border border-border/40 text-xs"
+                                    >
+                                      {getLabel(m)}
+                                    </span>
+                                  ))}
+                                </span>
                               ) : (
                                 <span className="opacity-60">—</span>
                               )}
                             </span>
                           </div>
-                      
+
                           {/* Articles */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.articles}</span>
@@ -802,15 +840,15 @@ const selectedSummary = useMemo(() => {
                               {articleCount > 0 ? `${articleCount}×` : <span className="opacity-60">—</span>}
                             </span>
                           </div>
-                      
+
                           {/* Hosting */}
                           <div className="flex items-start justify-between gap-3">
                             <span className="text-muted-foreground">{t.hosting}</span>
                             <span className="text-right">
-                              {selectedSummary.hostOpt ? getLabel(selectedSummary.hostOpt as any) : <span className="opacity-60">—</span>}
+                              {selectedSummary.hostOpt ? getLabel(selectedSummary.hostOpt) : <span className="opacity-60">—</span>}
                             </span>
                           </div>
-                      
+
                           {/* Discount */}
                           {discountPercent > 0 && (
                             <div className="flex items-start justify-between gap-3 pt-2 border-t border-border/40">
