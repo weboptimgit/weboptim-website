@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "sitemap": "tsx scripts/generate-sitemap.ts",
-    "build": "npm run sitemap && vite build",
-    "build:dev": "npm run sitemap && vite build --mode development",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "build:with-sitemap": "npm run sitemap && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
