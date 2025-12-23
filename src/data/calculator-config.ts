@@ -170,6 +170,9 @@ export const calculatorTranslations: Record<string, Record<string, string>> = {
     selected: 'selected',
     perArticle: 'per article',
     perMonth: '/month',
+    yourSelections: 'Your selections',
+    items: 'items',
+    other: 'Other',
   },
   cz: {
     title: 'Kalkulačka ceny webu',
@@ -198,6 +201,9 @@ export const calculatorTranslations: Record<string, Record<string, string>> = {
     selected: 'vybráno',
     perArticle: 'za článek',
     perMonth: '/měsíc',
+    yourSelections: 'Vybrané položky',
+    items: 'položek',
+    other: 'Ostatní',
   },
   sk: {
     title: 'Kalkulačka ceny webu',
@@ -226,5 +232,8 @@ export const calculatorTranslations: Record<string, Record<string, string>> = {
     selected: 'vybraných',
     perArticle: 'za článok',
     perMonth: '/mesiac',
+    yourSelections: 'Vybrané položky',
+    items: 'položiek',
+    other: 'Ostatné',
   },
 };
