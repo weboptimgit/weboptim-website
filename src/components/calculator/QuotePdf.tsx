@@ -5,16 +5,11 @@ import {
   Text,
   View,
   StyleSheet,
-  Font,
 } from "@react-pdf/renderer";
-import type { PricingOption } from "@/data/calculator-config";
 
-// (voliteľné) ak chceš vlastný font, dá sa sem pridať Font.register(...)
-
-type PdfData = {
+export type PdfData = {
   title: string;
   dateLabel: string;
-  clientLabel: string;
   selectionsLabel: string;
   totalsLabel: string;
   oneTimeLabel: string;
