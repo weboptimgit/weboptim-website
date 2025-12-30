@@ -134,8 +134,7 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
         ]
       }
     }
-  }
-},
+  },
   copywriting: {
   slugs: { EN: "copywriting", CZ: "copywriting", SK: "copywriting" },
   category: "Marketing",
