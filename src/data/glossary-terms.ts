@@ -28,6 +28,117 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  brief: {
+  slugs: { EN: "brief", CZ: "brief", SK: "brief" },
+  category: "Business",
+  relatedTerms: ["Project Management", "Strategy", "Marketing"],
+  resources: [
+    { title: "Creative Brief", url: "https://www.investopedia.com/terms/c/creative-brief.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Brief",
+      shortDefinition: "Zadanie projektu",
+      fullDefinition:
+        "Brief je dokument alebo súbor informácií, ktorý presne definuje zadanie projektu. Obsahuje ciele, očakávania, cieľovú skupinu, rozpočet a časový rámec. Slúži ako základ pre plánovanie a realizáciu projektu. Dobrý brief eliminuje nejasnosti a znižuje riziko chýb. Je kľúčovým nástrojom komunikácie medzi klientom a dodávateľom.",
+      whyItMatters:
+        "Bez kvalitného briefu môže projekt stratiť smer a prekročiť rozpočet. Brief pomáha všetkým stranám pochopiť, čo je cieľom spolupráce. Zjednodušuje rozhodovanie počas realizácie projektu. Minimalizuje zbytočné úpravy a nedorozumenia. Pre firmy znamená úsporu času, peňazí a energie.",
+      examples: [
+        "Zadanie na nový web alebo e-shop.",
+        "Marketingový brief pre kampaň.",
+        "Redizajn značky.",
+        "Technické zadanie pre vývoj.",
+        "Obsahový plán pre blog."
+      ]
+    },
+    CZ: {
+      term: "Brief",
+      shortDefinition: "Zadání projektu",
+      fullDefinition:
+        "Brief je dokument nebo soubor informací, který přesně definuje zadání projektu. Obsahuje cíle, očekávání, cílovou skupinu, rozpočet a časový rámec. Slouží jako základ pro plánování a realizaci projektu. Dobrý brief eliminuje nejasnosti a snižuje riziko chyb. Je klíčovým nástrojem komunikace mezi klientem a dodavatelem.",
+      whyItMatters:
+        "Bez kvalitního briefu může projekt ztratit směr a překročit rozpočet. Brief pomáhá všem stranám pochopit, co je cílem spolupráce. Zjednodušuje rozhodování během realizace projektu. Minimalizuje zbytečné úpravy a nedorozumění. Pro firmy znamená úsporu času, peněz a energie.",
+      examples: [
+        "Zadání na nový web nebo e-shop.",
+        "Marketingový brief pro kampaň.",
+        "Redesign značky.",
+        "Technické zadání pro vývoj.",
+        "Obsahový plán pro blog."
+      ]
+    },
+    EN: {
+      term: "Brief",
+      shortDefinition: "Project brief",
+      fullDefinition:
+        "A brief is a document or set of information that precisely defines a project assignment. It contains goals, expectations, target audience, budget, and timeline. It serves as the foundation for planning and project execution. A good brief eliminates ambiguities and reduces the risk of errors. It is a key communication tool between the client and the supplier.",
+      whyItMatters:
+        "Without a quality brief, a project can lose direction and exceed its budget. A brief helps all parties understand the goal of the collaboration. It simplifies decision-making during project execution. It minimizes unnecessary changes and misunderstandings. For companies, it means saving time, money, and energy.",
+      examples: [
+        "Assignment for a new website or e-shop.",
+        "Marketing brief for a campaign.",
+        "Brand redesign.",
+        "Technical assignment for development.",
+        "Content plan for a blog."
+      ]
+    }
+  }
+},
+
+benchmarking: {
+  slugs: { EN: "benchmarking", CZ: "benchmarking", SK: "benchmarking" },
+  category: "Business",
+  relatedTerms: ["Competition", "Strategy", "Analysis"],
+  resources: [
+    { title: "Benchmarking", url: "https://www.investopedia.com/terms/b/benchmarking.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Benchmarking",
+      shortDefinition: "Porovnávanie s konkurenciou",
+      fullDefinition:
+        "Benchmarking je proces porovnávania vlastných výsledkov, procesov alebo produktov s konkurenciou alebo lídrami na trhu. Slúži na identifikáciu silných a slabých stránok firmy. Môže sa zamerať na ceny, kvalitu služieb, marketing alebo zákaznícku skúsenosť. Benchmarking poskytuje objektívny pohľad na pozíciu firmy na trhu. Pomáha hľadať inšpiráciu na zlepšenie.",
+      whyItMatters:
+        "Umožňuje firmám pochopiť, kde zaostávajú a kde majú náskok. Pomáha nastaviť realistické ciele. Podporuje inovácie a zlepšovanie procesov. Znižuje riziko, že firma stratí konkurencieschopnosť. Benchmarking je dôležitým nástrojom strategického riadenia.",
+      examples: [
+        "Porovnanie cien služieb s konkurenciou.",
+        "Analýza marketingových kampaní lídrov trhu.",
+        "Hodnotenie zákazníckej podpory.",
+        "Porovnanie rýchlosti dodania služieb.",
+        "Analýza webov konkurencie."
+      ]
+    },
+    CZ: {
+      term: "Benchmarking",
+      shortDefinition: "Porovnávání s konkurencí",
+      fullDefinition:
+        "Benchmarking je proces porovnávání vlastních výsledků, procesů nebo produktů s konkurencí nebo lídry na trhu. Slouží k identifikaci silných a slabých stránek firmy. Může se zaměřit na ceny, kvalitu služeb, marketing nebo zákaznickou zkušenost. Benchmarking poskytuje objektivní pohled na pozici firmy na trhu. Pomáhá hledat inspiraci ke zlepšení.",
+      whyItMatters:
+        "Umožňuje firmám pochopit, kde zaostávají a kde mají náskok. Pomáhá nastavit realistické cíle. Podporuje inovace a zlepšování procesů. Snižuje riziko, že firma ztratí konkurenceschopnost. Benchmarking je důležitým nástrojem strategického řízení.",
+      examples: [
+        "Porovnání cen služeb s konkurencí.",
+        "Analýza marketingových kampaní lídrů trhu.",
+        "Hodnocení zákaznické podpory.",
+        "Porovnání rychlosti dodání služeb.",
+        "Analýza webů konkurence."
+      ]
+    },
+    EN: {
+      term: "Benchmarking",
+      shortDefinition: "Comparison with competitors",
+      fullDefinition:
+        "Benchmarking is the process of comparing a company’s own results, processes, or products with competitors or market leaders. It is used to identify strengths and weaknesses of a business. It can focus on pricing, service quality, marketing, or customer experience. Benchmarking provides an objective view of a company’s position in the market. It helps find inspiration for improvement.",
+      whyItMatters:
+        "It allows companies to understand where they are falling behind and where they have an advantage. It helps set realistic goals. It supports innovation and process improvement. It reduces the risk of losing competitiveness. Benchmarking is an important tool of strategic management.",
+      examples: [
+        "Comparison of service prices with competitors.",
+        "Analysis of marketing campaigns of market leaders.",
+        "Evaluation of customer support.",
+        "Comparison of service delivery speed.",
+        "Analysis of competitors’ websites."
+      ]
+    }
+  }
+},
   roi: {
     slugs: { EN: "roi", CZ: "roi", SK: "roi" },
     category: "Business",
