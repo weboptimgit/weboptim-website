@@ -31,6 +31,7 @@ export const glossaryTranslations = {
     needHelp: "Need help with",
     teamCanHelp: "Our team can help you integrate this into your project.",
     getInTouch: "Get in Touch",
+    ourServices: "Related Services",
   },
   CZ: {
     badge: "Naučte se terminologii",
@@ -64,6 +65,7 @@ export const glossaryTranslations = {
     needHelp: "Potřebujete pomoc s",
     teamCanHelp: "Náš tým vám může pomoci implementovat toto do vašeho projektu.",
     getInTouch: "Kontaktujte nás",
+    ourServices: "Související služby",
   },
   SK: {
     badge: "Naučte sa terminológiu",
@@ -97,5 +99,6 @@ export const glossaryTranslations = {
     needHelp: "Potrebujete pomoc s",
     teamCanHelp: "Náš tím vám môže pomôcť implementovať toto do vášho projektu.",
     getInTouch: "Kontaktujte nás",
+    ourServices: "Súvisiace služby",
   },
 };

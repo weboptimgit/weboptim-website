@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { ExternalLink, BookOpen, Code2, Lightbulb, ChevronRight, Home } from "lucide-react";
+import { ExternalLink, BookOpen, Code2, Lightbulb, ChevronRight, Home, Briefcase } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AmbientBackground from "@/components/AmbientBackground";
 import { Button } from "@/components/ui/button";
-import { glossaryTermsData } from "@/data/glossary-terms";
+import { glossaryTermsData, findTermByName } from "@/data/glossary-terms";
 import SEO, { getDefinedTermSchema, getBreadcrumbSchema } from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { domainConfig, staticPageSlugs } from "@/config/domains";
+import { domainConfig, staticPageSlugs, servicePath } from "@/config/domains";
 import { glossaryTranslations } from "@/contexts/LanguageGlossary";
 import {
   Breadcrumb,
@@ -192,7 +192,7 @@ const GlossaryTerm = () => {
                 </ul>
               </motion.div>
 
-              {/* Related Terms */}
+              {/* Related Terms - now with links */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -201,16 +201,63 @@ const GlossaryTerm = () => {
               >
                 <h2 className="text-xl font-display font-bold text-foreground mb-4">{t.relatedTerms}</h2>
                 <div className="flex flex-wrap gap-2">
-                  {termData.relatedTerms.map((term) => (
-                    <span
-                      key={term}
-                      className="px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium"
-                    >
-                      {term}
-                    </span>
-                  ))}
+                  {termData.relatedTerms.map((relatedTermName) => {
+                    const foundRelated = findTermByName(relatedTermName, language);
+                    if (foundRelated) {
+                      const relatedSlug = foundRelated.term.slugs[language];
+                      return (
+                        <Link
+                          key={relatedTermName}
+                          to={`${glossaryPath}/${relatedSlug}`}
+                          className="px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium hover:bg-primary/20 hover:text-primary transition-colors"
+                        >
+                          {foundRelated.term.content[language].term}
+                        </Link>
+                      );
+                    }
+                    // Fallback if term not found - show as plain text
+                    return (
+                      <span
+                        key={relatedTermName}
+                        className="px-4 py-2 rounded-full bg-muted text-muted-foreground text-sm font-medium"
+                      >
+                        {relatedTermName}
+                      </span>
+                    );
+                  })}
                 </div>
               </motion.div>
+
+              {/* Service Links - links to our services */}
+              {termData.serviceLinks && termData.serviceLinks.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.35 }}
+                >
+                  <h2 className="text-xl font-display font-bold text-foreground mb-4 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Briefcase className="w-5 h-5 text-primary" />
+                    </div>
+                    {t.ourServices || "Our Services"}
+                  </h2>
+                  <div className="flex flex-wrap gap-3">
+                    {termData.serviceLinks.map((serviceLink) => (
+                      <Link
+                        key={serviceLink.serviceKey}
+                        to={servicePath(language, serviceLink.serviceKey)}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass hover:border-primary/40 transition-all group"
+                      >
+                        <Briefcase className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        <span className="text-foreground group-hover:text-primary transition-colors">
+                          {serviceLink.label[language]}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Resources */}
               {termData.resources && (

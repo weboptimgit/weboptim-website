@@ -1,3 +1,5 @@
+import { Language } from "@/contexts/LanguageContext";
+
 export interface GlossaryResource {
   title: string;
   url: string;
@@ -11,6 +13,18 @@ export interface GlossaryTermContent {
   whyItMatters: string;
 }
 
+// Service link type for connecting terms to our services
+export type ServiceKey = "buildingWebsite" | "ecommerceWebsite" | "seo" | "ppc" | "digitalization" | "graphicDesign";
+
+export interface ServiceLink {
+  serviceKey: ServiceKey;
+  label: {
+    EN: string;
+    CZ: string;
+    SK: string;
+  };
+}
+
 export interface GlossaryTerm {
   slugs: {
     EN: string;
@@ -19,6 +33,7 @@ export interface GlossaryTerm {
   };
   category: string;
   relatedTerms: string[];
+  serviceLinks?: ServiceLink[];
   resources?: GlossaryResource[];
   content: {
     EN: GlossaryTermContent;
@@ -26,6 +41,31 @@ export interface GlossaryTerm {
     SK: GlossaryTermContent;
   };
 }
+
+// Helper function to find a glossary term by its display name (in any language)
+export const findTermByName = (name: string, language: Language): { key: string; term: GlossaryTerm } | null => {
+  const normalizedName = name.toLowerCase().trim();
+  
+  for (const [key, term] of Object.entries(glossaryTermsData)) {
+    const termName = term.content[language].term.toLowerCase();
+    // Check exact match or partial match
+    if (termName === normalizedName || termName.includes(normalizedName) || normalizedName.includes(termName)) {
+      return { key, term };
+    }
+  }
+  
+  // Also search in other languages as fallback
+  for (const [key, term] of Object.entries(glossaryTermsData)) {
+    for (const lang of ["EN", "CZ", "SK"] as Language[]) {
+      const termName = term.content[lang].term.toLowerCase();
+      if (termName === normalizedName || termName.includes(normalizedName) || normalizedName.includes(termName)) {
+        return { key, term };
+      }
+    }
+  }
+  
+  return null;
+};
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
   sla: {
@@ -1371,6 +1411,9 @@ marketingAutomation: {
   slugs: { EN: "marketing-automation", CZ: "marketingova-automatizace", SK: "marketingova-automatizacia" },
   category: "Marketing",
   relatedTerms: ["Leads", "CRM", "Email Marketing", "Funnel"],
+  serviceLinks: [
+    { serviceKey: "digitalization", label: { EN: "Digitalization & Automation", CZ: "Digitalizace a automatizace", SK: "Digitalizácia a automatizácia" } },
+  ],
   resources: [
     { title: "What Is Marketing Automation?", url: "https://www.salesforce.com/marketing/marketing-automation/" }
   ],
@@ -1426,6 +1469,9 @@ marketingAutomation: {
   slugs: { EN: "branding", CZ: "branding", SK: "branding" },
   category: "Marketing",
   relatedTerms: ["Brand", "Brand Identity", "Copywriting", "UX"],
+  serviceLinks: [
+    { serviceKey: "graphicDesign", label: { EN: "Graphic Design", CZ: "Grafický design", SK: "Grafický dizajn" } },
+  ],
   resources: [
     { title: "What Is Branding?", url: "https://www.investopedia.com/terms/b/branding.asp" }
   ],
@@ -1758,6 +1804,9 @@ seo: {
   slugs: { EN: "seo", CZ: "seo", SK: "seo" },
   category: "Marketing",
   relatedTerms: ["Keywords", "SERP", "Meta Description", "Backlinks", "Organic Traffic"],
+  serviceLinks: [
+    { serviceKey: "seo", label: { EN: "SEO Services", CZ: "SEO služby", SK: "SEO služby" } },
+  ],
   resources: [
     { title: "Google SEO Starter Guide", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" }
   ],
@@ -1813,6 +1862,9 @@ ppc: {
   slugs: { EN: "ppc", CZ: "ppc", SK: "ppc" },
   category: "Marketing",
   relatedTerms: ["Google Ads", "Meta Ads", "CPC", "CTR", "Conversion"],
+  serviceLinks: [
+    { serviceKey: "ppc", label: { EN: "PPC Advertising", CZ: "PPC reklama", SK: "PPC reklama" } },
+  ],
   resources: [
     { title: "Google Ads Help", url: "https://support.google.com/google-ads" }
   ],
@@ -1868,6 +1920,9 @@ ppc: {
   slugs: { EN: "frontend", CZ: "frontend", SK: "frontend" },
   category: "Development",
   relatedTerms: ["Backend", "Fullstack Development", "HTML", "CSS", "JavaScript", "UI", "UX", "Responsiveness"],
+  serviceLinks: [
+    { serviceKey: "buildingWebsite", label: { EN: "Website Development", CZ: "Tvorba webových stránek", SK: "Tvorba webových stránok" } },
+  ],
   resources: [
     { title: "MDN — Front-end web developer", url: "https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer" },
     { title: "web.dev — Learn responsive design", url: "https://web.dev/learn/design/" },
@@ -2041,6 +2096,10 @@ cms: {
   slugs: { EN: "cms", CZ: "cms", SK: "cms" },
   category: "Development",
   relatedTerms: ["WordPress", "Plugin", "Hosting", "Database", "HTML", "SEO"],
+  serviceLinks: [
+    { serviceKey: "buildingWebsite", label: { EN: "Website Development", CZ: "Tvorba webových stránek", SK: "Tvorba webových stránok" } },
+    { serviceKey: "ecommerceWebsite", label: { EN: "E-commerce Development", CZ: "Tvorba e-shopů", SK: "Tvorba e-shopov" } },
+  ],
   resources: [
     { title: "Cloudflare — What is a CMS?", url: "https://www.cloudflare.com/learning/content-management/what-is-a-cms/" },
     { title: "WordPress — About", url: "https://wordpress.org/about/" }
@@ -2384,6 +2443,10 @@ ux: {
   slugs: { EN: "ux", CZ: "ux", SK: "ux" },
   category: "Development",
   relatedTerms: ["UI", "Frontend", "Responsiveness", "Conversion", "Accessibility"],
+  serviceLinks: [
+    { serviceKey: "buildingWebsite", label: { EN: "Website Development", CZ: "Tvorba webových stránek", SK: "Tvorba webových stránok" } },
+    { serviceKey: "graphicDesign", label: { EN: "Graphic Design", CZ: "Grafický design", SK: "Grafický dizajn" } },
+  ],
   resources: [
     { title: "Nielsen Norman Group — UX", url: "https://www.nngroup.com/articles/definition-user-experience/" },
     { title: "web.dev — UX", url: "https://web.dev/learn/design/" }
