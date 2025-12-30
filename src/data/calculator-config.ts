@@ -72,6 +72,7 @@ export const functionalityOptions: PricingOption[] = [
   { id: 'multilingual', label: 'Multilingual Support (WPML/Polylang)', labelCz: 'Vícejazyčná podpora', labelSk: 'Viacjazyčná podpora', price: 200, category: 'advanced' },
   { id: 'dynamic-content', label: 'Dynamic Content / CPT', labelCz: 'Dynamický obsah / CPT', labelSk: 'Dynamický obsah / CPT', price: 150, category: 'advanced' },
   { id: 'filters', label: 'Advanced Filters & Sorting', labelCz: 'Pokročilé filtry a řazení', labelSk: 'Pokročilé filtre a radenie', price: 150, category: 'advanced' },
+  { id: 'structured-data', label: 'Structured data', labelCz: 'Strukturovaná data', labelSk: 'Štruktúrované dáta', price: 75, category: 'advanced' },
   
   // E-commerce & Business
   { id: 'payments', label: 'Payment Gateway Integration', labelCz: 'Platební brána', labelSk: 'Platobná brána', price: 200, category: 'ecommerce' },
