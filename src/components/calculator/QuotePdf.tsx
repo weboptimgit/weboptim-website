@@ -5,7 +5,17 @@ import {
   Text,
   View,
   StyleSheet,
+  Font,
 } from "@react-pdf/renderer";
+
+// Register Roboto font with diacritics support
+Font.register({
+  family: "Roboto",
+  fonts: [
+    { src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf", fontWeight: 400 },
+    { src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf", fontWeight: 700 },
+  ],
+});
 
 export type PdfData = {
   title: string;
@@ -39,9 +49,9 @@ export type PdfData = {
 const styles = StyleSheet.create({
   page: {
     padding: 36,
-    fontSize: 11,
+    fontSize: 10,
     color: "#0f172a",
-    fontFamily: "Helvetica",
+    fontFamily: "Roboto",
   },
   header: {
     marginBottom: 18,
@@ -53,47 +63,53 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-end",
   },
-  brand: { fontSize: 18, fontWeight: 700 },
-  meta: { fontSize: 10, color: "#475569" },
+  brand: { fontSize: 16, fontWeight: 700 },
+  meta: { fontSize: 9, color: "#475569" },
 
-  grid: { flexDirection: "row", gap: 12 },
+  grid: { flexDirection: "row", gap: 10 },
   col: { flexGrow: 1 },
   card: {
     borderWidth: 1,
     borderColor: "#e2e8f0",
     borderStyle: "solid",
-    borderRadius: 10,
-    padding: 12,
-    marginBottom: 12,
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 10,
     backgroundColor: "#ffffff",
   },
-  cardTitle: { fontSize: 12, fontWeight: 700, marginBottom: 8 },
+  cardTitle: { fontSize: 11, fontWeight: 700, marginBottom: 6 },
 
-  bigPrice: { fontSize: 18, fontWeight: 800, marginTop: 2 },
-  small: { fontSize: 10, color: "#475569" },
+  bigPrice: { fontSize: 16, fontWeight: 700, marginTop: 2 },
+  small: { fontSize: 9, color: "#475569" },
 
-  row: { flexDirection: "row", justifyContent: "space-between", gap: 12, marginBottom: 6 },
-  label: { color: "#475569" },
-  value: { fontWeight: 600, textAlign: "right", maxWidth: 260 },
+  row: { 
+    flexDirection: "row", 
+    justifyContent: "space-between", 
+    gap: 8, 
+    marginBottom: 5,
+    flexWrap: "wrap",
+  },
+  label: { color: "#475569", flexShrink: 0, width: 90 },
+  value: { fontWeight: 700, textAlign: "right", flex: 1, maxWidth: 180 },
 
-  pillWrap: { flexDirection: "row", flexWrap: "wrap", gap: 6, marginTop: 6 },
+  pillWrap: { flexDirection: "row", flexWrap: "wrap", gap: 4, marginTop: 4 },
   pill: {
     borderWidth: 1,
     borderColor: "#e2e8f0",
     borderStyle: "solid",
     borderRadius: 999,
-    paddingVertical: 3,
-    paddingHorizontal: 8,
-    fontSize: 9,
+    paddingVertical: 2,
+    paddingHorizontal: 6,
+    fontSize: 8,
     color: "#0f172a",
     backgroundColor: "#f8fafc",
   },
 
-  section: { marginTop: 6 },
-  subTitle: { fontSize: 10, fontWeight: 700, marginBottom: 6, color: "#0f172a" },
-  hr: { borderBottomWidth: 1, borderBottomColor: "#e2e8f0", borderBottomStyle: "solid", marginVertical: 8 },
+  section: { marginTop: 4 },
+  subTitle: { fontSize: 9, fontWeight: 700, marginBottom: 4, color: "#0f172a" },
+  hr: { borderBottomWidth: 1, borderBottomColor: "#e2e8f0", borderBottomStyle: "solid", marginVertical: 6 },
 
-  footer: { marginTop: 10, fontSize: 9, color: "#64748b" },
+  footer: { marginTop: 8, fontSize: 8, color: "#64748b" },
 });
 
 export const QuotePdf = ({ data }: { data: PdfData }) => (
@@ -112,7 +128,7 @@ export const QuotePdf = ({ data }: { data: PdfData }) => (
 
       <View style={styles.grid}>
         {/* Left: selections */}
-        <View style={[styles.col, { flexGrow: 1.25 }]}>
+        <View style={[styles.col, { width: "60%" }]}>
           <View style={styles.card}>
             <Text style={styles.cardTitle}>{data.selectionsLabel}</Text>
 
@@ -195,7 +211,7 @@ export const QuotePdf = ({ data }: { data: PdfData }) => (
         </View>
 
         {/* Right: totals */}
-        <View style={[styles.col, { flexGrow: 0.75 }]}>
+        <View style={[styles.col, { width: "38%" }]}>
           <View style={styles.card}>
             <Text style={styles.cardTitle}>{data.totalsLabel}</Text>
 
