@@ -82,59 +82,116 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
     }
   },
 
-  kpi: {
-    slugs: { EN: "kpi", CZ: "kpi", SK: "kpi" },
-    category: "Business",
-    relatedTerms: ["ROI", "Metrics", "Analytics", "Performance"],
-    resources: [],
-    content: {
-      SK: {
-        term: "KPI (Key Performance Indicators)",
-        shortDefinition: "Kľúčové ukazovatele výkonnosti",
-        fullDefinition:
-          "KPI sú merateľné ukazovatele, ktoré slúžia na sledovanie výkonnosti firmy, tímu alebo konkrétneho procesu. Každý KPI má jasne definovaný cieľ a spôsob merania. Môže ísť o tržby, počet dopytov, mieru konverzie alebo spokojnosť zákazníkov. KPI pomáhajú sledovať, či firma napreduje správnym smerom. Bez KPI je veľmi ťažké objektívne hodnotiť úspech.",
-        whyItMatters:
-          "KPI poskytujú jasný prehľad o tom, čo funguje a čo nie. Pomáhajú identifikovať problémy skôr, než sa stanú vážnymi. Umožňujú manažérom a majiteľom robiť rýchle a informované rozhodnutia. Zlepšujú zodpovednosť v tímoch, pretože každý vie, čo sa od neho očakáva. KPI sú základom pre strategické plánovanie a rast firmy.",
-        examples: [
-          "Počet nových zákazníkov za mesiac.",
-          "Priemerná hodnota objednávky.",
-          "Miera konverzie webu.",
-          "Náklady na získanie zákazníka (CAC).",
-          "Retencia zákazníkov."
-        ]
-      },
-      CZ: {
-        term: "KPI (Key Performance Indicators)",
-        shortDefinition: "Klíčové ukazatele výkonnosti",
-        fullDefinition:
-          "KPI jsou měřitelné ukazatele, které slouží ke sledování výkonnosti firmy, týmu nebo konkrétního procesu. Každý KPI má jasně definovaný cíl a způsob měření. Může jít o tržby, počet poptávek, míru konverze nebo spokojenost zákazníků. KPI pomáhají sledovat, zda firma postupuje správným směrem. Bez KPI je velmi obtížné objektivně hodnotit úspěch.",
-        whyItMatters:
-          "KPI poskytují jasný přehled o tom, co funguje a co ne. Pomáhají identifikovat problémy dříve, než se stanou vážnými. Umožňují manažerům a majitelům činit rychlá a informovaná rozhodnutí. Zlepšují odpovědnost v týmech, protože každý ví, co se od něj očekává. KPI jsou základem strategického plánování a růstu firmy.",
-        examples: [
-          "Počet nových zákazníků za měsíc.",
-          "Průměrná hodnota objednávky.",
-          "Míra konverze webu.",
-          "Náklady na získání zákazníka (CAC).",
-          "Retence zákazníků."
-        ]
-      },
-      EN: {
-        term: "KPI (Key Performance Indicators)",
-        shortDefinition: "Key performance indicators",
-        fullDefinition:
-          "KPIs are measurable indicators used to track the performance of a company, team, or specific process. Each KPI has a clearly defined goal and method of measurement. It can include revenue, number of leads, conversion rate, or customer satisfaction. KPIs help monitor whether a company is moving in the right direction. Without KPIs, it is very difficult to objectively evaluate success.",
-        whyItMatters:
-          "KPIs provide a clear overview of what works and what does not. They help identify problems before they become serious. They allow managers and owners to make quick and informed decisions. They improve accountability within teams, as everyone knows what is expected of them. KPIs are the foundation of strategic planning and company growth.",
-        examples: [
-          "Number of new customers per month.",
-          "Average order value.",
-          "Website conversion rate.",
-          "Customer acquisition cost (CAC).",
-          "Customer retention."
-        ]
-      }
+ kpi: {
+  slugs: { EN: "kpi", CZ: "kpi", SK: "kpi" },
+  category: "Business",
+  relatedTerms: ["ROI", "Metrics", "Analytics", "Performance"],
+  resources: [
+    { title: "Key Performance Indicators (KPIs)", url: "https://www.investopedia.com/terms/k/kpi.asp" }
+  ],
+  content: {
+    SK: {
+      term: "KPI (Key Performance Indicators)",
+      shortDefinition: "Kľúčové ukazovatele výkonnosti",
+      fullDefinition:
+        "KPI sú merateľné ukazovatele, ktoré slúžia na sledovanie výkonnosti firmy, tímu alebo konkrétneho procesu. Každý KPI má jasne definovaný cieľ a spôsob merania. Môže ísť o tržby, počet dopytov, mieru konverzie alebo spokojnosť zákazníkov. KPI pomáhajú sledovať, či firma napreduje správnym smerom. Bez KPI je veľmi ťažké objektívne hodnotiť úspech.",
+      whyItMatters:
+        "KPI poskytujú jasný prehľad o tom, čo funguje a čo nie. Pomáhajú identifikovať problémy skôr, než sa stanú vážnymi. Umožňujú manažérom a majiteľom robiť rýchle a informované rozhodnutia. Zlepšujú zodpovednosť v tímoch, pretože každý vie, čo sa od neho očakáva. KPI sú základom pre strategické plánovanie a rast firmy.",
+      examples: [
+        "Počet nových zákazníkov za mesiac.",
+        "Priemerná hodnota objednávky.",
+        "Miera konverzie webu.",
+        "Náklady na získanie zákazníka (CAC).",
+        "Retencia zákazníkov."
+      ]
+    },
+    CZ: {
+      term: "KPI (Key Performance Indicators)",
+      shortDefinition: "Klíčové ukazatele výkonnosti",
+      fullDefinition:
+        "KPI jsou měřitelné ukazatele, které slouží ke sledování výkonnosti firmy, týmu nebo konkrétního procesu. Každý KPI má jasně definovaný cíl a způsob měření. Může jít o tržby, počet poptávek, míru konverze nebo spokojenost zákazníků. KPI pomáhají sledovat, zda firma postupuje správným směrem. Bez KPI je velmi obtížné objektivně hodnotit úspěch.",
+      whyItMatters:
+        "KPI poskytují jasný přehled o tom, co funguje a co ne. Pomáhají identifikovat problémy dříve, než se stanou vážnými. Umožňují manažerům a majitelům činit rychlá a informovaná rozhodnutí. Zlepšují odpovědnost v týmech, protože každý ví, co se od něj očekává. KPI jsou základem strategického plánování a růstu firmy.",
+      examples: [
+        "Počet nových zákazníků za měsíc.",
+        "Průměrná hodnota objednávky.",
+        "Míra konverze webu.",
+        "Náklady na získání zákazníka (CAC).",
+        "Retence zákazníků."
+      ]
+    },
+    EN: {
+      term: "KPI (Key Performance Indicators)",
+      shortDefinition: "Key performance indicators",
+      fullDefinition:
+        "KPIs are measurable indicators used to track the performance of a company, team, or specific process. Each KPI has a clearly defined goal and method of measurement. It can include revenue, number of leads, conversion rate, or customer satisfaction. KPIs help monitor whether a company is moving in the right direction. Without KPIs, it is very difficult to objectively evaluate success.",
+      whyItMatters:
+        "KPIs provide a clear overview of what works and what does not. They help identify problems before they become serious. They allow managers and owners to make quick and informed decisions. They improve accountability within teams, as everyone knows what is expected of them. KPIs are the foundation of strategic planning and company growth.",
+      examples: [
+        "Number of new customers per month.",
+        "Average order value.",
+        "Website conversion rate.",
+        "Customer acquisition cost (CAC).",
+        "Customer retention."
+      ]
     }
-  },
+  }
+},
+stakeholder: {
+  slugs: { EN: "stakeholder", CZ: "stakeholder", SK: "stakeholder" },
+  category: "Management",
+  relatedTerms: ["Project Management", "Business", "Strategy"],
+  resources: [
+    { title: "Stakeholder Definition", url: "https://www.investopedia.com/terms/s/stakeholder.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Stakeholder",
+      shortDefinition: "Zainteresovaná strana",
+      fullDefinition:
+        "Stakeholder je osoba alebo skupina, ktorá má záujem alebo vplyv na projekt, firmu alebo rozhodnutie. Môže ísť o majiteľa firmy, investorov, zamestnancov, zákazníkov alebo partnerov. Stakeholderi nemusia byť priamo zapojení do každodennej práce, ale ich rozhodnutia majú významný dopad. Každý stakeholder má iné očakávania a ciele. Riadenie vzťahov so stakeholdermi je dôležitou súčasťou projektového a strategického manažmentu.",
+      whyItMatters:
+        "Pochopenie potrieb stakeholderov pomáha predchádzať konfliktom a nedorozumeniam. Umožňuje lepšie plánovanie a komunikáciu v rámci projektov. Spokojní stakeholderi podporujú rast a stabilitu firmy. Ignorovanie kľúčových stakeholderov môže viesť k zlyhaniu projektu. Pre úspešný biznis je dôležité vedieť, kto má aký vplyv a očakávania.",
+      examples: [
+        "Investor očakávajúci návratnosť investície.",
+        "Klient, ktorý zadáva projekt.",
+        "Zamestnanci zapojení do realizácie.",
+        "Obchodní partneri.",
+        "Dodávatelia služieb."
+      ]
+    },
+    CZ: {
+      term: "Stakeholder",
+      shortDefinition: "Zainteresovaná strana",
+      fullDefinition:
+        "Stakeholder je osoba nebo skupina, která má zájem nebo vliv na projekt, firmu nebo rozhodnutí. Může jít o majitele firmy, investory, zaměstnance, zákazníky nebo partnery. Stakeholdeři nemusí být přímo zapojeni do každodenní práce, ale jejich rozhodnutí mají významný dopad. Každý stakeholder má jiná očekávání a cíle. Řízení vztahů se stakeholdery je důležitou součástí projektového a strategického managementu.",
+      whyItMatters:
+        "Pochopení potřeb stakeholderů pomáhá předcházet konfliktům a nedorozuměním. Umožňuje lepší plánování a komunikaci v rámci projektů. Spokojení stakeholdeři podporují růst a stabilitu firmy. Ignorování klíčových stakeholderů může vést k selhání projektu. Pro úspěšný byznys je důležité vědět, kdo má jaký vliv a očekávání.",
+      examples: [
+        "Investor očekávající návratnost investice.",
+        "Klient, který zadává projekt.",
+        "Zaměstnanci zapojení do realizace.",
+        "Obchodní partneři.",
+        "Dodavatelé služeb."
+      ]
+    },
+    EN: {
+      term: "Stakeholder",
+      shortDefinition: "Interested party",
+      fullDefinition:
+        "A stakeholder is a person or group that has an interest or influence in a project, company, or decision. This can include company owners, investors, employees, customers, or partners. Stakeholders may not be directly involved in daily operations, but their decisions have a significant impact. Each stakeholder has different expectations and goals. Managing stakeholder relationships is an important part of project and strategic management.",
+      whyItMatters:
+        "Understanding stakeholder needs helps prevent conflicts and misunderstandings. It enables better planning and communication within projects. Satisfied stakeholders support company growth and stability. Ignoring key stakeholders can lead to project failure. For a successful business, it is important to know who has what influence and expectations.",
+      examples: [
+        "An investor expecting a return on investment.",
+        "A client commissioning a project.",
+        "Employees involved in implementation.",
+        "Business partners.",
+        "Service providers."
+      ]
+    }
+  }
+},
   copywriting: {
   slugs: { EN: "copywriting", CZ: "copywriting", SK: "copywriting" },
   category: "Marketing",
