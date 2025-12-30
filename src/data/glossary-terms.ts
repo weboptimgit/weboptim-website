@@ -28,6 +28,286 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  outsourcing: {
+  slugs: { EN: "outsourcing", CZ: "outsourcing", SK: "outsourcing" },
+  category: "Business",
+  relatedTerms: ["Pricing", "KPI", "ROI", "Stakeholder"],
+  resources: [
+    { title: "Outsourcing", url: "https://www.investopedia.com/terms/o/outsourcing.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Outsourcing",
+      shortDefinition: "Prenesenie činností na externého dodávateľa",
+      fullDefinition:
+        "Outsourcing znamená, že firma presunie určitú časť práce alebo procesov na externú spoločnosť alebo špecialistu. Najčastejšie ide o oblasti ako IT, marketing, účtovníctvo alebo zákaznícka podpora. Cieľom outsourcingu je zefektívniť fungovanie firmy a sústrediť sa na jej hlavné aktivity. Externý dodávateľ má zvyčajne vyššiu odbornosť v danej oblasti. Outsourcing môže byť krátkodobý aj dlhodobý.",
+      whyItMatters:
+        "Outsourcing umožňuje firmám znížiť náklady na zamestnancov a infraštruktúru. Zvyšuje flexibilitu, pretože služby je možné rýchlo škálovať podľa potreby. Firmy získajú prístup k expertom bez nutnosti ich zamestnávať na plný úväzok. Pomáha urýchliť realizáciu projektov a zvýšiť kvalitu výstupov. Pre malé a stredné firmy je outsourcing často kľúčom k rastu.",
+      examples: [
+        "Externá agentúra spravuje SEO a reklamy.",
+        "Účtovníctvo zabezpečuje externá firma.",
+        "Vývoj webu rieši externý tím.",
+        "Zákaznícka podpora je outsourcovaná.",
+        "Externý copywriter tvorí obsah."
+      ]
+    },
+    CZ: {
+      term: "Outsourcing",
+      shortDefinition: "Přesunutí činností na externího dodavatele",
+      fullDefinition:
+        "Outsourcing znamená, že firma přesune určitou část práce nebo procesů na externí společnost nebo specialistu. Nejčastěji jde o oblasti jako IT, marketing, účetnictví nebo zákaznická podpora. Cílem outsourcingu je zefektivnit fungování firmy a soustředit se na její hlavní aktivity. Externí dodavatel má obvykle vyšší odbornost v dané oblasti. Outsourcing může být krátkodobý i dlouhodobý.",
+      whyItMatters:
+        "Outsourcing umožňuje firmám snížit náklady na zaměstnance a infrastrukturu. Zvyšuje flexibilitu, protože služby je možné rychle škálovat podle potřeby. Firmy získají přístup k expertům bez nutnosti je zaměstnávat na plný úvazek. Pomáhá urychlit realizaci projektů a zvýšit kvalitu výstupů. Pro malé a střední firmy je outsourcing často klíčem k růstu.",
+      examples: [
+        "Externí agentura spravuje SEO a reklamy.",
+        "Účetnictví zajišťuje externí firma.",
+        "Vývoj webu řeší externí tým.",
+        "Zákaznická podpora je outsourcovaná.",
+        "Externí copywriter tvoří obsah."
+      ]
+    },
+    EN: {
+      term: "Outsourcing",
+      shortDefinition: "Transferring activities to an external supplier",
+      fullDefinition:
+        "Outsourcing means that a company moves a certain part of work or processes to an external company or specialist. Most often, it involves areas such as IT, marketing, accounting, or customer support. The goal of outsourcing is to make the company’s operations more efficient and focus on its main activities. An external supplier usually has higher expertise in the given area. Outsourcing can be short-term or long-term.",
+      whyItMatters:
+        "Outsourcing allows companies to reduce costs for employees and infrastructure. It increases flexibility because services can be quickly scaled as needed. Companies gain access to experts without having to employ them full-time. It helps speed up project delivery and increase the quality of outputs. For small and medium-sized companies, outsourcing is often the key to growth.",
+      examples: [
+        "An external agency manages SEO and ads.",
+        "Accounting is handled by an external company.",
+        "Website development is done by an external team.",
+        "Customer support is outsourced.",
+        "An external copywriter creates content."
+      ]
+    }
+  }
+},
+
+cashflow: {
+  slugs: { EN: "cashflow", CZ: "cashflow", SK: "cashflow" },
+  category: "Business",
+  relatedTerms: ["ROI", "KPI", "Pricing", "Benchmarking"],
+  resources: [
+    { title: "Cash Flow", url: "https://www.investopedia.com/terms/c/cashflow.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Cashflow",
+      shortDefinition: "Tok peňazí vo firme",
+      fullDefinition:
+        "Cashflow vyjadruje pohyb peňazí do firmy a z firmy v určitom časovom období. Zahŕňa všetky príjmy a výdavky, ktoré ovplyvňujú dostupnú hotovosť. Pozitívny cashflow znamená, že firma má viac príjmov než výdavkov. Negatívny cashflow signalizuje potenciálne finančné problémy. Cashflow sa líši od zisku, pretože sleduje reálne peniaze, nie účtovné položky.",
+      whyItMatters:
+        "Firma môže byť zisková, ale bez hotovosti nemusí prežiť. Cashflow zabezpečuje schopnosť platiť faktúry, mzdy a investície. Pomáha plánovať budúce výdavky a rast. Pravidelné sledovanie cashflow znižuje riziko finančných kríz. Pre stabilitu firmy je cashflow rovnako dôležité ako tržby.",
+      examples: [
+        "Pravidelné mesačné sledovanie príjmov a výdavkov.",
+        "Problém s oneskorenými platbami od klientov.",
+        "Plánovanie investícií do marketingu.",
+        "Rezerva pre nečakané výdavky.",
+        "Vyhodnocovanie sezónnych výkyvov."
+      ]
+    },
+    CZ: {
+      term: "Cashflow",
+      shortDefinition: "Tok peněz ve firmě",
+      fullDefinition:
+        "Cashflow vyjadřuje pohyb peněz do firmy a z firmy v určitém časovém období. Zahrnuje všechny příjmy a výdaje, které ovlivňují dostupnou hotovost. Pozitivní cashflow znamená, že firma má více příjmů než výdajů. Negativní cashflow signalizuje potenciální finanční problémy. Cashflow se liší od zisku, protože sleduje reálné peníze, nikoli účetní položky.",
+      whyItMatters:
+        "Firma může být zisková, ale bez hotovosti nemusí přežít. Cashflow zajišťuje schopnost platit faktury, mzdy a investice. Pomáhá plánovat budoucí výdaje a růst. Pravidelné sledování cashflow snižuje riziko finančních krizí. Pro stabilitu firmy je cashflow stejně důležité jako tržby.",
+      examples: [
+        "Pravidelné měsíční sledování příjmů a výdajů.",
+        "Problém se zpožděnými platbami od klientů.",
+        "Plánování investic do marketingu.",
+        "Rezerva pro nečekané výdaje.",
+        "Vyhodnocování sezónních výkyvů."
+      ]
+    },
+    EN: {
+      term: "Cashflow",
+      shortDefinition: "Cash flow in a company",
+      fullDefinition:
+        "Cashflow expresses the movement of money into and out of a company over a certain period of time. It includes all income and expenses that affect available cash. Positive cashflow means the company has more income than expenses. Negative cashflow signals potential financial problems. Cashflow differs from profit because it tracks real money, not accounting items.",
+      whyItMatters:
+        "A company can be profitable, but without cash it may not survive. Cashflow ensures the ability to pay invoices, wages, and investments. It helps plan future expenses and growth. Regular cashflow monitoring reduces the risk of financial crises. For company stability, cashflow is just as important as revenue.",
+      examples: [
+        "Regular monthly tracking of income and expenses.",
+        "Problem with delayed payments from clients.",
+        "Planning investments into marketing.",
+        "A reserve for unexpected expenses.",
+        "Evaluating seasonal fluctuations."
+      ]
+    }
+  }
+},
+
+b2b_b2c: {
+  slugs: { EN: "b2b-b2c", CZ: "b2b-b2c", SK: "b2b-b2c" },
+  category: "Business",
+  relatedTerms: ["Value Proposition", "Pricing", "Marketing", "Stakeholder"],
+  resources: [
+    { title: "Business-to-Business (B2B)", url: "https://www.investopedia.com/terms/b/btob.asp" },
+    { title: "Business-to-Consumer (B2C)", url: "https://www.investopedia.com/terms/b/btoc.asp" }
+  ],
+  content: {
+    SK: {
+      term: "B2B / B2C",
+      shortDefinition: "Obchodné modely podnikania",
+      fullDefinition:
+        "B2B (Business to Business) označuje obchod medzi firmami, zatiaľ čo B2C (Business to Consumer) znamená predaj priamo koncovým zákazníkom. Každý model má iný spôsob komunikácie, predaja a marketingu. B2B sa zameriava na dlhodobé vzťahy a racionálne rozhodovanie. B2C pracuje viac s emóciami a impulzívnymi nákupmi. Správne pochopenie modelu ovplyvňuje celú stratégiu firmy.",
+      whyItMatters:
+        "Rozlíšenie medzi B2B a B2C pomáha správne nastaviť marketing a predajné procesy. Ovplyvňuje dĺžku nákupného cyklu, ceny aj komunikáciu. Pomáha vybrať vhodné marketingové kanály. Znižuje riziko neefektívnych kampaní. Pre úspech firmy je kľúčové vedieť, komu predáva.",
+      examples: [
+        "Agentúra predáva služby firmám (B2B).",
+        "E-shop predáva produkty koncovým zákazníkom (B2C).",
+        "Iný tón komunikácie pre firmy a jednotlivcov.",
+        "Dlhšie rozhodovanie v B2B segmente.",
+        "Rýchle nákupy v B2C prostredí."
+      ]
+    },
+    CZ: {
+      term: "B2B / B2C",
+      shortDefinition: "Obchodní modely podnikání",
+      fullDefinition:
+        "B2B (Business to Business) označuje obchod mezi firmami, zatímco B2C (Business to Consumer) znamená prodej přímo koncovým zákazníkům. Každý model má jiný způsob komunikace, prodeje a marketingu. B2B se zaměřuje na dlouhodobé vztahy a racionální rozhodování. B2C pracuje více s emocemi a impulzivními nákupy. Správné pochopení modelu ovlivňuje celou strategii firmy.",
+      whyItMatters:
+        "Rozlišení mezi B2B a B2C pomáhá správně nastavit marketing a prodejní procesy. Ovlivňuje délku nákupního cyklu, ceny i komunikaci. Pomáhá vybrat vhodné marketingové kanály. Snižuje riziko neefektivních kampaní. Pro úspěch firmy je klíčové vědět, komu prodává.",
+      examples: [
+        "Agentura prodává služby firmám (B2B).",
+        "E-shop prodává produkty koncovým zákazníkům (B2C).",
+        "Jiný tón komunikace pro firmy a jednotlivce.",
+        "Delší rozhodování v B2B segmentu.",
+        "Rychlé nákupy v B2C prostředí."
+      ]
+    },
+    EN: {
+      term: "B2B / B2C",
+      shortDefinition: "Business models",
+      fullDefinition:
+        "B2B (Business to Business) refers to trade between companies, while B2C (Business to Consumer) means selling directly to end customers. Each model has a different way of communication, sales, and marketing. B2B focuses on long-term relationships and rational decision-making. B2C works more with emotions and impulse purchases. Correctly understanding the model affects the entire company strategy.",
+      whyItMatters:
+        "Distinguishing between B2B and B2C helps set up marketing and sales processes correctly. It affects the length of the buying cycle, pricing, and communication. It helps choose suitable marketing channels. It reduces the risk of ineffective campaigns. For a company’s success, it is crucial to know who it sells to.",
+      examples: [
+        "An agency sells services to companies (B2B).",
+        "An e-shop sells products to end customers (B2C).",
+        "A different tone of communication for companies and individuals.",
+        "Longer decision-making in the B2B segment.",
+        "Fast purchases in the B2C environment."
+      ]
+    }
+  }
+},
+
+value_proposition: {
+  slugs: { EN: "value-proposition", CZ: "value-proposition", SK: "value-proposition" },
+  category: "Business",
+  relatedTerms: ["B2B / B2C", "Branding", "Conversion", "Marketing"],
+  resources: [
+    { title: "Value Proposition", url: "https://www.investopedia.com/terms/v/valueproposition.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Value Proposition",
+      shortDefinition: "Jedinečná hodnota ponuky",
+      fullDefinition:
+        "Value proposition je jasné vyjadrenie toho, prečo by si zákazník mal vybrať práve vašu firmu. Odpovedá na otázku, akú hodnotu prinášate a aký problém riešite. Nejde len o cenu, ale o kombináciu benefitov, kvality, rýchlosti a dôvery. Value proposition musí byť zrozumiteľná a stručná. Je základom marketingovej a obchodnej komunikácie.",
+      whyItMatters:
+        "Silná value proposition odlišuje firmu od konkurencie. Pomáha zákazníkom rýchlo pochopiť výhody spolupráce. Zvyšuje mieru konverzie a dôveru. Zjednodušuje marketingové posolstvá. Bez jasnej hodnoty je firma pre zákazníkov ľahko nahraditeľná.",
+      examples: [
+        "„Služby priamo u vás doma.“",
+        "„Rýchle riešenie bez čakania.“",
+        "„Komplexná starostlivosť na jednom mieste.“",
+        "„Transparentné ceny bez skrytých poplatkov.“",
+        "„Lokálni overení profesionáli.“"
+      ]
+    },
+    CZ: {
+      term: "Value Proposition",
+      shortDefinition: "Jedinečná hodnota nabídky",
+      fullDefinition:
+        "Value proposition je jasné vyjádření toho, proč by si zákazník měl vybrat právě vaši firmu. Odpovídá na otázku, jakou hodnotu přinášíte a jaký problém řešíte. Nejde jen o cenu, ale o kombinaci benefitů, kvality, rychlosti a důvěry. Value proposition musí být srozumitelná a stručná. Je základem marketingové a obchodní komunikace.",
+      whyItMatters:
+        "Silná value proposition odlišuje firmu od konkurence. Pomáhá zákazníkům rychle pochopit výhody spolupráce. Zvyšuje míru konverze a důvěru. Zjednodušuje marketingová sdělení. Bez jasné hodnoty je firma pro zákazníky snadno nahraditelná.",
+      examples: [
+        "„Služby přímo u vás doma.“",
+        "„Rychlé řešení bez čekání.“",
+        "„Komplexní péče na jednom místě.“",
+        "„Transparentní ceny bez skrytých poplatků.“",
+        "„Lokální ověření profesionálové.“"
+      ]
+    },
+    EN: {
+      term: "Value Proposition",
+      shortDefinition: "Unique value of an offer",
+      fullDefinition:
+        "A value proposition is a clear expression of why a customer should choose your company. It answers the question of what value you bring and what problem you solve. It is not only about price, but about a combination of benefits, quality, speed, and trust. A value proposition must be understandable and concise. It is the foundation of marketing and sales communication.",
+      whyItMatters:
+        "A strong value proposition differentiates a company from competitors. It helps customers quickly understand the benefits of working with you. It increases conversion rate and trust. It simplifies marketing messages. Without clear value, a company is easily replaceable for customers.",
+      examples: [
+        "“Services directly at your home.”",
+        "“A fast solution without waiting.”",
+        "“Comprehensive care in one place.”",
+        "“Transparent prices with no hidden fees.”",
+        "“Local verified professionals.”"
+      ]
+    }
+  }
+},
+
+pricing: {
+  slugs: { EN: "pricing", CZ: "pricing", SK: "pricing" },
+  category: "Business",
+  relatedTerms: ["Value Proposition", "ROI", "Benchmarking", "B2B / B2C"],
+  resources: [
+    { title: "Pricing Strategy", url: "https://blog.hubspot.com/sales/pricing-strategy" }
+  ],
+  content: {
+    SK: {
+      term: "Pricing",
+      shortDefinition: "Tvorba cien",
+      fullDefinition:
+        "Pricing je stratégia, ktorou firma stanovuje ceny svojich produktov alebo služieb. Zohľadňuje náklady, hodnotu pre zákazníka, konkurenciu a cieľový trh. Pricing nie je jednorazové rozhodnutie, ale dynamický proces. Správna cena musí byť udržateľná pre firmu aj prijateľná pre zákazníka. Ovplyvňuje vnímanie značky a kvalitu služieb.",
+      whyItMatters:
+        "Zlá cenová stratégia môže firmu poškodiť aj pri kvalitnom produkte. Správny pricing zvyšuje ziskovosť a konkurencieschopnosť. Pomáha komunikovať hodnotu značky. Umožňuje lepšie plánovať rast a investície. Pre firmy je pricing jedným z najcitlivejších rozhodnutí.",
+      examples: [
+        "Balíčkové ceny služieb.",
+        "Prémiové a základné varianty.",
+        "Cenová politika podľa trhu.",
+        "Zľavy pre verných zákazníkov.",
+        "Dynamické ceny podľa dopytu."
+      ]
+    },
+    CZ: {
+      term: "Pricing",
+      shortDefinition: "Tvorba cen",
+      fullDefinition:
+        "Pricing je strategie, kterou firma stanovuje ceny svých produktů nebo služeb. Zohledňuje náklady, hodnotu pro zákazníka, konkurenci a cílový trh. Pricing není jednorázové rozhodnutí, ale dynamický proces. Správná cena musí být udržitelná pro firmu i přijatelná pro zákazníka. Ovlivňuje vnímání značky a kvalitu služeb.",
+      whyItMatters:
+        "Špatná cenová strategie může firmu poškodit i při kvalitním produktu. Správný pricing zvyšuje ziskovost a konkurenceschopnost. Pomáhá komunikovat hodnotu značky. Umožňuje lépe plánovat růst a investice. Pro firmy je pricing jedním z nejcitlivějších rozhodnutí.",
+      examples: [
+        "Balíčkové ceny služeb.",
+        "Prémiové a základní varianty.",
+        "Cenová politika podle trhu.",
+        "Slevy pro věrné zákazníky.",
+        "Dynamické ceny podle poptávky."
+      ]
+    },
+    EN: {
+      term: "Pricing",
+      shortDefinition: "Price setting",
+      fullDefinition:
+        "Pricing is a strategy by which a company sets prices for its products or services. It considers costs, value for the customer, competition, and the target market. Pricing is not a one-time decision, but a dynamic process. The right price must be sustainable for the company and acceptable for the customer. It influences brand perception and service quality.",
+      whyItMatters:
+        "A bad pricing strategy can damage a company even with a quality product. The right pricing increases profitability and competitiveness. It helps communicate brand value. It enables better planning of growth and investments. For companies, pricing is one of the most sensitive decisions.",
+      examples: [
+        "Package pricing for services.",
+        "Premium and basic variants.",
+        "Pricing policy based on the market.",
+        "Discounts for loyal customers.",
+        "Dynamic pricing based on demand."
+      ]
+    }
+  }
+},
   brief: {
   slugs: { EN: "brief", CZ: "brief", SK: "brief" },
   category: "Business",
