@@ -139,7 +139,7 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
 },
 stakeholder: {
   slugs: { EN: "stakeholder", CZ: "stakeholder", SK: "stakeholder" },
-  category: "Management",
+  category: "Business",
   relatedTerms: ["Project Management", "Business", "Strategy"],
   resources: [
     { title: "Stakeholder Definition", url: "https://www.investopedia.com/terms/s/stakeholder.asp" }
