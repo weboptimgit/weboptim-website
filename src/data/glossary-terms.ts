@@ -32,7 +32,7 @@ export const glossaryTermsData: Record<string, GlossaryTerm> = {
     slugs: { EN: "roi", CZ: "roi", SK: "roi" },
     category: "Business",
     relatedTerms: ["KPI", "Benchmarking", "Investment", "Marketing"],
-    resources: [],
+    resources: [{ title: "Return on Investment (ROI)", url: "https://www.investopedia.com/terms/r/returnoninvestment.asp" }],
     content: {
       SK: {
         term: "ROI (Return on Investment)",
