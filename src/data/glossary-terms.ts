@@ -28,6 +28,678 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  sla: {
+  slugs: { EN: "sla", CZ: "sla", SK: "sla" },
+  category: "Business",
+  relatedTerms: ["Workflow", "Deadline", "Projectový manažment", "Audit"],
+  resources: [
+    { title: "What is a service level agreement (SLA)?", url: "https://www.ibm.com/think/topics/service-level-agreement" },
+    { title: "What Is SLA? Service Level Agreements Explained", url: "https://www.atlassian.com/itsm/service-request-management/slas" }
+  ],
+  content: {
+    SK: {
+      term: "SLA (Service Level Agreement)",
+      shortDefinition: "Dohoda o úrovni poskytovaných služieb",
+      fullDefinition:
+        "SLA je formálna dohoda medzi poskytovateľom služby a klientom, ktorá definuje očakávanú úroveň kvality služieb. Obsahuje parametre ako dostupnosť, reakčný čas, rozsah podpory a spôsob riešenia problémov. SLA jasne stanovuje, čo klient môže očakávať a za akých podmienok. Slúži ako referenčný bod pri hodnotení výkonu služby. Zvyčajne je súčasťou zmluvy alebo samostatným dokumentom.",
+      whyItMatters:
+        "SLA chráni obe strany tým, že nastavuje jasné pravidlá spolupráce. Znižuje riziko nedorozumení a sporov pri očakávaniach kvality. Pomáha udržiavať konzistentnú úroveň služieb a zvyšuje dôveru klienta. Umožňuje merať výkon a vyvodzovať zodpovednosť pri nedodržaní podmienok. Pre firmy je SLA dôležitým nástrojom profesionality a transparentnosti.",
+      examples: [
+        "Reakčný čas podpory do 24 hodín.",
+        "Garantovaná dostupnosť služby 99,9 %.",
+        "Definované časy riešenia incidentov.",
+        "Sankcie pri nedodržaní podmienok.",
+        "SLA pre hostingové alebo IT služby."
+      ]
+    },
+    CZ: {
+      term: "SLA (Service Level Agreement)",
+      shortDefinition: "Dohoda o úrovni poskytovaných služeb",
+      fullDefinition:
+        "SLA je formální dohoda mezi poskytovatelem služby a klientem, která definuje očekávanou úroveň kvality služeb. Obsahuje parametry jako dostupnost, reakční čas, rozsah podpory a způsob řešení problémů. SLA jasně stanovuje, co klient může očekávat a za jakých podmínek. Slouží jako referenční bod při hodnocení výkonu služby. Obvykle je součástí smlouvy nebo samostatným dokumentem.",
+      whyItMatters:
+        "SLA chrání obě strany tím, že nastavuje jasná pravidla spolupráce. Snižuje riziko nedorozumění a sporů při očekáváních kvality. Pomáhá udržovat konzistentní úroveň služeb a zvyšuje důvěru klienta. Umožňuje měřit výkon a vyvozovat odpovědnost při nedodržení podmínek. Pro firmy je SLA důležitým nástrojem profesionality a transparentnosti.",
+      examples: [
+        "Reakční čas podpory do 24 hodin.",
+        "Garantovaná dostupnost služby 99,9 %.",
+        "Definované časy řešení incidentů.",
+        "Sankce při nedodržení podmínek.",
+        "SLA pro hostingové nebo IT služby."
+      ]
+    },
+    EN: {
+      term: "SLA (Service Level Agreement)",
+      shortDefinition: "Service level agreement",
+      fullDefinition:
+        "An SLA is a formal agreement between a service provider and a client that defines the expected level of service quality. It includes parameters such as availability, response time, scope of support, and how issues are handled. An SLA clearly states what the client can expect and under what conditions. It serves as a reference point when evaluating service performance. It is usually part of a contract or a standalone document.",
+      whyItMatters:
+        "An SLA protects both parties by setting clear rules for cooperation. It reduces the risk of misunderstandings and disputes about quality expectations. It helps maintain a consistent level of service and increases client trust. It enables performance measurement and accountability when conditions are not met. For companies, an SLA is an important tool of professionalism and transparency.",
+      examples: [
+        "Support response time within 24 hours.",
+        "Guaranteed service availability of 99.9%.",
+        "Defined incident resolution times.",
+        "Penalties for not meeting conditions.",
+        "An SLA for hosting or IT services."
+      ]
+    }
+  }
+},
+
+workflow: {
+  slugs: { EN: "workflow", CZ: "workflow", SK: "workflow" },
+  category: "Business",
+  relatedTerms: ["Projektový manažment", "Roadmap", "Deadline", "Onboarding"],
+  resources: [
+    { title: "What is Workflow Management?", url: "https://www.atlassian.com/agile/project-management/workflow-management" }
+  ],
+  content: {
+    SK: {
+      term: "Workflow",
+      shortDefinition: "Pracovný postup",
+      fullDefinition:
+        "Workflow je definovaný sled krokov, ktorými prechádza úloha alebo proces od začiatku po dokončenie. Zahŕňa rozdelenie úloh, zodpovednosti a poradie činností. Workflow pomáha štandardizovať prácu a zabezpečiť konzistentné výsledky. Môže byť manuálny alebo automatizovaný pomocou nástrojov. Je základom efektívneho riadenia procesov.",
+      whyItMatters:
+        "Dobre nastavený workflow zvyšuje produktivitu a znižuje chybovosť. Umožňuje tímom pracovať koordinovane a prehľadne. Zjednodušuje zaškolenie nových členov tímu. Pomáha identifikovať úzke miesta a optimalizovať procesy. Pre firmy znamená vyššiu efektivitu a nižšie náklady.",
+      examples: [
+        "Proces spracovania objednávky od dopytu po fakturáciu.",
+        "Schvaľovanie marketingových kampaní.",
+        "Automatizované workflow v CRM systéme.",
+        "Postup onboardingu nového klienta.",
+        "Interné procesy v projektovom manažmente."
+      ]
+    },
+    CZ: {
+      term: "Workflow",
+      shortDefinition: "Pracovní postup",
+      fullDefinition:
+        "Workflow je definovaná posloupnost kroků, kterými prochází úkol nebo proces od začátku po dokončení. Zahrnuje rozdělení úkolů, odpovědnosti a pořadí činností. Workflow pomáhá standardizovat práci a zajistit konzistentní výsledky. Může být manuální nebo automatizovaný pomocí nástrojů. Je základem efektivního řízení procesů.",
+      whyItMatters:
+        "Dobře nastavený workflow zvyšuje produktivitu a snižuje chybovost. Umožňuje týmům pracovat koordinovaně a přehledně. Zjednodušuje zaškolení nových členů týmu. Pomáhá identifikovat úzká místa a optimalizovat procesy. Pro firmy znamená vyšší efektivitu a nižší náklady.",
+      examples: [
+        "Proces zpracování objednávky od poptávky po fakturaci.",
+        "Schvalování marketingových kampaní.",
+        "Automatizovaný workflow v CRM systému.",
+        "Postup onboardingu nového klienta.",
+        "Interní procesy v projektovém managementu."
+      ]
+    },
+    EN: {
+      term: "Workflow",
+      shortDefinition: "Work process",
+      fullDefinition:
+        "A workflow is a defined sequence of steps that a task or process goes through from start to completion. It includes task division, responsibilities, and the order of activities. A workflow helps standardize work and ensure consistent results. It can be manual or automated using tools. It is the foundation of effective process management.",
+      whyItMatters:
+        "A well-set workflow increases productivity and reduces errors. It allows teams to work in a coordinated and transparent way. It simplifies training new team members. It helps identify bottlenecks and optimize processes. For companies, it means higher efficiency and lower costs.",
+      examples: [
+        "Order processing from inquiry to invoicing.",
+        "Approval of marketing campaigns.",
+        "Automated workflow in a CRM system.",
+        "New client onboarding process.",
+        "Internal processes in project management."
+      ]
+    }
+  }
+},
+
+deadline: {
+  slugs: { EN: "deadline", CZ: "deadline", SK: "deadline" },
+  category: "Business",
+  relatedTerms: ["Roadmap", "Workflow", "SLA", "Projektový manažment"],
+  resources: [
+    { title: "DEADLINE | English meaning", url: "https://dictionary.cambridge.org/dictionary/english/deadline" }
+  ],
+  content: {
+    SK: {
+      term: "Deadline",
+      shortDefinition: "Konečný termín",
+      fullDefinition:
+        "Deadline je dátum alebo čas, dokedy musí byť úloha alebo projekt dokončený. Slúži ako časový záväzok medzi tímami, klientmi alebo partnermi. Deadliny pomáhajú plánovať prácu a rozdeľovať kapacity. Môžu byť interné alebo externé. Dodržiavanie deadlineov je znakom profesionality.",
+      whyItMatters:
+        "Deadliny zabezpečujú plynulosť práce a zabraňujú zbytočnému odkladaniu úloh. Pomáhajú koordinovať tímové aktivity a závislosti medzi úlohami. Zvyšujú dôveru klientov a partnerov. Umožňujú lepšie plánovanie rozpočtov a zdrojov. Nedodržané deadliny môžu viesť k stratám a poškodeniu reputácie.",
+      examples: [
+        "Termín odovzdania webovej stránky.",
+        "Deadline pre spustenie marketingovej kampane.",
+        "Interný termín na schválenie dizajnu.",
+        "Záväzný termín pre klienta.",
+        "Harmonogram projektu s míľnikmi."
+      ]
+    },
+    CZ: {
+      term: "Deadline",
+      shortDefinition: "Konečný termín",
+      fullDefinition:
+        "Deadline je datum nebo čas, do kdy musí být úkol nebo projekt dokončen. Slouží jako časový závazek mezi týmy, klienty nebo partnery. Deadliny pomáhají plánovat práci a rozdělovat kapacity. Mohou být interní nebo externí. Dodržování deadlinů je znakem profesionality.",
+      whyItMatters:
+        "Deadliny zajišťují plynulost práce a zabraňují zbytečnému odkládání úkolů. Pomáhají koordinovat týmové aktivity a závislosti mezi úkoly. Zvyšují důvěru klientů a partnerů. Umožňují lepší plánování rozpočtů a zdrojů. Nedodržené deadliny mohou vést ke ztrátám a poškození reputace.",
+      examples: [
+        "Termín odevzdání webové stránky.",
+        "Deadline pro spuštění marketingové kampaně.",
+        "Interní termín pro schválení designu.",
+        "Závazný termín pro klienta.",
+        "Harmonogram projektu s milníky."
+      ]
+    },
+    EN: {
+      term: "Deadline",
+      shortDefinition: "Final due date",
+      fullDefinition:
+        "A deadline is a date or time by which a task or project must be completed. It serves as a time commitment between teams, clients, or partners. Deadlines help plan work and allocate capacity. They can be internal or external. Meeting deadlines is a sign of professionalism.",
+      whyItMatters:
+        "Deadlines ensure smooth work flow and prevent unnecessary postponement of tasks. They help coordinate team activities and dependencies between tasks. They increase trust from clients and partners. They allow better planning of budgets and resources. Missed deadlines can lead to losses and damage to reputation.",
+      examples: [
+        "Website delivery date.",
+        "Deadline for launching a marketing campaign.",
+        "Internal deadline for design approval.",
+        "Binding due date for a client.",
+        "Project timeline with milestones."
+      ]
+    }
+  }
+},
+
+roadmap: {
+  slugs: { EN: "roadmap", CZ: "roadmap", SK: "roadmap" },
+  category: "Business",
+  relatedTerms: ["Projektový manažment", "MVP", "Workflow", "Stakeholder"],
+  resources: [
+    { title: "Product Roadmap Guide: What is it & How to Create One", url: "https://www.atlassian.com/agile/product-management/product-roadmaps" }
+  ],
+  content: {
+    SK: {
+      term: "Roadmap",
+      shortDefinition: "Plán budúceho vývoja",
+      fullDefinition:
+        "Roadmap je strategický plán, ktorý vizuálne alebo textovo znázorňuje smerovanie projektu alebo firmy v čase. Obsahuje hlavné ciele, míľniky a priority. Roadmap pomáha zosúladiť tím okolo spoločnej vízie. Nejde o detailný plán úloh, ale o prehľadný smer. Často sa aktualizuje podľa vývoja situácie.",
+      whyItMatters:
+        "Roadmap poskytuje jasný obraz o budúcnosti a prioritách. Pomáha predchádzať chaosu a nejasnostiam v rozhodovaní. Umožňuje lepšiu komunikáciu so stakeholdermi. Zvyšuje motiváciu tímu, pretože každý vie, kam projekt smeruje. Pre firmy je roadmap základom strategického plánovania.",
+      examples: [
+        "Produktová roadmapa na 12 mesiacov.",
+        "Plán vývoja novej funkcionality.",
+        "Strategické ciele firmy na rok.",
+        "Fázy projektu rozdelené do kvartálov.",
+        "Roadmap pre startupový produkt."
+      ]
+    },
+    CZ: {
+      term: "Roadmap",
+      shortDefinition: "Plán budoucího vývoje",
+      fullDefinition:
+        "Roadmap je strategický plán, který vizuálně nebo textově znázorňuje směřování projektu nebo firmy v čase. Obsahuje hlavní cíle, milníky a priority. Roadmap pomáhá sladit tým kolem společné vize. Nejde o detailní plán úkolů, ale o přehledný směr. Často se aktualizuje podle vývoje situace.",
+      whyItMatters:
+        "Roadmap poskytuje jasný obraz o budoucnosti a prioritách. Pomáhá předcházet chaosu a nejasnostem v rozhodování. Umožňuje lepší komunikaci se stakeholdery. Zvyšuje motivaci týmu, protože každý ví, kam projekt směřuje. Pro firmy je roadmap základem strategického plánování.",
+      examples: [
+        "Produktová roadmapa na 12 měsíců.",
+        "Plán vývoje nové funkcionality.",
+        "Strategické cíle firmy na rok.",
+        "Fáze projektu rozdělené do kvartálů.",
+        "Roadmap pro startupový produkt."
+      ]
+    },
+    EN: {
+      term: "Roadmap",
+      shortDefinition: "Future development plan",
+      fullDefinition:
+        "A roadmap is a strategic plan that visually or textually shows the direction of a project or company over time. It contains main goals, milestones, and priorities. A roadmap helps align the team around a shared vision. It is not a detailed task plan, but a clear direction. It is often updated as the situation evolves.",
+      whyItMatters:
+        "A roadmap provides a clear picture of the future and priorities. It helps prevent chaos and uncertainty in decision-making. It enables better communication with stakeholders. It increases team motivation because everyone knows where the project is heading. For companies, a roadmap is the foundation of strategic planning.",
+      examples: [
+        "A 12-month product roadmap.",
+        "A plan for developing new functionality.",
+        "Company strategic goals for the year.",
+        "Project phases divided into quarters.",
+        "A roadmap for a startup product."
+      ]
+    }
+  }
+},
+
+project_management: {
+  slugs: { EN: "project-management", CZ: "projektovy-manazment", SK: "projektovy-manazment" },
+  category: "Business",
+  relatedTerms: ["Roadmap", "Workflow", "Stakeholder", "Deadline"],
+  resources: [
+    { title: "What Is Project Management", url: "https://www.pmi.org/about/what-is-project-management" }
+  ],
+  content: {
+    SK: {
+      term: "Projektový manažment",
+      shortDefinition: "Riadenie projektov",
+      fullDefinition:
+        "Projektový manažment je proces plánovania, riadenia a kontroly projektov od začiatku po dokončenie. Zahŕňa koordináciu ľudí, zdrojov, času a rozpočtu. Cieľom je dosiahnuť stanovené ciele v dohodnutom rozsahu. Projektový manažér dohliada na komunikáciu, kvalitu a dodržiavanie termínov. Ide o kľúčovú disciplínu v každej organizácii.",
+      whyItMatters:
+        "Projektový manažment zvyšuje pravdepodobnosť úspešného dokončenia projektov. Pomáha predchádzať chaosu, oneskoreniam a prekročeniu rozpočtu. Zabezpečuje jasnú komunikáciu medzi tímami a klientmi. Umožňuje efektívne riadenie rizík. Pre firmy znamená vyššiu kvalitu výstupov a spokojnejších zákazníkov.",
+      examples: [
+        "Riadenie vývoja webovej platformy.",
+        "Koordinácia marketingovej kampane.",
+        "Používanie nástrojov ako Asana alebo Trello.",
+        "Riadenie IT projektov.",
+        "Kontrola rozpočtu a harmonogramu."
+      ]
+    },
+    CZ: {
+      term: "Projektový management",
+      shortDefinition: "Řízení projektů",
+      fullDefinition:
+        "Projektový management je proces plánování, řízení a kontroly projektů od začátku po dokončení. Zahrnuje koordinaci lidí, zdrojů, času a rozpočtu. Cílem je dosáhnout stanovených cílů v dohodnutém rozsahu. Projektový manažer dohlíží na komunikaci, kvalitu a dodržování termínů. Jde o klíčovou disciplínu v každé organizaci.",
+      whyItMatters:
+        "Projektový management zvyšuje pravděpodobnost úspěšného dokončení projektů. Pomáhá předcházet chaosu, zpožděním a překročení rozpočtu. Zajišťuje jasnou komunikaci mezi týmy a klienty. Umožňuje efektivní řízení rizik. Pro firmy znamená vyšší kvalitu výstupů a spokojenější zákazníky.",
+      examples: [
+        "Řízení vývoje webové platformy.",
+        "Koordinace marketingové kampaně.",
+        "Používání nástrojů jako Asana nebo Trello.",
+        "Řízení IT projektů.",
+        "Kontrola rozpočtu a harmonogramu."
+      ]
+    },
+    EN: {
+      term: "Project management",
+      shortDefinition: "Project leadership",
+      fullDefinition:
+        "Project management is the process of planning, managing, and controlling projects from start to completion. It involves coordinating people, resources, time, and budget. The goal is to achieve defined objectives within the agreed scope. A project manager oversees communication, quality, and meeting deadlines. It is a key discipline in every organization.",
+      whyItMatters:
+        "Project management increases the probability of successfully completing projects. It helps prevent chaos, delays, and budget overruns. It ensures clear communication between teams and clients. It enables effective risk management. For companies, it means higher quality outputs and more satisfied customers.",
+      examples: [
+        "Managing the development of a web platform.",
+        "Coordinating a marketing campaign.",
+        "Using tools like Asana or Trello.",
+        "Managing IT projects.",
+        "Controlling budget and timeline."
+      ]
+    }
+  }
+},
+
+mvp: {
+  slugs: { EN: "mvp", CZ: "mvp", SK: "mvp" },
+  category: "Business",
+  relatedTerms: ["Roadmap", "Onboarding", "Projektový manažment", "KPI"],
+  resources: [
+    { title: "Minimum viable product (MVP): What is it & how to start", url: "https://www.atlassian.com/agile/product-management/minimum-viable-product" }
+  ],
+  content: {
+    SK: {
+      term: "MVP (Minimum Viable Product)",
+      shortDefinition: "Minimálne funkčný produkt",
+      fullDefinition:
+        "MVP je verzia produktu, ktorá obsahuje len základné funkcie potrebné na jeho používanie. Slúži na rýchle overenie nápadu na trhu. MVP umožňuje získať spätnú väzbu od reálnych používateľov. Nejde o dokonalý produkt, ale o funkčný základ. Používa sa najmä v startupovom prostredí.",
+      whyItMatters:
+        "MVP znižuje riziko zlyhania produktu. Umožňuje testovať trh s minimálnymi nákladmi. Pomáha rýchlo identifikovať, čo funguje a čo nie. Skracuje čas uvedenia produktu na trh. Pre firmy je to efektívny spôsob inovácie.",
+      examples: [
+        "Jednoduchá verzia aplikácie.",
+        "Základná verzia online platformy.",
+        "Testovanie funkcií s prvými používateľmi.",
+        "Pilotný projekt pre nový nápad.",
+        "Zber spätnej väzby pred rozšírením."
+      ]
+    },
+    CZ: {
+      term: "MVP (Minimum Viable Product)",
+      shortDefinition: "Minimálně funkční produkt",
+      fullDefinition:
+        "MVP je verze produktu, která obsahuje jen základní funkce potřebné pro jeho používání. Slouží k rychlému ověření nápadu na trhu. MVP umožňuje získat zpětnou vazbu od reálných uživatelů. Nejde o dokonalý produkt, ale o funkční základ. Používá se zejména ve startupovém prostředí.",
+      whyItMatters:
+        "MVP snižuje riziko selhání produktu. Umožňuje testovat trh s minimálními náklady. Pomáhá rychle identifikovat, co funguje a co ne. Zkracuje čas uvedení produktu na trh. Pro firmy je to efektivní způsob inovace.",
+      examples: [
+        "Jednoduchá verze aplikace.",
+        "Základní verze online platformy.",
+        "Testování funkcí s prvními uživateli.",
+        "Pilotní projekt pro nový nápad.",
+        "Sběr zpětné vazby před rozšířením."
+      ]
+    },
+    EN: {
+      term: "MVP (Minimum Viable Product)",
+      shortDefinition: "Minimum viable product",
+      fullDefinition:
+        "An MVP is a version of a product that contains only the basic features needed to use it. It is used to quickly validate an idea in the market. An MVP allows you to get feedback from real users. It is not a perfect product, but a functional foundation. It is used mainly in the startup environment.",
+      whyItMatters:
+        "An MVP reduces the risk of product failure. It enables market testing with minimal costs. It helps quickly identify what works and what does not. It shortens the time to market. For companies, it is an effective way to innovate.",
+      examples: [
+        "A simple version of an app.",
+        "A basic version of an online platform.",
+        "Testing features with first users.",
+        "A pilot project for a new idea.",
+        "Collecting feedback before expansion."
+      ]
+    }
+  }
+},
+
+onboarding: {
+  slugs: { EN: "onboarding", CZ: "onboarding", SK: "onboarding" },
+  category: "Business",
+  relatedTerms: ["Workflow", "Retencia klienta", "SLA", "Projektový manažment"],
+  resources: [
+    { title: "Onboarding", url: "https://dictionary.cambridge.org/dictionary/english/onboarding" }
+  ],
+  content: {
+    SK: {
+      term: "Onboarding",
+      shortDefinition: "Zavedenie zákazníka alebo zamestnanca",
+      fullDefinition:
+        "Onboarding je proces, ktorým sa nový zákazník alebo zamestnanec zoznamuje s produktom, službou alebo firmou. Zahŕňa úvodné informácie, návody a podporu. Cieľom je rýchle a bezproblémové zapojenie. Onboarding môže byť manuálny alebo automatizovaný. Je prvým dôležitým kontaktom so značkou.",
+      whyItMatters:
+        "Kvalitný onboarding zvyšuje spokojnosť a znižuje mieru odchodu. Pomáha rýchlejšie pochopiť hodnotu produktu. Znižuje počet otázok a podporu. Posilňuje dôveru a vzťah k značke. Pre firmy znamená vyššiu retenciu.",
+      examples: [
+        "Uvítacie e-maily po registrácii.",
+        "Video návody k platforme.",
+        "Sprievodca prvými krokmi.",
+        "Úvodné školenie zamestnancov.",
+        "Automatické onboardingové sekvencie."
+      ]
+    },
+    CZ: {
+      term: "Onboarding",
+      shortDefinition: "Zavedení zákazníka nebo zaměstnance",
+      fullDefinition:
+        "Onboarding je proces, kterým se nový zákazník nebo zaměstnanec seznamuje s produktem, službou nebo firmou. Zahrnuje úvodní informace, návody a podporu. Cílem je rychlé a bezproblémové zapojení. Onboarding může být manuální nebo automatizovaný. Je prvním důležitým kontaktem se značkou.",
+      whyItMatters:
+        "Kvalitní onboarding zvyšuje spokojenost a snižuje míru odchodu. Pomáhá rychleji pochopit hodnotu produktu. Snižuje počet dotazů a zátěž podpory. Posiluje důvěru a vztah ke značce. Pro firmy znamená vyšší retenci.",
+      examples: [
+        "Uvítací e-maily po registraci.",
+        "Video návody k platformě.",
+        "Průvodce prvními kroky.",
+        "Úvodní školení zaměstnanců.",
+        "Automatické onboardingové sekvence."
+      ]
+    },
+    EN: {
+      term: "Onboarding",
+      shortDefinition: "Introducing a customer or employee",
+      fullDefinition:
+        "Onboarding is the process through which a new customer or employee becomes familiar with a product, service, or company. It includes introductory information, guides, and support. The goal is quick and smooth adoption. Onboarding can be manual or automated. It is the first important contact with the brand.",
+      whyItMatters:
+        "High-quality onboarding increases satisfaction and reduces churn. It helps users understand the product’s value faster. It reduces the number of questions and support load. It strengthens trust and the relationship with the brand. For companies, it means higher retention.",
+      examples: [
+        "Welcome emails after registration.",
+        "Video tutorials for the platform.",
+        "A guide to first steps.",
+        "Introductory employee training.",
+        "Automated onboarding sequences."
+      ]
+    }
+  }
+},
+
+upsell: {
+  slugs: { EN: "upsell", CZ: "upsell", SK: "upsell" },
+  category: "Business",
+  relatedTerms: ["Cross-sell", "Pricing", "Value Proposition", "Retencia klienta"],
+  resources: [
+    { title: "Suggestive Selling (Upselling)", url: "https://www.investopedia.com/terms/s/suggestive-selling.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Upsell",
+      shortDefinition: "Predaj vyššej hodnoty",
+      fullDefinition:
+        "Upsell je technika, pri ktorej sa zákazníkovi ponúka lepšia alebo drahšia verzia produktu. Cieľom je zvýšiť hodnotu objednávky. Upsell sa často ponúka v momente rozhodovania. Musí prinášať reálnu pridanú hodnotu. Ide o bežnú obchodnú stratégiu.",
+      whyItMatters:
+        "Upsell zvyšuje tržby bez získavania nových zákazníkov. Zvyšuje priemernú hodnotu objednávky. Pomáha lepšie využiť existujúci dopyt. Pri správnom nastavení zvyšuje spokojnosť zákazníka. Pre firmy je to efektívny rastový nástroj.",
+      examples: [
+        "Prémiový balíček služieb.",
+        "Rozšírené funkcie za príplatok.",
+        "Vyšší tarif platformy.",
+        "Doplnkové služby.",
+        "Dlhodobejšie predplatné."
+      ]
+    },
+    CZ: {
+      term: "Upsell",
+      shortDefinition: "Prodej vyšší hodnoty",
+      fullDefinition:
+        "Upsell je technika, při které se zákazníkovi nabízí lepší nebo dražší verze produktu. Cílem je zvýšit hodnotu objednávky. Upsell se často nabízí v momentu rozhodování. Musí přinášet reálnou přidanou hodnotu. Jde o běžnou obchodní strategii.",
+      whyItMatters:
+        "Upsell zvyšuje tržby bez získávání nových zákazníků. Zvyšuje průměrnou hodnotu objednávky. Pomáhá lépe využít existující poptávku. Při správném nastavení zvyšuje spokojenost zákazníka. Pro firmy je to efektivní růstový nástroj.",
+      examples: [
+        "Prémiový balíček služeb.",
+        "Rozšířené funkce za příplatek.",
+        "Vyšší tarif platformy.",
+        "Doplňkové služby.",
+        "Dlouhodobější předplatné."
+      ]
+    },
+    EN: {
+      term: "Upsell",
+      shortDefinition: "Selling higher value",
+      fullDefinition:
+        "Upsell is a technique where a customer is offered a better or more expensive version of a product. The goal is to increase the order value. Upsell is often offered at the moment of decision. It must deliver real added value. It is a common sales strategy.",
+      whyItMatters:
+        "Upsell increases revenue without acquiring new customers. It increases the average order value. It helps make better use of existing demand. When set up correctly, it increases customer satisfaction. For companies, it is an effective growth tool.",
+      examples: [
+        "A premium service package.",
+        "Extended features for an extra fee.",
+        "A higher platform plan.",
+        "Additional services.",
+        "Longer-term subscription."
+      ]
+    }
+  }
+},
+
+cross_sell: {
+  slugs: { EN: "cross-sell", CZ: "cross-sell", SK: "cross-sell" },
+  category: "Business",
+  relatedTerms: ["Upsell", "Pricing", "Value Proposition", "Retencia klienta"],
+  resources: [
+    { title: "Cross Selling & Upselling Explained", url: "https://www.investopedia.com/terms/c/cross-sell.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Cross-sell",
+      shortDefinition: "Doplnkový predaj",
+      fullDefinition:
+        "Cross-sell je ponuka doplnkových produktov alebo služieb k hlavnému nákupu. Cieľom je rozšíriť objednávku o relevantné položky. Cross-sell vychádza z potrieb zákazníka. Musí byť logický a užitočný. Používa sa v e-shopoch aj službách.",
+      whyItMatters:
+        "Zvyšuje hodnotu objednávky. Zlepšuje zákaznícku skúsenosť, ak je správne cielený. Pomáha lepšie využiť potenciál zákazníka. Znižuje náklady na získanie príjmu. Pre firmy znamená vyššiu ziskovosť.",
+      examples: [
+        "Doplnkové služby k objednávke.",
+        "Príslušenstvo k produktu.",
+        "Odporúčané služby.",
+        "Balíčky služieb.",
+        "Súvisiace produkty."
+      ]
+    },
+    CZ: {
+      term: "Cross-sell",
+      shortDefinition: "Doplňkový prodej",
+      fullDefinition:
+        "Cross-sell je nabídka doplňkových produktů nebo služeb k hlavnímu nákupu. Cílem je rozšířit objednávku o relevantní položky. Cross-sell vychází z potřeb zákazníka. Musí být logický a užitečný. Používá se v e-shopech i službách.",
+      whyItMatters:
+        "Zvyšuje hodnotu objednávky. Zlepšuje zákaznickou zkušenost, pokud je správně cílený. Pomáhá lépe využít potenciál zákazníka. Snižuje náklady na získání příjmu. Pro firmy znamená vyšší ziskovost.",
+      examples: [
+        "Doplňkové služby k objednávce.",
+        "Příslušenství k produktu.",
+        "Doporučené služby.",
+        "Balíčky služeb.",
+        "Související produkty."
+      ]
+    },
+    EN: {
+      term: "Cross-sell",
+      shortDefinition: "Complementary selling",
+      fullDefinition:
+        "Cross-sell is offering complementary products or services alongside the main purchase. The goal is to expand the order with relevant items. Cross-sell is based on the customer’s needs. It must be logical and useful. It is used in e-shops as well as services.",
+      whyItMatters:
+        "It increases the order value. It improves the customer experience if targeted correctly. It helps better utilize the customer’s potential. It reduces the cost of generating revenue. For companies, it means higher profitability.",
+      examples: [
+        "Additional services with an order.",
+        "Accessories to a product.",
+        "Recommended services.",
+        "Service packages.",
+        "Related products."
+      ]
+    }
+  }
+},
+
+audit: {
+  slugs: { EN: "audit", CZ: "audit", SK: "audit" },
+  category: "Business",
+  relatedTerms: ["Benchmarking", "KPI", "ROI", "Forecasting"],
+  resources: [
+    { title: "Audit: Meaning in Finance and Accounting and 3 Main Types", url: "https://www.investopedia.com/terms/a/audit.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Audit",
+      shortDefinition: "Kontrola a analýza",
+      fullDefinition:
+        "Audit je systematická kontrola a analýza procesov, výkonu alebo výsledkov. Môže ísť o finančný, marketingový alebo technický audit. Cieľom je identifikovať problémy a príležitosti na zlepšenie. Audit poskytuje objektívny pohľad na stav firmy. Je základom pre optimalizáciu.",
+      whyItMatters:
+        "Audit odhaľuje slabé miesta skôr, než spôsobia škody. Pomáha zvyšovať efektivitu a výkon. Poskytuje dáta pre strategické rozhodnutia. Zvyšuje transparentnosť a kontrolu. Pre firmy je audit nástrojom rastu.",
+      examples: [
+        "SEO audit webu.",
+        "Finančný audit firmy.",
+        "Procesný audit.",
+        "Audit marketingových kampaní.",
+        "Bezpečnostný audit."
+      ]
+    },
+    CZ: {
+      term: "Audit",
+      shortDefinition: "Kontrola a analýza",
+      fullDefinition:
+        "Audit je systematická kontrola a analýza procesů, výkonu nebo výsledků. Může jít o finanční, marketingový nebo technický audit. Cílem je identifikovat problémy a příležitosti ke zlepšení. Audit poskytuje objektivní pohled na stav firmy. Je základem pro optimalizaci.",
+      whyItMatters:
+        "Audit odhaluje slabá místa dříve, než způsobí škody. Pomáhá zvyšovat efektivitu a výkon. Poskytuje data pro strategická rozhodnutí. Zvyšuje transparentnost a kontrolu. Pro firmy je audit nástrojem růstu.",
+      examples: [
+        "SEO audit webu.",
+        "Finanční audit firmy.",
+        "Procesní audit.",
+        "Audit marketingových kampaní.",
+        "Bezpečnostní audit."
+      ]
+    },
+    EN: {
+      term: "Audit",
+      shortDefinition: "Review and analysis",
+      fullDefinition:
+        "An audit is a systematic review and analysis of processes, performance, or results. It can be a financial, marketing, or technical audit. The goal is to identify problems and opportunities for improvement. An audit provides an objective view of a company’s current state. It is the basis for optimization.",
+      whyItMatters:
+        "An audit reveals weak points before they cause damage. It helps increase efficiency and performance. It provides data for strategic decisions. It increases transparency and control. For companies, an audit is a tool for growth.",
+      examples: [
+        "An SEO audit of a website.",
+        "A financial audit of a company.",
+        "A process audit.",
+        "An audit of marketing campaigns.",
+        "A security audit."
+      ]
+    }
+  }
+},
+
+retention: {
+  slugs: { EN: "customer-retention", CZ: "retence-klienta", SK: "retencia-klienta" },
+  category: "Business",
+  relatedTerms: ["Onboarding", "Upsell", "Cross-sell", "KPI"],
+  resources: [
+    { title: "What is customer retention?", url: "https://www.salesforce.com/eu/service/digital-customer-engagement-platform/customer-retention/" }
+  ],
+  content: {
+    SK: {
+      term: "Retencia klienta",
+      shortDefinition: "Udržanie zákazníka",
+      fullDefinition:
+        "Retencia klienta vyjadruje schopnosť firmy udržať si existujúcich zákazníkov. Sleduje sa v časovom horizonte. Zahŕňa spokojnosť, opakované nákupy a vzťah k značke. Retencia je často lacnejšia než získavanie nových zákazníkov. Je dôležitou súčasťou dlhodobej stratégie.",
+      whyItMatters:
+        "Udržiavanie zákazníkov zvyšuje stabilitu príjmov. Znižuje náklady na marketing. Spokojní zákazníci odporúčajú firmu ďalej. Zvyšuje hodnotu zákazníka v čase. Pre firmy je retencia kľúčom k udržateľnému rastu.",
+      examples: [
+        "Vernostné programy.",
+        "Pravidelná komunikácia.",
+        "Kvalitná zákaznícka podpora.",
+        "Personalizované ponuky.",
+        "Dlhodobé spolupráce."
+      ]
+    },
+    CZ: {
+      term: "Retence klienta",
+      shortDefinition: "Udržení zákazníka",
+      fullDefinition:
+        "Retence klienta vyjadřuje schopnost firmy udržet si stávající zákazníky. Sleduje se v časovém horizontu. Zahrnuje spokojenost, opakované nákupy a vztah ke značce. Retence je často levnější než získávání nových zákazníků. Je důležitou součástí dlouhodobé strategie.",
+      whyItMatters:
+        "Udržování zákazníků zvyšuje stabilitu příjmů. Snižuje náklady na marketing. Spokojení zákazníci doporučují firmu dál. Zvyšuje hodnotu zákazníka v čase. Pro firmy je retence klíčem k udržitelnému růstu.",
+      examples: [
+        "Věrnostní programy.",
+        "Pravidelná komunikace.",
+        "Kvalitní zákaznická podpora.",
+        "Personalizované nabídky.",
+        "Dlouhodobé spolupráce."
+      ]
+    },
+    EN: {
+      term: "Customer retention",
+      shortDefinition: "Keeping customers",
+      fullDefinition:
+        "Customer retention expresses a company’s ability to keep its existing customers. It is tracked over a time horizon. It includes satisfaction, repeat purchases, and a relationship with the brand. Retention is often cheaper than acquiring new customers. It is an important part of a long-term strategy.",
+      whyItMatters:
+        "Keeping customers increases revenue stability. It reduces marketing costs. Satisfied customers recommend the company further. It increases customer value over time. For companies, retention is the key to sustainable growth.",
+      examples: [
+        "Loyalty programs.",
+        "Regular communication.",
+        "High-quality customer support.",
+        "Personalized offers.",
+        "Long-term collaborations."
+      ]
+    }
+  }
+},
+
+forecasting: {
+  slugs: { EN: "forecasting", CZ: "forecasting", SK: "forecasting" },
+  category: "Business",
+  relatedTerms: ["Cashflow", "KPI", "Audit", "ROI"],
+  resources: [
+    { title: "What Is Business Forecasting?", url: "https://www.investopedia.com/articles/financial-theory/11/basics-business-forcasting.asp" }
+  ],
+  content: {
+    SK: {
+      term: "Forecasting",
+      shortDefinition: "Predikcia budúcich výsledkov",
+      fullDefinition:
+        "Forecasting je proces predpovedania budúcich výsledkov na základe historických dát. Používa sa pri plánovaní tržieb, nákladov a rastu. Pomáha odhadnúť vývoj trhu. Forecasting nie je presná veda, ale pracuje s pravdepodobnosťou. Je základom strategického plánovania.",
+      whyItMatters:
+        "Umožňuje lepšie plánovať rozpočet a kapacity. Znižuje riziko nečakaných výkyvov. Pomáha pripraviť sa na rast alebo pokles. Podporuje informované rozhodovanie. Pre firmy je forecasting nástrojom stability.",
+      examples: [
+        "Predikcia mesačných tržieb.",
+        "Plánovanie rastu firmy.",
+        "Odhad sezónnych výkyvov.",
+        "Finančné plánovanie.",
+        "Strategické rozhodnutia."
+      ]
+    },
+    CZ: {
+      term: "Forecasting",
+      shortDefinition: "Predikce budoucích výsledků",
+      fullDefinition:
+        "Forecasting je proces předpovídání budoucích výsledků na základě historických dat. Používá se při plánování tržeb, nákladů a růstu. Pomáhá odhadnout vývoj trhu. Forecasting není přesná věda, ale pracuje s pravděpodobností. Je základem strategického plánování.",
+      whyItMatters:
+        "Umožňuje lépe plánovat rozpočet a kapacity. Snižuje riziko nečekaných výkyvů. Pomáhá připravit se na růst nebo pokles. Podporuje informované rozhodování. Pro firmy je forecasting nástrojem stability.",
+      examples: [
+        "Predikce měsíčních tržeb.",
+        "Plánování růstu firmy.",
+        "Odhad sezónních výkyvů.",
+        "Finanční plánování.",
+        "Strategická rozhodnutí."
+      ]
+    },
+    EN: {
+      term: "Forecasting",
+      shortDefinition: "Predicting future results",
+      fullDefinition:
+        "Forecasting is the process of predicting future results based on historical data. It is used when planning revenue, costs, and growth. It helps estimate market development. Forecasting is not an exact science, but it works with probability. It is the foundation of strategic planning.",
+      whyItMatters:
+        "It enables better planning of budget and capacity. It reduces the risk of unexpected fluctuations. It helps prepare for growth or decline. It supports informed decision-making. For companies, forecasting is a tool of stability.",
+      examples: [
+        "Prediction of monthly revenue.",
+        "Planning company growth.",
+        "Estimating seasonal fluctuations.",
+        "Financial planning.",
+        "Strategic decisions."
+      ]
+    }
+  }
+},
   outsourcing: {
   slugs: { EN: "outsourcing", CZ: "outsourcing", SK: "outsourcing" },
   category: "Business",
