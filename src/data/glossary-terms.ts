@@ -28,6 +28,114 @@ export interface GlossaryTerm {
 }
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  roi: {
+    slugs: { EN: "roi", CZ: "roi", SK: "roi" },
+    category: "Business",
+    relatedTerms: ["KPI", "Benchmarking", "Investment", "Marketing"],
+    resources: [],
+    content: {
+      SK: {
+        term: "ROI (Return on Investment)",
+        shortDefinition: "Návratnosť investície",
+        fullDefinition:
+          "ROI je metrika, ktorá vyjadruje, koľko peňazí firma zarobila v porovnaní s tým, koľko investovala. Používa sa na hodnotenie efektivity investícií do marketingu, technológií, zamestnancov alebo projektov. ROI sa zvyčajne vyjadruje v percentách, čo umožňuje jednoduché porovnávanie rôznych investícií. Nezameriava sa len na tržby, ale na reálny zisk po odpočítaní nákladov. Je to jeden z najdôležitejších ukazovateľov úspešnosti biznisových rozhodnutí.",
+        whyItMatters:
+          "ROI pomáha firmám pochopiť, ktoré aktivity prinášajú reálnu hodnotu a ktoré nie. Umožňuje robiť racionálne rozhodnutia založené na dátach, nie pocitoch. Vďaka ROI vie podnikateľ zistiť, či sa mu oplatí investovať do reklamy, webu alebo nového produktu. Pomáha optimalizovať rozpočet a presúvať investície tam, kde majú najväčší efekt. Pre rast firmy je sledovanie ROI absolútne kľúčové.",
+        examples: [
+          "Investícia 1 000 € do reklamy priniesla zisk 3 000 €.",
+          "Porovnanie návratnosti SEO vs. PPC kampaní.",
+          "Vyhodnotenie investície do nového webu.",
+          "Rozhodovanie o nákupe nového softvéru.",
+          "Optimalizácia marketingového rozpočtu."
+        ]
+      },
+      CZ: {
+        term: "ROI (Return on Investment)",
+        shortDefinition: "Návratnost investice",
+        fullDefinition:
+          "ROI je metrika, která vyjadřuje, kolik peněz firma vydělala ve srovnání s tím, kolik investovala. Používá se k hodnocení efektivity investic do marketingu, technologií, zaměstnanců nebo projektů. ROI se obvykle vyjadřuje v procentech, což umožňuje snadné porovnávání různých investic. Nezaměřuje se pouze na tržby, ale na skutečný zisk po odečtení nákladů. Je to jeden z nejdůležitějších ukazatelů úspěšnosti obchodních rozhodnutí.",
+        whyItMatters:
+          "ROI pomáhá firmám pochopit, které aktivity přinášejí skutečnou hodnotu a které ne. Umožňuje činit racionální rozhodnutí založená na datech, nikoli na pocitech. Díky ROI může podnikatel zjistit, zda se mu vyplatí investovat do reklamy, webu nebo nového produktu. Pomáhá optimalizovat rozpočet a přesouvat investice tam, kde mají největší efekt. Pro růst firmy je sledování ROI naprosto klíčové.",
+        examples: [
+          "Investice 1 000 € do reklamy přinesla zisk 3 000 €.",
+          "Porovnání návratnosti SEO vs. PPC kampaní.",
+          "Vyhodnocení investice do nového webu.",
+          "Rozhodování o nákupu nového softwaru.",
+          "Optimalizace marketingového rozpočtu."
+        ]
+      },
+      EN: {
+        term: "ROI (Return on Investment)",
+        shortDefinition: "Return on investment",
+        fullDefinition:
+          "ROI is a metric that expresses how much money a company has earned compared to how much it has invested. It is used to evaluate the effectiveness of investments in marketing, technologies, employees, or projects. ROI is usually expressed as a percentage, which allows easy comparison of different investments. It does not focus only on revenue, but on real profit after deducting costs. It is one of the most important indicators of successful business decisions.",
+        whyItMatters:
+          "ROI helps companies understand which activities bring real value and which do not. It enables rational, data-driven decisions instead of emotional ones. Thanks to ROI, an entrepreneur can determine whether it is worth investing in advertising, a website, or a new product. It helps optimize budgets and shift investments where they have the greatest impact. Monitoring ROI is absolutely crucial for company growth.",
+        examples: [
+          "An investment of €1,000 in advertising generated a profit of €3,000.",
+          "Comparison of SEO vs. PPC return on investment.",
+          "Evaluation of an investment into a new website.",
+          "Decision-making about purchasing new software.",
+          "Optimization of the marketing budget."
+        ]
+      }
+    }
+  },
+
+  kpi: {
+    slugs: { EN: "kpi", CZ: "kpi", SK: "kpi" },
+    category: "Business",
+    relatedTerms: ["ROI", "Metrics", "Analytics", "Performance"],
+    resources: [],
+    content: {
+      SK: {
+        term: "KPI (Key Performance Indicators)",
+        shortDefinition: "Kľúčové ukazovatele výkonnosti",
+        fullDefinition:
+          "KPI sú merateľné ukazovatele, ktoré slúžia na sledovanie výkonnosti firmy, tímu alebo konkrétneho procesu. Každý KPI má jasne definovaný cieľ a spôsob merania. Môže ísť o tržby, počet dopytov, mieru konverzie alebo spokojnosť zákazníkov. KPI pomáhajú sledovať, či firma napreduje správnym smerom. Bez KPI je veľmi ťažké objektívne hodnotiť úspech.",
+        whyItMatters:
+          "KPI poskytujú jasný prehľad o tom, čo funguje a čo nie. Pomáhajú identifikovať problémy skôr, než sa stanú vážnymi. Umožňujú manažérom a majiteľom robiť rýchle a informované rozhodnutia. Zlepšujú zodpovednosť v tímoch, pretože každý vie, čo sa od neho očakáva. KPI sú základom pre strategické plánovanie a rast firmy.",
+        examples: [
+          "Počet nových zákazníkov za mesiac.",
+          "Priemerná hodnota objednávky.",
+          "Miera konverzie webu.",
+          "Náklady na získanie zákazníka (CAC).",
+          "Retencia zákazníkov."
+        ]
+      },
+      CZ: {
+        term: "KPI (Key Performance Indicators)",
+        shortDefinition: "Klíčové ukazatele výkonnosti",
+        fullDefinition:
+          "KPI jsou měřitelné ukazatele, které slouží ke sledování výkonnosti firmy, týmu nebo konkrétního procesu. Každý KPI má jasně definovaný cíl a způsob měření. Může jít o tržby, počet poptávek, míru konverze nebo spokojenost zákazníků. KPI pomáhají sledovat, zda firma postupuje správným směrem. Bez KPI je velmi obtížné objektivně hodnotit úspěch.",
+        whyItMatters:
+          "KPI poskytují jasný přehled o tom, co funguje a co ne. Pomáhají identifikovat problémy dříve, než se stanou vážnými. Umožňují manažerům a majitelům činit rychlá a informovaná rozhodnutí. Zlepšují odpovědnost v týmech, protože každý ví, co se od něj očekává. KPI jsou základem strategického plánování a růstu firmy.",
+        examples: [
+          "Počet nových zákazníků za měsíc.",
+          "Průměrná hodnota objednávky.",
+          "Míra konverze webu.",
+          "Náklady na získání zákazníka (CAC).",
+          "Retence zákazníků."
+        ]
+      },
+      EN: {
+        term: "KPI (Key Performance Indicators)",
+        shortDefinition: "Key performance indicators",
+        fullDefinition:
+          "KPIs are measurable indicators used to track the performance of a company, team, or specific process. Each KPI has a clearly defined goal and method of measurement. It can include revenue, number of leads, conversion rate, or customer satisfaction. KPIs help monitor whether a company is moving in the right direction. Without KPIs, it is very difficult to objectively evaluate success.",
+        whyItMatters:
+          "KPIs provide a clear overview of what works and what does not. They help identify problems before they become serious. They allow managers and owners to make quick and informed decisions. They improve accountability within teams, as everyone knows what is expected of them. KPIs are the foundation of strategic planning and company growth.",
+        examples: [
+          "Number of new customers per month.",
+          "Average order value.",
+          "Website conversion rate.",
+          "Customer acquisition cost (CAC).",
+          "Customer retention."
+        ]
+      }
+    }
+  }
+},
   copywriting: {
   slugs: { EN: "copywriting", CZ: "copywriting", SK: "copywriting" },
   category: "Marketing",
