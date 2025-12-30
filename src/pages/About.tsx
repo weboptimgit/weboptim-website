@@ -505,7 +505,7 @@ const AboutInner = () => {
                           <img
                             src={member.image}
                             alt={member.name}
-                            className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           />
                           {hasSocials && (
                             <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
