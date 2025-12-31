@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npx -y vite@5.4.19 build",
+    "build:dev": "npx -y vite@5.4.19 build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
   },
