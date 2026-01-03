@@ -19,15 +19,15 @@ const BRAND_LOGO_PATH = "/img/weboptim-profile-pic.png";
 const seoTranslations: Record<string, Record<Language, { title: string; description: string }>> = {
   home: {
     EN: {
-      title: "WebOptim | Web Development & Digital Marketing Agency",
+      title: "WebOptim | Web and online marketing agency",
       description: "Transform your digital presence with WebOptim. We create stunning websites, boost SEO rankings, and deliver results-driven digital marketing solutions.",
     },
     CZ: {
-      title: "WebOptim | Tvorba webů a digitální marketing",
+      title: "WebOptim | Webová a online marketingová agentura",
       description: "Transformujte svou digitální přítomnost s WebOptim. Tvoříme úžasné weby, zlepšujeme SEO pozice a dodáváme výsledky v digitálním marketingu.",
     },
     SK: {
-      title: "WebOptim | Tvorba webov a digitálny marketing",
+      title: "WebOptim | Webová a online marketingová agentúra",
       description: "Transformujte svoju digitálnu prítomnosť s WebOptim. Tvoríme úžasné weby, zlepšujeme SEO pozície a dodávame výsledky v digitálnom marketingu.",
     },
   },
