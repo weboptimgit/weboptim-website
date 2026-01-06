@@ -568,6 +568,7 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonials.1.role": "",
     "testimonials.1.quote": "Spolupráca s pánom Gáboríkom a jeho tímom na novom webe našej inštitúcie fungovala skvele, všetko sme si vyjasnili, nastavili a finálna cena zodpovedala tej dohodnutej. Po skúsenostiach s tvorbou rôznych iných webov toto naozaj nie je samozrejmosť a veľmi si to vážim.",
     "testimonials.2.role": "",
+    "testimonials.2.name": "Jitka Jakimeczková",
     "testimonials.2.quote": 
       "Spolupráca s Weboptim bola jedna z najlepších skúseností, čo som mala. Od začiatku skvelá komunikácia, pochopenie mojej vízie a ochota doladiť každý detail presne podľa mojich predstáv. Nielenže všetko zvládli rýchlo, ale aj s úplnou precíznosťou a citom pre estetiku. Veľmi ďakujem za trpezlivosť, nápady a za to.",
     "testimonials.3.role": "",
