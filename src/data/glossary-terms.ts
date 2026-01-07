@@ -68,6 +68,389 @@ export const findTermByName = (name: string, language: Language): { key: string;
 };
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  penetracnetestovanie: {
+  slugs: { SK: "penetracne-testovanie", CZ: "penetracni-testovani", EN: "penetration-testing" },
+  category: "Security",
+  relatedTerms: [
+    "Vulnerability Assessment",
+    "OWASP Top 10",
+    "Red Teaming",
+    "Threat Modeling",
+    "Attack Surface"
+  ],
+  resources: [
+    { title: "NIST SP 800-115: Technical Guide to Information Security Testing and Assessment", url: "https://csrc.nist.gov/publications/detail/sp/800-115/final" },
+    { title: "OWASP Web Security Testing Guide (WSTG)", url: "https://owasp.org/www-project-web-security-testing-guide/" },
+    { title: "MITRE ATT&CK", url: "https://attack.mitre.org/" }
+  ],
+  content: {
+    SK: {
+      term: "Penetračné testovanie (Penetration Testing)",
+      shortDefinition: "Riadený test bezpečnosti systémov",
+      fullDefinition:
+        "Penetračné testovanie, často označované ako pentesting, je kontrolovaný bezpečnostný test, pri ktorom sa odborníci snažia simulovať reálne kybernetické útoky na systémy, aplikácie alebo siete firmy. Cieľom nie je poškodiť systém, ale odhaliť jeho slabé miesta skôr, než ich zneužije skutočný útočník. Penetračné testy môžu zahŕňať testovanie webových aplikácií, serverov, interných sietí, API rozhraní alebo autentifikačných mechanizmov. Testovanie prebieha podľa vopred dohodnutých pravidiel a rozsahu, aby bola zachovaná kontrola a bezpečnosť. V praxi penetračné testovanie poskytuje realistický pohľad na to, ako by sa firma dokázala ubrániť reálnemu útoku.",
+      whyItMatters:
+        "Penetračné testovanie je dôležité preto, lebo odhaľuje bezpečnostné slabiny, ktoré bežné automatizované nástroje alebo interné kontroly nemusia zachytiť. Firmy často predpokladajú, že ich systémy sú bezpečné, až kým test neukáže opak. Pentesting umožňuje identifikovať kritické riziká skôr, než spôsobia únik dát, výpadok služieb alebo reputačné škody. Z pohľadu manažmentu poskytuje konkrétne a zrozumiteľné výstupy, na základe ktorých možno plánovať ďalšie bezpečnostné opatrenia. Pre zodpovedné riadenie bezpečnosti je penetračné testovanie nevyhnutnou súčasťou prevencie a kontinuálneho zlepšovania.",
+      examples: [
+        "Firma si nechá otestovať webovú aplikáciu pred jej spustením do produkcie.",
+        "Penetračný test odhalí slabé heslá alebo zle nastavené oprávnenia.",
+        "Testovanie identifikuje zraniteľnosti v starších systémoch alebo pluginových riešeniach.",
+        "Výsledky pentestu slúžia ako podklad pre bezpečnostnú roadmapu.",
+        "Pravidelné penetračné testy znižujú riziko vážnych bezpečnostných incidentov."
+      ]
+    },
+    CZ: {
+      term: "Penetrační testování (Penetration Testing)",
+      shortDefinition: "Řízený test bezpečnosti systémů",
+      fullDefinition:
+        "Penetrační testování, často označované jako pentesting, je kontrolovaný bezpečnostní test, při kterém se odborníci snaží simulovat reálné kybernetické útoky na systémy, aplikace nebo sítě firmy. Cílem není poškodit systém, ale odhalit jeho slabá místa dříve, než je zneužije skutečný útočník. Penetrační testy mohou zahrnovat testování webových aplikací, serverů, interních sítí, API rozhraní nebo autentifikačních mechanismů. Testování probíhá podle předem dohodnutých pravidel a rozsahu, aby byla zachována kontrola a bezpečnost. V praxi penetrační testování poskytuje realistický pohled na to, jak by se firma dokázala ubránit reálnému útoku.",
+      whyItMatters:
+        "Penetrační testování je důležité proto, protože odhaluje bezpečnostní slabiny, které běžné automatizované nástroje nebo interní kontroly nemusí zachytit. Firmy často předpokládají, že jejich systémy jsou bezpečné, dokud test neukáže opak. Pentesting umožňuje identifikovat kritická rizika dříve, než způsobí únik dat, výpadek služeb nebo reputační škody. Z pohledu managementu poskytuje konkrétní a srozumitelné výstupy, na jejichž základě lze plánovat další bezpečnostní opatření. Pro odpovědné řízení bezpečnosti je penetrační testování nezbytnou součástí prevence a kontinuálního zlepšování.",
+      examples: [
+        "Firma si nechá otestovat webovou aplikaci před jejím spuštěním do produkce.",
+        "Penetrační test odhalí slabá hesla nebo špatně nastavená oprávnění.",
+        "Testování identifikuje zranitelnosti ve starších systémech nebo pluginových řešeních.",
+        "Výsledky pentestu slouží jako podklad pro bezpečnostní roadmapu.",
+        "Pravidelné penetrační testy snižují riziko vážných bezpečnostních incidentů."
+      ]
+    },
+    EN: {
+      term: "Penetration testing (Penetration Testing)",
+      shortDefinition: "Controlled security testing of systems",
+      fullDefinition:
+        "Penetration testing, often referred to as pentesting, is a controlled security test in which experts attempt to simulate real cyberattacks against a company’s systems, applications, or networks. The goal is not to damage the system, but to uncover weaknesses before a real attacker exploits them. Penetration tests can include testing web applications, servers, internal networks, API interfaces, or authentication mechanisms. Testing is carried out according to pre-agreed rules and scope to maintain control and safety. In practice, penetration testing provides a realistic view of how a company would be able to defend against a real attack.",
+      whyItMatters:
+        "Penetration testing is important because it reveals security weaknesses that common automated tools or internal checks may not detect. Companies often assume their systems are secure until a test proves otherwise. Pentesting makes it possible to identify critical risks before they cause data breaches, service outages, or reputational damage. From a management perspective, it provides concrete and understandable outputs that can be used to plan further security measures. For responsible security management, penetration testing is an essential part of prevention and continuous improvement.",
+      examples: [
+        "A company has a web application tested before launching it into production.",
+        "A penetration test reveals weak passwords or misconfigured permissions.",
+        "Testing identifies vulnerabilities in older systems or plugin-based solutions.",
+        "Pentest results serve as input for the company’s security roadmap.",
+        "Regular penetration tests reduce the risk of serious security incidents."
+      ]
+    }
+  }
+},
+
+zerotrustbezpecnostnymodel: {
+  slugs: { SK: "zero-trust-bezpecnostny-model", CZ: "zero-trust-bezpecnostni-model", EN: "zero-trust-security-model" },
+  category: "Security",
+  relatedTerms: [
+    "Least Privilege",
+    "Microsegmentation",
+    "Continuous Verification",
+    "Identity-Centric Security",
+    "Access Management"
+  ],
+  resources: [
+    { title: "NIST SP 800-207: Zero Trust Architecture", url: "https://csrc.nist.gov/publications/detail/sp/800-207/final" },
+    { title: "Zero Trust Maturity Model (CISA)", url: "https://www.cisa.gov/zero-trust-maturity-model" },
+    { title: "Microsoft Zero Trust guidance", url: "https://www.microsoft.com/en-us/security/business/zero-trust" }
+  ],
+  content: {
+    SK: {
+      term: "Zero Trust bezpečnostný model",
+      shortDefinition: "Prístup „nikomu never, všetko overuj“",
+      fullDefinition:
+        "Zero Trust je moderný bezpečnostný model, ktorý vychádza z princípu, že žiadnemu používateľovi, zariadeniu ani systému by sa nemalo automaticky dôverovať, a to ani v rámci internej siete firmy. Na rozdiel od tradičných modelov, kde sa vnútorná sieť považuje za bezpečnú, Zero Trust predpokladá, že hrozby môžu existovať kdekoľvek. Každý prístup k systému, dátam alebo aplikáciám musí byť overený na základe identity, kontextu a aktuálneho rizika. Tento model kombinuje viacero bezpečnostných opatrení, ako sú viacfaktorová autentifikácia, správa prístupov, segmentácia siete a neustále monitorovanie. V praxi Zero Trust predstavuje filozofiu bezpečnosti, ktorá reaguje na realitu moderného digitálneho prostredia.",
+      whyItMatters:
+        "Zero Trust je dôležitý preto, lebo tradičné hranice medzi „vnútornou“ a „vonkajšou“ sieťou dnes prakticky neexistujú. Zamestnanci pracujú na diaľku, používajú cloudové služby a pripájajú sa z rôznych zariadení, čo výrazne zvyšuje riziká. Zero Trust znižuje dopad bezpečnostných incidentov tým, že obmedzuje pohyb útočníka v systéme aj v prípade, že sa mu podarí získať prístup. Z pohľadu firiem tento model zvyšuje kontrolu nad dátami a prístupmi bez ohľadu na miesto alebo zariadenie. Pre moderné organizácie je Zero Trust jedným z najefektívnejších prístupov k dlhodobej kybernetickej bezpečnosti.",
+      examples: [
+        "Zamestnanci sa musia overiť pri každom prístupe k citlivým systémom, aj keď sú v internej sieti.",
+        "Prístup k dátam je obmedzený podľa role a aktuálneho kontextu používateľa.",
+        "Cloudové aplikácie vyžadujú viacfaktorové overenie bez ohľadu na miesto prihlásenia.",
+        "Sieť je rozdelená na menšie segmenty, aby sa zabránilo šíreniu útoku.",
+        "Neustále monitorovanie správania používateľov pomáha odhaliť podozrivé aktivity."
+      ]
+    },
+    CZ: {
+      term: "Zero Trust bezpečnostní model",
+      shortDefinition: "Přístup „nikomu nevěř, všechno ověřuj“",
+      fullDefinition:
+        "Zero Trust je moderní bezpečnostní model, který vychází z principu, že žádnému uživateli, zařízení ani systému by se nemělo automaticky důvěřovat, a to ani v rámci interní sítě firmy. Na rozdíl od tradičních modelů, kde se vnitřní síť považuje za bezpečnou, Zero Trust předpokládá, že hrozby mohou existovat kdekoli. Každý přístup k systému, datům nebo aplikacím musí být ověřen na základě identity, kontextu a aktuálního rizika. Tento model kombinuje více bezpečnostních opatření, jako je vícefaktorová autentifikace, správa přístupů, segmentace sítě a neustálé monitorování. V praxi Zero Trust představuje filozofii bezpečnosti, která reaguje na realitu moderního digitálního prostředí.",
+      whyItMatters:
+        "Zero Trust je důležitý proto, protože tradiční hranice mezi „vnitřní“ a „vnější“ sítí dnes prakticky neexistují. Zaměstnanci pracují na dálku, používají cloudové služby a připojují se z různých zařízení, což výrazně zvyšuje rizika. Zero Trust snižuje dopad bezpečnostních incidentů tím, že omezuje pohyb útočníka v systému i v případě, že se mu podaří získat přístup. Z pohledu firem tento model zvyšuje kontrolu nad daty a přístupy bez ohledu na místo nebo zařízení. Pro moderní organizace je Zero Trust jedním z nejefektivnějších přístupů k dlouhodobé kybernetické bezpečnosti.",
+      examples: [
+        "Zaměstnanci se musí ověřit při každém přístupu k citlivým systémům, i když jsou v interní síti.",
+        "Přístup k datům je omezen podle role a aktuálního kontextu uživatele.",
+        "Cloudové aplikace vyžadují vícefaktorové ověření bez ohledu na místo přihlášení.",
+        "Síť je rozdělena na menší segmenty, aby se zabránilo šíření útoku.",
+        "Neustálé monitorování chování uživatelů pomáhá odhalit podezřelé aktivity."
+      ]
+    },
+    EN: {
+      term: "Zero Trust security model",
+      shortDefinition: "“Trust no one, verify everything” approach",
+      fullDefinition:
+        "Zero Trust is a modern security model based on the principle that no user, device, or system should be trusted automatically, even within a company’s internal network. Unlike traditional models where the internal network is considered safe, Zero Trust assumes threats can exist anywhere. Every access to systems, data, or applications must be verified based on identity, context, and current risk. This model combines multiple security measures such as multi-factor authentication, access management, network segmentation, and continuous monitoring. In practice, Zero Trust represents a security philosophy that reflects the reality of the modern digital environment.",
+      whyItMatters:
+        "Zero Trust is important because the traditional boundaries between an “internal” and “external” network practically no longer exist. Employees work remotely, use cloud services, and connect from various devices, which significantly increases risk. Zero Trust reduces the impact of security incidents by limiting an attacker’s movement within a system even if they manage to gain access. From a business perspective, this model increases control over data and access regardless of location or device. For modern organizations, Zero Trust is one of the most effective approaches to long-term cybersecurity.",
+      examples: [
+        "Employees must verify themselves for every access to sensitive systems, even when on the internal network.",
+        "Access to data is restricted based on role and the user’s current context.",
+        "Cloud applications require multi-factor verification regardless of login location.",
+        "The network is split into smaller segments to prevent an attack from spreading.",
+        "Continuous monitoring of user behavior helps detect suspicious activity."
+      ]
+    }
+  }
+},
+
+logovanieamonitoringbezpecnosti: {
+  slugs: { SK: "logovanie-a-monitoring-bezpecnosti", CZ: "logovani-a-monitoring-bezpecnosti", EN: "security-logging-and-monitoring" },
+  category: "Security",
+  relatedTerms: [
+    "SIEM",
+    "Alerting",
+    "Incident Detection",
+    "Audit Logs",
+    "Security Analytics"
+  ],
+  resources: [
+    { title: "NIST SP 800-92: Guide to Computer Security Log Management", url: "https://csrc.nist.gov/publications/detail/sp/800-92/final" },
+    { title: "OWASP Logging Cheat Sheet", url: "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" },
+    { title: "OWASP Security Logging and Monitoring Failures (Top 10)", url: "https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/" }
+  ],
+  content: {
+    SK: {
+      term: "Logovanie a monitoring bezpečnosti",
+      shortDefinition: "Sledovanie a vyhodnocovanie bezpečnostných udalostí",
+      fullDefinition:
+        "Logovanie a monitoring bezpečnosti je proces zaznamenávania a priebežného sledovania udalostí, ktoré sa dejú v systémoch, sieťach a aplikáciách. Logy sú záznamy o aktivitách, ako sú prihlásenia používateľov, zmeny nastavení, prístupy k dátam alebo chybové stavy. Monitoring nadväzuje na logovanie tým, že tieto záznamy aktívne vyhodnocuje a hľadá v nich neštandardné alebo podozrivé správanie. Cieľom nie je len archivácia údajov, ale včasné odhalenie bezpečnostných incidentov alebo pokusov o útok. V praxi logovanie a monitoring vytvára „pamäť“ systému, vďaka ktorej možno spätne analyzovať, čo sa stalo a prečo.",
+      whyItMatters:
+        "Logovanie a monitoring sú dôležité preto, lebo bez nich firma často ani netuší, že bola napadnutá alebo že v jej systémoch prebieha podozrivá aktivita. Mnohé útoky prebiehajú ticho a dlhodobo, bez okamžitých viditeľných následkov. Včasná detekcia umožňuje rýchlu reakciu a výrazné zníženie škôd. Z pohľadu vyšetrovania incidentov sú logy často jediným zdrojom informácií o tom, ako útok prebehol a aký mal rozsah. Pre firmy je monitoring bezpečnosti základným nástrojom kontroly, transparentnosti a zodpovedného riadenia rizík.",
+      examples: [
+        "Systém zaznamenáva neúspešné pokusy o prihlásenie a upozorní administrátora na možný útok.",
+        "Monitoring odhalí neobvyklý prenos dát zo servera do zahraničia.",
+        "Logy pomôžu spätne zistiť, kedy a ako došlo k úniku dát.",
+        "Firma používa nástroje, ktoré v reálnom čase upozorňujú na bezpečnostné incidenty.",
+        "Pravidelná analýza logov pomáha odhaľovať slabiny ešte pred útokom."
+      ]
+    },
+    CZ: {
+      term: "Logování a monitoring bezpečnosti",
+      shortDefinition: "Sledování a vyhodnocování bezpečnostních událostí",
+      fullDefinition:
+        "Logování a monitoring bezpečnosti je proces zaznamenávání a průběžného sledování událostí, které se dějí v systémech, sítích a aplikacích. Logy jsou záznamy o aktivitách, jako jsou přihlášení uživatelů, změny nastavení, přístupy k datům nebo chybové stavy. Monitoring navazuje na logování tím, že tyto záznamy aktivně vyhodnocuje a hledá v nich nestandardní nebo podezřelé chování. Cílem není jen archivace údajů, ale včasné odhalení bezpečnostních incidentů nebo pokusů o útok. V praxi logování a monitoring vytváří „paměť“ systému, díky které lze zpětně analyzovat, co se stalo a proč.",
+      whyItMatters:
+        "Logování a monitoring jsou důležité proto, protože bez nich firma často ani netuší, že byla napadena nebo že v jejích systémech probíhá podezřelá aktivita. Mnohé útoky probíhají tiše a dlouhodobě, bez okamžitých viditelných následků. Včasná detekce umožňuje rychlou reakci a výrazné snížení škod. Z pohledu vyšetřování incidentů jsou logy často jediným zdrojem informací o tom, jak útok proběhl a jaký měl rozsah. Pro firmy je monitoring bezpečnosti základním nástrojem kontroly, transparentnosti a odpovědného řízení rizik.",
+      examples: [
+        "Systém zaznamenává neúspěšné pokusy o přihlášení a upozorní administrátora na možný útok.",
+        "Monitoring odhalí neobvyklý přenos dat ze serveru do zahraničí.",
+        "Logy pomohou zpětně zjistit, kdy a jak došlo k úniku dat.",
+        "Firma používá nástroje, které v reálném čase upozorňují na bezpečnostní incidenty.",
+        "Pravidelná analýza logů pomáhá odhalovat slabiny ještě před útokem."
+      ]
+    },
+    EN: {
+      term: "Security logging and monitoring",
+      shortDefinition: "Tracking and evaluating security events",
+      fullDefinition:
+        "Security logging and monitoring is the process of recording and continuously observing events that occur in systems, networks, and applications. Logs are records of activities such as user logins, configuration changes, data access, or error states. Monitoring builds on logging by actively evaluating these records and searching for unusual or suspicious behavior. The goal is not only archiving data, but early detection of security incidents or attack attempts. In practice, logging and monitoring create a system “memory” that makes it possible to analyze what happened and why.",
+      whyItMatters:
+        "Logging and monitoring are important because without them a company often does not even know it has been attacked or that suspicious activity is taking place in its systems. Many attacks run quietly and over a long period, without immediate visible consequences. Early detection enables a fast response and significantly reduces damage. From an incident investigation perspective, logs are often the only source of information about how an attack happened and what its scope was. For companies, security monitoring is a fundamental tool for control, transparency, and responsible risk management.",
+      examples: [
+        "The system records failed login attempts and alerts an administrator about a possible attack.",
+        "Monitoring detects unusual data transfer from a server abroad.",
+        "Logs help determine retrospectively when and how a data leak occurred.",
+        "A company uses tools that alert in real time about security incidents.",
+        "Regular log analysis helps uncover weaknesses before an attack."
+      ]
+    }
+  }
+},
+
+sifrovaniedatencryption: {
+  slugs: { SK: "sifrovanie-dat", CZ: "sifrovani-dat", EN: "data-encryption" },
+  category: "Security",
+  relatedTerms: [
+    "Encryption Key",
+    "Public Key Cryptography",
+    "Symmetric Encryption",
+    "At-Rest Encryption",
+    "In-Transit Encryption"
+  ],
+  resources: [
+    { title: "NIST CSRC: Cryptographic Standards and Guidelines", url: "https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines" },
+    { title: "NIST SP 800-57 Part 1: Key Management", url: "https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final" },
+    { title: "OWASP Cryptographic Storage Cheat Sheet", url: "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html" }
+  ],
+  content: {
+    SK: {
+      term: "Šifrovanie dát (Encryption)",
+      shortDefinition: "Premena dát do nečitateľnej podoby na ochranu informácií",
+      fullDefinition:
+        "Šifrovanie dát je bezpečnostný proces, pri ktorom sa čitateľné informácie premieňajú do nečitateľnej podoby pomocou šifrovacieho algoritmu. Takto zašifrované dáta môže prečítať alebo obnoviť len osoba alebo systém, ktorý má k dispozícii správny dešifrovací kľúč. Šifrovanie sa používa pri prenose dát (napríklad medzi prehliadačom a webom), ale aj pri ich ukladaní na diskoch, serveroch alebo v cloude. Cieľom je zabezpečiť, aby aj v prípade úniku alebo krádeže dát neboli tieto informácie pre útočníka použiteľné. V praxi je šifrovanie jedným z najdôležitejších technických nástrojov na ochranu citlivých údajov.",
+      whyItMatters:
+        "Šifrovanie dát je dôležité preto, lebo výrazne znižuje dopad bezpečnostných incidentov a únikov informácií. Ak sú dáta zašifrované, útočník ich nedokáže zneužiť ani v prípade, že sa k nim fyzicky alebo technicky dostane. Z pohľadu firiem šifrovanie chráni osobné údaje zákazníkov, obchodné tajomstvá aj interné dokumenty. Šifrovanie je zároveň dôležitou súčasťou legislatívnych požiadaviek, napríklad pri ochrane osobných údajov podľa GDPR. Pre moderné podnikanie je šifrovanie základným štandardom, ktorý zvyšuje dôveru zákazníkov a znižuje právne aj reputačné riziká.",
+      examples: [
+        "Webové stránky používajú HTTPS, ktoré šifruje komunikáciu medzi používateľom a serverom.",
+        "Firemné notebooky majú zašifrované disky, aby boli dáta chránené pri ich strate alebo krádeži.",
+        "Cloudové služby šifrujú uložené dáta automaticky.",
+        "Databázy so zákazníckymi údajmi sú šifrované na úrovni servera.",
+        "E-mailová komunikácia s citlivým obsahom je zabezpečená šifrovaním."
+      ]
+    },
+    CZ: {
+      term: "Šifrování dat (Encryption)",
+      shortDefinition: "Přeměna dat do nečitelné podoby pro ochranu informací",
+      fullDefinition:
+        "Šifrování dat je bezpečnostní proces, při kterém se čitelné informace mění do nečitelné podoby pomocí šifrovacího algoritmu. Takto zašifrovaná data může přečíst nebo obnovit pouze osoba nebo systém, který má k dispozici správný dešifrovací klíč. Šifrování se používá při přenosu dat (například mezi prohlížečem a webem), ale i při jejich ukládání na discích, serverech nebo v cloudu. Cílem je zajistit, aby i v případě úniku nebo krádeže dat nebyly tyto informace pro útočníka použitelné. V praxi je šifrování jedním z nejdůležitějších technických nástrojů pro ochranu citlivých údajů.",
+      whyItMatters:
+        "Šifrování dat je důležité proto, protože výrazně snižuje dopad bezpečnostních incidentů a úniků informací. Pokud jsou data zašifrovaná, útočník je nedokáže zneužít ani v případě, že se k nim fyzicky nebo technicky dostane. Z pohledu firem šifrování chrání osobní údaje zákazníků, obchodní tajemství i interní dokumenty. Šifrování je zároveň důležitou součástí legislativních požadavků, například při ochraně osobních údajů podle GDPR. Pro moderní podnikání je šifrování základním standardem, který zvyšuje důvěru zákazníků a snižuje právní i reputační rizika.",
+      examples: [
+        "Webové stránky používají HTTPS, které šifruje komunikaci mezi uživatelem a serverem.",
+        "Firemní notebooky mají zašifrované disky, aby byla data chráněna při jejich ztrátě nebo krádeži.",
+        "Cloudové služby šifrují uložená data automaticky.",
+        "Databáze se zákaznickými údaji jsou šifrovány na úrovni serveru.",
+        "E-mailová komunikace s citlivým obsahem je zabezpečena šifrováním."
+      ]
+    },
+    EN: {
+      term: "Data encryption (Encryption)",
+      shortDefinition: "Transforming data into an unreadable form to protect information",
+      fullDefinition:
+        "Data encryption is a security process in which readable information is transformed into an unreadable form using an encryption algorithm. Such encrypted data can be read or restored only by a person or system that has the correct decryption key. Encryption is used when transmitting data (for example between a browser and a website) and also when storing it on disks, servers, or in the cloud. The goal is to ensure that even in the event of a data leak or theft, this information is not usable for an attacker. In practice, encryption is one of the most important technical tools for protecting sensitive data.",
+      whyItMatters:
+        "Data encryption is important because it significantly reduces the impact of security incidents and information leaks. If data is encrypted, an attacker cannot misuse it even if they gain physical or technical access to it. From a business perspective, encryption protects customers’ personal data, trade secrets, and internal documents. Encryption is also an important part of legislative requirements, for example when protecting personal data under GDPR. For modern business, encryption is a basic standard that increases customer trust and reduces legal and reputational risks.",
+      examples: [
+        "Websites use HTTPS, which encrypts communication between the user and the server.",
+        "Company laptops have encrypted disks so data is protected if they are lost or stolen.",
+        "Cloud services encrypt stored data automatically.",
+        "Databases with customer data are encrypted at the server level.",
+        "Email communication with sensitive content is secured by encryption."
+      ]
+    }
+  }
+},
+
+bezpecnostnapolitikasecuritypolicy: {
+  slugs: { SK: "bezpecnostna-politika", CZ: "bezpecnostni-politika", EN: "security-policy" },
+  category: "Security",
+  relatedTerms: [
+    "Information Security Management",
+    "Acceptable Use Policy",
+    "Access Control Policy",
+    "Incident Response Plan",
+    "Risk Management"
+  ],
+  resources: [
+    { title: "NIST SP 800-12 Rev. 1: An Introduction to Information Security", url: "https://csrc.nist.gov/publications/detail/sp/800-12/rev-1/final" },
+    { title: "NIST SP 800-53 Rev. 5: Security and Privacy Controls", url: "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final" },
+    { title: "ISO/IEC 27001 (overview)", url: "https://www.iso.org/standard/82875.html" }
+  ],
+  content: {
+    SK: {
+      term: "Bezpečnostná politika (Security Policy)",
+      shortDefinition: "Súbor pravidiel a zásad pre ochranu dát a systémov",
+      fullDefinition:
+        "Bezpečnostná politika je formálny dokument alebo súbor pravidiel, ktorý definuje, ako firma chráni svoje informačné systémy, dáta a digitálne aktíva. Určuje základné princípy bezpečnosti, zodpovednosti zamestnancov, povolené a zakázané správanie, ako aj postupy pri riešení incidentov. Bezpečnostná politika prepája technické opatrenia s organizačnými procesmi a správaním ľudí. Nejde o technický manuál, ale o strategický rámec, podľa ktorého sa riadi každodenná práca s IT a dátami. V praxi bezpečnostná politika vytvára jednotné pravidlá, ktoré platia pre celú organizáciu bez ohľadu na oddelenie alebo pozíciu.",
+      whyItMatters:
+        "Bezpečnostná politika je dôležitá preto, lebo bez jasných pravidiel vzniká chaos a nejednoznačnosť v tom, ako majú zamestnanci pracovať s dátami a systémami. Pomáha predchádzať bezpečnostným incidentom tým, že nastavuje očakávania a povinnosti každého používateľa. Z pohľadu manažmentu je bezpečnostná politika základným nástrojom riadenia rizík a zodpovednosti. Je tiež dôležitá z legislatívneho hľadiska, pretože mnohé normy a zákony vyžadujú preukázateľné bezpečnostné postupy. Pre firmu je dobre nastavená bezpečnostná politika signálom profesionality, dôveryhodnosti a pripravenosti na riešenie krízových situácií.",
+      examples: [
+        "Bezpečnostná politika definuje, ako majú zamestnanci pracovať s heslami a citlivými údajmi.",
+        "Firma má jasne stanovené pravidlá pre používanie firemných zariadení a softvéru.",
+        "Politika určuje postup pri podozrení na bezpečnostný incident.",
+        "Noví zamestnanci sú oboznámení s bezpečnostnou politikou pri onboardingu.",
+        "Pravidelná aktualizácia politiky reflektuje nové hrozby a technologické zmeny."
+      ]
+    },
+    CZ: {
+      term: "Bezpečnostní politika (Security Policy)",
+      shortDefinition: "Soubor pravidel a zásad pro ochranu dat a systémů",
+      fullDefinition:
+        "Bezpečnostní politika je formální dokument nebo soubor pravidel, který definuje, jak firma chrání své informační systémy, data a digitální aktiva. Určuje základní principy bezpečnosti, odpovědnosti zaměstnanců, povolené a zakázané chování, stejně jako postupy při řešení incidentů. Bezpečnostní politika propojuje technická opatření s organizačními procesy a chováním lidí. Nejde o technický manuál, ale o strategický rámec, podle kterého se řídí každodenní práce s IT a daty. V praxi bezpečnostní politika vytváří jednotná pravidla, která platí pro celou organizaci bez ohledu na oddělení nebo pozici.",
+      whyItMatters:
+        "Bezpečnostní politika je důležitá proto, protože bez jasných pravidel vzniká chaos a nejednoznačnost v tom, jak mají zaměstnanci pracovat s daty a systémy. Pomáhá předcházet bezpečnostním incidentům tím, že nastavuje očekávání a povinnosti každého uživatele. Z pohledu managementu je bezpečnostní politika základním nástrojem řízení rizik a odpovědnosti. Je také důležitá z legislativního hlediska, protože mnohé normy a zákony vyžadují prokazatelné bezpečnostní postupy. Pro firmu je dobře nastavená bezpečnostní politika signálem profesionality, důvěryhodnosti a připravenosti na řešení krizových situací.",
+      examples: [
+        "Bezpečnostní politika definuje, jak mají zaměstnanci pracovat s hesly a citlivými údaji.",
+        "Firma má jasně stanovená pravidla pro používání firemních zařízení a softwaru.",
+        "Politika určuje postup při podezření na bezpečnostní incident.",
+        "Noví zaměstnanci jsou seznámeni s bezpečnostní politikou při onboardingu.",
+        "Pravidelná aktualizace politiky reflektuje nové hrozby a technologické změny."
+      ]
+    },
+    EN: {
+      term: "Security policy (Security Policy)",
+      shortDefinition: "A set of rules and principles for protecting data and systems",
+      fullDefinition:
+        "A security policy is a formal document or set of rules that defines how a company protects its information systems, data, and digital assets. It sets basic security principles, employee responsibilities, permitted and prohibited behavior, as well as procedures for handling incidents. A security policy connects technical measures with organizational processes and human behavior. It is not a technical manual, but a strategic framework that guides everyday work with IT and data. In practice, a security policy creates consistent rules that apply across the entire organization regardless of department or position.",
+      whyItMatters:
+        "A security policy is important because without clear rules, chaos and ambiguity arise in how employees should work with data and systems. It helps prevent security incidents by setting expectations and obligations for every user. From a management perspective, a security policy is a fundamental tool for risk management and accountability. It is also important from a legislative perspective because many standards and laws require demonstrable security procedures. For a company, a well-defined security policy is a signal of professionalism, credibility, and readiness to handle crisis situations.",
+      examples: [
+        "A security policy defines how employees should work with passwords and sensitive data.",
+        "A company has clearly defined rules for using corporate devices and software.",
+        "The policy defines the procedure when a security incident is suspected.",
+        "New employees are introduced to the security policy during onboarding.",
+        "Regular policy updates reflect new threats and technological changes."
+      ]
+    }
+  }
+},
+
+businesscontinuitydisasterrecoverybcdr: {
+  slugs: { SK: "business-continuity-disaster-recovery-bcdr", CZ: "business-continuity-disaster-recovery-bcdr", EN: "business-continuity-and-disaster-recovery-bcdr" },
+  category: "Security",
+  relatedTerms: [
+    "Disaster Recovery Plan",
+    "Business Impact Analysis",
+    "RTO/RPO",
+    "Crisis Management",
+    "Backup Strategy"
+  ],
+  resources: [
+    { title: "NIST SP 800-34 Rev. 1: Contingency Planning Guide for Federal Information Systems", url: "https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final" },
+    { title: "ISO 22301: Business continuity management systems (overview)", url: "https://www.iso.org/iso-22301-business-continuity.html" },
+    { title: "CISA: Resilience resources", url: "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience" }
+  ],
+  content: {
+    SK: {
+      term: "Business Continuity & Disaster Recovery (BC/DR)",
+      shortDefinition: "Zabezpečenie kontinuity podnikania a obnova po krízových situáciách",
+      fullDefinition:
+        "Business Continuity (BC) a Disaster Recovery (DR) sú dva úzko prepojené koncepty, ktorých cieľom je zabezpečiť, aby firma dokázala fungovať aj počas vážnych incidentov alebo sa po nich čo najrýchlejšie zotavila. Business Continuity sa zameriava na udržanie kľúčových procesov v chode, aj keď dôjde k výpadkom systémov, ľudí alebo infraštruktúry. Disaster Recovery sa naopak sústreďuje na technickú obnovu systémov, dát a služieb po havárii, útoku alebo katastrofe. Spoločne tvoria strategický rámec, ktorý definuje, ako firma reaguje na krízové situácie a aké kroky podnikne na minimalizáciu škôd. V praxi BC/DR plánuje scenáre, ktoré síce nie sú každodenné, ale môžu mať zásadný dopad na existenciu firmy.",
+      whyItMatters:
+        "Business Continuity a Disaster Recovery sú dôležité preto, lebo neočakávané udalosti môžu firmu paralyzovať zo dňa na deň. Kybernetické útoky, výpadky infraštruktúry, požiare, povodne alebo ľudské chyby môžu spôsobiť úplné zastavenie prevádzky. Bez pripraveného plánu firma často reaguje chaoticky, čo vedie k dlhším výpadkom, vyšším stratám a poškodeniu dôvery zákazníkov. BC/DR umožňuje manažmentu robiť rozhodnutia rýchlo a s istotou, že existuje jasný postup obnovy. Pre dlhodobú stabilitu podnikania je BC/DR jedným z najdôležitejších pilierov riadenia rizík a bezpečnosti.",
+      examples: [
+        "Firma má pripravený plán, ktorý definuje, ktoré systémy musia byť obnovené ako prvé po výpadku.",
+        "Zálohy dát sú uložené na geograficky oddelenom mieste pre prípad fyzickej katastrofy.",
+        "Zamestnanci vedia, ako postupovať pri výpadku hlavných systémov a majú pripravené náhradné riešenia.",
+        "Po kybernetickom útoku firma obnoví prevádzku vďaka Disaster Recovery plánu.",
+        "Pravidelné testovanie BC/DR plánov zabezpečuje, že fungujú aj v reálnych podmienkach."
+      ]
+    },
+    CZ: {
+      term: "Business Continuity & Disaster Recovery (BC/DR)",
+      shortDefinition: "Zajištění kontinuity podnikání a obnova po krizových situacích",
+      fullDefinition:
+        "Business Continuity (BC) a Disaster Recovery (DR) jsou dva úzce propojené koncepty, jejichž cílem je zajistit, aby firma dokázala fungovat i během vážných incidentů nebo se po nich co nejrychleji zotavila. Business Continuity se zaměřuje na udržení klíčových procesů v chodu, i když dojde k výpadkům systémů, lidí nebo infrastruktury. Disaster Recovery se naopak soustředí na technickou obnovu systémů, dat a služeb po havárii, útoku nebo katastrofě. Společně tvoří strategický rámec, který definuje, jak firma reaguje na krizové situace a jaké kroky podnikne k minimalizaci škod. V praxi BC/DR plánuje scénáře, které sice nejsou každodenní, ale mohou mít zásadní dopad na existenci firmy.",
+      whyItMatters:
+        "Business Continuity a Disaster Recovery jsou důležité proto, protože neočekávané události mohou firmu paralyzovat ze dne na den. Kybernetické útoky, výpadky infrastruktury, požáry, povodně nebo lidské chyby mohou způsobit úplné zastavení provozu. Bez připraveného plánu firma často reaguje chaoticky, což vede k delším výpadkům, vyšším ztrátám a poškození důvěry zákazníků. BC/DR umožňuje managementu dělat rozhodnutí rychle a s jistotou, že existuje jasný postup obnovy. Pro dlouhodobou stabilitu podnikání je BC/DR jedním z nejdůležitějších pilířů řízení rizik a bezpečnosti.",
+      examples: [
+        "Firma má připravený plán, který definuje, které systémy musí být obnoveny jako první po výpadku.",
+        "Zálohy dat jsou uloženy na geograficky odděleném místě pro případ fyzické katastrofy.",
+        "Zaměstnanci vědí, jak postupovat při výpadku hlavních systémů a mají připravená náhradní řešení.",
+        "Po kybernetickém útoku firma obnoví provoz díky Disaster Recovery plánu.",
+        "Pravidelné testování BC/DR plánů zajišťuje, že fungují i v reálných podmínkách."
+      ]
+    },
+    EN: {
+      term: "Business Continuity & Disaster Recovery (BC/DR)",
+      shortDefinition: "Ensuring business continuity and recovery after crisis situations",
+      fullDefinition:
+        "Business Continuity (BC) and Disaster Recovery (DR) are two closely connected concepts whose goal is to ensure that a company can continue operating during serious incidents or recover from them as quickly as possible. Business Continuity focuses on keeping key processes running even when systems, people, or infrastructure fail. Disaster Recovery, on the other hand, focuses on the technical restoration of systems, data, and services after an аварie, attack, or disaster. Together they form a strategic framework that defines how a company responds to crisis situations and what steps it takes to minimize damage. In practice, BC/DR plans scenarios that are not everyday events, but can have a fundamental impact on a company’s existence.",
+      whyItMatters:
+        "Business Continuity and Disaster Recovery are important because unexpected events can paralyze a company overnight. Cyberattacks, infrastructure outages, fires, floods, or human errors can cause a complete halt in operations. Without a prepared plan, a company often reacts chaotically, leading to longer outages, higher losses, and damaged customer trust. BC/DR enables management to make decisions quickly and with confidence that a clear recovery procedure exists. For long-term business stability, BC/DR is one of the most important pillars of risk management and security.",
+      examples: [
+        "A company has a prepared plan that defines which systems must be restored first after an outage.",
+        "Data backups are stored in a geographically separate location in case of a physical disaster.",
+        "Employees know how to proceed during an outage of main systems and have alternative solutions prepared.",
+        "After a cyberattack, the company restores operations thanks to a Disaster Recovery plan.",
+        "Regular testing of BC/DR plans ensures they work under real conditions."
+      ]
+    }
+  }
+},
   bezpecnostnyaudit: {
   slugs: { SK: "bezpecnostny-audit", CZ: "bezpecnostni-audit", EN: "security-audit" },
   category: "Security",
