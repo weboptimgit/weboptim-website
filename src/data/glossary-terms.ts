@@ -68,6 +68,88 @@ export const findTermByName = (name: string, language: Language): { key: string;
 };
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  cybersecurity: {
+    slugs: { EN: "cybersecurity", CZ: "kyberneticka-bezpecnost", SK: "kyberneticka-bezpecnost" },
+    category: "Security",
+    relatedTerms: [
+      "Threat Landscape",
+      "Vulnerability",
+      "Risk Management",
+      "Incident Response",
+      "Zero Trust Architecture",
+      "NIST Cybersecurity Framework",
+      "ISO/IEC 27001"
+    ],
+    resources: [
+      {
+        title: "What is Cybersecurity? | CISA",
+        url: "https://www.cisa.gov/news-events/news/what-cybersecurity"
+      },
+      {
+        title: "Cybersecurity Glossary of Terms | SANS Institute",
+        url: "https://www.sans.org/security-resources/glossary-of-terms"
+      },
+      {
+        title: "Cybersecurity: Definition & Core Concepts | Palo Alto Networks",
+        url: "https://www.paloaltonetworks.com/cyberpedia/what-is-cyber-security"
+      },
+      {
+        title: "NIST Cybersecurity Framework",
+        url: "https://en.wikipedia.org/wiki/NIST_Cybersecurity_Framework"
+      },
+      {
+        title: "ISO/IEC 27001 Information Security Standard",
+        url: "https://en.wikipedia.org/wiki/ISO/IEC_27001"
+      }
+    ],
+    content: {
+      SK: {
+        term: "Kybernetická bezpečnosť",
+        shortDefinition: "Ochrana digitálnych systémov, dát a používateľov",
+        fullDefinition:
+          "Kybernetická bezpečnosť je súbor postupov, technológií a pravidiel, ktorých cieľom je chrániť digitálne systémy, siete, zariadenia a dáta pred neoprávneným prístupom, útokmi alebo zneužitím. Zahŕňa ochranu webových stránok, serverov, databáz, e-mailovej komunikácie aj interných firemných systémov. Kybernetická bezpečnosť rieši nielen technické hrozby, ale aj ľudský faktor, ako sú slabé heslá, nepozornosť zamestnancov alebo podvodné e-maily. Jej cieľom je zabezpečiť dôvernosť, integritu a dostupnosť dát, teda aby sa k nim nedostal nepovolaný subjekt, neboli pozmenené a boli dostupné oprávneným osobám. V modernom digitálnom prostredí je kybernetická bezpečnosť neoddeliteľnou súčasťou fungovania každej firmy, bez ohľadu na jej veľkosť.",
+        whyItMatters:
+          "Kybernetická bezpečnosť je dôležitá preto, lebo digitálne útoky môžu firme spôsobiť obrovské finančné straty, poškodenie reputácie a právne dôsledky. Únik citlivých dát, ako sú osobné údaje zákazníkov alebo prístupové údaje, môže viesť k strate dôvery, ktorú je veľmi ťažké získať späť. Bezpečnostné incidenty často znamenajú výpadky systémov, čo môže paralyzovať prevádzku firmy na hodiny alebo dni. Z pohľadu legislatívy je kybernetická bezpečnosť dôležitá aj kvôli dodržiavaniu nariadení, ako je GDPR, ktoré ukladajú povinnosti v oblasti ochrany dát. Pre modernú firmu je kybernetická bezpečnosť nielen technickou otázkou, ale strategickým rozhodnutím, ktoré chráni jej budúcnosť.",
+        examples: [
+          "Firma zabezpečí svoje webové stránky proti útokom, ktoré sa snažia zneužiť slabiny v redakčnom systéme.",
+          "Zamestnanci sú školení, aby rozoznali podvodné e-maily a neklikli na škodlivé odkazy.",
+          "Pravidelné aktualizácie systémov a softvéru znižujú riziko zneužitia známych chýb.",
+          "Firma používa viacfaktorové overovanie na ochranu prístupov do interných systémov.",
+          "Zálohovanie dát chráni podnik pred stratou informácií v prípade útoku alebo technickej poruchy."
+        ]
+      },
+      CZ: {
+        term: "Kybernetická bezpečnost",
+        shortDefinition: "Ochrana digitálních systémů, dat a uživatelů",
+        fullDefinition:
+          "Kybernetická bezpečnost je soubor postupů, technologií a pravidel, jejichž cílem je chránit digitální systémy, sítě, zařízení a data před neoprávněným přístupem, útoky nebo zneužitím. Zahrnuje ochranu webových stránek, serverů, databází, e-mailové komunikace i interních firemních systémů. Kybernetická bezpečnost řeší nejen technické hrozby, ale i lidský faktor, jako jsou slabá hesla, nepozornost zaměstnanců nebo podvodné e-maily. Jejím cílem je zajistit důvěrnost, integritu a dostupnost dat, tedy aby se k nim nedostal nepovolaný subjekt, nebyla pozměněna a byla dostupná oprávněným osobám. V moderním digitálním prostředí je kybernetická bezpečnost neoddělitelnou součástí fungování každé firmy, bez ohledu na její velikost.",
+        whyItMatters:
+          "Kybernetická bezpečnost je důležitá proto, že digitální útoky mohou firmě způsobit obrovské finanční ztráty, poškození reputace a právní důsledky. Únik citlivých dat, jako jsou osobní údaje zákazníků nebo přístupové údaje, může vést ke ztrátě důvěry, kterou je velmi těžké získat zpět. Bezpečnostní incidenty často znamenají výpadky systémů, což může paralyzovat provoz firmy na hodiny nebo dny. Z pohledu legislativy je kybernetická bezpečnost důležitá i kvůli dodržování předpisů, jako je GDPR, které ukládají povinnosti v oblasti ochrany dat. Pro moderní firmu je kybernetická bezpečnost nejen technickou záležitostí, ale strategickým rozhodnutím, které chrání její budoucnost.",
+        examples: [
+          "Firma zabezpečí své webové stránky proti útokům, které se snaží zneužít slabiny v redakčním systému.",
+          "Zaměstnanci jsou školeni, aby rozeznali podvodné e-maily a neklikli na škodlivé odkazy.",
+          "Pravidelné aktualizace systémů a softwaru snižují riziko zneužití známých chyb.",
+          "Firma používá vícefaktorové ověřování k ochraně přístupů do interních systémů.",
+          "Zálohování dat chrání podnik před ztrátou informací v případě útoku nebo technické poruchy."
+        ]
+      },
+      EN: {
+        term: "Cybersecurity",
+        shortDefinition: "Protection of digital systems, data, and users",
+        fullDefinition:
+          "Cybersecurity is a set of practices, technologies, and rules designed to protect digital systems, networks, devices, and data from unauthorized access, attacks, or misuse. It includes protecting websites, servers, databases, email communication, and internal business systems. Cybersecurity addresses not only technical threats but also the human factor, such as weak passwords, employee inattentiveness, or phishing emails. Its goal is to ensure the confidentiality, integrity, and availability of data—that unauthorized entities cannot access it, that it is not altered, and that it is available to authorized persons. In the modern digital environment, cybersecurity is an integral part of the operation of every business, regardless of its size.",
+        whyItMatters:
+          "Cybersecurity is important because digital attacks can cause enormous financial losses, reputational damage, and legal consequences for a company. The leakage of sensitive data, such as customers’ personal information or access credentials, can lead to a loss of trust that is very difficult to regain. Security incidents often mean system outages, which can paralyze business operations for hours or days. From a legal perspective, cybersecurity is also crucial due to compliance with regulations such as GDPR, which impose obligations in the field of data protection. For a modern company, cybersecurity is not just a technical issue but a strategic decision that protects its future.",
+        examples: [
+          "A company secures its websites against attacks that attempt to exploit vulnerabilities in the content management system.",
+          "Employees are trained to recognize phishing emails and not click on malicious links.",
+          "Regular system and software updates reduce the risk of exploitation of known flaws.",
+          "The company uses multi-factor authentication to protect access to internal systems.",
+          "Data backups protect the business from loss of information in the event of an attack or technical failure."
+        ]
+      }
+    }
+  },
   sla: {
   slugs: { EN: "sla", CZ: "sla", SK: "sla" },
   category: "Business",
