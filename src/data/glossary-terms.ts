@@ -68,6 +68,268 @@ export const findTermByName = (name: string, language: Language): { key: string;
 };
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  phishing: {
+      slugs: { SK: "phishing", CZ: "phishing", EN: "phishing" },
+      category: "Security",
+      relatedTerms: [
+        "Social Engineering",
+        "Email Security",
+        "Credential Theft",
+        "Spoofing",
+        "Multi-Factor Authentication"
+      ],
+      resources: [
+        { title: "What is Phishing?", url: "https://www.cisa.gov/phishing" },
+        { title: "Phishing Attacks Explained", url: "https://www.cloudflare.com/learning/access-management/phishing-attack/" },
+        { title: "Avoiding Phishing Attacks", url: "https://www.kaspersky.com/resource-center/threats/phishing" }
+      ],
+      content: {
+        SK: {
+          term: "Phishing",
+          shortDefinition: "Podvodné získavanie citlivých údajov",
+          fullDefinition:
+            "Phishing je forma kybernetického útoku, pri ktorej sa útočník snaží podvodom vylákať citlivé informácie od používateľov, ako sú prihlasovacie údaje, heslá, čísla platobných kariet alebo osobné údaje. Najčastejšie sa phishing realizuje prostredníctvom e-mailov, SMS správ, falošných webových stránok alebo správ na sociálnych sieťach, ktoré sa tvária ako dôveryhodné zdroje. Útočník často napodobňuje komunikáciu známych firiem, bánk, kuriérskych služieb alebo interných systémov spoločnosti. Phishing útoky sú navrhnuté tak, aby pôsobili naliehavo a prinútili obeť konať rýchlo bez overenia pravosti správy. V digitálnom prostredí ide o jednu z najrozšírenejších foriem útokov, pretože cieli priamo na ľudský faktor.",
+          whyItMatters:
+            "Phishing je mimoriadne dôležitý bezpečnostný problém, pretože obchádza technické ochrany a zameriava sa na chyby v správaní ľudí. Aj dobre zabezpečený systém môže byť ohrozený, ak používateľ nevedomky poskytne svoje prihlasovacie údaje útočníkovi. Úspešný phishingový útok môže viesť k úniku citlivých dát, finančným stratám alebo úplnému prevzatiu firemných účtov. Pre firmy má phishing často vážne reputačné a právne dôsledky, najmä ak dôjde k ohrozeniu údajov zákazníkov. Prevencia phishingu je preto kľúčová a zahŕňa nielen technické opatrenia, ale aj pravidelné školenia a zvyšovanie povedomia zamestnancov.",
+          examples: [
+            "Zamestnanec dostane e-mail, ktorý sa tvári ako správa od banky a vyzýva ho na okamžité prihlásenie cez falošný odkaz.",
+            "Podvodná SMS informuje o probléme s doručením balíka a vyžaduje zadanie údajov z platobnej karty.",
+            "Útočník sa vydáva za interné IT oddelenie a žiada zamestnancov o reset hesla.",
+            "Falošná prihlasovacia stránka zachytáva prihlasovacie údaje do firemných systémov.",
+            "Pravidelné školenia pomáhajú zamestnancom phishing rozpoznať a nahlásiť."
+          ]
+        },
+    
+        CZ: {
+          term: "Phishing",
+          shortDefinition: "Podvodné získávání citlivých údajů",
+          fullDefinition:
+            "Phishing je forma kybernetického útoku, při kterém se útočník snaží podvodem vylákat citlivé informace od uživatelů, jako jsou přihlašovací údaje, hesla, čísla platebních karet nebo osobní údaje. Nejčastěji se phishing realizuje prostřednictvím e-mailů, SMS zpráv, falešných webových stránek nebo zpráv na sociálních sítích, které se tváří jako důvěryhodné zdroje. Útočník často napodobuje komunikaci známých firem, bank, kurýrních služeb nebo interních systémů společnosti. Phishingové útoky jsou navrženy tak, aby působily naléhavě a přiměly oběť jednat rychle bez ověření pravosti zprávy. V digitálním prostředí jde o jednu z nejrozšířenějších forem útoků, protože cílí přímo na lidský faktor.",
+          whyItMatters:
+            "Phishing je mimořádně důležitý bezpečnostní problém, protože obchází technické ochrany a zaměřuje se na chyby v chování lidí. I dobře zabezpečený systém může být ohrožen, pokud uživatel nevědomky poskytne své přihlašovací údaje útočníkovi. Úspěšný phishingový útok může vést k úniku citlivých dat, finančním ztrátám nebo úplnému převzetí firemních účtů. Pro firmy má phishing často vážné reputační a právní důsledky, zejména pokud dojde k ohrožení údajů zákazníků. Prevence phishingu je proto klíčová a zahrnuje nejen technická opatření, ale i pravidelná školení a zvyšování povědomí zaměstnanců.",
+          examples: [
+            "Zaměstnanec obdrží e-mail, který se tváří jako zpráva od banky a vyzývá k okamžitému přihlášení přes falešný odkaz.",
+            "Podvodná SMS informuje o problému s doručením balíku a vyžaduje zadání údajů z platební karty.",
+            "Útočník se vydává za interní IT oddělení a žádá zaměstnance o reset hesla.",
+            "Falešná přihlašovací stránka zachytává přihlašovací údaje do firemních systémů.",
+            "Pravidelná školení pomáhají zaměstnancům phishing rozpoznat a nahlásit."
+          ]
+        },
+    
+        EN: {
+          term: "Phishing",
+          shortDefinition: "Fraudulent acquisition of sensitive information",
+          fullDefinition:
+            "Phishing is a form of cyberattack in which an attacker attempts to fraudulently obtain sensitive information from users, such as login credentials, passwords, payment card numbers, or personal data. Phishing is most commonly carried out via emails, SMS messages, fake websites, or social media messages that appear to come from trusted sources. Attackers often imitate communication from well-known companies, banks, courier services, or internal corporate systems. Phishing attacks are designed to create a sense of urgency and pressure victims to act quickly without verifying the authenticity of the message. In the digital environment, phishing is one of the most widespread forms of attacks because it directly targets the human factor.",
+          whyItMatters:
+            "Phishing is an extremely important security issue because it bypasses technical protections and focuses on human behavior errors. Even a well-secured system can be compromised if a user unknowingly provides their login credentials to an attacker. A successful phishing attack can lead to data breaches, financial losses, or complete takeover of corporate accounts. For companies, phishing often has serious reputational and legal consequences, especially if customer data is compromised. Phishing prevention is therefore critical and includes not only technical measures but also regular training and awareness programs for employees.",
+          examples: [
+            "An employee receives an email posing as a bank message urging immediate login via a fake link.",
+            "A fraudulent SMS reports a delivery issue and requests payment card details.",
+            "An attacker impersonates the internal IT department and asks employees to reset their passwords.",
+            "A fake login page captures credentials for corporate systems.",
+            "Regular training helps employees recognize and report phishing attempts."
+          ]
+        }
+      }
+    },
+    
+    ransomware: {
+      slugs: { SK: "ransomware", CZ: "ransomware", EN: "ransomware" },
+      category: "Security",
+      relatedTerms: [
+        "Malware",
+        "Data Encryption",
+        "Backup Strategy",
+        "Incident Response",
+        "Business Continuity"
+      ],
+      resources: [
+        { title: "Ransomware Explained", url: "https://www.cisa.gov/ransomware" },
+        { title: "What is Ransomware?", url: "https://www.cloudflare.com/learning/security/ransomware/"},
+        { title: "Ransomware Prevention", url: "https://www.kaspersky.com/resource-center/threats/ransomware" }
+      ],
+      content: {
+        SK: {
+          term: "Ransomware",
+          shortDefinition: "Vydieračský škodlivý softvér",
+          fullDefinition:
+            "Ransomware je špecifický typ malwaru, ktorého cieľom je zablokovať prístup k dátam alebo celému systému obete a následne požadovať výkupné za ich obnovenie. Najčastejšie funguje tak, že po infikovaní zariadenia zašifruje súbory na počítači alebo serveri, čím ich spraví nepoužiteľnými. Útočníci potom kontaktujú obeť prostredníctvom správy na obrazovke alebo e-mailu a požadujú zaplatenie výkupného, často v kryptomenách. Ransomware sa do systému dostáva podobne ako iný malware, napríklad cez phishingové e-maily, nezabezpečené vzdialené prístupy alebo zraniteľný softvér. V posledných rokoch sa ransomware stal jednou z najnebezpečnejších kybernetických hrozieb, pretože cieli najmä na firmy, nemocnice a inštitúcie s kritickými dátami.",
+          whyItMatters:
+            "Ransomware je dôležitý bezpečnostný problém preto, lebo jeho dopady môžu byť pre firmu likvidačné. Útok môže paralyzovať prevádzku na niekoľko dní alebo týždňov, čo vedie k výpadkom služieb, stratám príjmov a poškodeniu reputácie. Zaplatenie výkupného navyše nezaručuje, že útočníci dáta skutočne obnovia, a zároveň podporuje ďalšiu trestnú činnosť. Firmy často čelia aj právnym a regulačným dôsledkom, najmä ak dôjde k ohrozeniu osobných údajov. Prevencia proti ransomware útokom, ako sú zálohovanie dát a bezpečnostné opatrenia, je preto pre moderné podnikanie absolútne kľúčová.",
+          examples: [
+            "Zamestnanec otvorí infikovanú prílohu a ransomware zašifruje súbory na firemnom serveri.",
+            "Firma stratí prístup k účtovnému systému počas uzávierky a nemôže fungovať.",
+            "Útočníci požadujú výkupné v kryptomene za obnovenie dát.",
+            "Zálohy umožnia firme obnoviť systémy bez zaplatenia výkupného.",
+            "Pravidelné aktualizácie a školenia výrazne znižujú riziko útoku."
+          ]
+        },
+    
+        CZ: {
+          term: "Ransomware",
+          shortDefinition: "Vyděračský škodlivý software",
+          fullDefinition:
+            "Ransomware je specifický typ malwaru, jehož cílem je zablokovat přístup k datům nebo celému systému oběti a následně požadovat výkupné za jejich obnovení. Nejčastěji funguje tak, že po infikování zařízení zašifruje soubory na počítači nebo serveru, čímž je učiní nepoužitelnými. Útočníci poté kontaktují oběť prostřednictvím zprávy na obrazovce nebo e-mailu a požadují zaplacení výkupného, často v kryptoměnách. Ransomware se do systému dostává podobně jako jiný malware, například prostřednictvím phishingových e-mailů, nezabezpečených vzdálených přístupů nebo zranitelného softwaru. V posledních letech se ransomware stal jednou z nejnebezpečnějších kybernetických hrozeb, protože cílí zejména na firmy, nemocnice a instituce s kritickými daty.",
+          whyItMatters:
+            "Ransomware je důležitý bezpečnostní problém, protože jeho dopady mohou být pro firmu likvidační. Útok může paralyzovat provoz na několik dní nebo týdnů, což vede k výpadkům služeb, ztrátám příjmů a poškození reputace. Zaplacení výkupného navíc nezaručuje, že útočníci data skutečně obnoví, a zároveň podporuje další trestnou činnost. Firmy často čelí i právním a regulačním důsledkům, zejména pokud dojde k ohrožení osobních údajů. Prevence proti ransomware útokům, jako je zálohování dat a bezpečnostní opatření, je proto pro moderní podnikání naprosto klíčová.",
+          examples: [
+            "Zaměstnanec otevře infikovanou přílohu a ransomware zašifruje soubory na firemním serveru.",
+            "Firma ztratí přístup k účetnímu systému během uzávěrky a nemůže fungovat.",
+            "Útočníci požadují výkupné v kryptoměně za obnovení dat.",
+            "Zálohy umožní firmě obnovit systémy bez zaplacení výkupného.",
+            "Pravidelné aktualizace a školení výrazně snižují riziko útoku."
+          ]
+        },
+    
+        EN: {
+          term: "Ransomware",
+          shortDefinition: "Extortion-based malicious software",
+          fullDefinition:
+            "Ransomware is a specific type of malware designed to block access to a victim’s data or entire system and then demand a ransom for its restoration. It most commonly works by encrypting files on a computer or server after infection, rendering them unusable. Attackers then contact the victim via on-screen messages or email and demand payment, often in cryptocurrencies. Ransomware enters systems in similar ways to other malware, such as through phishing emails, unsecured remote access, or vulnerable software. In recent years, ransomware has become one of the most dangerous cyber threats, particularly targeting companies, hospitals, and institutions with critical data.",
+          whyItMatters:
+            "Ransomware is an important security issue because its impact can be devastating for businesses. An attack can paralyze operations for days or weeks, leading to service outages, revenue losses, and reputational damage. Paying the ransom does not guarantee that attackers will actually restore the data and also fuels further criminal activity. Companies often face legal and regulatory consequences, especially if personal data is compromised. Prevention against ransomware attacks, such as data backups and security measures, is therefore absolutely critical for modern businesses.",
+          examples: [
+            "An employee opens an infected attachment and ransomware encrypts files on the corporate server.",
+            "A company loses access to its accounting system during a critical closing period.",
+            "Attackers demand a ransom in cryptocurrency for data recovery.",
+            "Backups allow the company to restore systems without paying the ransom.",
+            "Regular updates and training significantly reduce the risk of attack."
+          ]
+        }
+      }
+    },
+    
+    firewall: {
+      slugs: { SK: "firewall", CZ: "firewall", EN: "firewall" },
+      category: "Security",
+      relatedTerms: [
+        "Network Security",
+        "Access Control",
+        "Intrusion Prevention",
+        "Packet Filtering",
+        "Zero Trust"
+      ],
+      resources: [
+        { title: "What is a Firewall?", url: "https://www.cisa.gov/firewalls" },
+        { title: "Firewall Explained", url: "https://www.cloudflare.com/learning/security/what-is-a-firewall/" },
+        { title: "Network Firewalls Overview", url: "https://www.paloaltonetworks.com/cyberpedia/what-is-a-firewall" }
+      ],
+      content: {
+        SK: {
+          term: "Firewall",
+          shortDefinition: "Ochranná bariéra medzi sieťou a hrozbami",
+          fullDefinition:
+            "Firewall je bezpečnostný mechanizmus, ktorý slúži ako ochranná bariéra medzi internou sieťou alebo zariadením a vonkajším prostredím, najčastejšie internetom. Jeho úlohou je kontrolovať prichádzajúcu a odchádzajúcu komunikáciu a rozhodovať, ktoré dáta sú povolené a ktoré majú byť zablokované. Firewall funguje na základe vopred definovaných pravidiel, ktoré určujú, aký typ komunikácie je považovaný za bezpečný. Môže mať podobu softvéru nainštalovaného na zariadení alebo samostatného hardvérového zariadenia chrániaceho celú sieť. V praxi je firewall jednou zo základných vrstiev kybernetickej ochrany, ktorá pomáha zabrániť neoprávneným prístupom a útokom ešte predtým, než sa dostanú k citlivým systémom.",
+          whyItMatters:
+            "Firewall je dôležitý preto, lebo predstavuje prvú líniu obrany proti širokému spektru kybernetických hrozieb. Bez firewallu by boli systémy a siete vystavené priamemu prístupu útočníkov, ktorí by mohli zneužívať otvorené porty alebo slabiny v službách. Správne nakonfigurovaný firewall dokáže výrazne znížiť riziko útokov tým, že obmedzí komunikáciu len na nevyhnutné služby. Z pohľadu firmy firewall chráni nielen technickú infraštruktúru, ale aj dáta zákazníkov a interné informácie. Pre dlhodobú bezpečnosť podnikania je firewall nevyhnutným prvkom, ktorý dopĺňa ďalšie bezpečnostné opatrenia, ako sú antivírusy, monitoring a školenia zamestnancov.",
+          examples: [
+            "Firemná sieť používa firewall na blokovanie pokusov o prístup z neznámych alebo podozrivých IP adries.",
+            "Firewall povoľuje len nevyhnutné služby, ako je web alebo e-mail, a ostatnú komunikáciu automaticky blokuje.",
+            "Malá firma využíva softvérový firewall na ochranu jednotlivých počítačov.",
+            "Väčšie organizácie používajú hardvérové firewally na ochranu celej internej siete.",
+            "Firewall zaznamenáva pokusy o útok, ktoré môže bezpečnostný tím ďalej analyzovať."
+          ]
+        },
+    
+        CZ: {
+          term: "Firewall",
+          shortDefinition: "Ochranná bariéra mezi sítí a hrozbami",
+          fullDefinition:
+            "Firewall je bezpečnostní mechanismus, který slouží jako ochranná bariéra mezi interní sítí nebo zařízením a vnějším prostředím, nejčastěji internetem. Jeho úkolem je kontrolovat příchozí a odchozí komunikaci a rozhodovat, která data jsou povolena a která mají být blokována. Firewall funguje na základě předem definovaných pravidel, která určují, jaký typ komunikace je považován za bezpečný. Může mít podobu softwaru nainstalovaného na zařízení nebo samostatného hardwarového zařízení chránícího celou síť. V praxi je firewall jednou ze základních vrstev kybernetické ochrany, která pomáhá zabránit neoprávněným přístupům a útokům ještě předtím, než se dostanou k citlivým systémům.",
+          whyItMatters:
+            "Firewall je důležitý, protože představuje první linii obrany proti širokému spektru kybernetických hrozeb. Bez firewallu by byly systémy a sítě vystaveny přímému přístupu útočníků, kteří by mohli zneužívat otevřené porty nebo slabiny ve službách. Správně nakonfigurovaný firewall dokáže výrazně snížit riziko útoků tím, že omezí komunikaci pouze na nezbytné služby. Z pohledu firmy firewall chrání nejen technickou infrastrukturu, ale i data zákazníků a interní informace. Pro dlouhodobou bezpečnost podnikání je firewall nezbytným prvkem, který doplňuje další bezpečnostní opatření, jako jsou antiviry, monitoring a školení zaměstnanců.",
+          examples: [
+            "Firemní síť používá firewall k blokování pokusů o přístup z neznámých nebo podezřelých IP adres.",
+            "Firewall povoluje pouze nezbytné služby, jako je web nebo e-mail, a ostatní komunikaci automaticky blokuje.",
+            "Malá firma využívá softwarový firewall k ochraně jednotlivých počítačů.",
+            "Větší organizace používají hardwarové firewally k ochraně celé interní sítě.",
+            "Firewall zaznamenává pokusy o útok, které může bezpečnostní tým dále analyzovat."
+          ]
+        },
+    
+        EN: {
+          term: "Firewall",
+          shortDefinition: "Protective barrier between a network and threats",
+          fullDefinition:
+            "A firewall is a security mechanism that serves as a protective barrier between an internal network or device and the external environment, most commonly the internet. Its role is to monitor incoming and outgoing communication and decide which data is allowed and which should be blocked. A firewall operates based on predefined rules that determine what type of communication is considered safe. It can take the form of software installed on a device or a standalone hardware appliance protecting an entire network. In practice, a firewall is one of the fundamental layers of cybersecurity protection that helps prevent unauthorized access and attacks before they reach sensitive systems.",
+          whyItMatters:
+            "A firewall is important because it represents the first line of defense against a wide range of cyber threats. Without a firewall, systems and networks would be exposed to direct attacker access, allowing exploitation of open ports or service vulnerabilities. A properly configured firewall can significantly reduce the risk of attacks by limiting communication to only essential services. From a business perspective, a firewall protects not only technical infrastructure but also customer data and internal information. For long-term business security, a firewall is an essential component that complements other security measures such as antivirus solutions, monitoring, and employee training.",
+          examples: [
+            "A corporate network uses a firewall to block access attempts from unknown or suspicious IP addresses.",
+            "The firewall allows only essential services such as web and email while automatically blocking other traffic.",
+            "A small business uses a software firewall to protect individual computers.",
+            "Larger organizations use hardware firewalls to protect the entire internal network.",
+            "The firewall logs attack attempts that can be further analyzed by the security team."
+          ]
+        }
+      }
+    },
+  malware: {
+    slugs: { SK: "malware", CZ: "malware", EN: "malware" },
+    category: "Security",
+    relatedTerms: [
+      "Virus",
+      "Trojan Horse",
+      "Spyware",
+      "Ransomware",
+      "Endpoint Security"
+    ],
+    resources: [
+      { title: "What is Malware?", url: "https://www.cisa.gov/news-events/news/what-malware" },
+      { title: "Malware Explained", url: "https://www.kaspersky.com/resource-center/threats/malware" },
+      { title: "Types of Malware", url: "https://www.cloudflare.com/learning/security/threats/what-is-malware/" }
+    ],
+    content: {
+      SK: {
+        term: "Malware",
+        shortDefinition: "Škodlivý softvér",
+        fullDefinition:
+          "Malware je všeobecné označenie pre akýkoľvek škodlivý softvér, ktorého cieľom je poškodiť systém, získať neoprávnený prístup k dátam alebo narušiť bežné fungovanie zariadení a služieb. Pod pojem malware patria rôzne typy hrozieb, ako sú vírusy, trójske kone, spyware, ransomware alebo adware. Malware sa môže dostať do systému prostredníctvom infikovaných e-mailových príloh, podvodných odkazov, nezabezpečených webových stránok alebo zraniteľného softvéru. Často funguje skryto, bez vedomia používateľa, a postupne zbiera údaje, mení správanie systému alebo otvára dvere ďalším útokom. V digitálnom prostredí je malware jednou z najčastejších a najnebezpečnejších bezpečnostných hrozieb.",
+        whyItMatters:
+          "Malware je dôležitá téma preto, lebo jeho dôsledky môžu byť pre firmu alebo jednotlivca veľmi vážne. Infikovaný systém môže viesť k úniku citlivých údajov, strate prístupov, finančným stratám alebo úplnému vyradeniu služieb z prevádzky. V prípade firiem môže malware ohroziť osobné údaje zákazníkov, obchodné tajomstvá alebo interné dokumenty, čo má priamy dopad na dôveru a reputáciu. Odstránenie následkov malware útoku býva časovo aj finančne náročné a často si vyžaduje zásah odborníkov. Prevencia proti malwaru je preto kľúčová súčasť kybernetickej bezpečnosti a základná povinnosť každého, kto pracuje s digitálnymi systémami.",
+        examples: [
+          "Zamestnanec otvorí e-mailovú prílohu, ktorá obsahuje malware a infikuje firemnú sieť.",
+          "Webová stránka bez aktualizácií je napadnutá škodlivým skriptom, ktorý presmerúva návštevníkov na podvodné stránky.",
+          "Ransomware zašifruje dáta na serveri a útočník požaduje výkupné za ich obnovenie.",
+          "Spyware sleduje správanie používateľov a odosiela citlivé informácie útočníkovi.",
+          "Antivírusový softvér zachytí a zablokuje malware ešte pred jeho spustením."
+        ]
+      },
+  
+      CZ: {
+        term: "Malware",
+        shortDefinition: "Škodlivý software",
+        fullDefinition:
+          "Malware je obecné označení pro jakýkoli škodlivý software, jehož cílem je poškodit systém, získat neoprávněný přístup k datům nebo narušit běžné fungování zařízení a služeb. Pod pojem malware patří různé typy hrozeb, jako jsou viry, trojské koně, spyware, ransomware nebo adware. Malware se může dostat do systému prostřednictvím infikovaných e-mailových příloh, podvodných odkazů, nezabezpečených webových stránek nebo zranitelného softwaru. Často funguje skrytě, bez vědomí uživatele, a postupně sbírá údaje, mění chování systému nebo otevírá dveře dalším útokům. V digitálním prostředí je malware jednou z nejčastějších a nejnebezpečnějších bezpečnostních hrozeb.",
+        whyItMatters:
+          "Malware je důležité téma, protože jeho důsledky mohou být pro firmu nebo jednotlivce velmi vážné. Infikovaný systém může vést k úniku citlivých údajů, ztrátě přístupů, finančním ztrátám nebo úplnému vyřazení služeb z provozu. V případě firem může malware ohrozit osobní údaje zákazníků, obchodní tajemství nebo interní dokumenty, což má přímý dopad na důvěru a reputaci. Odstranění následků malware útoku bývá časově i finančně náročné a často vyžaduje zásah odborníků. Prevence proti malwaru je proto klíčovou součástí kybernetické bezpečnosti a základní povinností každého, kdo pracuje s digitálními systémy.",
+        examples: [
+          "Zaměstnanec otevře e-mailovou přílohu, která obsahuje malware a infikuje firemní síť.",
+          "Webová stránka bez aktualizací je napadena škodlivým skriptem, který přesměrovává návštěvníky na podvodné stránky.",
+          "Ransomware zašifruje data na serveru a útočník požaduje výkupné za jejich obnovení.",
+          "Spyware sleduje chování uživatelů a odesílá citlivé informace útočníkovi.",
+          "Antivirový software zachytí a zablokuje malware ještě před jeho spuštěním."
+        ]
+      },
+  
+      EN: {
+        term: "Malware",
+        shortDefinition: "Malicious software",
+        fullDefinition:
+          "Malware is a general term for any malicious software designed to damage systems, gain unauthorized access to data, or disrupt the normal operation of devices and services. Malware includes various types of threats such as viruses, trojans, spyware, ransomware, or adware. It can enter a system through infected email attachments, fraudulent links, unsecured websites, or vulnerable software. Malware often operates silently without the user’s knowledge and gradually collects data, alters system behavior, or opens doors to further attacks. In the digital environment, malware is one of the most common and dangerous security threats.",
+        whyItMatters:
+          "Malware is an important issue because its consequences can be very serious for both companies and individuals. An infected system can lead to data breaches, loss of access, financial losses, or complete service outages. In companies, malware can compromise customer personal data, trade secrets, or internal documents, directly impacting trust and reputation. Removing the consequences of a malware attack is often time-consuming and costly and usually requires professional intervention. Malware prevention is therefore a key part of cybersecurity and a basic responsibility for anyone working with digital systems.",
+        examples: [
+          "An employee opens an email attachment containing malware and infects the corporate network.",
+          "An outdated website is compromised by a malicious script that redirects visitors to fraudulent pages.",
+          "Ransomware encrypts data on a server and attackers demand a ransom for recovery.",
+          "Spyware monitors user behavior and sends sensitive information to attackers.",
+          "Antivirus software detects and blocks malware before it is executed."
+        ]
+      }
+    }
+  },
   cybersecurity: {
     slugs: { EN: "cybersecurity", CZ: "kyberneticka-bezpecnost", SK: "kyberneticka-bezpecnost" },
     category: "Security",
