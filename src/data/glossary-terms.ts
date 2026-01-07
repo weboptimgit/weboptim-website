@@ -68,6 +68,325 @@ export const findTermByName = (name: string, language: Language): { key: string;
 };
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  sslhttps: {
+  slugs: { SK: "ssl-https", CZ: "ssl-https", EN: "ssl-https" },
+  category: "Security",
+  relatedTerms: [
+    "TLS",
+    "SSL Certificate",
+    "Encryption",
+    "HSTS",
+    "Man-in-the-Middle Attack"
+  ],
+  resources: [
+    { title: "What is HTTPS?", url: "https://www.cloudflare.com/learning/ssl/what-is-https/" },
+    { title: "Transport Layer Security (TLS) - MDN Web Docs", url: "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security" },
+    { title: "NIST SP 800-52 Rev. 2: Guidelines for the Selection, Configuration, and Use of TLS", url: "https://csrc.nist.gov/pubs/sp/800/52/r2/final" }
+  ],
+  content: {
+    SK: {
+      term: "SSL / HTTPS",
+      shortDefinition: "Šifrovaná komunikácia medzi používateľom a webom",
+      fullDefinition:
+        "SSL (Secure Sockets Layer), dnes technicky presnejšie označované ako TLS, je bezpečnostná technológia, ktorá zabezpečuje šifrovanú komunikáciu medzi webovým serverom a používateľom. HTTPS je verzia protokolu HTTP, ktorá používa SSL/TLS šifrovanie, vďaka čomu sú prenášané údaje chránené pred odpočúvaním alebo manipuláciou. Keď používateľ navštívi web s HTTPS, všetky údaje, ako prihlasovacie údaje, formuláre alebo platobné informácie, sú prenášané v zašifrovanej podobe. SSL certifikát zároveň overuje identitu webovej stránky, čím znižuje riziko, že používateľ komunikuje s falošným alebo podvodným webom. V praxi je SSL/HTTPS základným bezpečnostným štandardom každého moderného webu.",
+      whyItMatters:
+        "SSL a HTTPS sú dôležité preto, lebo chránia citlivé údaje používateľov pred zachytením tretími stranami, najmä na verejných alebo nezabezpečených sieťach. Bez šifrovania môžu útočníci ľahko získať prihlasovacie údaje, osobné informácie alebo platobné dáta. Z pohľadu dôvery je HTTPS kľúčové, pretože používatelia dnes očakávajú, že web bude bezpečný, a prehliadače dokonca označujú nezabezpečené stránky ako nebezpečné. SSL má význam aj pre SEO, keďže vyhľadávače uprednostňujú zabezpečené weby vo výsledkoch vyhľadávania. Pre firmy je HTTPS nielen technickou nutnosťou, ale aj dôležitým signálom profesionality, dôveryhodnosti a zodpovedného prístupu k ochrane dát.",
+      examples: [
+        "Webová stránka používa HTTPS na ochranu údajov z kontaktných a registračných formulárov.",
+        "E-shop šifruje platobné informácie zákazníkov pomocou SSL certifikátu.",
+        "Prehliadače zobrazujú ikonu zámku pri zabezpečených webových stránkach.",
+        "Nezabezpečený web bez HTTPS je označený ako „Nezabezpečený“, čo odrádza návštevníkov.",
+        "Migrácia webu z HTTP na HTTPS zlepší bezpečnosť aj dôveryhodnosť stránky."
+      ]
+    },
+    CZ: {
+      term: "SSL / HTTPS",
+      shortDefinition: "Šifrovaná komunikace mezi uživatelem a webem",
+      fullDefinition:
+        "SSL (Secure Sockets Layer), dnes technicky přesněji označované jako TLS, je bezpečnostní technologie, která zajišťuje šifrovanou komunikaci mezi webovým serverem a uživatelem. HTTPS je verze protokolu HTTP, která používá SSL/TLS šifrování, díky čemuž jsou přenášená data chráněna před odposlechem nebo manipulací. Když uživatel navštíví web s HTTPS, všechna data, jako přihlašovací údaje, formuláře nebo platební informace, jsou přenášena v zašifrované podobě. SSL certifikát zároveň ověřuje identitu webové stránky, čímž snižuje riziko, že uživatel komunikuje s falešným nebo podvodným webem. V praxi je SSL/HTTPS základním bezpečnostním standardem každého moderního webu.",
+      whyItMatters:
+        "SSL a HTTPS jsou důležité proto, protože chrání citlivé údaje uživatelů před zachycením třetími stranami, zejména na veřejných nebo nezabezpečených sítích. Bez šifrování mohou útočníci snadno získat přihlašovací údaje, osobní informace nebo platební data. Z pohledu důvěry je HTTPS klíčové, protože uživatelé dnes očekávají, že web bude bezpečný, a prohlížeče dokonce označují nezabezpečené stránky jako nebezpečné. SSL má význam i pro SEO, protože vyhledávače upřednostňují zabezpečené weby ve výsledcích vyhledávání. Pro firmy je HTTPS nejen technickou nutností, ale i důležitým signálem profesionality, důvěryhodnosti a odpovědného přístupu k ochraně dat.",
+      examples: [
+        "Webová stránka používá HTTPS k ochraně údajů z kontaktních a registračních formulářů.",
+        "E-shop šifruje platební informace zákazníků pomocí SSL certifikátu.",
+        "Prohlížeče zobrazují ikonu zámku u zabezpečených webových stránek.",
+        "Nezabezpečený web bez HTTPS je označen jako „Nezabezpečený“, což odrazuje návštěvníky.",
+        "Migrace webu z HTTP na HTTPS zlepší bezpečnost i důvěryhodnost stránky."
+      ]
+    },
+    EN: {
+      term: "SSL / HTTPS",
+      shortDefinition: "Encrypted communication between the user and the web",
+      fullDefinition:
+        "SSL (Secure Sockets Layer), today more technically accurately referred to as TLS, is a security technology that ensures encrypted communication between a web server and a user. HTTPS is a version of the HTTP protocol that uses SSL/TLS encryption, which protects transmitted data from eavesdropping or manipulation. When a user visits a website with HTTPS, all data such as login credentials, forms, or payment information is transmitted in encrypted form. An SSL certificate also verifies the identity of the website, reducing the risk that the user is communicating with a fake or fraudulent site. In practice, SSL/HTTPS is a basic security standard for every modern website.",
+      whyItMatters:
+        "SSL and HTTPS are important because they protect users’ sensitive data from being intercepted by third parties, especially on public or unsecured networks. Without encryption, attackers can easily obtain login credentials, personal information, or payment data. From a trust perspective, HTTPS is crucial because users today expect a website to be secure, and browsers even label unsecured pages as dangerous. SSL also matters for SEO, since search engines prioritize secure websites in search results. For companies, HTTPS is not only a technical necessity but also an important signal of professionalism, credibility, and a responsible approach to data protection.",
+      examples: [
+        "A website uses HTTPS to protect data from contact and registration forms.",
+        "An e-shop encrypts customers’ payment information using an SSL certificate.",
+        "Browsers display a lock icon next to secure websites.",
+        "An unsecured website without HTTPS is labeled as “Not Secure,” which discourages visitors.",
+        "Migrating a website from HTTP to HTTPS improves both security and site credibility."
+      ]
+    }
+  }
+},
+
+dvojfaktorovaautentifikacia2fa: {
+  slugs: { SK: "dvojfaktorova-autentifikacia-2fa", CZ: "dvoufaktorova-autentifikace-2fa", EN: "two-factor-authentication-2fa" },
+  category: "Security",
+  relatedTerms: [
+    "Multi-Factor Authentication",
+    "Authenticator App",
+    "One-Time Password",
+    "Phishing-Resistant MFA",
+    "Account Security"
+  ],
+  resources: [
+    { title: "Multifactor Authentication - CISA", url: "https://www.cisa.gov/topics/cybersecurity-best-practices/multifactor-authentication" },
+    { title: "Require Multifactor Authentication - CISA", url: "https://www.cisa.gov/audiences/small-and-medium-businesses/secure-your-business/require-multifactor-authentication" },
+    { title: "NIST SP 800-63-4 Digital Identity Guidelines", url: "https://pages.nist.gov/800-63-4/sp800-63.html" }
+  ],
+  content: {
+    SK: {
+      term: "Dvojfaktorová autentifikácia (2FA)",
+      shortDefinition: "Dodatočná ochrana prístupu k účtom a systémom",
+      fullDefinition:
+        "Dvojfaktorová autentifikácia, skrátene 2FA, je bezpečnostný mechanizmus, ktorý vyžaduje overenie identity používateľa pomocou dvoch nezávislých faktorov. Prvým faktorom býva niečo, čo používateľ pozná, napríklad heslo, a druhým faktorom niečo, čo má alebo je, napríklad jednorazový kód v mobilnej aplikácii, SMS správa alebo biometrický údaj. Cieľom 2FA je zabezpečiť, že aj v prípade úniku hesla sa útočník bez druhého faktora nedostane k účtu. Tento spôsob overovania sa dnes používa pri prihlasovaní do e-mailov, bankových aplikácií, administrácií webov či interných firemných systémov. V praxi 2FA výrazne zvyšuje úroveň zabezpečenia bez potreby zložitých technických riešení.",
+      whyItMatters:
+        "Dvojfaktorová autentifikácia je dôležitá preto, lebo samotné heslá už dnes neposkytujú dostatočnú ochranu pred útokmi. Používatelia často používajú slabé alebo opakovane použité heslá, ktoré môžu uniknúť pri phishingu alebo úniku databáz. 2FA výrazne znižuje riziko neoprávneného prístupu, pretože útočník potrebuje aj druhý faktor, ku ktorému sa zvyčajne nedostane. Z pohľadu firiem 2FA chráni citlivé dáta, administrátorské účty a interné systémy pred prevzatím. Implementácia 2FA je jedným z najefektívnejších a zároveň najjednoduchších krokov, ktoré môže firma urobiť na zvýšenie svojej kybernetickej bezpečnosti.",
+      examples: [
+        "Zamestnanci sa prihlasujú do firemného e-mailu pomocou hesla a jednorazového kódu z mobilnej aplikácie.",
+        "Administrátor WordPress webu musí potvrdiť prihlásenie cez 2FA, čím sa znižuje riziko napadnutia stránky.",
+        "Bankové aplikácie vyžadujú potvrdenie prihlásenia alebo platby pomocou biometrie alebo SMS kódu.",
+        "Aj pri úniku hesla útočník nedokáže získať prístup bez druhého faktora.",
+        "Firma zavádza povinné 2FA pre všetky interné systémy ako súčasť bezpečnostnej politiky."
+      ]
+    },
+    CZ: {
+      term: "Dvoufaktorová autentifikace (2FA)",
+      shortDefinition: "Dodatečná ochrana přístupu k účtům a systémům",
+      fullDefinition:
+        "Dvoufaktorová autentifikace, zkráceně 2FA, je bezpečnostní mechanismus, který vyžaduje ověření identity uživatele pomocí dvou nezávislých faktorů. Prvním faktorem bývá něco, co uživatel zná, například heslo, a druhým faktorem něco, co má nebo je, například jednorázový kód v mobilní aplikaci, SMS zpráva nebo biometrický údaj. Cílem 2FA je zajistit, že i v případě úniku hesla se útočník bez druhého faktoru nedostane k účtu. Tento způsob ověřování se dnes používá při přihlašování do e-mailů, bankovních aplikací, administrací webů či interních firemních systémů. V praxi 2FA výrazně zvyšuje úroveň zabezpečení bez potřeby složitých technických řešení.",
+      whyItMatters:
+        "Dvoufaktorová autentifikace je důležitá proto, protože samotná hesla už dnes neposkytují dostatečnou ochranu před útoky. Uživatelé často používají slabá nebo opakovaně použitá hesla, která mohou uniknout při phishingu nebo úniku databází. 2FA výrazně snižuje riziko neoprávněného přístupu, protože útočník potřebuje i druhý faktor, ke kterému se obvykle nedostane. Z pohledu firem 2FA chrání citlivá data, administrátorské účty a interní systémy před převzetím. Implementace 2FA je jedním z nejefektivnějších a zároveň nejjednodušších kroků, které může firma udělat pro zvýšení své kybernetické bezpečnosti.",
+      examples: [
+        "Zaměstnanci se přihlašují do firemního e-mailu pomocí hesla a jednorázového kódu z mobilní aplikace.",
+        "Administrátor WordPress webu musí potvrdit přihlášení přes 2FA, čímž se snižuje riziko napadení stránky.",
+        "Bankovní aplikace vyžadují potvrzení přihlášení nebo platby pomocí biometrie nebo SMS kódu.",
+        "I při úniku hesla útočník nedokáže získat přístup bez druhého faktoru.",
+        "Firma zavádí povinné 2FA pro všechny interní systémy jako součást bezpečnostní politiky."
+      ]
+    },
+    EN: {
+      term: "Two-factor authentication (2FA)",
+      shortDefinition: "Additional protection for access to accounts and systems",
+      fullDefinition:
+        "Two-factor authentication, abbreviated 2FA, is a security mechanism that requires verifying a user’s identity using two independent factors. The first factor is usually something the user knows, such as a password, and the second factor is something they have or are, such as a one-time code in a mobile app, an SMS message, or a biometric attribute. The goal of 2FA is to ensure that even if a password is leaked, an attacker cannot access the account without the second factor. This verification method is commonly used today for logging into email, banking apps, website administrations, and internal corporate systems. In practice, 2FA significantly increases the level of security without requiring complex technical solutions.",
+      whyItMatters:
+        "Two-factor authentication is important because passwords alone no longer provide sufficient protection against attacks. Users often use weak or reused passwords that can be exposed through phishing or database leaks. 2FA significantly reduces the risk of unauthorized access because the attacker also needs the second factor, which they usually cannot obtain. From a company perspective, 2FA protects sensitive data, administrator accounts, and internal systems from takeover. Implementing 2FA is one of the most effective and at the same time simplest steps a company can take to increase its cybersecurity.",
+      examples: [
+        "Employees log in to corporate email using a password and a one-time code from a mobile app.",
+        "A WordPress website administrator must confirm login via 2FA, reducing the risk of site compromise.",
+        "Banking apps require confirming login or a payment using biometrics or an SMS code.",
+        "Even if a password leaks, an attacker cannot gain access without the second factor.",
+        "A company introduces mandatory 2FA for all internal systems as part of its security policy."
+      ]
+    }
+  }
+},
+
+zalohovaniedatbackup: {
+  slugs: { SK: "zalohovanie-dat-backup", CZ: "zalohovani-dat-backup", EN: "data-backup" },
+  category: "Security",
+  relatedTerms: [
+    "Data Recovery",
+    "Business Continuity",
+    "Disaster Recovery",
+    "RPO/RTO",
+    "Ransomware Resilience"
+  ],
+  resources: [
+    { title: "CIS Control 11: Data Recovery", url: "https://www.cisecurity.org/controls/data-recovery" },
+    { title: "NIST SP 800-34 Rev. 1: Contingency Planning Guide", url: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final" },
+    { title: "CIS Control 11: Data Recovery (CAS)", url: "https://cas.docs.cisecurity.org/en/latest/source/Controls11/" }
+  ],
+  content: {
+    SK: {
+      term: "Zálohovanie dát (Backup)",
+      shortDefinition: "Ochrana dát pred stratou a zničením",
+      fullDefinition:
+        "Zálohovanie dát je proces vytvárania kópií digitálnych údajov, ktoré slúžia ako náhrada v prípade ich straty, poškodenia alebo zneprístupnenia. Zálohy môžu zahŕňať dokumenty, databázy, webové stránky, e-maily, systémy alebo celé servery. Vytvárajú sa na samostatných úložiskách, ktoré sú oddelené od pôvodných dát, napríklad na externých diskoch, cloudových službách alebo záložných serveroch. Zálohovanie môže prebiehať manuálne alebo automaticky v pravidelných intervaloch, aby boli údaje čo najaktuálnejšie. V praxi je backup základným pilierom bezpečnosti, pretože rieši situácie, keď zlyhajú všetky ostatné ochranné mechanizmy.",
+      whyItMatters:
+        "Zálohovanie dát je dôležité preto, lebo strata údajov môže mať pre firmu alebo jednotlivca katastrofálne následky. Dôvodom straty dát nemusí byť len kybernetický útok, ale aj technická porucha, ľudská chyba alebo fyzické poškodenie zariadenia. Bez aktuálnych záloh môže firma prísť o dôležité dokumenty, databázy zákazníkov alebo celé systémy, čo môže viesť k výpadku prevádzky a finančným stratám. Zálohy sú kľúčové aj pri ransomware útokoch, pretože umožňujú obnoviť dáta bez platenia výkupného. Pre zodpovedný prístup k bezpečnosti sú pravidelné a testované zálohy absolútnou nevyhnutnosťou.",
+      examples: [
+        "Firma automaticky zálohuje databázu webovej stránky každý deň na externý server.",
+        "Cloudová služba uchováva viacero verzií súborov, aby bolo možné obnoviť starší stav.",
+        "Po útoku ransomware firma obnoví systémy zo záloh bez zaplatenia výkupného.",
+        "Zamestnanec omylom vymaže dôležité súbory, ktoré sa obnovia zo zálohy.",
+        "IT oddelenie pravidelne testuje obnovu dát zo záloh, aby overilo ich funkčnosť."
+      ]
+    },
+    CZ: {
+      term: "Zálohování dat (Backup)",
+      shortDefinition: "Ochrana dat před ztrátou a zničením",
+      fullDefinition:
+        "Zálohování dat je proces vytváření kopií digitálních údajů, které slouží jako náhrada v případě jejich ztráty, poškození nebo znepřístupnění. Zálohy mohou zahrnovat dokumenty, databáze, webové stránky, e-maily, systémy nebo celé servery. Vytvářejí se na samostatných úložištích, která jsou oddělena od původních dat, například na externích discích, cloudových službách nebo záložních serverech. Zálohování může probíhat manuálně nebo automaticky v pravidelných intervalech, aby byly údaje co nejaktuálnější. V praxi je backup základním pilířem bezpečnosti, protože řeší situace, kdy selžou všechny ostatní ochranné mechanismy.",
+      whyItMatters:
+        "Zálohování dat je důležité proto, protože ztráta údajů může mít pro firmu nebo jednotlivce katastrofální následky. Důvodem ztráty dat nemusí být jen kybernetický útok, ale i technická porucha, lidská chyba nebo fyzické poškození zařízení. Bez aktuálních záloh může firma přijít o důležité dokumenty, databáze zákazníků nebo celé systémy, což může vést k výpadku provozu a finančním ztrátám. Zálohy jsou klíčové i při ransomware útocích, protože umožňují obnovit data bez placení výkupného. Pro odpovědný přístup k bezpečnosti jsou pravidelné a testované zálohy absolutní nezbytností.",
+      examples: [
+        "Firma automaticky zálohuje databázi webové stránky každý den na externí server.",
+        "Cloudová služba uchovává více verzí souborů, aby bylo možné obnovit starší stav.",
+        "Po útoku ransomware firma obnoví systémy ze záloh bez zaplacení výkupného.",
+        "Zaměstnanec omylem smaže důležité soubory, které se obnoví ze zálohy.",
+        "IT oddělení pravidelně testuje obnovu dat ze záloh, aby ověřilo jejich funkčnost."
+      ]
+    },
+    EN: {
+      term: "Data backup (Backup)",
+      shortDefinition: "Protecting data from loss and destruction",
+      fullDefinition:
+        "Data backup is the process of creating copies of digital information that serve as a replacement in case of loss, damage, or unavailability. Backups can include documents, databases, websites, emails, systems, or entire servers. They are created on separate storage that is isolated from the original data, such as external drives, cloud services, or backup servers. Backups can be performed manually or automatically at regular intervals to keep data as up to date as possible. In practice, backup is a fundamental pillar of security because it addresses situations where all other protective mechanisms fail.",
+      whyItMatters:
+        "Data backup is important because data loss can have catastrophic consequences for a company or an individual. The cause of data loss does not have to be only a cyberattack, but also a technical failure, human error, or physical damage to a device. Without current backups, a company can lose important documents, customer databases, or entire systems, which can lead to operational downtime and financial losses. Backups are also crucial during ransomware attacks because they make it possible to restore data without paying a ransom. For a responsible approach to security, regular and tested backups are an absolute necessity.",
+      examples: [
+        "A company automatically backs up a website database every day to an external server.",
+        "A cloud service keeps multiple file versions so an older state can be restored.",
+        "After a ransomware attack, the company restores systems from backups without paying the ransom.",
+        "An employee accidentally deletes important files that are restored from a backup.",
+        "The IT department regularly tests data restoration from backups to verify they work."
+      ]
+    }
+  }
+},
+
+aktualizacieabezpecnostnezaplatysecuritypatches: {
+  slugs: { SK: "aktualizacie-a-bezpecnostne-zaplaty-security-patches", CZ: "aktualizace-a-bezpecnostni-zaplaty-security-patches", EN: "security-patches" },
+  category: "Security",
+  relatedTerms: [
+    "Patch Management",
+    "Vulnerability Management",
+    "Known Exploited Vulnerabilities",
+    "CVE",
+    "Attack Surface"
+  ],
+  resources: [
+    { title: "NIST SP 800-40 Rev. 4: Guide to Enterprise Patch Management Planning", url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final" },
+    { title: "Known Exploited Vulnerabilities Catalog - CISA", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog" },
+    { title: "CIS Control 7: Continuous Vulnerability Management", url: "https://www.cisecurity.org/controls/continuous-vulnerability-management" }
+  ],
+  content: {
+    SK: {
+      term: "Aktualizácie a bezpečnostné záplaty (Security Patches)",
+      shortDefinition: "Opravy chýb a zraniteľností v systémoch",
+      fullDefinition:
+        "Aktualizácie a bezpečnostné záplaty, často označované ako security patches, sú úpravy softvéru, ktoré opravujú zistené chyby, slabiny alebo bezpečnostné zraniteľnosti v systémoch, aplikáciách a zariadeniach. Výrobcovia softvéru ich vydávajú pravidelne po tom, čo sa objaví nová hrozba alebo sa odhalí spôsob, akým môžu útočníci zneužiť konkrétnu chybu. Aktualizácie môžu zahŕňať opravy jadra systému, doplnkov, pluginov, redakčných systémov alebo serverových služieb. Ich cieľom nie je len pridávanie nových funkcií, ale predovšetkým zvýšenie bezpečnosti a stability. V praxi sú bezpečnostné záplaty neoddeliteľnou súčasťou údržby každého digitálneho riešenia.",
+      whyItMatters:
+        "Bezpečnostné aktualizácie sú dôležité preto, lebo väčšina kybernetických útokov zneužíva práve známe a neopravené zraniteľnosti. Ak firma nepoužíva aktuálnu verziu softvéru, vystavuje sa riziku, že útočník získa prístup k jej systémom bez potreby zložitých útokov. Odkladanie aktualizácií často vedie k situáciám, kde je web alebo systém napadnutý aj napriek iným bezpečnostným opatreniam. Pravidelné aktualizácie znižujú riziko výpadkov, únikov dát a poškodenia reputácie. Z pohľadu zodpovedného podnikania sú bezpečnostné záplaty základným hygienickým štandardom v oblasti IT a kybernetickej bezpečnosti.",
+      examples: [
+        "WordPress web je napadnutý preto, že používa starú verziu pluginu so známou bezpečnostnou chybou.",
+        "Firma má nastavené automatické aktualizácie operačných systémov na pracovných staniciach.",
+        "Hostingová spoločnosť pravidelne aplikuje bezpečnostné záplaty na serveroch.",
+        "IT tím testuje aktualizácie najprv v testovacom prostredí pred nasadením do produkcie.",
+        "Pravidelná údržba systémov znižuje počet bezpečnostných incidentov a výpadkov."
+      ]
+    },
+    CZ: {
+      term: "Aktualizace a bezpečnostní záplaty (Security Patches)",
+      shortDefinition: "Opravy chyb a zranitelností v systémech",
+      fullDefinition:
+        "Aktualizace a bezpečnostní záplaty, často označované jako security patches, jsou úpravy softwaru, které opravují zjištěné chyby, slabiny nebo bezpečnostní zranitelnosti v systémech, aplikacích a zařízeních. Výrobci softwaru je vydávají pravidelně poté, co se objeví nová hrozba nebo se odhalí způsob, jak mohou útočníci zneužít konkrétní chybu. Aktualizace mohou zahrnovat opravy jádra systému, doplňků, pluginů, redakčních systémů nebo serverových služeb. Jejich cílem není jen přidávání nových funkcí, ale především zvýšení bezpečnosti a stability. V praxi jsou bezpečnostní záplaty neoddělitelnou součástí údržby každého digitálního řešení.",
+      whyItMatters:
+        "Bezpečnostní aktualizace jsou důležité proto, protože většina kybernetických útoků zneužívá právě známé a neopravované zranitelnosti. Pokud firma nepoužívá aktuální verzi softwaru, vystavuje se riziku, že útočník získá přístup k jejím systémům bez potřeby složitých útoků. Odkládání aktualizací často vede k situacím, kdy je web nebo systém napaden i přes jiná bezpečnostní opatření. Pravidelné aktualizace snižují riziko výpadků, úniků dat a poškození reputace. Z pohledu odpovědného podnikání jsou bezpečnostní záplaty základním hygienickým standardem v oblasti IT a kybernetické bezpečnosti.",
+      examples: [
+        "WordPress web je napaden, protože používá starou verzi pluginu se známou bezpečnostní chybou.",
+        "Firma má nastavené automatické aktualizace operačních systémů na pracovních stanicích.",
+        "Hostingová společnost pravidelně aplikuje bezpečnostní záplaty na serverech.",
+        "IT tým testuje aktualizace nejprve v testovacím prostředí před nasazením do produkce.",
+        "Pravidelná údržba systémů snižuje počet bezpečnostních incidentů a výpadků."
+      ]
+    },
+    EN: {
+      term: "Updates and security patches (Security Patches)",
+      shortDefinition: "Fixes for errors and vulnerabilities in systems",
+      fullDefinition:
+        "Updates and security patches, often referred to as security patches, are software changes that fix discovered errors, weaknesses, or security vulnerabilities in systems, applications, and devices. Software vendors release them regularly after a new threat emerges or a way is discovered for attackers to exploit a specific flaw. Updates can include fixes for the operating system core, add-ons, plugins, content management systems, or server services. Their goal is not only to add new features but primarily to increase security and stability. In practice, security patches are an integral part of maintaining every digital solution.",
+      whyItMatters:
+        "Security updates are important because most cyberattacks exploit known and unpatched vulnerabilities. If a company does not use an up-to-date software version, it risks an attacker gaining access to its systems without needing sophisticated attacks. Delaying updates often leads to situations where a website or system is compromised despite other security measures. Regular updates reduce the risk of outages, data breaches, and reputational damage. From the perspective of responsible business, security patches are a basic hygiene standard in IT and cybersecurity.",
+      examples: [
+        "A WordPress site is attacked because it uses an old plugin version with a known security flaw.",
+        "A company enables automatic operating system updates on workstations.",
+        "A hosting provider regularly applies security patches on servers.",
+        "The IT team tests updates in a staging environment before deploying to production.",
+        "Regular system maintenance reduces the number of security incidents and outages."
+      ]
+    }
+  }
+},
+
+spravapristupovaopravneniaccessmanagement: {
+  slugs: { SK: "sprava-pristupov-a-opravneni-access-management", CZ: "sprava-pristupu-a-opravneni-access-management", EN: "access-management" },
+  category: "Security",
+  relatedTerms: [
+    "Least Privilege",
+    "Role-Based Access Control",
+    "Account Management",
+    "Privileged Access Management",
+    "Identity and Access Management"
+  ],
+  resources: [
+    { title: "NIST SP 800-53 (AC family): Access Control", url: "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" },
+    { title: "AC-6: Least Privilege (NIST SP 800-53 reference)", url: "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/" },
+    { title: "AC-2: Account Management (NIST SP 800-53 reference)", url: "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/" }
+  ],
+  content: {
+    SK: {
+      term: "Správa prístupov a oprávnení (Access Management)",
+      shortDefinition: "Riadenie toho, kto má k čomu prístup",
+      fullDefinition:
+        "Správa prístupov a oprávnení, často označovaná ako access management, je proces, ktorým firma kontroluje, kto má prístup k jednotlivým systémom, dátam a funkciám. Zahŕňa vytváranie používateľských účtov, prideľovanie rolí, nastavovanie oprávnení a ich pravidelnú kontrolu. Cieľom je zabezpečiť, aby každý používateľ mal prístup len k tým informáciám a nástrojom, ktoré skutočne potrebuje na svoju prácu. Access management rieši aj situácie, keď zamestnanec mení pozíciu alebo odchádza z firmy, aby mu boli prístupy včas upravené alebo zrušené. V praxi ide o kombináciu technických nastavení a interných pravidiel, ktoré chránia firmu pred zneužitím prístupov.",
+      whyItMatters:
+        "Správa prístupov je dôležitá preto, lebo nekontrolované alebo nadmerné oprávnenia výrazne zvyšujú bezpečnostné riziká. Ak má príliš veľa ľudí prístup k citlivým dátam alebo administrácii systémov, zvyšuje sa pravdepodobnosť úniku informácií, chýb alebo úmyselného zneužitia. Z pohľadu firiem je access management kľúčový aj pri dodržiavaní legislatívnych povinností, napríklad v oblasti ochrany osobných údajov. Správne nastavené oprávnenia zároveň zvyšujú prehľadnosť a zodpovednosť, pretože je jasné, kto za čo nesie zodpovednosť. Pre bezpečné a udržateľné fungovanie firmy je správa prístupov základným pilierom kybernetickej bezpečnosti.",
+      examples: [
+        "Zamestnanci majú prístup len k tým systémom, ktoré potrebujú na svoju pracovnú pozíciu.",
+        "Administrátorské práva sú obmedzené len na niekoľko overených osôb.",
+        "Po odchode zamestnanca sú jeho prístupy okamžite zrušené.",
+        "Externí dodávatelia majú dočasné a obmedzené prístupy.",
+        "Firma pravidelne kontroluje a reviduje oprávnenia používateľov."
+      ]
+    },
+    CZ: {
+      term: "Správa přístupů a oprávnění (Access Management)",
+      shortDefinition: "Řízení toho, kdo má k čemu přístup",
+      fullDefinition:
+        "Správa přístupů a oprávnění, často označovaná jako access management, je proces, kterým firma kontroluje, kdo má přístup k jednotlivým systémům, datům a funkcím. Zahrnuje vytváření uživatelských účtů, přidělování rolí, nastavování oprávnění a jejich pravidelnou kontrolu. Cílem je zajistit, aby každý uživatel měl přístup pouze k těm informacím a nástrojům, které skutečně potřebuje pro svou práci. Access management řeší i situace, kdy zaměstnanec mění pozici nebo odchází z firmy, aby mu byly přístupy včas upraveny nebo zrušeny. V praxi jde o kombinaci technických nastavení a interních pravidel, která chrání firmu před zneužitím přístupů.",
+      whyItMatters:
+        "Správa přístupů je důležitá proto, protože nekontrolovaná nebo nadměrná oprávnění výrazně zvyšují bezpečnostní rizika. Pokud má příliš mnoho lidí přístup k citlivým datům nebo administraci systémů, zvyšuje se pravděpodobnost úniku informací, chyb nebo úmyslného zneužití. Z pohledu firem je access management klíčový i při dodržování legislativních povinností, například v oblasti ochrany osobních údajů. Správně nastavená oprávnění zároveň zvyšují přehlednost a odpovědnost, protože je jasné, kdo za co nese odpovědnost. Pro bezpečné a udržitelné fungování firmy je správa přístupů základním pilířem kybernetické bezpečnosti.",
+      examples: [
+        "Zaměstnanci mají přístup jen k těm systémům, které potřebují pro svou pracovní pozici.",
+        "Administrátorská práva jsou omezena jen na několik ověřených osob.",
+        "Po odchodu zaměstnance jsou jeho přístupy okamžitě zrušeny.",
+        "Externí dodavatelé mají dočasné a omezené přístupy.",
+        "Firma pravidelně kontroluje a reviduje oprávnění uživatelů."
+      ]
+    },
+    EN: {
+      term: "Access management (Access Management)",
+      shortDefinition: "Managing who has access to what",
+      fullDefinition:
+        "Access management, often referred to as access management, is the process by which a company controls who has access to specific systems, data, and functions. It includes creating user accounts, assigning roles, setting permissions, and regularly reviewing them. The goal is to ensure that each user has access only to the information and tools they truly need for their work. Access management also addresses situations where an employee changes position or leaves the company, so their access is adjusted or revoked in time. In practice, it is a combination of technical settings and internal rules that protect a company from abuse of access.",
+      whyItMatters:
+        "Access management is important because uncontrolled or excessive permissions significantly increase security risks. If too many people have access to sensitive data or system administration, the likelihood of information leaks, mistakes, or intentional abuse increases. From a business perspective, access management is also crucial for meeting legal obligations, for example in the area of personal data protection. Properly configured permissions also improve clarity and accountability because it is clear who is responsible for what. For secure and sustainable business operation, access management is a fundamental pillar of cybersecurity.",
+      examples: [
+        "Employees have access only to the systems they need for their job role.",
+        "Administrative privileges are limited to only a few verified individuals.",
+        "When an employee leaves, their access is revoked immediately.",
+        "External vendors have temporary and limited access.",
+        "The company regularly reviews and revises user permissions."
+      ]
+    }
+  }
+},
   phishing: {
       slugs: { SK: "phishing", CZ: "phishing", EN: "phishing" },
       category: "Security",
