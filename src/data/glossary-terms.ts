@@ -68,6 +68,325 @@ export const findTermByName = (name: string, language: Language): { key: string;
 };
 
 export const glossaryTermsData: Record<string, GlossaryTerm> = {
+  bezpecnostnyaudit: {
+  slugs: { SK: "bezpecnostny-audit", CZ: "bezpecnostni-audit", EN: "security-audit" },
+  category: "Security",
+  relatedTerms: [
+    "Security Assessment",
+    "Vulnerability Assessment",
+    "Penetration Testing",
+    "Compliance",
+    "Risk Assessment"
+  ],
+  resources: [
+    { title: "SP 800-53A Rev. 5: Assessing Security and Privacy Controls", url: "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final" },
+    { title: "Assessment & Auditing Resources | NIST", url: "https://www.nist.gov/cyberframework/assessment-auditing-resources" },
+    { title: "NIST Cybersecurity Framework (CSF) 2.0", url: "https://www.nist.gov/cyberframework" }
+  ],
+  content: {
+    SK: {
+      term: "Bezpečnostný audit",
+      shortDefinition: "Systematická kontrola úrovne zabezpečenia",
+      fullDefinition:
+        "Bezpečnostný audit je systematický proces, ktorého cieľom je zhodnotiť aktuálny stav zabezpečenia informačných systémov, dát, procesov a infraštruktúry organizácie. Zahŕňa analýzu technických opatrení, ako sú servery, aplikácie, siete a prístupové práva, ale aj hodnotenie interných postupov a správania používateľov. Audit identifikuje slabé miesta, zraniteľnosti a potenciálne riziká, ktoré by mohli viesť k bezpečnostnému incidentu. Výsledkom auditu nie je len zoznam problémov, ale aj odporúčania na zlepšenie a zvýšenie úrovne ochrany. V praxi je bezpečnostný audit nástrojom, ktorý firme poskytuje realistický obraz o tom, ako je pripravená čeliť kybernetickým hrozbám.",
+      whyItMatters:
+        "Bezpečnostný audit je dôležitý preto, lebo firmy často netušia, kde majú skutočné slabiny, až kým nenastane incident. Audit pomáha odhaliť riziká skôr, než ich zneužije útočník, čím môže ušetriť značné finančné aj reputačné škody. Z pohľadu manažmentu poskytuje audit podklady pre informované rozhodovanie o investíciách do bezpečnosti. Bezpečnostný audit je často nevyhnutný aj pre splnenie legislatívnych alebo zmluvných povinností. Pre zodpovedné riadenie firmy je audit kľúčovým nástrojom prevencie a kontinuálneho zlepšovania bezpečnosti.",
+      examples: [
+        "Firma si nechá spraviť bezpečnostný audit webovej aplikácie pred jej spustením.",
+        "Audit odhalí slabé heslá a nadmerné prístupové práva zamestnancov.",
+        "Bezpečnostný audit je súčasťou prípravy na certifikáciu alebo externú kontrolu.",
+        "Výsledky auditu slúžia ako základ pre bezpečnostnú roadmapu firmy.",
+        "Pravidelné audity znižujú pravdepodobnosť vážnych bezpečnostných incidentov."
+      ]
+    },
+    CZ: {
+      term: "Bezpečnostní audit",
+      shortDefinition: "Systematická kontrola úrovně zabezpečení",
+      fullDefinition:
+        "Bezpečnostní audit je systematický proces, jehož cílem je zhodnotit aktuální stav zabezpečení informačních systémů, dat, procesů a infrastruktury organizace. Zahrnuje analýzu technických opatření, jako jsou servery, aplikace, sítě a přístupová práva, ale i hodnocení interních postupů a chování uživatelů. Audit identifikuje slabá místa, zranitelnosti a potenciální rizika, která by mohla vést k bezpečnostnímu incidentu. Výsledkem auditu není jen seznam problémů, ale i doporučení na zlepšení a zvýšení úrovně ochrany. V praxi je bezpečnostní audit nástrojem, který firmě poskytuje realistický obraz o tom, jak je připravena čelit kybernetickým hrozbám.",
+      whyItMatters:
+        "Bezpečnostní audit je důležitý proto, protože firmy často netuší, kde mají skutečné slabiny, dokud nenastane incident. Audit pomáhá odhalit rizika dříve, než je zneužije útočník, čímž může ušetřit značné finanční i reputační škody. Z pohledu managementu poskytuje audit podklady pro informované rozhodování o investicích do bezpečnosti. Bezpečnostní audit je často nezbytný i pro splnění legislativních nebo smluvních povinností. Pro odpovědné řízení firmy je audit klíčovým nástrojem prevence a kontinuálního zlepšování bezpečnosti.",
+      examples: [
+        "Firma si nechá provést bezpečnostní audit webové aplikace před jejím spuštěním.",
+        "Audit odhalí slabá hesla a nadměrná přístupová práva zaměstnanců.",
+        "Bezpečnostní audit je součástí přípravy na certifikaci nebo externí kontrolu.",
+        "Výsledky auditu slouží jako základ pro bezpečnostní roadmapu firmy.",
+        "Pravidelné audity snižují pravděpodobnost vážných bezpečnostních incidentů."
+      ]
+    },
+    EN: {
+      term: "Security audit",
+      shortDefinition: "Systematic review of the security level",
+      fullDefinition:
+        "A security audit is a systematic process aimed at evaluating the current state of security of an organization’s information systems, data, processes, and infrastructure. It includes analyzing technical measures such as servers, applications, networks, and access rights, as well as assessing internal procedures and user behavior. The audit identifies weak points, vulnerabilities, and potential risks that could lead to a security incident. The result of an audit is not only a list of problems but also recommendations for improvement and increasing the level of protection. In practice, a security audit is a tool that provides a company with a realistic picture of how prepared it is to face cyber threats.",
+      whyItMatters:
+        "A security audit is important because companies often do not know where their real weaknesses are until an incident occurs. An audit helps uncover risks before an attacker exploits them, which can save significant financial and reputational damage. From a management perspective, an audit provides inputs for informed decision-making about investments in security. A security audit is often necessary to meet legislative or contractual obligations as well. For responsible company management, an audit is a key tool for prevention and continuous security improvement.",
+      examples: [
+        "A company has a security audit of a web application performed before launching it.",
+        "The audit reveals weak passwords and excessive employee access rights.",
+        "A security audit is part of preparation for certification or an external review.",
+        "Audit results serve as the foundation for a company’s security roadmap.",
+        "Regular audits reduce the likelihood of serious security incidents."
+      ]
+    }
+  }
+},
+
+gdraochranaosobnychudajov: {
+  slugs: { SK: "gdpr-a-ochrana-osobnych-udajov", CZ: "gdpr-a-ochrana-osobnich-udaju", EN: "gdpr-and-personal-data-protection" },
+  category: "Security",
+  relatedTerms: [
+    "Personal Data",
+    "Data Controller",
+    "Data Processor",
+    "Consent",
+    "Data Subject Rights"
+  ],
+  resources: [
+    { title: "Regulation (EU) 2016/679 (GDPR) – Official text (EUR-Lex)", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj" },
+    { title: "General data protection regulation (GDPR) – Summary (EUR-Lex)", url: "https://eur-lex.europa.eu/EN/legal-content/summary/general-data-protection-regulation-gdpr.html" },
+    { title: "European Data Protection Board (EDPB)", url: "https://edpb.europa.eu/" }
+  ],
+  content: {
+    SK: {
+      term: "GDPR a ochrana osobných údajov",
+      shortDefinition: "Legislatívna ochrana osobných dát používateľov",
+      fullDefinition:
+        "GDPR (General Data Protection Regulation) je nariadenie Európskej únie, ktoré upravuje spôsob, akým organizácie spracúvajú, uchovávajú a chránia osobné údaje fyzických osôb. Osobnými údajmi sa rozumejú informácie, ktoré umožňujú identifikovať konkrétnu osobu, ako sú meno, e-mail, IP adresa, telefónne číslo alebo údaje o správaní používateľa. GDPR stanovuje jasné pravidlá pre zber dát, ich spracovanie, uchovávanie aj mazanie. Zároveň dáva jednotlivcom práva nad ich údajmi, napríklad právo na prístup, opravu alebo vymazanie dát. V praxi GDPR ovplyvňuje webové stránky, e-shopy, CRM systémy, marketingové nástroje aj interné procesy firiem.",
+      whyItMatters:
+        "GDPR je dôležité preto, lebo chráni súkromie jednotlivcov a núti firmy narábať s osobnými údajmi zodpovedne a transparentne. Nedodržiavanie GDPR môže viesť k vysokým finančným pokutám, právnym sporom a strate dôvery zákazníkov. Z pohľadu firiem GDPR zavádza jasné pravidlá, ktoré pomáhajú predchádzať chaosu v práci s dátami. Dodržiavanie GDPR zároveň posilňuje reputáciu značky, pretože ukazuje, že firma berie ochranu dát vážne. Pre moderné podnikanie je GDPR nielen legislatívnou povinnosťou, ale aj konkurenčnou výhodou v oblasti dôvery a transparentnosti.",
+      examples: [
+        "Webová stránka zobrazuje cookie lištu a umožňuje používateľovi vybrať, s akými cookies súhlasí.",
+        "Firma má spracovanú dokumentáciu o tom, aké osobné údaje zbiera a na aký účel.",
+        "Zákazník požiada o vymazanie svojich údajov a firma mu vyhovie v zákonnej lehote.",
+        "Prístup k osobným údajom majú len oprávnení zamestnanci.",
+        "Marketingové e-maily sú zasielané len na základe platného súhlasu."
+      ]
+    },
+    CZ: {
+      term: "GDPR a ochrana osobních údajů",
+      shortDefinition: "Legislativní ochrana osobních dat uživatelů",
+      fullDefinition:
+        "GDPR (General Data Protection Regulation) je nařízení Evropské unie, které upravuje způsob, jakým organizace zpracovávají, uchovávají a chrání osobní údaje fyzických osob. Osobními údaji se rozumí informace, které umožňují identifikovat konkrétní osobu, jako je jméno, e-mail, IP adresa, telefonní číslo nebo údaje o chování uživatele. GDPR stanovuje jasná pravidla pro sběr dat, jejich zpracování, uchovávání i mazání. Zároveň dává jednotlivcům práva nad jejich údaji, například právo na přístup, opravu nebo vymazání dat. V praxi GDPR ovlivňuje webové stránky, e-shopy, CRM systémy, marketingové nástroje i interní procesy firem.",
+      whyItMatters:
+        "GDPR je důležité proto, protože chrání soukromí jednotlivců a nutí firmy nakládat s osobními údaji odpovědně a transparentně. Nedodržování GDPR může vést k vysokým finančním pokutám, právním sporům a ztrátě důvěry zákazníků. Z pohledu firem GDPR zavádí jasná pravidla, která pomáhají předcházet chaosu v práci s daty. Dodržování GDPR zároveň posiluje reputaci značky, protože ukazuje, že firma bere ochranu dat vážně. Pro moderní podnikání je GDPR nejen legislativní povinností, ale i konkurenční výhodou v oblasti důvěry a transparentnosti.",
+      examples: [
+        "Webová stránka zobrazuje cookie lištu a umožňuje uživateli vybrat, se kterými cookies souhlasí.",
+        "Firma má zpracovanou dokumentaci o tom, jaké osobní údaje sbírá a za jakým účelem.",
+        "Zákazník požádá o vymazání svých údajů a firma mu vyhoví v zákonné lhůtě.",
+        "Přístup k osobním údajům mají jen oprávnění zaměstnanci.",
+        "Marketingové e-maily jsou zasílány pouze na základě platného souhlasu."
+      ]
+    },
+    EN: {
+      term: "GDPR and personal data protection",
+      shortDefinition: "Legal protection of users’ personal data",
+      fullDefinition:
+        "GDPR (General Data Protection Regulation) is a European Union regulation that governs how organizations process, store, and protect the personal data of natural persons. Personal data means information that makes it possible to identify a specific person, such as a name, email, IP address, phone number, or data about user behavior. GDPR sets clear rules for data collection, processing, storage, and deletion. At the same time, it grants individuals rights over their data, such as the right to access, correct, or delete data. In practice, GDPR affects websites, e-shops, CRM systems, marketing tools, and internal company processes.",
+      whyItMatters:
+        "GDPR is important because it protects individuals’ privacy and forces companies to handle personal data responsibly and transparently. Non-compliance with GDPR can lead to high financial penalties, legal disputes, and loss of customer trust. From a business perspective, GDPR introduces clear rules that help prevent chaos in working with data. Compliance with GDPR also strengthens brand reputation because it shows that a company takes data protection seriously. For modern business, GDPR is not only a legal obligation but also a competitive advantage in trust and transparency.",
+      examples: [
+        "A website displays a cookie banner and allows the user to choose which cookies they consent to.",
+        "A company has documentation describing what personal data it collects and for what purpose.",
+        "A customer requests deletion of their data and the company complies within the legal deadline.",
+        "Only authorized employees have access to personal data.",
+        "Marketing emails are sent only based on valid consent."
+      ]
+    }
+  }
+},
+
+ddosutokdistributeddenialofservice: {
+  slugs: { SK: "ddos-utok", CZ: "ddos-utok", EN: "ddos-attack" },
+  category: "Security",
+  relatedTerms: [
+    "Botnet",
+    "Traffic Flooding",
+    "Rate Limiting",
+    "CDN Protection",
+    "Availability"
+  ],
+  resources: [
+    { title: "Understanding and Responding to Distributed Denial-of-Service Attacks (CISA)", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks" },
+    { title: "Understanding and Responding to Distributed Denial-of-Service Attacks (PDF) (CISA)", url: "https://www.cisa.gov/sites/default/files/2024-03/understanding-and-responding-to-distributed-denial-of-service-attacks_508c.pdf" },
+    { title: "Defending against DDoS attacks (Canadian Centre for Cyber Security)", url: "https://www.cyber.gc.ca/en/guidance/defending-against-distributed-denial-service-ddos-attacks-itsm80110" }
+  ],
+  content: {
+    SK: {
+      term: "DDoS útok (Distributed Denial of Service)",
+      shortDefinition: "Zahĺtenie služby s cieľom vyradiť ju z prevádzky",
+      fullDefinition:
+        "DDoS útok je typ kybernetického útoku, pri ktorom útočníci zahlcujú cieľový server, webovú stránku alebo online službu obrovským množstvom požiadaviek z veľkého počtu zariadení naraz. Tieto zariadenia bývajú často infikované počítače alebo servery, ktoré útočník ovláda bez vedomia ich majiteľov, tzv. botnet. Cieľom DDoS útoku nie je krádež dát, ale znemožnenie prístupu k službe pre bežných používateľov. Server alebo sieť nedokáže spracovať taký objem požiadaviek, čo vedie k spomaleniu alebo úplnému výpadku. V praxi sú DDoS útoky častým nástrojom nátlaku, vydierania alebo konkurenčného boja.",
+      whyItMatters:
+        "DDoS útoky sú dôležitou bezpečnostnou témou preto, lebo môžu firmu pripraviť o dostupnosť jej služieb aj bez narušenia samotných systémov. Výpadok webu, e-shopu alebo aplikácie znamená okamžitú stratu tržieb, nespokojnosť zákazníkov a poškodenie reputácie značky. Pri dlhších alebo opakovaných útokoch môže firma čeliť aj zmluvným sankciám, najmä ak má garantovanú dostupnosť služieb. DDoS útoky sa navyše dajú realizovať pomerne lacno, čo zvyšuje ich rozšírenosť. Pre firmy je preto nevyhnutné mať pripravené ochranné mechanizmy a plán reakcie na takéto incidenty.",
+      examples: [
+        "E-shop je počas výpredajovej akcie vyradený z prevádzky kvôli DDoS útoku.",
+        "Online služba zaznamená náhly nárast požiadaviek z tisícok IP adries naraz.",
+        "Firma používa ochranu proti DDoS útokom na úrovni hostingu alebo CDN.",
+        "Útočníci požadujú výkupné za zastavenie útoku.",
+        "Monitorovanie prevádzky umožní rýchlu reakciu a minimalizáciu výpadku."
+      ]
+    },
+    CZ: {
+      term: "DDoS útok (Distributed Denial of Service)",
+      shortDefinition: "Zahlcení služby s cílem vyřadit ji z provozu",
+      fullDefinition:
+        "DDoS útok je typ kybernetického útoku, při kterém útočníci zahlcují cílový server, webovou stránku nebo online službu obrovským množstvím požadavků z velkého počtu zařízení najednou. Tato zařízení bývají často infikované počítače nebo servery, které útočník ovládá bez vědomí jejich majitelů, tzv. botnet. Cílem DDoS útoku není krádež dat, ale znemožnění přístupu ke službě pro běžné uživatele. Server nebo síť nedokáže zpracovat takový objem požadavků, což vede ke zpomalení nebo úplnému výpadku. V praxi jsou DDoS útoky častým nástrojem nátlaku, vydírání nebo konkurenčního boje.",
+      whyItMatters:
+        "DDoS útoky jsou důležitým bezpečnostním tématem proto, protože mohou firmu připravit o dostupnost jejích služeb i bez narušení samotných systémů. Výpadek webu, e-shopu nebo aplikace znamená okamžitou ztrátu tržeb, nespokojenost zákazníků a poškození reputace značky. Při delších nebo opakovaných útocích může firma čelit i smluvním sankcím, zejména pokud má garantovanou dostupnost služeb. DDoS útoky se navíc dají realizovat poměrně levně, což zvyšuje jejich rozšířenost. Pro firmy je proto nezbytné mít připravené ochranné mechanismy a plán reakce na takové incidenty.",
+      examples: [
+        "E-shop je během výprodejové akce vyřazen z provozu kvůli DDoS útoku.",
+        "Online služba zaznamená náhlý nárůst požadavků z tisíců IP adres najednou.",
+        "Firma používá ochranu proti DDoS útokům na úrovni hostingu nebo CDN.",
+        "Útočníci požadují výkupné za zastavení útoku.",
+        "Monitorování provozu umožní rychlou reakci a minimalizaci výpadku."
+      ]
+    },
+    EN: {
+      term: "DDoS attack (Distributed Denial of Service)",
+      shortDefinition: "Overwhelming a service to take it offline",
+      fullDefinition:
+        "A DDoS attack is a type of cyberattack in which attackers overwhelm a target server, website, or online service with a massive number of requests from a large number of devices at the same time. These devices are often infected computers or servers that the attacker controls without their owners’ knowledge, known as a botnet. The goal of a DDoS attack is not data theft, but preventing normal users from accessing the service. The server or network cannot process such a volume of requests, which leads to slowdown or a complete outage. In practice, DDoS attacks are a common tool of pressure, extortion, or competitive conflict.",
+      whyItMatters:
+        "DDoS attacks are an important security topic because they can deprive a company of service availability even without compromising the systems themselves. An outage of a website, e-shop, or application means immediate loss of revenue, customer dissatisfaction, and damage to brand reputation. With longer or repeated attacks, a company may also face contractual penalties, especially if it has guaranteed service availability. DDoS attacks can also be carried out relatively cheaply, which increases their prevalence. Companies therefore need to have protective mechanisms and an incident response plan prepared for such events.",
+      examples: [
+        "An e-shop is taken offline during a sales campaign due to a DDoS attack.",
+        "An online service records a sudden surge of requests from thousands of IP addresses at once.",
+        "A company uses DDoS protection at the hosting or CDN level.",
+        "Attackers demand a ransom to stop the attack.",
+        "Traffic monitoring enables a fast response and minimizes downtime."
+      ]
+    }
+  }
+},
+
+socialneinzinierstvosocialengineering: {
+  slugs: { SK: "socialne-inzinierstvo", CZ: "socialni-inzenyrstvi", EN: "social-engineering" },
+  category: "Security",
+  relatedTerms: [
+    "Phishing",
+    "Pretexting",
+    "Baiting",
+    "Impersonation",
+    "Human Factor"
+  ],
+  resources: [
+    { title: "CAPEC-403: Social Engineering (MITRE)", url: "https://capec.mitre.org/data/definitions/403.html" },
+    { title: "Enterprise Techniques (MITRE ATT&CK)", url: "https://attack.mitre.org/techniques/enterprise/" },
+    { title: "What is Social Engineering? (CyberArk)", url: "https://www.cyberark.com/what-is/social-engineering/" }
+  ],
+  content: {
+    SK: {
+      term: "Sociálne inžinierstvo (Social Engineering)",
+      shortDefinition: "Manipulácia ľudí s cieľom získať prístup alebo informácie",
+      fullDefinition:
+        "Sociálne inžinierstvo je forma bezpečnostného útoku, pri ktorej útočník neútočí priamo na technológie, ale na ľudí, ktorí ich používajú. Využíva psychológiu, dôveru, strach, autoritu alebo naliehavosť na to, aby obeť presvedčil konať v jeho prospech. Útočník sa môže vydávať za kolegu, nadriadeného, technickú podporu alebo externého partnera. Cieľom je prinútiť obeť prezradiť citlivé informácie, kliknúť na škodlivý odkaz alebo vykonať nebezpečnú akciu. Sociálne inžinierstvo je mimoriadne účinné, pretože obchádza technické zabezpečenie a cieli na prirodzené ľudské správanie.",
+      whyItMatters:
+        "Sociálne inžinierstvo je dôležité preto, lebo aj najlepšie technicky zabezpečený systém môže zlyhať, ak človek urobí chybu. Útočníci vedia, že ľudia sú často najslabším článkom bezpečnosti, a preto na nich cielia čoraz sofistikovanejšími metódami. Úspešný útok sociálneho inžinierstva môže viesť k úniku dát, finančným stratám alebo úplnému kompromitovaniu systémov. Pre firmy predstavuje tento typ útoku veľké riziko, pretože je ťažko detegovateľný technickými nástrojmi. Prevencia sociálneho inžinierstva si preto vyžaduje kombináciu školení, jasných procesov a bezpečnostnej kultúry.",
+      examples: [
+        "Útočník zavolá zamestnancovi a vydáva sa za IT podporu, aby získal prihlasovacie údaje.",
+        "Podvodník sa tvári ako nadriadený a žiada urgentný prevod peňazí.",
+        "Zamestnanec dostane e-mail s naliehavou výzvou na otvorenie prílohy.",
+        "Falošný kuriér si vyžiada prístup do budovy alebo k zariadeniam.",
+        "Pravidelné školenia pomáhajú zamestnancom rozpoznať manipulatívne správanie."
+      ]
+    },
+    CZ: {
+      term: "Sociální inženýrství (Social Engineering)",
+      shortDefinition: "Manipulace lidí s cílem získat přístup nebo informace",
+      fullDefinition:
+        "Sociální inženýrství je forma bezpečnostního útoku, při kterém útočník neútočí přímo na technologie, ale na lidi, kteří je používají. Využívá psychologii, důvěru, strach, autoritu nebo naléhavost k tomu, aby oběť přesvědčil jednat v jeho prospěch. Útočník se může vydávat za kolegu, nadřízeného, technickou podporu nebo externího partnera. Cílem je přimět oběť prozradit citlivé informace, kliknout na škodlivý odkaz nebo provést nebezpečnou akci. Sociální inženýrství je mimořádně účinné, protože obchází technické zabezpečení a cílí na přirozené lidské chování.",
+      whyItMatters:
+        "Sociální inženýrství je důležité proto, protože i nejlépe technicky zabezpečený systém může selhat, pokud člověk udělá chybu. Útočníci vědí, že lidé jsou často nejslabším článkem bezpečnosti, a proto na ně cílí stále sofistikovanějšími metodami. Úspěšný útok sociálního inženýrství může vést k úniku dat, finančním ztrátám nebo úplnému kompromitování systémů. Pro firmy představuje tento typ útoku velké riziko, protože je obtížné jej detekovat technickými nástroji. Prevence sociálního inženýrství proto vyžaduje kombinaci školení, jasných procesů a bezpečnostní kultury.",
+      examples: [
+        "Útočník zavolá zaměstnanci a vydává se za IT podporu, aby získal přihlašovací údaje.",
+        "Podvodník se tváří jako nadřízený a žádá urgentní převod peněz.",
+        "Zaměstnanec dostane e-mail s naléhavou výzvou k otevření přílohy.",
+        "Falešný kurýr si vyžádá přístup do budovy nebo k zařízením.",
+        "Pravidelná školení pomáhají zaměstnancům rozpoznat manipulativní chování."
+      ]
+    },
+    EN: {
+      term: "Social engineering (Social Engineering)",
+      shortDefinition: "Manipulating people to gain access or information",
+      fullDefinition:
+        "Social engineering is a form of security attack in which the attacker does not target technologies directly, but the people who use them. It leverages psychology, trust, fear, authority, or urgency to convince the victim to act in the attacker’s interest. The attacker may impersonate a colleague, a manager, technical support, or an external partner. The goal is to force the victim to reveal sensitive information, click a malicious link, or perform a dangerous action. Social engineering is highly effective because it bypasses technical security and targets natural human behavior.",
+      whyItMatters:
+        "Social engineering is important because even the best technically secured system can fail if a person makes a mistake. Attackers know that people are often the weakest link in security, and therefore they target them with increasingly sophisticated methods. A successful social engineering attack can lead to data breaches, financial losses, or complete system compromise. For companies, this type of attack poses a significant risk because it is difficult to detect with technical tools. Preventing social engineering therefore requires a combination of training, clear processes, and a security culture.",
+      examples: [
+        "An attacker calls an employee and impersonates IT support to obtain login credentials.",
+        "A fraudster pretends to be a manager and requests an urgent money transfer.",
+        "An employee receives an email with an urgent request to open an attachment.",
+        "A fake courier requests access to a building or devices.",
+        "Regular training helps employees recognize manipulative behavior."
+      ]
+    }
+  }
+},
+
+incidentresponse: {
+  slugs: { SK: "incident-response", CZ: "incident-response", EN: "incident-response" },
+  category: "Security",
+  relatedTerms: [
+    "Incident Handling",
+    "Containment",
+    "Eradication",
+    "Recovery",
+    "Post-Incident Review"
+  ],
+  resources: [
+    { title: "SP 800-61 Rev. 3: Incident Response Recommendations and Considerations (NIST)", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final" },
+    { title: "SP 800-61 Rev. 2 (Archived) (NIST)", url: "https://csrc.nist.gov/pubs/sp/800/61/r2/final" },
+    { title: "NIST Cybersecurity Framework (CSF) 2.0", url: "https://www.nist.gov/cyberframework" }
+  ],
+  content: {
+    SK: {
+      term: "Incident Response",
+      shortDefinition: "Reakcia na bezpečnostný incident",
+      fullDefinition:
+        "Incident Response je súbor postupov a opatrení, ktoré firma používa na rýchlu a kontrolovanú reakciu v prípade bezpečnostného incidentu. Bezpečnostným incidentom môže byť napríklad únik dát, napadnutie systému, ransomware útok, neoprávnený prístup alebo výpadok služieb spôsobený útokom. Incident Response zahŕňa identifikáciu problému, jeho izoláciu, odstránenie príčiny a následnú obnovu systémov. Dôležitou súčasťou je aj dokumentácia incidentu a vyhodnotenie toho, čo sa stalo a prečo. V praxi ide o pripravený plán, ktorý firme pomáha reagovať rýchlo a systematicky namiesto chaotických rozhodnutí pod tlakom.",
+      whyItMatters:
+        "Incident Response je dôležitý preto, lebo pri bezpečnostných incidentoch rozhodujú minúty a hodiny o rozsahu škôd. Bez jasného plánu reakcie môže firma stratiť kontrolu nad situáciou, čo vedie k väčším finančným stratám, dlhším výpadkom a poškodeniu reputácie. Dobre nastavený Incident Response minimalizuje dopady incidentu a skracuje čas obnovy systémov. Z pohľadu manažmentu poskytuje istotu, že firma vie, kto je za čo zodpovedný a aké kroky treba podniknúť. Pre moderné firmy je Incident Response nevyhnutnou súčasťou zodpovedného riadenia kybernetickej bezpečnosti.",
+      examples: [
+        "Firma má pripravený plán, ktorý definuje postup pri úniku osobných údajov.",
+        "Po detekcii útoku je napadnutý systém okamžite odpojený od siete.",
+        "IT tím analyzuje incident a identifikuje jeho príčinu.",
+        "Zálohy sa použijú na rýchlu obnovu systémov.",
+        "Po incidente firma aktualizuje bezpečnostné opatrenia, aby zabránila opakovaniu."
+      ]
+    },
+    CZ: {
+      term: "Incident Response",
+      shortDefinition: "Reakce na bezpečnostní incident",
+      fullDefinition:
+        "Incident Response je soubor postupů a opatření, které firma používá pro rychlou a kontrolovanou reakci v případě bezpečnostního incidentu. Bezpečnostním incidentem může být například únik dat, napadení systému, ransomware útok, neoprávněný přístup nebo výpadek služeb způsobený útokem. Incident Response zahrnuje identifikaci problému, jeho izolaci, odstranění příčiny a následnou obnovu systémů. Důležitou součástí je i dokumentace incidentu a vyhodnocení toho, co se stalo a proč. V praxi jde o připravený plán, který firmě pomáhá reagovat rychle a systematicky místo chaotických rozhodnutí pod tlakem.",
+      whyItMatters:
+        "Incident Response je důležitý proto, protože u bezpečnostních incidentů rozhodují minuty a hodiny o rozsahu škod. Bez jasného plánu reakce může firma ztratit kontrolu nad situací, což vede k větším finančním ztrátám, delším výpadkům a poškození reputace. Dobře nastavený Incident Response minimalizuje dopady incidentu a zkracuje dobu obnovy systémů. Z pohledu managementu poskytuje jistotu, že firma ví, kdo je za co zodpovědný a jaké kroky je třeba podniknout. Pro moderní firmy je Incident Response nezbytnou součástí odpovědného řízení kybernetické bezpečnosti.",
+      examples: [
+        "Firma má připravený plán, který definuje postup při úniku osobních údajů.",
+        "Po detekci útoku je napadený systém okamžitě odpojen od sítě.",
+        "IT tým analyzuje incident a identifikuje jeho příčinu.",
+        "Zálohy se použijí pro rychlou obnovu systémů.",
+        "Po incidentu firma aktualizuje bezpečnostní opatření, aby zabránila opakování."
+      ]
+    },
+    EN: {
+      term: "Incident Response",
+      shortDefinition: "Response to a security incident",
+      fullDefinition:
+        "Incident Response is a set of procedures and measures that a company uses for a fast and controlled response in the event of a security incident. A security incident can be, for example, a data breach, system compromise, a ransomware attack, unauthorized access, or an attack-caused service outage. Incident Response includes identifying the problem, isolating it, removing the root cause, and then restoring systems. An important part is also documenting the incident and evaluating what happened and why. In practice, it is a prepared plan that helps a company respond quickly and systematically instead of making chaotic decisions under pressure.",
+      whyItMatters:
+        "Incident Response is important because, in security incidents, minutes and hours determine the extent of damage. Without a clear response plan, a company can lose control of the situation, leading to greater financial losses, longer outages, and reputational damage. A well-designed Incident Response minimizes the impact of the incident and shortens system recovery time. From a management perspective, it provides confidence that the company knows who is responsible for what and what steps need to be taken. For modern companies, Incident Response is an essential part of responsible cybersecurity management.",
+      examples: [
+        "A company has a prepared plan that defines the procedure for a personal data breach.",
+        "After an attack is detected, the compromised system is immediately disconnected from the network.",
+        "The IT team analyzes the incident and identifies its root cause.",
+        "Backups are used for rapid system restoration.",
+        "After the incident, the company updates security measures to prevent recurrence."
+      ]
+    }
+  }
+},
   sslhttps: {
   slugs: { SK: "ssl-https", CZ: "ssl-https", EN: "ssl-https" },
   category: "Security",
