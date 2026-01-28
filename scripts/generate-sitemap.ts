@@ -52,10 +52,10 @@ const urlEntry = (paths: Record<Lang, string>, primaryLang: Lang = "EN") => {
 
   return `  <url>
     <loc>${esc(loc)}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${esc(domains.EN + enPath)}"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="${esc(domains.CZ + czPath)}"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="${esc(domains.SK + skPath)}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(domains.EN + enPath)}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${esc(domains.EN + enPath)}" />
+    <xhtml:link rel="alternate" hreflang="cs" href="${esc(domains.CZ + czPath)}" />
+    <xhtml:link rel="alternate" hreflang="sk" href="${esc(domains.SK + skPath)}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(domains.EN + enPath)}" />
   </url>`;
 };
 
