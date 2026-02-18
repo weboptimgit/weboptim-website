@@ -23,48 +23,53 @@ export function SnapCarousel({
 }: SnapCarouselProps) {
   const scrollerRef = React.useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
+  const [canScrollNext, setCanScrollNext] = React.useState(true);
 
   const count = React.Children.count(children);
 
-  React.useEffect(() => {
-    if (!showDots) return;
-
+  // Update scroll state on scroll
+  const updateScrollState = React.useCallback(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    const items = Array.from(
-      scroller.querySelectorAll<HTMLElement>("[data-snap-item]"),
-    );
-    if (items.length <= 1) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scroller;
+    setCanScrollPrev(scrollLeft > 4);
+    setCanScrollNext(scrollLeft + clientWidth < scrollWidth - 4);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
+    // Find first fully/mostly visible item
+    const items = Array.from(scroller.querySelectorAll<HTMLElement>("[data-snap-item]"));
+    let closestIdx = 0;
+    let minDist = Infinity;
+    items.forEach((item, i) => {
+      const dist = Math.abs(item.offsetLeft - scroller.offsetLeft - scrollLeft);
+      if (dist < minDist) {
+        minDist = dist;
+        closestIdx = i;
+      }
+    });
+    setActiveIndex(closestIdx);
+  }, []);
 
-        if (!visible[0]) return;
-        const idx = items.indexOf(visible[0].target as HTMLElement);
-        if (idx >= 0) setActiveIndex(idx);
-      },
-      {
-        root: scroller,
-        threshold: [0.6],
-      },
-    );
+  React.useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
 
-    for (const el of items) observer.observe(el);
-
-    return () => observer.disconnect();
-  }, [count, showDots]);
+    updateScrollState();
+    scroller.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => scroller.removeEventListener("scroll", updateScrollState);
+  }, [updateScrollState, count]);
 
   const scrollTo = React.useCallback((index: number) => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
-
     const items = scroller.querySelectorAll<HTMLElement>("[data-snap-item]");
     const target = items.item(index);
-    target?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    if (!target) return;
+    scroller.scrollTo({
+      left: target.offsetLeft - scroller.offsetLeft,
+      behavior: "smooth",
+    });
   }, []);
 
   const scrollPrev = React.useCallback(() => {
@@ -88,7 +93,7 @@ export function SnapCarousel({
           <button
             type="button"
             onClick={scrollPrev}
-            disabled={activeIndex === 0}
+            disabled={!canScrollPrev}
             className={cn(
               "hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10",
               "w-10 h-10 rounded-full items-center justify-center",
@@ -103,7 +108,7 @@ export function SnapCarousel({
           <button
             type="button"
             onClick={scrollNext}
-            disabled={activeIndex >= count - 1}
+            disabled={!canScrollNext}
             className={cn(
               "hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10",
               "w-10 h-10 rounded-full items-center justify-center",
