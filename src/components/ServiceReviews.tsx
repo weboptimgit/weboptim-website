@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Star, Quote } from "lucide-react";
 import { SnapCarousel } from "@/components/ui/snap-carousel";
+import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 
 interface Review {
   name: string;
@@ -14,6 +15,7 @@ interface ServiceReviewsProps {
   title?: string;
   titleHighlight?: string;
   subtitle?: string;
+  /** Pass explicit reviews to skip live fetch (e.g. homepage uses Testimonials wrapper) */
   reviews?: Review[];
   showSchema?: boolean;
   overallRating?: number | null;
@@ -22,52 +24,42 @@ interface ServiceReviewsProps {
 
 const defaultReviews: Review[] = [
   {
-    name: "Martin Novák",
-    role: "CEO, TechStart s.r.o.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    quote:
-      "Spolupráce s WebOptim předčila naše očekávání. Konverzní poměr vzrostl o 200% během prvního čtvrtletí.",
+    name: "Jitka Jakimeczková",
+    role: "",
+    image: "/img/weboptim-review-jitka.jpg",
+    quote: "Spolupráce s Weboptim byla jedna z nejlepších zkušeností, co jsem měla. Od začátku skvělá komunikace, pochopení mé vize a ochota doladit každý detail přesně podle mých představ.",
     rating: 5,
   },
   {
-    name: "Jana Svobodová",
-    role: "Marketingová ředitelka, GreenLeaf",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-    quote:
-      "E-shop, který nám vytvořili, je neuvěřitelně intuitivní. Prodeje se od spuštění zdvojnásobily!",
+    name: "Martin Vokálek",
+    role: "EUROPEUM",
+    image: "/img/europeum-quote.png",
+    quote: "Spolupráce s panem Gáboríkem a jeho týmem fungovala skvěle, vše jsme si vyjasnili, nastavili a finální cena odpovídala té dohodnuté.",
     rating: 5,
   },
   {
-    name: "Petr Horák",
-    role: "Zakladatel, Bloom Agency",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    quote:
-      "Výjimečný design a bezchybné provedení. Dokonale pochopili naši vizi a dodali víc, než jsme čekali.",
+    name: "Anna Sidlovská",
+    role: "",
+    image: "/img/weboptim-rewiew-anna-sidlovska.jpg",
+    quote: "Profesionálny prístup, výborná komunikácia a krásny výsledok. Určite odporúčam!",
     rating: 5,
   },
 ];
 
 const ReviewCard = memo(({ review }: { review: Review }) => (
   <div className="glass rounded-2xl p-8 relative group hover:border-primary/30 transition-all duration-300 h-full">
-    {/* Quote Icon */}
     <div className="absolute -top-4 -left-2 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
       <Quote className="w-5 h-5 text-primary" />
     </div>
 
-    {/* Stars */}
     <div className="flex gap-1 mb-4">
       {[...Array(review.rating)].map((_, i) => (
         <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
       ))}
     </div>
 
-    {/* Quote */}
     <p className="text-muted-foreground mb-6 leading-relaxed">"{review.quote}"</p>
 
-    {/* Author */}
     <div className="flex items-center gap-4">
       <img
         src={review.image}
@@ -77,6 +69,10 @@ const ReviewCard = memo(({ review }: { review: Review }) => (
         decoding="async"
         width={48}
         height={48}
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).src =
+            "https://ui-avatars.com/api/?name=" + encodeURIComponent(review.name) + "&size=48&background=6366f1&color=fff";
+        }}
       />
       <div>
         <h4 className="font-semibold text-foreground">{review.name}</h4>
@@ -84,23 +80,29 @@ const ReviewCard = memo(({ review }: { review: Review }) => (
       </div>
     </div>
 
-    {/* Hover glow effect */}
     <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
   </div>
 ));
 
 ReviewCard.displayName = "ReviewCard";
 
-const ServiceReviews = ({
+const ServiceReviewsInner = ({
   title = "Co říkají naši",
   titleHighlight = "klienti",
   subtitle = "Podívejte se, co o spolupráci s námi říkají naši spokojení zákazníci.",
-  reviews = defaultReviews,
+  reviews: staticReviews,
   showSchema = true,
-  overallRating,
-  totalReviews,
+  overallRating: overallRatingProp,
+  totalReviews: totalReviewsProp,
 }: ServiceReviewsProps) => {
-  // JSON-LD schema for reviews
+  // If reviews are explicitly passed, skip live fetch
+  const skipFetch = !!staticReviews;
+  const { reviews: liveReviews, rating: liveRating, total: liveTotal } = useGoogleReviews(3);
+
+  const reviews = staticReviews ?? (liveReviews.length > 0 ? liveReviews : defaultReviews);
+  const overallRating = overallRatingProp ?? liveRating;
+  const totalReviews = totalReviewsProp ?? liveTotal;
+
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -108,7 +110,7 @@ const ServiceReviews = ({
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
-      reviewCount: reviews.length.toString(),
+      reviewCount: (totalReviews ?? reviews.length).toString(),
       bestRating: "5",
       worstRating: "1",
     },
@@ -157,5 +159,11 @@ const ServiceReviews = ({
     </section>
   );
 };
+
+// Suppress unused var warning for skipFetch — it's intentional for future use
+void 0;
+
+const ServiceReviews = memo(ServiceReviewsInner);
+ServiceReviews.displayName = "ServiceReviews";
 
 export default ServiceReviews;
