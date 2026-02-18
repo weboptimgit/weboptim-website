@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { Star, Quote } from "lucide-react";
 import { SnapCarousel } from "@/components/ui/snap-carousel";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Review {
   name: string;
@@ -101,8 +100,6 @@ const ServiceReviews = ({
   overallRating,
   totalReviews,
 }: ServiceReviewsProps) => {
-  const isMobile = useIsMobile();
-
   // JSON-LD schema for reviews
   const reviewSchema = {
     "@context": "https://schema.org",
@@ -117,22 +114,14 @@ const ServiceReviews = ({
     },
     review: reviews.map((review) => ({
       "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: review.name,
-      },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: review.rating.toString(),
-        bestRating: "5",
-      },
+      author: { "@type": "Person", name: review.name },
+      reviewRating: { "@type": "Rating", ratingValue: review.rating.toString(), bestRating: "5" },
       reviewBody: review.quote,
     })),
   };
 
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* JSON-LD Schema */}
       {showSchema && (
         <script
           type="application/ld+json"
@@ -140,11 +129,9 @@ const ServiceReviews = ({
         />
       )}
 
-      {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="animate-fade-in-up text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
             <span className="text-foreground">{title} </span>
@@ -153,33 +140,18 @@ const ServiceReviews = ({
           <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        {/* Mobile Carousel */}
-        {isMobile ? (
-          <div className="mb-12">
-            <SnapCarousel
-              ariaLabel={`${title} ${titleHighlight}`}
-              itemClassName="basis-[85%]"
-              scrollerClassName="pt-6 pl-4"
-            >
-              {reviews.map((review, index) => (
-                <ReviewCard key={index} review={review} />
-              ))}
-            </SnapCarousel>
-          </div>
-        ) : (
-          /* Desktop Grid */
-          <div className="grid md:grid-cols-3 gap-8">
+        {/* Carousel — mobile: 1 karta, tablet: 2, desktop: 3 */}
+        <div className="mb-12">
+          <SnapCarousel
+            ariaLabel={`${title} ${titleHighlight}`}
+            itemClassName="basis-[85%] md:basis-[45%] lg:basis-[31%]"
+            scrollerClassName="pt-6 pl-4"
+          >
             {reviews.map((review, index) => (
-              <div
-                key={index}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ReviewCard review={review} />
-              </div>
+              <ReviewCard key={index} review={review} />
             ))}
-          </div>
-        )}
+          </SnapCarousel>
+        </div>
       </div>
     </section>
   );
