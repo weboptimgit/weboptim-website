@@ -35,6 +35,12 @@
   ExpiresByType text/xml "access plus 1 day"
 </IfModule>
 
+# Force correct MIME type for XML files (sitemaps, RSS)
+<IfModule mod_mime.c>
+  AddType application/xml .xml
+  AddType application/rss+xml .rss
+</IfModule>
+
 <IfModule mod_headers.c>
   # CORS for API endpoints
   <FilesMatch "^api/.*\.php$">
@@ -158,6 +164,11 @@ RewriteRule ^api/contact/?$ api/contact.php [L,NC]
 
 # (optional) Configurator endpoint, ak budeš chcieť neskôr
 # RewriteRule ^api/configurator/?$ api/configurator.php [L,NC]
+
+# XML sitemaps and RSS feeds - serve directly with correct content type
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} \.(xml|rss)$ [NC]
+RewriteRule ^ - [L]
 
 # Existing files/directories - don't rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
