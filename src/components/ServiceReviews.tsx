@@ -17,6 +17,8 @@ interface ServiceReviewsProps {
   subtitle?: string;
   reviews?: Review[];
   showSchema?: boolean;
+  overallRating?: number | null;
+  totalReviews?: number | null;
 }
 
 const defaultReviews: Review[] = [
@@ -96,6 +98,8 @@ const ServiceReviews = ({
   subtitle = "Podívejte se, co o spolupráci s námi říkají naši spokojení zákazníci.",
   reviews = defaultReviews,
   showSchema = true,
+  overallRating,
+  totalReviews,
 }: ServiceReviewsProps) => {
   const isMobile = useIsMobile();
 
