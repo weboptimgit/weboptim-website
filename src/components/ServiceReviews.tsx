@@ -146,6 +146,7 @@ const ServiceReviews = ({
             ariaLabel={`${title} ${titleHighlight}`}
             itemClassName="basis-[85%] md:basis-[45%] lg:basis-[31%]"
             scrollerClassName="pt-6 pl-4"
+            showArrows
           >
             {reviews.map((review, index) => (
               <ReviewCard key={index} review={review} />

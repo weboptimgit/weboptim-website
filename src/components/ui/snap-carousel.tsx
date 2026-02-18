@@ -1,18 +1,14 @@
 import * as React from "react";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type SnapCarouselProps = {
   children: React.ReactNode;
-  /** Outer wrapper */
   className?: string;
-  /** Scroll container (the horizontally scrollable element) */
   scrollerClassName?: string;
-  /** Wrapper applied to each item */
   itemClassName?: string;
-  /** Show pagination dots under the carousel */
   showDots?: boolean;
-  /** Accessible label for the region */
+  showArrows?: boolean;
   ariaLabel?: string;
 };
 
@@ -22,6 +18,7 @@ export function SnapCarousel({
   scrollerClassName,
   itemClassName,
   showDots = true,
+  showArrows = false,
   ariaLabel = "Carousel",
 }: SnapCarouselProps) {
   const scrollerRef = React.useRef<HTMLDivElement | null>(null);
@@ -42,7 +39,6 @@ export function SnapCarousel({
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Pick the most visible intersecting slide
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
@@ -71,13 +67,57 @@ export function SnapCarousel({
     target?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
   }, []);
 
+  const scrollPrev = React.useCallback(() => {
+    scrollTo(Math.max(0, activeIndex - 1));
+  }, [activeIndex, scrollTo]);
+
+  const scrollNext = React.useCallback(() => {
+    scrollTo(Math.min(count - 1, activeIndex + 1));
+  }, [activeIndex, count, scrollTo]);
+
   return (
     <div
-      className={cn("w-full", className)}
+      className={cn("w-full relative", className)}
       role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel}
     >
+      {/* Desktop arrows */}
+      {showArrows && count > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={scrollPrev}
+            disabled={activeIndex === 0}
+            className={cn(
+              "hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10",
+              "w-10 h-10 rounded-full items-center justify-center",
+              "bg-background border border-border shadow-md",
+              "text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200",
+              "disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-muted-foreground disabled:hover:border-border",
+            )}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={scrollNext}
+            disabled={activeIndex >= count - 1}
+            className={cn(
+              "hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10",
+              "w-10 h-10 rounded-full items-center justify-center",
+              "bg-background border border-border shadow-md",
+              "text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200",
+              "disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-muted-foreground disabled:hover:border-border",
+            )}
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </>
+      )}
+
       <div
         ref={scrollerRef}
         className={cn(
