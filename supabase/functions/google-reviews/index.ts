@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
     }
 
     const reviews = (data.reviews ?? [])
-      .filter((r: any) => r.text?.text && r.text.text.trim().length > 30)
+      .filter((r: any) => r.text?.text && r.text.text.trim().length > 30 && r.rating === 5)
       .map((r: any) => ({
         name: r.authorAttribution?.displayName ?? 'Anonymous',
         role: '',
