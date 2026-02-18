@@ -1,66 +1,11 @@
-import { memo, useMemo, useEffect, useState } from "react";
+import { memo } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServiceReviews from "@/components/ServiceReviews";
-import { supabase } from "@/integrations/supabase/client";
-
-interface GoogleReview {
-  name: string;
-  role: string;
-  image: string;
-  quote: string;
-  rating: number;
-  time?: string;
-}
+import { useGoogleReviews } from "@/hooks/useGoogleReviews";
 
 const Testimonials = memo(() => {
   const { t } = useLanguage();
-  const [googleReviews, setGoogleReviews] = useState<GoogleReview[] | null>(null);
-  const [overallRating, setOverallRating] = useState<number | null>(null);
-  const [totalReviews, setTotalReviews] = useState<number | null>(null);
-
-  const staticTestimonials = useMemo(() => [
-    {
-      name: t("testimonials.1.name"),
-      role: t("testimonials.1.role"),
-      image: "/img/europeum-quote.png",
-      quote: t("testimonials.1.quote"),
-      rating: 5,
-    },
-    {
-      name: t("testimonials.2.name"),
-      role: t("testimonials.2.role"),
-      image: "/img/weboptim-review-jitka.jpg",
-      quote: t("testimonials.2.quote"),
-      rating: 5,
-    },
-    {
-      name: t("testimonials.3.name"),
-      role: t("testimonials.3.role"),
-      image: "/img/weboptim-rewiew-anna-sidlovska.jpg",
-      quote: t("testimonials.3.quote"),
-      rating: 5,
-    },
-  ], [t]);
-
-  useEffect(() => {
-    const fetchGoogleReviews = async () => {
-      try {
-        const { data, error } = await supabase.functions.invoke('google-reviews');
-        if (error) throw error;
-        if (data?.reviews?.length > 0) {
-          setGoogleReviews(data.reviews);
-          setOverallRating(data.rating);
-          setTotalReviews(data.total);
-        }
-      } catch (err) {
-        console.warn('Google Reviews fetch failed, using static testimonials:', err);
-      }
-    };
-
-    fetchGoogleReviews();
-  }, []);
-
-  const reviews = googleReviews ?? staticTestimonials;
+  const { reviews, rating: overallRating, total: totalReviews } = useGoogleReviews(5);
 
   return (
     <>
@@ -68,7 +13,7 @@ const Testimonials = memo(() => {
         title={t("testimonials.title.before")}
         titleHighlight={t("testimonials.title.highlight")}
         subtitle={t("testimonials.subtitle")}
-        reviews={reviews}
+        reviews={reviews.length > 0 ? reviews : undefined}
         showSchema={false}
         overallRating={overallRating}
         totalReviews={totalReviews}
