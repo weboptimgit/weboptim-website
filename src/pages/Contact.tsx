@@ -612,6 +612,9 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground">
                         {s.company.icoLabel}: {s.company.icoValue}
                       </p>
+                      <p className="text-sm text-muted-foreground">
+                        {s.company.dicLabel}: {s.company.dicValue}
+                      </p>
 
                       <p className="text-sm text-muted-foreground mt-2">
                         {s.company.addressLines.map((line) => (
