@@ -5,6 +5,7 @@ Allow: /
 
 # Disallow internal tools
 Disallow: /social-creator
+Disallow: /business-card
 Disallow: /calculator
 Disallow: /kalkulator
 Disallow: /kalkulacka
