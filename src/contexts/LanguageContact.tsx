@@ -13,6 +13,8 @@ type CompanyDetails = {
   name: string;
   icoLabel: string;
   icoValue: string;
+  dicLabel: string;
+  dicValue: string;
   addressLines: string[];
   countryLine: string;
 };
