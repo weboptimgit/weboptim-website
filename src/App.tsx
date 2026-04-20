@@ -53,6 +53,7 @@ import { loadGTM } from "@/lib/loadGTM";
 
 const WebsiteConfigurator = lazy(() => import("./pages/WebsiteConfigurator"));
 const SocialPostCreator = lazy(() => import("./pages/SocialPostCreator"));
+const BusinessCard = lazy(() => import("./pages/BusinessCard"));
 
 const queryClient = new QueryClient();
 
@@ -327,6 +328,9 @@ function AppShell() {
 
               {/* Social Post Creator - Internal tool */}
               <Route path="/social-creator" element={<SocialPostCreator />} />
+
+              {/* Business Card - Internal hidden tool */}
+              <Route path="/business-card" element={<BusinessCard />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
