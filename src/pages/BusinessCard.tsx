@@ -1,6 +1,5 @@
-import { Phone, Mail, MapPin, Globe, Printer } from "lucide-react";
+import { Phone, Mail, MapPin, Globe, Printer, Sparkles } from "lucide-react";
 import logoFull from "@/assets/logo-weboptim-full.svg";
-import logoMark from "@/assets/logo-weboptim.svg";
 import SEO from "@/components/SEO";
 
 /**
@@ -8,6 +7,8 @@ import SEO from "@/components/SEO";
  * Access via /business-card. Use browser Print → Save as PDF for printing.
  *
  * Card format: 85 × 55 mm (standard EU business card).
+ * Design inspired by website hero section: dark bg, gradient orbs,
+ * glassmorphism, cyan-to-purple gradient typography.
  */
 
 type CardData = {
@@ -41,7 +42,7 @@ const BusinessCard = () => {
         noindex
       />
 
-      {/* Print styles */}
+      {/* Print styles — preserve dark colors with print-color-adjust */}
       <style>{`
         @page {
           size: 85mm 55mm;
@@ -64,22 +65,36 @@ const BusinessCard = () => {
             box-shadow: none !important;
             border-radius: 0 !important;
             margin: 0 !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+          .business-card * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
         }
       `}</style>
 
-      <main className="min-h-screen bg-muted/30 py-12 px-4">
-        {/* Toolbar — hidden on print */}
-        <div className="no-print max-w-4xl mx-auto mb-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <main className="min-h-screen bg-background py-12 px-4 relative overflow-hidden">
+        {/* Ambient gradient orbs (only on screen) */}
+        <div className="no-print absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/20 to-blue-500/10 blur-[100px]" />
+          <div className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-purple-500/15 to-primary/10 blur-[120px]" />
+        </div>
+
+        {/* Toolbar */}
+        <div className="no-print relative z-10 max-w-4xl mx-auto mb-12 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Business Cards</h1>
-            <p className="text-sm text-muted-foreground">
+            <h1 className="text-3xl font-display font-bold text-foreground">
+              Business <span className="text-gradient">Cards</span>
+            </h1>
+            <p className="text-sm text-muted-foreground mt-1">
               Print at 100% scale, format 85×55 mm. Use "Save as PDF" in print dialog.
             </p>
           </div>
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition shadow-lg"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-blue-500 text-primary-foreground font-semibold hover:opacity-90 transition shadow-lg shadow-primary/30"
           >
             <Printer className="w-4 h-4" />
             Print / Save as PDF
@@ -87,15 +102,12 @@ const BusinessCard = () => {
         </div>
 
         {/* Cards */}
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="relative z-10 max-w-4xl mx-auto space-y-12">
           {cards.map((card) => (
             <div key={card.email} className="space-y-8">
-              {/* FRONT */}
               <div className="print-page flex justify-center">
                 <CardFront card={card} />
               </div>
-
-              {/* BACK */}
               <div className="print-page flex justify-center">
                 <CardBack />
               </div>
@@ -112,82 +124,213 @@ const CARD_STYLE: React.CSSProperties = {
   height: "55mm",
 };
 
+/* ---------- FRONT ---------- */
 const CardFront = ({ card }: { card: CardData }) => {
   return (
     <div
-      className="business-card relative overflow-hidden bg-background rounded-lg shadow-2xl"
-      style={CARD_STYLE}
+      className="business-card relative overflow-hidden rounded-lg shadow-2xl shadow-primary/20"
+      style={{
+        ...CARD_STYLE,
+        background: "hsl(230 35% 7%)",
+      }}
     >
-      {/* Subtle gradient accent */}
-      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-primary/60" />
-      <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/5" />
-      <div className="absolute bottom-0 right-0 w-20 h-20 rounded-tl-full bg-primary/5" />
+      {/* Gradient orbs — hero style */}
+      <div
+        className="absolute -top-12 -left-12 w-40 h-40 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, hsl(193 88% 61% / 0.35), transparent 70%)",
+          filter: "blur(20px)",
+        }}
+      />
+      <div
+        className="absolute -bottom-16 -right-12 w-44 h-44 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, hsl(270 60% 60% / 0.25), transparent 70%)",
+          filter: "blur(20px)",
+        }}
+      />
 
-      <div className="relative h-full flex flex-col justify-between p-5 pl-6">
-        {/* Top: name + role */}
+      {/* Subtle grid texture overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(193 88% 61%) 1px, transparent 1px), linear-gradient(90deg, hsl(193 88% 61%) 1px, transparent 1px)",
+          backgroundSize: "12px 12px",
+        }}
+      />
+
+      {/* Glass border */}
+      <div className="absolute inset-0 rounded-lg border border-white/10" />
+
+      <div className="relative h-full flex flex-col justify-between p-5">
+        {/* Top: badge + name */}
         <div>
-          <h2 className="text-[15pt] font-bold text-foreground leading-tight tracking-tight">
+          <div
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full backdrop-blur-sm border border-white/10 mb-2"
+            style={{ background: "hsl(230 35% 12% / 0.6)" }}
+          >
+            <Sparkles className="w-2 h-2" style={{ color: "hsl(193 88% 61%)" }} />
+            <span className="text-[5.5pt] uppercase tracking-[0.2em] text-white/70 font-medium">
+              WebOptim
+            </span>
+          </div>
+
+          <h2
+            className="text-[14pt] font-display font-bold leading-tight tracking-tight"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, hsl(193 88% 61%), hsl(220 80% 70%), hsl(270 60% 70%))",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
             {card.name}
           </h2>
-          <p className="text-[8.5pt] uppercase tracking-[0.18em] text-primary font-semibold mt-1">
+          <p
+            className="text-[7.5pt] uppercase tracking-[0.25em] font-semibold mt-0.5"
+            style={{ color: "hsl(193 88% 61%)" }}
+          >
             {card.position}
           </p>
         </div>
 
         {/* Bottom: contacts */}
-        <div className="space-y-1 text-[7.5pt] text-foreground/85 leading-snug">
-          <div className="flex items-center gap-1.5">
-            <Phone className="w-2.5 h-2.5 text-primary flex-shrink-0" strokeWidth={2.5} />
-            <span>{card.phone}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Mail className="w-2.5 h-2.5 text-primary flex-shrink-0" strokeWidth={2.5} />
-            <span>{card.email}</span>
-          </div>
-          <div className="flex items-start gap-1.5">
-            <MapPin className="w-2.5 h-2.5 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-            <span>
-              {card.addressLines.map((line, i) => (
-                <span key={i} className="block">{line}</span>
-              ))}
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 pt-0.5">
-            <Globe className="w-2.5 h-2.5 text-primary flex-shrink-0" strokeWidth={2.5} />
-            <span className="font-semibold">{card.website}</span>
-          </div>
+        <div className="space-y-1 text-[7pt] leading-snug" style={{ color: "hsl(210 40% 92%)" }}>
+          <ContactRow icon={Phone} text={card.phone} />
+          <ContactRow icon={Mail} text={card.email} />
+          <ContactRow
+            icon={MapPin}
+            text={
+              <>
+                {card.addressLines.map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
+              </>
+            }
+            align="start"
+          />
+          <ContactRow icon={Globe} text={card.website} bold />
         </div>
       </div>
     </div>
   );
 };
 
+const ContactRow = ({
+  icon: Icon,
+  text,
+  bold,
+  align = "center",
+}: {
+  icon: any;
+  text: React.ReactNode;
+  bold?: boolean;
+  align?: "center" | "start";
+}) => (
+  <div className={`flex gap-1.5 ${align === "start" ? "items-start" : "items-center"}`}>
+    <Icon
+      className={`w-2.5 h-2.5 flex-shrink-0 ${align === "start" ? "mt-[2px]" : ""}`}
+      style={{ color: "hsl(193 88% 61%)" }}
+      strokeWidth={2.5}
+    />
+    <span className={bold ? "font-semibold" : ""}>{text}</span>
+  </div>
+);
+
+/* ---------- BACK ---------- */
 const CardBack = () => {
   return (
     <div
-      className="business-card relative overflow-hidden rounded-lg shadow-2xl"
+      className="business-card relative overflow-hidden rounded-lg shadow-2xl shadow-primary/20"
       style={{
         ...CARD_STYLE,
-        background:
-          "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%)",
+        background: "hsl(230 35% 7%)",
       }}
     >
-      {/* Decorative shapes */}
-      <div className="absolute -top-16 -left-16 w-40 h-40 rounded-full bg-white/10" />
-      <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-white/5" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-white/5" />
+      {/* Animated-style gradient orbs */}
+      <div
+        className="absolute -top-20 -right-16 w-56 h-56 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, hsl(193 88% 61% / 0.4), transparent 70%)",
+          filter: "blur(25px)",
+        }}
+      />
+      <div
+        className="absolute -bottom-20 -left-16 w-56 h-56 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, hsl(270 60% 60% / 0.35), transparent 70%)",
+          filter: "blur(25px)",
+        }}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, hsl(220 80% 60% / 0.2), transparent 70%)",
+          filter: "blur(15px)",
+        }}
+      />
+
+      {/* Grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(193 88% 61%) 1px, transparent 1px), linear-gradient(90deg, hsl(193 88% 61%) 1px, transparent 1px)",
+          backgroundSize: "12px 12px",
+        }}
+      />
+
+      <div className="absolute inset-0 rounded-lg border border-white/10" />
 
       <div className="relative h-full flex flex-col items-center justify-center p-6 text-center">
-        <img
-          src={logoFull}
-          alt="WebOptim"
-          className="h-10 brightness-0 invert mb-2"
-        />
-        <p className="text-[7pt] uppercase tracking-[0.3em] text-white/90 font-medium mt-1">
+        {/* Logo with glow */}
+        <div className="relative">
+          <div
+            className="absolute inset-0 -m-4 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, hsl(193 88% 61% / 0.3), transparent 70%)",
+              filter: "blur(15px)",
+            }}
+          />
+          <img
+            src={logoFull}
+            alt="WebOptim"
+            className="relative h-9 brightness-0 invert"
+          />
+        </div>
+
+        {/* Tagline with gradient */}
+        <p
+          className="text-[7pt] uppercase tracking-[0.35em] font-medium mt-3"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, hsl(193 88% 61%), hsl(270 60% 70%))",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+          }}
+        >
           Web · SEO · PPC · Digital
         </p>
-        <div className="mt-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm">
-          <span className="text-[7pt] text-white font-semibold">weboptim.cz</span>
+
+        {/* Sparkle accent */}
+        <div className="flex items-center gap-1 mt-2">
+          <span style={{ color: "hsl(193 88% 61%)" }} className="text-[6pt]">✦</span>
+          <span
+            className="text-[6.5pt] font-semibold tracking-wider"
+            style={{ color: "hsl(210 40% 92%)" }}
+          >
+            weboptim.cz
+          </span>
+          <span style={{ color: "hsl(193 88% 61%)" }} className="text-[6pt]">✦</span>
         </div>
       </div>
     </div>
