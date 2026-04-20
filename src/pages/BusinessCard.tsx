@@ -78,8 +78,8 @@ const BusinessCard = () => {
       <main className="min-h-screen bg-background py-12 px-4 relative overflow-hidden">
         {/* Ambient gradient orbs (only on screen) */}
         <div className="no-print absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/20 to-blue-500/10 blur-[100px]" />
-          <div className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-purple-500/15 to-primary/10 blur-[120px]" />
+          <div className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-[100px]" />
+          <div className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-purple/15 to-primary/10 blur-[120px]" />
         </div>
 
         {/* Toolbar */}
@@ -94,7 +94,7 @@ const BusinessCard = () => {
           </div>
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-blue-500 text-primary-foreground font-semibold hover:opacity-90 transition shadow-lg shadow-primary/30"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 transition shadow-lg shadow-primary/30"
           >
             <Printer className="w-4 h-4" />
             Print / Save as PDF
