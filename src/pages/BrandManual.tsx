@@ -16,12 +16,12 @@ import {
   X,
   Printer,
   Copy,
+  Download,
   ChevronRight,
 } from "lucide-react";
-import logoFull from "@/assets/logo-weboptim-full.svg";
-import logoMark from "@/assets/logo-weboptim.svg";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { WeboptimLogo } from "@/components/brand/WeboptimLogo";
 
 /**
  * Hidden brand manual page — not linked anywhere, noindex.
