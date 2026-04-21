@@ -613,57 +613,149 @@ const BrandManual = () => {
               icon={ImageIcon}
               eyebrow="06 · Logo"
               title="Logo Guidelines"
-              description="The WebOptim mark must always feel premium and digital. Clear space, contrast and scale matter more than any single rule."
+              description="The WebOptim mark is a single inline SVG using currentColor. Variations are produced via CSS — no separate files needed. Always preserve clear space, contrast and proportions."
             />
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Primary — on dark</div>
-                <div className="rounded-xl bg-background border border-border h-40 flex items-center justify-center p-8">
-                  <img src={logoFull} alt="WebOptim logo" className="h-12" />
-                </div>
-              </Card>
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">On light</div>
-                <div className="rounded-xl bg-foreground h-40 flex items-center justify-center p-8">
-                  <img src={logoFull} alt="WebOptim logo" className="h-12 invert" />
-                </div>
-              </Card>
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Mark only</div>
-                <div className="rounded-xl bg-background border border-border h-40 flex items-center justify-center p-8">
-                  <img src={logoMark} alt="WebOptim mark" className="h-16" />
-                </div>
-                <div className="text-xs text-muted-foreground mt-3">Use when space is tight (favicon, app icon, social avatar).</div>
-              </Card>
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Clear space</div>
-                <div className="rounded-xl bg-background border border-border h-40 flex items-center justify-center p-8 relative">
-                  <div className="border-2 border-dashed border-primary/40 p-6 rounded-lg">
-                    <img src={logoFull} alt="WebOptim logo" className="h-10" />
+            {/* Logo variations grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              {[
+                {
+                  label: "Primary — White",
+                  desc: "Default usage on dark or branded backgrounds.",
+                  bg: "bg-background border border-border",
+                  color: "text-foreground",
+                  filename: "weboptim-logo-white.svg",
+                  hex: "#F8FAFC",
+                },
+                {
+                  label: "Inverted — Black",
+                  desc: "On light, neutral backgrounds and print materials.",
+                  bg: "bg-foreground",
+                  color: "text-background",
+                  filename: "weboptim-logo-black.svg",
+                  hex: "#0B0E1A",
+                },
+                {
+                  label: "Brand — Cyan",
+                  desc: "Accent variant for hero moments and feature highlights.",
+                  bg: "bg-background border border-border",
+                  color: "text-primary",
+                  filename: "weboptim-logo-cyan.svg",
+                  hex: "#42C8F2",
+                },
+                {
+                  label: "Monochrome — Muted",
+                  desc: "Low-emphasis placements: footers, signatures, watermarks.",
+                  bg: "bg-muted border border-border",
+                  color: "text-muted-foreground",
+                  filename: "weboptim-logo-muted.svg",
+                  hex: "#9BA3B5",
+                },
+              ].map((v) => (
+                <Card key={v.label} className="!p-0 overflow-hidden flex flex-col">
+                  <div className={`h-40 flex items-center justify-center p-8 ${v.bg}`}>
+                    <WeboptimLogo className={`h-10 w-auto ${v.color}`} />
                   </div>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <div className="text-xs uppercase tracking-wider text-primary font-medium mb-1">{v.label}</div>
+                    <div className="font-mono text-xs text-muted-foreground mb-2">{v.hex}</div>
+                    <p className="text-sm text-muted-foreground flex-1">{v.desc}</p>
+                    <button
+                      onClick={() => downloadLogoSvg(v.hex, v.filename)}
+                      className="no-print mt-4 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 text-xs font-medium text-primary transition"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Download SVG
+                    </button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {/* Background variants */}
+            <h3 className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Background variants</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              <Card className="!p-0 overflow-hidden">
+                <div className="h-32 bg-foreground flex items-center justify-center p-6">
+                  <WeboptimLogo className="h-8 w-auto text-background" />
                 </div>
-                <div className="text-xs text-muted-foreground mt-3">Minimum clear space = height of the "W" on all sides.</div>
+                <div className="p-4 text-xs text-muted-foreground">Light surface</div>
+              </Card>
+              <Card className="!p-0 overflow-hidden">
+                <div className="h-32 bg-background flex items-center justify-center p-6">
+                  <WeboptimLogo className="h-8 w-auto text-foreground" />
+                </div>
+                <div className="p-4 text-xs text-muted-foreground">Dark surface</div>
+              </Card>
+              <Card className="!p-0 overflow-hidden">
+                <div className="h-32 bg-gradient-hero flex items-center justify-center p-6">
+                  <WeboptimLogo className="h-8 w-auto text-foreground" />
+                </div>
+                <div className="p-4 text-xs text-muted-foreground">Brand gradient</div>
+              </Card>
+              <Card className="!p-0 overflow-hidden">
+                <div className="h-32 bg-primary flex items-center justify-center p-6">
+                  <WeboptimLogo className="h-8 w-auto text-background" />
+                </div>
+                <div className="p-4 text-xs text-muted-foreground">Brand cyan</div>
               </Card>
             </div>
 
+            {/* Clear space + minimum size */}
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              <Card>
+                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Safe space</div>
+                <div className="rounded-xl bg-background border border-border h-44 flex items-center justify-center p-6">
+                  <div className="relative">
+                    <div className="absolute -inset-6 border border-dashed border-primary/40 rounded-md pointer-events-none" />
+                    <WeboptimLogo className="h-10 w-auto text-foreground" />
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-3">
+                  Minimum clear space (<span className="font-mono">x</span>) on all sides equals the height of the symbol.
+                </p>
+              </Card>
+
+              <Card>
+                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Minimum size</div>
+                <div className="rounded-xl bg-background border border-border h-44 flex items-end justify-around p-6">
+                  <div className="flex flex-col items-center gap-2">
+                    <WeboptimLogo className="h-3 w-auto text-foreground" />
+                    <span className="text-[10px] font-mono text-muted-foreground">12px · favicon</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <WeboptimLogo className="h-6 w-auto text-foreground" />
+                    <span className="text-[10px] font-mono text-muted-foreground">24px · digital min</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <WeboptimLogo className="h-10 w-auto text-foreground" />
+                    <span className="text-[10px] font-mono text-muted-foreground">40px · default</span>
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-3">
+                  Never reproduce the wordmark below 24&nbsp;px height in digital, or 8&nbsp;mm in print.
+                </p>
+              </Card>
+            </div>
+
+            {/* Do / Don't */}
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="border-primary/20">
                 <h3 className="font-display font-semibold text-primary mb-3 flex items-center gap-2"><Check className="w-5 h-5" /> Correct usage</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Use original SVG files at all times</li>
-                  <li>• Maintain minimum size of 24px height for the mark</li>
-                  <li>• Keep clear space equal to the "W" height</li>
-                  <li>• Place on dark backgrounds first; on light only when needed</li>
+                  <li>• Use the original SVG and recolor via CSS <span className="font-mono">currentColor</span></li>
+                  <li>• Maintain the safe space equal to the symbol height</li>
+                  <li>• Use white on dark, black on light, cyan only as accent</li>
+                  <li>• Keep the logo at minimum 24&nbsp;px height in digital</li>
                 </ul>
               </Card>
               <Card className="border-destructive/20">
                 <h3 className="font-display font-semibold text-destructive mb-3 flex items-center gap-2"><X className="w-5 h-5" /> Incorrect usage</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Don't recolor outside the brand palette</li>
-                  <li>• Don't add shadows, strokes, or 3D effects</li>
-                  <li>• Don't stretch, skew, or rotate</li>
-                  <li>• Don't place on busy photos without a backdrop</li>
+                  <li>• Don't add shadows, strokes, glows or 3D effects</li>
+                  <li>• Don't stretch, skew, rotate or distort the proportions</li>
+                  <li>• Don't place over busy photos without a solid backdrop</li>
                 </ul>
               </Card>
             </div>
