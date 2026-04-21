@@ -54,6 +54,7 @@ import { loadGTM } from "@/lib/loadGTM";
 const WebsiteConfigurator = lazy(() => import("./pages/WebsiteConfigurator"));
 const SocialPostCreator = lazy(() => import("./pages/SocialPostCreator"));
 const BusinessCard = lazy(() => import("./pages/BusinessCard"));
+const BrandManual = lazy(() => import("./pages/BrandManual"));
 
 const queryClient = new QueryClient();
 
@@ -331,6 +332,9 @@ function AppShell() {
 
               {/* Business Card - Internal hidden tool */}
               <Route path="/business-card" element={<BusinessCard />} />
+
+              {/* Brand Manual - Internal hidden page */}
+              <Route path="/brand-manual" element={<BrandManual />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

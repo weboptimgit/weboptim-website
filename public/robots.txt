@@ -6,6 +6,7 @@ Allow: /
 # Disallow internal tools
 Disallow: /social-creator
 Disallow: /business-card
+Disallow: /brand-manual
 Disallow: /calculator
 Disallow: /kalkulator
 Disallow: /kalkulacka
