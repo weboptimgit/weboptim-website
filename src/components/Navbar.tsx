@@ -106,7 +106,7 @@ const Navbar = () => {
         <div className="glass-strong rounded-2xl px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" aria-label="WebOptim" className="flex items-center">
-            <WeboptimLogo className="h-7 w-auto text-foreground" />
+            <WeboptimLogo className="h-9 md:h-10 lg:h-11 w-auto text-foreground" />
           </Link>
 
           {/* Desktop Nav */}
