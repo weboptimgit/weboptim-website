@@ -195,7 +195,7 @@ const BrandManual = () => {
     role: t.colorRoles[brandColorBase[key].roleKey],
   });
 
-  const valueIcons = [Target, Eye, Heart, Trophy];
+  
 
   return (
     <>
