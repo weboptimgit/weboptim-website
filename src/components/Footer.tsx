@@ -1,6 +1,6 @@
 import { Github, Twitter, Linkedin, Instagram, Star, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoWeboptim from "@/assets/logo-weboptim.svg";
+import { WeboptimLogo } from "@/components/brand/WeboptimLogo";
 import { useFooterLang } from "@/contexts/LanguageFooter";
 
 const socialLinks = [
@@ -18,9 +18,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src={logoWeboptim} alt="WebOptim" className="w-10 h-10" />
-              <span className="font-display font-bold text-xl text-foreground">WebOptim</span>
+            <Link to="/" aria-label="WebOptim" className="inline-flex items-center mb-6">
+              <WeboptimLogo className="h-8 w-auto text-foreground" />
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
               {t.brand.description}
