@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Globe, Code2, ShoppingCart, Search, Target, Cpu, Palette } from "lucide-react";
-import logoWeboptim from "@/assets/logo-weboptim.svg";
+import { WeboptimLogo } from "@/components/brand/WeboptimLogo";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { getLanguageSwitchUrl } from "@/config/domains";
 import { useSlugMappings } from "@/hooks/useSlugMappings";
@@ -105,9 +105,8 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="glass-strong rounded-2xl px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoWeboptim} alt="WebOptim" className="w-10 h-10" />
-            <span className="font-display font-bold text-xl text-foreground">WebOptim</span>
+          <Link to="/" aria-label="WebOptim" className="flex items-center">
+            <WeboptimLogo className="h-7 w-auto text-foreground" />
           </Link>
 
           {/* Desktop Nav */}
