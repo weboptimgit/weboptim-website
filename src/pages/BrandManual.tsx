@@ -22,45 +22,29 @@ import {
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { WeboptimLogo } from "@/components/brand/WeboptimLogo";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { brandManualTranslations } from "@/contexts/LanguageBrandManual";
 
 /**
  * Hidden brand manual page — not linked anywhere, noindex.
  * Access via /brand-manual.
  * Built using actual website design tokens (index.css) and copy.
+ * Localized via brandManualTranslations (EN / SK / CZ) — driven by domain.
  */
 
-type Section = {
-  id: string;
-  title: string;
-  icon: typeof Sparkles;
-};
-
-const sections: Section[] = [
-  { id: "overview", title: "Brand Overview", icon: Sparkles },
-  { id: "audience", title: "Audience", icon: Users },
-  { id: "voice", title: "Tone of Voice", icon: MessageSquare },
-  { id: "visual", title: "Visual Identity", icon: Palette },
-  { id: "typography", title: "Typography", icon: Type },
-  { id: "logo", title: "Logo Guidelines", icon: ImageIcon },
-  { id: "imagery", title: "Photography & Imagery", icon: ImageIcon },
-  { id: "ui", title: "UI / Web Design Rules", icon: Layout },
-  { id: "social", title: "Social Media", icon: Share2 },
-  { id: "positioning", title: "Competitor Positioning", icon: Trophy },
-  { id: "quickref", title: "Quick Reference Sheet", icon: ChevronRight },
-];
-
-// Actual brand colors from src/index.css (HSL → HEX equivalents)
-const brandColors = {
-  primary: { name: "Cyan", hsl: "hsl(193 88% 61%)", hex: "#42C8F2", role: "Primary brand color · CTAs · highlights" },
-  secondary: { name: "Brand Blue", hsl: "hsl(210 60% 55%)", hex: "#4F8DD1", role: "Secondary actions · links · accents" },
-  purple: { name: "Brand Purple", hsl: "hsl(270 50% 55%)", hex: "#7B5BBF", role: "Gradient accent · glow effects" },
-  pink: { name: "Magenta Accent", hsl: "hsl(320 70% 55%)", hex: "#D946A6", role: "Hero gradient end · marketing accents" },
-  background: { name: "Deep Navy", hsl: "hsl(230 35% 7%)", hex: "#0B0E1A", role: "Primary background · dark canvas" },
-  card: { name: "Card Surface", hsl: "hsl(230 35% 10%)", hex: "#11151F", role: "Cards · elevated surfaces" },
-  muted: { name: "Muted Surface", hsl: "hsl(230 30% 15%)", hex: "#1B1F2E", role: "Inputs · borders · subtle backgrounds" },
-  foreground: { name: "Off-White", hsl: "hsl(210 40% 98%)", hex: "#F8FAFC", role: "Primary text · headings" },
-  mutedFg: { name: "Muted Text", hsl: "hsl(220 15% 65%)", hex: "#9BA3B5", role: "Secondary text · descriptions" },
-  border: { name: "Border", hsl: "hsl(230 30% 18%)", hex: "#23283A", role: "Dividers · card borders" },
+// Actual brand colors from src/index.css (HSL → HEX equivalents).
+// Roles are localized at render-time via t.colorRoles.
+const brandColorBase = {
+  primary: { name: "Cyan", hsl: "hsl(193 88% 61%)", hex: "#42C8F2", roleKey: "primary" as const },
+  secondary: { name: "Brand Blue", hsl: "hsl(210 60% 55%)", hex: "#4F8DD1", roleKey: "secondary" as const },
+  purple: { name: "Brand Purple", hsl: "hsl(270 50% 55%)", hex: "#7B5BBF", roleKey: "purple" as const },
+  pink: { name: "Magenta Accent", hsl: "hsl(320 70% 55%)", hex: "#D946A6", roleKey: "pink" as const },
+  background: { name: "Deep Navy", hsl: "hsl(230 35% 7%)", hex: "#0B0E1A", roleKey: "background" as const },
+  card: { name: "Card Surface", hsl: "hsl(230 35% 10%)", hex: "#11151F", roleKey: "card" as const },
+  muted: { name: "Muted Surface", hsl: "hsl(230 30% 15%)", hex: "#1B1F2E", roleKey: "muted" as const },
+  foreground: { name: "Off-White", hsl: "hsl(210 40% 98%)", hex: "#F8FAFC", roleKey: "foreground" as const },
+  mutedFg: { name: "Muted Text", hsl: "hsl(220 15% 65%)", hex: "#9BA3B5", roleKey: "mutedFg" as const },
+  border: { name: "Border", hsl: "hsl(230 30% 18%)", hex: "#23283A", roleKey: "border" as const },
 };
 
 const Swatch = ({ name, hex, hsl, role }: { name: string; hex: string; hsl: string; role: string }) => {
@@ -72,10 +56,7 @@ const Swatch = ({ name, hex, hsl, role }: { name: string; hex: string; hsl: stri
   };
   return (
     <div className="glass rounded-2xl overflow-hidden hover:border-primary/30 transition-all">
-      <div
-        className="h-28 w-full relative"
-        style={{ backgroundColor: hex }}
-      >
+      <div className="h-28 w-full relative" style={{ backgroundColor: hex }}>
         <button
           onClick={() => copy(hex)}
           className="absolute top-2 right-2 px-2 py-1 rounded-md bg-black/40 backdrop-blur text-xs text-white flex items-center gap-1 hover:bg-black/60 transition no-print"
@@ -94,7 +75,17 @@ const Swatch = ({ name, hex, hsl, role }: { name: string; hex: string; hsl: stri
   );
 };
 
-const SectionHeader = ({ icon: Icon, eyebrow, title, description }: { icon: typeof Sparkles; eyebrow: string; title: string; description?: string }) => (
+const SectionHeader = ({
+  icon: Icon,
+  eyebrow,
+  title,
+  description,
+}: {
+  icon: typeof Sparkles;
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) => (
   <div className="mb-10">
     <div className="flex items-center gap-2 mb-3">
       <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium tracking-wider uppercase text-primary">
@@ -160,16 +151,55 @@ const downloadLogoSvg = (color: string, filename: string) => {
   URL.revokeObjectURL(url);
 };
 
+const LOGO_FILENAMES = [
+  "weboptim-logo-white.svg",
+  "weboptim-logo-black.svg",
+  "weboptim-logo-cyan.svg",
+  "weboptim-logo-muted.svg",
+];
+const LOGO_BG_CLASSES = [
+  "bg-background border border-border",
+  "bg-foreground",
+  "bg-background border border-border",
+  "bg-muted border border-border",
+];
+const LOGO_COLOR_CLASSES = [
+  "text-foreground",
+  "text-background",
+  "text-primary",
+  "text-muted-foreground",
+];
+const LOGO_HEX = ["#F8FAFC", "#0B0E1A", "#42C8F2", "#9BA3B5"];
+
 const BrandManual = () => {
+  const { language } = useLanguage();
+  const t = brandManualTranslations[language];
   const handlePrint = () => window.print();
+
+  const sections = [
+    { id: "overview", title: t.sections.overview, icon: Sparkles },
+    { id: "audience", title: t.sections.audience, icon: Users },
+    { id: "voice", title: t.sections.voice, icon: MessageSquare },
+    { id: "visual", title: t.sections.visual, icon: Palette },
+    { id: "typography", title: t.sections.typography, icon: Type },
+    { id: "logo", title: t.sections.logo, icon: ImageIcon },
+    { id: "imagery", title: t.sections.imagery, icon: ImageIcon },
+    { id: "ui", title: t.sections.ui, icon: Layout },
+    { id: "social", title: t.sections.social, icon: Share2 },
+    { id: "positioning", title: t.sections.positioning, icon: Trophy },
+    { id: "quickref", title: t.sections.quickref, icon: ChevronRight },
+  ];
+
+  const swatch = (key: keyof typeof brandColorBase) => ({
+    ...brandColorBase[key],
+    role: t.colorRoles[brandColorBase[key].roleKey],
+  });
+
+  const valueIcons = [Target, Eye, Heart, Trophy];
 
   return (
     <>
-      <SEO
-        title="WebOptim — Brand Manual"
-        description="Internal brand manual"
-        noindex
-      />
+      <SEO title="WebOptim — Brand Manual" description={t.heroSubtitle} noindex />
 
       <style>{`
         @media print {
@@ -191,32 +221,31 @@ const BrandManual = () => {
             <div className="flex items-center gap-2 mb-6">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium tracking-wider uppercase text-primary">
                 <Sparkles className="w-3.5 h-3.5" />
-                Brand Manual · v1.0 · 2025
+                {t.badge}
               </span>
               <span className="no-print inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-destructive/10 text-destructive border border-destructive/20">
-                Internal · Not Indexed
+                {t.internal}
               </span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
-              <span className="text-gradient">WebOptim</span>
+              <span className="text-gradient">{t.heroTitle1}</span>
               <br />
-              Brand Guidelines
+              {t.heroTitle2}
             </h1>
 
             <p className="text-muted-foreground text-xl max-w-2xl leading-relaxed mb-10">
-              The single source of truth for how WebOptim looks, sounds and behaves —
-              across every website, ad, deck and social post.
+              {t.heroSubtitle}
             </p>
 
             <div className="flex flex-wrap gap-3 no-print">
               <Button onClick={handlePrint} size="lg" className="gap-2">
                 <Printer className="w-4 h-4" />
-                Print / Save as PDF
+                {t.printBtn}
               </Button>
               <a href="#overview">
                 <Button variant="outline" size="lg" className="gap-2">
-                  Start reading <ChevronRight className="w-4 h-4" />
+                  {t.startReading} <ChevronRight className="w-4 h-4" />
                 </Button>
               </a>
             </div>
@@ -250,9 +279,9 @@ const BrandManual = () => {
           <section id="overview">
             <SectionHeader
               icon={Sparkles}
-              eyebrow="01 · Foundation"
-              title="Brand Overview"
-              description="Who we are, why we exist, and how we show up. Every piece of communication should ladder back to these foundations."
+              eyebrow={t.eyebrows.overview}
+              title={t.sections.overview}
+              description={t.overviewDesc}
             />
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -260,37 +289,25 @@ const BrandManual = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <Target className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3">Mission</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  To help ambitious businesses win online — through fast, beautifully engineered
-                  websites, e-shops and digital growth that actually convert. We replace agency
-                  bloat with senior craft, measurable results and zero friction.
-                </p>
+                <h3 className="text-xl font-display font-semibold mb-3">{t.mission.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t.mission.body}</p>
               </Card>
 
               <Card>
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <Eye className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3">Vision</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  To become the most trusted digital partner for SMEs across Central Europe —
-                  the studio teams call when their website has to perform, not just look pretty.
-                </p>
+                <h3 className="text-xl font-display font-semibold mb-3">{t.vision.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t.vision.body}</p>
               </Card>
 
               <Card className="md:col-span-2">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <Heart className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-4">Core Values</h3>
+                <h3 className="text-xl font-display font-semibold mb-4">{t.coreValuesTitle}</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {[
-                    { t: "Speed", d: "Fast delivery, fast websites, fast replies. Time is the real currency." },
-                    { t: "Craft", d: "Senior-level execution. No juniors learning on the client's dime." },
-                    { t: "Transparency", d: "Clear pricing, honest timelines, no jargon used to inflate scope." },
-                    { t: "Results", d: "We measure what matters: conversions, revenue, organic growth." },
-                  ].map((v) => (
+                  {t.coreValues.map((v) => (
                     <div key={v.t} className="rounded-xl border border-border/60 bg-muted/30 p-4">
                       <div className="font-display font-semibold text-foreground mb-1">{v.t}</div>
                       <div className="text-sm text-muted-foreground">{v.d}</div>
@@ -300,31 +317,22 @@ const BrandManual = () => {
               </Card>
 
               <Card>
-                <h3 className="text-xl font-display font-semibold mb-4">Brand Personality</h3>
+                <h3 className="text-xl font-display font-semibold mb-4">{t.personalityTitle}</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Confident", "Pragmatic", "Modern", "Direct", "Helpful", "Senior", "Future-forward"].map((p) => (
+                  {t.personalityTags.map((p) => (
                     <Pill key={p}>{p}</Pill>
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  We sound like a senior consultant — not an over-eager intern, not a corporate brochure.
-                  We are calm, technical, and slightly bold. We use modern visuals (glassmorphism,
-                  glowing gradients) because we build for clients who want to look ahead, not behind.
-                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t.personalityBody}</p>
               </Card>
 
               <Card>
-                <h3 className="text-xl font-display font-semibold mb-4">Unique Selling Proposition</h3>
+                <h3 className="text-xl font-display font-semibold mb-4">{t.uspTitle}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  <span className="text-foreground font-medium">"Premium websites without the agency tax."</span>
+                  <span className="text-foreground font-medium">"{t.uspTagline}"</span>
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    "Senior team, no account-manager middlemen",
-                    "Multi-domain, multi-language ready (EU/CZ/SK)",
-                    "Performance-first stack (React, edge, real Core Web Vitals scores)",
-                    "Transparent pricing via live online configurator",
-                  ].map((x) => (
+                  {t.uspPoints.map((x) => (
                     <li key={x} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       {x}
@@ -339,35 +347,13 @@ const BrandManual = () => {
           <section id="audience">
             <SectionHeader
               icon={Users}
-              eyebrow="02 · People"
-              title="Audience"
-              description="We don't talk to everyone. Knowing exactly who we serve makes our copy sharper and our design more decisive."
+              eyebrow={t.eyebrows.audience}
+              title={t.sections.audience}
+              description={t.audienceDesc}
             />
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {[
-                {
-                  name: "The Ambitious Founder",
-                  age: "30–45",
-                  role: "Owner / CEO of a 5–50 person company",
-                  quote: "I need a website that sells, not just exists.",
-                  goals: ["Generate qualified leads", "Look as serious as bigger competitors", "Stop losing deals to a bad first impression"],
-                },
-                {
-                  name: "The In-house Marketer",
-                  age: "28–40",
-                  role: "Marketing Manager / Head of Growth",
-                  quote: "I need a partner who can keep up with my campaigns.",
-                  goals: ["Faster landing pages for paid ads", "SEO that compounds", "A dev team that ships in days, not months"],
-                },
-                {
-                  name: "The E-commerce Operator",
-                  age: "25–50",
-                  role: "Shop owner scaling beyond template platforms",
-                  quote: "My platform is the bottleneck.",
-                  goals: ["Higher conversion rate", "Better mobile UX", "Custom features without enterprise prices"],
-                },
-              ].map((p) => (
+              {t.personas.map((p) => (
                 <Card key={p.name}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center text-primary-foreground font-display font-bold">
@@ -381,7 +367,7 @@ const BrandManual = () => {
                   <blockquote className="text-sm italic text-muted-foreground border-l-2 border-primary/40 pl-3 mb-4">
                     "{p.quote}"
                   </blockquote>
-                  <div className="text-xs uppercase tracking-wider text-primary mb-2 font-medium">Top goals</div>
+                  <div className="text-xs uppercase tracking-wider text-primary mb-2 font-medium">{p.goalsLabel}</div>
                   <ul className="space-y-1.5 text-sm text-muted-foreground">
                     {p.goals.map((g) => (
                       <li key={g} className="flex items-start gap-2">
@@ -396,39 +382,27 @@ const BrandManual = () => {
 
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
-                <h3 className="font-display font-semibold mb-3 text-foreground">Pain Points</h3>
+                <h3 className="font-display font-semibold mb-3 text-foreground">{t.painTitle}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    "Slow, outdated websites that leak conversions",
-                    "Agencies that overpromise and underdeliver",
-                    "Hidden costs and never-ending change requests",
-                    "No clarity on what's actually being built",
-                    "DIY tools that hit a wall once they grow",
-                  ].map((x) => <li key={x} className="flex gap-2"><X className="w-4 h-4 text-destructive mt-0.5 shrink-0" />{x}</li>)}
+                  {t.pain.map((x) => (
+                    <li key={x} className="flex gap-2"><X className="w-4 h-4 text-destructive mt-0.5 shrink-0" />{x}</li>
+                  ))}
                 </ul>
               </Card>
               <Card>
-                <h3 className="font-display font-semibold mb-3 text-foreground">Desired Outcomes</h3>
+                <h3 className="font-display font-semibold mb-3 text-foreground">{t.outcomesTitle}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    "A site that loads instantly and ranks",
-                    "More qualified leads in the inbox",
-                    "Higher conversion rate from existing traffic",
-                    "A brand presence that matches their ambition",
-                    "A long-term partner, not a one-off vendor",
-                  ].map((x) => <li key={x} className="flex gap-2"><Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />{x}</li>)}
+                  {t.outcomes.map((x) => (
+                    <li key={x} className="flex gap-2"><Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />{x}</li>
+                  ))}
                 </ul>
               </Card>
               <Card>
-                <h3 className="font-display font-semibold mb-3 text-foreground">Buying Motivations</h3>
+                <h3 className="font-display font-semibold mb-3 text-foreground">{t.motivationsTitle}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    "Trust — visible portfolio, real reviews, named team",
-                    "Speed — clear timeline, fast first reply",
-                    "Transparency — live configurator, fixed quotes",
-                    "Expertise — senior craft visible on the site itself",
-                    "ROI proof — measurable case studies",
-                  ].map((x) => <li key={x} className="flex gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />{x}</li>)}
+                  {t.motivations.map((x) => (
+                    <li key={x} className="flex gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />{x}</li>
+                  ))}
                 </ul>
               </Card>
             </div>
@@ -438,18 +412,13 @@ const BrandManual = () => {
           <section id="voice">
             <SectionHeader
               icon={MessageSquare}
-              eyebrow="03 · Voice"
-              title="Tone of Voice"
-              description="How WebOptim sounds in writing — from website headlines to support emails."
+              eyebrow={t.eyebrows.voice}
+              title={t.sections.voice}
+              description={t.voiceDesc}
             />
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {[
-                { t: "Communication style", d: "Direct, confident, helpful. We lead with the outcome, then explain the how. We never bury the value under buzzwords." },
-                { t: "Vocabulary style", d: "Modern, slightly technical, plain-spoken. Use real terms (Core Web Vitals, conversion rate, edge hosting) — explain them only when needed. No corporate fluff (synergy, leverage, holistic)." },
-                { t: "Sentence style", d: "Short and rhythmic. Mix punchy 4-word lines with longer explanations. Active voice. One idea per sentence." },
-                { t: "Emotional tone", d: "Calm confidence with a spark of excitement. We're the senior pro who has seen it all — but still genuinely loves shipping great work." },
-              ].map((x) => (
+              {t.voiceCards.map((x) => (
                 <Card key={x.t}>
                   <h3 className="font-display font-semibold text-foreground mb-2">{x.t}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{x.d}</p>
@@ -460,58 +429,40 @@ const BrandManual = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <Card className="border-primary/20">
                 <h3 className="font-display font-semibold text-primary mb-4 flex items-center gap-2">
-                  <Check className="w-5 h-5" /> Do
+                  <Check className="w-5 h-5" /> {t.doTitle}
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    'Lead with results: "Faster sites. More conversions."',
-                    "Use specific numbers (3x, 90+ PageSpeed, 14 days)",
-                    "Address the reader as 'you'",
-                    "Keep CTAs verb-led: 'Get your quote', 'See our work'",
-                    "Use Slovak/Czech idioms naturally — never machine-translated",
-                  ].map((x) => <li key={x} className="flex gap-2"><Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />{x}</li>)}
+                  {t.doItems.map((x) => (
+                    <li key={x} className="flex gap-2"><Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />{x}</li>
+                  ))}
                 </ul>
               </Card>
               <Card className="border-destructive/20">
                 <h3 className="font-display font-semibold text-destructive mb-4 flex items-center gap-2">
-                  <X className="w-5 h-5" /> Don't
+                  <X className="w-5 h-5" /> {t.dontTitle}
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    "Don't say 'world-class', 'best-in-class', 'cutting-edge'",
-                    "Don't use exclamation marks to fake enthusiasm!!!",
-                    "Don't use AI-sounding phrases ('In today's digital landscape…')",
-                    "Don't speak about ourselves in third person on the site",
-                    "Don't promise what we can't measure",
-                  ].map((x) => <li key={x} className="flex gap-2"><X className="w-4 h-4 text-destructive mt-0.5 shrink-0" />{x}</li>)}
+                  {t.dontItems.map((x) => (
+                    <li key={x} className="flex gap-2"><X className="w-4 h-4 text-destructive mt-0.5 shrink-0" />{x}</li>
+                  ))}
                 </ul>
               </Card>
             </div>
 
             <Card>
-              <h3 className="font-display font-semibold text-foreground mb-4">Example headlines & CTAs</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4">{t.examplesTitle}</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-3">
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium">Headlines</div>
-                  {[
-                    "Premium websites. Without the agency tax.",
-                    "Your website should sell — not just exist.",
-                    "From idea to launch in 14 days.",
-                    "Built for speed. Engineered for conversions.",
-                  ].map((x) => (
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium">{t.headlinesLabel}</div>
+                  {t.exampleHeadlines.map((x) => (
                     <div key={x} className="rounded-lg border border-border bg-muted/30 p-3 font-display text-foreground">
                       {x}
                     </div>
                   ))}
                 </div>
                 <div className="space-y-3">
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium">CTAs</div>
-                  {[
-                    "Get your free quote",
-                    "See our work",
-                    "Start your project",
-                    "Calculate your price",
-                  ].map((x) => (
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium">{t.ctasLabel}</div>
+                  {t.exampleCtas.map((x) => (
                     <div key={x} className="rounded-lg border border-border bg-muted/30 p-3 font-mono text-sm text-foreground">
                       {x}
                     </div>
@@ -525,66 +476,65 @@ const BrandManual = () => {
           <section id="visual">
             <SectionHeader
               icon={Palette}
-              eyebrow="04 · Visual"
-              title="Visual Identity — Colors"
-              description="The exact palette pulled from our live design tokens. Always use HSL variables in code; HEX is for external tools (Figma, print, ads)."
+              eyebrow={t.eyebrows.visual}
+              title={t.sections.visual}
+              description={t.visualDesc}
             />
 
             <div className="mb-6">
-              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">Primary</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">{t.primaryLabel}</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Swatch {...brandColors.primary} />
+                <Swatch {...swatch("primary")} />
               </div>
             </div>
 
             <div className="mb-6">
-              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">Secondary & Accents</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">{t.secondaryLabel}</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Swatch {...brandColors.secondary} />
-                <Swatch {...brandColors.purple} />
-                <Swatch {...brandColors.pink} />
+                <Swatch {...swatch("secondary")} />
+                <Swatch {...swatch("purple")} />
+                <Swatch {...swatch("pink")} />
               </div>
             </div>
 
             <div className="mb-6">
-              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">Surfaces</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">{t.surfacesLabel}</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Swatch {...brandColors.background} />
-                <Swatch {...brandColors.card} />
-                <Swatch {...brandColors.muted} />
+                <Swatch {...swatch("background")} />
+                <Swatch {...swatch("card")} />
+                <Swatch {...swatch("muted")} />
               </div>
             </div>
 
             <div className="mb-10">
-              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">Text & Borders</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4 text-lg">{t.textBordersLabel}</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Swatch {...brandColors.foreground} />
-                <Swatch {...brandColors.mutedFg} />
-                <Swatch {...brandColors.border} />
+                <Swatch {...swatch("foreground")} />
+                <Swatch {...swatch("mutedFg")} />
+                <Swatch {...swatch("border")} />
               </div>
             </div>
 
-            {/* Gradients */}
-            <h3 className="font-display font-semibold text-foreground mb-4 text-lg">Signature Gradients</h3>
+            <h3 className="font-display font-semibold text-foreground mb-4 text-lg">{t.signatureGradientsLabel}</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <Card className="overflow-hidden p-0">
                 <div className="h-32 bg-gradient-hero" />
                 <div className="p-4">
-                  <div className="font-display font-semibold">Hero Gradient</div>
+                  <div className="font-display font-semibold">{t.heroGradientName}</div>
                   <div className="font-mono text-xs text-muted-foreground mt-1">
                     linear-gradient(135deg, #42C8F2 → #5B9BFF → #9B7BFF → #D946A6)
                   </div>
-                  <div className="text-xs text-muted-foreground mt-2">Hero buttons · key brand moments · marketing artwork</div>
+                  <div className="text-xs text-muted-foreground mt-2">{t.heroGradientUse}</div>
                 </div>
               </Card>
               <Card className="overflow-hidden p-0">
                 <div className="h-32 bg-gradient-primary" />
                 <div className="p-4">
-                  <div className="font-display font-semibold">Primary Gradient</div>
+                  <div className="font-display font-semibold">{t.primaryGradientName}</div>
                   <div className="font-mono text-xs text-muted-foreground mt-1">
                     linear-gradient(135deg, #42C8F2 → #4F8DD1)
                   </div>
-                  <div className="text-xs text-muted-foreground mt-2">Text gradients · icon backgrounds · subtle CTAs</div>
+                  <div className="text-xs text-muted-foreground mt-2">{t.primaryGradientUse}</div>
                 </div>
               </Card>
             </div>
@@ -594,46 +544,46 @@ const BrandManual = () => {
           <section id="typography">
             <SectionHeader
               icon={Type}
-              eyebrow="05 · Typography"
-              title="Typography System"
-              description="Two fonts. Clear hierarchy. Loaded with display=swap for performance."
+              eyebrow={t.eyebrows.typography}
+              title={t.sections.typography}
+              description={t.typographyDesc}
             />
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Display font</div>
+                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.displayFontLabel}</div>
                 <div className="font-display text-5xl mb-2">Outfit</div>
-                <div className="text-sm text-muted-foreground">
-                  All headings (H1–H6) · hero copy · large numbers. Modern geometric sans, slightly rounded.
-                </div>
+                <div className="text-sm text-muted-foreground">{t.displayFontDesc}</div>
               </Card>
               <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Body font</div>
+                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.bodyFontLabel}</div>
                 <div className="font-body text-5xl mb-2">Space Grotesk</div>
-                <div className="text-sm text-muted-foreground">
-                  Body copy · UI labels · small print. Distinctive but highly legible at small sizes.
-                </div>
+                <div className="text-sm text-muted-foreground">{t.bodyFontDesc}</div>
               </Card>
             </div>
 
             <Card>
-              <h3 className="font-display font-semibold text-foreground mb-6">Type scale</h3>
+              <h3 className="font-display font-semibold text-foreground mb-6">{t.typeScaleTitle}</h3>
               <div className="space-y-4">
-                {[
-                  { tag: "H1", size: "text-5xl md:text-7xl", weight: "font-bold", sample: "Premium websites." },
-                  { tag: "H2", size: "text-3xl md:text-4xl", weight: "font-bold", sample: "What we build" },
-                  { tag: "H3", size: "text-2xl", weight: "font-semibold", sample: "Service title" },
-                  { tag: "H4", size: "text-xl", weight: "font-semibold", sample: "Card heading" },
-                  { tag: "Body L", size: "text-lg", weight: "font-normal font-body", sample: "Long-form paragraph copy on services and case studies." },
-                  { tag: "Body", size: "text-base", weight: "font-normal font-body", sample: "Default paragraph text — the workhorse for almost everything." },
-                  { tag: "Small", size: "text-sm", weight: "font-normal font-body", sample: "Captions, labels, secondary information." },
-                  { tag: "Button", size: "text-sm", weight: "font-medium font-body", sample: "GET YOUR QUOTE" },
-                ].map((row) => (
-                  <div key={row.tag} className="grid grid-cols-12 gap-4 items-baseline border-b border-border/50 pb-3">
-                    <div className="col-span-2 text-xs text-muted-foreground uppercase tracking-wider">{row.tag}</div>
-                    <div className={`col-span-10 font-display ${row.size} ${row.weight} text-foreground`}>{row.sample}</div>
-                  </div>
-                ))}
+                {t.typeScale.map((row, i) => {
+                  const sizes = ["text-5xl md:text-7xl", "text-3xl md:text-4xl", "text-2xl", "text-xl", "text-lg", "text-base", "text-sm", "text-sm"];
+                  const weights = [
+                    "font-bold",
+                    "font-bold",
+                    "font-semibold",
+                    "font-semibold",
+                    "font-normal font-body",
+                    "font-normal font-body",
+                    "font-normal font-body",
+                    "font-medium font-body",
+                  ];
+                  return (
+                    <div key={row.tag} className="grid grid-cols-12 gap-4 items-baseline border-b border-border/50 pb-3">
+                      <div className="col-span-2 text-xs text-muted-foreground uppercase tracking-wider">{row.tag}</div>
+                      <div className={`col-span-10 font-display ${sizes[i]} ${weights[i]} text-foreground`}>{row.sample}</div>
+                    </div>
+                  );
+                })}
               </div>
             </Card>
           </section>
@@ -642,151 +592,104 @@ const BrandManual = () => {
           <section id="logo">
             <SectionHeader
               icon={ImageIcon}
-              eyebrow="06 · Logo"
-              title="Logo Guidelines"
-              description="The WebOptim mark is a single inline SVG using currentColor. Variations are produced via CSS — no separate files needed. Always preserve clear space, contrast and proportions."
+              eyebrow={t.eyebrows.logo}
+              title={t.sections.logo}
+              description={t.logoDesc}
             />
 
-            {/* Logo variations grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-              {[
-                {
-                  label: "Primary — White",
-                  desc: "Default usage on dark or branded backgrounds.",
-                  bg: "bg-background border border-border",
-                  color: "text-foreground",
-                  filename: "weboptim-logo-white.svg",
-                  hex: "#F8FAFC",
-                },
-                {
-                  label: "Inverted — Black",
-                  desc: "On light, neutral backgrounds and print materials.",
-                  bg: "bg-foreground",
-                  color: "text-background",
-                  filename: "weboptim-logo-black.svg",
-                  hex: "#0B0E1A",
-                },
-                {
-                  label: "Brand — Cyan",
-                  desc: "Accent variant for hero moments and feature highlights.",
-                  bg: "bg-background border border-border",
-                  color: "text-primary",
-                  filename: "weboptim-logo-cyan.svg",
-                  hex: "#42C8F2",
-                },
-                {
-                  label: "Monochrome — Muted",
-                  desc: "Low-emphasis placements: footers, signatures, watermarks.",
-                  bg: "bg-muted border border-border",
-                  color: "text-muted-foreground",
-                  filename: "weboptim-logo-muted.svg",
-                  hex: "#9BA3B5",
-                },
-              ].map((v) => (
+              {t.logoVariants.map((v, i) => (
                 <Card key={v.label} className="!p-0 overflow-hidden flex flex-col">
-                  <div className={`h-40 flex items-center justify-center p-8 ${v.bg}`}>
-                    <WeboptimLogo className={`h-10 w-auto ${v.color}`} />
+                  <div className={`h-40 flex items-center justify-center p-8 ${LOGO_BG_CLASSES[i]}`}>
+                    <WeboptimLogo className={`h-10 w-auto ${LOGO_COLOR_CLASSES[i]}`} />
                   </div>
                   <div className="p-5 flex-1 flex flex-col">
                     <div className="text-xs uppercase tracking-wider text-primary font-medium mb-1">{v.label}</div>
-                    <div className="font-mono text-xs text-muted-foreground mb-2">{v.hex}</div>
+                    <div className="font-mono text-xs text-muted-foreground mb-2">{LOGO_HEX[i]}</div>
                     <p className="text-sm text-muted-foreground flex-1">{v.desc}</p>
                     <button
-                      onClick={() => downloadLogoSvg(v.hex, v.filename)}
+                      onClick={() => downloadLogoSvg(LOGO_HEX[i], LOGO_FILENAMES[i])}
                       className="no-print mt-4 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 text-xs font-medium text-primary transition"
                     >
                       <Download className="w-3.5 h-3.5" />
-                      Download SVG
+                      {t.downloadSvg}
                     </button>
                   </div>
                 </Card>
               ))}
             </div>
 
-            {/* Background variants */}
-            <h3 className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Background variants</h3>
+            <h3 className="text-xs uppercase tracking-wider text-primary font-medium mb-3">{t.bgVariantsLabel}</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
               <Card className="!p-0 overflow-hidden">
                 <div className="h-32 bg-foreground flex items-center justify-center p-6">
                   <WeboptimLogo className="h-8 w-auto text-background" />
                 </div>
-                <div className="p-4 text-xs text-muted-foreground">Light surface</div>
+                <div className="p-4 text-xs text-muted-foreground">{t.bgVariants[0]}</div>
               </Card>
               <Card className="!p-0 overflow-hidden">
                 <div className="h-32 bg-background flex items-center justify-center p-6">
                   <WeboptimLogo className="h-8 w-auto text-foreground" />
                 </div>
-                <div className="p-4 text-xs text-muted-foreground">Dark surface</div>
+                <div className="p-4 text-xs text-muted-foreground">{t.bgVariants[1]}</div>
               </Card>
               <Card className="!p-0 overflow-hidden">
                 <div className="h-32 bg-gradient-hero flex items-center justify-center p-6">
                   <WeboptimLogo className="h-8 w-auto text-foreground" />
                 </div>
-                <div className="p-4 text-xs text-muted-foreground">Brand gradient</div>
+                <div className="p-4 text-xs text-muted-foreground">{t.bgVariants[2]}</div>
               </Card>
               <Card className="!p-0 overflow-hidden">
                 <div className="h-32 bg-primary flex items-center justify-center p-6">
                   <WeboptimLogo className="h-8 w-auto text-background" />
                 </div>
-                <div className="p-4 text-xs text-muted-foreground">Brand cyan</div>
+                <div className="p-4 text-xs text-muted-foreground">{t.bgVariants[3]}</div>
               </Card>
             </div>
 
-            {/* Clear space + minimum size */}
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Safe space</div>
+                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">{t.safeSpaceLabel}</div>
                 <div className="rounded-xl bg-background border border-border h-44 flex items-center justify-center p-6">
                   <div className="relative">
                     <div className="absolute -inset-6 border border-dashed border-primary/40 rounded-md pointer-events-none" />
                     <WeboptimLogo className="h-10 w-auto text-foreground" />
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-3">
-                  Minimum clear space (<span className="font-mono">x</span>) on all sides equals the height of the symbol.
-                </p>
+                <p className="text-xs text-muted-foreground mt-3">{t.safeSpaceDesc}</p>
               </Card>
 
               <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">Minimum size</div>
+                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-3">{t.minSizeLabel}</div>
                 <div className="rounded-xl bg-background border border-border h-44 flex items-end justify-around p-6">
                   <div className="flex flex-col items-center gap-2">
                     <WeboptimLogo className="h-3 w-auto text-foreground" />
-                    <span className="text-[10px] font-mono text-muted-foreground">12px · favicon</span>
+                    <span className="text-[10px] font-mono text-muted-foreground">{t.minSizeNotes[0]}</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <WeboptimLogo className="h-6 w-auto text-foreground" />
-                    <span className="text-[10px] font-mono text-muted-foreground">24px · digital min</span>
+                    <span className="text-[10px] font-mono text-muted-foreground">{t.minSizeNotes[1]}</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <WeboptimLogo className="h-10 w-auto text-foreground" />
-                    <span className="text-[10px] font-mono text-muted-foreground">40px · default</span>
+                    <span className="text-[10px] font-mono text-muted-foreground">{t.minSizeNotes[2]}</span>
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-3">
-                  Never reproduce the wordmark below 24&nbsp;px height in digital, or 8&nbsp;mm in print.
-                </p>
+                <p className="text-xs text-muted-foreground mt-3">{t.minSizeDesc}</p>
               </Card>
             </div>
 
-            {/* Do / Don't */}
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="border-primary/20">
-                <h3 className="font-display font-semibold text-primary mb-3 flex items-center gap-2"><Check className="w-5 h-5" /> Correct usage</h3>
+                <h3 className="font-display font-semibold text-primary mb-3 flex items-center gap-2"><Check className="w-5 h-5" /> {t.correctTitle}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Use the original SVG and recolor via CSS <span className="font-mono">currentColor</span></li>
-                  <li>• Maintain the safe space equal to the symbol height</li>
-                  <li>• Use white on dark, black on light, cyan only as accent</li>
-                  <li>• Keep the logo at minimum 24&nbsp;px height in digital</li>
+                  {t.correctItems.map((x) => <li key={x}>• {x}</li>)}
                 </ul>
               </Card>
               <Card className="border-destructive/20">
-                <h3 className="font-display font-semibold text-destructive mb-3 flex items-center gap-2"><X className="w-5 h-5" /> Incorrect usage</h3>
+                <h3 className="font-display font-semibold text-destructive mb-3 flex items-center gap-2"><X className="w-5 h-5" /> {t.incorrectTitle}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Don't recolor outside the brand palette</li>
-                  <li>• Don't add shadows, strokes, glows or 3D effects</li>
-                  <li>• Don't stretch, skew, rotate or distort the proportions</li>
-                  <li>• Don't place over busy photos without a solid backdrop</li>
+                  {t.incorrectItems.map((x) => <li key={x}>• {x}</li>)}
                 </ul>
               </Card>
             </div>
@@ -796,120 +699,112 @@ const BrandManual = () => {
           <section id="imagery">
             <SectionHeader
               icon={ImageIcon}
-              eyebrow="07 · Imagery"
-              title="Photography & Imagery Style"
-              description="Our visual world is digital-first: glowing gradients, glass surfaces, abstract shapes — humans only when they earn the moment."
+              eyebrow={t.eyebrows.imagery}
+              title={t.sections.imagery}
+              description={t.imageryDesc}
             />
 
             <div className="grid md:grid-cols-3 gap-6 mb-6">
               <Card>
                 <div className="h-32 rounded-lg bg-gradient-hero mb-4" />
-                <h3 className="font-display font-semibold mb-2">Abstract & Atmospheric</h3>
-                <p className="text-sm text-muted-foreground">Glowing orbs, soft gradients, blurred light. Used as backgrounds and hero artwork.</p>
+                <h3 className="font-display font-semibold mb-2">{t.imageryCards[0].title}</h3>
+                <p className="text-sm text-muted-foreground">{t.imageryCards[0].body}</p>
               </Card>
               <Card>
                 <div className="h-32 rounded-lg glass border border-primary/20 mb-4 flex items-center justify-center">
                   <Sparkles className="w-10 h-10 text-primary" />
                 </div>
-                <h3 className="font-display font-semibold mb-2">Glassmorphism UI</h3>
-                <p className="text-sm text-muted-foreground">Translucent cards over rich backgrounds. Real product UI screenshots when available.</p>
+                <h3 className="font-display font-semibold mb-2">{t.imageryCards[1].title}</h3>
+                <p className="text-sm text-muted-foreground">{t.imageryCards[1].body}</p>
               </Card>
               <Card>
                 <div className="h-32 rounded-lg bg-muted border border-border mb-4 flex items-center justify-center text-muted-foreground text-sm">
-                  Editorial portrait
+                  {t.realPeopleFallback}
                 </div>
-                <h3 className="font-display font-semibold mb-2">Real People</h3>
-                <p className="text-sm text-muted-foreground">Only the actual team. Natural light, neutral backdrops, no stock smiles.</p>
+                <h3 className="font-display font-semibold mb-2">{t.imageryCards[2].title}</h3>
+                <p className="text-sm text-muted-foreground">{t.imageryCards[2].body}</p>
               </Card>
             </div>
 
             <Card>
-              <h3 className="font-display font-semibold text-foreground mb-4">Mood, lighting & framing</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4">{t.moodTitle}</h3>
               <div className="grid md:grid-cols-2 gap-6 text-sm text-muted-foreground">
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Mood</div>
-                  Premium · futuristic · calm. Never cheerful-stock or corporate-handshake.
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.moodLabels.mood}</div>
+                  {t.moodBodies.mood}
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Lighting</div>
-                  Cool, blueish highlights. Soft glows. Deep shadows. Never harsh flash.
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.moodLabels.lighting}</div>
+                  {t.moodBodies.lighting}
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Framing</div>
-                  Generous negative space. Hero subject off-center. Layered depth.
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.moodLabels.framing}</div>
+                  {t.moodBodies.framing}
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Product images</div>
-                  Real device mockups (laptop / phone) with subtle perspective and brand-tinted glow.
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.moodLabels.product}</div>
+                  {t.moodBodies.product}
                 </div>
               </div>
             </Card>
           </section>
 
-          {/* 8. UI / WEB DESIGN RULES */}
+          {/* 8. UI */}
           <section id="ui">
             <SectionHeader
               icon={Layout}
-              eyebrow="08 · UI"
-              title="UI / Web Design Rules"
-              description="The components and spacing primitives every page must respect."
+              eyebrow={t.eyebrows.ui}
+              title={t.sections.ui}
+              description={t.uiDesc}
             />
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
-              {/* Buttons */}
               <Card>
-                <h3 className="font-display font-semibold text-foreground mb-4">Buttons</h3>
+                <h3 className="font-display font-semibold text-foreground mb-4">{t.buttonsTitle}</h3>
                 <div className="space-y-3">
-                  <Button className="w-full">Default — Primary action</Button>
-                  <Button variant="hero" className="w-full">Hero — Marketing CTA</Button>
-                  <Button variant="outline" className="w-full">Outline — Secondary</Button>
-                  <Button variant="ghost" className="w-full">Ghost — Tertiary</Button>
+                  <Button className="w-full">{t.buttonsLabels.default}</Button>
+                  <Button variant="hero" className="w-full">{t.buttonsLabels.hero}</Button>
+                  <Button variant="outline" className="w-full">{t.buttonsLabels.outline}</Button>
+                  <Button variant="ghost" className="w-full">{t.buttonsLabels.ghost}</Button>
                 </div>
-                <div className="mt-4 text-xs text-muted-foreground">
-                  Sizes: <span className="font-mono">sm · default · lg · xl</span> · Always rounded-lg or larger.
-                </div>
+                <div className="mt-4 text-xs text-muted-foreground">{t.buttonsNote}</div>
               </Card>
 
-              {/* Forms */}
               <Card>
-                <h3 className="font-display font-semibold text-foreground mb-4">Forms</h3>
+                <h3 className="font-display font-semibold text-foreground mb-4">{t.formsTitle}</h3>
                 <div className="space-y-3">
                   <input
                     type="text"
-                    placeholder="your@email.com"
+                    placeholder={t.formsPlaceholderEmail}
                     className="w-full h-10 px-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                   <textarea
-                    placeholder="Tell us about your project…"
+                    placeholder={t.formsPlaceholderMsg}
                     rows={3}
                     className="w-full px-3 py-2 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <div className="text-xs text-muted-foreground">
-                    Always include explicit success modal · Anti-spam delay 3s · Labels above fields.
-                  </div>
+                  <div className="text-xs text-muted-foreground">{t.formsNote}</div>
                 </div>
               </Card>
 
-              {/* Cards */}
               <Card>
-                <h3 className="font-display font-semibold text-foreground mb-4">Cards</h3>
+                <h3 className="font-display font-semibold text-foreground mb-4">{t.cardsTitle}</h3>
                 <div className="space-y-3">
                   <div className="glass rounded-2xl p-4">
-                    <div className="text-sm font-display font-semibold">Glass card (default)</div>
+                    <div className="text-sm font-display font-semibold">{t.cardsGlassTitle}</div>
                     <div className="text-xs text-muted-foreground">bg-card/50 · backdrop-blur-xl · border-border/50</div>
                   </div>
                   <div className="rounded-2xl bg-card border border-border p-4">
-                    <div className="text-sm font-display font-semibold">Solid card</div>
+                    <div className="text-sm font-display font-semibold">{t.cardsSolidTitle}</div>
                     <div className="text-xs text-muted-foreground">bg-card · border-border</div>
                   </div>
                 </div>
               </Card>
 
-              {/* Tokens */}
               <Card>
-                <h3 className="font-display font-semibold text-foreground mb-4">Tokens</h3>
+                <h3 className="font-display font-semibold text-foreground mb-4">{t.tokensTitle}</h3>
                 <ul className="text-sm text-muted-foreground space-y-2 font-mono">
-                  <li>radius: <span className="text-foreground">0.75rem</span> (sm/md/lg derived)</li>
+                  <li>radius: <span className="text-foreground">0.75rem</span></li>
                   <li>shadow-card: <span className="text-foreground">0 8px 32px rgba(0,0,0,.5)</span></li>
                   <li>shadow-glow: <span className="text-foreground">0 0 40px hsl(193 88% 61% / .4)</span></li>
                   <li>section py: <span className="text-foreground">py-20 md:py-28</span></li>
@@ -919,7 +814,7 @@ const BrandManual = () => {
             </div>
 
             <Card>
-              <h3 className="font-display font-semibold text-foreground mb-4">Spacing system</h3>
+              <h3 className="font-display font-semibold text-foreground mb-4">{t.spacingTitle}</h3>
               <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
                 {[1, 2, 3, 4, 6, 8, 12, 16].map((n) => (
                   <div key={n} className="text-center">
@@ -931,9 +826,7 @@ const BrandManual = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-4 text-xs text-muted-foreground">
-                Tailwind 4px base. Most components use 4 · 6 · 8 · 16 · 24. Sections always use 80–112px vertical rhythm.
-              </div>
+              <div className="mt-4 text-xs text-muted-foreground">{t.spacingNote}</div>
             </Card>
           </section>
 
@@ -941,28 +834,12 @@ const BrandManual = () => {
           <section id="social">
             <SectionHeader
               icon={Share2}
-              eyebrow="09 · Social"
-              title="Social Media Guidelines"
-              description="Channel-specific tone — same voice, different volume."
+              eyebrow={t.eyebrows.social}
+              title={t.sections.social}
+              description={t.socialDesc}
             />
             <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  ch: "Instagram",
-                  tone: "Visual & aspirational",
-                  body: "Showcase the craft. Big visuals, before/after of websites, behind-the-scenes from the studio. Captions short and punchy with 1–2 emoji max.",
-                },
-                {
-                  ch: "Facebook",
-                  tone: "Informative & local",
-                  body: "Longer-form posts about projects, milestones, and Czech/Slovak market insights. Plain language, conversational. Avoid hashtags.",
-                },
-                {
-                  ch: "LinkedIn",
-                  tone: "Professional & expert",
-                  body: "Case studies with real numbers, lessons learned, hiring posts. First-person from the team. No motivational fluff.",
-                },
-              ].map((c) => (
+              {t.socialChannels.map((c) => (
                 <Card key={c.ch}>
                   <h3 className="font-display font-semibold text-foreground mb-2">{c.ch}</h3>
                   <Pill>{c.tone}</Pill>
@@ -973,23 +850,15 @@ const BrandManual = () => {
 
             <div className="grid md:grid-cols-2 gap-6 mt-6">
               <Card>
-                <h3 className="font-display font-semibold text-foreground mb-3">Ad creative style</h3>
+                <h3 className="font-display font-semibold text-foreground mb-3">{t.adCreativeTitle}</h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Dark background + signature gradient orb</li>
-                  <li>• Headline in Outfit Bold, max 6 words</li>
-                  <li>• One clear CTA button (Primary or Hero variant)</li>
-                  <li>• Logo bottom-left, small but legible</li>
-                  <li>• Real screenshot of the product when relevant</li>
+                  {t.adCreativeItems.map((x) => <li key={x}>• {x}</li>)}
                 </ul>
               </Card>
               <Card>
-                <h3 className="font-display font-semibold text-foreground mb-3">Caption style</h3>
+                <h3 className="font-display font-semibold text-foreground mb-3">{t.captionTitle}</h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Hook in the first line — no warm-up</li>
-                  <li>• Sentence case, not Title Case</li>
-                  <li>• Numbers as digits ("3x", not "three times")</li>
-                  <li>• End with a clear next step or question</li>
-                  <li>• Sk/Cz captions feel native — no Google-translate vibe</li>
+                  {t.captionItems.map((x) => <li key={x}>• {x}</li>)}
                 </ul>
               </Card>
             </div>
@@ -999,42 +868,18 @@ const BrandManual = () => {
           <section id="positioning">
             <SectionHeader
               icon={Trophy}
-              eyebrow="10 · Positioning"
-              title="Competitor Positioning"
-              description="Where WebOptim sits in the market — and why people choose us over everyone else."
+              eyebrow={t.eyebrows.positioning}
+              title={t.sections.positioning}
+              description={t.positioningDesc}
             />
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Premium without being pricey</div>
-                <p className="text-sm text-muted-foreground">
-                  We sit above DIY tools (Wix, Webflow templates) and freelancers — but well below
-                  traditional agencies in cost. Our website itself is the proof: senior craft visible
-                  in every interaction.
-                </p>
-              </Card>
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Trusted, not hyped</div>
-                <p className="text-sm text-muted-foreground">
-                  Real Google reviews on the homepage. Named team. Multi-domain presence
-                  (.eu / .cz / .sk). Transparent live pricing. Trust comes from showing, not telling.
-                </p>
-              </Card>
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Modern, not trendy</div>
-                <p className="text-sm text-muted-foreground">
-                  Glassmorphism, gradient orbs and animated borders signal that we build for
-                  what's next — not what was hot in 2018. But we never sacrifice clarity for
-                  visual gimmicks.
-                </p>
-              </Card>
-              <Card>
-                <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Expert, not mysterious</div>
-                <p className="text-sm text-muted-foreground">
-                  We share knowledge openly — blog, glossary, FAQ, free price calculator.
-                  The more clients understand, the better they buy.
-                </p>
-              </Card>
+              {t.positioningCards.map((c) => (
+                <Card key={c.title}>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{c.title}</div>
+                  <p className="text-sm text-muted-foreground">{c.body}</p>
+                </Card>
+              ))}
             </div>
           </section>
 
@@ -1042,42 +887,35 @@ const BrandManual = () => {
           <section id="quickref">
             <SectionHeader
               icon={ChevronRight}
-              eyebrow="11 · Cheat Sheet"
-              title="One-Page Quick Reference"
-              description="Print this. Pin it. Live by it."
+              eyebrow={t.eyebrows.quickref}
+              title={t.sections.quickref}
+              description={t.quickrefDesc}
             />
 
             <Card className="!p-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Mission</div>
-                  <p className="text-sm text-muted-foreground mb-6">Premium websites that actually convert — without the agency tax.</p>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.qrMissionLabel}</div>
+                  <p className="text-sm text-muted-foreground mb-6">{t.qrMissionBody}</p>
 
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Voice in 5 words</div>
-                  <p className="text-sm text-foreground mb-6">Confident · direct · modern · helpful · senior.</p>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.qrVoiceLabel}</div>
+                  <p className="text-sm text-foreground mb-6">{t.qrVoiceBody}</p>
 
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Always</div>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.qrAlwaysLabel}</div>
                   <ul className="text-sm text-muted-foreground space-y-1 mb-6">
-                    <li>✓ Lead with the outcome</li>
-                    <li>✓ Use real numbers</li>
-                    <li>✓ Verb-led CTAs</li>
-                    <li>✓ Dark theme by default</li>
-                    <li>✓ HSL tokens in code</li>
+                    {t.qrAlways.map((x) => <li key={x}>✓ {x}</li>)}
                   </ul>
 
-                  <div className="text-xs uppercase tracking-wider text-destructive font-medium mb-2">Never</div>
+                  <div className="text-xs uppercase tracking-wider text-destructive font-medium mb-2">{t.qrNeverLabel}</div>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>✗ Buzzwords or AI clichés</li>
-                    <li>✗ Stock corporate photography</li>
-                    <li>✗ Hard-coded colors in components</li>
-                    <li>✗ Toast-only success feedback</li>
+                    {t.qrNever.map((x) => <li key={x}>✗ {x}</li>)}
                   </ul>
                 </div>
 
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Colors</div>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.qrColorsLabel}</div>
                   <div className="grid grid-cols-4 gap-2 mb-6">
-                    {[brandColors.primary, brandColors.secondary, brandColors.purple, brandColors.pink].map((c) => (
+                    {[brandColorBase.primary, brandColorBase.secondary, brandColorBase.purple, brandColorBase.pink].map((c) => (
                       <div key={c.hex}>
                         <div className="h-12 rounded-lg" style={{ backgroundColor: c.hex }} />
                         <div className="font-mono text-[10px] text-muted-foreground mt-1">{c.hex}</div>
@@ -1085,21 +923,21 @@ const BrandManual = () => {
                     ))}
                   </div>
 
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Type</div>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.qrTypeLabel}</div>
                   <div className="mb-6">
-                    <div className="font-display font-bold text-2xl">Outfit — headlines</div>
-                    <div className="font-body text-base text-muted-foreground">Space Grotesk — body</div>
+                    <div className="font-display font-bold text-2xl">Outfit — {t.displayFontLabel}</div>
+                    <div className="font-body text-base text-muted-foreground">Space Grotesk — {t.bodyFontLabel}</div>
                   </div>
 
-                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">Signature CTA</div>
-                  <Button variant="hero" size="lg" className="mb-2">Get your free quote</Button>
-                  <div className="text-xs text-muted-foreground">Hero gradient · Outfit semibold · rounded-lg</div>
+                  <div className="text-xs uppercase tracking-wider text-primary font-medium mb-2">{t.qrCtaLabel}</div>
+                  <Button variant="hero" size="lg" className="mb-2">{t.qrCtaButton}</Button>
+                  <div className="text-xs text-muted-foreground">{t.qrCtaNote}</div>
                 </div>
               </div>
             </Card>
 
             <div className="text-center mt-12 text-sm text-muted-foreground">
-              WebOptim Brand Manual v1.0 · 2025 · Built from <span className="font-mono text-foreground">weboptim.eu / .cz / .sk</span>
+              {t.footer}
             </div>
           </section>
         </div>
