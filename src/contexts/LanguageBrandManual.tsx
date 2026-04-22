@@ -1089,14 +1089,14 @@ export const brandManualTranslations: Record<Language, BrandManualLang> = {
     doItems: [
       'Vedeme s výsledkem: „Rychlejší weby. Více konverzí."',
       "Používáme konkrétní čísla (3×, 90+ PageSpeed, 14 dní)",
-      "Oslovujeme čtenáře jako „vy"",
-      "CTA se slovesem: „Získejte cenovou nabídku", „Podívejte se na naše práce"",
+      'Oslovujeme čtenáře jako „vy"',
+      'CTA se slovesem: „Získejte cenovou nabídku", „Podívejte se na naše práce"',
       "České/slovenské idiomy zní přirozeně — nikdy strojový překlad",
     ],
     dontItems: [
-      "Nepoužíváme „světová úroveň", „best-in-class", „cutting-edge"",
+      'Nepoužíváme „světová úroveň", „best-in-class", „cutting-edge"',
       "Nepoužíváme vykřičníky k předstírání nadšení!!!",
-      "Nepoužíváme AI fráze („V dnešním digitálním světě…")",
+      'Nepoužíváme AI fráze („V dnešním digitálním světě…")',
       "O sobě nemluvíme ve třetí osobě na webu",
       "Neslibujeme to, co neumíme změřit",
     ],
