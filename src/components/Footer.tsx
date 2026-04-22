@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" aria-label="WebOptim" className="inline-flex items-center mb-6">
-              <WeboptimLogo className="h-8 w-auto text-foreground" />
+              <WeboptimLogo className="h-10 md:h-11 lg:h-12 w-auto text-foreground" />
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
               {t.brand.description}
