@@ -167,7 +167,11 @@ export const getOrganizationSchema = (language: Language) => ({
     postalCode: "110 00",
     addressCountry: "CZ",
   },
-  sameAs: [],
+  sameAs: [
+    "https://www.facebook.com/weboptim.sk",
+    "https://www.instagram.com/weboptim.sk",
+  ],
+
 });
 
 // Helper to generate WebSite schema
