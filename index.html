@@ -46,10 +46,11 @@
     <meta name="twitter:description" content="Tvoríme rýchle, moderné weby a e-shopy. Pomôžeme vám s SEO, PPC reklamou a digitálnym marketingom." />
     <meta name="twitter:image" content="https://www.weboptim.cz/img/weboptim-profile-pic.png" />
     
-    <!-- Canonical -->
-    <link rel="canonical" href="https://weboptim.sk/" />
+    <!-- Canonical is injected per-route by src/components/SEO.tsx.
+         Intentionally NOT set here so subpages don't fall back to the homepage URL. -->
     
     <!-- Hreflang for multi-domain language setup -->
+
     <link rel="alternate" hreflang="en" href="https://weboptim.eu/" />
     <link rel="alternate" hreflang="cs" href="https://weboptim.cz/" />
     <link rel="alternate" hreflang="sk" href="https://weboptim.sk/" />
