@@ -347,12 +347,18 @@ const WebsiteConfigurator = () => {
       }));
 
     return {
+      priority: "high",
+      important: true,
+      emailPriority: { xPriority: "1 (Highest)", importance: "High", xMSMailPriority: "High" },
+      subjectPrefix: "[DÔLEŽITÉ]",
       meta: {
         source: "weboptim-configurator",
         language,
         url: typeof window !== "undefined" ? window.location.href : "",
         createdAt: new Date().toISOString(),
         userAgent: typeof window !== "undefined" ? window.navigator.userAgent : "",
+        priority: "high",
+        important: true,
       },
       contact: { name, email, phone, company, website, notes },
       selection: {

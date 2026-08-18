@@ -39,6 +39,16 @@ if (!$MAKE_WEBHOOK_URL || !$MAKE_API_KEY) {
   exit;
 }
 
+// označ ako dôležité (pre Make / e-mail klientov)
+$data["priority"] = "high";
+$data["important"] = true;
+$data["subjectPrefix"] = $data["subjectPrefix"] ?? "[DÔLEŽITÉ]";
+$data["emailPriority"] = [
+  "xPriority" => "1 (Highest)",
+  "importance" => "High",
+  "xMSMailPriority" => "High",
+];
+
 // forward na Make
 $payload = json_encode($data, JSON_UNESCAPED_UNICODE);
 
@@ -48,6 +58,9 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
   "Content-Type: application/json",
   "x-make-apikey: " . $MAKE_API_KEY,
+  "X-Priority: 1",
+  "Importance: High",
+  "X-Lead-Priority: high",
 ]);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 
