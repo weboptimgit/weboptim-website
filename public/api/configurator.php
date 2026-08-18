@@ -52,6 +52,16 @@ if ($name === '' || $email === '') {
   exit;
 }
 
+// označ ako dôležité (pre Make / e-mail klientov)
+$data['priority'] = 'high';
+$data['important'] = true;
+$data['subjectPrefix'] = $data['subjectPrefix'] ?? '[DÔLEŽITÉ]';
+$data['emailPriority'] = [
+  'xPriority' => '1 (Highest)',
+  'importance' => 'High',
+  'xMSMailPriority' => 'High',
+];
+
 // Forward to Make
 $ch = curl_init($webhookUrl);
 curl_setopt_array($ch, [
@@ -60,6 +70,9 @@ curl_setopt_array($ch, [
   CURLOPT_HTTPHEADER => [
     'Content-Type: application/json',
     'x-make-apikey: ' . $apiKey,
+    'X-Priority: 1',
+    'Importance: High',
+    'X-Lead-Priority: high',
   ],
   CURLOPT_POSTFIELDS => json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
   CURLOPT_TIMEOUT => 20,
